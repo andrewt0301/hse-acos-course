@@ -17,9 +17,9 @@ https://uneex.ru/HSE/ArchitectureOS/03_PreSystemBoot/SimplyLinuxInatallation
 2. Replace 'splash' with 'splash=off'.
 3. Press key 'F10' to boot the system.
 
-![Boot screen](pic0.png)
+![Boot screen](Pic0.png)
 
-![Grub seetings](pic1.png)
+![Grub seetings](Pic1.png)
 
 Now the splash screen will be not shown when the system is booting.
 
