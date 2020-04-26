@@ -3,13 +3,24 @@ Working with Simply Linux in VirtualBox
 
 # Install Simply Linux
 
-Tasks done in this seminar require superuser permissions.
-For this reason, Live CD will not work.
-You need to install Simply Linux on your disk.
+Tasks done in this seminar involve modification of the system configuration.
+Live CD does not allow this. So, you need to install Simply Linux on your disk.
 
 Please follow these guidelines:
 
 https://uneex.ru/HSE/ArchitectureOS/03_PreSystemBoot/SimplyLinuxInatallation 
+
+# Modify GRUB settings
+
+1. Start Simply Linux in VirtualBox.
+2. Press key 'e' to edit GRUB settings.
+2. Replace 'splash' with 'splash=off'.
+3. Press key 'F10' to boot the system.
+
+![Boot](pic00.png)
+![GRUB](pic01.png)
+
+Now the splash screen will be not shown when the system is booting.
 
 # Set up port forwarding
 
@@ -17,9 +28,9 @@ After Simply Linux is installed in your VirtualBox, please make that the network
 interface is enabled and set up port forwarding. We need to forwarding for port 22
 in order to be able to connect to Simply Linux VM using SSH. 
 
-![Network settings](Pic01.png)
+![Network settings](Pic03.png)
 
-![Port 22](Pic02.png)
+![Port 22](Pic04.png)
 
 # Run SSH service in Simply Linux
 
