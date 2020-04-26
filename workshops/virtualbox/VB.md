@@ -130,10 +130,18 @@ Log in using a new terminal and give 'newuser' rights (add to group):
 
     [root@comp-core-i7-3615qm-0dbf32 ~]# usermod -a -G wheel newuser
     [root@comp-core-i7-3615qm-0dbf32 ~]# su - newuser
-    [newuser@comp-core-i7-3615qm-0dbf32 ~]$ id
-    uid=501(newuser) gid=501(newuser) группы=501(newuser),10(wheel),457(vboxusers)
+    
+Check group membership:
 
-Now the access is granted:
+    [newuser@comp-core-i7-3615qm-0dbf32 ~]$ id
+    uid=501(newuser) gid=501(newuser) группы=501(newuser),10(wheel)
+
+    [root@comp-core-i7-3615qm-0dbf32 ~]# cat /etc/group | grep newuser
+    wheel:x:10:root,andrewt,newuser
+    vboxusers:x:457:andrewt,newuser
+    newuser:x:501:
+
+Make sure the access is granted:
 
     [newuser@comp-core-i7-3615qm-0dbf32 ~]$ su -
     Password: 
