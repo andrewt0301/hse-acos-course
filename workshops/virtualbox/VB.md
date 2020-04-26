@@ -157,3 +157,9 @@ Make sure the access is granted:
     [newuser@comp-core-i7-3615qm-0dbf32 ~]$ su -
     Password: 
     [root@comp-core-i7-3615qm-0dbf32 ~]#
+
+# Homework
+
+1. Save the `/etc/group` file in the `04_VirtualBox2` folder at the `sugon` server.
+
+2. Save the output of the `systemctl status sshd` command to a text file at the `sugon` server.
