@@ -150,7 +150,6 @@ Check group membership:
 
     [root@comp-core-i7-3615qm-0dbf32 ~]# cat /etc/group | grep newuser
     wheel:x:10:root,andrewt,newuser
-    vboxusers:x:457:andrewt,newuser
     newuser:x:501:
 
 Make sure the access is granted:
