@@ -17,8 +17,9 @@ https://uneex.ru/HSE/ArchitectureOS/03_PreSystemBoot/SimplyLinuxInatallation
 2. Replace 'splash' with 'splash=off'.
 3. Press key 'F10' to boot the system.
 
-![](pic00.png)
-![](pic01.png)
+![Boot screen](pic0.png)
+
+![Grub seetings](pic1.png)
 
 Now the splash screen will be not shown when the system is booting.
 
@@ -28,9 +29,9 @@ After Simply Linux is installed in your VirtualBox, please make that the network
 interface is enabled and set up port forwarding. We need to forwarding for port 22
 in order to be able to connect to Simply Linux VM using SSH. 
 
-![Network settings](Pic03.png)
+![Network settings](Pic2.png)
 
-![Port 22](Pic04.png)
+![Port 22](Pic3.png)
 
 # Run SSH service in Simply Linux
 
