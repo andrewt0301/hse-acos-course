@@ -165,6 +165,8 @@ Make sure the access is granted:
 
 # Homework
 
-1. Save the `/etc/group` file in the `04_VirtualBox2` folder at the `sugon` server.
+1. Save the `/etc/group` and `/etc/passwd` files in the `04_VirtualBox2` folder
+   at the `sugon` server.
 
-2. Save the output of the `systemctl status sshd` command to a text file at the `sugon` server.
+2. Save the output of the `systemctl status sshd` command to a text file
+   at the `sugon` server.
