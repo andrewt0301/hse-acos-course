@@ -121,6 +121,11 @@ Set password for the new user:
     passwd: all authentication tokens updated successfully.
     [root@comp-core-i7-3615qm-0dbf32 ~]# 
 
+See information about the new user:
+
+    [andrewt@comp-core-i7-3615qm-0dbf32 ~]$ cat /etc/passwd | grep newuser
+    newuser:x:501:501:New User:/home/newuser:/bin/bash
+
 Switch to the new user:
 
     [root@comp-core-i7-3615qm-0dbf32 ~]# su - newuser
