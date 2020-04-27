@@ -23,6 +23,20 @@ https://uneex.ru/HSE/ArchitectureOS/03_PreSystemBoot/SimplyLinuxInatallation
 
 Now the splash screen will be not shown when the system is booting.
 
+After logging in, see GRUB settings:
+
+    [andrewt@comp-core-i7-3615qm-0dbf32 ~]$ sudo cat /boot/grub/grub.cfg | grep splash
+        linux16	/boot/vmlinuz root=UUID=a4ba36d4-a42e-48a6-ae91-7e2acbd71ce8 ro
+                resume=/dev/disk/by-uuid/8adb69dd-b152-45b6-b4b0-4824f2282d2c panic=30 quiet splash
+            linux16	/boot/vmlinuz root=UUID=a4ba36d4-a42e-48a6-ae91-7e2acbd71ce8 ro
+                resume=/dev/disk/by-uuid/8adb69dd-b152-45b6-b4b0-4824f2282d2c panic=30 quiet splash
+            linux16	/boot/vmlinuz-5.4.28-std-def-alt1 root=UUID=a4ba36d4-a42e-48a6-ae91-7e2acbd71ce8 ro
+                resume=/dev/disk/by-uuid/8adb69dd-b152-45b6-b4b0-4824f2282d2c panic=30 quiet splash
+
+    [andrewt@comp-core-i7-3615qm-0dbf32 ~]$ cat /proc/cmdline 
+    BOOT_IMAGE=/boot/vmlinuz root=UUID=a4ba36d4-a42e-48a6-ae91-7e2acbd71ce8 ro
+    resume=/dev/disk/by-uuid/8adb69dd-b152-45b6-b4b0-4824f2282d2c panic=30 quiet splash
+
 # Set up port forwarding
 
 After Simply Linux is installed in your VirtualBox, please make that the network
@@ -165,8 +179,11 @@ Make sure the access is granted:
 
 # Homework
 
-1. Save the `/etc/group` and `/etc/passwd` files in the `04_VirtualBox2` folder
+1. Save the contents of the `/proc/cmdline` file in the `04_VirtualBox2` folder
    at the `sugon` server.
 
-2. Save the output of the `systemctl status sshd` command to a text file
+2. Save the output of the `systemctl status sshd` command to a text file in the `04_VirtualBox2`
+   folder at the `sugon` server.
+
+3. Save the `/etc/group` and `/etc/passwd` files in the `04_VirtualBox2` folder
    at the `sugon` server.
