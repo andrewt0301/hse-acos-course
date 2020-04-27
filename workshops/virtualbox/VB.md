@@ -193,3 +193,9 @@ To copy files to a folder on a remote server, use the 'scp' command:
     scp /path/to/local/file username@hostname:/path/to/remote/file
 
     scp username1@hostname1:/path/to/file username2@hostname2:/path/to/other/file
+
+For example:
+
+    sudo scp -P 2131 /etc/passwd andrey@sugon:/home/andrey/04_VirtualBox2
+
+__Note__: I do not publish here sugon IP. Please insert the valid IP yourself. 
