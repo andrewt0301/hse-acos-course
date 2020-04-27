@@ -187,3 +187,9 @@ Make sure the access is granted:
 
 3. Save the `/etc/group` and `/etc/passwd` files in the `04_VirtualBox2` folder
    at the `sugon` server.
+
+To copy files to a folder on a remote server, use the 'scp' command: 
+
+    scp /path/to/local/file username@hostname:/path/to/remote/file
+
+    scp username1@hostname1:/path/to/file username2@hostname2:/path/to/other/file
