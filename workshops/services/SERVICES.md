@@ -161,4 +161,9 @@ by RedHat.
         tmpfs           993M  8.0K  993M   1% /tmp
         tmpfs           199M  8.0K  199M   1% /run/user/500
         /dev/sdb1       119M  1.6M  108M   2% /srv
-   
+
+15. Enable the service.
+
+        comp-core-i7-3615qm-0dbf32 ~ # systemctl enable srv.mount 
+        Created symlink /etc/systemd/system/multi-user.target.wants/srv.mount → /etc/systemd/system/srv.mount.
+        comp-core-i7-3615qm-0dbf32 ~ #
