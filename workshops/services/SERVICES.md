@@ -26,8 +26,8 @@ by RedHat.
 
 ![5](Pic05.png)
 
-4. Run GParted to see partitions.
+4. Run GParted to create partitions.
 
-       gparted
-       
+       gparted /dev/sdb
+
 ![6](Pic06.png)
