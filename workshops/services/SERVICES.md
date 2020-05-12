@@ -17,3 +17,11 @@ by RedHat.
 
 ![4](Pic04.png)
 
+2. Boot the Virtual Machine.
+
+3. See the created disk.
+ 
+       su -
+       fdisk -l
+
+![5](Pic05.png)
