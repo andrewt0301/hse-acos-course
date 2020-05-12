@@ -42,4 +42,7 @@ by RedHat.
 
        Device     Start    End Sectors  Size Type
        /dev/sdb1   2048 260095  258048  126M Linux filesystem
- 
+
+6. See information on mount unit configuration.
+
+       andrewt@comp-core-i7-3615qm-0dbf32 ~ $ man systemd.mount
