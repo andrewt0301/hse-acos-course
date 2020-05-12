@@ -31,3 +31,5 @@ by RedHat.
        gparted /dev/sdb
 
 ![6](Pic06.png)
+
+![7](Pic07.png)
