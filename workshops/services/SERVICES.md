@@ -21,15 +21,25 @@ by RedHat.
 
 3. See the created disk.
  
-       su -
-       fdisk -l
+       andrewt@comp-core-i7-3615qm-0dbf32 ~ $ su -
+       comp-core-i7-3615qm-0dbf32 ~ # fdisk -l
 
 ![5](Pic05.png)
 
 4. Run GParted to create partitions.
 
-       gparted /dev/sdb
+       comp-core-i7-3615qm-0dbf32 ~ # gparted /dev/sdb
 
 ![6](Pic06.png)
 
 ![7](Pic07.png)
+
+5. Run fdisk to see the created partition.
+
+       comp-core-i7-3615qm-0dbf32 ~ # fdisk -l
+
+   Output:
+
+       Device     Start    End Sectors  Size Type
+       /dev/sdb1   2048 260095  258048  126M Linux filesystem
+ 
