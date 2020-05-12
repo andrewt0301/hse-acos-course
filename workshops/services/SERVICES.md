@@ -25,3 +25,9 @@ by RedHat.
        fdisk -l
 
 ![5](Pic05.png)
+
+4. Run GParted to see partitions.
+
+       gparted
+       
+![6](Pic06.png)
