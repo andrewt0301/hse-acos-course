@@ -309,11 +309,11 @@ by RedHat.
    sudo scp -P 2131 /etc/passwd andrey@sugon:/home/andrey/06_Services
    
        andrewt@comp-core-i7-3615qm-0dbf32 ~ $ scp -P 2131 srv andrey@sugon:/home/andrey/06_Services
-       andrey@83.220.44.62's password: 
+       andrey@sugon's password: 
        srv                         100%  472    80.8KB/s   00:00
 
        andrewt@comp-core-i7-3615qm-0dbf32 ~ $ scp -P 2131 echosrv andrey@sugon:/home/andrey/06_Services
-       andrey@83.220.44.62's password: 
+       andrey@sugon's password: 
        echosrv                    100%  447    71.1KB/s   00:00 
 
    __Note__: I do not publish here 'sugon' IP. Please insert the valid IP yourself. 
