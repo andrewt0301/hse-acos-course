@@ -176,3 +176,16 @@ by RedHat.
         ● ├─dev-disk-by\x2did-ata\x2dVBOX_HARDDISK_VB95f922ef\x2d001cd0ee\x2dpart1.device
         ● ├─dev-sdb1.device
         ● └─system.slice
+
+17. For note: classical approach to disk mounting:
+
+        comp-core-i7-3615qm-0dbf32 ~ # cat /etc/fstab 
+        proc		/proc			proc	nosuid,noexec,gid=proc		0 0
+        devpts		/dev/pts		devpts	nosuid,noexec,gid=tty,mode=620	0 0
+        tmpfs		/tmp			tmpfs	nosuid				0 0
+        UUID=a4ba36d4-a42e-48a6-ae91-7e2acbd71ce8	/	ext4	relatime	1	1
+        UUID=8adb69dd-b152-45b6-b4b0-4824f2282d2c	swap	swap	defaults	0	0
+ 
+ ## Running a service with systemd
+ 
+ TODO
