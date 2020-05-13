@@ -45,16 +45,16 @@ by RedHat.
 
 6. See information on currently mounted partitions.
 
-        andrewt@comp-core-i7-3615qm-0dbf32 ~ $ df
-        Filesystem      Size  Used Avail Use% Mounted on
-        udevfs          985M     0  985M   0% /dev
-        runfs           993M  1.1M  992M   1% /run
-        /dev/sda2        30G  7.9G   21G  28% /
-        tmpfs           993M  4.0K  993M   1% /dev/shm
-        tmpfs           5.0M     0  5.0M   0% /run/lock
-        tmpfs           993M     0  993M   0% /sys/fs/cgroup
-        tmpfs           993M  8.0K  993M   1% /tmp
-        tmpfs           199M  8.0K  199M   1% /run/user/500
+       andrewt@comp-core-i7-3615qm-0dbf32 ~ $ df
+       Filesystem      Size  Used Avail Use% Mounted on
+       udevfs          985M     0  985M   0% /dev
+       runfs           993M  1.1M  992M   1% /run
+       /dev/sda2        30G  7.9G   21G  28% /
+       tmpfs           993M  4.0K  993M   1% /dev/shm
+       tmpfs           5.0M     0  5.0M   0% /run/lock
+       tmpfs           993M     0  993M   0% /sys/fs/cgroup
+       tmpfs           993M  8.0K  993M   1% /tmp
+       tmpfs           199M  8.0K  199M   1% /run/user/500
 
 7. See manual page on mount unit configuration.
 
@@ -232,56 +232,88 @@ by RedHat.
 
     With the following content:
  
-         [Unit]
-         Description=Echo service
-         After=network.target
-        
-         [Service]
-         Type=simple
-         User=nobody
-         ExecStart=/usr/local/sbin/echosrv 0.0.0.0 1234
-         
-         [Install]
-         WantedBy=multi-user.target
+       [Unit]
+       Description=Echo service
+       After=network.target
+ 
+       [Service]
+       Type=simple
+       User=nobody
+       ExecStart=/usr/local/sbin/echosrv 0.0.0.0 1234
+
+       [Install]
+       WantedBy=multi-user.target
  
 5. Verify the created service unit.
  
-        comp-core-i7-3615qm-0dbf32 ~ # systemd-analyze verify echosrv.service
+       comp-core-i7-3615qm-0dbf32 ~ # systemd-analyze verify echosrv.service
  
 6. Check the service status.
 
-        comp-core-i7-3615qm-0dbf32 ~ # systemctl status  echosrv.service
-        ● echosrv.service - Echo service
-           Loaded: loaded (/etc/systemd/system/echosrv.service; disabled; vendor preset: disabled)
-           Active: inactive (dead)
+       comp-core-i7-3615qm-0dbf32 ~ # systemctl status  echosrv.service
+       ● echosrv.service - Echo service
+          Loaded: loaded (/etc/systemd/system/echosrv.service; disabled; vendor preset: disabled)
+          Active: inactive (dead)
 
 7. Start the service and check its status again.
 
-        comp-core-i7-3615qm-0dbf32 ~ # systemctl start  echosrv.service
-        comp-core-i7-3615qm-0dbf32 ~ # systemctl status  echosrv.service
-        ● echosrv.service - Echo service
-           Loaded: loaded (/etc/systemd/system/echosrv.service; disabled; vendor preset: disabled)
-           Active: active (running) since Wed 2020-05-13 01:27:42 MSK; 3s ago
-         Main PID: 4956 (echosrv)
-            Tasks: 1 (limit: 2361)
-           Memory: 156.0K
-           CGroup: /system.slice/echosrv.service
-                   └─4956 /usr/local/sbin/echosrv 0.0.0.0 1234
+       comp-core-i7-3615qm-0dbf32 ~ # systemctl start  echosrv.service
+       comp-core-i7-3615qm-0dbf32 ~ # systemctl status  echosrv.service
+       ● echosrv.service - Echo service
+          Loaded: loaded (/etc/systemd/system/echosrv.service; disabled; vendor preset: disabled)
+          Active: active (running) since Wed 2020-05-13 01:27:42 MSK; 3s ago
+        Main PID: 4956 (echosrv)
+           Tasks: 1 (limit: 2361)
+          Memory: 156.0K
+          CGroup: /system.slice/echosrv.service
+                  └─4956 /usr/local/sbin/echosrv 0.0.0.0 1234
 
 8. See who is listening sockets.
 
-        comp-core-i7-3615qm-0dbf32 ~ # netstat -ltp
-        Active Internet connections (only servers)
-        Proto Recv-Q Send-Q Local Address               Foreign Address             State       PID/Program name   
-        tcp        0      0 *:netbios-ssn               *:*                         LISTEN      2334/smbd           
-        tcp        0      0 *:1234                      *:*                         LISTEN      4956/echosrv        
-        tcp        0      0 localhost.localdomai:domain *:*                         LISTEN      4275/dnsmasq        
-        tcp        0      0 *:ssh                       *:*                         LISTEN      2066/sshd           
-        tcp        0      0 localhost.localdomain:ipp   *:*                         LISTEN      2041/cupsd          
-        tcp        0      0 *:microsoft-ds              *:*                         LISTEN      2334/smbd  
+       comp-core-i7-3615qm-0dbf32 ~ # netstat -ltp
+       Active Internet connections (only servers)
+       Proto Recv-Q Send-Q Local Address               Foreign Address             State       PID/Program name   
+       tcp        0      0 *:netbios-ssn               *:*                         LISTEN      2334/smbd           
+       tcp        0      0 *:1234                      *:*                         LISTEN      4956/echosrv        
+       tcp        0      0 localhost.localdomai:domain *:*                         LISTEN      4275/dnsmasq        
+       tcp        0      0 *:ssh                       *:*                         LISTEN      2066/sshd           
+       tcp        0      0 localhost.localdomain:ipp   *:*                         LISTEN      2041/cupsd          
+       tcp        0      0 *:microsoft-ds              *:*                         LISTEN      2334/smbd  
 
 9. Test the TCP echo service.
 
-        comp-core-i7-3615qm-0dbf32 ~ # netcat 0.0.0.0 1234
-        hello!
-        hello!
+       comp-core-i7-3615qm-0dbf32 ~ # netcat 0.0.0.0 1234
+       hello!
+       hello!
+
+## Homework
+
+1. Finish all the tasks.
+
+2. Save information on the status of the services to text files.
+
+       andrewt@comp-core-i7-3615qm-0dbf32 ~ $ systemctl status srv.mount > srv
+
+       andrewt@comp-core-i7-3615qm-0dbf32 ~ $ systemctl status echosrv.service > echosrv
+
+3. Upload the files to the 'sugon' server.
+
+   To copy files to a folder on a remote server, use the 'scp' command: 
+
+       scp /path/to/local/file username@hostname:/path/to/remote/file
+
+       scp username1@hostname1:/path/to/file username2@hostname2:/path/to/other/file
+
+   For example:
+
+   sudo scp -P 2131 /etc/passwd andrey@sugon:/home/andrey/06_Services
+   
+       andrewt@comp-core-i7-3615qm-0dbf32 ~ $ scp -P 2131 srv andrey@sugon:/home/andrey/06_Services
+       andrey@83.220.44.62's password: 
+       srv                         100%  472    80.8KB/s   00:00
+
+       andrewt@comp-core-i7-3615qm-0dbf32 ~ $ scp -P 2131 echosrv andrey@sugon:/home/andrey/06_Services
+       andrey@83.220.44.62's password: 
+       echosrv                    100%  447    71.1KB/s   00:00 
+
+   __Note__: I do not publish here 'sugon' IP. Please insert the valid IP yourself. 
