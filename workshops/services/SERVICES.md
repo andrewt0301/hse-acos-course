@@ -167,3 +167,12 @@ by RedHat.
         comp-core-i7-3615qm-0dbf32 ~ # systemctl enable srv.mount 
         Created symlink /etc/systemd/system/multi-user.target.wants/srv.mount → /etc/systemd/system/srv.mount.
         comp-core-i7-3615qm-0dbf32 ~ #
+
+16. See service dependencies.
+
+        comp-core-i7-3615qm-0dbf32 ~ # systemctl list-dependencies srv.mount 
+        srv.mount
+        ● ├─-.mount
+        ● ├─dev-disk-by\x2did-ata\x2dVBOX_HARDDISK_VB95f922ef\x2d001cd0ee\x2dpart1.device
+        ● ├─dev-sdb1.device
+        ● └─system.slice
