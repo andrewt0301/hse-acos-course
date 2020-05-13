@@ -185,15 +185,103 @@ by RedHat.
         tmpfs		/tmp			tmpfs	nosuid				0 0
         UUID=a4ba36d4-a42e-48a6-ae91-7e2acbd71ce8	/	ext4	relatime	1	1
         UUID=8adb69dd-b152-45b6-b4b0-4824f2282d2c	swap	swap	defaults	0	0
- 
+
  ## Running a service with systemd
  
- 1. Install a compiler if it is not already installed.
- 
+1. Install a compiler if it is not already installed.
+
         comp-core-i7-3615qm-0dbf32 ~ # apt-get install gcc
- 
- 2. Take TCP echo server from the [lecture](
+
+2. Take TCP echo server from the [lecture](
     http://uneex.ru/HSE/ArchitectureOS/02_SocketProgramming)
-    and compile.
+    and compile it.
+   
+        andrewt@comp-core-i7-3615qm-0dbf32 ~ $ cc tcp_echo_serverSR.c -o echosrv
+
+3. Copy the compiled program to a system folder.
+
+        comp-core-i7-3615qm-0dbf32 ~ # cp /home/andrewt/echosrv /usr/local/sbin/
+
+   See the destination folder:
+
+        comp-core-i7-3615qm-0dbf32 ~ # ls  /usr/local/sbin/
+        echosrv
+
+   Test the program:
+   
+       comp-core-i7-3615qm-0dbf32 ~ # echosrv 0.0.0.0 1234 &
+       [1] 4905
+       comp-core-i7-3615qm-0dbf32 ~ # netcat localhost 1234
+       hello!
+       Received 7 bytes from 127.0.0.1, port 36514
+       hello!
+       comp-core-i7-3615qm-0dbf32 ~ # kill 4905
+       comp-core-i7-3615qm-0dbf32 ~ # [1]+  Завершено      echosrv 0.0.0.0 1234 
+
+4. See manual page on service unit configuration.
+
+       andrewt@comp-core-i7-3615qm-0dbf32 ~ $ man systemd.service 
+
+5. Register TCP echo server as a service.
+
+    Create a service unit:
+    
+        andrewt@comp-core-i7-3615qm-0dbf32 ~ $ su -
+        Password: 
+        comp-core-i7-3615qm-0dbf32 ~ # mcedit /etc/systemd/system/echosrv.service
+
+    With the following content:
  
- TODO
+         [Unit]
+         Description=Echo service
+         After=network.target
+        
+         [Service]
+         Type=simple
+         User=nobody
+         ExecStart=/usr/local/sbin/echosrv 0.0.0.0 1234
+         
+         [Install]
+         WantedBy=multi-user.target
+ 
+5. Verify the created service unit.
+ 
+        comp-core-i7-3615qm-0dbf32 ~ # systemd-analyze verify echosrv.service
+ 
+6. Check the service status.
+
+        comp-core-i7-3615qm-0dbf32 ~ # systemctl status  echosrv.service
+        ● echosrv.service - Echo service
+           Loaded: loaded (/etc/systemd/system/echosrv.service; disabled; vendor preset: disabled)
+           Active: inactive (dead)
+
+7. Start the service and check its status again.
+
+        comp-core-i7-3615qm-0dbf32 ~ # systemctl start  echosrv.service
+        comp-core-i7-3615qm-0dbf32 ~ # systemctl status  echosrv.service
+        ● echosrv.service - Echo service
+           Loaded: loaded (/etc/systemd/system/echosrv.service; disabled; vendor preset: disabled)
+           Active: active (running) since Wed 2020-05-13 01:27:42 MSK; 3s ago
+         Main PID: 4956 (echosrv)
+            Tasks: 1 (limit: 2361)
+           Memory: 156.0K
+           CGroup: /system.slice/echosrv.service
+                   └─4956 /usr/local/sbin/echosrv 0.0.0.0 1234
+
+8. See who is listening sockets.
+
+        comp-core-i7-3615qm-0dbf32 ~ # netstat -ltp
+        Active Internet connections (only servers)
+        Proto Recv-Q Send-Q Local Address               Foreign Address             State       PID/Program name   
+        tcp        0      0 *:netbios-ssn               *:*                         LISTEN      2334/smbd           
+        tcp        0      0 *:1234                      *:*                         LISTEN      4956/echosrv        
+        tcp        0      0 localhost.localdomai:domain *:*                         LISTEN      4275/dnsmasq        
+        tcp        0      0 *:ssh                       *:*                         LISTEN      2066/sshd           
+        tcp        0      0 localhost.localdomain:ipp   *:*                         LISTEN      2041/cupsd          
+        tcp        0      0 *:microsoft-ds              *:*                         LISTEN      2334/smbd  
+
+9. Test the TCP echo service.
+
+        comp-core-i7-3615qm-0dbf32 ~ # netcat 0.0.0.0 1234
+        hello!
+        hello!
