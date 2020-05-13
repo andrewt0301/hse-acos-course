@@ -188,4 +188,12 @@ by RedHat.
  
  ## Running a service with systemd
  
+ 1. Install a compiler if it is not already installed.
+ 
+        comp-core-i7-3615qm-0dbf32 ~ # apt-get install gcc
+ 
+ 2. Take TCP echo server from the [lecture](
+    http://uneex.ru/HSE/ArchitectureOS/02_SocketProgramming)
+    and compile.
+ 
  TODO
