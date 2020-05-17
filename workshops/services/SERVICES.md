@@ -190,22 +190,22 @@ by RedHat.
  
 1. Install a compiler if it is not already installed.
 
-        comp-core-i7-3615qm-0dbf32 ~ # apt-get install gcc
+       comp-core-i7-3615qm-0dbf32 ~ # apt-get install gcc
 
 2. Take TCP echo server from the [lecture](
     http://uneex.ru/HSE/ArchitectureOS/02_SocketProgramming)
     and compile it.
    
-        andrewt@comp-core-i7-3615qm-0dbf32 ~ $ cc tcp_echo_serverSR.c -o echosrv
+       andrewt@comp-core-i7-3615qm-0dbf32 ~ $ cc tcp_echo_serverSR.c -o echosrv
 
 3. Copy the compiled program to a system folder.
 
-        comp-core-i7-3615qm-0dbf32 ~ # cp /home/andrewt/echosrv /usr/local/sbin/
+       comp-core-i7-3615qm-0dbf32 ~ # cp /home/andrewt/echosrv /usr/local/sbin/
 
    See the destination folder:
 
-        comp-core-i7-3615qm-0dbf32 ~ # ls  /usr/local/sbin/
-        echosrv
+       comp-core-i7-3615qm-0dbf32 ~ # ls  /usr/local/sbin/
+       echosrv
 
    Test the program:
    
@@ -305,8 +305,6 @@ by RedHat.
        scp username1@hostname1:/path/to/file username2@hostname2:/path/to/other/file
 
    For example:
-
-   sudo scp -P 2131 /etc/passwd andrey@sugon:/home/andrey/06_Services
    
        andrewt@comp-core-i7-3615qm-0dbf32 ~ $ scp -P 2131 srv andrey@sugon:/home/andrey/06_Services
        andrey@sugon's password: 
