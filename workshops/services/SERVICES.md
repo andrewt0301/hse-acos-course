@@ -226,9 +226,9 @@ by RedHat.
 
     Create a service unit:
     
-        andrewt@comp-core-i7-3615qm-0dbf32 ~ $ su -
-        Password: 
-        comp-core-i7-3615qm-0dbf32 ~ # mcedit /etc/systemd/system/echosrv.service
+       andrewt@comp-core-i7-3615qm-0dbf32 ~ $ su -
+       Password: 
+       comp-core-i7-3615qm-0dbf32 ~ # mcedit /etc/systemd/system/echosrv.service
 
     With the following content:
  
