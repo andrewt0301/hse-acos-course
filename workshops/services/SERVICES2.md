@@ -1,4 +1,4 @@
-Services
+Services. Part 2.
 ---
 
 See the systemd journal:
@@ -112,3 +112,9 @@ See systemd journal:
     May 18 01:29:02 comp-core-i7-3615qm-0dbf32 systemd[1]: Started Hexdump service (127.0.0.1:53344).
     May 18 01:28:42 comp-core-i7-3615qm-0dbf32 systemd[1]: hexdump@7-127.0.0.1:1616-127.0.0.1:53342.service: Succeeded.
     May 18 01:28:36 comp-core-i7-3615qm-0dbf32 systemd[1]: Started Hexdump service (127.0.0.1:53342).
+
+## Modifying the TCP echo service (tasks)
+
+1. Print diagnostics messages to stderr and see systemd journal.
+2. Read entire message instead of 32 bytes.
+3. Implement forking.
