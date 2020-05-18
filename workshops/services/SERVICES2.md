@@ -1,9 +1,15 @@
 Services. Part 2.
 ---
 
-See the systemd journal:
+## Viewing system journal
+
+Events in reverse order related to a particular unit:
 
     andrewt@comp-core-i7-3615qm-0dbf32 ~ $ journalctl -r -u echosrv.service
+
+Events in reverse order filtered with grep:
+
+    andrewt@comp-core-i7-3615qm-0dbf32 ~ $ journalctl -r | grep echosrv
 
 ## Creating a service for hexdump
 
