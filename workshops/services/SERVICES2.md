@@ -11,7 +11,7 @@ Create a service unit for hexdump:
 
     andrewt@comp-core-i7-3615qm-0dbf32 ~ $ su -
     Password: 
-    comp-core-i7-3615qm-0dbf32 ~ # mcedit /etc/systemd/system/hexdump.service
+    comp-core-i7-3615qm-0dbf32 ~ # mcedit /etc/systemd/system/hexdump@.service
 
  With the following content:
  
@@ -118,3 +118,20 @@ See systemd journal:
 1. Print diagnostics messages to stderr and see systemd journal.
 2. Read entire message instead of 32 bytes.
 3. Implement forking.
+
+## Homework
+
+Finish all the tasks:
+
+1. Create folder '07_Services2' at sugon.
+2. Put there the updated 'tcp_echo_serverSR.c' file.
+3. Save systemd journal with events related to the services into text files
+   and upload them to sugon.
+
+   Hexdump service:
+   
+       andrewt@comp-core-i7-3615qm-0dbf32 ~ $ journalctl -r | grep hexdump > hexdump.journal
+
+   TCP echo service:
+   
+       andrewt@comp-core-i7-3615qm-0dbf32 ~ $ journalctl -r -u echosrv.service > echosrv.journal
