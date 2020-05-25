@@ -136,3 +136,22 @@ Application Bus
        andrewt@comp-core-i7-3615qm-0dbf32 ~ $ qdbusviewer
  
    ![2](Pic02.png)
+
+7.  See how to use command-line tool 'qdbus':
+
+        andrewt@comp-core-i7-3615qm-0dbf32 ~ $ qdbus --help
+        Usage: qdbus [--system] [--bus busaddress] [--literal] [servicename] [path] [method] [args]
+  
+         servicename       the service to connect to (e.g., org.freedesktop.DBus)
+         path              the path to the object (e.g., /)
+         method            the method to call, with or without the interface
+         args              arguments to pass to the call
+        With 0 arguments, qdbus will list the services available on the bus
+        With just the servicename, qdbus will list the object paths available on the service
+        With service name and object path, qdbus will list the methods, signals and properties available on the object
+ 
+        Options:
+         --system          connect to the system bus
+         --bus busaddress  connect to a custom bus
+         --literal         print replies literally
+  
