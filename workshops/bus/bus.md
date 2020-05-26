@@ -293,3 +293,10 @@ Application Bus
 
     In the same way, it is possible to manage network interfaces via other properties and methods.
  
+ 8. It is possibly to manage D-Bug from programs in high-level programming languages.
+    For example, a library called [pydbus](https://github.com/LEW21/pydbus) allows
+    doing it from Python.
+    
+    Install the 'pip' package manager:
+    
+        comp-core-i7-3615qm-0dbf32 ~ # apt-get install python3-module-pip
