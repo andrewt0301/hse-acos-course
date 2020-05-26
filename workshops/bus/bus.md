@@ -376,9 +376,9 @@ Application Bus
    Write a Python program that start this service with the help of systemd:
    
    ```python
-   from pydbus import SystemBus
+   from pydbus import SessionBus
    
-   bus = SystemBus()
+   bus = SessionBus()
    systemd = bus.get(".systemd1")
 
    systemd.StartUnit("xtermtop.service", "fail")
