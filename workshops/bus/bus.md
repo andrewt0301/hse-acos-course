@@ -446,7 +446,7 @@ Application Bus
         
     See the registered service with 'd-feet':
     
-           andrewt@comp-core-i7-3615qm-0dbf32 ~ $ d-feet
+        andrewt@comp-core-i7-3615qm-0dbf32 ~ $ d-feet
     
     ![3](Pic03.png)
 
