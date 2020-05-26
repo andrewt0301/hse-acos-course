@@ -305,8 +305,21 @@ Application Bus
     
         comp-core-i7-3615qm-0dbf32 ~ # pip3 install pydbus
 
-    Run with python3 a simple programs that uses D-Bus to show notifications:
-      
+9.  Write a simple programs that uses D-Bus to show notifications.
+  
+    Here is the program text:
+
+    ```python
+    from pydbus import SessionBus
+     
+    bus = SessionBus()
+    notifications = bus.get('org.freedesktop.Notifications')
+ 
+    notifications.Notify('test', 0, 'dialog-information', "Hello World!", "pydbus works :)", [], {}, 5000)
+    ```
+   
+    Execute the program with python3 and see help for the 'org.freedesktop.Notifications' object:  
+
         andrewt@comp-core-i7-3615qm-0dbf32 ~ $ python3
         Python 3.7.4 (default, Apr 17 2020, 12:15:50) 
         [GCC 8.4.1 20200305 (ALT p9 8.4.1-alt0.p9.1)] on linux
@@ -314,17 +327,36 @@ Application Bus
         >>> from pydbus import SessionBus
         >>> 
         >>> bus = SessionBus()
-        >>> notifications = bus.get('.Notifications')
+        >>> notifications = bus.get('org.freedesktop.Notifications')
         >>> 
         >>> notifications.Notify('test', 0, 'dialog-information', "Hello World!", "pydbus works :)", [], {}, 5000)
+        >>>
+        >>> help(notifications)
 
-    Here is the program text:
+10. Write a Python program that lists running systemd units:
 
     ```python
-    from pydbus import SessionBus
-     
-    bus = SessionBus()
-    notifications = bus.get('.Notifications')
- 
-    notifications.Notify('test', 0, 'dialog-information', "Hello World!", "pydbus works :)", [], {}, 5000)
+    from pydbus import SystemBus
+    
+    bus = SystemBus()
+    systemd = bus.get(".systemd1")
+    
+    for unit in systemd.ListUnits():
+        print(unit)
     ```
+
+## Homework
+
+0. Log in to sugon and create a folder named '08_DBus'.
+
+1. Listen to D-bus messages with 'dbus-monitor'.
+
+   In the first terminal, run 'dbus-monitor' to listen to messages: 
+
+       andrewt@comp-core-i7-3615qm-0dbf32 ~ $ dbus-monitor | grep -A 10 -B 4 "Hello world"
+
+   In the second terminal, send a notification:
+
+       andrewt@comp-core-i7-3615qm-0dbf32 ~ $ notify-send "Hello world"
+
+   Save what was recorded by 'dbus-monitor' to the 'notification.log' file and upload it to 'sugon'.
