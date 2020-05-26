@@ -12,7 +12,7 @@ Application Bus
 
 3. Run 'd-feet' to see the installed services:
 
-       andrewt@comp-core-i7-3615qm-0dbf32 ~ $ d-fee
+       andrewt@comp-core-i7-3615qm-0dbf32 ~ $ d-feet
 
     ![1](Pic01.png)
 
@@ -392,7 +392,9 @@ Application Bus
    systemd.StopUnit
    ```
 
-12. Create a D-Bus service in Python:
+12. Create a D-Bus service in Python.
+
+   server.py:
 
    ```python
    #!/usr/bin/env python
@@ -438,6 +440,16 @@ Application Bus
    loop.run()
    ```
 
+13. Run server.py with python3:
+
+        andrewt@comp-core-i7-3615qm-0dbf32 ~ $ python3 server.py
+        
+    See the registered service with 'd-feet':
+    
+           andrewt@comp-core-i7-3615qm-0dbf32 ~ $ d-feet
+    
+    ![3](Pic03.png)
+
 ## Homework
 
 0. Log in to sugon and create a folder named '08_DBus'.
@@ -453,3 +465,13 @@ Application Bus
        andrewt@comp-core-i7-3615qm-0dbf32 ~ $ notify-send "Hello world"
 
    Save what was recorded by 'dbus-monitor' to the 'notification.log' file and upload it to 'sugon'.
+
+2. Listen to D-bus messages with 'dbus-monitor' to know the call that changes wallpaper.
+
+   * Run 'dbus-monitor':
+
+         andrewt@comp-core-i7-3615qm-0dbf32 ~ $ dbus-monitor | grep -A 10 -B 10 "last-image"
+       
+   * Change the desktop wallpaper.
+   * Find the that changes wallpaper in the 'dbus-monitor' output.
+   
