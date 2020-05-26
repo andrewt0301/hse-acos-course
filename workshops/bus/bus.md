@@ -385,6 +385,58 @@ Application Bus
    ``` 
 
    And run it with python3.
+  
+   To stop the service, execute the command:
+ 
+   ```python
+   systemd.StopUnit
+   ```
+
+12. Create a D-Bus service in Python:
+
+   ```python
+   #!/usr/bin/env python
+   
+   # Python DBUS Test Server
+   # runs until the Quit() method is called via DBUS
+
+   from gi.repository import GLib
+   from pydbus import SessionBus
+
+   loop = GLib.MainLoop()
+  
+   class MyDBUSService(object):
+   	"""
+   		<node>
+   			<interface name='net.lew21.pydbus.ClientServerExample'>
+   				<method name='Hello'>
+   					<arg type='s' name='response' direction='out'/>
+   				</method>
+   				<method name='EchoString'>
+   					<arg type='s' name='a' direction='in'/>
+   					<arg type='s' name='response' direction='out'/>
+   				</method>
+   				<method name='Quit'/>
+   			</interface>
+   		</node>
+   	"""
+  
+   	def Hello(self):
+   		"""returns the string 'Hello, World!'"""
+   		return "Hello, World!"
+  
+   	def EchoString(self, s):
+   		"""returns whatever is passed to it"""
+   		return s
+  
+   	def Quit(self):
+   		"""removes this object from the DBUS connection and exits"""
+   		loop.quit()
+  
+   bus = SessionBus()
+   bus.publish("net.lew21.pydbus.ClientServerExample", MyDBUSService())
+   loop.run()
+   ```
 
 ## Homework
 
