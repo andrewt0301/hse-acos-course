@@ -342,8 +342,49 @@ Application Bus
     systemd = bus.get(".systemd1")
     
     for unit in systemd.ListUnits():
-        print(unit)
+        print(*unit)
     ```
+
+11. Manage services from pydbus.
+
+   Create a simple service:
+
+       andrewt@comp-core-i7-3615qm-0dbf32 ~ $ systemctl edit --user --force --full xtermtop.service
+
+   With the following content:
+   
+   ```
+   [Unit]
+   Description=Xterm top
+   
+   [Service]
+   ExecStart=xterm -e top
+   ```
+
+   See its status:
+
+       andrewt@comp-core-i7-3615qm-0dbf32 ~ $ systemctl --user status xtermtop.service 
+       ● xtermtop.service
+          Loaded: loaded (/home/andrewt/.config/systemd/user/xtermtop.service; static; vendor preset: enabled)
+          Active: inactive (dead)
+
+   Start and stop it:
+
+       andrewt@comp-core-i7-3615qm-0dbf32 ~ $ systemctl --user start xtermtop.service
+       andrewt@comp-core-i7-3615qm-0dbf32 ~ $ systemctl --user stop xtermtop.service
+
+   Write a Python program that start this service with the help of systemd:
+   
+   ```python
+   from pydbus import SystemBus
+   
+   bus = SystemBus()
+   systemd = bus.get(".systemd1")
+
+   systemd.StartUnit("xtermtop.service", "fail")
+   ``` 
+
+   And run it with python3.
 
 ## Homework
 
