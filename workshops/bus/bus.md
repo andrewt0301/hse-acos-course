@@ -300,3 +300,7 @@ Application Bus
     Install the 'pip' package manager:
     
         comp-core-i7-3615qm-0dbf32 ~ # apt-get install python3-module-pip
+
+    Install the 'pydbus' library:
+    
+        comp-core-i7-3615qm-0dbf32 ~ # pip3 install pydbus
