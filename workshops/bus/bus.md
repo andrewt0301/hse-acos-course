@@ -304,3 +304,25 @@ Application Bus
     Install the 'pydbus' library:
     
         comp-core-i7-3615qm-0dbf32 ~ # pip3 install pydbus
+
+    Run with python3 a simple programs that uses D-Bus to show notifications:
+    
+    ```python
+    from pydbus import SessionBus
+    
+    bus = SessionBus()
+    notifications = bus.get('.Notifications')
+    
+    notifications.Notify('test', 0, 'dialog-information', "Hello World!", "pydbus works :)", [], {}, 5000)
+    ```
+      
+        andrewt@comp-core-i7-3615qm-0dbf32 ~ $ python3
+        Python 3.7.4 (default, Apr 17 2020, 12:15:50) 
+        [GCC 8.4.1 20200305 (ALT p9 8.4.1-alt0.p9.1)] on linux
+        Type "help", "copyright", "credits" or "license" for more information.
+        >>> from pydbus import SessionBus
+        >>> 
+        >>> bus = SessionBus()
+        >>> notifications = bus.get('.Notifications')
+        >>> 
+        >>> notifications.Notify('test', 0, 'dialog-information', "Hello World!", "pydbus works :)", [], {}, 5000)
