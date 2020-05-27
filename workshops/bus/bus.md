@@ -502,3 +502,25 @@ Application Bus
    * Change the desktop wallpaper.
    * Find the that changes wallpaper in the 'dbus-monitor' output.
    
+3. Modify the server.py service. Add a new method:
+
+   Signature:
+   
+   ```
+   <method name='MultiString'>
+   		<arg type='s' name='a' direction='in'/>
+        <arg type='u' name='num' direction='in'/>
+   		<arg type='as' name='response' direction='out'/>
+   </method>
+   ```
+   
+   Body:
+   
+   ```python
+   def MultiString(self, s, num):
+       """returns n strings"""
+       return s * num
+   ```
+
+   Call this method from 'dbus-send'.
+   Save the output to the 'miltistring.log' and save it to 'sugon'.
