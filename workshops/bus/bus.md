@@ -500,10 +500,9 @@ Application Bus
          andrewt@comp-core-i7-3615qm-0dbf32 ~ $ dbus-monitor | grep -A 10 -B 10 "last-image"
       
    * Change the desktop wallpaper.
-   * Find the that changes wallpaper in the 'dbus-monitor' output.
-   * Based on the call description write a command that changes the wallpaper using 'qdbus'.
-  
-   Hint:
+   * Find the method call that changes wallpaper in the 'dbus-monitor' output.
+   * Based on the call description from 'dbus-monitor' write a command
+     that changes the wallpaper using 'qdbus'. Hint:
   
         andrewt@comp-core-i7-3615qm-0dbf32 ~ $ qdbus org.xfce.Xfconf bla-bla-bla
 
