@@ -479,7 +479,7 @@ Application Bus
 
 ## Homework
 
-0. Log in to sugon and create a folder named '08_DBus'.
+0. Log in to sugon and create a folder named '08_DBus'. Finish all the tasks.
 
 1. Listen to D-bus messages with 'dbus-monitor'.
 
@@ -505,7 +505,7 @@ Application Bus
 3. Modify the server.py service. Add a new method:
 
    Signature:
-   
+
    ```
    <method name='MultiString'>
    		<arg type='s' name='a' direction='in'/>
@@ -513,14 +513,15 @@ Application Bus
    		<arg type='as' name='response' direction='out'/>
    </method>
    ```
-   
+
    Body:
-   
+
    ```python
    def MultiString(self, s, num):
        """returns n strings"""
        return s * num
    ```
 
-   Call this method from 'dbus-send'.
+   Call this method from 'dbus-send' (specify types of arguments as: `string` and `uint32`).
    Save the output to the 'miltistring.log' and save it to 'sugon'.
+
