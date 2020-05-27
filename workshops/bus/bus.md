@@ -498,10 +498,17 @@ Application Bus
    * Run 'dbus-monitor':
 
          andrewt@comp-core-i7-3615qm-0dbf32 ~ $ dbus-monitor | grep -A 10 -B 10 "last-image"
-       
+      
    * Change the desktop wallpaper.
    * Find the that changes wallpaper in the 'dbus-monitor' output.
-   
+   * Based on the call description write a command that changes the wallpaper using 'qdbus'.
+  
+   Hint:
+  
+        andrewt@comp-core-i7-3615qm-0dbf32 ~ $ qdbus org.xfce.Xfconf bla-bla-bla
+
+   * Save the command to the 'wallpaper.sh' file and upload it to sugon.
+
 3. Modify the server.py service. Add a new method:
 
    Signature:
