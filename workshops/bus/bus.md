@@ -514,9 +514,9 @@ Application Bus
 
    ```
    <method name='MultiString'>
-   		<arg type='s' name='a' direction='in'/>
+   	    <arg type='s' name='a' direction='in'/>
         <arg type='u' name='num' direction='in'/>
-   		<arg type='as' name='response' direction='out'/>
+        <arg type='as' name='response' direction='out'/>
    </method>
    ```
 
