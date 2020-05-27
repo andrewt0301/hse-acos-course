@@ -456,6 +456,27 @@ Application Bus
     
     ![5](Pic05.png)
 
+14. Call methods of the running server.py service with 'qdbus':
+
+        andrewt@comp-core-i7-3615qm-0dbf32 ~ $ qdbus net.lew21.pydbus.ClientServerExample /net/lew21/pydbus/ClientServerExample net.lew21.pydbus.ClientServerExample.Hello
+        Hello, World!
+        andrewt@comp-core-i7-3615qm-0dbf32 ~ $ qdbus net.lew21.pydbus.ClientServerExample /net/lew21/pydbus/ClientServerExample net.lew21.pydbus.ClientServerExample.EchoString "QQ"
+        QQ
+
+15. Call the same methods with 'dbus-send':
+
+        andrewt@comp-core-i7-3615qm-0dbf32 ~ $ dbus-send --print-reply --session --dest=net.lew21.pydbus.ClientServerExample /net/lew21/pydbus/ClientServerExample net.lew21.pydbus.ClientServerExample.Hello
+        method return time=1590411234.525504 sender=:1.174 -> destination=:1.193 serial=74 reply_serial=2
+           string "Hello, World!"
+        andrewt@comp-core-i7-3615qm-0dbf32 ~ $ dbus-send --print-reply --session --dest=net.lew21.pydbus.ClientServerExample /net/lew21/pydbus/ClientServerExample net.lew21.pydbus.ClientServerExample.EchoString string:QQ
+        method return time=1590411291.496958 sender=:1.174 -> destination=:1.194 serial=75 reply_serial=2
+           string "QQ"
+
+    Call the 'Quit' method to stop the service:
+    
+        andrewt@comp-core-i7-3615qm-0dbf32 ~ $ dbus-send --print-reply --session --dest=net.lew21.pydbus.ClientServerExample /net/lew21/pydbus/ClientServerExample net.lew21.pydbus.ClientServerExample.Quit
+        method return time=1590411398.034527 sender=:1.174 -> destination=:1.195 serial=76 reply_serial=2
+
 ## Homework
 
 0. Log in to sugon and create a folder named '08_DBus'.
