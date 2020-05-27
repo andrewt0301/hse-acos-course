@@ -450,6 +450,12 @@ Application Bus
     
     ![3](Pic03.png)
 
+    Call methods of the service from 'd-feet':
+
+    ![4](Pic04.png)
+    
+    ![5](Pic05.png)
+
 ## Homework
 
 0. Log in to sugon and create a folder named '08_DBus'.
