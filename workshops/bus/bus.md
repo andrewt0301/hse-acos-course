@@ -504,7 +504,7 @@ Application Bus
    * Based on the call description from 'dbus-monitor' write a command
      that changes the wallpaper using 'qdbus'. Hint:
   
-        andrewt@comp-core-i7-3615qm-0dbf32 ~ $ qdbus org.xfce.Xfconf bla-bla-bla
+         andrewt@comp-core-i7-3615qm-0dbf32 ~ $ qdbus org.xfce.Xfconf bla-bla-bla
 
    * Save the command to the 'wallpaper.sh' file and upload it to sugon.
 
