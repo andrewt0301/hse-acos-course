@@ -394,7 +394,7 @@ Application Bus
 
 12. Create a D-Bus service in Python.
 
-   server.py:
+   [server.py](server.py):
 
    ```python
    #!/usr/bin/env python
@@ -514,7 +514,7 @@ Application Bus
 
    ```
    <method name='MultiString'>
-   	    <arg type='s' name='a' direction='in'/>
+        <arg type='s' name='a' direction='in'/>
         <arg type='u' name='num' direction='in'/>
         <arg type='as' name='response' direction='out'/>
    </method>
