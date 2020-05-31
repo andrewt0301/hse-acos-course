@@ -52,22 +52,17 @@ facilities provided by the operation system.
 
    Modify the __15-57_dorun.py__ program so that it checks whether the program to run exists
    before trying to run it.
-
    Use the [os.path.exists](https://docs.python.org/3/library/os.path.html#os.path.exists)
    method to check whether the program exists.
-
-   If the file does not exist print the "No _filename_" message to
+   If the file does not exist, print the "No _filename_" message to
    [sys.stderr](https://docs.python.org/3/library/sys.html?sys.stderr).
-
    Save the modified code to the __16-12_dochkrun.py__ file.
 
 3. __Task 02:__
 
    Study documentation on the [subprocess](https://docs.python.org/3/library/subprocess.html) module.
-
    Rewrite the __16-12_dochkrun.py__ file to run the program using the
    [subprocess.run](https://docs.python.org/3/library/subprocess.html#subprocess.run) function.
-
    Save the resulting program to the __16-21_dosubrun.py__ file.
 
 4. Using pipes to [replace shell pipelines](
