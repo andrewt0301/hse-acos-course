@@ -92,16 +92,13 @@ facilities provided by the operation system.
 5. __Task 03:__
 
    On the basis of the previous example, write a Python program that pipelines two commands
-   specified in the command line.
- 
-   Both commands can have any number of arguments.
-
+   specified in the command line. Both commands can have any number of arguments.
    Save the program to the __16-43_pipecmd.py__ file.
    
-   Hint: You need to separate one program with arguments from another program with a
+   _Hint_: You need to separate one program with arguments from another program with a
    special separator character. For example, it can be `@`.
    
-   The command-line can look like this:  
+   The command line can look like this:  
 
        andrewt@comp-core-i7-3615qm-0dbf32 ~ $ python3 16-43_pipecmd.py date -u @ hexdump -C
        00000000  d0 92 d1 81 20 d0 bc d0  b0 d1 8f 20 33 31 20 32  |.... ...... 31 2|
