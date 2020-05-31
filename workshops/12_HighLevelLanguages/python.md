@@ -155,6 +155,33 @@ facilities provided by the operation system.
 
    Save the resulting program in the __16-58_multiex2.py__ file.
 
+8. Exchange objects between processes using [pipes](
+   https://docs.python.org/3.8/library/multiprocessing.html#exchanging-objects-between-processes).
+
+   Here is an example:
+
+   ```python
+   from multiprocessing import Process, Pipe
+
+   def f(conn):
+       conn.send([42, None, 'hello'])
+       conn.close()
+
+   if __name__ == '__main__':
+       parent_conn, child_conn = Pipe()
+       p = Process(target=f, args=(child_conn,))
+       p.start()
+       print(parent_conn.recv())   # prints "[42, None, 'hello']"
+       p.join()
+   ```
+
+9. __Task 05:__
+
+   Modify the __16-58_multiex2.py__ program to send the `f"Hello, {name}!"` message
+   from the child to the parent process. Print it in the parent process.
+
+   Save the resulting program to the __17-07_multiexchat.py__ file.
+
 ## Homework
 
 1. Finish all unfinished programs.
