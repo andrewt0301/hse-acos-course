@@ -48,7 +48,9 @@ facilities provided by the operation system.
     
        python3 15-57_dorun.py nothing_torun.py qwe ert ert
 
-2. Modify the __15-57_dorun.py__ program so that it checks whether the program to run exists
+2. __Task 01:__
+ 
+   Modify the __15-57_dorun.py__ program so that it checks whether the program to run exists
    before trying to run it.
     
    Use the [os.path.exists](https://docs.python.org/3/library/os.path.html#os.path.exists)
@@ -59,35 +61,53 @@ facilities provided by the operation system.
     
    Save the modified code to the __16-12_dochkrun.py__ file.
 
-3. Study documentation on the [subprocess](https://docs.python.org/3/library/subprocess.html) module.
+3. __Task 02:__
+   
+   Study documentation on the [subprocess](https://docs.python.org/3/library/subprocess.html) module.
    
    Rewrite the __16-12_dochkrun.py__ file to run the program using the
    [subprocess.run](https://docs.python.org/3/library/subprocess.html#subprocess.run) function.
 
    Save the resulting program to the __16-21_dosubrun.py__ file.
 
+4. Using pipes to [replace shell pipelines](
+   https://docs.python.org/3.8/library/subprocess.html?highlight=subprocess#replacing-shell-pipeline).
 
-4. https://docs.python.org/3.8/library/subprocess.html?highlight=subprocess#replacing-shell-pipeline
+   The following shell command:
+   
+       output=$(dmesg | grep sda)
 
-   __16-43_pipecmd.py__:
+   can be implemented in Python as follows:
    
    ```python
-    #!/usr/bin/env python3
-    '''
-    '''
-
-    import subprocess as proc
-    import sys
-
-    d = sys.argv.index("@")
-
-    p1 = proc.Popen(sys.argv[1:d], stdout=proc.PIPE)
-    p2 = proc.Popen(sys.argv[d+1:], stdin=p1.stdout, stdout=proc.PIPE)
-    p1.stdout.close()  # Allow p1 to receive a SIGPIPE if p2 exits.
-    output = p2.communicate()[0]
-
-    #print(output.decode())
+   import subprocess as proc
+   p1 = proc.Popen(["dmesg"], stdout=proc.PIPE)
+   p2 = proc.Popen(["grep", "sda"], stdin=p1.stdout, stdout=proc.PIPE)
+   p1.stdout.close()  # Allow p1 to receive a SIGPIPE if p2 exits.
+   output = p2.communicate()[0]
    ```
+
+   Execute shell and Python and see the results.
+   
+5. __Task 03:__
+
+   On the basis of the previous example, write a Python program that pipelines two commands
+   specified in the command line.
+ 
+   Both commands can have any number of arguments.
+
+   Save the program to the __16-43_pipecmd.py__ file.
+   
+   Hint: You need to separate one program with arguments from another program with a
+   special separator character. For example, it can be `@`.
+   
+   The command-line can look like this:  
+
+       andrewt@comp-core-i7-3615qm-0dbf32 ~ $ python3 16-43_pipecmd.py date -u @ hexdump -C
+       00000000  d0 92 d1 81 20 d0 bc d0  b0 d1 8f 20 33 31 20 32  |.... ...... 31 2|
+       00000010  31 3a 31 33 3a 30 38 20  55 54 43 20 32 30 32 30  |1:13:08 UTC 2020|
+       00000020  0a                                                |.|
+       00000021
 
 ## Homework
 
