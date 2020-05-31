@@ -138,6 +138,23 @@ facilities provided by the operation system.
        p.join()
     ```
 
+7. __Task 04:__
+
+   Modify the __16-50_multiex.py__ program. Pass the `f` function running in another process
+   the additional argument `wait`, which specifies a delay in seconds.
+   It must be a random value from the range [1..5].
+
+   In the `f` function, print the `wait` argument together with `name`.
+   Then delay execution for the number of seconds specified in `wait`.
+
+   Use the [time.sleep](
+   https://docs.python.org/3/library/time.html#time.sleep) method to delay execution.
+
+   Use the [random.randrange](
+   https://docs.python.org/3/library/random.html#random.randrange) to generate a random value. 
+
+   Save the resulting program in the __16-58_multiex2.py__ file.
+
 ## Homework
 
 1. Finish all unfinished programs.
