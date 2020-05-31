@@ -20,7 +20,7 @@ facilities provided by the operation system.
    ''' 
    import sys
    import os
-    
+
    Python = sys.executable
    f = os.path.realpath(sys.argv[1])
     
@@ -31,7 +31,7 @@ facilities provided by the operation system.
    rest of the arguments. The program to be run can look as follows.
 
    __15-58_torun.py__:
-   
+
    ```python
    #!/usr/bin/env python3
    '''
@@ -45,26 +45,26 @@ facilities provided by the operation system.
        python3 15-57_dorun.py 15-58_torun.py qwe ert ert
 
    Run the program and pass it an invalid program to run. See the output:
-    
+
        python3 15-57_dorun.py nothing_torun.py qwe ert ert
 
 2. __Task 01:__
- 
+
    Modify the __15-57_dorun.py__ program so that it checks whether the program to run exists
    before trying to run it.
-    
+
    Use the [os.path.exists](https://docs.python.org/3/library/os.path.html#os.path.exists)
    method to check whether the program exists.
-    
+
    If the file does not exist print the "No _filename_" message to
    [sys.stderr](https://docs.python.org/3/library/sys.html?sys.stderr).
-    
+
    Save the modified code to the __16-12_dochkrun.py__ file.
 
 3. __Task 02:__
-   
+
    Study documentation on the [subprocess](https://docs.python.org/3/library/subprocess.html) module.
-   
+
    Rewrite the __16-12_dochkrun.py__ file to run the program using the
    [subprocess.run](https://docs.python.org/3/library/subprocess.html#subprocess.run) function.
 
@@ -78,7 +78,7 @@ facilities provided by the operation system.
        output=$(dmesg | grep sda)
 
    can be implemented in Python as follows:
-   
+
    ```python
    import subprocess as proc
    p1 = proc.Popen(["dmesg"], stdout=proc.PIPE)
@@ -88,16 +88,16 @@ facilities provided by the operation system.
    ```
 
    Execute shell and Python and see the results.
-   
+
 5. __Task 03:__
 
    On the basis of the previous example, write a Python program that pipelines two commands
    specified in the command line. Both commands can have any number of arguments.
    Save the program to the __16-43_pipecmd.py__ file.
-   
+
    _Hint_: You need to separate one program with arguments from another program with a
    special separator character. For example, it can be `@`.
-   
+
    The command line can look like this:  
 
        andrewt@comp-core-i7-3615qm-0dbf32 ~ $ python3 16-43_pipecmd.py date -u @ hexdump -C
