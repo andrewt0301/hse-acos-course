@@ -244,6 +244,6 @@ facilities provided by the operation system.
 
 ## Homework
 
-1. Finish all unfinished programs.
-   Create the '12_HighLevelLanguages' folder at the 'sugon' server.
-   Put all programs there.
+Finish all unfinished programs.
+Create the '12_HighLevelLanguages' folder at the 'sugon' server.
+Put all programs there.
