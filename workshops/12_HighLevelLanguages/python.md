@@ -59,7 +59,12 @@ facilities provided by the operation system.
     
    Save the modified code to the __16-12_dochkrun.py__ file.
 
-3.  
+3. Study documentation on the [subprocess](https://docs.python.org/3/library/subprocess.html) module.
+   
+   Rewrite the __16-12_dochkrun.py__ file to run the program using the
+   [subprocess.run](https://docs.python.org/3/library/subprocess.html#subprocess.run) function.
+
+   Save the resulting program to the __16-21_dosubrun.py__ file.
 
 ## Homework
 
