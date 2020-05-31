@@ -24,15 +24,13 @@ facilities provided by the operation system.
    Python = sys.executable
    f = os.path.realpath(sys.argv[1])
     
-   print(f)
-    
    os.system(f'{Python} {f} {" ".join(sys.argv[2:])}')
    ```
 
    This program launches a program specified as command-line argument and passes it the
    rest of the arguments. The program to be run can looks as follows.
    
-   ___15-58_torun.py__:
+   __15-58_torun.py__:
    
     ```python
     #!/usr/bin/env python3
@@ -42,8 +40,7 @@ facilities provided by the operation system.
     print(":", "-".join(sys.argv[1:]))
     ```
 
-   [this](15-57_dorun.py) example script that runs
-   [another](15-58_torun.py) program and launch with python3:
+    Run the program with python3:
 
        python3 15-57_dorun.py 15-58_torun.py qwe ert ert
 
