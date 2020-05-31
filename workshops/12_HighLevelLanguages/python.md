@@ -233,8 +233,11 @@ facilities provided by the operation system.
 12. __Task 07:__
 
     Modify the __16-58_multiex2.py__ program to run multiple tasks using a pool.
+
     Number of tasks must be specified as a command-line argument (default value is 5).
+
     The `f` function must return the `wait` value multiplied by 10.
+
     Print the aggregated result returned by the `Pool.map` method. 
  
     Save the resulting program to the __17-17_multiexpool.py__ file.
