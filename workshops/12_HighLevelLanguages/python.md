@@ -182,9 +182,15 @@ facilities provided by the operation system.
 
    Save the resulting program to the __17-07_multiexchat.py__ file.
 
+10. __Task 06:__
+
+    Modify the __16-58_multiex2.py__ program to run multiples process and wait for them to stop.
+    Number of process must be specified as a command line argument (default value is 5).
+
+    Save the resulting program to the __17-11_multiexmany.py__ file.
+
 ## Homework
 
 1. Finish all unfinished programs.
    Create the '12_HighLevelLanguages' folder at the 'sugon' server.
    Put all programs there.
-
