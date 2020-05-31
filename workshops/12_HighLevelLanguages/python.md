@@ -184,10 +184,35 @@ facilities provided by the operation system.
 
 10. __Task 06:__
 
-    Modify the __16-58_multiex2.py__ program to run multiples process and wait for them to stop.
-    Number of process must be specified as a command line argument (default value is 5).
-
+    Modify the __16-58_multiex2.py__ program to run multiple processes and wait for them to stop.
+    The name of a process is its index.
+    Number of processes must be specified as a command line argument (default value is 5).
+ 
     Save the resulting program to the __17-11_multiexmany.py__ file.
+
+    See the running processes with `ps`:
+    
+        andrewt@comp-core-i7-3615qm-0dbf32 ~ $ python3 17-11_multiexmany.py &
+        [1] 2844
+        andrewt@comp-core-i7-3615qm-0dbf32 ~ $ 0 4
+        4 3
+        1 2
+        3 2
+        2 2
+        ps -ef | grep python
+        andrewt     2844    2515  0 01:53 pts/0    00:00:00 python3 17-11_multiexmany.py
+        andrewt     2845    2844  0 01:53 pts/0    00:00:00 python3 17-11_multiexmany.py
+        andrewt     2846    2844  0 01:53 pts/0    00:00:00 python3 17-11_multiexmany.py
+        andrewt     2847    2844  0 01:53 pts/0    00:00:00 python3 17-11_multiexmany.py
+        andrewt     2848    2844  0 01:53 pts/0    00:00:00 python3 17-11_multiexmany.py
+        andrewt     2849    2844  0 01:53 pts/0    00:00:00 python3 17-11_multiexmany.py
+        andrewt     2851    2515  0 01:53 pts/0    00:00:00 grep --color=auto python
+        andrewt@comp-core-i7-3615qm-0dbf32 ~ $ hello 1 2
+        hello 2 2
+        hello 3 2
+        hello 4 3
+        hello 0 4
+        [1]+  Завершён        python3 17-11_multiexmany.py
 
 ## Homework
 
