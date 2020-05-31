@@ -214,6 +214,31 @@ facilities provided by the operation system.
         hello 0 4
         [1]+  Завершён        python3 17-11_multiexmany.py
 
+11. Using [pools](https://docs.python.org/3.8/library/multiprocessing.html#multiprocessing.pool.Pool)
+    for parallelizing tasks. The tasks will be distributed among the specified number of worker processes.  
+
+    Here is an example:
+
+    ```python
+    from multiprocessing import Pool
+    
+    def f(x):
+        return x*x
+    
+    if __name__ == '__main__':
+        with Pool(5) as p:
+            print(p.map(f, [1, 2, 3]))
+    ```
+
+12. __Task 07:__
+
+    Modify the __16-58_multiex2.py__ program to run multiple tasks using a pool.
+    Number of tasks must be specified as a command-line argument (default value is 5).
+    The `f` function must return the `wait` value multiplied by 10.
+    Print the aggregated result returned by the `Pool.map` method. 
+ 
+    Save the resulting program to the __17-17_multiexpool.py__ file.
+
 ## Homework
 
 1. Finish all unfinished programs.
