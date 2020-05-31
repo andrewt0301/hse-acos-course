@@ -66,6 +66,29 @@ facilities provided by the operation system.
 
    Save the resulting program to the __16-21_dosubrun.py__ file.
 
+
+4. https://docs.python.org/3.8/library/subprocess.html?highlight=subprocess#replacing-shell-pipeline
+
+   __16-43_pipecmd.py__:
+   
+   ```python
+    #!/usr/bin/env python3
+    '''
+    '''
+
+    import subprocess as proc
+    import sys
+
+    d = sys.argv.index("@")
+
+    p1 = proc.Popen(sys.argv[1:d], stdout=proc.PIPE)
+    p2 = proc.Popen(sys.argv[d+1:], stdin=p1.stdout, stdout=proc.PIPE)
+    p1.stdout.close()  # Allow p1 to receive a SIGPIPE if p2 exits.
+    output = p2.communicate()[0]
+
+    #print(output.decode())
+   ```
+
 ## Homework
 
 1. Finish all unfinished programs.
