@@ -54,7 +54,7 @@ facilities provided by the operation system.
    Use the [os.path.exists](https://docs.python.org/3/library/os.path.html#os.path.exists)
    method to check whether the program exists.
     
-   If the file does not exist print the "No __filename__" message to
+   If the file does not exist print the "No _filename_" message to
    [sys.stderr](https://docs.python.org/3/library/sys.html?sys.stderr).
     
    Save the modified code to the __16-12_dochkrun.py__ file.
