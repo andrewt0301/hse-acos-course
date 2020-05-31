@@ -28,8 +28,8 @@ facilities provided by the operation system.
    ```
 
    This program launches a program specified as command-line argument and passes it the
-   rest of the arguments. The program to be run can looks as follows.
-   
+   rest of the arguments. The program to be run can look as follows.
+
    __15-58_torun.py__:
    
     ```python
@@ -40,13 +40,25 @@ facilities provided by the operation system.
     print(":", "-".join(sys.argv[1:]))
     ```
 
-    Run the program with python3:
+    Run the program with python3 and see the result:
 
        python3 15-57_dorun.py 15-58_torun.py qwe ert ert
 
-2.
+    Run the program and pass it an invalid program to run. See the output:
+    
+       python3 15-57_dorun.py nothing_torun.py qwe ert ert
 
-
+2.  Modify the __15-57_dorun.py__ program so that it checks whether the program to run exists
+    before trying to run it.
+    
+    Use the [os.path.exists](https://docs.python.org/3/library/os.path.html#os.path.exists)
+    method to check whether the program exists.
+    
+    If the file does not exist print the "No <filename>" message to
+    [sys.stderr](https://docs.python.org/3/library/sys.html?sys.stderr).
+    
+    Save the modified code to the __16-12_dochkrun.py__ file.
+ 
 
 See the programs in Python [here](.).
 
