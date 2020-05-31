@@ -8,9 +8,8 @@ provided by the operation system.
    [sys](https://docs.python.org/3/library/sys.html) modules to run programs from Python scripts.
 
    Read documentation on the `os.path.realpath(path)`, `os.system(command)`, `sys.executable`,
-   and `sys.argv` methods.
-
-   Study [this](15-57_dorun.py) example and run it:
+   and `sys.argv` methods. Study [this](15-57_dorun.py) example script that runs
+   [another](15-58_torun.py) program and launch with python3:
    
        python3 15-57_dorun.py 15-58_torun.py qwe ert ert
 
