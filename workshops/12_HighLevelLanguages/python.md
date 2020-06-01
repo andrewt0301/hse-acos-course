@@ -235,6 +235,7 @@ facilities provided by the operation system.
     Modify the __16-58_multiex2.py__ program to run multiple tasks using a pool.
 
     Number of tasks must be specified as a command-line argument (default value is 5).
+    The size of pool is fixed and equals 6.
 
     The `f` function must return the `wait` value multiplied by 10.
 
@@ -247,3 +248,11 @@ facilities provided by the operation system.
 Finish all unfinished programs.
 Create the '12_HighLevelLanguages' folder at the 'sugon' server.
 Put all programs there.
+
+### Home tasks:
+
+* __Task 03__
+* __Task 04__
+* __Task 05__
+* __Task 06__
+* __Task 07__
