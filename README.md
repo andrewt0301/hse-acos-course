@@ -1,10 +1,33 @@
-# ACOS MIPS Course Materials
+# HSE ACOS Course Materials
 ----------------------------------------------------------------------------------------------------
-[![Apache License](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://github.com/andrewt0301/acos-mips-course/blob/master/LICENSE)
+[![Apache License](https://img.shields.io/badge/license-Apache%202-blue.svg)](LICENSE)
 ----------------------------------------------------------------------------------------------------
 
-This is a hosting for materials for seminars for the “Computer Architecture” course
-taught at Higher School of Economics. Everything is under development.
+This is a hosting for materials the “Computer Architecture and Operating Systems” course
+taught at [Faculty of Computer Science of Higher School of Economics](https://cs.hse.ru/en/).
 
-The code is licensed under the Apache License, Version 2.0:
-    http://www.apache.org/licenses/LICENSE-2.0
+## Motivation
+
+This course is taught to second-year students who major in data analysis.
+
+_TODO_ 
+
+## Course Topics by Modules
+
+* Computer architecture and assembly language (Module 3)
+* Operating system and system programming (Module 4)
+
+
+## Topical Plan
+
+### Computer architecture and assembly language (Module 3)
+
+* TODO
+
+### Operating systems and system programming (Module 4)
+
+* TODO
+
+## Required Software 
+
+__TODO__
