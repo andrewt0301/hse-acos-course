@@ -31,3 +31,8 @@ _TODO_
 ## Required Software 
 
 __TODO__
+
+## Related Materials
+
+* [Literture](LITERATURE.md)
+* [Related Courses](related/COURSES.md)
