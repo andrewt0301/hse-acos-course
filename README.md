@@ -34,5 +34,5 @@ __TODO__
 
 ## Related Materials
 
-* [Literture](LITERATURE.md)
+* [Literature](LITERATURE.md)
 * [Related Courses](related/COURSES.md)
