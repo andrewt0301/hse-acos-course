@@ -6,11 +6,12 @@
 This is a hosting for materials the “Computer Architecture and Operating Systems” course
 taught at [Faculty of Computer Science of Higher School of Economics](https://cs.hse.ru/en/).
 
-## Motivation
+Course web site is [here](https://andrewt0301.github.io/hse-acos-course/).
+Course web site sources are [here](docs/index.md).
 
-This course is taught to second-year students who major in data analysis.
+This project contains educational materials for the course and other useful information related to
+the course.
 
-_TODO_ 
 
 ## Course Topics by Modules
 
