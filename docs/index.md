@@ -1,4 +1,4 @@
-## Welcome to Computer Architecture and Operating Systems
+## Welcome to Computer Architecture and Operating Systems (ACOS)
 
 This site contains materials for the "Computer Architecture and Operating Systems" course taught at
 [Faculty of Computer Science of Higher School of Economics](https://cs.hse.ru/en/).
