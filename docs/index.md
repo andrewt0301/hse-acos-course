@@ -3,7 +3,7 @@
 This site contains materials for the "Computer Architecture and Operating Systems" course taught at HSE. 
 
 For information on course administration, please refer to the
-[official course page](http://wiki.cs.hse.ru/ACOS_DSBA_2019/2020) at the HSE web site.  
+official course [page](http://wiki.cs.hse.ru/ACOS_DSBA_2019/2020) at the HSE web site.  
 
 Official syllabus can be found [here](https://www.hse.ru/edu/courses/301394490).
 
