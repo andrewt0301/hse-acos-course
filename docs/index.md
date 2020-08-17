@@ -15,7 +15,7 @@ which is essential for general computer science literacy.
 This will help better understand the performance of software systems.
 Also, the course will give the necessary background to those who are planning to apply machine learning methods
 in system software (most of top-ranked IT companies have such projects).
-The practical part give some experience in working with system software such as Unix-based operating systems,
+The practical part gives some experience in working with system software such as Unix-based operating systems,
 compilers, build tools, emulators, virtual machines, and so on. 
 
 ### Course Description
