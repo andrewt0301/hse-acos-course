@@ -18,7 +18,6 @@ the course.
 * Computer architecture and assembly language (Module 3)
 * Operating system and system programming (Module 4)
 
-
 ## Topical Plan
 
 ### Computer architecture and assembly language (Module 3)
@@ -32,8 +31,3 @@ the course.
 ## Required Software 
 
 __TODO__
-
-## Related Materials
-
-* [Literature](LITERATURE.md)
-* [Related Courses](related/COURSES.md)
