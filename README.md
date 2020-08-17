@@ -13,21 +13,3 @@ Course web site sources are [here](docs/index.md).
 This project contains educational materials for the course and other useful information related to
 the course.
 
-## Course Topics by Modules
-
-* Computer architecture and assembly language (Module 3)
-* Operating system and system programming (Module 4)
-
-## Topical Plan
-
-### Computer architecture and assembly language (Module 3)
-
-* TODO
-
-### Operating systems and system programming (Module 4)
-
-* TODO
-
-## Required Software 
-
-__TODO__

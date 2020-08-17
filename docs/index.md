@@ -20,7 +20,26 @@ compilers, build tools, emulators, virtual machines, and so on.
 
 ### Course Description
 
-_TODO_ 
+__TODO__ 
+
+### Course Topics by Modules
+
+* Computer architecture and assembly language (Module 3)
+* Operating system and system programming (Module 4)
+
+### Topical Plan
+
+#### Computer architecture and assembly language (Module 3)
+
+* __TODO__
+
+#### Operating systems and system programming (Module 4)
+
+* TODO
+
+### Required Software 
+
+__TODO__
 
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
