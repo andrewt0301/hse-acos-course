@@ -45,9 +45,9 @@ Syntax highlighted code block
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
+### Related Courses
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/andrewt0301/hse-acos-course/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+The list of similar and related courses can be found [here](courses.md).
 
 ### Feedback
 
