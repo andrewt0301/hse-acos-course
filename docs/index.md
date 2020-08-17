@@ -45,6 +45,10 @@ Syntax highlighted code block
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
+### Books
+
+The list of books this course is based on and other books recommended for reading can be found [here](books.md).
+
 ### Related Courses
 
 The list of similar and related courses can be found [here](courses.md).
