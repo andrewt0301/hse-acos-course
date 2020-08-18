@@ -1,5 +1,3 @@
-![SiFive’s HiFive Unleashed](hifive-unleashed.png)
-
 ## Welcome to Computer Architecture and Operating Systems
 
 This site contains materials for the "Computer Architecture and Operating Systems" course taught at
