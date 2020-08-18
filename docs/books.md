@@ -32,7 +32,7 @@ Books for the Course
 
 1. Michael Kerrisk.
    [The Linux Programming Interface: A Linux and UNIX System Programming Handbook.](
-   https://man7.org/tlpi/).
+   https://man7.org/tlpi/)
    1st Edition. 2010.
 
 2. Abraham Silberschatz, Greg Gagne, Peter B. Galvin.
