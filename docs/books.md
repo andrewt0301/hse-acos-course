@@ -1,7 +1,7 @@
 Books for the Course
 ---
 
-### Computer Architecture
+## Computer Architecture
 
 1. David A. Patterson, John L. Hennessy.
    [Computer Organization and Design RISC-V Edition: The Hardware Software Interface.](
@@ -23,12 +23,12 @@ Books for the Course
    https://www.elsevier.com/books/digital-design-and-computer-architecture/harris/978-0-12-394424-5)
    2nd Edition. 2012.
    
-6. John L. Hennessy David A. Patterson,    
+6. John L. Hennessy David A. Patterson.
    [Computer Architecture: A Quantitative Approach.](
    https://www.elsevier.com/books/computer-architecture/hennessy/978-0-12-811905-1)
    6th Edition. 2017.
 
-### Operating Systems
+## Operating Systems
 
 1. Michael Kerrisk.
    [The Linux Programming Interface: A Linux and UNIX System Programming Handbook.](
