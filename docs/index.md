@@ -37,11 +37,11 @@ __TODO__
 
 ### Software
 
-The list of software required for the course and instractions on how to install it are [here](software.md). 
+The list of software required for the course is [here](software.md). 
 
 ### Books
 
-The list of books this course is based on and other books recommended for reading is [here](books.md).
+The list of books recommended for reading is [here](books.md).
 
 ### Related Courses
 
