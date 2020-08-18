@@ -22,18 +22,15 @@ compilers, build tools, emulators, virtual machines, and so on.
 
 __TODO__ 
 
-### Course Topics by Modules
-
 * Computer architecture and assembly language (Module 3)
 * Operating system and system programming (Module 4)
 
-### Topical Plan
 
-#### Computer architecture and assembly language (Module 3)
+#### Computer architecture and assembly language
 
 * __TODO__
 
-#### Operating systems and system programming (Module 4)
+#### Operating systems and system programming
 
 * __TODO__
 
