@@ -22,6 +22,11 @@ Books for the Course
    [Digital Design and Computer Architecture.](
    https://www.elsevier.com/books/digital-design-and-computer-architecture/harris/978-0-12-394424-5)
    2nd Edition. 2012.
+   
+6. John L. Hennessy David A. Patterson,    
+   [Computer Architecture: A Quantitative Approach.](
+   https://www.elsevier.com/books/computer-architecture/hennessy/978-0-12-811905-1)
+   6th Edition. 2017.
 
 ## Operating Systems
 
