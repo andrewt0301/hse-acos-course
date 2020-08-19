@@ -1,6 +1,6 @@
 ![SiFive HiFive Unleashed](images/hifive-unleashed-logo.png)
 
-## Welcome to Computer Architecture and Operating Systems
+# Welcome to Computer Architecture and Operating Systems
 
 This site contains materials for the "Computer Architecture and Operating Systems" course taught at
 [Faculty of Computer Science of Higher School of Economics](https://cs.hse.ru/en/).
@@ -9,7 +9,7 @@ For information on course administration, please refer to the
 official course [page](http://wiki.cs.hse.ru/ACOS_DSBA_2019/2020) at the university web site.
 The official syllabus can be found [here](https://www.hse.ru/edu/courses/301394490).
 
-### Course Motivation
+## Course Motivation
 
 This course is taught to second-year students who major in [data science](https://www.hse.ru/en/ba/data/).
 The goal of the course is to give an introduction to how operating systems and hardware work under the hood,
@@ -20,36 +20,45 @@ in system software (most of top-ranked IT companies have such projects).
 The practical part will give some experience in working with system software such as Unix-based operating systems,
 compilers, build tools, emulators, virtual machines, and so on. 
 
-### Course Description
+## Course Description
 
-__TODO__ 
+__TODO: CONTENT IS UNDER DEVELOPMENT__ 
 
 * Computer architecture and assembly language (Module 3)
 * Operating system and system programming (Module 4)
 
-
 #### Computer architecture and assembly language
 
-* __TODO__
+* Introduction
+* ISA and assembler language
+* Assembler, assemble language. RISC-V
+* Registers and memory
+* Code addressing: conditionals, loops and arrays
+* Stack and subroutines
+* Mathematical coprocessor
+* Call frame and macros
+* Exceptions, traps, and interrupts
+* Pipelines
+* Caches
 
 #### Operating systems and system programming
 
 * __TODO__
 
 
-### Software
+## Software
 
 The list of software required for the course is [here](software.md). 
 
-### Textbooks
+## Textbooks
 
 The list of textbooks recommended for reading is [here](books.md).
 
-### Related Courses
+## Related Courses
 
 The list of similar and related courses is [here](courses.md).
 
-### Feedback
+## Feedback
 
 If you have any questions or suggestions related to the course contents, please feel free to submit
 an [issue](https://github.com/andrewt0301/hse-acos-course/issues)
