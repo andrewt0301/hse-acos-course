@@ -4,7 +4,7 @@ Textbooks
 Here is the list of textbooks that contain material related to this course.
 Books in the __primary__ section were used as a main source of material.
 Books in the __additional__ sections contain additional useful information.
-Some course topics are based on other external materials, which will be provided in the lecture materials.
+Some course topics are based on other external material, which will be provided in lectures.
 
 ## Computer Architecture
 
