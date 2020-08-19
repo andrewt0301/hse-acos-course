@@ -45,6 +45,9 @@ __TODO: CONTENT IS UNDER DEVELOPMENT__
 
 * __TODO__
 
+## Grading System
+
+Information on the grading system for the course is [here](grades.md).
 
 ## Software
 
