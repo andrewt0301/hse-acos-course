@@ -13,7 +13,7 @@ This course is taught to second-year students who major in [data science](https:
 The goal of the course is to give an introduction to how operating systems and hardware work under the hood,
 which is essential for general computer science literacy.
 This knowledge will help better understand the performance of software systems and create more efficient solutions.
-Also, the course will give the necessary background to those who are planning to apply machine learning methods
+Also, the course will give a starting background to those who are planning to apply machine learning methods
 in system software (most of top-ranked IT companies have such projects).
 The practical part will give some experience in working with system software such as Unix-based operating systems,
 compilers, build tools, emulators, virtual machines, and so on. 
@@ -39,9 +39,9 @@ __TODO__
 
 The list of software required for the course is [here](software.md). 
 
-### Books
+### Textbooks
 
-The list of books recommended for reading is [here](books.md).
+The list of textbooks recommended for reading is [here](books.md).
 
 ### Related Courses
 
