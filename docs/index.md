@@ -27,7 +27,7 @@ __TODO: CONTENT IS UNDER DEVELOPMENT__
 * Computer architecture and assembly language (Module 3)
 * Operating system and system programming (Module 4)
 
-#### Computer architecture and assembly language
+#### Computer Architecture and Assembly Language
 
 * Introduction
 * ISA and assembler language
@@ -41,7 +41,7 @@ __TODO: CONTENT IS UNDER DEVELOPMENT__
 * Pipelines
 * Caches
 
-#### Operating systems and system programming
+#### Operating Systems and System Programming
 
 * __TODO__
 
