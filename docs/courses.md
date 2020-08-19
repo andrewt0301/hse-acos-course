@@ -1,5 +1,4 @@
-Related Courses
----
+# Related Courses
 
 * George Kouryachy. [Computer Architecture and Operating Systems.](https://uneex.ru/HSE)
 HSE. 2019. [Official page.](http://wiki.cs.hse.ru/ACOS_DSBA_2019/2020)
