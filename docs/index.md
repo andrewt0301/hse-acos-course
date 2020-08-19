@@ -1,4 +1,4 @@
-![SiFive HiFive Unleashed](images/hifive-unleashed7.png)
+![SiFive HiFive Unleashed](images/hifive-unleashed8.png)
 
 ## Welcome to Computer Architecture and Operating Systems
 
