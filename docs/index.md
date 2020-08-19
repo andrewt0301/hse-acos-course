@@ -24,8 +24,9 @@ compilers, build tools, emulators, virtual machines, and so on.
 
 __TODO: CONTENT IS UNDER DEVELOPMENT__ 
 
-* Computer architecture and assembly language (Module 3)
-* Operating system and system programming (Module 4)
+The course consists of two logical parts.
+The first part is given in __module 3__ and is dedicated to computer architecture and assembly language programming.
+The second part is given in __module 4__ and covers foundations of operating system organisation and system programming.
 
 #### Computer Architecture and Assembly Language
 
@@ -44,6 +45,8 @@ __TODO: CONTENT IS UNDER DEVELOPMENT__
 #### Operating Systems and System Programming
 
 * __TODO__
+* [Libraries](part2os/libs.md)
+* [System programming in high-level languages (Python)](part2os/python.md)
 
 ## Grading System
 
