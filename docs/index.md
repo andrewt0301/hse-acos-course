@@ -30,19 +30,42 @@ The second part is given in __module 4__ and covers foundations of operating sys
 
 #### Computer Architecture and Assembly Language
 
-* Introduction
-* ISA and assembler language
-* Assembler, assemble language. RISC-V
-* Registers and memory
-* Code addressing: conditionals, loops and arrays
-* Stack and subroutines
-* Mathematical coprocessor
-* Call frame and macros
-* Exceptions, traps, and interrupts
-* Pipelines
-* Caches
+* Computer architecture concept.
+* ISA and assembly language.
+* Assembler, assembly language. RISC and MIPS.
+* Registers and memory model.
+* Calling conventions, stack and subroutines.
+* Arithmetical coprocessor.
+* More on assembly language: macros and includes; stack frame.
+* Exceptions, traps, and interrupts.
+* Pipelines.
+* Caches and jump predictions.
 
 #### Operating Systems and System Programming
+
+* Challenges of OS: unification, separation, logging. Kernel and userspace. Interoperability and cross-platformness.
+* The C programming language as high-level system programming tool. Libc. Building and running a C program.
+* Shell.
+* Processes.
+* Filesystem.
+* Devices and other special files.
+* Permissions.
+* Inter-process communication.
+* Libraries and binary file format.
+* Shared objects.
+* Programming tools.
+* Operating system goals: unification, separation, logging. OS interfaces: program-oriented, command-oriented, UI. OS architecture: monolith/modular/mixed.
+* Classical flower-like architecture: kernel, kernel modules; services, utilities, applications. Competency separation.
+* Command-oriented interface: utilities and shell. Command input/output/control flows. Assumption of human-readable/writable nature of command data flows. Commandline interface: principle and examples. POSIX shell command-line interface: basic syntax and command-line conventions.
+* Utilities as command-line syscall wrappers (files, processes etc.).
+* Shell syntax, I/O redirection.
+* Text processing utilities, regular expressions.
+* Pre-system boot stages.
+* POSIX-like system initialization, daemons.
+* SystemD model of interactive service control.
+* Application libraries, message bus.
+* GUI orchestrating, widgetsets.
+* Free/Open source. Distribution lifecycle: packages, repository, package manager.
 
 * __TODO__
 * [Libraries](part2os/libs.md)
