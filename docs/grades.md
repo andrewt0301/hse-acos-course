@@ -54,7 +54,7 @@ $$M_i = min(1,\ R_i+2/10B_i,)$$
 || P || 10% || Class presence. You need to attend more than 3/4 of total classes to earn this point ||
 || F || 35% || Final online test. You can skip this on with 60% penalty; 100% penalty for cheating (both sides; can be enquired) ||
 
-$$R_i = 45/100H + 10/100T + 10/100P + 35/100F$$
+$$R_i = frac{45}{100}H + 10/100T + 10/100P + 35/100F$$
 
 #### Bonus points (+20% max)
 
