@@ -42,3 +42,9 @@ https://twilco.github.io/riscv-from-scratch/2019/03/10/riscv-from-scratch-1.html
 
 ??? __TODO__
 
+### WSL
+
+[Windows Subsystem for Linux (WSL)](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) is a compatibility
+layer for running Linux binary executables (in ELF format) natively on Windows 10 and Windows Server 2019.
+This is an additional tools that can be usefull for those, who use Windows.
+It is convenient in some cases, but there are limitations.
