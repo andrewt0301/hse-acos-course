@@ -34,10 +34,10 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 #### Computer Architecture and Assembly Language
 
-* Introduction. Computer architecture concept. Historical overview. <!--- [CODR] Chapter 1, [MIT 6.172] Lecture 1. [SCO] --> 
-* Data representation. Integer and floating-point data formats.     <!--- [CSPP] Chapter 2. --> 
+1. Introduction. Computer architecture concept. Historical overview. <!--- [CODR] Chapter 1, [MIT 6.172] Lecture 1. [SCO] --> 
+2. Data representation. Integer and floating-point data formats.     <!--- [CSPP] Chapter 2. -->
+3. Instruction set architecture and assembly language.               <!--- -->
 
-* ISA and assembly language.
 * Assembler, assembly language. RISC and MIPS.
 * Registers and memory model.
 * Calling conventions, stack and subroutines.
