@@ -22,6 +22,7 @@ __The present text is copied from [here](https://uneex.ru/HSE/RatingFormula).__
 <!---
 See this for kramdown:
 https://mikelove.wordpress.com/2015/07/01/how-to-use-latex-math-in-rmd-to-display-properly-on-github-pages/
+https://varunagrawal.github.io/2018/03/27/latex-jekyll/
 -->
 
 ### Rating formula
