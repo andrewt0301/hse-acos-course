@@ -1,10 +1,12 @@
 # Grading System
 
-__TODO__
+__TODO: UNDER DEVELOPMENT, TO BE UPDATED__
+ 
+__The present text is copied from [here](https://uneex.ru/HSE/RatingFormula).__
 
-<!--- Copied from https://uneex.ru/HSE/RatingFormula -->
+<!---  -->
 
-= Rating formula =
+### Rating formula
 
 Shortly speaking:
  * It's recommended to equally maximize each module score
@@ -13,7 +15,7 @@ Shortly speaking:
  * Visit classes ☺
  * Do not cheat, please, it costs!
 
-== Overall formula ==
+#### Overall formula
 
 We'll have 3 modules, each scored $$M_i$$ in the same way, and final exam $$E$$.
 
@@ -24,7 +26,8 @@ Each module score calculates from Regular and Bonus points:
 
 $$M_i = min(1,\ R_i+2/10B_i,)$$
 
-=== Regular points (100%) ===
+#### Regular points (100%)
+
 || Variable || Score ||  Description ||
 || H || 45% || EJudge / other practical homework. You must solve tasks in time, 50% penalty for a week outdated task, 75% penalty otherwise, no score for unsolved one. Also no score for copy-paste / rewrite or other cheating (either source or destination), this can be enquired ||
 || T || 10% || Offline tests. Main use is self-checking, but here's 10% ||
@@ -33,8 +36,10 @@ $$M_i = min(1,\ R_i+2/10B_i,)$$
 
 $$R_i = 45/100H + 10/100T + 10/100P + 35/100F$$
 
-=== Bonus points (+20% max) ===
+#### Bonus points (+20% max)
+
 Any ''200%''-task can be shared (in fact, sharing is suggested), in that case it'll be divided by the number of administrants (thus ''200%'' score)
+
 || Variable || Score || Description ||
 || L ||  ''200%'' || Lecture conspectus. Can be in Russian. Must cover ''all'' lectures to be scored. Each conspectus shall include a paragraph on each topic mentioned in lecture syllabus, and must be approved by lecturer and published here ||
 || S || ''200%'' || Video subtitles (in English). Must cover ''all'' lectures to be scored, be verified by lecturer and published on !YouTube ||
