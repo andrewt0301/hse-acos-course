@@ -38,7 +38,7 @@ https://twilco.github.io/riscv-from-scratch/2019/03/10/riscv-from-scratch-1.html
 
 [Docker](https://www.docker.com) is  
 
-[Wikipedia](https://en.wikipedia.org/wiki/Docker_\(software\))
+[Wikipedia](https://en.wikipedia.org/wiki/Docker_%28software%29)
 
 ??? __TODO__
 
