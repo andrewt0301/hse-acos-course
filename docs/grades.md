@@ -24,6 +24,9 @@ See this for kramdown:
 https://mikelove.wordpress.com/2015/07/01/how-to-use-latex-math-in-rmd-to-display-properly-on-github-pages/
 https://varunagrawal.github.io/2018/03/27/latex
 https://stackoverflow.com/questions/26275645/how-to-support-latex-in-github-pages
+
+This is a guideline to render formulas:
+https://coderoad.ru/49970549/Проблема-рендеринга-некоторого-синтаксиса-latex-в-MathJax-с-Jekyll-на-github
 -->
 
 ### Rating formula
@@ -37,7 +40,7 @@ Shortly speaking:
 
 #### Overall formula
 
-We'll have 3 modules, each scored $$M_i$$ in the same way, and final exam $$E$$.
+We'll have 3 modules, each scored $M_i$ in the same way, and final exam $E$.
 
 $$G = 10*min(1,\ frac{sum_{i=1}^3M_i+E}{4})$$
 
