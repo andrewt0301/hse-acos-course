@@ -30,7 +30,7 @@ This part is baced on the [RISC-V](https://en.wikipedia.org/wiki/RISC-V) instruc
 assemb  ly language.
 The second part is given in __module 4__ and covers foundations of operating system organisation and system programming.
 The main tools for this part are the [Linux](https://en.wikipedia.org/wiki/Linux) operating system and
-the [C programming language](https://en.wikipedia.org/wiki/C_\(programming_language\)).
+the [C programming language]("https://en.wikipedia.org/wiki/C_(programming_language)").
 
 #### Computer Architecture and Assembly Language
 
