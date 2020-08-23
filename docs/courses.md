@@ -1,6 +1,6 @@
 # Related Courses
 
-The present course contains a mix of materials, which are typically given in two separate courses:
+The present course includes materials, which are typically given in two separate courses:
 "Computer Architecture" and "Operating Systems".
 The list below contains courses on these two subjects taught by different universities and other related courses.
 Some of them were used to prepare materials for this course.
