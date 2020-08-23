@@ -4,7 +4,20 @@ __TODO: UNDER DEVELOPMENT, TO BE UPDATED__
  
 __The present text is copied from [here](https://uneex.ru/HSE/RatingFormula).__
 
-
+<!-- Parse the Latex divs with Katex-->
+<script type="text/javascript">
+  $("script[type='math/tex']").replaceWith(
+    function(){
+      var tex = $(this).text();
+      return katex.renderToString(tex, {displayMode: false});
+  });
+  
+  $("script[type='math/tex; mode=display']").replaceWith(
+    function(){
+      var tex = $(this).text();
+      return katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+  });
+</script>
 
 <!---
 See this for kramdown:
