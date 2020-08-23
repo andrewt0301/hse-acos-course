@@ -4,6 +4,19 @@ __TODO: UNDER DEVELOPMENT, TO BE UPDATED__
  
 __The present text is copied from [here](https://uneex.ru/HSE/RatingFormula).__
 
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      processEscapes: true
+    }
+  });
+</script>
+
+Notes about $ \sum_{Thing} $
+
 \\[ \frac{1}{n^{2}} \\]
 
 <!---
