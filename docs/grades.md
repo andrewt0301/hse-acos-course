@@ -23,7 +23,7 @@ https://coderoad.ru/49970549/Проблема-рендеринга-некото�
 
 __TODO: UNDER DEVELOPMENT, TO BE UPDATED__
  
-__The present text is copied from [here](https://uneex.ru/HSE/RatingFormula).__
+<!--- The present text is copied from  https://uneex.ru/HSE/RatingFormula -->
 
 ### Rating formula
 
@@ -47,9 +47,9 @@ $$M_i = \frac{45}{100}H + \frac{10}{100}T + \frac{10}{100}P + \frac{35}{100}F$$
 
 #### Score points (100%)
 
-|| Variable || Score ||  Description ||
-|| H || 45% || EJudge / other practical homework. You must solve tasks in time, 50% penalty for a week outdated task, 75% penalty otherwise, no score for unsolved one. Also no score for copy-paste / rewrite or other cheating (either source or destination), this can be enquired ||
-|| T || 10% || Offline tests. Main use is self-checking, but here's 10% ||
-|| P || 10% || Class presence. You need to attend more than 3/4 of total classes to earn this point ||
-|| F || 35% || Final online test. You can skip this on with 60% penalty; 100% penalty for cheating (both sides; can be enquired) ||
-|| A,,k,, || 5% each || Class activity. Each time you broadcast a solution of a task during class hours, you get this point ||
+| Variable | Score | Description |
+| H | 45% | EJudge / other practical homework. You must solve tasks in time, 50% penalty for a week outdated task, 75% penalty otherwise, no score for unsolved one. Also no score for copy-paste / rewrite or other cheating (either source or destination), this can be enquired |
+| T | 10% | Offline tests. Main use is self-checking, but here's 10% |
+| P | 10% | Class presence. You need to attend more than 3/4 of total classes to earn this point |
+| F | 35% | Final online test. You can skip this on with 60% penalty; 100% penalty for cheating (both sides; can be enquired) |
+| A,,k,, | 5% each | Class activity. Each time you broadcast a solution of a task during class hours, you get this point |
