@@ -37,7 +37,7 @@ Shortly speaking:
 
 We'll have 2 modules, each scored $$M_i$$ in the same way, and final exam $$E$$.
 
-$$G = 10*min(1, \frac{sum_{i=1}^2M_i+E}{3})$$
+$$G = 10*min(1, \frac{\sum_{i=1}^2M_i+E}{3})$$
 
 #### Details
 
