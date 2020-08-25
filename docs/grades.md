@@ -9,15 +9,15 @@ __The present text is copied from [here](https://uneex.ru/HSE/RatingFormula).__
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
   MathJax.Hub.Config({
     tex2jax: {
-      inlineMath: [['$','$'], ['\\(','\\)']],
+      inlineMath: [['$$','$$'], ['\\(','\\)']],
       processEscapes: true
     }
   });
 </script>
 
-Notes about $ \sum_{Thing} $
+Notes about $$ \sum_{Thing} $$
 
-\\[ \frac{1}{n^{2}} \\]
+$$ \frac{1}{n^{2}} $$
 
 <!---
 See this for kramdown:
