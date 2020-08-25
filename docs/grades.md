@@ -21,7 +21,7 @@ https://coderoad.ru/49970549/Проблема-рендеринга-некото�
 
 __TODO: UNDER DEVELOPMENT, TO BE UPDATED__
  
-<!--- The present text is copied from  https://uneex.ru/HSE/RatingFormula -->
+<!--- The present text is copied from https://uneex.ru/HSE/RatingFormula -->
 
 # Grading System
 
@@ -36,15 +36,15 @@ __TODO: UNDER DEVELOPMENT, TO BE UPDATED__
 
 We will have 2 modules, each scored $$M_i$$ in the same way, and final exam $$E$$.
 
-$$G = 10 * min(1, \frac{\sum_{i=1}^2M_i+E}{3})$$
+$$G = \frac{\sum_{i=1}^2M_i+E}{3}$$
 
 #### Module Formula
 
 Each module score is calculated from Regular and Bonus points:
 
-$$M_i = min(1,\ R_i + 2/10B_i)$$
+$$M_i = min(10, R_i + 0.2B_i)$$
 
-#### Regular points (100%)
+#### Regular Points (100%)
 
 $$R_i = \frac{45}{100}H + \frac{10}{100}T + \frac{10}{100}P + \frac{35}{100}F$$
 
@@ -54,7 +54,7 @@ $$R_i = \frac{45}{100}H + \frac{10}{100}T + \frac{10}{100}P + \frac{35}{100}F$$
 | P        | 10%     | Class presence. You need to attend more than 3/4 of total classes to earn this point |
 | F        | 35%     | Final online test. You can skip this on with 60% penalty; 100% penalty for cheating (both sides; can be enquired) |
 
-#### Regular points (+ 20% max)
+#### Bonus Points (+ 20% max)
 
 | Variable | Score   | Description |
 | A,,k,,   | 5% each | Class activity. Each time you broadcast a solution of a task during class hours, you get this point |
