@@ -27,8 +27,8 @@ __TODO: UNDER DEVELOPMENT, TO BE UPDATED__
 
 #### General Advice
 
- * It is recommended to equally maximize each module score.
- * Bonuses are separated by module and costs +20% total.
+ * Maximize score for each of the modules.
+ * Note that bonuses are separated by module.
  * Visit classes.
  * Do not cheat (it costs).
 
@@ -42,11 +42,11 @@ $$G = \frac{\sum_{i=1}^2M_i+E}{3}$$
 
 Each module score is calculated from Regular and Bonus points:
 
-$$M_i = min(10, R_i + 0.2*B_i)$$
+$$M_i = min(10, R_i + 0.2B_i)$$
 
-#### Regular Points (100%)
+#### Regular Points: 10 points
 
-$$R_i = 10*(\frac{45}{100}H + \frac{10}{100}T + \frac{10}{100}P + \frac{35}{100}F)$$
+$$R_i = 10(0.45H + 0.10T + 0.10P + 0.35F)$$
 
 | Variable | Score   | Description |
 | $$H$$    | 45%     | EJudge / other practical homework. You must solve tasks in time, 50% penalty for a week outdated task, 75% penalty otherwise, no score for unsolved one. Also no score for copy-paste / rewrite or other cheating (either source or destination), this can be enquired |
@@ -54,7 +54,7 @@ $$R_i = 10*(\frac{45}{100}H + \frac{10}{100}T + \frac{10}{100}P + \frac{35}{100}
 | $$P$$    | 10%     | Class presence. You need to attend more than 3/4 of total classes to earn this point |
 | $$F$$    | 35%     | Final online test. You can skip this on with 60% penalty; 100% penalty for cheating (both sides; can be enquired) |
 
-#### Bonus Points (+ 20% max)
+#### Bonus Points: +2 points max
 
 $$B_i = 1/20\sum_k A_k$$
 
