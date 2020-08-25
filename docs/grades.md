@@ -42,11 +42,11 @@ $$G = \frac{\sum_{i=1}^2M_i+E}{3}$$
 
 Each module score is calculated from Regular and Bonus points:
 
-$$M_i = min(10, R_i + 0.2B_i)$$
+$$M_i = min(10, R_i + 0.2\cdot B_i)$$
 
 #### Regular Points: 10 points
 
-$$R_i = 10(0.45H + 0.10T + 0.10P + 0.35F)$$
+$$R_i = 10\cdot (0.45\cdot H + 0.10\cdot T + 0.10\cdot P + 0.35\cdot F)$$
 
 | Variable | Score   | Description |
 | $$H$$    | 45%     | EJudge / other practical homework. You must solve tasks in time, 50% penalty for a week outdated task, 75% penalty otherwise, no score for unsolved one. Also no score for copy-paste / rewrite or other cheating (either source or destination), this can be enquired |
