@@ -1,10 +1,14 @@
-# Grading System
+<!---
+The JavaScript code below is needed to suppport rendering of TeX formulas in GitHub Pages.
 
-__TODO: UNDER DEVELOPMENT, TO BE UPDATED__
- 
-__The present text is copied from [here](https://uneex.ru/HSE/RatingFormula).__
+See this for kramdown:
+https://mikelove.wordpress.com/2015/07/01/how-to-use-latex-math-in-rmd-to-display-properly-on-github-pages/
+https://varunagrawal.github.io/2018/03/27/latex
+https://stackoverflow.com/questions/26275645/how-to-support-latex-in-github-pages
 
-
+This is a guideline to render formulas:
+https://coderoad.ru/49970549/Проблема-рендеринга-некоторого-синтаксиса-latex-в-MathJax-с-Jekyll-на-github
+-->
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
   MathJax.Hub.Config({
@@ -15,19 +19,11 @@ __The present text is copied from [here](https://uneex.ru/HSE/RatingFormula).__
   });
 </script>
 
-Notes about $$ \sum_{Thing} $$
+# Grading System
 
-$$ \frac{1}{n^{2}} $$
-
-<!---
-See this for kramdown:
-https://mikelove.wordpress.com/2015/07/01/how-to-use-latex-math-in-rmd-to-display-properly-on-github-pages/
-https://varunagrawal.github.io/2018/03/27/latex
-https://stackoverflow.com/questions/26275645/how-to-support-latex-in-github-pages
-
-This is a guideline to render formulas:
-https://coderoad.ru/49970549/Проблема-рендеринга-некоторого-синтаксиса-latex-в-MathJax-с-Jekyll-на-github
--->
+__TODO: UNDER DEVELOPMENT, TO BE UPDATED__
+ 
+__The present text is copied from [here](https://uneex.ru/HSE/RatingFormula).__
 
 ### Rating formula
 
@@ -40,7 +36,7 @@ Shortly speaking:
 
 #### Overall formula
 
-We'll have 3 modules, each scored $M_i$ in the same way, and final exam $E$.
+We'll have 3 modules, each scored $$M_i$$ in the same way, and final exam $$E$$.
 
 $$G = 10*min(1,\ frac{sum_{i=1}^3M_i+E}{4})$$
 
@@ -56,19 +52,7 @@ $$M_i = min(1,\ R_i+2/10B_i,)$$
 || T || 10% || Offline tests. Main use is self-checking, but here's 10% ||
 || P || 10% || Class presence. You need to attend more than 3/4 of total classes to earn this point ||
 || F || 35% || Final online test. You can skip this on with 60% penalty; 100% penalty for cheating (both sides; can be enquired) ||
+|| A,,k,, || 5% each || Class activity. Each time you broadcast a solution of a task during class hours, you get this point ||
 
 \\[ R_i = \frac{45}{100}H + \frac{10}{100}T + \frac{10}{100}P + \frac{35}{100}F \\]
 
-#### Bonus points (+20% max)
-
-Any ''200%''-task can be shared (in fact, sharing is suggested), in that case it'll be divided by the number of administrants (thus ''200%'' score)
-
-|| Variable || Score || Description ||
-|| L ||  ''200%'' || Lecture conspectus. Can be in Russian. Must cover ''all'' lectures to be scored. Each conspectus shall include a paragraph on each topic mentioned in lecture syllabus, and must be approved by lecturer and published here ||
-|| S || ''200%'' || Video subtitles (in English). Must cover ''all'' lectures to be scored, be verified by lecturer and published on !YouTube ||
-|| C,,k,, || 10% each|| Single class conspectus. Can be in Russian. Shall include all themes from the class, practice statements and it's solutions and must be approved by lecturer. No copy-paste is allowed, and no scoring if more than a week late. ||
-|| A,,k,, || 5% each || Class activity. Each time you broadcast a solution of a task during class hours, you get this point ||
-
- * $$L_{yours} = frac{2}{team\ size}$$ if L is complete and checked
- * $$S_{yours} = frac{2}{team\ size}$$ if S is complete and checked
- * $$B_i = min(1\, max(L_{yours},\ S_{yours},\ 1/10\sum_k C_k + 1/20\sum_k A_k ))$$
