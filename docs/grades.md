@@ -28,22 +28,22 @@ __The present text is copied from [here](https://uneex.ru/HSE/RatingFormula).__
 ### Rating formula
 
 Shortly speaking:
- * It's recommended to equally maximize each module score
- * You can skip any final test and get +14% for free, but if you join it, you can get anything from +0% to +35%
- * Bonuses are separated by module and costs +20% total
- * Visit classes ☺
- * Do not cheat, please, it costs!
+ * It is recommended to equally maximize each module score.
+ * Bonuses are separated by module and costs +20% total.
+ * Visit classes.
+ * Do not cheat (it costs).
 
 #### Overall formula
 
-We'll have 3 modules, each scored $$M_i$$ in the same way, and final exam $$E$$.
+We'll have 2 modules, each scored $$M_i$$ in the same way, and final exam $$E$$.
 
-$$G = 10*min(1,\ frac{sum_{i=1}^3M_i+E}{4})$$
+$$G = 10*min(1, \frac{sum_{i=1}^2M_i+E}{3})$$
 
-== Details ==
+#### Details
+
 Each module score calculates from Regular and Bonus points:
 
-$$M_i = min(1,\ R_i+2/10B_i,)$$
+$$M_i = min(1, \ R_i + 2/10B_i,)$$
 
 #### Regular points (100%)
 
