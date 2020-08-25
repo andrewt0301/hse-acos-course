@@ -44,19 +44,19 @@ Each module score is calculated from Regular and Bonus points:
 
 $$M_i = min(10, R_i + 0.2\cdot B_i)$$
 
-#### Regular Points: 10 points
+#### Regular Points: 100% (10 points)
 
 $$R_i = 10\cdot (0.45\cdot H + 0.10\cdot T + 0.10\cdot P + 0.35\cdot F)$$
 
-| Variable | Score   | Description |
-| $$H$$    | 45%     | EJudge / other practical homework. You must solve tasks in time, 50% penalty for a week outdated task, 75% penalty otherwise, no score for unsolved one. Also no score for copy-paste / rewrite or other cheating (either source or destination), this can be enquired |
-| $$T$$    | 10%     | Offline tests. Main use is self-checking, but here's 10% |
-| $$P$$    | 10%     | Class presence. You need to attend more than 3/4 of total classes to earn this point |
-| $$F$$    | 35%     | Final online test. You can skip this on with 60% penalty; 100% penalty for cheating (both sides; can be enquired) |
+| Variable | Score | Description |
+| $$H$$    | 45%   | EJudge / other practical homework. You must solve tasks in time, 50% penalty for a week outdated task, 75% penalty otherwise, no score for unsolved one. Also no score for copy-paste / rewrite or other cheating (either source or destination), this can be enquired. |
+| $$T$$    | 10%   | Offline tests. Main use is self-checking, but here's 10%. |
+| $$P$$    | 10%   | Class presence. You need to attend more than 3/4 of total classes to earn this point. |
+| $$F$$    | 35%   | Final online test. You can skip this on with 60% penalty; 100% penalty for cheating (both sides; can be enquired). |
 
-#### Bonus Points: +2 points max
+#### Bonus Points: + 20% (2 points) max
 
 $$B_i = 1/20\sum_k A_k$$
 
 | Variable | Score   | Description |
-| $$A_k$$  | 5% each | Class activity. Each time you broadcast a solution of a task during class hours, you get this point |
+| $$A_k$$  | 5% each | Class activity. Each time you broadcast a solution of a task during class hours, you get this point. |
