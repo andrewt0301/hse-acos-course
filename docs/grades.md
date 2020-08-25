@@ -42,20 +42,21 @@ $$G = \frac{\sum_{i=1}^2M_i+E}{3}$$
 
 Each module score is calculated from Regular and Bonus points:
 
-$$M_i = min(10, R_i + 0.2B_i)$$
+$$M_i = min(10, R_i + 0.2*B_i)$$
 
 #### Regular Points (100%)
 
-$$R_i = \frac{45}{100}H + \frac{10}{100}T + \frac{10}{100}P + \frac{35}{100}F$$
+$$R_i = 10*(\frac{45}{100}H + \frac{10}{100}T + \frac{10}{100}P + \frac{35}{100}F)$$
 
 | Variable | Score   | Description |
-| H        | 45%     | EJudge / other practical homework. You must solve tasks in time, 50% penalty for a week outdated task, 75% penalty otherwise, no score for unsolved one. Also no score for copy-paste / rewrite or other cheating (either source or destination), this can be enquired |
-| T        | 10%     | Offline tests. Main use is self-checking, but here's 10% |
-| P        | 10%     | Class presence. You need to attend more than 3/4 of total classes to earn this point |
-| F        | 35%     | Final online test. You can skip this on with 60% penalty; 100% penalty for cheating (both sides; can be enquired) |
+| $$H$$    | 45%     | EJudge / other practical homework. You must solve tasks in time, 50% penalty for a week outdated task, 75% penalty otherwise, no score for unsolved one. Also no score for copy-paste / rewrite or other cheating (either source or destination), this can be enquired |
+| $$T$$    | 10%     | Offline tests. Main use is self-checking, but here's 10% |
+| $$P$$    | 10%     | Class presence. You need to attend more than 3/4 of total classes to earn this point |
+| $$F$$    | 35%     | Final online test. You can skip this on with 60% penalty; 100% penalty for cheating (both sides; can be enquired) |
 
 #### Bonus Points (+ 20% max)
 
-| Variable | Score   | Description |
-| A,,k,,   | 5% each | Class activity. Each time you broadcast a solution of a task during class hours, you get this point |
+$$B_i = 1/20\sum_k A_k$$
 
+| Variable | Score   | Description |
+| $$A_k$$  | 5% each | Class activity. Each time you broadcast a solution of a task during class hours, you get this point |
