@@ -7,7 +7,7 @@ This site contains materials for the "Computer Architecture and Operating System
 
 For information on course administration, please refer to the
 official course [page](http://wiki.cs.hse.ru/ACOS_DSBA_2019/2020) at the university web site.
-The official syllabus can be found [here](https://www.hse.ru/edu/courses/301394490).
+The official syllabus can be found [here](https://www.hse.ru/edu/courses/375268865).
 
 ## Course Motivation
 
