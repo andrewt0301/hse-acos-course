@@ -56,7 +56,7 @@ $$R_i = 10\cdot (\frac{45}{100}\cdot H + \frac{10}{100}\cdot T + \frac{10}{100}\
 
 #### Bonus Points: 2 points
 
-$$B_i = 1/20\sum_k A_k$$
+$$B_i = 2\cdot \frac{sum_k A_k}{100}$$
 
 | Variable | Score   | Description |
 | $$A_k$$  | 5% each | Class activity. Each time you broadcast a solution of a task during class hours, you get this point. |
