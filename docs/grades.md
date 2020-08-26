@@ -47,7 +47,7 @@ $$M_i = min(10, R_i + B_i)$$
 $$R_i = 10\cdot (\frac{45}{100}\cdot H + \frac{10}{100}\cdot Q + \frac{10}{100}\cdot P + \frac{35}{100}\cdot F)$$
 
 | Variable | Score | Description |
-| $$H$$    | 45%   | Homework (practical tasks). There are deadlines. 50% penalty for being 1 week late. 75% penalty for a bigger delay. 100% penalty for cheating. |
+| $$H$$    | 45%   | Homework (practical tasks). There are deadlines. 50% penalty for being 1 week late. 75% penalty for larger delays. 100% penalty for cheating. |
 | $$Q$$    | 10%   | Quizzes for self-checking. |
 | $$P$$    | 10%   | Class presence. You need to attend more than 3/4 of classes to earn this point. |
 | $$F$$    | 35%   | Final test (programming assignment). 100% penalty for cheating. |
