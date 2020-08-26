@@ -9,10 +9,12 @@ The courses are listed in the order of decreasing relevance.
 - George Kouryachy. [Computer Architecture and Operating Systems.](https://uneex.ru/HSE)
   HSE. 2019. [Official page.](http://wiki.cs.hse.ru/ACOS_DSBA_2019/2020)
 
-- Silvina Hanono Wachman. [MIT 6.004: Computation Structures.](
-  https://www.youtube.com/watch?v=n-YWa8hTdH8&list=PLai-xIlqf4JmoDBmGCvKlf4gPpuG9J9cm)
+- Silvina Hanono Wachman. [MIT 6.004: Computation Structures.](https://6004.mit.edu)
+  [Videos.](https://www.youtube.com/watch?v=n-YWa8hTdH8&list=PLai-xIlqf4JmoDBmGCvKlf4gPpuG9J9cm)
+  [Slides.](../related/MIT_6004/slides)
+  <!--- Downloaded from https://6004.mit.edu/web/_static/fall20/resources/fa19/L01.pdf -->
   MIT. 2019.
-  <!--- https://6004.mit.edu/web/_static/fall20/resources/fa19/L01.pdf -->
+  
 
 - Charles Leiserson and Julian Shun. [MIT 6.172: Performance Engineering of Software Systems.](
   https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-172-performance-engineering-of-software-systems-fall-2018)
