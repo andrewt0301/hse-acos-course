@@ -46,13 +46,13 @@ $$M_i = min(10, R_i + B_i)$$
 
 #### Regular Points: 10 points
 
-$$R_i = 10\cdot (\frac{45}{100}\cdot H + \frac{10}{100}\cdot T + \frac{10}{100}\cdot P + \frac{35}{100}\cdot F)$$
+$$R_i = 10\cdot (\frac{45}{100}\cdot H + \frac{10}{100}\cdot Q + \frac{10}{100}\cdot P + \frac{35}{100}\cdot F)$$
 
 | Variable | Score | Description |
-| $$H$$    | 45%   | EJudge / other practical homework. You must solve tasks in time, 50% penalty for a week outdated task, 75% penalty otherwise, no score for unsolved one. Also no score for copy-paste / rewrite or other cheating (either source or destination), this can be enquired. |
-| $$T$$    | 10%   | Offline tests. Main use is self-checking, but here's 10%. |
-| $$P$$    | 10%   | Class presence. You need to attend more than 3/4 of total classes to earn this point. |
-| $$F$$    | 35%   | Final online test. You can skip this on with 60% penalty; 100% penalty for cheating (both sides; can be enquired). |
+| $$H$$    | 45%   | Homework (EJudge or other practical tasks). You must solve tasks in time, 50% penalty for a week outdated task, 75% penalty otherwise, no score for unsolved one. Also no score for copy-paste / rewrite or other cheating (either source or destination), this can be enquired. |
+| $$Q$$    | 10%   | Quizzes for self-checking. |
+| $$P$$    | 10%   | Class presence. You need to attend more than 3/4 of classes to earn this point. |
+| $$F$$    | 35%   | Final test (programming assignment). 100% penalty for cheating. |
 
 #### Bonus Points: 2 points
 
