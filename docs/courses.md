@@ -10,7 +10,7 @@ The courses are listed in the order of decreasing relevance.
   HSE. 2019. [Official page.](http://wiki.cs.hse.ru/ACOS_DSBA_2019/2020)
 
 - Silvina Hanono Wachman. [MIT 6.004: Computation Structures.](https://6004.mit.edu)
-  [Videos.](https://www.youtube.com/watch?v=n-YWa8hTdH8&list=PLai-xIlqf4JmoDBmGCvKlf4gPpuG9J9cm)
+  [Videos.](https://www.youtube.com/watch?v=DxHVdsYbfqU&list=PL4JwZrlpCVJM-ybXsMQ_pbSRhbqxv6ROM)
   [Slides.](https://github.com/andrewt0301/hse-acos-course/tree/master/related/MIT_6004/slides)
   <!--- Downloaded from https://6004.mit.edu/web/_static/fall20/resources/fa19/L01.pdf -->
   MIT. 2019.
