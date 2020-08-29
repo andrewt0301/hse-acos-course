@@ -70,6 +70,39 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 #### Operating Systems and System Programming
 
+1. __TODO__
+
+2. __TODO__
+
+3. __TODO__
+
+4. __TODO__
+
+5. __TODO__
+
+6. __TODO__
+
+7. __TODO__
+
+8. __TODO__
+
+9. __TODO__
+
+10. __TODO__
+
+11. __TODO__
+
+12. __TODO__
+
+13. __TODO__
+
+14. __TODO__
+
+15. __TODO__
+
+16. __TODO__
+
+<!---
 * Challenges of OS: unification, separation, logging. Kernel and userspace. Interoperability and cross-platformness.
 * The C programming language as high-level system programming tool. Libc. Building and running a C program.
 * Shell.
@@ -97,6 +130,7 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 * __TODO__
 * [Libraries](part2os/libs.md)
 * [System programming in high-level languages (Python)](part2os/python.md)
+-->
 
 ## Grading System
 
