@@ -70,9 +70,9 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 #### Operating Systems and System Programming
 
-1. __TODO__
+1. Operating system architecture. Linux.
 
-2. __TODO__
+2. C programming language. GNU tools (GCC, Make).
 
 3. __TODO__
 
@@ -100,7 +100,7 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 15. __TODO__
 
-16. __TODO__
+16. System programming in high-level languages (Python).
 
 <!---
 * Challenges of OS: unification, separation, logging. Kernel and userspace. Interoperability and cross-platformness.
