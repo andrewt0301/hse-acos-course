@@ -69,7 +69,6 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 <!---
   Registers and memory model.
   Calling conventions, stack and subroutines.
-  Arithmetical coprocessor.
   More on assembly language: macros and includes; stack frame.
 -->
 
