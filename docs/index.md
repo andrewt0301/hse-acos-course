@@ -32,7 +32,7 @@ The second part is given in __module 4__ and covers foundations of operating sys
 The main tools for this part are the [Linux](https://en.wikipedia.org/wiki/Linux) operating system and
 the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_language%29).
 
-#### Computer Architecture and Assembly Language
+### Computer Architecture and Assembly Language
 
 1. [Introduction. Historical overview. Computer architecture and organization.](part1ca/01_Introduction/lecture.md)
    <!--- [CODR] Chapter 1, [MIT 6.172] Lecture 1. [SCO] --> 
@@ -68,7 +68,7 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 16. Virtualization.
 
-#### Operating Systems and System Programming
+### Operating Systems and System Programming
 
 1. Operating system architecture. Linux.
 
