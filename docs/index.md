@@ -42,11 +42,11 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 3. [Processor. RISC and RISC-V. Assembly language.](part1ca/03_CPU/lecture.md)
 
-4. __TODO__
+4. Registers and memory. Instruction formats. Arithmetic, bitwise, and load/store instructions.
 
-5. __TODO__
+5. Conditions, loops, and arrays.
 
-6. __TODO__
+6. Pseudo instructions, macros, and includes. Memory-mapped I/O (MMIO).
 
 7. Subroutines. Stack. Calling conventions.
 
@@ -64,14 +64,9 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 14. Thread-level parallelism.
 
-15. Virtual machines.
+15. Optimizations. Ways to make code faster.
 
-<!-- 16. Optimizations -->
-
-<!---
-  Registers and memory model.
-  More on assembly language: preseudo instructions, macros and includes.
--->
+16. Virtualization.
 
 #### Operating Systems and System Programming
 
