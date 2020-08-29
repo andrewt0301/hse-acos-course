@@ -12,6 +12,7 @@ Some course topics are based on other external material, which will be provided 
 - [CODR] David A. Patterson, John L. Hennessy.
   [Computer Organization and Design RISC-V Edition: The Hardware Software Interface.](
   https://www.elsevier.com/books/computer-organization-and-design-risc-v-edition/patterson/978-0-12-812275-4)
+  Online materials are [here](https://www.elsevier.com/books-and-journals/book-companion/9780128122754).
   1st Edition. 2017.
 
 - [CSPP] Randal E. Bryant, David R. O'Hallaron.
