@@ -34,7 +34,7 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 #### Computer Architecture and Assembly Language
 
-1. [Introduction. Historical overview. Computer architecture concept.](part1ca/01_Introduction/lecture.md)
+1. [Introduction. Historical overview. Computer architecture and organization.](part1ca/01_Introduction/lecture.md)
    <!--- [CODR] Chapter 1, [MIT 6.172] Lecture 1. [SCO] --> 
 
 2. [Data types. Byte Ordering. Integer formats.](part1ca/02_DataTypes/lecture.md)
@@ -48,13 +48,13 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 6. __TODO__
 
-7. __TODO__
+7. Subroutines. Stack. Calling conventions.
 
 8. Floating-point format. IEEE 754. Floating-point instructions.
 
 9. Exceptions, traps, and interrupts.
 
-10. Pipelining.
+10. Pipelining. <!--- Hazzards. Prediction. Reordering? -->
 
 11. Caches.
 
@@ -66,10 +66,11 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 15. Virtual machines.
 
+<!-- 16. Optimizations -->
+
 <!---
   Registers and memory model.
-  Calling conventions, stack and subroutines.
-  More on assembly language: macros and includes; stack frame.
+  More on assembly language: preseudo instructions, macros and includes.
 -->
 
 #### Operating Systems and System Programming
