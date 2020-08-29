@@ -37,7 +37,7 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 1. [Introduction. Historical overview. Computer architecture concept.](part1ca/01_Introduction/lecture.md)
    <!--- [CODR] Chapter 1, [MIT 6.172] Lecture 1. [SCO] --> 
 
-2. [Data types. Byte Ordering. Integer and floating-point formats.](part1ca/02_DataTypes/lecture.md)
+2. [Data types. Byte Ordering. Integer formats.](part1ca/02_DataTypes/lecture.md)
    <!--- [CSPP] Chapter 2. -->
 
 3. [Processor. RISC and RISC-V. Assembly language.](part1ca/03_CPU/lecture.md)
@@ -50,7 +50,7 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 7. __TODO__
 
-8. __TODO__
+8. Floating-point format. IEEE 754. Floating-point instructions.
 
 9. Exceptions, traps, and interrupts.
 
