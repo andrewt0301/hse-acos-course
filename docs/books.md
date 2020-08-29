@@ -17,6 +17,7 @@ Some course topics are based on other external material, which will be provided 
 - [CSPP] Randal E. Bryant, David R. O'Hallaron.
   [Computer Systems: A Programmer's Perspective.](
   https://www.pearson.com/us/higher-education/product/Bryant-Computer-Systems-A-Programmer-s-Perspective-3rd-Edition/9780134092669.html)
+  Online materials are [here](http://csapp.cs.cmu.edu/3e/home.html).
   3rd Edition. 2015.
 
 #### Additional
