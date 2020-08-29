@@ -36,6 +36,7 @@ Some course topics are based on other external material, which will be provided 
 - [CAQA] John L. Hennessy David A. Patterson.
   [Computer Architecture: A Quantitative Approach.](
   https://www.elsevier.com/books/computer-architecture/hennessy/978-0-12-811905-1)
+  Online materials are [here](https://www.elsevier.com/books-and-journals/book-companion/9780128119051).
   6th Edition. 2017.
 
 - [CODA] David A. Patterson, John L. Hennessy.
