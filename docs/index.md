@@ -36,19 +36,42 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 1. [Introduction. Historical overview. Computer architecture concept.](part1ca/01_Introduction/lecture.md)
    <!--- [CODR] Chapter 1, [MIT 6.172] Lecture 1. [SCO] --> 
+
 2. [Data types. Byte Ordering. Integer and floating-point formats.](part1ca/02_DataTypes/lecture.md)
    <!--- [CSPP] Chapter 2. -->
-3. [CPU. RISC and RISC-V. Assembly language.](part1ca/03_CPU/lecture.md)
-   <!--- -->
 
-* Assembler, assembly language. RISC and MIPS.
-* Registers and memory model.
-* Calling conventions, stack and subroutines.
-* Arithmetical coprocessor.
-* More on assembly language: macros and includes; stack frame.
-* Exceptions, traps, and interrupts.
-* Pipelines.
-* Caches and jump predictions.
+3. [Processor. RISC and RISC-V. Assembly language.](part1ca/03_CPU/lecture.md)
+
+4. __TODO__
+
+5. __TODO__
+
+6. __TODO__
+
+7. __TODO__
+
+8. __TODO__
+
+9. Exceptions, traps, and interrupts.
+
+10. Pipelining.
+
+11. Caches.
+
+12. Virtual memory.
+
+13. Data-level parallelism: Vector, SIMD, GPU.
+
+14. Thread-level parallelism.
+
+15. Virtual machines.
+
+<!---
+  Registers and memory model.
+  Calling conventions, stack and subroutines.
+  Arithmetical coprocessor.
+  More on assembly language: macros and includes; stack frame.
+-->
 
 #### Operating Systems and System Programming
 
