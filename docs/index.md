@@ -98,9 +98,9 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 14. __TODO__
 
-15. __TODO__
+15. Networking.
 
-16. System programming in high-level languages (Python).
+16. High-level languages and operating system.
 
 <!---
 * Challenges of OS: unification, separation, logging. Kernel and userspace. Interoperability and cross-platformness.
