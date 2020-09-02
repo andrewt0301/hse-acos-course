@@ -77,19 +77,19 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 3. System calls.
 
-4. Processes and threads.
+4. Libraries and binary file format.
 
-5. Inter-process communication.
+5. Processes and threads.
 
-6. Filesystem.
+6. Inter-process communication.
 
-7. Devices and other special files.
+7. Filesystem.
 
-8. Permissions.
+8. Devices and other special files.
 
-9. Shell. I/O redirection.
+9. Permissions.
 
-10. __TODO__
+10. Shell. I/O redirection.
 
 11. __TODO__
 
@@ -102,6 +102,10 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 15. Sockets.
 
 16. High-level languages and operating system.
+
+17. __TODO__
+
+18. __TODO__
 
 <!---
 * Challenges of OS: unification, separation, logging. Kernel and userspace. Interoperability and cross-platformness.
