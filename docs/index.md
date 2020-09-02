@@ -46,27 +46,28 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 5. Conditions, loops, and arrays.
 
-6. Pseudo instructions, macros, and includes. Memory-mapped I/O (MMIO).
+6. Pseudo instructions, macros, and includes.
+ 
+7. Memory-mapped I/O (MMIO).
 
-7. Subroutines. Stack. Calling conventions.
+8. Subroutines. Stack. Calling conventions.
 
-8. Floating-point format. IEEE 754. Floating-point instructions.
+9. Floating-point format. IEEE 754. Floating-point instructions.
 
-9. Exceptions, traps, and interrupts.
+10. Exceptions, traps, and interrupts.
 
-10. Pipelining. <!--- Hazzards. Prediction. Reordering? -->
+11. Pipelining. <!--- Hazzards. Prediction. Reordering? -->
 
-11. Caches.
+12. Caches.
 
-12. Virtual memory.
+13. Virtual memory.
 
-13. Data-level parallelism: Vector, SIMD, GPU.
+14. Data-level parallelism: Vector, SIMD, GPU.
 
-14. Thread-level parallelism.
+15. Thread-level parallelism.
 
-15. Optimizations. Ways to make code faster.
+16. Optimizations. Ways to make code faster.
 
-16. Virtualization.
 
 ### Operating Systems and System Programming
 
@@ -74,19 +75,19 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 2. C programming language. GNU tools (GCC, Make).
 
-3. __TODO__
+3. System calls.
 
-4. __TODO__
+4. Processes and threads.
 
-5. __TODO__
+5. Inter-process communication.
 
-6. __TODO__
+6. Filesystem.
 
-7. __TODO__
+7. Devices and other special files.
 
-8. __TODO__
+8. Permissions.
 
-9. __TODO__
+9. Shell.
 
 10. __TODO__
 
@@ -96,7 +97,7 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 13. __TODO__
 
-14. __TODO__
+14. Virtualization.
 
 15. Networking.
 
