@@ -66,7 +66,7 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 15. Thread-level parallelism.
 
-16. Optimizations. Ways to make code faster.
+16. Optimizations.
 
 
 ### Operating Systems and System Programming
@@ -87,19 +87,19 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 8. Permissions.
 
-9. Shell.
+9. Shell. I/O redirection.
 
 10. __TODO__
 
 11. __TODO__
 
-12. __TODO__
+12. SystemD services.
 
-13. __TODO__
+13. Virtualization.
 
-14. Virtualization.
+14. Networking.
 
-15. Networking.
+15. Sockets.
 
 16. High-level languages and operating system.
 
