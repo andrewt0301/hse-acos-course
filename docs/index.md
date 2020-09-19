@@ -96,45 +96,15 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 13. SystemD services.
 
-14. Virtualization.
+14. Sockets.
 
-15. Sockets.
+15. Networking.
 
-16. Networking.
+16. Virtualization.
 
-17. High-level languages and operating system.
+17. Security.
 
-18. __TODO__
-
-<!---
-* Challenges of OS: unification, separation, logging. Kernel and userspace. Interoperability and cross-platformness.
-* The C programming language as high-level system programming tool. Libc. Building and running a C program.
-* Shell.
-* Processes.
-* Filesystem.
-* Devices and other special files.
-* Permissions.
-* Inter-process communication.
-* Libraries and binary file format.
-* Shared objects.
-* Programming tools.
-* Operating system goals: unification, separation, logging. OS interfaces: program-oriented, command-oriented, UI. OS architecture: monolith/modular/mixed.
-* Classical flower-like architecture: kernel, kernel modules; services, utilities, applications. Competency separation.
-* Command-oriented interface: utilities and shell. Command input/output/control flows. Assumption of human-readable/writable nature of command data flows. Commandline interface: principle and examples. POSIX shell command-line interface: basic syntax and command-line conventions.
-* Utilities as command-line syscall wrappers (files, processes etc.).
-* Shell syntax, I/O redirection.
-* Text processing utilities, regular expressions.
-* Pre-system boot stages.
-* POSIX-like system initialization, daemons.
-* SystemD model of interactive service control.
-* Application libraries, message bus.
-* GUI orchestrating, widgetsets.
-* Free/Open source. Distribution lifecycle: packages, repository, package manager.
-
-* __TODO__
-* [Libraries](part2os/libs.md)
-* [System programming in high-level languages (Python)](part2os/python.md)
--->
+18. High-level languages and operating system.
 
 ## Grading System
 
