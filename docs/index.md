@@ -114,13 +114,10 @@ Information on the grading system for the course is [here](grades.md).
 
 The list of software required for the course is [here](software.md). 
 
-## Textbooks
+## References
 
-The list of textbooks recommended for reading is [here](books.md).
-
-## Related Courses
-
-The list of similar and related courses is [here](courses.md).
+* [Textbooks](books.md) recommended for reading.
+* Similar and related [courses](courses.md).
 
 ## Feedback
 
