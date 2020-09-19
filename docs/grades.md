@@ -38,7 +38,7 @@ $$G = \frac{\sum_{i=1}^2M_i+E}{3}$$
 
 If the final grade $$G$$ is unsatisfactory, the exam can be retaken.
 In situations when it does not help because of low module grades $$M_i$$,
-the decision about the final grade for the discipline is done by the commission of faculty members,
+the decision about the final grade is done by the commission of faculty members,
 who will hold the final exam.   
 
 #### Module Formula
