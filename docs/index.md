@@ -68,7 +68,6 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 16. Optimizations.
 
-
 ### Operating Systems and System Programming
 
 1. Operating system architecture. Linux.
@@ -79,31 +78,31 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 4. Libraries and binary file format.
 
-5. Processes and threads.
+5. Strings and regular expressions.
 
-6. Inter-process communication.
+6. Processes and threads.
 
-7. Filesystem.
+7. Synchronization.
 
-8. Devices and other special files.
+8. Inter-process communication.
 
-9. Permissions.
+9. Filesystem.
 
-10. Shell. I/O redirection.
+10. Devices and other special files.
 
-11. __TODO__
+11. Permissions.
 
-12. SystemD services.
+12. Shell. I/O redirection.
 
-13. Virtualization.
+13. SystemD services.
 
-14. Networking.
+14. Virtualization.
 
 15. Sockets.
 
-16. High-level languages and operating system.
+16. Networking.
 
-17. __TODO__
+17. High-level languages and operating system.
 
 18. __TODO__
 
