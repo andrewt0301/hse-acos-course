@@ -1,9 +1,18 @@
-Lecture 9: Floating-point format. IEEE 754. Floating-point instructions.
+Lecture 1
 ---
+
+Introduction into Computer Architecture
 
 # Lecture
 
 Slides
+
+Outline:
+
+* Introduction.
+* Course administration.
+* Historical overview.
+* Computer architecture and organization.
 
 # Workshop
 
