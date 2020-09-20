@@ -1,7 +1,7 @@
 Lecture 9
 ---
 
-# Floating-point format
+# Floating-Point Format
 
 ## Lecture
 
