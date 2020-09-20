@@ -1,17 +1,22 @@
-# Lecture 1
+Lecture 9
+---
 
-# Lecture
+# Floating-point format. IEEE 754. Floating-point instructions.
+
+## Lecture
 
 Slides
 
-# Seminar
+## Workshop
 
 __TODO__
 
-# Homework
+## Homework
 
 __TODO__
 
-# References
+## References
+
+* IEEE 754 
 
 __TODO__
