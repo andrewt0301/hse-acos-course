@@ -1,10 +1,11 @@
-# Lecture 1
+Lecture 9: Floating-point format. IEEE 754. Floating-point instructions.
+---
 
 # Lecture
 
 Slides
 
-# Seminar
+# Workshop
 
 __TODO__
 

@@ -52,7 +52,7 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 8. Subroutines. Stack. Calling conventions.
 
-9. Floating-point format. IEEE 754. Floating-point instructions.
+9. [Floating-point format. IEEE 754. Floating-point instructions.](part1ca/09_FP/lecture.md)
 
 10. Exceptions, traps, and interrupts.
 
