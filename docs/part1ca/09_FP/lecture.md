@@ -5,7 +5,7 @@ Lecture 9
 
 ## Lecture
 
-Slides
+Slides ([PDF](CA_Lecture_09.pdf), [PPTX](CA_Lecture_09.pptx)).
 
 ## Workshop
 
