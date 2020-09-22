@@ -122,6 +122,13 @@ The list of textbooks recommended for reading is [here](books.md).
 
 The list of similar and related courses is [here](courses.md).
 
+## Acknowledgements
+
+I would like to thank [George Kouryachy](https://uneex.ru/) who was the first lecturer
+of this [course](https://uneex.ru/HSE) and who kindly shared his materials with me.
+Also, thanks to my PhD advisor [Alexander Kamkin](https://www.hse.ru/org/persons/209608913)
+who taught me a lot.
+
 ## Feedback
 
 If you have any questions or suggestions related to the course content, please feel free to submit
