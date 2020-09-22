@@ -1,9 +1,9 @@
 Lecture 1
 ---
 
-Introduction into Computer Architecture
+# Introduction into Computer Architecture
 
-# Lecture
+## Lecture
 
 Slides
 
@@ -14,14 +14,14 @@ Outline:
 * Historical overview.
 * Computer architecture and organization.
 
-# Workshop
+## Workshop
 
 __TODO__
 
-# Homework
+## Homework
 
 __TODO__
 
-# References
+## References
 
 __TODO__
