@@ -24,4 +24,6 @@ __TODO__
 
 ## References
 
+* Von Neumann architecture - https://en.m.wikipedia.org/wiki/Von_Neumann_architecture
+
 __TODO__
