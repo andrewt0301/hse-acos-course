@@ -5,12 +5,13 @@ Lecture 1
 
 ## Lecture
 
-Slides
+Slides ([PDF](CA_Lecture_01.pdf), [PPTX](CA_Lecture_01.pptx)).
 
 Outline:
 
 * Introduction.
-* Course administration.
+* Information on course administration.
+* Course motivation.
 * Historical overview.
 * Computer architecture and organization.
 
