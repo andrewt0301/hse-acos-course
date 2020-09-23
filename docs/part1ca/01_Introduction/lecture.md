@@ -24,6 +24,7 @@ __TODO__
 
 ## References
 
-* Von Neumann architecture - https://en.m.wikipedia.org/wiki/Von_Neumann_architecture
+* [Von Neumann architecture](https://en.m.wikipedia.org/wiki/Von_Neumann_architecture) (Wikipedia).
+* [Turing machine](https://en.m.wikipedia.org/wiki/Turing_machine) (Wikipedia).
 
 __TODO__

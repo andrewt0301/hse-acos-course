@@ -24,6 +24,7 @@ __TODO__
 
 ## References
 
-* IEEE 754 
+* [Standard IEEE 754](https://en.wikipedia.org/wiki/IEEE_754) (Wikipedia).
+* [Standard IEEE 754-2008](ieee-754-2008.pdf).
 
 __TODO__
