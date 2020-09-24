@@ -27,5 +27,6 @@ __TODO__
 
 * [Von Neumann architecture](https://en.m.wikipedia.org/wiki/Von_Neumann_architecture) (Wikipedia).
 * [Turing machine](https://en.m.wikipedia.org/wiki/Turing_machine) (Wikipedia).
+* History of computers and operating systems. Chapter 1 in book [[MOS]](../../books.md).
+* Computer technology overview. Chapter 1 in book [[CODR]](../../books.md).
 
-__TODO__
