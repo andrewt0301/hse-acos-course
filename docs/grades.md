@@ -27,7 +27,7 @@ https://coderoad.ru/49970549/Проблема-рендеринга-некото�
 
  * Maximize score for each of the modules.
  * Note that bonuses are separated by module.
- * Visit classes.
+ * Attend classes.
  * Do not cheat, it costs.
 
 ## Overall Formula
