@@ -23,14 +23,14 @@ https://coderoad.ru/49970549/Проблема-рендеринга-некото�
 
 # Grading System
 
-### General Advice
+## General Advice
 
  * Maximize score for each of the modules.
  * Note that bonuses are separated by module.
  * Visit classes.
  * Do not cheat, it costs.
 
-### Overall Formula
+## Overall Formula
 
 There are 2 modules $$M_i$$ (scored in the same way) and final exam $$E$$, which have an equal weight.
 
@@ -41,7 +41,7 @@ In situations when it does not help because of low module grades $$M_i$$,
 the decision about the final grade is done by the commission of faculty members,
 who will hold the final exam.   
 
-### Module Formula
+## Module Formula
 
 Each module score is calculated from Regular and Bonus points:
 
