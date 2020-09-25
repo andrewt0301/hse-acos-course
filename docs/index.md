@@ -72,7 +72,7 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 1. Operating system architecture. Linux.
 
-2. C programming language. GNU tools (GCC, Make).
+2. [C programming language. GNU tools (GCC, Make).](part2os/02_C/lecture.md)
 
 3. System calls.
 
