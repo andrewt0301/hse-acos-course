@@ -26,5 +26,5 @@ __TODO__
 
 * [Standard IEEE 754](https://en.wikipedia.org/wiki/IEEE_754) (Wikipedia).
 * [Standard IEEE 754-2008](ieee-754-2008.pdf).
-
-__TODO__
+* Floating point. Section 3.5 in [[CODR]](../../books.md).
+* Floating point. Section 2.4 in [[CSPP]](../../books.md).
