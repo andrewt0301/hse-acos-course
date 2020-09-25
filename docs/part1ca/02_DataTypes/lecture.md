@@ -10,9 +10,10 @@ Slides ([PDF](CA_Lecture_02.pdf), [PPTX](CA_Lecture_02.pptx)).
 Outline:
 
 * Bits, bytes, words, etc.
-* Binary, octal, decimal, hexadecimal.
+* Binary, decimal, hexadecimal.
 * Byte ordering: big-endian and little-endian.
 * Integer formats. Signed and unsigned.
+* Bitwise and integer operations.
 
 ## Workshop
 
