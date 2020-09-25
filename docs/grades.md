@@ -32,7 +32,8 @@ https://coderoad.ru/49970549/Проблема-рендеринга-некото�
 
 ## Overall Formula
 
-There are 2 modules $$M_i$$ (scored in the same way) and final exam $$E$$, which have an equal weight.
+There are __2 modules__ $$M_i$$ (scored in the same way) and final __exam__ $$E$$,
+which have an equal weight.
 
 $$G = \frac{\sum_{i=1}^2M_i+E}{3}$$
 
