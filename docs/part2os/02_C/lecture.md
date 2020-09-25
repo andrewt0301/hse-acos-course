@@ -25,4 +25,5 @@ __TODO__
   https://www.pearson.com/us/higher-education/program/Kernighan-C-Programming-Language-2nd-Edition/PGM54487.html)
   2nd Edition. 1988.
 
-- [C reference](https://en.cppreference.com/w/c) on _cppreference.com_
+- [C programming language.](https://en.wikipedia.org/wiki/C_%28programming_language%29) (Wikipedia).
+- [C reference](https://en.cppreference.com/w/c) on _cppreference.com_.
