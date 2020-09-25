@@ -1,5 +1,5 @@
 <!---
-The JavaScript code below is needed to suppport rendering of TeX formulas in GitHub Pages.
+The JavaScript code below is needed to support rendering of TeX formulas in GitHub Pages.
 
 See this for kramdown:
 https://mikelove.wordpress.com/2015/07/01/how-to-use-latex-math-in-rmd-to-display-properly-on-github-pages/
