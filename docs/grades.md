@@ -64,3 +64,7 @@ $$B_i = 2\cdot \frac{\sum_k A_k}{100}$$
 
 | Variable | Score   | Description |
 | $$A_k$$  | 5% each | Class activity. Each time you broadcast a solution of a task during class hours, you get this point. |
+
+## Exam Format
+
+The description of the exam format and exam grading rules is [here](exam.md).
