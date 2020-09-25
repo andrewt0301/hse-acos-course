@@ -26,5 +26,4 @@ __TODO__
 ## References
 
 * [Endianness](https://en.wikipedia.org/wiki/Endianness) (Wikipedia).
-
-__TODO__
+* Representing information. Chapter 1 in [[CSPP]](../../books.md).
