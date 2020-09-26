@@ -126,16 +126,27 @@ ls: cannot access 'c100500': No such file or directory
 
 ## Homework
 
- Research:: What exit status the command `read` generates? Try it
-  * ''Important'': Please consult `help read` (e. g. [[https://www.gnu.org/software/bash/manual/bash.html#index-read|here]]) command instead of `man read`, because `read` is shell built-in and you got manual page on ''all'' shell builtins
- Research:: How to suppress «`\n`» output after `echo` (see [[man1:echo]])?
- Task:: Write a `c8` script that asks user for name, and prints a welcome message either if an user has entered a name or not:
- {{{#!highlight console
+### Research
+
+* What exit status the command `read` generates? Try it
+  * _Important_: Please consult `help read`
+    (e. g. [here](https://www.gnu.org/software/bash/manual/bash.html#index-read)) 
+    command instead of `man read`, because `read` is shell built-in and you got
+    manual page on _all_ shell builtins.
+  * How to suppress «`\n`» output after `echo` (see [[man1:echo]])?
+
+### Task
+
+Write a `c8` script that asks user for name, and prints a welcome message either
+if an user has entered a name or not:
+
+```shell script
 $ ./c8
 Enter your name: Spot
 Hello, Spot!
 $ ./c8
 Enter your name: 
 Hello, tmpuser?
-}}}
-  * Hint: In second example user had ''not'' pressed «Enter»
+```
+
+Hint: In second example, user had ''not'' pressed «Enter».

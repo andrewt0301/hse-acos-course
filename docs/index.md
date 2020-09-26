@@ -56,7 +56,7 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 10. Exceptions, traps, and interrupts.
 
-11. Pipelining. <!--- Hazzards. Prediction. Reordering? -->
+11. Pipelining. <!--- Hazzards. Prediction. Reordering?  -->
 
 12. Caches.
 
