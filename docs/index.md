@@ -92,7 +92,7 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 11. Permissions.
 
-12. Shell. I/O redirection.
+12. [Shell. I/O redirection.](part2os/12_Shell/lecture.md)
 
 13. SystemD services.
 
