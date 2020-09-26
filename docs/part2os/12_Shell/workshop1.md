@@ -124,7 +124,8 @@ ls: cannot access 'c100500': No such file or directory
    * To output content of `ls` ''after'' «YES» message, if ls is successful
    * Not to output error message if `ls` is not successful
 
-== H/W ==
+## Homework
+
  Research:: What exit status the command `read` generates? Try it
   * ''Important'': Please consult `help read` (e. g. [[https://www.gnu.org/software/bash/manual/bash.html#index-read|here]]) command instead of `man read`, because `read` is shell built-in and you got manual page on ''all'' shell builtins
  Research:: How to suppress «`\n`» output after `echo` (see [[man1:echo]])?
@@ -138,4 +139,3 @@ Enter your name:
 Hello, tmpuser?
 }}}
   * Hint: In second example user had ''not'' pressed «Enter»
-  
