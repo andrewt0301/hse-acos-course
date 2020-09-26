@@ -125,18 +125,22 @@ done
   * You can use `break` to quit from cycle
   * Hint: debug shell script with `sh -x shellscript.sh`
 
-== H/W ==
- * Complete all tasks
- * [[man1:expr]] again :)
- * Write a shell script `sumsum.sh` that
-  * Has function `sum()` that
-   * sums all of it's arguments (any number of arguments are permitted)
-   * prints this sum if there's no errors
-   * prints `0` if there was error (e. g. try to sum non-numbers)
-   * redirects all error messages to `/dev/null`
-  * Reads two lines of numbers
-  * Prints if their sums was equal or not
-  {{{#!highlight console
+## Homework
+
+* Complete all tasks.
+* Study [expr](https://man7.org/linux/man-pages/man1/expr.1.html) again.
+* Write a shell script `sumsum.sh` that
+   * Has function `sum()` that
+     * Sums all of it's arguments (any number of arguments are permitted)
+     * Prints this sum if there's no errors
+     * Prints `0` if there was error (e. g. try to sum non-numbers)
+     * Redirects all error messages to `/dev/null`
+  * Reads two lines of numbers.
+  * Prints if their sums was equal or not.
+
+Here an example of how the script should work:
+
+```shell script
 $ ./sumsum.sh
 1 3 5
 2 4 6
@@ -157,4 +161,4 @@ $ ./sumsum.sh
 qwe 3 4
 10 20 -30
 Equal
-}}}
+```
