@@ -62,4 +62,7 @@ it is __necessary__. However, there are several important notes:
   text will demonstrate this __absence of understanding__.
 
 Topics are grouped by modules to simplify exam preparation.
+
+## Exam Topic Examples
+
 Examples of exam topics for year 2019/2020 can be found [here](exam_2019.md).
