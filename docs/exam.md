@@ -54,12 +54,12 @@ Usually questions are of the following types:
 When answering questions it is __allowed__ to use documentation. Moreover, in some situations,
 it is __necessary__. However, there are several important notes:
 
-* Оперативно пользоваться справочными материалами надо ''уметь'',
-  экзамен выявляет в том числе это умение.
-* Почёрпнутые из внешних источников сведения принимаются только в пересказе или с объяснениями;
-  сами сведения, разумеется, не оцениваются.
-* Если вы не до конца понимаете, о чём говорите, пересказ и/или чтение источника вслух
-  только усиливают этот эффект ☹.
+* Ability to quickly find an answer in documentation is a __skill__ and the exam assesses
+  this skill among other things.
+* Information from external sources is accepted only as a __retelling__ or must be provided with
+  __explanations__. Reading information does not give any points.
+* If you do not really understand what your are talking about, reading aloud an unfamiliar
+  text will demonstrate this __absence of understanding__.
 
 Topics are grouped by modules to simplify exam preparation.
-Examples of exam topics for year 2019/2020 can be found here [здесь](exam_2019.md).
+Examples of exam topics for year 2019/2020 can be found [here](exam_2019.md).
