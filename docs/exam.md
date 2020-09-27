@@ -19,7 +19,7 @@ __TODO__: Update this information. It has been taken from [here](https://uneex.r
    при подведении итогов слегка понижает балл каждого.
 * Пользоваться можно ''чем угодно'', кроме пересказа чужих ответов, вопросы задаются на понимание.
 
-## Grading
+## Grading Policy
  
 Оценивается по каждому студенту
 * соотношение правильных/неправильных ответов
@@ -28,14 +28,13 @@ __TODO__: Update this information. It has been taken from [here](https://uneex.r
 
 ### Notes about the exam format
 
-* В группе всегда находятся участники, которые норовят отмолчаться
-  (в обычной ситуации они стараются сесть во второй ряд).
-  Экзаменатору надо за этим следить (это видно из протокола) и некоторые вопросы задавать не всем,
-  а вот таким молчунам.
-* Тем не менее, если человек решил отмалчиваться, он сам себе враг
-* Хорошая тактика сдачи экзамена в такой форме — это самим слушателям сорганизоваться заранее
-  и договориться, чтобы в группе всегда присутствовал кто-то способный ответить на сложные вопросы,
-  и чтобы на простые отвечали те, кто менее уверен.
+* In a group of students, there are always some shy people who try to avoid participating in
+  the discussion. Typically, they sit in the back row. The examiner must control this
+  and ask some questions to these people personally (not to the entire group).
+* Nevertheless, people who choose to keep silence during the exam are their own enemies.
+* A good strategy for taking the exam is to distribute questions in advance so that
+  there are always be somebody to answer hard questions and easy questions are left
+  to less confident people. 
 
 ## Exam Topics
 
