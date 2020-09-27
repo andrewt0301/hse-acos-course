@@ -9,7 +9,8 @@ Make `03_ShellProgramming` subdirectory and store all the code there.
 (!) As always, part of this tasks is about ''reading [[man1:man|manual pages''
 
  1. `while.sh`
- {{{#!highlight sh
+ 
+ ```shell script
  #!/bin/sh
 
  A=.
@@ -17,14 +18,16 @@ Make `03_ShellProgramming` subdirectory and store all the code there.
          read A
  done
  echo "Exit status: $?"
- }}}
+```
+
   * Like `if`, while executes a command chain (`echo "Run"; ls $A` in example) and check exit status of ''last'' command executed (`ls`)
    * if it's 0 (successful execution) this means true
    * if it is non-zero, this means false (when `ls` got an error
   * exit status on any last command executed is stored to «`?`» variable
   * (optionally) you can use `&&` and `||` instead of `;` to force ''all'' exit statuses into account, e. g. `cmd1 || cmd2` is true if either of `cmd1` or `cmd2` was successful, and `cmd && cmd2 && cmd3` is true only if all commands was successful.
  1. (!) (was in homework, but can get it from `help read`). Write a program `while2.sh` that simulates `cat`: reads from standard input (one read per line):
- {{{#!highlight console
+
+```shell script
 $ fortune > file
 $ cat < file
 Isn't it ironic that many men spend a great part of their lives
@@ -34,7 +37,8 @@ $ sh while2.sh < file
 Isn't it ironic that many men spend a great part of their lives
 avoiding marriage while single-mindedly pursuing those things that
 would make them better prospects?
- }}}
+```
+
   * (!) Also:  what we ought to do to make `./whil2.sh` run?
  1. [[man1:test]]. Can compare strings, numbers, check is string is a real file name etc.
   * (!) '''Research''': read the manual page. What these commands do:
@@ -46,7 +50,8 @@ would make them better prospects?
  1. (!) Write a `while3.sh` script that print all the lines from standard input, but stops if `QUIT` is entered
   * <!> (optional) it must also stop when standard input is closed
  1. `for.sh`
- {{{#!highlight sh
+
+```shell script
 #!/bin/sh
 
 for n in 1 2 3 10 20 30 qwe asd xcv; do
@@ -57,7 +62,8 @@ echo "$#" / "$*"
 for n ; do
         echo "What is this: $n?"
 done
-}}}
+```
+
   * The `for` cycle is like python's (strictly speaking, ''python's'' for is like shell's one :) ). It assigns to a variable (`n` in example) all words from word sequence
   * (!) '''Research''':
    * What are `#` and `*` variables?
@@ -69,7 +75,8 @@ done
   * Arguments are passing to the function just like command line arguments does
   * ''inside'' a function all the command-line aware constructions (like `$0`, `$1`, `$#`, `$*` etc) deals with function arguments instead
   * See `funct.sh` file:
- {{{#!highlight sh
+
+```shell script
 #!/bin/sh
 
 fun() {
@@ -83,11 +90,13 @@ fun 1   QWE  "3 4"
 fun "$*"
 fun  $*
 fun "$@"
-}}}
+```
+
   * (!) '''Research''':
    * Describe the difference between `"$*"`, `$*`, and especially `"$@"` (yes, it is special construction)
  1. Reminder. Command output substitution, {{{`command`}}} and `$(command)` forms (equivalent)
-  {{{#!highlight console
+
+```shell script
 $ date
 Чт апр 23 20:13:35 MSK 2020
 $ A=`date`
@@ -104,10 +113,11 @@ $ echo "$B"
 13 14 15 16 17 18 19
 20 21 22 23 24 25 26
 27 28 29 30
-  }}}
+```
    * Why `echo $B` looks like this?
   * (!) Create `funct2.sh` program
- {{{#!highlight sh
+
+```shell script
 #!/bin/sh
 
 sum() {
@@ -117,7 +127,8 @@ sum() {
 while read a b; do
         sum $a $b
 done
-}}}
+```
+
   * Note how `read var1 var2 … varN` works
   * (!) read [[man1:expr]] and improve the program so it will print the sum of `$a` and `$b`. Assume input is always correct
  1. (!) Copy `funct2.sh` to `funct3.sh` and modify it so it shall also stop if `$A`+`$B`>`100`.
