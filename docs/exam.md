@@ -39,19 +39,20 @@ __TODO__: Update this information. It has been taken from [here](https://uneex.r
 
 ## Exam Topics
 
-Topics __are not__ questions. Это области, относительно которых вопросы задаются.
-Обычно это вопросы вида:
+Topics __are not__ questions. They are areas, from which questions are selects.
+Usually questions are of the following types:
 
 * What it is?
 * How does it work?
 * What is it for?
-* Why cannot we use [''something else'']?
-* почему [''верное утверждение''] а не [''менее верное утверждение'']?
-* What is the difference between [''read documentation in one place''] and
-  [''read documentation in another place'']?
+* Why cannot we use [_something else_]?
+* Why [_correct statement_] and not [_less correct statement_]?
+* What is the difference between [_read documentation in one place_] and
+  [_read documentation in another place_]?
 * etc.
 
-При ответе на вопрос можно (а иногда просто ''нужно'') пользоваться справочными материалами, но:
+When answering questions it is __allowed__ to use documentation. Moreover, in some situations,
+it is __necessary__. However, there are several important notes:
 
 * Оперативно пользоваться справочными материалами надо ''уметь'',
   экзамен выявляет в том числе это умение.
