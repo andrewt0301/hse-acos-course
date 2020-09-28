@@ -3,29 +3,28 @@ Exam Format
 
 ## Exam Format Description
 
-* The exam is organized as a discussion between the examiner and a group of 5-7 students,
-  which covers all main topics of the course and takes about 2 hours.
+The exam is organized as a discussion between the examiner and a group of 5-7 students,
+which covers all main topics of the course and takes about 2 hours.
+During the discussion, the examiner asks questions related to the course topics and
+the students answer to these questions in an arbitrary order.
+The examiner writes down an exam protocol in a simple form («student, topic, point (+/-/±)»).
+For each of the questions, students can earn the following points:
 
-* During the discussion, the examiner asks questions related to the course topics and
-  the students answer to these questions in an arbitrary order.
+* __«+»__: Complete enough answer in any form (including «I don't know, but think that…»,
+adequate retelling of documentation, etc.).
 
-* The examiner writes down an exam protocol in a simple form («student, topic, point (+/-/±)»):
+* __«±»__: Significantly incomplete answer, answer that contains both correct and incorrect
+statements, a correct answer the student cannot correctly explain (for example, a random answer).
 
-   * __«-»__: Totally incorrect answer, answer irrelevant to the question, general discussion
-   demonstrating absence of understanding of the topic, reading aloud texts without
-   their understanding, retelling answers of other students.
+* __«-»__: Totally incorrect answer, answer irrelevant to the question, general discussion
+demonstrating absence of understanding of the topic, reading aloud texts without
+their understanding, retelling answers of other students.
 
-   * __«±»__: Significantly incomplete answer, answer that contains both correct and incorrect
-   statements, a correct answer the student cannot correctly explain (for example, a random answer).
+* __Collective «0»__: Absence of an answer to a simple question (from a point of the examiner).
+This slightly decreases the grade of every student in the group.
 
-   * __«+»__: Complete enough answer in any form (including «I don't know, but think that…»,
-   adequate retelling of documentation, etc.).
-
-   * __Collective «0»__: Absence of an answer to a simple question (from a point of the examiner).
-   This slightly decreases the grade of every student in the group.
-
-* It is allowed to use any materials during the exam. However, it is illegal to answer questions
-  by simply reading from these materials. Also, it is forbidden to retell answers of other students.
+It is allowed to use any materials during the exam. However, it is illegal to answer questions
+by simply reading from these materials. Also, it is forbidden to retell answers of other students.
 
 ## Grading Policy
  
