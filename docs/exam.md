@@ -12,8 +12,8 @@ Exam Format
 * The examiner writes down an exam protocol in a simple form («student, topic, point (+/-/±)»):
 
    * __«-»__: Totally incorrect answer, answer irrelevant to the question, general discussion
-   demonstrating absence of understanding of the topic.
-   reading aloud texts without their understanding; retelling answers of other students.
+   demonstrating absence of understanding of the topic, reading aloud texts without
+   their understanding, retelling answers of other students.
 
    * __«±»__: Significantly incomplete answer, answer that contains both correct and incorrect
    statements, a correct answer the student cannot correctly explain (for example, a random answer).
@@ -35,6 +35,8 @@ For each student, the assessment is done by the following criteria:
 * Degree of coverage of course topics with answers.
 * Any additional knowledge related to the course topics.
 
+### Formula
+
 __TODO: A FORMULA IS NEEDED HERE__
 
 ### Notes
@@ -46,7 +48,7 @@ __TODO: A FORMULA IS NEEDED HERE__
 * Nevertheless, people who choose to keep silence during the exam are their own enemies.
 
 * A good strategy for taking the exam is to distribute questions in advance so that
-  there are always be somebody to answer hard questions and easy questions are left
+  there is always somebody to answer hard questions while easy questions are left
   to less confident people. 
 
 ## Exam Topics
