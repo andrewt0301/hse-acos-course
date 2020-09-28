@@ -1,22 +1,22 @@
 Exam Format
 ---
 
-__TODO__: Update this information. It has been taken from [here](https://uneex.ru/HSE/ExamTopics/Russian).
+## Exam Format Description
 
-## Exam Format
-
-* Устная беседа в группе примерно по 7 человек на все основные темы курса в течение примерно двух часов.
-* В процессе беседы экзаменатор задаёт вопросы по темам, студенты в произвольном порядке отвечают.
-* An examiner produces an exam protocol in a simple form («student, topic, point (+/-/±)»):
-   * __«-»__: totally incorrect answer, answer irrelevant to the question, general discussion
-   demonstrating absence of understanding of the topic;
+* Discussion, in a group of 5-7 students,
+  which covers all main topics of the course and takes about 2 hours.
+* During the discussion, the examiner asks questions related to the course topics.
+  The students answer to these questions in an arbitrary order.
+* An examiner writes down an exam protocol in a simple form («student, topic, point (+/-/±)»):
+   * __«-»__: Totally incorrect answer, answer irrelevant to the question, general discussion
+   demonstrating absence of understanding of the topic.
    reading aloud texts without their understanding; retelling answers of other students.
-   * __«±»__: сильно неполный ответ, ответ, содержащий верные и неверные утверждения,
-   необоснованный/неверно обоснованный правильный ответ (например, наугад)
-   * __«+»__: достаточно полный ответ в любой форме (включая «не знаю, но думаю, что…»,
-   адекватный пересказ документации и пр.)
-   * __Collective «0»__: отсутствие ответа на простой с точки зрения экзаменатора вопрос,
-   при подведении итогов слегка понижает балл каждого.
+   * __«±»__: Significantly incomplete answer, answer that contains both correct and incorrect
+   statements, a correct answer the student cannot correctly explain (for example, a random answer).
+   * __«+»__: Complete enough answer in any form (including «I don't know, but think that…»,
+   adequate retelling of documentation, etc.).
+   * __Collective «0»__: Absence of an answer to a simple question (from a point of the examiner).
+   This slightly decreases the grade of every student in the group.
 * It is allowed to use any materials during the exam. However, it is not allowed to answer questions
   by simply reading from these materials. Also, it is forbidden to retell answers of other students.
 
@@ -28,7 +28,9 @@ For each student, the assessment is done by the following criteria:
 * Degree of coverage of course topics with answers.
 * Any additional knowledge related to the course topics.
 
-### Notes about the exam format
+__TODO: A FORMULA IS NEEDED HERE__
+
+### Some Notes
 
 * In a group of students, there are always some shy people who try to avoid participating in
   the discussion. Typically, they sit in the back row. The examiner must control this
