@@ -38,6 +38,8 @@ For each student, the assessment is done by the following criteria:
 
 __TODO: A FORMULA IS NEEDED HERE__
 
+__TODO: AN EXAMPLE RESULT EXAMPLES is NEEDED HERE__
+
 ### Notes
 
 * In a group of students, there are always some shy people who try to avoid participating in
