@@ -5,8 +5,10 @@ Exam Format
 
 * Discussion, in a group of 5-7 students,
   which covers all main topics of the course and takes about 2 hours.
+
 * During the discussion, the examiner asks questions related to the course topics.
   The students answer to these questions in an arbitrary order.
+
 * An examiner writes down an exam protocol in a simple form («student, topic, point (+/-/±)»):
    * __«-»__: Totally incorrect answer, answer irrelevant to the question, general discussion
    demonstrating absence of understanding of the topic.
@@ -17,6 +19,7 @@ Exam Format
    adequate retelling of documentation, etc.).
    * __Collective «0»__: Absence of an answer to a simple question (from a point of the examiner).
    This slightly decreases the grade of every student in the group.
+
 * It is allowed to use any materials during the exam. However, it is not allowed to answer questions
   by simply reading from these materials. Also, it is forbidden to retell answers of other students.
 
@@ -30,7 +33,7 @@ For each student, the assessment is done by the following criteria:
 
 __TODO: A FORMULA IS NEEDED HERE__
 
-### Some Notes
+### Notes
 
 * In a group of students, there are always some shy people who try to avoid participating in
   the discussion. Typically, they sit in the back row. The examiner must control this
