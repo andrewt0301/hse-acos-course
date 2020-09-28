@@ -134,4 +134,5 @@ who was the PhD advisor of the author and who taught him a lot.
 If you have any questions or suggestions related to the course content, please feel free to submit
 an [issue](https://github.com/andrewt0301/hse-acos-course/issues)
 or contact the course [author](https://github.com/andrewt0301). 
-If you like the course, you are welcome to star it in [GitHub](https://github.com/andrewt0301/hse-acos-course).
+If you like the course, you are welcome to star it (![star](images/star.png)) in
+[GitHub](https://github.com/andrewt0301/hse-acos-course).
