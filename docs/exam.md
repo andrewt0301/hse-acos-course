@@ -38,7 +38,7 @@ For each student, the assessment is done by the following criteria:
 
 __TODO: A FORMULA IS NEEDED HERE__
 
-__TODO: AN EXAMPLE RESULT EXAMPLES is NEEDED HERE__
+__TODO: AN EXAMPLE GRADE CALCULATION IS NEEDED HERE__
 
 ### Notes
 
@@ -54,7 +54,7 @@ __TODO: AN EXAMPLE RESULT EXAMPLES is NEEDED HERE__
 
 ## Exam Topics
 
-Topics __are not__ questions. They are areas, from which questions are selects.
+Topics __are not__ questions. They are areas, from which questions are selected.
 Usually questions are of the following types:
 
 * What it is?
