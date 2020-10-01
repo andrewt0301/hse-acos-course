@@ -61,8 +61,8 @@ The overall formula for the exam grade:
 
 $$G = 10\cdot \frac{P_1 + P_2}{12}$$ 
 
-The questions are divided into __2 parts__ $$P_1$$ and $$P_2$$ each covering topics
-from module 3 and module 4 respectively.
+The exam consists of __2 parts__ $$P_1$$ and $$P_2$$ each containing questions
+that cover topics from module 3 and module 4 respectively.
 To get a maximal grade, a student needs to successfully answer __3 questions__ from each part.
 Each answer can give __0 to 2 relative points__ (0 for «-», 1 for «±», and 2 for «+»), which
 are then divided by __maximal point 12__ to give a grade. 
