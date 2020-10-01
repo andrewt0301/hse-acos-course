@@ -1,3 +1,4 @@
+```javascript
 /** @OnlyCurrentDoc */
 /** @OnlyCurrentDoc */
 function Zscore(log, mlen=3) {
@@ -16,3 +17,4 @@ function Zscore(log, mlen=3) {
   }
   return Math.ceil(res*3./Math.max(len, mlen));
 }
+```
