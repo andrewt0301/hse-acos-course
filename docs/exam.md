@@ -57,11 +57,15 @@ For each student, the assessment is done by the following criteria:
 
 ### Formula
 
-The questions are split into __2 parts__ each covering topics from __module 3__ and __module 4__.
+The questions are divided into __2 parts__ $$P_i$$ each covering topics
+from __module 3__ and __module 4__ respectively.
 To get a maximal grade, a student needs to successfully answer __3 questions__ from each part.
-Each answer can give 0 to 2 points, which are then divided by the number of answers. 
+Each answer can give 0 to 2 points (0 for «-», 1 for «±», and 2 for «+»),
+which are then divided by the number of answers. So, the maximal score is 12. 
 
-$$G = \frac{P_1 + P_2}{12}$$ 
+The overall formula for the exam scope looks like this:
+
+$$G = 10\cdot \frac{P_1 + P_2}{12}$$ 
 
 Zscore is calculated with this [function](exam_zcore.gs). 
 
