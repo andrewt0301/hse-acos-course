@@ -68,8 +68,17 @@ Each answer can give __0 to 2 relative points__ (0 for «-», 1 for «±», and 
 are then divided by __maximal point 12__ to give a grade. 
 
 Points for each part $$P_i$$ are calculated with the [Zcore](exam_zcore.md) function,
-which counts points for each of the question and divides them by the total number of answers
-given by a student. 
+which counts points for each of the questions and divides them by the total number of answers
+given by a student.
+
+Examples of calculated grades:
+
+| Student   | Answers in $$P_1$$  | Answers in $$P_2$$  | $$G$$ |
+| Student 1	| +++                 | +++                 | 10    |
+| Student 2	| ++                  | ++	                | 6.67  |
+| Student 3	| ++/ 	              | ++/                 | 8.33  |
+| Student 4	| ///                 | ///                 | 5     |
+| Student 5	| ++-+                | +++                 | 9.17  |
 
 ### Notes
 
