@@ -73,12 +73,12 @@ given by a student.
 
 Examples of calculated grades:
 
-| Student   | Answers in $$P_1$$  | Answers in $$P_2$$  | $$G$$ |
-| Student 1	| +++                 | +++                 | 10    |
-| Student 2	| ++                  | ++	                | 6.67  |
-| Student 3	| ++/ 	              | ++/                 | 8.33  |
-| Student 4	| ///                 | ///                 | 5     |
-| Student 5	| ++-+                | +++                 | 9.17  |
+| __Student__ | __Answers in $$P_1$$__ | __Answers in $$P_2$$__ | __$$G$$__ |
+| Student 1	  | +++                    | +++                    | 10        |
+| Student 2	  | ++                     | ++	                    | 6.67      |
+| Student 3	  | ++/ 	               | ++/                    | 8.33      |
+| Student 4	  | ///                    | ///                    | 5         |
+| Student 5	  | ++-+                   | +++                    | 9.17      |
 
 ### Notes
 
