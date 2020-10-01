@@ -1,3 +1,24 @@
+<!---
+The JavaScript code below is needed to support rendering of TeX formulas in GitHub Pages.
+
+See this for kramdown:
+https://mikelove.wordpress.com/2015/07/01/how-to-use-latex-math-in-rmd-to-display-properly-on-github-pages/
+https://varunagrawal.github.io/2018/03/27/latex
+https://stackoverflow.com/questions/26275645/how-to-support-latex-in-github-pages
+
+This is a guideline to render formulas:
+https://coderoad.ru/49970549/Проблема-рендеринга-некоторого-синтаксиса-latex-в-MathJax-с-Jekyll-на-github
+-->
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$$','$$'], ['\\(','\\)']],
+      processEscapes: true
+    }
+  });
+</script>
+
 Exam Format
 ---
 
@@ -36,7 +57,13 @@ For each student, the assessment is done by the following criteria:
 
 ### Formula
 
-__TODO: A FORMULA IS NEEDED HERE__
+The questions are split into __2 parts__ each covering topics from __module 3__ and __module 4__.
+To get a maximal grade, a student needs to successfully answer __3 questions__ from each part.
+Each answer can give 0 to 2 points, which are then divided by the number of answers. 
+
+$$G = \frac{P_1 + P_2}{12}$$ 
+
+Zscore is calculated with this [function](exam_zcore.gs). 
 
 __TODO: AN EXAMPLE GRADE CALCULATION IS NEEDED HERE__
 
