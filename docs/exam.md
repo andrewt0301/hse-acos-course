@@ -57,25 +57,19 @@ For each student, the assessment is done by the following criteria:
 
 ### Formula
 
-The overall formula for the exam grade looks like this:
+The overall formula for the exam grade:
 
 $$G = 10\cdot \frac{P_1 + P_2}{12}$$ 
 
-The questions are divided into 2 parts__ each covering topics
-from __module 3__ ($$P_1$$) and __module 4__ ($$P_2$$) respectively.
+The questions are divided into __2 parts__ $$P_1$$ and $$P_2$$ each covering topics
+from module 3 and module 4 respectively.
 To get a maximal grade, a student needs to successfully answer __3 questions__ from each part.
-Each answer can give 0 to 2 relative points (0 for «-», 1 for «±», and 2 for «+»), which
-are then divided by maximal score 12 to give a grade. 
+Each answer can give __0 to 2 relative points__ (0 for «-», 1 for «±», and 2 for «+»), which
+are then divided by __maximal point 12__ to give a grade. 
 
-Points for each part are calculated as follows:
-
-$$P_i = Zscore(answers)$$
-
-which are then divided by the number of answers. 
-
-Zscore is calculated with this [function](exam_zcore.md). 
-
-__TODO: AN EXAMPLE GRADE CALCULATION IS NEEDED HERE__
+Points for each part $$P_i$$ are calculated with the [Zcore](exam_zcore.md) function,
+which counts points for each of the question and divides them by the total number of answers
+given by a student. 
 
 ### Notes
 
