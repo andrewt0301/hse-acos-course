@@ -100,11 +100,13 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 15. Networking.
 
-16. Virtualization.
+16. Distributed operating systems.
 
-17. Security.
+17. Virtualization.
 
-18. High-level languages and operating system.
+18. Security.
+
+19. High-level languages and operating system.
 
 ## Grading System
 
