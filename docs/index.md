@@ -106,7 +106,7 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 18. Security.
 
-19. High-level languages and operating system.
+19. [High-level languages and operating system.](part2os/19_Python/lecture.md)
 
 ## Grading System
 
