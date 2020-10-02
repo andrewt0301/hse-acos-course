@@ -67,7 +67,7 @@ To get a maximal grade, a student needs to successfully answer __3 questions__ f
 Each answer can give __0 to 2 relative points__ (0 for «-», 1 for «±», and 2 for «+»), which
 are then divided by __maximal point 12__ to give a grade. 
 
-Points for each part $$P_i$$ are calculated with the [Zscore](exam_zcore.md) function,
+Points for each part $$P_i$$ are calculated with the [Zscore](exam_zscore.md) function,
 which counts points for each of the questions and divides them by the total number of answers
 given by a student.
 
