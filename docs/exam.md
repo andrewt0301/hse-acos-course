@@ -22,7 +22,7 @@ https://coderoad.ru/49970549/Проблема-рендеринга-некото�
 Exam Format
 ---
 
-## Exam Format Description
+## Exam
 
 The exam is organized as a discussion between the examiner and a group of 5-7 students,
 which covers all main topics of the course and takes about 2 hours.
@@ -67,7 +67,7 @@ To get a maximal grade, a student needs to successfully answer __3 questions__ f
 Each answer can give __0 to 2 relative points__ (0 for «-», 1 for «±», and 2 for «+»), which
 are then divided by __maximal point 12__ to give a grade. 
 
-Points for each part $$P_i$$ are calculated with the [Zcore](exam_zcore.md) function,
+Points for each part $$P_i$$ are calculated with the [Zscore](exam_zscore.md) function,
 which counts points for each of the questions and divides them by the total number of answers
 given by a student.
 
@@ -92,7 +92,7 @@ Examples of calculated grades:
   there is always somebody to answer hard questions while easy questions are left
   to less confident people. 
 
-## Exam Topics
+## Topics
 
 Topics __are not__ questions. They are areas, from which questions are selected.
 Usually questions are of the following types:
@@ -120,6 +120,6 @@ it is __necessary__. However, there are several important notes:
 
 Topics are grouped by modules to simplify exam preparation.
 
-## Exam Topic Examples
+## Topic Examples
 
 Examples of exam topics for year 2019/2020 can be found [here](exam_2019.md).
