@@ -15,6 +15,10 @@ Outline:
 * Integer formats. Signed and unsigned.
 * Bitwise and integer operations.
 
+## Quiz
+
+__TODO__
+
 ## Workshop
 
 __TODO__

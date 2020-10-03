@@ -15,6 +15,10 @@ Outline:
 * Historical overview.
 * Computer architecture and organization.
 
+## Quiz
+
+__TODO__
+
 ## Workshop
 
 __TODO__
