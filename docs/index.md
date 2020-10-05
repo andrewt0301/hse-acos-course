@@ -42,7 +42,7 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 3. [Processor. RISC and RISC-V. Assembly language.](part1ca/03_CPU/lecture.md)
 
-4. Registers and memory. Instruction formats. Arithmetic and load/store instructions.
+4. [Registers and memory. Instruction formats. Arithmetic and load/store instructions.](part1ca/04_Instructions/lecture.md)
 
 5. Conditions, loops, and arrays.
 
