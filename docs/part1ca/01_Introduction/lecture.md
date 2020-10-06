@@ -26,8 +26,8 @@ Outline:
 * Introduction: instructor meets class.
 * Information on workshop organisation (goals, topics)
   and administration (attendance, homeworks, grading).
-* Introduction to software tools.
-     * RARS (__TODO__)
+* Introduction to [software tools](../../software.md).
+     * [RARS](../../software/rars.md).
      * Linux Ubuntu VM (__TODO__)
 
 ## Homework
