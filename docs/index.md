@@ -54,9 +54,9 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 9. [Floating-point format. IEEE 754. Floating-point instructions.](part1ca/09_FP/lecture.md)
 
-10. Exceptions, traps, and interrupts.
+10. [Exceptions, traps, and interrupts.](part1ca/10_Exceptions/lecture.md)
 
-11. Pipelining. <!--- Hazzards. Prediction. Reordering?  -->
+11. [Pipelining.](part1ca/11_Pipeline/lecture.md)
 
 12. Caches.
 
