@@ -21,7 +21,14 @@ __TODO__
 
 ## Workshop
 
-__TODO__
+Outline:
+
+* Introduction: instructor meets class.
+* Information on workshop organisation (goals, topics)
+  and administration (attendance, homeworks, grading).
+* Introduction to software tools.
+     * RARS (__TODO__)
+     * Linux Ubuntu VM (__TODO__)
 
 ## Homework
 
