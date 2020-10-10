@@ -18,7 +18,7 @@ The courses are listed in the order of decreasing relevance.
 - Charles Leiserson and Julian Shun. [MIT 6.172: Performance Engineering of Software Systems.](
   https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-172-performance-engineering-of-software-systems-fall-2018)
   MIT. 2018.
-  
+
 - David Wentzlaff. [Computer Architecture.](https://www.coursera.org/learn/comparch/home/welcome)
   Princeton University.
 
@@ -30,7 +30,7 @@ The courses are listed in the order of decreasing relevance.
 
 - Alexey Khoroshilov. [Operating System Engineering](http://sp.cs.msu.ru/courses/bosk) (in Russian).
   MSU/HSE/ISP RAS.
-  
+
 - Alexandr Chernov at al. [Computer Architecture and Operating Systems](
   https://www.hse.ru/en/ba/ami/courses/292661421.html) (in Russian).
   HSE (Applied Mathematics and Information Science). 2019.
@@ -38,4 +38,3 @@ The courses are listed in the order of decreasing relevance.
 - [Valery Bakanov](http://vbakanov.ru/). [Computer System Architecture](
   https://www.hse.ru/edu/courses/292689017) (in Russian).
   HSE (Software Engineering). 2019.
- 
