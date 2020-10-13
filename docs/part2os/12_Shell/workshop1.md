@@ -20,41 +20,58 @@ Create `00_OverviewShell` directory. All code must reside there.
 
 ## Tasks
 
-<!---
-
 1. Simple script file named `c1`:
 
-```shell script
-#!/bin/sh
-read A
-echo $A
-```
+   ```bash
+   #!/bin/sh
+   read A
+   echo $A
+   ```
 
-2. A is variable
- * `$A` is a ''substitution'' of `A` value
- * `echo` command is executed ''after'' substitution, so
-  * if called as 
-      `sh c1   ABC      def  123`
-    it outputs
-      `ABC def 123`
-    without extra spaces, because `echo $A` expands to `echo ABC      def  123`, which is command `echo` with three command line parameters
- * (!) How to make `echo` display all spaces as well?
-  Spoiler: /* use `sh c1 "  ABC      def  123"` form — it constructs ''one'' parameter instead of three with all the words and spaces in it */
-  * fix `c1` to do this
- 1. Output substitution, `c2` file
+2. `A` is variable.
 
-```shell script
-#!/bin/sh
-read A
-Sys=`uname`
-echo "Hello, $A!
-Welcome to $Sys!"
-```
+3. `$A` is a "substitution" of `A` value.
 
-  * The «{{{`command`}}}» (also «`$(command)`») construction runs `command` and substitute it with its' output
-  * '''No''' spaces is allowed around «`=`» when assigning
-  * All variables are strings
-  * (!) Modify  `c2` not to read `A`, but to output user login name instead (use `logname` or `whoami` command)
+4. `echo` command is executed "after" substitution, so
+
+   * If called as
+
+         sh c1   ABC      def  123
+
+     it outputs
+
+         ABC def 123
+
+     without extra spaces, because `echo $A` expands to `echo ABC      def  123`,
+     which is command `echo` with three command line parameters.
+
+5. (!) How to make `echo` display all spaces as well?
+   <!---  Spoiler: 
+   /* use `sh c1 "  ABC      def  123"` form — it constructs ''one''
+     parameter instead of three with all the words and spaces in it
+   */
+   -->
+   * fix `c1` to do this
+
+6. Output substitution, `c2` file
+
+   ```bash
+   #!/bin/sh
+   read A
+   Sys=`uname`
+   echo "Hello, $A!
+   Welcome to $Sys!"
+   ```
+
+   * The «\`command\`» (also «\`$(command)\`») construction runs `command`
+     and substitutes it with its output.
+   * "No" spaces is allowed around «`=`» when assigning.
+   * All variables are strings.
+   * (!) Modify `c2` not to read `A`,
+     but to output user login name instead (use `logname` or `whoami` command).
+
+<!---
+
  1. Multiline
   * `echo $A` squeezes all newlines as well
   * If you want to use control characters like in C, use [[man1:echo|echo -e]] key
