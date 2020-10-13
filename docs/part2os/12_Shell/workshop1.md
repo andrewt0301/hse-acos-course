@@ -1,21 +1,28 @@
 Workshop. Shell Programming. Part 1.
 ---
 
+<!---
 __TODO__: Rewrite. Source is [here](https://uneex.ru/HSE/ArchitectureOS/Lab_00_OverviewShell).
+-->
 
-Create `00_OverviewShell` directory. All code must reside here.
+Create `00_OverviewShell` directory. All code must reside there.
 
-Script: executable text file
- * can be executed with ''`interpretator script_file`''
-  * e. g. `sh script`
- * «shebang» (`#!/bin/sh` at the first line)
-  * `chmod +x script` 
-  * ⇒ can be executed via `./script`
- * run by name if it's directory is in `$PATH` variable
-  * `PATH=`''`directory_with_script`''`:$PATH` 
-  * ⇒ can be executed via just `script`
-Tasks
- 1.#0 Simple script file named `c1`:
+#### Script: executable text file
+
+* Can be executed with "`interpretator script_file`"
+   * e. g. `sh script`
+* «Shebang» (`#!/bin/sh` at the first line)
+   * `chmod +x script` 
+   * ⇒ can be executed via `./script`
+* Run by name if it's directory is in `$PATH` variable
+   * `PATH=`''`directory_with_script`''`:$PATH` 
+   * ⇒ can be executed via just `script`
+
+## Tasks
+
+<!---
+
+1. Simple script file named `c1`:
 
 ```shell script
 #!/bin/sh
@@ -23,7 +30,7 @@ read A
 echo $A
 ```
 
- * A is variable
+2. A is variable
  * `$A` is a ''substitution'' of `A` value
  * `echo` command is executed ''after'' substitution, so
   * if called as 
@@ -137,6 +144,8 @@ ls: cannot access 'c100500': No such file or directory
   * (!) Rewrite `c6` file (copy it to `c7`)
    * To output content of `ls` ''after'' «YES» message, if ls is successful
    * Not to output error message if `ls` is not successful
+
+-->
 
 ## Homework
 
