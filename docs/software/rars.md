@@ -28,36 +28,27 @@ Download it to the folder where you store course-related files.
 
 In Linux and MacOS, RARS can be run with the following command:
 
-```shell script
-(base) Andreis-MacBook-Pro:Downloads andrew$ java -jar rars_5f747b9.jar 
-```
+    (base) Andreis-MacBook-Pro:Downloads andrew$ java -jar rars_5f747b9.jar 
 
 For convenience, you can create the following BASH script and use it to run RARS.
 
 __rars.sh__:
 
-```shell script
-#!/bin/bash
-java -jar rars_5f747b9.jar 
-```
+    #!/bin/bash
+    java -jar rars_5f747b9.jar 
 
 Running a BASH script:
 
-```shell script
-(base) Andreis-MacBook-Pro:Downloads andrew$ sh rars.sh 
-```
+    (base) Andreis-MacBook-Pro:Downloads andrew$ sh rars.sh 
 
 Also, `rars.sh` can be made an executable file:
 
-```shell script
-(base) Andreis-MacBook-Pro:Downloads andrew$ chmod +x rars.sh
-```
+    (base) Andreis-MacBook-Pro:Downloads andrew$ chmod +x rars.sh
+
 
 Then you can run it with this command:
 
-```shell script
-(base) Andreis-MacBook-Pro:Downloads andrew$ ./rars.sh
-```
+    (base) Andreis-MacBook-Pro:Downloads andrew$ ./rars.sh
 
 #### Windows
 
