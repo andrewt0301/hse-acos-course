@@ -30,21 +30,20 @@ In Linux and MacOS, RARS can be run with the following command:
 
     (base) Andreis-MacBook-Pro:Downloads andrew$ java -jar rars_5f747b9.jar 
 
-For convenience, you can create the following BASH script and use it to run RARS.
+For convenience, you can create the following Bash script and use it to run RARS.
 
-__rars.sh__:
+rars.sh:
 
     #!/bin/bash
     java -jar rars_5f747b9.jar 
 
-Running a BASH script:
+Running a Bash script:
 
     (base) Andreis-MacBook-Pro:Downloads andrew$ sh rars.sh 
 
 Also, `rars.sh` can be made an executable file:
 
     (base) Andreis-MacBook-Pro:Downloads andrew$ chmod +x rars.sh
-
 
 Then you can run it with this command:
 
