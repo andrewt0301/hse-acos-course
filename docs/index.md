@@ -76,7 +76,7 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 3. System calls.
 
-4. Libraries and binary file format.
+4. [Libraries and binary file format.](part2os/04_Linking/lecture.md)
 
 5. Strings and regular expressions.
 
