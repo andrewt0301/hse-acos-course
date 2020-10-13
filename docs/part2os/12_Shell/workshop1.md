@@ -151,12 +151,15 @@ ls: cannot access 'c100500': No such file or directory
 
 ### Research
 
-* What exit status the command `read` generates? Try it
-  * _Important_: Please consult `help read`
-    (e. g. [here](https://www.gnu.org/software/bash/manual/bash.html#index-read)) 
-    command instead of `man read`, because `read` is shell built-in and you got
-    manual page on _all_ shell builtins.
-  * How to suppress «`\n`» output after `echo` (see [[man1:echo]])?
+* What exit status the command `read` generates? Try it.
+
+   * _Important_: Please consult `help read`
+     (e. g. [here](https://www.gnu.org/software/bash/manual/bash.html#index-read)) 
+     command instead of `man read`, because `read` is shell built-in and you got
+     manual page on _all_ shell builtins.
+
+   * How to suppress «`\n`» output after `echo`
+     (see [man7](https://man7.org/linux/man-pages/man1/echo.1p.html))?
 
 ### Task
 
