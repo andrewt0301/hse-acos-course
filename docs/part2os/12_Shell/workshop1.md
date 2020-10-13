@@ -166,7 +166,7 @@ ls: cannot access 'c100500': No such file or directory
 Write a `c8` script that asks user for name, and prints a welcome message either
 if an user has entered a name or not:
 
-```shell script
+```bash
 $ ./c8
 Enter your name: Spot
 Hello, Spot!
