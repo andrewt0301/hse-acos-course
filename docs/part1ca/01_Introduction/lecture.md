@@ -21,9 +21,22 @@ __TODO__
 
 ## Workshop
 
+Outline:
+
+* Introduction: instructor meets class.
+* Information on workshop organisation (goals, topics)
+  and administration (attendance, homeworks, grading).
+* Introduction to [software tools](../../software.md).
+     * [RARS](../../software/rars.md).
+     * Linux Ubuntu VM (__TODO__)
+* Practice: play with matrix multiplication and see the benchmarks.
+
 __TODO__
 
 ## Homework
+
+* Install all required software.
+* Finish experiments with matrix multiplication and provide benchmarks. 
 
 __TODO__
 

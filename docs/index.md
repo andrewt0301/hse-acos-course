@@ -42,7 +42,7 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 3. [Processor. RISC and RISC-V. Assembly language.](part1ca/03_CPU/lecture.md)
 
-4. Registers and memory. Instruction formats. Arithmetic and load/store instructions.
+4. [Registers and memory. Instruction formats. Arithmetic and load/store instructions.](part1ca/04_Instructions/lecture.md)
 
 5. Conditions, loops, and arrays.
 
@@ -54,9 +54,9 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 9. [Floating-point format. IEEE 754. Floating-point instructions.](part1ca/09_FP/lecture.md)
 
-10. Exceptions, traps, and interrupts.
+10. [Exceptions, traps, and interrupts.](part1ca/10_Exceptions/lecture.md)
 
-11. Pipelining. <!--- Hazzards. Prediction. Reordering?  -->
+11. [Pipelining.](part1ca/11_Pipeline/lecture.md)
 
 12. Caches.
 
@@ -76,7 +76,7 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 3. System calls.
 
-4. Libraries and binary file format.
+4. [Libraries and binary file format.](part2os/04_Linking/lecture.md)
 
 5. Strings and regular expressions.
 

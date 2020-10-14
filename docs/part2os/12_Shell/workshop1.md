@@ -1,53 +1,77 @@
 Workshop. Shell Programming. Part 1.
 ---
 
+<!---
 __TODO__: Rewrite. Source is [here](https://uneex.ru/HSE/ArchitectureOS/Lab_00_OverviewShell).
+-->
 
-Create `00_OverviewShell` directory. All code must reside here.
+Create `00_OverviewShell` directory. All code must reside there.
 
-Script: executable text file
- * can be executed with ''`interpretator script_file`''
-  * e. g. `sh script`
- * «shebang» (`#!/bin/sh` at the first line)
-  * `chmod +x script` 
-  * ⇒ can be executed via `./script`
- * run by name if it's directory is in `$PATH` variable
-  * `PATH=`''`directory_with_script`''`:$PATH` 
-  * ⇒ can be executed via just `script`
-Tasks
- 1.#0 Simple script file named `c1`:
+#### Script: executable text file
 
-```shell script
-#!/bin/sh
-read A
-echo $A
-```
+* Can be executed with "`interpretator script_file`"
+   * e. g. `sh script`
+* «Shebang» (`#!/bin/sh` at the first line)
+   * `chmod +x script` 
+   * ⇒ can be executed via `./script`
+* Run by name if it's directory is in `$PATH` variable
+   * `PATH=`''`directory_with_script`''`:$PATH` 
+   * ⇒ can be executed via just `script`
 
- * A is variable
- * `$A` is a ''substitution'' of `A` value
- * `echo` command is executed ''after'' substitution, so
-  * if called as 
-      `sh c1   ABC      def  123`
-    it outputs
-      `ABC def 123`
-    without extra spaces, because `echo $A` expands to `echo ABC      def  123`, which is command `echo` with three command line parameters
- * (!) How to make `echo` display all spaces as well?
-  Spoiler: /* use `sh c1 "  ABC      def  123"` form — it constructs ''one'' parameter instead of three with all the words and spaces in it */
-  * fix `c1` to do this
- 1. Output substitution, `c2` file
+## Tasks
 
-```shell script
-#!/bin/sh
-read A
-Sys=`uname`
-echo "Hello, $A!
-Welcome to $Sys!"
-```
+1. Simple script file named `c1`:
 
-  * The «{{{`command`}}}» (also «`$(command)`») construction runs `command` and substitute it with its' output
-  * '''No''' spaces is allowed around «`=`» when assigning
-  * All variables are strings
-  * (!) Modify  `c2` not to read `A`, but to output user login name instead (use `logname` or `whoami` command)
+   ```bash
+   #!/bin/sh
+   read A
+   echo $A
+   ```
+
+2. `A` is variable.
+
+3. `$A` is a "substitution" of `A` value.
+
+4. `echo` command is executed "after" substitution, so
+
+   * If called as
+
+         sh c1   ABC      def  123
+
+     it outputs
+
+         ABC def 123
+
+     without extra spaces, because `echo $A` expands to `echo ABC      def  123`,
+     which is command `echo` with three command line parameters.
+
+5. (!) How to make `echo` display all spaces as well?
+   <!---  Spoiler: 
+   /* use `sh c1 "  ABC      def  123"` form — it constructs ''one''
+     parameter instead of three with all the words and spaces in it
+   */
+   -->
+   * fix `c1` to do this
+
+6. Output substitution, `c2` file
+
+   ```bash
+   #!/bin/sh
+   read A
+   Sys=`uname`
+   echo "Hello, $A!
+   Welcome to $Sys!"
+   ```
+
+   * The «\`command\`» (also «\`$(command)\`») construction runs `command`
+     and substitutes it with its output.
+   * "No" spaces is allowed around «`=`» when assigning.
+   * All variables are strings.
+   * (!) Modify `c2` not to read `A`,
+     but to output user login name instead (use `logname` or `whoami` command).
+
+<!---
+
  1. Multiline
   * `echo $A` squeezes all newlines as well
   * If you want to use control characters like in C, use [[man1:echo|echo -e]] key
@@ -138,23 +162,28 @@ ls: cannot access 'c100500': No such file or directory
    * To output content of `ls` ''after'' «YES» message, if ls is successful
    * Not to output error message if `ls` is not successful
 
+-->
+
 ## Homework
 
 ### Research
 
-* What exit status the command `read` generates? Try it
-  * _Important_: Please consult `help read`
-    (e. g. [here](https://www.gnu.org/software/bash/manual/bash.html#index-read)) 
-    command instead of `man read`, because `read` is shell built-in and you got
-    manual page on _all_ shell builtins.
-  * How to suppress «`\n`» output after `echo` (see [[man1:echo]])?
+* What exit status the command `read` generates? Try it.
+
+   * _Important_: Please consult `help read`
+     (e. g. [here](https://www.gnu.org/software/bash/manual/bash.html#index-read)) 
+     command instead of `man read`, because `read` is shell built-in and you got
+     manual page on _all_ shell builtins.
+
+   * How to suppress «`\n`» output after `echo`
+     (see [man7](https://man7.org/linux/man-pages/man1/echo.1p.html))?
 
 ### Task
 
 Write a `c8` script that asks user for name, and prints a welcome message either
 if an user has entered a name or not:
 
-```shell script
+```bash
 $ ./c8
 Enter your name: Spot
 Hello, Spot!
