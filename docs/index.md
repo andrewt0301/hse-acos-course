@@ -108,6 +108,8 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 19. [High-level languages and operating system.](part2os/19_Python/lecture.md)
 
+20. [Tensor Processing Unit. Accelerator for machine-learning.](part2os/20_TPU/lecture.md).
+
 ## Grading System
 
 Information on the grading system for the course is [here](grades.md).
