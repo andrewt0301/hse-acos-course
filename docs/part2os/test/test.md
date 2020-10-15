@@ -28,8 +28,8 @@ Test is (slightly more) complex class task, based on C programming home works.
 1. [Regex + Messages](03_regex_messages.md)
 1. [Shared memory + Regex](04_shared_memory_regex.md )
 1. [Signals + Binary](05_signals_binary.md)
-1. [Signals + Fork]()
-1. [Walk + File]()
+1. [Signals + Fork](06_signals_fork.md)
+1. [Walk + File](07_walk_file.md)
 
 ### Time limits and penalties
 
