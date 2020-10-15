@@ -2,7 +2,7 @@
 
 Test is (slightly more) complex class task, based on C programming home works.
 
-### Constraints
+## Constraints
 
 * All solutions sources must reside at `18_Test` catalog in your account on `sugon` server.
 
@@ -20,7 +20,7 @@ Test is (slightly more) complex class task, based on C programming home works.
 * Take care either to __remove__ temporary object before creating it again,
   or __do not use__ `O_EXCL` flag when creating.
 
-### Tasks
+## Tasks
 
 1. [Fork + String](01_fork_string.md)
 1. [Walk + Parse](02_walk_parse.md)
@@ -30,6 +30,6 @@ Test is (slightly more) complex class task, based on C programming home works.
 1. [Signals + Fork](06_signals_fork.md)
 1. [Walk + File](07_walk_file.md)
 
-### Time limits and penalties
+## Time limits and penalties
 
 __TODO__
