@@ -1,5 +1,4 @@
-2. Walk + Parse
----
+# 2. Walk + Parse
 
 Write a program `parser.c` that takes exactly 3 arguments:
 

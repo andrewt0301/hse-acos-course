@@ -1,5 +1,4 @@
-5. Signals + Binary
----
+# 5. Signals + Binary
 
 Write two programs:
 

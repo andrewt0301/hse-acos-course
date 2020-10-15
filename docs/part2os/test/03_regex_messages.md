@@ -1,5 +1,4 @@
-3. Regex + Messages
----
+# 3. Regex + Messages
 
 Write two programs:
 

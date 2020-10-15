@@ -1,5 +1,4 @@
-1. Fork + String
----
+# 1. Fork + String
 
 Write a program, `executer.c`:
 
