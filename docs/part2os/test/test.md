@@ -24,14 +24,13 @@ Test is (slightly more) complex class task, based on C programming home works.
 ### Tasks
 
 1. [Fork + String](01_fork_string.md)
-1. [Walk + Parse]()
-1. [Regex + Messages]()
-1. [Shared memory + Regex]()
-1. [Signals + Binary]()
+1. [Walk + Parse](02_walk_parse.md)
+1. [Regex + Messages](03_regex_messages.md)
+1. [Shared memory + Regex](04_shared_memory_regex.md )
+1. [Signals + Binary](05_signals_binary.md)
 1. [Signals + Fork]()
 1. [Walk + File]()
 
 ### Time limits and penalties
 
 __TODO__
- 
