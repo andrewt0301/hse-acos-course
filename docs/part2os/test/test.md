@@ -1,5 +1,4 @@
-Examples of Module Test Tasks
----
+# Examples of Module Test Tasks
 
 Test is (slightly more) complex class task, based on C programming home works.
 
