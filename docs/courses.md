@@ -33,7 +33,7 @@ The courses are listed in the order of decreasing relevance.
 
 - Alexandr Chernov at al. [Computer Architecture and Operating Systems](
   https://www.hse.ru/en/ba/ami/courses/292661421.html) (in Russian).
-  HSE (Applied Mathematics and Information Science). [Syllabus](../related/ACOS_program.pdf). 2019.
+  HSE (Applied Mathematics and Information Science). [Syllabus](https://github.com/andrewt0301/hse-acos-course/raw/master/related/ACOS_program.pdf). 2019.
 
 - [Valery Bakanov](http://vbakanov.ru/). [Computer System Architecture](
   https://www.hse.ru/edu/courses/292689017) (in Russian).
