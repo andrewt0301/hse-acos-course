@@ -36,7 +36,9 @@ Some course topics are based on other external material, which will be provided 
   
 - [DDCAA] David Harris, Sarah Harris.
   [Digital Design and Computer Architecture: ARM Edition.](
-  https://dl.acm.org/doi/book/10.5555/2815529) 2015.
+  https://dl.acm.org/doi/book/10.5555/2815529)
+  Online materials are [here](https://booksite.elsevier.com/9780128000564/index.php).
+  2015.
 
 - [CAQA] John L. Hennessy David A. Patterson.
   [Computer Architecture: A Quantitative Approach.](
