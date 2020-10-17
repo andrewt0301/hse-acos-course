@@ -27,18 +27,20 @@ Outline:
 * Information on workshop organisation (goals, topics)
   and administration (attendance, homeworks, grading).
 * Introduction to [software tools](../../software.md).
-     * [RARS](../../software/rars.md).
-     * Linux Ubuntu VM (__TODO__)
+     * RARS.
+     * Virtual Box. 
+     * Linux Ubuntu VM.
 * Practice: play with matrix multiplication and see the benchmarks.
 
 __TODO__
 
 ## Homework
 
-* Install all required software.
-* Finish experiments with matrix multiplication and provide benchmarks. 
-
-__TODO__
+* Finish installing all required software.
+* Finish experiments with matrix multiplication and provide benchmarks.
+    * Run matrix multiplication in Python and C (all versions) in your machine.
+    * Provide a table with execution time.
+* Send the file with table to your instructor.
 
 ## References
 
