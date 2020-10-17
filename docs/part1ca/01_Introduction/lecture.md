@@ -24,8 +24,10 @@ __TODO__
 Outline:
 
 * Introduction: instructor meets class.
+
 * Information on workshop organisation (goals, topics)
   and administration (attendance, homeworks, grading).
+
 * Introduction to [software tools](../../software.md).
    * RARS.
    * Virtual Box. 
@@ -35,7 +37,9 @@ Outline:
 Tasks:
 
 * Read documentation on software tools (RARS, Virtual Box, Ubuntu).
+
 * Download and install the tools.
+
 * Download, compile, and run matrix computation examples.
    * [Python](). __TODO__
    * [Java](). __TODO__
@@ -45,9 +49,11 @@ Tasks:
 ## Homework
 
 * Finish installing all required software.
+
 * Finish experiments with matrix multiplication and provide benchmarks.
    * Run matrix multiplication in Python and C (all versions) in your machine.
    * Provide a table with execution time.
+
 * Send the file with table to your instructor.
 
 ## References
