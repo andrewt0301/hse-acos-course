@@ -32,7 +32,15 @@ Outline:
      * Linux Ubuntu VM.
 * Practice: play with matrix multiplication and see the benchmarks.
 
-__TODO__
+Tasks:
+
+* Read documentation on software tools (RARS, Virtual Box, Ubuntu).
+* Download and install the tools.
+* Download, compile, and run matrix computation examples.
+   * [Python](). __TODO__
+   * [Java](). __TODO__
+   * [C](). __TODO__
+   * [C optimized](). __TODO__
 
 ## Homework
 
