@@ -7,7 +7,7 @@ Lecture 1
 
 Slides ([PDF](CA_Lecture_01.pdf), [PPTX](CA_Lecture_01.pptx)).
 
-Outline:
+#### Outline
 
 * Introduction.
 * Information on course administration.
@@ -21,39 +21,39 @@ __TODO__
 
 ## Workshop
 
-Outline:
+#### Outline
 
 * Introduction: instructor meets class.
-
 * Information on workshop organisation (goals, topics)
   and administration (attendance, homeworks, grading).
-
 * Introduction to [software tools](../../software.md).
    * RARS.
    * Virtual Box. 
    * Linux Ubuntu VM.
 * Practice: play with matrix multiplication and see the benchmarks.
 
-Tasks:
+#### Tasks
 
 * Read documentation on software tools (RARS, Virtual Box, Ubuntu).
-
 * Download and install the tools.
-
 * Download, compile, and run matrix computation examples.
-   * [Python](). __TODO__
-   * [Java](). __TODO__
-   * [C](). __TODO__
+   * [Python](
+     https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/01_Introduction/matrix.py).
+     __TODO__
+   * [Java](
+     https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/01_Introduction/Matrix.java).
+     __TODO__
+   * [C](
+     https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/01_Introduction/matrix.c).
+     __TODO__
    * [C optimized](). __TODO__
 
 ## Homework
 
 * Finish installing all required software.
-
 * Finish experiments with matrix multiplication and provide benchmarks.
    * Run matrix multiplication in Python and C (all versions) in your machine.
    * Provide a table with execution time.
-
 * Send the file with table to your instructor.
 
 ## References
