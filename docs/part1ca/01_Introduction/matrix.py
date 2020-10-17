@@ -1,7 +1,7 @@
 import random
 from time import time
 
-n = 512
+n = 1024
 
 A = [[random.random()
       for row in range(n)]
