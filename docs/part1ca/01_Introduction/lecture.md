@@ -100,3 +100,5 @@ gives these results:
 * [MIT 6.172](
   https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-172-performance-engineering-of-software-systems-fall-2018).
   Lecture 1.
+* [FLOPS](https://en.wikipedia.org/wiki/FLOPS) (Wikipedia).
+ 
