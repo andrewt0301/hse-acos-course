@@ -93,12 +93,12 @@ gives these results:
 
 ## References
 
-* [Von Neumann architecture](https://en.m.wikipedia.org/wiki/Von_Neumann_architecture) (Wikipedia).
-* [Turing machine](https://en.m.wikipedia.org/wiki/Turing_machine) (Wikipedia).
 * History of computers and operating systems. Chapter 1 in [[MOS]](../../books.md).
 * Computer technology overview. Chapter 1 in [[CODR]](../../books.md).
 * [MIT 6.172](
   https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-172-performance-engineering-of-software-systems-fall-2018).
   Lecture 1.
 * [FLOPS](https://en.wikipedia.org/wiki/FLOPS) (Wikipedia).
- 
+* [Analytical Engine](https://en.wikipedia.org/wiki/Analytical_Engine) (Wikipedia).
+* [Von Neumann architecture](https://en.m.wikipedia.org/wiki/Von_Neumann_architecture) (Wikipedia).
+* [Turing machine](https://en.m.wikipedia.org/wiki/Turing_machine) (Wikipedia).
