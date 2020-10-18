@@ -36,17 +36,52 @@ __TODO__
 
 * Read documentation on software tools (RARS, Virtual Box, Ubuntu).
 * Download and install the tools.
-* Download, compile, and run matrix computation examples.
+* Download, compile, and run matrix computation examples:
    * [Python](
      https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/01_Introduction/matrix.py).
-     __TODO__
    * [Java](
      https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/01_Introduction/Matrix.java).
-     __TODO__
-   * [C](
+   * [C basic (ijk)](
      https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/01_Introduction/matrix.c).
-     __TODO__
-   * [C optimized](). __TODO__
+   * [C optimized (ikj)](
+     https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/01_Introduction/matrix_ikj.c).
+   * [C incorrectly optimized (jki)](
+     https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/01_Introduction/matrix_ikj.c).
+
+#### Example
+
+For example, a MacBook with the following configuration:
+
+```
+Model Name:                 MacBook Pro
+Model Identifier:           MacBookPro9,1
+Processor Name:             Quad-Core Intel Core i7
+Processor Speed:            2,3 GHz
+Number of Processors:       1
+Total Number of Cores:      4
+L2 Cache (per Core):        256 KB
+L3 Cache:                   6 MB
+Hyper-Threading Technology: Enabled
+Memory:                     8 GB
+```
+gives these results:
+
+```
+(base) Andreis-MacBook-Pro:01_Introduction andrew$ javac Matrix.java
+(base) Andreis-MacBook-Pro:01_Introduction andrew$ gcc matrix.c -o matrix
+(base) Andreis-MacBook-Pro:01_Introduction andrew$ gcc matrix_ikj.c -o matrix_ikj
+(base) Andreis-MacBook-Pro:01_Introduction andrew$ gcc matrix_jki.c -o matrix_jki
+(base) Andreis-MacBook-Pro:01_Introduction andrew$ python3 matrix.py
+503.130450
+(base) Andreis-MacBook-Pro:01_Introduction andrew$ java Matrix
+12.946224373000002
+(base) Andreis-MacBook-Pro:01_Introduction andrew$ ./matrix
+13.714264
+(base) Andreis-MacBook-Pro:01_Introduction andrew$ ./matrix_ikj 
+2.739385
+(base) Andreis-MacBook-Pro:01_Introduction andrew$ ./matrix_jki 
+19.074106
+```
 
 ## Homework
 
@@ -62,41 +97,6 @@ __TODO__
 * [Turing machine](https://en.m.wikipedia.org/wiki/Turing_machine) (Wikipedia).
 * History of computers and operating systems. Chapter 1 in [[MOS]](../../books.md).
 * Computer technology overview. Chapter 1 in [[CODR]](../../books.md).
-
-```
-(base) Andreis-MacBook-Pro:01_Introduction andrew$ ./matrix_jki 
-19.083199
-(base) Andreis-MacBook-Pro:01_Introduction andrew$ cc matrix.c -o matrix
-(base) Andreis-MacBook-Pro:01_Introduction andrew$ ./matrix
-14.641458
-(base) Andreis-MacBook-Pro:01_Introduction andrew$ gcc
-clang: error: no input files
-(base) Andreis-MacBook-Pro:01_Introduction andrew$ gcc matrix.c -o matrix
-(base) Andreis-MacBook-Pro:01_Introduction andrew$ ./matrix
-14.157631
-(base) Andreis-MacBook-Pro:01_Introduction andrew$ vi matrix.py 
-(base) Andreis-MacBook-Pro:01_Introduction andrew$ java Matrix
-12.946224373000002
-(base) Andreis-MacBook-Pro:01_Introduction andrew$ ./matrix
-13.714264
-(base) Andreis-MacBook-Pro:01_Introduction andrew$ ./matrix_ikj 
-2.739385
-(base) Andreis-MacBook-Pro:01_Introduction andrew$ ./matrix_jki 
-19.074106
-(base) Andreis-MacBook-Pro:01_Introduction andrew$ python3 matrix.py
-503.130450
-```
-
-```
- Model Name:	MacBook Pro
-  Model Identifier:	MacBookPro9,1
-  Processor Name:	Quad-Core Intel Core i7
-  Processor Speed:	2,3 GHz
-  Number of Processors:	1
-  Total Number of Cores:	4
-  L2 Cache (per Core):	256 KB
-  L3 Cache:	6 MB
-  Hyper-Threading Technology:	Enabled
-  Memory:	8 GB
-```
-
+* [MIT 6.172](
+  https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-172-performance-engineering-of-software-systems-fall-2018).
+  Lecture 1.
