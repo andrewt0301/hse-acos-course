@@ -62,3 +62,28 @@ __TODO__
 * [Turing machine](https://en.m.wikipedia.org/wiki/Turing_machine) (Wikipedia).
 * History of computers and operating systems. Chapter 1 in [[MOS]](../../books.md).
 * Computer technology overview. Chapter 1 in [[CODR]](../../books.md).
+
+```
+(base) Andreis-MacBook-Pro:01_Introduction andrew$ ./matrix_jki 
+19.083199
+(base) Andreis-MacBook-Pro:01_Introduction andrew$ cc matrix.c -o matrix
+(base) Andreis-MacBook-Pro:01_Introduction andrew$ ./matrix
+14.641458
+(base) Andreis-MacBook-Pro:01_Introduction andrew$ gcc
+clang: error: no input files
+(base) Andreis-MacBook-Pro:01_Introduction andrew$ gcc matrix.c -o matrix
+(base) Andreis-MacBook-Pro:01_Introduction andrew$ ./matrix
+14.157631
+(base) Andreis-MacBook-Pro:01_Introduction andrew$ vi matrix.py 
+(base) Andreis-MacBook-Pro:01_Introduction andrew$ java Matrix
+12.946224373000002
+(base) Andreis-MacBook-Pro:01_Introduction andrew$ ./matrix
+13.714264
+(base) Andreis-MacBook-Pro:01_Introduction andrew$ ./matrix_ikj 
+2.739385
+(base) Andreis-MacBook-Pro:01_Introduction andrew$ ./matrix_jki 
+19.074106
+(base) Andreis-MacBook-Pro:01_Introduction andrew$ python3 matrix.py
+503.130450
+```
+
