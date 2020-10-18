@@ -87,3 +87,16 @@ clang: error: no input files
 503.130450
 ```
 
+```
+ Model Name:	MacBook Pro
+  Model Identifier:	MacBookPro9,1
+  Processor Name:	Quad-Core Intel Core i7
+  Processor Speed:	2,3 GHz
+  Number of Processors:	1
+  Total Number of Cores:	4
+  L2 Cache (per Core):	256 KB
+  L3 Cache:	6 MB
+  Hyper-Threading Technology:	Enabled
+  Memory:	8 GB
+```
+
