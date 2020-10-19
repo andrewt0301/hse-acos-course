@@ -58,7 +58,7 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 11. [Pipelining.](part1ca/11_Pipeline/lecture.md)
 
-12. Caches.
+12. [Caches.](part1ca/12_Caches/lecture.md)
 
 13. Virtual memory.
 

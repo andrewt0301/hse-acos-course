@@ -102,4 +102,5 @@ gives these results:
 * [Analytical Engine](https://en.wikipedia.org/wiki/Analytical_Engine) (Wikipedia).
 * [Von Neumann architecture](https://en.wikipedia.org/wiki/Von_Neumann_architecture) (Wikipedia).
 * [Turing machine](https://en.wikipedia.org/wiki/Turing_machine) (Wikipedia).
+* [Moore's law](https://en.wikipedia.org/wiki/Moore%27s_law) (Wikipedia).
 * [Internet of things](https://en.wikipedia.org/wiki/Internet_of_things) (Wikipedia).
