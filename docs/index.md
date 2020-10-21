@@ -34,11 +34,9 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 ### Computer Architecture and Assembly Language
 
-1. [Introduction. Historical overview. Computer architecture and organization.](part1ca/01_Introduction/lecture.md)
-   <!--- [CODR] Chapter 1, [MIT 6.172] Lecture 1. [SCO] --> 
+1. [Introduction. Course motivation. Historical overview.](part1ca/01_Introduction/lecture.md)
 
 2. [Data types. Byte Ordering. Integer formats.](part1ca/02_DataTypes/lecture.md)
-   <!--- [CSPP] Chapter 2. -->
 
 3. [Processor. RISC and RISC-V. Assembly language.](part1ca/03_CPU/lecture.md)
 

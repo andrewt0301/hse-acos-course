@@ -13,7 +13,6 @@ Slides ([PDF](CA_Lecture_01.pdf), [PPTX](CA_Lecture_01.pptx)).
 * Information on course administration.
 * Course motivation.
 * Historical overview.
-* Computer architecture and organization.
 
 ## Quiz
 
