@@ -12,7 +12,7 @@ Slides ([PDF](CA_Lecture_01.pdf), [PPTX](CA_Lecture_01.pptx)).
 * Introduction.
 * Information on course administration.
 * Course motivation.
-* Historical overview.
+* Historical perspective.
 
 ## Quiz
 
@@ -23,7 +23,7 @@ __TODO__
 #### Outline
 
 * Introduction: instructor meets class.
-* Information on workshop organisation (goals, topics)
+* Information on workshop organisation (goals, topics).
   and administration (attendance, homeworks, grading).
 * Introduction to [software tools](../../software.md).
    * RARS.
