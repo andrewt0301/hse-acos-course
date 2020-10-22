@@ -34,11 +34,11 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 ### Computer Architecture and Assembly Language
 
-1. [Introduction. Course motivation. Historical overview.](part1ca/01_Introduction/lecture.md)
+1. [Introduction. Course motivation. Historical perspective.](part1ca/01_Introduction/lecture.md)
 
-2. [Data types. Byte Ordering. Integer formats.](part1ca/02_DataTypes/lecture.md)
+2. [Data types. Byte ordering. Integer formats.](part1ca/02_DataTypes/lecture.md)
 
-3. [Processor. RISC and RISC-V. Assembly language.](part1ca/03_CPU/lecture.md)
+3. [Computer organization. Microprocessor. RISC and RISC-V. Assembly language.](part1ca/03_CPU/lecture.md)
 
 4. [Registers and memory. Instruction formats. Arithmetic and load/store instructions.](part1ca/04_Instructions/lecture.md)
 
@@ -68,7 +68,7 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 ### Operating Systems and System Programming
 
-1. Operating system architecture. Linux.
+1. [Operating system architecture. Linux.](part2os/01_OS_Architecture/lecture.md)
 
 2. [C programming language. GNU tools (GCC, Make).](part2os/02_C/lecture.md)
 
