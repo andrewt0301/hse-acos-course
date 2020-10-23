@@ -13,7 +13,6 @@ The courses are listed in the order of decreasing relevance.
   [Videos.](https://www.youtube.com/watch?v=DxHVdsYbfqU&list=PL4JwZrlpCVJM-ybXsMQ_pbSRhbqxv6ROM)
   [Slides.](https://github.com/andrewt0301/hse-acos-course/tree/master/related/MIT_6004/slides)
   MIT. 2019.
-  <!--- Downloaded from https://6004.mit.edu/web/_static/fall20/resources/fa19/L01.pdf -->
 
 - Charles Leiserson and Julian Shun. [MIT 6.172: Performance Engineering of Software Systems.](
   https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-172-performance-engineering-of-software-systems-fall-2018)
@@ -38,3 +37,6 @@ The courses are listed in the order of decreasing relevance.
 - [Valery Bakanov](http://vbakanov.ru/). [Computer System Architecture](
   https://www.hse.ru/edu/courses/292689017) (in Russian).
   HSE (Software Engineering). 2019.
+  
+- Alexander Mikhalevich. [Linux Kernel](https://cs.hse.ru/electives/linux) (in Russian).
+  HSE (elective source).
