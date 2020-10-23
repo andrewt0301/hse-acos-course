@@ -39,4 +39,4 @@ The courses are listed in the order of decreasing relevance.
   HSE (Software Engineering). 2019.
   
 - Alexander Mikhalevich. [Linux Kernel](https://cs.hse.ru/electives/linux) (in Russian).
-  HSE (elective source).
+  HSE (elective course).
