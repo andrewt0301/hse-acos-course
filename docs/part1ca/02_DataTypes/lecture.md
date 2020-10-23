@@ -7,7 +7,7 @@ Lecture 2
 
 Slides ([PDF](CA_Lecture_02.pdf), [PPTX](CA_Lecture_02.pptx)).
 
-Outline:
+#### Outline:
 
 * Bits, bytes, words, etc.
 * Binary, decimal, hexadecimal.

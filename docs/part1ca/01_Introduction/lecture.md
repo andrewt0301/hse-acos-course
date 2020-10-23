@@ -1,7 +1,7 @@
 Lecture 1
 ---
 
-# Introduction into Computer Architecture
+# Introduction and Motivation
 
 ## Lecture
 
