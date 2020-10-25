@@ -32,3 +32,4 @@ __TODO__
 * [Machine word](https://en.wikipedia.org/wiki/Word_%28computer_architecture%29) (Wikipedia).
 * [Endianness](https://en.wikipedia.org/wiki/Endianness) (Wikipedia).
 * Representing information. Chapter 1 in [[CSPP]](../../books.md).
+* Arithmetic for computers. Chapters 3 in [[CODR]](../../books.md).
