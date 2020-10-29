@@ -8,6 +8,9 @@ Slides ([PDF](CA_Lecture_04.pdf), [PPTX](CA_Lecture_04.pptx)).
 
 #### Outline:
 
+* Instruction encoding (R, I, types).
+
+
 ## Quiz
 
 __TODO__
