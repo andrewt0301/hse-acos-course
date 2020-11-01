@@ -8,7 +8,9 @@ Slides ([PDF](CA_Lecture_04.pdf), [PPTX](CA_Lecture_04.pptx)).
 
 #### Outline:
 
-* Instruction encoding (R, I, types).
+* RISC-V ISA base and extensions.
+* Instruction encoding (R, I, S, SB, U, and UJ formats).
+* Memory layout.
 
 
 ## Quiz
@@ -26,3 +28,5 @@ __TODO__
 ## References
 
 __TODO__
+
+* [RISC-V Assembly Programmer's Manual](https://github.com/riscv/riscv-asm-manual/blob/master/riscv-asm.md)
