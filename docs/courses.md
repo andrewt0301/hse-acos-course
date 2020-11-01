@@ -14,9 +14,8 @@ The courses are listed in the order of decreasing relevance.
   [Slides.](https://github.com/andrewt0301/hse-acos-course/tree/master/related/MIT_6004/slides)
   MIT. 2019.
   
-- [CS61C: Machine Structures.](https://inst.eecs.berkeley.edu/~cs61c/archives)
-  [Slides.](https://inst.eecs.berkeley.edu/~cs61c/resources/su18_lec/)
-  UC Berkeley.
+- Stephan Kaminsky. [CS61C: Machine Structures.](https://cs61c.org/su20/)
+  UC Berkeley. 2020.
 
 - Charles Leiserson and Julian Shun. [MIT 6.172: Performance Engineering of Software Systems.](
   https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-172-performance-engineering-of-software-systems-fall-2018)
