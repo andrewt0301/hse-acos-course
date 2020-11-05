@@ -40,7 +40,7 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 
 3. [Computer organization. Microprocessor. RISC and RISC-V. Assembly language.](part1ca/03_CPU/lecture.md)
 
-4. [Registers and memory. Instruction formats. Arithmetic and load/store instructions.](part1ca/04_Instructions/lecture.md)
+4. [RISC-V instructions. Instruction formats. Arithmetic and load/store instructions.](part1ca/04_Instructions/lecture.md)
 
 5. Conditions, loops, and arrays.
 
@@ -123,6 +123,10 @@ The list of textbooks recommended for reading is [here](books.md).
 ## Related Courses
 
 The list of similar and related courses is [here](courses.md).
+
+## Links
+
+Links for other related external resources are [here](links.md).
 
 ## Acknowledgements
 
