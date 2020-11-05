@@ -10,5 +10,5 @@ Here is an unsystematized list of links to useful external resources:
 
 - Alexander Kamkin and Andrei Tatarnikov. Machine-Readable Specifications of RISC-V ISA.
   [Video](https://www.youtube.com/watch?v=7phKiMm3onE).
-  [Slides](../related/Machine-Readable-Specifications-of-RISC-V-ISA-Kamkin-Tatarnikov.pdf).
+  [Slides](https://github.com/andrewt0301/hse-acos-course/raw/master/related/Machine-Readable-Specifications-of-RISC-V-ISA-Kamkin-Tatarnikov.pdf).
   Talk at the RISC-V Summit, the Santa Clara Convention Center. December 5, 2018,
