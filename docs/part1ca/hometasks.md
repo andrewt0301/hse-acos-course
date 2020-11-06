@@ -345,7 +345,6 @@ They are enough. However, they were somewhat challenging for some students.
    ```
    Warning: array size must be in words.
    
-   ```
    Output:
    ```
    0
@@ -357,7 +356,7 @@ They are enough. However, they were somewhat challenging for some students.
    42
    456
    567
-    ```
+   ```
 
    Another example:
 
@@ -426,4 +425,47 @@ They are enough. However, they were somewhat challenging for some students.
 1. ###### CrtDraw
 1. ###### EightSectors
 1. ###### NoError
+
+   Write a program that inputs 10 integers, not taking in account failed inputs.
+   When all 10 integers are read, the program outputs them.
+
+   Input:
+   ```
+   zz
+   20
+   fwewefqwe
+   .654
+   71
+   -124
+   0.1
+   82
+   6.
+   334423
+   -94
+   VII
+   7535
+   6
+   .
+   -
+   17
+   8968
+   ```
+   Output:
+   ```
+   20
+   71
+   -124
+   82
+   334423
+   -94
+   7535
+   6
+   17
+   8968
+   ```
+
+   It is suggested to use an array to store successful inputs and universal exception handler
+   that marks specific memory variable to skip unsuccessful ones.
+
+
 1. ###### NotOval
