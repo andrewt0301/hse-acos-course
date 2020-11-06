@@ -357,7 +357,6 @@ They are enough. However, they were somewhat challenging for some students.
    456
    567
    ```
-
    Another example:
 
    Input:
