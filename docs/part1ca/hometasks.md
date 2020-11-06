@@ -230,9 +230,10 @@ They are enough. However, they were somewhat challenging for some students.
 
 1. ###### CubicRoot
 
-   Input double (positive or negative) float $$1 <= |A| <= 1000000$$ and $$0.00001<= varepsilon <=0.01$$.
-   Calculate a cubical root of A with closeness $$<=varepsilon$$ (you do not need to round the result).
-   HINT: you always can calculate a cubic power of something!
+   Input double (positive or negative) float $$1 <= |A| <= 1000000$$ and $$0.00001<= ɛ <=0.01$$.
+   Calculate a cubical root of A with closeness $$<=ɛ$$ (you do not need to round the result).
+
+   HINT: You always can calculate a cubic power of something!
 
    Input:
    ```
@@ -246,7 +247,6 @@ They are enough. However, they were somewhat challenging for some students.
 
    Spoiler: suppose solution is between M and N (M < N).
    Select $$K=(M+N)/2$$ and if $$|K^3|>|A|$$ then solution is between M and K, else it is between K and N.
-
 
 1. ###### FractionTruncate
 1. ###### LeibPi
@@ -298,6 +298,87 @@ They are enough. However, they were somewhat challenging for some students.
    ```
 
 1. ###### KeySort
+
+   Write a program of key sorting. You should write a subroutine that accepts three arguments:
+   array size (in _words_, not in bytes), array address, and comparison subroutine.
+   Your subroutine sorts an array and return array size in `$v0` and array address in `$v1`.
+   Your subroutine should use comparing subroutine to determine if two elements is in order.
+   Comparing subroutine accepts integers in `$a0` and `$a1` and returns 1 in `$v0` if they're in proper order,
+   and 0 otherwise. Write _two_ comparing subroutines: first for `$a0` < `$a1`, second for `$a0 % 10` > `$a1 % 10`.
+   Please use bubble sort algorithm (ar any other _stable_). Your program reads an ordinal N, then an integer T,
+   then N integers. If T is 0, use first comparison subroutine, if T != 0, use second one. Then output an array.
+
+   Input:
+   ```
+   9
+   0
+   34
+   456
+   2
+   5
+   567
+   2
+   2
+   0
+   42
+   ```
+   Warning: array size must be in words.
+   
+   ```
+   Output:
+   ```
+   0
+   2
+   2
+   2
+   5
+   34
+   42
+   456
+   567
+    ```
+
+   Another example:
+
+   Input:
+   ```
+   15
+   1
+   49
+   20
+   29
+   52
+   39
+   22
+   23
+   43
+   44
+   16
+   52
+   47
+   30
+   23
+   24
+   ```
+   Output:
+   ```
+   49
+   29
+   39
+   47
+   16
+   44
+   24
+   23
+   43
+   23
+   52
+   22
+   52
+   20
+   30
+   ```
+
 1. ###### ReverseString
 
    Write a program which accepts a sequence of non-empty strings (each not longer than 200 characters)
