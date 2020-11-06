@@ -249,6 +249,27 @@ They are enough. However, they were somewhat challenging for some students.
    Select $$K=(M+N)/2$$ and if $$|K^3|>|A|$$ then solution is between M and K, else it is between K and N.
 
 1. ###### FractionTruncate
+
+   Input three cardinals — `A`, `B` and `n`. Output double float `F` that has exact `n` decimal places of `A/B`.
+   You need to write a ''subroutine'' than accepts double `f=A/B` in `$f12` and integer `n` in `$a0` and returns
+   rounded double `F` in `$f0`.
+
+   Hint: $$10^n*A/B < 2^31$$
+
+   Input:
+   ```
+   123
+   456
+   7
+   ```
+   Output:
+   ```
+   0.2697368
+   ```
+
+   Spoiler:
+   $$10^n*A/B < 2^31$$ means that you can just take an integer part of it, then divide the result back to $$10^n$$
+
 1. ###### LeibPi
 
    Calculate π value using [Leibniz formula for π](https://en.wikipedia.org/wiki/Leibniz_formula_for_π)
