@@ -1,5 +1,28 @@
+<!---
+The JavaScript code below is needed to support rendering of TeX formulas in GitHub Pages.
+
+See this for kramdown:
+https://mikelove.wordpress.com/2015/07/01/how-to-use-latex-math-in-rmd-to-display-properly-on-github-pages/
+https://varunagrawal.github.io/2018/03/27/latex
+https://stackoverflow.com/questions/26275645/how-to-support-latex-in-github-pages
+
+This is a guideline to render formulas:
+https://coderoad.ru/49970549/Проблема-рендеринга-некоторого-синтаксиса-latex-в-MathJax-с-Jekyll-на-github
+-->
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$$','$$'], ['\\(','\\)']],
+      processEscapes: true
+    }
+  });
+</script>
+
 Home Tasks
 ---
+
+<!--- Taken from here: https://uneex.ru/CategoryHomework -->
 
 Here are assembly programming tasks, which were given during the previous year.
 They are enough. However, they were somewhat challenging for some students.
@@ -8,6 +31,13 @@ They are enough. However, they were somewhat challenging for some students.
 
 1. [DoubleSum](#doublesum)
 1. [DigitSum](#digitsum)
+1. [PlusMinus](#plusminus)
+1. [EvenBack](#evenback)
+1. [NoDups](#nodups) 
+1. [CheckTriangles](#checktriangles)
+1. [FuncSort](#funcsort)
+1. [RecursiveGCD](#recursivegcd)
+1. [LeftDigits](#leftdigits)
 1. [CubicRoot](#cubicroot)
 1. [FractionTruncate](#fractiontruncate)
 1. [LeibPi](#leibpi)
@@ -199,11 +229,98 @@ They are enough. However, they were somewhat challenging for some students.
    ```
 
 1. ###### CubicRoot
+
+   Input double (positive or negative) float $$1 <= |A| <= 1000000$$ and $$0.00001<= varepsilon <=0.01$$.
+   Calculate a cubical root of A with closeness $$<=varepsilon$$ (you do not need to round the result).
+   HINT: you always can calculate a cubic power of something!
+
+   Input:
+   ```
+   1000
+   0.0001
+   ```
+   Output:
+   ```
+   9.99995
+   ```
+
+   Spoiler: suppose solution is between M and N (M < N).
+   Select $$K=(M+N)/2$$ and if $$|K^3|>|A|$$ then solution is between M and K, else it is between K and N.
+
+
 1. ###### FractionTruncate
 1. ###### LeibPi
+
+   Calculate π value using [Leibniz formula for π](https://en.wikipedia.org/wiki/Leibniz_formula_for_π)
+   accurate to N decimal places. Input N, output the result.
+   Use function defied in [FractionTruncate](#fractiontruncate) to truncate out other digits.
+   Keep in mind that the exact formula is calculating π/4, you probably should start with 4 instead 1
+   to gain exact accuracy. Warning: the algorithm is _slow_, do not panic, but keep code as simple as possible.
+
+   Input:
+   ```
+   4
+   ```
+   Output:
+   ```
+   3.1416
+   ```
+
+   Hint: to gain performance, keep anything in registers.
+
 1. ###### ASCIIGrid
+
+   Write a program that inputs ordinals M an N, and outputs MxN grid made with «+» and «-».
+   You should write a macro that accepts three parameters:
+   a number of cells and two characters, and outputs a line like this:
+
+   ```
+   printline 4, '+', '-'
+   →
+   +-+-+-+-+
+   ```
+   Input:
+   ```
+   3
+   4
+   ```
+   Output:
+   ```
+   +-+-+-+
+   | | | |
+   +-+-+-+
+   | | | |
+   +-+-+-+
+   | | | |
+   +-+-+-+
+   | | | |
+   +-+-+-+
+   ```
+
 1. ###### KeySort
 1. ###### ReverseString
+
+   Write a program which accepts a sequence of non-empty strings (each not longer than 200 characters)
+   and outputs every string backwards. Sequence ends with a string started from '.'; this final string is not printed.
+   You should write a subroutine which accepts string address in $a0 and prints it backwards.
+   Caution: if you want to use syscall 8, read carefully the documentation about '\n' at the end of the input string
+   (it either can evolve or not, you should omit it).
+
+   Input:
+   ```
+   Write a program which accepts a sequence of strings
+   and outputs every string backwards.
+   Empty strings are treated as normal.
+   .that's all
+   Also, Captain Obvius suggests not to use syscall 4 (use repetitive syscall 11 instead)
+   ```
+   Output:
+   ```
+   sgnirts fo ecneuqes a stpecca hcihw margorp a etirW
+   .sdrawkcab gnirts yreve stuptuo dna
+   .lamron sa detaert era sgnirts ytpmE
+   ```
+
 1. ###### CrtDraw
 1. ###### EightSectors
 1. ###### NoError
