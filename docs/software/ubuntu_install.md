@@ -32,6 +32,7 @@ Install Linux Ubuntu and Related Tools
 1. Specify user name as "ACOS", computer name as "acts-vm", and password as "acos2020" (or as you wish). Click "Continue".
    ![VirtualBox Ubuntu Password](images/virtualbox_ubuntu_password.png)
 1. Wait for Ubuntu to be installed.
+   ![VirtualBox Ubuntu Installing](virtualbox_ubuntu_installing.png)
 
 
 ___TODO__
