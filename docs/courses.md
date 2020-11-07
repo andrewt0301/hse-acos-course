@@ -9,13 +9,13 @@ The courses are listed in the order of decreasing relevance.
 - George Kouryachy. [Computer Architecture and Operating Systems.](https://uneex.ru/HSE)
   HSE. 2019. [Official page.](http://wiki.cs.hse.ru/ACOS_DSBA_2019/2020)
 
+- Stephan Kaminsky. [CS61C: Machine Structures.](https://cs61c.org/su20/)
+  UC Berkeley. 2020.
+
 - Silvina Hanono Wachman. [MIT 6.004: Computation Structures.](https://6004.mit.edu)
   [Videos.](https://www.youtube.com/watch?v=DxHVdsYbfqU&list=PL4JwZrlpCVJM-ybXsMQ_pbSRhbqxv6ROM)
   [Slides.](https://github.com/andrewt0301/hse-acos-course/tree/master/related/MIT_6004/slides)
   MIT. 2019.
-  
-- Stephan Kaminsky. [CS61C: Machine Structures.](https://cs61c.org/su20/)
-  UC Berkeley. 2020.
 
 - Charles Leiserson and Julian Shun. [MIT 6.172: Performance Engineering of Software Systems.](
   https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-172-performance-engineering-of-software-systems-fall-2018)

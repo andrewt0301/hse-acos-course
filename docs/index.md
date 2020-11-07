@@ -126,7 +126,7 @@ The list of similar and related courses is [here](courses.md).
 
 ## Links
 
-Links for other related external resources are [here](links.md).
+Links to other related external resources are [here](links.md).
 
 ## Acknowledgements
 
