@@ -14,6 +14,7 @@ Linux inside of Windows or OS X machines. Here is the [download](https://www.vir
 ## Linux Ubuntu
 
 [Linux Ubuntu](https://ubuntu.com) is one the most popular Linux distributions.
+More details are [here](software/ubuntu.md).
 
 ## GCC
 
