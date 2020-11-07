@@ -25,7 +25,8 @@ we will be install Linux Ubuntu in a [virtual machine](https://en.wikipedia.org/
 
 To install and run Linux Ubuntu,
 we will be using the [VirtualBox](https://en.wikipedia.org/wiki/VirtualBox) virtualization tool by Oracle.
-If you have not installed it, please do it. Here is download [link](https://www.virtualbox.org/wiki/Downloads).
+Recommended version is 6.1. If you have not installed it, please do it.
+Here is download [link](https://www.virtualbox.org/wiki/Downloads).
 
 Instructions on how to install Linux Ubuntu and related tools in VirtualBox are [here](ubuntu_install.md).
 However, for the beginning, we can download and run a ready-to-use virtual machine. 
