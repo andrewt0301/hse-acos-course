@@ -29,9 +29,9 @@ Install Linux Ubuntu and Related Tools
 1. Select installation type as "Erase disk and install Ubuntu" and click "Install Now".
 1. In the appearing "Write the changes to disk?" dialog, click "Continue".
 1. In the "Where are you?" dialog, specify "Moscow" and click "Continue".
-1. Specify user name as "ACOS", computer name as "acts-vm", and password as "acos2020" (or as you wish). Click "Continue".
+1. Specify user name as "ACOS", computer name as "acos-vm", and password as "acos2020" (or as you wish). Click "Continue".
    ![VirtualBox Ubuntu Password](images/virtualbox_ubuntu_password.png)
-1. Wait for Ubuntu to be installed.
+1. Wait for Ubuntu to be installed. This will take about 40 minutes.
    ![VirtualBox Ubuntu Installing](images/virtualbox_ubuntu_installing.png)
 
 
