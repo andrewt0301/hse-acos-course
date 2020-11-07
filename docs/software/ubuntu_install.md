@@ -25,10 +25,10 @@ Install Linux Ubuntu and Related Tools
 1. When the installer is loaded, click in the virtual machine window "Install Ubuntu".
    ![VirtualBox Install Ubuntu](images/virtualbox_install_ubuntu.png)
 1. Select "English (US)" for the keyboard layout and click "Continue".
-1. Select "Minimal installation" and click "Continue".
+1. Select "Minimal installation" and click "Continue". We do not need a full installation. Many tools are useless for us. Later we can install tools that we need.
 1. Select installation type as "Erase disk and install Ubuntu" and click "Install Now".
 1. In the appearing "Write the changes to disk?" dialog, click "Continue".
-1. In the "Where are you?" dialog,. specify "Moscow" and click "Continue".
+1. In the "Where are you?" dialog, specify "Moscow" and click "Continue".
 1. Specify user name as "ACOS", computer name as "acts-vm", and password as "acos2020" (or as you wish). Click "Continue".
    ![VirtualBox Ubuntu Password](images/virtualbox_ubuntu_password.png)
 1. Wait for Ubuntu to be installed.
