@@ -7,7 +7,7 @@ A brief description of Linux Ubuntu can be found in [Wikipedia](https://en.wikip
 The Ubuntu version, which we will be working with,
 is [Ubuntu 20.04 LTS (Focal Fossa)](https://en.wikipedia.org/wiki/Ubuntu_version_history#2004),
 where LTS stands for [long-term support](https://en.wikipedia.org/wiki/Long-term_support).
-This means that this distribution will be supported by its vendor for 5 years.
+This means that this distribution will be supported by its vendor for 5 years (free security and maintenance updates).
 
 #### Downloading
 
@@ -25,11 +25,12 @@ we will be install Linux Ubuntu in a [virtual machine](https://en.wikipedia.org/
 
 To install and run Linux Ubuntu,
 we will be using the [VirtualBox](https://en.wikipedia.org/wiki/VirtualBox) virtualization tool by Oracle.
-It can be downloaded from [here](https://www.virtualbox.org/wiki/Downloads).
+If you have not installed it, please do it. Here is download [link](https://www.virtualbox.org/wiki/Downloads).
 
 #### Ready-To-Use Virtual Machine
 
 Installing Linux Ubuntu into VirtualBox is a topic for one of the lab classes dedicated to virtual machines.
 To simplify using Linux Ubuntu in other classes, a ready to use virtual machine is provided.
 Moreover some topics may require installing additional software (such as RISC-V toolchain and ISA simulators).
-So, here is a download [link](TODO) for the Linux Ubuntu 20.04 LTS virtual machine.
+
+Here is a __[download link](TODO)__ for the Linux Ubuntu 20.04 LTS virtual machine. Enjoy!
