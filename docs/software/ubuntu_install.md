@@ -18,10 +18,17 @@ Install Linux Ubuntu and Related Tools
    ![VirtualBox New Ubuntu](images/virtualbox_new_ubuntu_2.png)
 1. Select the "ACOS Ubuntu 20.04 LTS" virtual machine and clink "Settings" in the toolbar.
 1. Go to the "Storage" page of the dialog and select virtual optical disk file.
-   ![VirtualBox New Ubuntu](images/virtualbox_new_ubuntu_iso.png)
-1. Select the downloaded Linux Ubuntu distribution (with .iso extension) and click "OK".
+   ![VirtualBox New Ubuntu](images/virtualbox_ubuntu_iso.png)
+1. Select the downloaded Linux Ubuntu distribution (with the `.iso` extension) and click "OK".
 1. Select the "ACOS Ubuntu 20.04 LTS" virtual machine and clink "Start" in the toolbar.
-1. VirtualBox will rung the virtual machoine, which will start loading the Linux Ubuntu distribution.
+1. VirtualBox will rung the virtual machine, which will start loading the Linux Ubuntu distribution.
+1. When the installer is loaded, click in the virtual machine window "Install Ubuntu".
+   ![VirtualBox Install Ubuntu](images/virtualbox_install_ubuntu.png)
+1. Select "English (US)" for the keyboard layout and click "Continue".
+1. Select "Minimal installation" and click "Continue".
+1. Select installation type as "Erase disk and install Ubuntu" and click "Install Now".
+1. In the appearing "Write the changes to disk?" dialog, click "Continue".
+1. In the "Where are you?" dialog specify "Moscow" and click "Continue".
 
 
 ___TODO__
