@@ -6,6 +6,7 @@ Install Linux Ubuntu and Related Tools
 * [Ubuntu in VirtualBox](#ubuntu-in-virtualbox)
 * [SSH and port forwarding](#ssh-and-port-forwarding)
 * [Git](#git)
+* [GCC](#gcc)
 
 # Ubuntu in VirtualBox
 
@@ -134,3 +135,13 @@ use to get and put source code to GitHub.
 To install it, open Terminal (Ctrl+Alt+T) in Ubuntu or connect via SSH and execute the following command:
 
     acos@acos-vm:~$ sudo apt install git
+
+# GCC
+
+[GCC](https://en.wikipedia.org/wiki/GNU_Compiler_Collection) is required to compile C programs created in
+classes and external open-source tools that will be used in classes.
+
+GCC can be installed using the following command:
+
+    acos@acos-vm:~$ sudo apt install gcc
+
