@@ -3,10 +3,10 @@ Install Linux Ubuntu and Related Tools
 
 # Contents
 
-* [Installing Ubuntu in VirtualBox](#installing-ubuntu-in-virtualbox)
+* [Ubuntu in VirtualBox](#ubuntu-in-virtualbox)
 * [Git](#git)
 
-# Installing Ubuntu in VirtualBox
+# Ubuntu in VirtualBox
 
 1. Run VirtualBox in your laptop.
 
