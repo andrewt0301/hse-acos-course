@@ -7,6 +7,7 @@ Install Linux Ubuntu and Related Tools
 * [SSH and port forwarding](#ssh-and-port-forwarding)
 * [Git](#git)
 * [GCC](#gcc)
+* [Java](#java)
 
 # Ubuntu in VirtualBox
 
@@ -145,3 +146,12 @@ GCC can be installed using the following command:
 
     acos@acos-vm:~$ sudo apt install gcc
 
+# Java
+
+If you want to run the [RARS](https://github.com/thethirdone/rars) simulator inside the Ubuntu virtual machine,
+you need to install Java. Also, you may need a Java compiler.
+
+Execute the following commands:
+
+    acos@acos-vm:~$ sudo apt install openjdk-8-jre-headless
+    acos@acos-vm:~$ sudo apt install openjdk-8-jdk-headless
