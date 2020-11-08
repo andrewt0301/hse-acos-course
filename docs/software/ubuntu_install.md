@@ -90,7 +90,7 @@ Install Linux Ubuntu and Related Tools
 # SSH and port forwarding
 
 After Linux Ubuntu is installed in VirtualBox, we need to make sure that the network interface is enabled
-and set up port forwarding. We need to det up forwarding for port 22 in order to be able to connect
+and set up port forwarding. We need to set up forwarding for port 22 in order to be able to connect
 to the Ubuntu Linux VM from our host operating system using [SSH](https://en.wikipedia.org/wiki/SSH_%28Secure_Shell%29).
 
 #### Configuring the virtual machine in VirtualBox:
