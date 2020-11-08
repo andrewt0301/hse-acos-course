@@ -9,11 +9,11 @@ Install Linux Ubuntu and Related Tools
 
 1. Run VirtualBox in your laptop.
 
-1. Click the "New" button in the VirtualBox toolbar.
+1. Click "New" in the VirtualBox toolbar.
 
    ![VirtualBox New](images/virtualbox_ubuntu_01.png)
 
-1. In the dialog specify machine name as "ACOS Ubuntu 20.04 LTS" and click "Continue".
+1. In the dialog, specify machine name as "ACOS Ubuntu 20.04 LTS" and click "Continue".
 
    ![VirtualBox New Ubuntu](images/virtualbox_ubuntu_02.png)
 
@@ -27,18 +27,18 @@ Install Linux Ubuntu and Related Tools
 
 1. Specify storage on physical hard disk as "Dynamically allocated" and click "Continue".
 
-1. Specify file location and size for the virtual disk and press "Continue". Recommended size is 16 GB.
+1. Specify file location and size for the virtual disk and press "Continue". Location is default. Recommended size is 16 GB.
 
    ![VirtualBox Virtual Disk](images/virtualbox_ubuntu_04.png)
 
-1. Now the virtual machine is create. The next step is to install Linux Ubuntu.
+1. Now the virtual machine is created. The next step is to install Linux Ubuntu in it.
 
 1. Select the "ACOS Ubuntu 20.04 LTS" virtual machine and click "Start" in the toolbar.
 
    ![VirtualBox VM Start](images/virtualbox_ubuntu_05.png)
 
-1. In the dialog that will appear, select the downloaded `.iso` image with Linux Ubuntu distribution
-   to start the virtual machine from. Click "Start".
+1. In the dialog that appears, select the downloaded `.iso` image with Linux Ubuntu distribution
+   (e.g. `ubuntu-20.04.1-desktop-amd64.iso`) to start the virtual machine from. Click "Start".
 
    ![VirtualBox Select ISA](images/virtualbox_ubuntu_06.png)
 
@@ -51,7 +51,7 @@ Install Linux Ubuntu and Related Tools
 1. Select "English (US)" for the keyboard layout and click "Continue".
 
 1. Select "Minimal installation" and click "Continue". We do not need a full installation.
-   Many tools are useless for us. Later we can install tools that we need.
+   Many tools are useless for us. Later we will install tools that we need.
 
    ![VirtualBox Install Minimal](images/virtualbox_ubuntu_08.png)
 
@@ -63,7 +63,7 @@ Install Linux Ubuntu and Related Tools
 
 1. In the "Where are you?" dialog, specify "Moscow" and click "Continue".
 
-1. Specify user name as "ACOS", computer name as "acos-vm", user name as "acos",
+1. Specify your name as "ACOS" (username will be "acos"), computer name as "acos-vm",
    and password as "acos2020" (or as you wish). Click "Continue".
 
    ![VirtualBox Ubuntu Password](images/virtualbox_ubuntu_10.png)
