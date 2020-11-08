@@ -122,7 +122,7 @@ command:
 
     ssh acos@localhost -p2022
 
-    ![VirtualBox Ubuntu Connect SSH](images/virtualbox_ubuntu_ports3.png)
+![VirtualBox Ubuntu Connect SSH](images/virtualbox_ubuntu_ports3.png)
 
 To disconnect, you can type the `exit` command.
 
