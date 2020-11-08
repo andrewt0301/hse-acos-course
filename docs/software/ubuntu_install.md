@@ -4,6 +4,7 @@ Install Linux Ubuntu and Related Tools
 # Contents
 
 * [Installing Ubuntu in VirtualBox](#installing-ubuntu-in-virtualbox)
+* [Git](#git)
 
 # Installing Ubuntu in VirtualBox
 
@@ -83,3 +84,12 @@ Install Linux Ubuntu and Related Tools
 1. Network must work in the virtual machine.
 
    ![VirtualBox Ubuntu Browser](images/virtualbox_ubuntu_14.png)
+
+# Git
+
+[Git](https://en.wikipedia.org/wiki/Git) is a version-control system that we well
+use to get and put source code to GitHub.
+
+To install it, open Terminal and execute the following command:
+
+    acos@acos-vm:~$ sudo apt install git
