@@ -9,7 +9,7 @@ RARS in a RISC-V Assembler and Runtime Simulator. More details are [here](softwa
 ## VirtualBox
 
 [VirtualBox](https://www.virtualbox.org) is a virtualization tools that allows running
-Linux inside of Windows or OS X machines. Recommended version is 6.1.
+Linux inside of Windows or OS X machines. The recommended version is 6.1.
 Here is the [download](https://www.virtualbox.org/wiki/Downloads) page.
 
 ## Linux Ubuntu
