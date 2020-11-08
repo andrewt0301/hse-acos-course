@@ -115,7 +115,6 @@ to the Ubuntu Linux VM from our host operating system using [SSH](https://en.wik
 
        acos@acos-vm:~$ sudo apt install openssh-server
 
-
 #### Connecting to Ubuntu via SSH
 
 After SSH server is installed, you can connect to from terminal of your host operating system using thw following
