@@ -4,6 +4,7 @@ Install Linux Ubuntu and Related Tools
 # Contents
 
 * [Ubuntu in VirtualBox](#ubuntu-in-virtualbox)
+* [SSH and port forwarding](#ssh-and-port-forwarding)
 * [Git](#git)
 
 # Ubuntu in VirtualBox
@@ -84,6 +85,29 @@ Install Linux Ubuntu and Related Tools
 1. Network must work in the virtual machine.
 
    ![VirtualBox Ubuntu Browser](images/virtualbox_ubuntu_14.png)
+
+
+# SSH and port forwarding
+
+After Linux Ubuntu is installed in VirtualBox, we need to make sure that the network interface is enabled
+and set up port forwarding. We need to det up forwarding for port 22 in order to be able to connect
+to the Ubuntu Linux VM from our host operating system using [SSH](https://en.wikipedia.org/wiki/SSH_%28Secure_Shell%29).
+
+Configuring the virtual machine in VirtualBox:
+
+1. Select the "ACOS Ubuntu 20.04 LTS" virtual machine and click "Settings" in the toolbar.
+1. In the dialog, switch to the "Network" page and click "Port Forwarding".
+
+   ![VirtualBox Ubuntu Port Forwarding 1](images/virtualbox_ubuntu_ports1.png)
+
+1. Set up a rule for port forwarding. `127.0.0.1` is the local host IP address, 2022 is the port used for forwarding,
+   `10.0.2.15` is the IP address for the guest OS (Linux Ubuntu), 22 is the SSH port in Linux Ubuntu.  
+
+   ![VirtualBox Ubuntu Port Forwarding](images/virtualbox_ubuntu_ports2.png)
+
+1. Click "OK" to apply the settings.
+
+1. Start the Ubuntu VM.
 
 # Git
 
