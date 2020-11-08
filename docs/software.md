@@ -2,6 +2,16 @@
 
 This page contains a list of software tools that will be used in seminars and home tasks.
 
+## Contents
+
+* [RARS](#rars)
+* [VirtualBox](#virtualbox)
+* [Linux Ubuntu](#linux-ubuntu)
+* [GCC](#gcc)
+* [QEMU](#qemu)
+* [Docker](#docker)
+* [WSL](#wsl)
+
 ## RARS
 
 RARS in a RISC-V Assembler and Runtime Simulator. More details are [here](software/rars.md).
@@ -19,7 +29,16 @@ More details are [here](software/ubuntu.md).
 
 ## GCC
 
-GCC (the GNU Compiler Collection) will be used to compiler programs created during this course.
+[GCC (the GNU Compiler Collection)](https://en.wikipedia.org/wiki/GNU_Compiler_Collection)
+will be used to compile programs created during this course. We will compile
+programs written both in C language and assembly language.
+ 
+C language programs will be complied both for x86 and RISC-V architectures.
+So we will be able to run them in our laptops and inside a RISC-V simulator.
+Assembly programs writted in the RISC-V assembly language will be compiled for the RISC-V architecture.
+
+For x86 we will use a standard GNU toolchain provided with Ubuntu Linux.
+For RISC-V we will use [RISC-V GNU Compiler Toolchain](https://github.com/riscv/riscv-gnu-toolchain). 
 
 ## QEMU
 
