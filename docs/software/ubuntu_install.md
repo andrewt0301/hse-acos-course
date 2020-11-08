@@ -132,6 +132,6 @@ To disconnect, you can type the `exit` command.
 [Git](https://en.wikipedia.org/wiki/Git) is a version-control system that we well
 use to get and put source code to GitHub.
 
-To install it, open Terminal (Ctrl+Alt+T) and execute the following command:
+To install it, open Terminal (Ctrl+Alt+T) in Ubuntu or connect via SSH and execute the following command:
 
     acos@acos-vm:~$ sudo apt install git
