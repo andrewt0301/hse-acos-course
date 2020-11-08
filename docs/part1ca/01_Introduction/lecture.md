@@ -27,7 +27,7 @@ __TODO__
   and administration (attendance, homeworks, grading).
 * Introduction to [software tools](../../software.md).
    * RARS.
-   * Virtual Box. 
+   * VirtualBox. 
    * Linux Ubuntu VM.
 * Practice: play with matrix multiplication and see the benchmarks.
 
