@@ -93,7 +93,7 @@ After Linux Ubuntu is installed in VirtualBox, we need to make sure that the net
 and set up port forwarding. We need to det up forwarding for port 22 in order to be able to connect
 to the Ubuntu Linux VM from our host operating system using [SSH](https://en.wikipedia.org/wiki/SSH_%28Secure_Shell%29).
 
-Configuring the virtual machine in VirtualBox:
+#### Configuring the virtual machine in VirtualBox:
 
 1. Select the "ACOS Ubuntu 20.04 LTS" virtual machine and click "Settings" in the toolbar.
 1. In the dialog, switch to the "Network" page and click "Port Forwarding".
@@ -109,11 +109,29 @@ Configuring the virtual machine in VirtualBox:
 
 1. Start the Ubuntu VM.
 
+#### Set up SSH in Linux Ubuntu
+
+1. Open "Terminal" (Ctrl+Alt+T) and execute the following command to install and run the SSH server:
+
+       acos@acos-vm:~$ sudo apt install openssh-server
+
+
+#### Connecting to Ubuntu via SSH
+
+After SSH server is installed, you can connect to from terminal of your host operating system using thw following
+command:
+
+    ssh acos@localhost -p2022
+
+    ![VirtualBox Ubuntu Connect SSH](images/virtualbox_ubuntu_ports3.png)
+
+To disconnect, you can type the `exit` command.
+
 # Git
 
 [Git](https://en.wikipedia.org/wiki/Git) is a version-control system that we well
 use to get and put source code to GitHub.
 
-To install it, open Terminal and execute the following command:
+To install it, open Terminal (Ctrl+Alt+T) and execute the following command:
 
     acos@acos-vm:~$ sudo apt install git
