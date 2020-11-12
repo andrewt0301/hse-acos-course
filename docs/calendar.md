@@ -7,7 +7,7 @@ This is the plan how lecture topics will correspond to weeks of modules 3 and 4 
 
 Also, see the HSE academic calendar [here](https://www.hse.ru/education/academ).
 
-Number of topics:
+__Number of topics:__
 
 * Computer Architecture: 17
 * Operating Systems: 19
