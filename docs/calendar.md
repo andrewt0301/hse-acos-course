@@ -13,6 +13,12 @@ Also, see the HSE academic calendar [here](https://www.hse.ru/education/academ).
 * Operating Systems: 19
 * Total: 36
 
+### Number of Weeks
+
+* Module 3: 11
+* Module 4: 8
+* Total: 19
+
 # Module 3
 
 | __Dates__               | __Exams__               | __Vacations__                          |
