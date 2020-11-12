@@ -7,7 +7,7 @@ This is the plan how lecture topics will correspond to weeks of modules 3 and 4 
 
 Also, see the HSE academic calendar [here](https://www.hse.ru/education/academ).
 
-__Number of topics:__
+### Number of Topics
 
 * Computer Architecture: 17
 * Operating Systems: 19
@@ -18,7 +18,7 @@ __Number of topics:__
 | __Dates__               | __Exams__               | __Vacations__                          |
 | 11.01.2021 - 28.03.2021 | 29.03.2021 - 04.04.2021 | 22.02.2021-23.02.2021, <br/>08.03.2021 |
 
-Plan by weeks:
+### Plan by Weeks
 
 | __Week__ | __Dates__     | __Topics__ |
 | 1        | 11.01 - 15.01 |            | 
@@ -40,7 +40,7 @@ Plan by weeks:
 _(*) - London exams_
 
 
-Plan by weeks:
+### Plan by Weeks
 
 | __Week__ | __Dates__ | __Topics__ |
 | 1        |           |            |
