@@ -1,7 +1,7 @@
 Calendar: Plan by Weeks
 ---
 
-__TODO: Under Development__
+__TODO: UNDER DEVELOPMENT__
 
 This is the plan how lecture topics will correspond to weeks of modules 3 and 4 in year 2021.
 
