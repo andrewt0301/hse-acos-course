@@ -32,6 +32,8 @@ The second part is given in __module 4__ and covers foundations of operating sys
 The main tools for this part are the [Linux](https://en.wikipedia.org/wiki/Linux) operating system and
 the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_language%29).
 
+__Calendar plan by weeks can be found [here](calendar.md).__
+
 ### Computer Architecture and Assembly Language
 
 1. [Introduction. Course motivation. Historical perspective.](part1ca/01_Introduction/lecture.md)
@@ -65,6 +67,8 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 15. Thread-level parallelism.
 
 16. Optimizations.
+
+17. [Tensor Processing Unit. Accelerator for machine-learning.](part1ca/17_TPU/lecture.md)
 
 ### Operating Systems and System Programming
 
@@ -105,8 +109,6 @@ the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_lang
 18. Security.
 
 19. [High-level languages and operating system.](part2os/19_Python/lecture.md)
-
-20. [Tensor Processing Unit. Accelerator for machine-learning.](part2os/20_TPU/lecture.md)
 
 ## Grading System
 

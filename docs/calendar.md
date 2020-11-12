@@ -30,7 +30,8 @@ Also, see the HSE academic calendar [here](https://www.hse.ru/education/academ).
 | 7        | 24.02 - 26.02 |            |
 | 8        | 01.03 - 05.03 |            |
 | 9        | 09.03 - 12.03 |            |
-
+| 10       | 15.03 - 19.03 |            |
+| 11       | 22.03 - 26.03 |            |
 
 # Module 4
 
