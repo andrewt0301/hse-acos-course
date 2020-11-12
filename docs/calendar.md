@@ -7,11 +7,20 @@ This is the plan how lecture topics will correspond to weeks of modules 3 and 4 
 
 Also, see the HSE academic calendar [here](https://www.hse.ru/education/academ).
 
+One topic is one lecture and one seminar.
+Each part of the course (Computer Architecture - module 3, Operating Systems - module 4)
+ends with a test which is taken during a lecture class.  
+
 ### Number of Topics
 
 * Computer Architecture: 17
 * Operating Systems: 19
 * Total: 36
+
+### Tests
+
+* Computer Architecture: 1
+* Operating Systems: 1
 
 ### Number of Weeks
 
