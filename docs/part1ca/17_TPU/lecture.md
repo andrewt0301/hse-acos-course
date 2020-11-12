@@ -1,4 +1,4 @@
-Lecture 20
+Lecture 17
 ---
 
 # Tensor Processing Unit
