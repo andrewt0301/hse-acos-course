@@ -7,6 +7,8 @@ This is the plan how lecture topics will correspond to weeks of modules 3 and 4 
 
 Also, see the HSE academic calendar [here](https://www.hse.ru/education/academ).
 
+## Plan
+
 One topic is one lecture and one seminar.
 Each part of the course (Computer Architecture - module 3, Operating Systems - module 4)
 ends with a test which is taken during a lecture class.  
