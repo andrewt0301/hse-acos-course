@@ -37,6 +37,7 @@ __TODO__
   https://github.com/riscv/riscv-isa-manual/releases/latest).
 * [RISC-V Greencard](
   https://github.com/andrewt0301/hse-acos-course/raw/master/related/greencard-20181213.pdf).
+* [RISC-V Assembly Programmer's Manual](https://github.com/riscv/riscv-asm-manual/blob/master/riscv-asm.md)
 * [Central Processing Unit](https://en.wikipedia.org/wiki/Central_processing_unit) (Wikipedia).
 * [Motherboard](https://en.wikipedia.org/wiki/Motherboard) (Wikipedia).
 * [System Bus](https://en.wikipedia.org/wiki/System_bus) (Wikipedia).
