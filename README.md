@@ -1,9 +1,9 @@
-# HSE ACOS Course Materials
+HSE ACOS Course Materials
 ----------------------------------------------------------------------------------------------------
 [![Apache License](https://img.shields.io/badge/license-Apache%202-blue.svg)](LICENSE)
 ----------------------------------------------------------------------------------------------------
 
-This is a hosting for materials the “Computer Architecture and Operating Systems” course
+This is a hosting for materials for the “Computer Architecture and Operating Systems” course
 taught at [Faculty of Computer Science of Higher School of Economics](https://cs.hse.ru/en/).
 
 Course web site is [here](https://andrewt0301.github.io/hse-acos-course/).
