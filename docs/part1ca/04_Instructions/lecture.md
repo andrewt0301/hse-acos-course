@@ -8,10 +8,10 @@ Slides ([PDF](CA_Lecture_04.pdf), [PPTX](CA_Lecture_04.pptx)).
 
 #### Outline:
 
+* Stored program concept.
+* Memory layout.
 * RISC-V ISA base and extensions.
 * Instruction encoding (R, I, S, SB, U, and UJ formats).
-* Memory layout.
-
 
 ## Quiz
 
