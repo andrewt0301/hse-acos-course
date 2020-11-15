@@ -44,31 +44,29 @@ __Calendar plan by weeks can be found [here](calendar.md).__
 
 4. [RISC-V instructions. Instruction formats. Arithmetic and load/store instructions.](part1ca/04_Instructions/lecture.md)
 
-5. Conditions, loops, and arrays.
-
-6. Pseudo instructions, macros, and includes.
+5. Pseudo instructions, macros, and includes. Conditions, loops, and arrays.
  
-7. Memory-mapped I/O (MMIO).
+6. Memory-mapped I/O (MMIO).
 
-8. Subroutines. Stack. Calling conventions.
+7. Subroutines. Stack. Calling conventions.
 
-9. [Floating-point format. IEEE 754. Floating-point instructions.](part1ca/09_FP/lecture.md)
+8. [Floating-point format. IEEE 754. Floating-point instructions.](part1ca/09_FP/lecture.md)
 
-10. [Exceptions, traps, and interrupts.](part1ca/10_Exceptions/lecture.md)
+9. [Exceptions, traps, and interrupts.](part1ca/10_Exceptions/lecture.md)
 
-11. [Pipelining.](part1ca/11_Pipeline/lecture.md)
+10. [Pipelining.](part1ca/11_Pipeline/lecture.md)
 
-12. [Caches.](part1ca/12_Caches/lecture.md)
+11. [Caches.](part1ca/12_Caches/lecture.md)
 
-13. Virtual memory.
+12. Virtual memory.
 
-14. Data-level parallelism: Vector, SIMD, GPU.
+13. Data-level parallelism: Vector, SIMD, GPU.
 
-15. Thread-level parallelism.
+14. Thread-level parallelism.
 
-16. Optimizations.
+15. Optimizations.
 
-17. [Tensor Processing Unit. Accelerator for machine-learning.](part1ca/17_TPU/lecture.md)
+16. [Tensor Processing Unit. Accelerator for machine-learning.](part1ca/17_TPU/lecture.md)
 
 ### Operating Systems and System Programming
 
