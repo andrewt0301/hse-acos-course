@@ -46,9 +46,9 @@ __Calendar plan by weeks can be found [here](calendar.md).__
 
 5. Pseudo instructions, macros, and includes. Conditions, loops, and arrays.
  
-6. Memory-mapped I/O (MMIO).
+6. Subroutines. Stack. Calling conventions.
 
-7. Subroutines. Stack. Calling conventions.
+7. Memory-mapped I/O (MMIO).
 
 8. [Floating-point format. IEEE 754. Floating-point instructions.](part1ca/09_FP/lecture.md)
 
