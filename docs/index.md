@@ -74,7 +74,7 @@ __Calendar plan by weeks can be found [here](calendar.md).__
 
 2. [C programming language. GNU tools (GCC, Make).](part2os/02_C/lecture.md)
 
-3. System calls.
+3. [System calls.](part2os/03_SystemCalls/lecture.md)
 
 4. [Libraries and binary file format.](part2os/04_Linking/lecture.md)
 
