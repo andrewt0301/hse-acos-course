@@ -84,7 +84,7 @@ __Calendar plan by weeks can be found [here](calendar.md).__
 
 7. Synchronization.
 
-8. Inter-process communication.
+8. [Inter-process communication.](part2os/08_IPC/lecture.md)
 
 9. Filesystem.
 
