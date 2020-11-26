@@ -76,9 +76,9 @@ __Calendar plan by weeks can be found [here](calendar.md).__
 
 3. [System calls.](part2os/03_SystemCalls/lecture.md)
 
-4. [Libraries and binary file format.](part2os/04_Linking/lecture.md)
+4. [Linking and loading. Libraries and binary file format.](part2os/04_Linking/lecture.md)
 
-5. Strings and regular expressions.
+5. [Strings and regular expressions.](part2os/05_Strings/lecture.md)
 
 6. Processes and threads.
 
