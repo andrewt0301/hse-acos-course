@@ -39,4 +39,10 @@ Moreover some topics may require installing additional software (such as RISC-V 
 
 Here is the __[download link](
 https://drive.google.com/file/d/1JQMjg7-wAg43XrpQYPYxrqp4skalhtRP/view?usp=sharing)__
-for the Linux Ubuntu 20.04 LTS virtual machine. Enjoy!
+for the Linux Ubuntu 20.04 LTS virtual machine.
+You need to download, unzip, and add to it your VirtualBox.
+
+![](images/virtualbox_ubuntu_add_01.png)
+
+![](images/virtualbox_ubuntu_add_02.png)
+
