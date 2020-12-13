@@ -37,12 +37,17 @@ Installing Linux Ubuntu into VirtualBox is a topic for one of the lab classes de
 To simplify using Linux Ubuntu in other classes, a ready to use virtual machine is provided.
 Moreover some topics may require installing additional software (such as RISC-V toolchain and ISA simulators).
 
-Here is the __[download link](
-https://drive.google.com/file/d/1JQMjg7-wAg43XrpQYPYxrqp4skalhtRP/view?usp=sharing)__
-for the Linux Ubuntu 20.04 LTS virtual machine.
+Here are the download links for ready-to-use VMs:
+
+* [Linux Ubuntu 20.04 LTS](
+   https://yadi.sk/d/HRkBj9Ufq2sIDA).
+   3.21 GB (about 8 GB when unpacked).
+* [Linux Ubuntu 20.04 LTS with RISC-V toolchain](
+   https://drive.google.com/file/d/1ceJj4IPSEkDYKmZwWxGv9MhQZ6Qe6yL8/view?usp=sharing)
+   9 GB (about 24 GB when unpacked).
+
 You need to download, unzip, and add to it your VirtualBox.
 
 ![](images/virtualbox_ubuntu_add_01.png)
 
 ![](images/virtualbox_ubuntu_add_02.png)
-
