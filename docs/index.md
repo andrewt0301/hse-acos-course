@@ -48,7 +48,7 @@ __Calendar plan by weeks can be found [here](calendar.md).__
  
 6. Subroutines. Stack. Calling conventions.
 
-7. Memory-mapped I/O (MMIO).
+7. [Memory-mapped I/O (MMIO)](part1ca/07_MMIO/lecture.md).
 
 8. [Floating-point format. IEEE 754. Floating-point instructions.](part1ca/08_FP/lecture.md)
 
@@ -64,9 +64,9 @@ __Calendar plan by weeks can be found [here](calendar.md).__
 
 14. Thread-level parallelism.
 
-15. Optimizations.
+15. [Optimizations.](part1ca/15_Optimize/lecture.md)
 
-16. [Tensor Processing Unit. Accelerator for machine-learning.](part1ca/16_TPU/lecture.md)
+16. [Domain-specific ISAs. Tensor Processing Unit.](part1ca/16_TPU/lecture.md)
 
 ### Operating Systems and System Programming
 
