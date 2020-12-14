@@ -66,7 +66,7 @@ __Calendar plan by weeks can be found [here](calendar.md).__
 
 15. [Optimizations.](part1ca/15_Optimize/lecture.md)
 
-16. [Domain-specific ISAs. Tensor Processing Unit.](part1ca/16_TPU/lecture.md)
+16. [Domain-specific architectures. Tensor Processing Unit.](part1ca/16_TPU/lecture.md)
 
 ### Operating Systems and System Programming
 
