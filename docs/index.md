@@ -54,15 +54,15 @@ __Calendar plan by weeks can be found [here](calendar.md).__
 
 9. [Exceptions, traps, and interrupts.](part1ca/09_Exceptions/lecture.md)
 
-10. [Pipelining.](part1ca/10_Pipeline/lecture.md)
+10. [Instruction-level parallelism: Pipelining.](part1ca/10_Pipeline/lecture.md)
 
 11. [Caches.](part1ca/11_Caches/lecture.md)
 
 12. [Virtual memory.](part1ca/12_VM/lecture.md)
 
-13. Data-level parallelism: Vector, SIMD, GPU.
+13. [Data-level parallelism: Vector, SIMD, GPU.](part1ca/13_DLP/lecture.md)
 
-14. Thread-level parallelism.
+14. [Thread-level parallelism.](part1ca/14_TLP/lecture.md)
 
 15. [Optimizations.](part1ca/15_Optimize/lecture.md)
 
