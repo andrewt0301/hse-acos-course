@@ -58,7 +58,7 @@ __Calendar plan by weeks can be found [here](calendar.md).__
 
 11. [Caches.](part1ca/11_Caches/lecture.md)
 
-12. Virtual memory.
+12. [Virtual memory.](part1ca/12_VM/lecture.md)
 
 13. Data-level parallelism: Vector, SIMD, GPU.
 
