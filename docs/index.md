@@ -44,8 +44,8 @@ __Calendar plan by weeks can be found [here](calendar.md).__
 
 4. [RISC-V instructions. Instruction formats. Arithmetic and load/store instructions.](part1ca/04_Instructions/lecture.md)
 
-5. Pseudo instructions, macros, and includes. Conditions, loops, and arrays.
- 
+5. [Pseudo instructions, macros, and includes. Conditions, loops, and arrays.](part1ca/05_MacrosBranchesArrays/lecture.md)
+
 6. [Subroutines. Call stack. Calling conventions.](part1ca/06_CallStack/lecture.md)
 
 7. [Memory-mapped I/O (MMIO)](part1ca/07_MMIO/lecture.md).
