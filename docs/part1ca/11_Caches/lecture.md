@@ -1,15 +1,13 @@
 Lecture 11
 ---
 
-# Pipelining
+# Memory and Caches
 
 ## Lecture
 
 Slides ([PDF](CA_Lecture_11.pdf), [PPTX](CA_Lecture_11.pptx)).
 
 Outline:
-
-<!--- Hazzards. Prediction. Reordering?  -->
 
 __TODO__
 

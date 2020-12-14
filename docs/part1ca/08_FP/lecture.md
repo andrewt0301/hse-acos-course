@@ -1,11 +1,11 @@
-Lecture 9
+Lecture 8
 ---
 
 # Floating-Point Format
 
 ## Lecture
 
-Slides ([PDF](CA_Lecture_09.pdf), [PPTX](CA_Lecture_09.pptx)).
+Slides ([PDF](CA_Lecture_08.pdf), [PPTX](CA_Lecture_08.pptx)).
 
 Outline:
 

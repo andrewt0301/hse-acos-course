@@ -50,13 +50,13 @@ __Calendar plan by weeks can be found [here](calendar.md).__
 
 7. Memory-mapped I/O (MMIO).
 
-8. [Floating-point format. IEEE 754. Floating-point instructions.](part1ca/09_FP/lecture.md)
+8. [Floating-point format. IEEE 754. Floating-point instructions.](part1ca/08_FP/lecture.md)
 
-9. [Exceptions, traps, and interrupts.](part1ca/10_Exceptions/lecture.md)
+9. [Exceptions, traps, and interrupts.](part1ca/09_Exceptions/lecture.md)
 
-10. [Pipelining.](part1ca/11_Pipeline/lecture.md)
+10. [Pipelining.](part1ca/10_Pipeline/lecture.md)
 
-11. [Caches.](part1ca/12_Caches/lecture.md)
+11. [Caches.](part1ca/11_Caches/lecture.md)
 
 12. Virtual memory.
 
@@ -66,7 +66,7 @@ __Calendar plan by weeks can be found [here](calendar.md).__
 
 15. Optimizations.
 
-16. [Tensor Processing Unit. Accelerator for machine-learning.](part1ca/17_TPU/lecture.md)
+16. [Tensor Processing Unit. Accelerator for machine-learning.](part1ca/16_TPU/lecture.md)
 
 ### Operating Systems and System Programming
 

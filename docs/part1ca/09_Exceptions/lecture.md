@@ -1,11 +1,11 @@
-Lecture 12
+Lecture 9
 ---
 
-# Memory and Caches
+# Exceptions, traps, and interrupts
 
 ## Lecture
 
-Slides ([PDF](CA_Lecture_12.pdf), [PPTX](CA_Lecture_12.pptx)).
+Slides ([PDF](CA_Lecture_09.pdf), [PPTX](CA_Lecture_09.pptx)).
 
 Outline:
 

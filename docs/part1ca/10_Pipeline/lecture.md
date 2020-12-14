@@ -1,13 +1,15 @@
 Lecture 10
 ---
 
-# Exceptions, traps, and interrupts
+# Pipelining
 
 ## Lecture
 
 Slides ([PDF](CA_Lecture_10.pdf), [PPTX](CA_Lecture_10.pptx)).
 
 Outline:
+
+<!--- Hazzards. Prediction. Reordering?  -->
 
 __TODO__
 
