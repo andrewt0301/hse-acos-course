@@ -46,7 +46,7 @@ __Calendar plan by weeks can be found [here](calendar.md).__
 
 5. Pseudo instructions, macros, and includes. Conditions, loops, and arrays.
  
-6. Subroutines. Stack. Calling conventions.
+6. [Subroutines. Call stack. Calling conventions.](part1ca/06_CallStack/lecture.md)
 
 7. [Memory-mapped I/O (MMIO)](part1ca/07_MMIO/lecture.md).
 
