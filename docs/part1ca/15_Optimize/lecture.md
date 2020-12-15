@@ -1,11 +1,11 @@
-Lecture 12
+Lecture 15
 ---
 
-# Memory and Caches
+# Optimizations
 
 ## Lecture
 
-Slides ([PDF](CA_Lecture_12.pdf), [PPTX](CA_Lecture_12.pptx)).
+Slides ([PDF](CA_Lecture_15.pdf), [PPTX](CA_Lecture_15.pptx)).
 
 Outline:
 

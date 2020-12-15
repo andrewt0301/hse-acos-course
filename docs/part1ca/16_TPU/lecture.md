@@ -1,4 +1,4 @@
-Lecture 17
+Lecture 16
 ---
 
 # Tensor Processing Unit
@@ -6,7 +6,7 @@ Lecture 17
 ## Lecture
 
 <!---
-Slides ([PDF](CA_Lecture_01.pdf), [PPTX](CA_Lecture_01.pptx)).
+Slides ([PDF](CA_Lecture_16.pdf), [PPTX](CA_Lecture_16.pptx)).
 
 Outline:
 -->

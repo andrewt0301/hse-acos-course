@@ -44,29 +44,31 @@ __Calendar plan by weeks can be found [here](calendar.md).__
 
 4. [RISC-V instructions. Instruction formats. Arithmetic and load/store instructions.](part1ca/04_Instructions/lecture.md)
 
-5. Pseudo instructions, macros, and includes. Conditions, loops, and arrays.
- 
-6. Subroutines. Stack. Calling conventions.
+5. [Pseudo instructions, macros, and includes. Conditions, loops, and arrays.](part1ca/05_MacrosBranchesArrays/lecture.md)
 
-7. Memory-mapped I/O (MMIO).
+6. [Subroutines. Call stack. Calling conventions.](part1ca/06_CallStack/lecture.md)
 
-8. [Floating-point format. IEEE 754. Floating-point instructions.](part1ca/09_FP/lecture.md)
+7. [Memory-mapped I/O (MMIO)](part1ca/07_MMIO/lecture.md).
 
-9. [Exceptions, traps, and interrupts.](part1ca/10_Exceptions/lecture.md)
+8. [Floating-point format. IEEE 754. Floating-point instructions.](part1ca/08_FP/lecture.md)
 
-10. [Pipelining.](part1ca/11_Pipeline/lecture.md)
+9. [Exceptions, traps, and interrupts.](part1ca/09_Exceptions/lecture.md)
 
-11. [Caches.](part1ca/12_Caches/lecture.md)
+10. [Instruction-level parallelism: Pipelining.](part1ca/10_Pipeline/lecture.md)
 
-12. Virtual memory.
+11. [Caches.](part1ca/11_Caches/lecture.md)
 
-13. Data-level parallelism: Vector, SIMD, GPU.
+12. [Virtual memory.](part1ca/12_VM/lecture.md)
 
-14. Thread-level parallelism.
+13. [Data-level parallelism: Vector, SIMD, GPU.](part1ca/13_DLP/lecture.md)
 
-15. Optimizations.
+14. [Thread-level parallelism.](part1ca/14_TLP/lecture.md)
 
-16. [Tensor Processing Unit. Accelerator for machine-learning.](part1ca/17_TPU/lecture.md)
+15. [Optimizations.](part1ca/15_Optimize/lecture.md)
+
+16. [Domain-specific architectures. Tensor Processing Unit.](part1ca/16_TPU/lecture.md)
+
+All home works for "Computer Architecture and Assembly Language" are [here](part1ca/hometasks.md).
 
 ### Operating Systems and System Programming
 
