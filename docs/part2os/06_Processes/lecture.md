@@ -1,7 +1,7 @@
 Lecture 6
 ---
 
-# Processes and threads
+# Processes and Threads
 
 ## Lecture
 

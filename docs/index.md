@@ -88,7 +88,7 @@ All home works for "Computer Architecture and Assembly Language" are [here](part
 
 8. [Inter-process communication.](part2os/08_IPC/lecture.md)
 
-9. Filesystem.
+9. [Filesystem.](part2os/09_Filesystem/lecture.md)
 
 10. Devices and other special files.
 
