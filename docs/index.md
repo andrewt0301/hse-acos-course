@@ -80,9 +80,9 @@ __Calendar plan by weeks can be found [here](calendar.md).__
 
 5. [Strings and regular expressions.](part2os/05_Strings/lecture.md)
 
-6. Processes and threads.
+6. [Processes and threads.](part2os/06_Processes/lecture.md)
 
-7. Synchronization.
+7. [Synchronization.](part2os/07_Synch/lecture.md)
 
 8. [Inter-process communication.](part2os/08_IPC/lecture.md)
 
