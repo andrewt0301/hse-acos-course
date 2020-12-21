@@ -90,7 +90,7 @@ All home works for "Computer Architecture and Assembly Language" are [here](part
 
 9. [Filesystem.](part2os/09_Filesystem/lecture.md)
 
-10. Devices and other special files.
+10. [Devices and other special files.](part2os/10_Devices/lecture.md)
 
 11. Permissions.
 
