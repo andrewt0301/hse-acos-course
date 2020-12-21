@@ -92,7 +92,7 @@ All home works for "Computer Architecture and Assembly Language" are [here](part
 
 10. [Devices and other special files.](part2os/10_Devices/lecture.md)
 
-11. Permissions.
+11. [Permissions.](part2os/11_Permissions/lecture.md)
 
 12. [Shell. I/O redirection.](part2os/12_Shell/lecture.md)
 
