@@ -106,7 +106,7 @@ All home works for "Computer Architecture and Assembly Language" are [here](part
 
 17. Virtualization.
 
-18. Security.
+18. [Security.](part2os/18_Security/lecture.md)
 
 19. [High-level languages and operating system.](part2os/19_Python/lecture.md)
 
