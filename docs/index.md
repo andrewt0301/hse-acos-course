@@ -96,15 +96,15 @@ All home works for "Computer Architecture and Assembly Language" are [here](part
 
 12. [Shell. I/O redirection.](part2os/12_Shell/lecture.md)
 
-13. SystemD services.
+13. [SystemD services.](part2os/13_SystemD/lecture.md)
 
-14. Sockets.
+14. [Sockets.](part2os/14_Sockets/lecture.md)
 
-15. Networking.
+15. [Networking.](part2os/15_Network/lecture.md)
 
-16. Distributed operating systems.
+16. [Distributed operating systems.](part2os/16_Distributed/lecture.md)
 
-17. Virtualization.
+17. [Virtualization.](part2os/17_Virtualization/lecture.md)
 
 18. [Security.](part2os/18_Security/lecture.md)
 
