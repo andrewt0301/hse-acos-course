@@ -21,4 +21,7 @@ __TODO__
 
 ## References
 
-__TODO__
+* Optimizing program performance. Chapter 5 in [[CSPP]](../../books.md).
+* [MIT 6.172](
+  https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-172-performance-engineering-of-software-systems-fall-2018).
+  Lecture 2.
