@@ -1,15 +1,16 @@
 Lecture 16
 ---
 
-# Tensor Processing Unit
+# Domain-specific architectures. Tensor Processing Unit.
 
 ## Lecture
 
-<!---
 Slides ([PDF](CA_Lecture_16.pdf), [PPTX](CA_Lecture_16.pptx)).
 
-Outline:
--->
+#### Outline
+
+__TODO__
+
 ## Workshop
 
 https://colab.research.google.com/notebooks/tpu.ipynb
@@ -22,9 +23,8 @@ __TODO__
 
 # References
 
-https://en.wikipedia.org/wiki/Tensor_Processing_Unit
-https://cloud.google.com/tpu
-https://cloud.google.com/blog/products/gcp/google-supercharges-machine-learning-tasks-with-custom-chip
-https://www.nytimes.com/2018/02/12/technology/google-artificial-intelligence-chips.html
-
-__TODO__
+* Domain-specific architectures. Chapter 7 in [[CAQA]](../../books.md).
+* [TPU](https://en.wikipedia.org/wiki/Tensor_Processing_Unit) (Wikipedia)
+* [TPU](https://cloud.google.com/tpu) (Google)
+* [Google supercharges machine learning tasks with TPU custom chip](
+  https://cloud.google.com/blog/products/gcp/google-supercharges-machine-learning-tasks-with-custom-chip)
