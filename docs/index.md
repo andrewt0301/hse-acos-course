@@ -68,7 +68,8 @@ __Calendar plan by weeks can be found [here](calendar.md).__
 
 16. [Domain-specific architectures. Tensor Processing Unit.](part1ca/16_TPU/lecture.md)
 
-All home works for "Computer Architecture and Assembly Language" are [here](part1ca/Tasks/hometasks.md).
+All homeworks for "Computer Architecture and Assembly Language"
+are [here](part1ca/Tasks/homeworks.md).
 
 ### Operating Systems and System Programming
 
