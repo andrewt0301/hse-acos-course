@@ -436,11 +436,11 @@ They are enough. However, they were somewhat challenging for some students.
    Each odd input is an X coordinate, and each even input is an Y coordinate
    of a certain point in a matrix.
    The matrix is 16×16, and X and Y are in the range from 0 to 15.
-   The (0, 0) coordinate is at upper-left corner;
+   The `(0, 0)` coordinate is in the upper-left corner;
    X grows from left to right, and Y grows from top to bottom.
    If X is negative, input finishes, and the program outputs the 16×16 character matrix.
-   The matrix contains '*' at coordinates specified by previous inputs of X and Y
-   and '.' at empty places.
+   The matrix contains `*` at coordinates specified by previous `(X, Y)` inputs
+   and `.` at empty places.
 
    Input:
    ```
