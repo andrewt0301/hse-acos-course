@@ -47,8 +47,8 @@ Taken from here: https://uneex.ru/CategoryHomework
 1. [KeySort](#keysort)
 1. [ReverseString](#reversestring)
 1. [CrtDraw](#crtdraw)
-1. [EightSectors](#eightsectors)
 1. [NoError](#noerror)
+1. [EightSectors](#eightsectors)
 1. [NotOval](#notoval)
 
 # Task Descriptions
