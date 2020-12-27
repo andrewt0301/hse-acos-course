@@ -577,20 +577,20 @@ Taken from here: https://uneex.ru/CategoryHomework
 
 1. ###### LargestSum
 
-  __TODO: More detailed description__
+   __TODO: More detailed description__
 
-  Suppose you are given an array of both positive and negative integers. 
-  Write MIPS assembly code that finds the subset of the array with the largest sum. 
-  Assume that the array’s base address and the number of array elements are in $a0 and $a1, 
-  respectively. 
-  Your code should place the resulting subset of the array starting at base address$a2. 
-  Write code that runs as fast as possible.
+   Suppose you are given an array of both positive and negative integers. 
+   Write MIPS assembly code that finds the subset of the array with the largest sum. 
+   Assume that the array’s base address and the number of array elements are in $a0 and $a1, 
+   respectively. 
+   Your code should place the resulting subset of the array starting at base address$a2. 
+   Write code that runs as fast as possible.
 
 1. ###### Palindrome
 
-  __TODO: More detailed description__
+   __TODO: More detailed description__
 
-  Design an algorithm for testing whether a given string is a palindrome. 
-  (Recall that a palindrome is a word that is the same forward and backward. 
-  For example, the words “wow” and “racecar” are palindromes.) 
-  Implement your algorithm using RISC-V assembly code.
+   Design an algorithm for testing whether a given string is a palindrome. 
+   (Recall that a palindrome is a word that is the same forward and backward. 
+   For example, the words “wow” and “racecar” are palindromes.) 
+   Implement your algorithm using RISC-V assembly code.
