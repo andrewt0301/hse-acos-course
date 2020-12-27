@@ -49,7 +49,6 @@ Taken from here: https://uneex.ru/CategoryHomework
 1. [CrtDraw](#crtdraw)
 1. [NoError](#noerror)
 1. [EightSectors](#eightsectors)
-1. [NotOval](#notoval)
 
 # Task Descriptions
 
@@ -573,7 +572,3 @@ Taken from here: https://uneex.ru/CategoryHomework
    0x00ffff00
    0x00888888
    ```
-
-1. ###### NotOval
-
-   __TODO__   
