@@ -22,10 +22,12 @@ https://coderoad.ru/49970549/Проблема-рендеринга-некото�
 Home Tasks
 ---
 
-<!--- Taken from here: https://uneex.ru/CategoryHomework -->
-
+<!--- 
 Here are assembly programming tasks, which were given during the previous year.
 They are enough. However, they were somewhat challenging for some students.
+
+Taken from here: https://uneex.ru/CategoryHomework
+-->
 
 # Task List
 
