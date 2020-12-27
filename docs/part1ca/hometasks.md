@@ -255,8 +255,8 @@ They are enough. However, they were somewhat challenging for some students.
 
    Input three cardinals — `A`, `B` and `n`.
    Output double float `F` that has exact `n` decimal places of `A/B`.
-   You need to write a subroutine than accepts double `f=A/B` in `$f12` and integer `n` in `$a0` and returns
-   rounded double `F` in `$f0`.
+   You need to write a subroutine than accepts double `f=A/B` in `$f12` and integer `n` in `$a0`
+   and returns rounded double `F` in `$f0`.
 
    Hint: $$10^n*A/B < 2^{31}$$
 
@@ -329,10 +329,13 @@ They are enough. However, they were somewhat challenging for some students.
    array size (in _words_, not in bytes), array address, and comparison subroutine.
    Your subroutine sorts an array and return array size in `$v0` and array address in `$v1`.
    Your subroutine should use comparing subroutine to determine if two elements is in order.
-   Comparing subroutine accepts integers in `$a0` and `$a1` and returns 1 in `$v0` if they're in proper order,
-   and 0 otherwise. Write _two_ comparing subroutines: first for `$a0` < `$a1`, second for `$a0 % 10` > `$a1 % 10`.
-   Please use bubble sort algorithm (ar any other _stable_). Your program reads an ordinal N, then an integer T,
-   then N integers. If T is 0, use first comparison subroutine, if T != 0, use second one. Then output an array.
+   Comparing subroutine accepts integers in `$a0` and `$a1` and returns 1 in `$v0`
+   if they are in proper order, and 0 otherwise.
+   Write _two_ comparing subroutines: first for `$a0` < `$a1`, second for `$a0 % 10` > `$a1 % 10`.
+   Please use bubble sort algorithm (ar any other _stable_).
+   Your program reads an ordinal N, then an integer T, then N integers.
+   If T is 0, use first comparison subroutine, if T != 0, use second one.
+   Then output an array.
 
    Input:
    ```
@@ -405,11 +408,12 @@ They are enough. However, they were somewhat challenging for some students.
 
 1. ###### ReverseString
 
-   Write a program which accepts a sequence of non-empty strings (each not longer than 200 characters)
-   and outputs every string backwards. Sequence ends with a string started from '.'; this final string is not printed.
+   Write a program which accepts a sequence of non-empty strings
+   (each not longer than 200 characters) and outputs every string backwards.
+   Sequence ends with a string started from '.'; this final string is not printed.
    You should write a subroutine which accepts string address in $a0 and prints it backwards.
-   Caution: if you want to use syscall 8, read carefully the documentation about '\n' at the end of the input string
-   (it either can evolve or not, you should omit it).
+   Caution: if you want to use syscall 8, read carefully the documentation about '\n' at the end
+   of the input string (it either can evolve or not, you should omit it).
 
    Input:
    ```
@@ -427,7 +431,62 @@ They are enough. However, they were somewhat challenging for some students.
    ```
 
 1. ###### CrtDraw
+
+   Write a program, that inputs an odd number of integers.
+   Each odd input is an X coordinate, and each even input is an Y coordinate
+   of a certain point in a matrix.
+   The matrix is 16×16, and X and Y are in the range from 0 to 15.
+   The (0, 0) coordinate is at upper-left corner;
+   X grows from left to right, and Y grows from top to bottom.
+   If X is negative, input finishes, and the program outputs the 16×16 character matrix.
+   The matrix contains '*' at coordinates specified by previous inputs of X and Y
+   and '.' at empty places.
+
+   Input:
+   ```
+   1
+   1
+   2
+   2
+   13
+   2
+   12
+   3
+   11
+   11
+   12
+   12
+   1
+   14
+   0
+   15
+   -1
+   ```
+
+   Output:
+   ```
+   ................
+   .*..............
+   ..*..........*..
+   ............*...
+   ................
+   ................
+   ................
+   ................
+   ................
+   ................
+   ................
+   ...........*....
+   ............*...
+   ................
+   .*..............
+   *...............
+   ```
+
 1. ###### EightSectors
+
+   __TODO__   
+
 1. ###### NoError
 
    Write a program that inputs 10 integers, not taking in account failed inputs.
