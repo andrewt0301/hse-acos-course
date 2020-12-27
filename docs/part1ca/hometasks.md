@@ -483,10 +483,6 @@ They are enough. However, they were somewhat challenging for some students.
    *...............
    ```
 
-1. ###### EightSectors
-
-   __TODO__   
-
 1. ###### NoError
 
    Write a program that inputs 10 integers, not taking in account failed inputs.
@@ -530,5 +526,10 @@ They are enough. However, they were somewhat challenging for some students.
    It is suggested to use an array to store successful inputs and universal exception handler
    that marks specific memory variable to skip unsuccessful ones.
 
+1. ###### EightSectors
+
+   __TODO__
 
 1. ###### NotOval
+
+   __TODO__   
