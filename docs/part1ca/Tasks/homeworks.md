@@ -530,7 +530,49 @@ Taken from here: https://uneex.ru/CategoryHomework
 
 1. ###### EightSectors
 
-   __TODO__
+   Write a program that inputs 8 integers and colours `Bitmap Display` with size 128×128 dots
+   based on `0x10010000` like this:
+   ![](images/EightSectors.png)
+   * Numbers here indicate color numbers, you __do not need__ to draw them.
+   * Please note the corners: ![](images/ld.png), ![](images/lu.png), ![](images/rd.png),
+     ![](images/ru.png) and the center: ![](images/c.png).
+     To see this better, you can scale Bitmap Display «size in pixels» by 4
+     (this will not affect the program).
+   * EJudge cannot interact with Bitmap Display, the program must dump all videomemory
+     so to pass the test.
+
+   Colors (integer values):
+   ```
+   0 = 16711680
+   1 = 65280
+   2 = 255
+   3 = 16776960
+   4 = 16711935
+   5 = 65535
+   6 = 16777215
+   7 = 8947848
+   ```
+
+   _Hint_: color numbers `0..7` consist of three bits:
+
+   * x >= Width/2 (0 bit)
+   * y >= Height/2 (1 bit)
+   * x >= y xor x+y<(W+H)/2 (3 bit)
+   
+   Output:
+   ```
+   0x00ff0000
+   0x00ff0000
+   0x00ff0000
+   0x00ff0000
+   ...
+   (many lines) (how many ☺?)
+   ...
+   0x00ffff00
+   0x00ffff00
+   0x00ffff00
+   0x00888888
+   ```
 
 1. ###### NotOval
 
