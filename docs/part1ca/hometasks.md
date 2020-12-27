@@ -53,8 +53,9 @@ They are enough. However, they were somewhat challenging for some students.
 
 1. ###### DoubleSum
 
-   Enter four integers, one in line, and add uniconditionally first one to third one, and second one to fourth one.
-   Print results in two lines.
+   Enter four integers, one in line, and add unconditionally the first one to the third one,
+   and the second one to the fourth one.
+   Print the results in two lines.
 
    Input:
    ```
@@ -71,7 +72,7 @@ They are enough. However, they were somewhat challenging for some students.
 
 1. ###### DigitSum
 
-   Input an integer (can be negative), and output sum of its digits.
+   Input an integer (can be negative), and output the sum of its digits.
 
    Input:
    ```
@@ -195,7 +196,8 @@ They are enough. However, they were somewhat challenging for some students.
 
 1. ###### RecursiveGCD
 
-   Write a program that inputs two numbers and output its' [greatest common divisor](https://en.wikipedia.org/wiki/Greatest_common_divisor).
+   Write a program that inputs two numbers and output their
+   [greatest common divisor](https://en.wikipedia.org/wiki/Greatest_common_divisor).
    You must write a recursive subroutine gcd to complete this task.
 
    Input:
@@ -210,9 +212,10 @@ They are enough. However, they were somewhat challenging for some students.
 
 1. ###### LeftDigits
 
-   Write a program that inputs a cardinal N, an then inputs N numbers (may be negative).
+   Write a program that inputs a cardinal N and then inputs N numbers (can be negative).
    After that it outputs only first digits of these numbers (in one line).
-   You are inclined to write a subroutine "first", that accepts a number (via $a0) and returns last digit (via $v0).
+   You are inclined to write a subroutine "first" that accepts a number (via $a0)
+   and returns last digit (via $v0).
 
    Input:
    ```
@@ -250,11 +253,12 @@ They are enough. However, they were somewhat challenging for some students.
 
 1. ###### FractionTruncate
 
-   Input three cardinals — `A`, `B` and `n`. Output double float `F` that has exact `n` decimal places of `A/B`.
-   You need to write a ''subroutine'' than accepts double `f=A/B` in `$f12` and integer `n` in `$a0` and returns
+   Input three cardinals — `A`, `B` and `n`.
+   Output double float `F` that has exact `n` decimal places of `A/B`.
+   You need to write a subroutine than accepts double `f=A/B` in `$f12` and integer `n` in `$a0` and returns
    rounded double `F` in `$f0`.
 
-   Hint: $$10^n*A/B < 2^31$$
+   Hint: $$10^n*A/B < 2^{31}$$
 
    Input:
    ```
@@ -268,7 +272,8 @@ They are enough. However, they were somewhat challenging for some students.
    ```
 
    Spoiler:
-   $$10^n*A/B < 2^31$$ means that you can just take an integer part of it, then divide the result back to $$10^n$$
+   $$10^n*A/B < 2^{31}$$ means that you can just take an integer part of it,
+   then divide the result back to $$10^n$$
 
 1. ###### LeibPi
 
