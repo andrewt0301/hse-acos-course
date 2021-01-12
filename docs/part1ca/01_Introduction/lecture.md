@@ -14,10 +14,6 @@ Slides ([PDF](CA_Lecture_01.pdf), [PPTX](CA_Lecture_01.pptx)).
 * Course motivation.
 * Historical perspective.
 
-## Quiz
-
-__TODO__
-
 ## Workshop
 
 #### Outline
@@ -46,6 +42,13 @@ __TODO__
      https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/01_Introduction/matrix_ikj.c).
    * [C incorrectly optimized (jki)](
      https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/01_Introduction/matrix_ikj.c).
+
+#### Notes
+
+Some laptops might have issues with hardware virtualization.
+It should be enabled in BIOS.
+If you face problems running the VM, please refer to this [instruction]( 
+https://bce.berkeley.edu/enabling-virtualization-in-your-pc-bios.html).
 
 #### Example
 
