@@ -23,16 +23,18 @@ Slides ([PDF](CA_Lecture_02.pdf), [PPTX](CA_Lecture_02.pptx)).
 * Play with converting values to different numeric systems (binary, decimal, hexadecimal).
   _Hint:_ Use "whiteboard" and calculator.
 * Run the _dumpbytes.c_ program that dumps byte-level representations of integers and strings.
+  Try dumping your own values.
      
 #### Tasks     
 
 * View and run the [dumpbytes.c](
-  https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/02_DataTypes/dumpbytes.c)
-  program.
+  https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/02_DataTypes/dumpbytes.c) program.
+
   ```shell script
   gcc dumpbytes.c -o dumpbytes
   ./dumpbytes
   ```
+
   Pay attention to addresses and byte ordering.
   Is your machine big- or little-endian?
 
