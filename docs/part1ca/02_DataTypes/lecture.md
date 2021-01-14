@@ -24,10 +24,14 @@ Slides ([PDF](CA_Lecture_02.pdf), [PPTX](CA_Lecture_02.pptx)).
   _Hint:_ Use "whiteboard" and calculator.
 * Run the _dumpbytes.c_ program that dumps byte-level representations of integers and strings.
   Try dumping your own values.
+* Play with negation, sign-extension, and zero-extension.  
+* Explain some bit tricks from Hacker's Delight.  
      
-#### Tasks     
+#### Tasks
 
-* View and run the [dumpbytes.c](
+1. Convert the following decimal numbers to 4-bit binary numbers: 0, 1, -1, 7, 
+
+1. View and run the [dumpbytes.c](
   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/02_DataTypes/dumpbytes.c) program.
 
   ```
@@ -37,6 +41,11 @@ Slides ([PDF](CA_Lecture_02.pdf), [PPTX](CA_Lecture_02.pptx)).
 
   Pay attention to addresses and byte ordering.
   Is your machine big- or little-endian?
+  
+1. Explain the following bit tricks:
+
+   * `x & (x - 1)` - turning off the rightmost 1-bit (e.g. 01011000 => 01010000).
+   * `x | (x + 1)` - turning on the rightmost 0-bit (e.g. 10100111 => 10101111).
 
 ## Homework
 
