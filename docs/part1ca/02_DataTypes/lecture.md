@@ -30,7 +30,7 @@ Slides ([PDF](CA_Lecture_02.pdf), [PPTX](CA_Lecture_02.pptx)).
 * View and run the [dumpbytes.c](
   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/02_DataTypes/dumpbytes.c) program.
 
-  ```shell script
+  ```
   gcc dumpbytes.c -o dumpbytes
   ./dumpbytes
   ```
