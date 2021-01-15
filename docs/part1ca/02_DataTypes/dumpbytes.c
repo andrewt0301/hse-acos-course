@@ -3,7 +3,7 @@
 typedef unsigned char * byte_pointer;
 
 void show_bytes(byte_pointer start, size_t len) {
-    printf("0x%08X: ", start);
+    printf("0x%p: ", start);
     int i;
     for (i = 0; i < len; i++) {
         printf("%02X ", start[i]);
@@ -28,11 +28,17 @@ void show_pointer(void *x) {
 }
 
 int main() {
-    int data[] = {0, 1, -1, 0x12345678, 0xDEADBEEF, 15213, -15213};
-    for (int i = 0; i < sizeof(data) / sizeof(int); ++i) {
-        show_bytes((byte_pointer) &data[i], sizeof(int));
+    int ints[] = {0, 1, -1, 8, -8, 0x00001234, 0x56780000, 0x12345678, 0xDEADBEEF, 0x0A0B0C0D, 15213, -15213};
+    long longs[] = {0, 1, -1, 0xDEADBEEFBAADF00D, 0x0102030405060708};
+    for (int i = 0; i < sizeof(ints) / sizeof(int); ++i) {
+        show_bytes((byte_pointer) &ints[i], sizeof(int));
+    }
+    for (int i = 0; i < sizeof(longs) / sizeof(long); ++i) {
+        show_bytes((byte_pointer) &longs[i], sizeof(long));
     }
     char str[] = "Hello World!";
     show_bytes((byte_pointer) str, sizeof(str));
+    show_pointer(ints);
+    show_pointer(longs);
     return 0;
 }
