@@ -119,3 +119,5 @@ Finish all the tasks. Make sure you understand everything.
 * [Endianness](https://en.wikipedia.org/wiki/Endianness) (Wikipedia).
 * Representing information. Chapter 2 in [[CSPP]](../../books.md).
 * Arithmetic for computers. Chapters 3 in [[CODR]](../../books.md).
+* (_Additionally_) Henry Warren. [Hacker's Delight](https://en.wikipedia.org/wiki/Hacker%27s_Delight). 2nd Edition. 2013.
+
