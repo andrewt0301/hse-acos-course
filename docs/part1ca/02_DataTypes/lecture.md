@@ -32,9 +32,9 @@ Slides ([PDF](CA_Lecture_02.pdf), [PPTX](CA_Lecture_02.pptx)).
 
 1. Convert the following decimal numbers to 5-bit binary numbers.
    
-   Unsigned: 0, 1, 2, 4, 7, 15, 16, 31.
+   Unsigned: `0`, `1`, `2`, `4`, `7`, `15`, `16`, `31`.
    
-   Signed: 0, -1, -2, -4 -7, 15, -16.
+   Signed: `0`, `-1`, `-2`, `-4`, `-7`, `15`, `-16`.
  
 1. Convert the following 5-bit values to decimal numbers.
    Consider both unsigned and two's complement formats.
@@ -43,11 +43,11 @@ Slides ([PDF](CA_Lecture_02.pdf), [PPTX](CA_Lecture_02.pptx)).
 
 1. Convert the following decimal values to 8-bit hexadecimal numbers.
    
-   Values: 0, 10, 14, 15, 16, 32, 34, 127, 128, 255
+   Values: `0`, `10`, `14`, `15`, `16`, `32`, `34`, `127`, `128`, `255`
 
 1. Convert the following hehadecimal numbers to 8-bit binary values:
 
-   Values: 0x1, 0x2, 0x7, 0x8, 0x10, 0x7F, 0xFF, 0x80 
+   Values: `0x1`, `0x2`, `0x7`, `0x8`, `0x10`, `0x7F`, `0xFF`, `0x80`
 
 1. Negate the binary values from the previous task.
 
@@ -74,6 +74,10 @@ Slides ([PDF](CA_Lecture_02.pdf), [PPTX](CA_Lecture_02.pptx)).
    Consider logic and arithmetical shifts.
 
    Values: `0000_1010`, `1111_1111`, `1000_1010`
+
+1. Perform the bitwise _AND_ and _OR_ operations for the following pairs of values:
+
+   Values: (`0011`, `1100`), (`1011`, `1101`), (`0101`, `1001`), (`1010`, `1110`)
    
 1. Add the following pairs of 4-bit binary values. Check the result bt converting values to decimal numbers.
 
@@ -82,7 +86,9 @@ Slides ([PDF](CA_Lecture_02.pdf), [PPTX](CA_Lecture_02.pptx)).
    Which additions cause an overflow?
    
 1. Subtract pairs of values from the first example.
-  
+
+1. What to you need to do to set (assign 1) and reset (assign 0) to the _N_-th bit in value `x`? 
+
 1. (*) Explain the following bit tricks:
 
    * `x & (x - 1)` - turning off the rightmost 1-bit (e.g. `01011000` => `01010000`).
