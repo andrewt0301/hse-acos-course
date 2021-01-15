@@ -57,6 +57,7 @@ Slides ([PDF](CA_Lecture_02.pdf), [PPTX](CA_Lecture_02.pptx)).
    https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/02_DataTypes/dumpbytes.c) program.
 
    ```
+   cat dumpbytes.c
    gcc dumpbytes.c -o dumpbytes
    ./dumpbytes
    ```
