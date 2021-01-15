@@ -78,7 +78,21 @@ Slides ([PDF](CA_Lecture_02.pdf), [PPTX](CA_Lecture_02.pptx)).
 1. Perform the bitwise _AND_ and _OR_ operations for the following pairs of values:
 
    Values: (`0011`, `1100`), (`1011`, `1101`), (`0101`, `1001`), (`1010`, `1110`)
-   
+
+
+1. Perform the bitwise _XOR_ operation for the following pairs of values from the previos task.
+
+1. (*) Explain the following bit trick. Swapping values `x` and `y` without using a temporary variable
+   can be done in the following way:
+
+   ```
+   x = x ^ y;
+   y = x ^ y;
+   x = x ^ y;
+   ```
+
+   How does it work? Take values from the previous task as an example.
+
 1. Add the following pairs of 4-bit binary values. Check the result bt converting values to decimal numbers.
 
    Values: (`0001`, `1110`), (`0111`, `0001`), (`1101`, `0011`), (`0101`, `1001`)
