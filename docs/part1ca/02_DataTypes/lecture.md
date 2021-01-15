@@ -38,7 +38,7 @@ Slides ([PDF](CA_Lecture_02.pdf), [PPTX](CA_Lecture_02.pptx)).
 1. Convert the following 5-bit values to decimal numbers.
    Consider both unsigned and two's complement formats.
 
-   Values: 00101, 01011, 10101, 11111, 10000
+   Values: `00101`, `01011`, `10101`, `11111`, `10000`
 
 1. Convert the following decimal values to 8-bit hexadecimal numbers.
    
@@ -66,18 +66,26 @@ Slides ([PDF](CA_Lecture_02.pdf), [PPTX](CA_Lecture_02.pptx)).
 
 1. Zero-extend and sign-extend the following 4-bit values to 8 bits. Convert the result to decimal numbers.
 
-   Values: 0001, 1111, 01010, 1000, 0111 
+   Values: `0001`, `1111`, `01010`, `1000, `0111`
 
 1. Shift the following 8-bit binary value 3-digits to the right and to the left.
    Consider logic and arithmetical shifts.
 
-   Values: 0000_1010, 1111_1111, 1000_1010
+   Values: `0000_1010`, `1111_1111`, `1000_1010`
+   
+1. Add the following pairs of 4-bit binary values. Check the result bt converting values to decimal numbers.
+
+   Values: (`0001`, `1110`), (`0111`, `0001`), (`1101`, `0011`), (`0101`, `1001`)
+
+   Which additions cause an overflow?
+   
+1. Subtract pairs of values from the first example.
   
 1. (*) Explain the following bit tricks:
 
-   * `x & (x - 1)` - turning off the rightmost 1-bit (e.g. 01011000 => 01010000).
-   * `x | (x + 1)` - turning on the rightmost 0-bit (e.g. 10100111 => 10101111).
-   * `x | (x - 1)` - turning on the trailing 0's (e.g. 10101000 => 10101111).
+   * `x & (x - 1)` - turning off the rightmost 1-bit (e.g. `01011000` => `01010000`).
+   * `x | (x + 1)` - turning on the rightmost 0-bit (e.g. `10100111` => `10101111`).
+   * `x | (x - 1)` - turning on the trailing 0's (e.g. `10101000` => `10101111`).
 
 ## Homework
 
