@@ -24,7 +24,8 @@ Slides ([PDF](CA_Lecture_02.pdf), [PPTX](CA_Lecture_02.pptx)).
   _Hint:_ Use "whiteboard" and calculator.
 * Run the _dumpbytes.c_ program that dumps byte-level representations of integers and strings.
   Try dumping your own values.
-* Play with negation, sign-extension, and zero-extension.  
+* Play with negation, sign-extension, and zero-extension.
+* Play with addition and subtraction.
 * Explain some bit tricks from Hacker's Delight.  
      
 #### Tasks
