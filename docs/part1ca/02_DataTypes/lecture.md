@@ -29,31 +29,63 @@ Slides ([PDF](CA_Lecture_02.pdf), [PPTX](CA_Lecture_02.pptx)).
      
 #### Tasks
 
-1. Convert the following decimal numbers to 4-bit binary numbers: 0, 1, -1, 7, 
+1. Convert the following decimal numbers to 5-bit binary numbers.
+   
+   Unsigned: 0, 1, 2, 4, 7, 15, 16, 31.
+   
+   Signed: 0, -1, -2, -4 -7, 15, -16.
+ 
+1. Convert the following 5-bit values to decimal numbers.
+   Consider both unsigned and two's complement formats.
+
+   Values: 00101, 01011, 10101, 11111, 10000
+
+1. Convert the following decimal values to 8-bit hexadecimal numbers.
+   
+   Values: 0, 10, 14, 15, 16, 32, 34, 127, 128, 255
+
+1. Convert the following hehadecimal numbers to 8-bit binary values:
+
+   Values: 0x1, 0x2, 0x7, 0x8, 0x10, 0x7F, 0xFF, 0x80 
+
+1. Negate the binary values from the previous task.
+
+1. What are the ranges (smallest..largest) for integer values that consist of 4, 5, 6, 7, and 8 bits?
+   Consider both unsigned and two's complement formats.
 
 1. View and run the [dumpbytes.c](
-  https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/02_DataTypes/dumpbytes.c) program.
+   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/02_DataTypes/dumpbytes.c) program.
 
-  ```
-  gcc dumpbytes.c -o dumpbytes
-  ./dumpbytes
-  ```
+   ```
+   gcc dumpbytes.c -o dumpbytes
+   ./dumpbytes
+   ```
 
-  Pay attention to addresses and byte ordering.
-  Is your machine big- or little-endian?
+   Pay attention to addresses and byte ordering.
+   Is your machine big- or little-endian?
+
+1. Zero-extend and sign-extend the following 4-bit values to 8 bits. Convert the result to decimal numbers.
+
+   Values: 0001, 1111, 01010, 1000, 0111 
+
+1. Shift the following 8-bit binary value 3-digits to the right and to the left.
+   Consider logic and arithmetical shifts.
+
+   Values: 0000_1010, 1111_1111, 1000_1010
   
-1. Explain the following bit tricks:
+1. (*) Explain the following bit tricks:
 
    * `x & (x - 1)` - turning off the rightmost 1-bit (e.g. 01011000 => 01010000).
    * `x | (x + 1)` - turning on the rightmost 0-bit (e.g. 10100111 => 10101111).
+   * `x | (x - 1)` - turning on the trailing 0's (e.g. 10101000 => 10101111).
 
 ## Homework
 
-__TODO__
+Finish all the tasks. Make sure you understand everything.
 
 ## References
 
 * [Machine word](https://en.wikipedia.org/wiki/Word_%28computer_architecture%29) (Wikipedia).
 * [Endianness](https://en.wikipedia.org/wiki/Endianness) (Wikipedia).
-* Representing information. Chapter 1 in [[CSPP]](../../books.md).
+* Representing information. Chapter 2 in [[CSPP]](../../books.md).
 * Arithmetic for computers. Chapters 3 in [[CODR]](../../books.md).
