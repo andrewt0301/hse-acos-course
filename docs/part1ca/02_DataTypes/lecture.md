@@ -68,7 +68,7 @@ Slides ([PDF](CA_Lecture_02.pdf), [PPTX](CA_Lecture_02.pptx)).
 
 1. Zero-extend and sign-extend the following 4-bit values to 8 bits. Convert the result to decimal numbers.
 
-   Values: `0001`, `1111`, `01010`, `1000, `0111`
+   Values: `0001`, `1111`, `1010`, `1000`, `0111`
 
 1. Shift the following 8-bit binary value 3-digits to the right and to the left.
    Consider logic and arithmetical shifts.
