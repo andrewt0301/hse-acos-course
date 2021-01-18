@@ -29,6 +29,9 @@ Slides ([PDF](CA_Lecture_03.pdf), [PPTX](CA_Lecture_03.pptx)).
 
 __TODO__
 
+1. Write a program that inputs two integer values `x` and `y`, swaps them with the _XOR_
+   operation, and outputs them back. 
+
 ## Homework
 
 __TODO__
