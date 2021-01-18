@@ -16,11 +16,16 @@ Slides ([PDF](CA_Lecture_03.pdf), [PPTX](CA_Lecture_03.pptx)).
 * RISC and RISC-V.
 * Assembly language.
 
-## Quiz
-
-__TODO__
-
 ## Workshop
+
+#### Outline
+
+* Getting familiar with the [RARS](https://github.com/TheThirdOne/rars) simulator.
+* Getting familiar with RISC-V registers.
+* Getting familiar with RARS system calls to input/output integer values.
+* Practicing with RISC-V arithmetic and bitwise instructions.
+
+#### Tasks
 
 __TODO__
 
