@@ -98,8 +98,14 @@ _Hint_: Use the RARS help system (F1) and [RISC-V Greencard](
 1. Write a program that inputs integer value `x`, sets its 3-rd bit, resets its 6-th bit,
    and prints the result. Use the binary format for printing.
 
+1. Write a program that inputs two integer values `x` and `y` and perform their signed and 
+   unsigned comparison (using the `slt` and `sltu` instructions).
+
 1. Write a program that inputs two integer values `x` and `y`, swaps them with the _XOR_
    operation, and outputs them back. 
+
+1. Modify the add program to check whether an integer overflow has occured in the addition instruction.
+   Print '0' if no, and '1' if yes.
 
 1. Write a program that performs the following bit tricks:
 
