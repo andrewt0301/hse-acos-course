@@ -37,7 +37,15 @@ Slides ([PDF](CA_Lecture_03.pdf), [PPTX](CA_Lecture_03.pptx)).
 
 #### Tasks
 
-__TODO__
+1. Open in RARS and run the ["Hello World"](
+   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/03_CPU/workshop/hello.s) program.
+   Get familiar with its structure. Pay attention to the `.text` and `.data` segments, labels,
+   and system calls.
+
+1. Open in RARS and run the ["Hello World"](
+   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/03_CPU/workshop/add.s) program.
+   This is an example of a program that inputs two numbers, adds them, and prints the result.
+   It is can be used a basis for other programs.
 
 1. Write a program that inputs integer value `x` and prints it in the following formats:
    decimal, unsigned, hexadecimal, and binary.

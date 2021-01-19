@@ -3,17 +3,17 @@
 #
     .text
 main:
-    # t0 = readInt()
+    # x: t0 = readInt()
     addi a7, zero, 5
     ecall
     add t0, zero, a0
 
-    # t1 = readInt() 
+    # y: t1 = readInt()
     addi a7, zero, 5
     ecall
     add t1, zero, a0
 
-    # t2 = t0 + t1
+    # z: t2 = t0 + t1
     add t2, t0, t1
 
     # printInt(t2)    
