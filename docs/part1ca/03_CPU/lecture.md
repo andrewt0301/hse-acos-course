@@ -63,6 +63,34 @@ _Hint_: Use the RARS help system (F1) and [RISC-V Greencard](
        (x + y) >> 2
        (x + 5) + (x - 7)
 
+1. Write a program that inputs integer value `x`, performs the following operations,
+   and prints the result. Use the binary format for printing.
+
+       x * 2
+       x * 3
+       x * 4
+       x * 5
+       x * 8
+       x * 31
+
+    How to perform these operations without using a multiplication instruction?       
+
+       x / 2
+       x / 3
+       x / 5
+       x / 8
+       x / 31
+
+    Is it possible to do this without using a division instruction?       
+
+       x % 2
+       x % 3
+       x % 5
+       x % 8
+       x % 31
+
+    Is it possible to do this without using a remainder instruction?
+
 1. Write a program that inputs integer value `x`, sets its 3-rd bit, resets its 6-th bit,
    and prints the result. Use the binary format for printing.
 
