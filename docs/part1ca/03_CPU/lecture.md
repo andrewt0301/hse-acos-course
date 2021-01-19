@@ -33,10 +33,22 @@ Slides ([PDF](CA_Lecture_03.pdf), [PPTX](CA_Lecture_03.pptx)).
     * _Bitwise_: `and, `or`, `xor`, `andi`, `ori`, `xori`
     * _Shifts_: `sll`, `srl`, `sra`, `slli`, `srli`, `srai`
     * _Comparison_: `slt`, `sltu`, `slti`, `sltiu`
+    * _Multiplication_: `mul`, `rem`, `div`, `divu`, `remu`
 
 #### Tasks
 
 __TODO__
+
+1. Write a program that inputs integer value `x` and prints it in the following formats:
+   decimal, unsigned, hexadecimal, and binary.
+
+1. Write a program that inputs two integer values `x` and `y`, calculates the result of the
+   following expressions, and prints the result.
+
+       x + y + 5 
+       (x - y) << 3
+       (x + y) >> 2
+       (x + 5) + (x - 7)
 
 1. Write a program that inputs two integer values `x` and `y`, swaps them with the _XOR_
    operation, and outputs them back. 
