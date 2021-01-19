@@ -42,7 +42,7 @@ Slides ([PDF](CA_Lecture_03.pdf), [PPTX](CA_Lecture_03.pptx)).
    Get familiar with its structure. Pay attention to the `.text` and `.data` segments, labels,
    and system calls.
 
-1. Open in RARS and run the ["Hello World"](
+1. Open in RARS and run the ["Add"](
    https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/03_CPU/workshop/add.s) program.
    This is an example of a program that inputs two numbers, adds them, and prints the result.
    It is can be used a basis for other programs.
@@ -60,6 +60,15 @@ Slides ([PDF](CA_Lecture_03.pdf), [PPTX](CA_Lecture_03.pptx)).
 
 1. Write a program that inputs two integer values `x` and `y`, swaps them with the _XOR_
    operation, and outputs them back. 
+
+1. Write a program that performs the following bit tricks:
+
+   * `x & (x - 1)` - turning off the rightmost 1-bit (e.g. `01011000` => `01010000`).
+   * `x | (x + 1)` - turning on the rightmost 0-bit (e.g. `10100111` => `10101111`).
+   * `x | (x - 1)` - turning on the trailing 0's (e.g. `10101000` => `10101111`).
+
+   Print the input and output values in the binary format.  
+
 
 ## Homework
 
