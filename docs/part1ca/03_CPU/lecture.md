@@ -53,15 +53,18 @@ _Hint_: Use the RARS help system (F1) and [RISC-V Greencard](
    It is can be used a basis for other programs.
 
 1. Write a program that inputs integer value `x` and prints it in the following formats:
-   decimal, unsigned, hexadecimal, and binary.
+   decimal, unsigned, hexadecimal, and binary. _Hint_: Use RARS help (F1) to find proper system calls. 
 
 1. Write a program that inputs two integer values `x` and `y`, calculates the result of the
    following expressions, and prints the result.
 
-       x + y + 5 
+       x + 5 - y 
        (x - y) << 3
        (x + y) >> 2
        (x + 5) + (x - 7)
+
+1. Write a program that inputs integer value `x`, sets its 3-rd bit, resets its 6-th bit,
+   and prints the result. Use the binary format for printing.
 
 1. Write a program that inputs two integer values `x` and `y`, swaps them with the _XOR_
    operation, and outputs them back. 
