@@ -23,7 +23,16 @@ Slides ([PDF](CA_Lecture_03.pdf), [PPTX](CA_Lecture_03.pptx)).
 * Getting familiar with the [RARS](https://github.com/TheThirdOne/rars) simulator.
 * Getting familiar with RISC-V registers.
 * Getting familiar with RARS system calls to input/output integer values.
+    * _PrintInt_ (number 1)
+    * _PrintHex_ (number 34)
+    * _PrintBinary_ (number 35)
+    * _PrintIntUnsigned_ (number 36)
+    * _ReadInt_ (number 5)
 * Practicing with RISC-V arithmetic and bitwise instructions.
+    * _Arithmetic_: `add`, `sub`, `addi`
+    * _Bitwise_: `and, `or`, `xor`, `andi`, `ori`, `xori`
+    * _Shifts_: `sll`, `srl`, `sra`, `slli`, `srli`, `srai`
+    * _Comparison_: `slt`, `sltu`, `slti`, `sltiu`
 
 #### Tasks
 
