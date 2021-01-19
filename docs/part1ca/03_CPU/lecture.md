@@ -30,7 +30,7 @@ Slides ([PDF](CA_Lecture_03.pdf), [PPTX](CA_Lecture_03.pptx)).
     * _ReadInt_ (number 5)
 * Practicing with RISC-V arithmetic and bitwise instructions.
     * _Arithmetic_: `add`, `sub`, `addi`
-    * _Bitwise_: `and, `or`, `xor`, `andi`, `ori`, `xori`
+    * _Bitwise_: `and`, `or`, `xor`, `andi`, `ori`, `xori`
     * _Shifts_: `sll`, `srl`, `sra`, `slli`, `srli`, `srai`
     * _Comparison_: `slt`, `sltu`, `slti`, `sltiu`
     * _Multiplication_: `mul`, `rem`, `div`, `divu`, `remu`
