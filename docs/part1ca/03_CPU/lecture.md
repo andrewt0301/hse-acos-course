@@ -34,6 +34,11 @@ Slides ([PDF](CA_Lecture_03.pdf), [PPTX](CA_Lecture_03.pptx)).
     * _Shifts_: `sll`, `srl`, `sra`, `slli`, `srli`, `srai`
     * _Comparison_: `slt`, `sltu`, `slti`, `sltiu`
     * _Multiplication_: `mul`, `rem`, `div`, `divu`, `remu`
+ 
+
+_Hint_: Use the RARS help system (F1) and [RISC-V Greencard](
+        https://github.com/andrewt0301/hse-acos-course/raw/master/related/greencard-20181213.pdf)
+        to quickly find the needed instructions.
 
 #### Tasks
 
