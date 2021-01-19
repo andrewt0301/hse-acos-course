@@ -62,6 +62,10 @@ _Hint_: Use the RARS help system (F1) and [RISC-V Greencard](
        (x - y) << 3
        (x + y) >> 2
        (x + 5) + (x - 7)
+       x >> 3 + y << 3
+
+1. Write a program that inputs integer value `x`, performs alogic and arithmetical shifts to
+   the left and to the right by 3 digits, and prints the result.
 
 1. Write a program that inputs integer value `x`, performs the following operations,
    and prints the result. Use the binary format for printing.
@@ -104,7 +108,6 @@ _Hint_: Use the RARS help system (F1) and [RISC-V Greencard](
    * `x | (x - 1)` - turning on the trailing 0's (e.g. `10101000` => `10101111`).
 
    Print the input and output values in the binary format.  
-
 
 ## Homework
 
