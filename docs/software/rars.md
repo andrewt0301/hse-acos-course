@@ -57,7 +57,7 @@ Then you can run it with this command:
 * In _Command Prompt_, go to the RARS folder:
     
       D:
-      cd D:
+      cd D:\
 
 * Run RARS with this command:
 
