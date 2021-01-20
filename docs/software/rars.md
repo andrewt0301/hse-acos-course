@@ -51,4 +51,13 @@ Then you can run it with this command:
 
 #### Windows
 
-__TODO__: Running in Windows.
+* Download RARS (the `rars1_5.jar` file) to your disk. For example, the `D:\` folder (we will call it RARS folder).
+* Open the _Command Prompt_ application (to find it, type `cmd` in the search field).
+* In _Command Prompt_, go to the RARS folder:
+    
+      D:
+      cd D:
+
+* Run RARS with this command:
+
+      java -jar rars1_5.jar
