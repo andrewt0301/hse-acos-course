@@ -21,21 +21,22 @@ To install, run the downloaded installation package (.exe, .prm, .dmg).
 ### RARS
 
 RARS can be downloaded from its [home page](https://github.com/TheThirdOne/rars).
-This is JAR-file that has a name like `rars_5f747b9.jar`.
+Follow the _Releases_ link at the right.
+This is JAR-file that has a name like `rars1_5.jar`.
 Download it to the folder where you store course-related files.
 
 #### Linux and MacOS
 
 In Linux and MacOS, RARS can be run with the following command:
 
-    (base) Andreis-MacBook-Pro:Downloads andrew$ java -jar rars_5f747b9.jar 
+    (base) Andreis-MacBook-Pro:Downloads andrew$ java -jar rars1_5.jar 
 
 For convenience, you can create the following Bash script and use it to run RARS.
 
 rars.sh:
 
     #!/bin/bash
-    java -jar rars_5f747b9.jar 
+    java -jar rars1_5.jar 
 
 Running a Bash script:
 
