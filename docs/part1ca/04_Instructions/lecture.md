@@ -27,6 +27,6 @@ __TODO__
 
 ## References
 
-__TODO__
-
+* [The RISC-V Instruction Set Manual. Volume I: Unprivileged ISA](
+  https://github.com/riscv/riscv-isa-manual/releases/latest).
 * [RISC-V Assembly Programmer's Manual](https://github.com/riscv/riscv-asm-manual/blob/master/riscv-asm.md)
