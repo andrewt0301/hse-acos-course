@@ -117,7 +117,7 @@ _Hint_: Use the RARS help system (F1) and [RISC-V Greencard](
 
 ## Homework
 
-__TODO__
+Finish the tasks and send the programs to your team assistant.
 
 ## References
 
