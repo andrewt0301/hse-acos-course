@@ -51,7 +51,7 @@ Then you can run it with this command:
 
 #### Windows
 
-* Download RARS (the `rars1_5.jar` file) to your disk. For example, the `D:\` folder (we will call it RARS folder).
+* Download RARS (the `rars1_5.jar` file) to your disk. For example, to the `D:\` folder (we will call it RARS folder).
 * Open the _Command Prompt_ application (to find it, type `cmd` in the search field).
 * In _Command Prompt_, go to the RARS folder:
     
