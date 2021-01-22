@@ -13,11 +13,16 @@ Slides ([PDF](CA_Lecture_04.pdf), [PPTX](CA_Lecture_04.pptx)).
 * RISC-V ISA base and extensions.
 * Instruction encoding (R, I, S, SB, U, and UJ formats).
 
-## Quiz
-
-__TODO__
-
 ## Workshop
+
+#### Outline
+
+* Discuss the tasks from the previous seminar.
+* Get familiar with the RISC-V ISA Specification (instruction types, encodings, etc.).
+* Practice with encding and decoding instructions.
+* Practice writing programs with conditions and loops.
+
+#### Tasks
 
 __TODO__
 
