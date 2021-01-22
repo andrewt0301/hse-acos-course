@@ -63,9 +63,20 @@ Slides ([PDF](CA_Lecture_04.pdf), [PPTX](CA_Lecture_04.pptx)).
        0x00000463
        0x00032823
 
+__TODO__
+
+1. Write a program that inputs two positive integer values `x` and `y`, finds their greates common divisor,
+   and prints the result. Use the Euclidean algorithm. The solution is [here](
+   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/04_Instructions/workshop/euclid.s). 
+
+1. Write a program that inputs two unsigned integer values `x` and `y`, calculates `x ** y`
+   (`x` raised to the power of `y`), and prints the result. The exponentiation should be implemented
+   as a multiplication in a loop. If an overflow occurs, the program must exit the loop and
+   print an error message. 
+
 ## Homework
 
-__TODO__
+Finish the tasks and send the programs to your team assistant.
 
 ## References
 
