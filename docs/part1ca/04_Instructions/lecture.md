@@ -74,6 +74,27 @@ Slides ([PDF](CA_Lecture_04.pdf), [PPTX](CA_Lecture_04.pptx)).
        j  label
        la label
 
+1. Write a program that inputs an integer value `x` and prints "-1" if it is genative, "0" if it equals 0,
+   and '1' if it is positive.
+   
+   On if the solutions is this:
+   
+       main:
+           li   a7, 5
+           ecall
+          
+           mv   t0, zero
+           beqz a0, done
+           li   t0, 1
+           blt  zero, a0, done  
+           li   t0, -1
+       done:
+           li a7, 1
+           mv a0, t0
+           ecall
+
+   Propose any other solution?
+
 1. Write a program that inputs two integer values `x` and `y` and prints first the smallest
    of them and then the largest of them.
 
