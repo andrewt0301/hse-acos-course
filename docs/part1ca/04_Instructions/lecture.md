@@ -64,7 +64,7 @@ Slides ([PDF](CA_Lecture_04.pdf), [PPTX](CA_Lecture_04.pptx)).
        0x00000463
        0x00032823
 
-1. Get familiar with RISC-V pseudoinstructions (`mv`, `li`, `la', `b`, `j`, etc).
+1. Get familiar with RISC-V pseudoinstructions (`mv`, `li`, `la`, `b`, `j`, etc).
    What instructions are used to replace them when a program is assembled:
 
        mv t0, t1
@@ -73,9 +73,12 @@ Slides ([PDF](CA_Lecture_04.pdf), [PPTX](CA_Lecture_04.pptx)).
        b  label
        j  label
        la label
+       
+    Note: Add `label` to some place in your code. See what code will be generated in
+    the `Execute` panel of RARS. 
 
-1. Write a program that inputs an integer value `x` and prints "-1" if it is genative, "0" if it equals 0,
-   and '1' if it is positive.
+1. Write a program that inputs an integer value `x` and prints `-1` if it is negative, `0` if it equals 0,
+   and `1` if it is positive.
    
    On if the solutions is this:
    
@@ -133,7 +136,8 @@ Slides ([PDF](CA_Lecture_04.pdf), [PPTX](CA_Lecture_04.pptx)).
 
 ## Homework
 
-Finish the tasks and send the programs to your team assistant.
+Finish tasks 1-5 and send the programs to your team assistant.
+The rest of the tasks are moving to the next siminar.
 
 ## References
 
