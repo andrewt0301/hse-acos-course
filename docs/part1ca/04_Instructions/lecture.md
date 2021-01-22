@@ -20,6 +20,7 @@ Slides ([PDF](CA_Lecture_04.pdf), [PPTX](CA_Lecture_04.pptx)).
 * Discuss the tasks from the previous seminar.
 * Get familiar with the RISC-V ISA Specification (instruction types, encodings, etc.).
 * Practice with encding and decoding instructions.
+* Get familiar with pseudoinstructions.
 * Practice writing programs with conditions and loops.
 
 #### Tasks
