@@ -63,6 +63,16 @@ Slides ([PDF](CA_Lecture_04.pdf), [PPTX](CA_Lecture_04.pptx)).
        0x00000463
        0x00032823
 
+1. Get familiar with RISC-V pseudoinstructions (`mv`, `li`, `la', `b`, `j`, etc).
+   What instructions are used to replace them when a program is assembled:
+
+       mv t0, t1
+       li t0, 0x12345678
+       li t0, 16
+       b  label
+       j  label
+       la label
+
 __TODO__
 
 1. Write a program that inputs two positive integer values `x` and `y`, finds their greates common divisor,
