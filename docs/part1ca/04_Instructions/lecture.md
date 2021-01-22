@@ -27,7 +27,8 @@ Slides ([PDF](CA_Lecture_04.pdf), [PPTX](CA_Lecture_04.pptx)).
 #### Tasks
 
 
-1. Encode the following instructions to the binary format (see the rules in the ISA specificion):
+1. Encode the following instructions to the binary format (see the rules in
+   the ISA specification):
 
    * R-type:
 
@@ -144,3 +145,5 @@ The rest of the tasks are moving to the next siminar.
 * [The RISC-V Instruction Set Manual. Volume I: Unprivileged ISA](
   https://github.com/riscv/riscv-isa-manual/releases/latest).
 * [RISC-V Assembly Programmer's Manual](https://github.com/riscv/riscv-asm-manual/blob/master/riscv-asm.md)
+* [Opcode](https://en.wikipedia.org/wiki/Opcode) (Wikipedia).
+* [Addressing Mode](https://en.wikipedia.org/wiki/Addressing_mode) (Wikipedia).
