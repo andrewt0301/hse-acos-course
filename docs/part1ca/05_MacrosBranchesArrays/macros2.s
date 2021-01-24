@@ -1,3 +1,6 @@
+#
+# Example demonstrating using macros from a library.
+#
     .include "macrolib.s"
 main:
     print_str("Please enter an integer number:")
