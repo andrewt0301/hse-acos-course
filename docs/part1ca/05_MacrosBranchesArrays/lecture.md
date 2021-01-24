@@ -42,6 +42,6 @@ __TODO__
 
 ## References
 
-* RARS help system (main menu `Help > Help` or F1).
+* RARS help system (click in the main menu `Help > Help` or press `F1`).
 
 __TODO__
