@@ -113,7 +113,38 @@ _Hint_: Use the RARS help system (F1) and [RISC-V Greencard](
    * `x | (x + 1)` - turning on the rightmost 0-bit (e.g. `10100111` => `10101111`).
    * `x | (x - 1)` - turning on the trailing 0's (e.g. `10101000` => `10101111`).
 
-   Print the input and output values in the binary format.  
+   Print the input and output values in the binary format.
+ 
+#### Notes
+
+What is an _integer overlow_? This is a situation when an arithmetic operation
+produces a value that is outside of the range that can be represented with a given number of bits.
+
+Let us consider how such a situation can happen when we add two 4-bit values.
+
+1. _The values are unsigned._
+ 
+    Here is the simplest example of the overflow situation:
+
+       1111 (15) + 0001 (1) = 10000 (16) -> fit into 4 bits -> 0000 (0) == OVERFLOW 
+
+   The result of this addition is a 5-bit value. When we fit it into 4 bits, we get `0000 (0)`.
+   This is an incorrent result. The most significant bit of the result (`1`) is outside of the 4-bit size.
+
+   How can we detect this? _Rule: if the sum is smaller than any of the values, this is an overflow._ 
+
+1. _The values are signed (2's complement)._
+
+   This case is more complicated. Here are examples of 4 possible situations:
+   
+       1111 (-1) + 0001  (1) = 10000 -> fit into 4 bits -> 0000  (0) == OK
+       1111 (-1) + 1111 (-1) = 11110 -> fit into 4 bits -> 1110 (-2) == OK
+       1000 (-8) + 1111 (-1) = 10111 -> fit into 4 bits -> 0111  (7) == OVERFLOW
+       0111  (7) + 0001  (1) =                             1000 (-8) == OVERFLOW
+
+   What rule can we draw from these examples? _Rule: if both values have the same sign 
+   (their most significant bits are equal) and it is different from the sign of the result,
+   this is an overflow._  
 
 ## Homework
 
@@ -134,3 +165,4 @@ Finish the tasks and send the programs to your team assistant.
 * [System Bus](https://en.wikipedia.org/wiki/System_bus) (Wikipedia).
 * [Instruction Set Architecture](
   https://en.wikipedia.org/wiki/Instruction_set_architecture) (Wikipedia).
+* [Integer Overflow](https://en.wikipedia.org/wiki/Integer_overflow) (Wikipedia).
