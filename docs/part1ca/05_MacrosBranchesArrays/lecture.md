@@ -7,9 +7,14 @@ Lecture 5
 
 Slides ([PDF](CA_Lecture_05.pdf), [PPTX](CA_Lecture_05.pptx)).
 
-Outline:
+#### Outline:
 
-__TODO__
+* Program structure: segments and labels
+* Branch instructions and their use in conditions and loops.
+* Data segment and data directives.
+* Load and store instructions and their use for accessing static data.
+* Macros (directives `.macro`, `.end_macro`, `.include`, and `.eqv`)
+* Examples of programs processing static arrays.
 
 ## Workshop
 
