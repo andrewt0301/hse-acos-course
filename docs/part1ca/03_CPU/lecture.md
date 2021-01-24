@@ -145,7 +145,9 @@ Let us consider how such a situation can happen when we add two 4-bit values.
 
    What rule can we draw from these examples? _Rule: if both values have the same sign 
    (their most significant bits are equal) and it is different from the sign of the result,
-   this is an overflow._  
+   this is an overflow._
+   
+How to find out that two values are equal? Use the _XOR_ operation. For equal values, its result will be `0`. 
 
 ## Homework
 
