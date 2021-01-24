@@ -9,7 +9,7 @@ Slides ([PDF](CA_Lecture_05.pdf), [PPTX](CA_Lecture_05.pptx)).
 
 #### Outline:
 
-* Program structure: segments and labels
+* Program structure: segments and labels.
 * Branch instructions and their use in conditions and loops.
 * Data segment and data directives (`.byte`, `.half`, `.word`, `.space`, `.align`, `.ascii`, `.asciz`).
 * Load and store instructions and their use for accessing static data.
@@ -32,5 +32,7 @@ __TODO__
 __TODO__
 
 ## References
+
+* RARS help system (main menu `Help > Help` or F1).
 
 __TODO__
