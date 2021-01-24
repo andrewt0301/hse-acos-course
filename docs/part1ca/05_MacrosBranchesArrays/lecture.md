@@ -26,6 +26,14 @@ Slides ([PDF](CA_Lecture_05.pdf), [PPTX](CA_Lecture_05.pptx)).
 
 ## Workshop
 
+#### Outline
+
+* Study and run all the examples from the lecture.
+* Practice writing programs with conditions and loops.
+* Practice writing programs that access values in the data segment.
+
+#### Tasks
+
 __TODO__
 
 ## Homework
