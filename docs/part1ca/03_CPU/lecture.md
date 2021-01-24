@@ -119,6 +119,7 @@ _Hint_: Use the RARS help system (F1) and [RISC-V Greencard](
 
 What is an _integer overlow_? This is a situation when an arithmetic operation
 produces a value that is outside of the range that can be represented with a given number of bits.
+This value is truncated, which gives a mathematically incorrect result.
 
 Let us consider how such a situation can happen when we add two 4-bit values.
 
@@ -126,7 +127,7 @@ Let us consider how such a situation can happen when we add two 4-bit values.
  
     Here is the simplest example of the overflow situation:
 
-       1111 (15) + 0001 (1) = 10000 (16) -> fit into 4 bits -> 0000 (0) == OVERFLOW 
+       1111(15) + 0001(1) = 10000(16) -> fit into 4 bits -> 0000(0) == OVERFLOW 
 
    The result of this addition is a 5-bit value. When we fit it into 4 bits, we get `0000 (0)`.
    This is an incorrent result. The most significant bit of the result (`1`) is outside of the 4-bit size.
@@ -137,10 +138,10 @@ Let us consider how such a situation can happen when we add two 4-bit values.
 
    This case is more complicated. Here are examples of 4 possible situations:
    
-       1111 (-1) + 0001  (1) = 10000 -> fit into 4 bits -> 0000  (0) == OK
-       1111 (-1) + 1111 (-1) = 11110 -> fit into 4 bits -> 1110 (-2) == OK
-       1000 (-8) + 1111 (-1) = 10111 -> fit into 4 bits -> 0111  (7) == OVERFLOW
-       0111  (7) + 0001  (1) =                             1000 (-8) == OVERFLOW
+       1111(-1) + 0001 (1) = 10000 -> fit into 4 bits -> 0000 (0) == OK
+       1111(-1) + 1111(-1) = 11110 -> fit into 4 bits -> 1110(-2) == OK
+       1000(-8) + 1111(-1) = 10111 -> fit into 4 bits -> 0111 (7) == OVERFLOW
+       0111 (7) + 0001 (1) =                             1000(-8) == OVERFLOW
 
    What rule can we draw from these examples? _Rule: if both values have the same sign 
    (their most significant bits are equal) and it is different from the sign of the result,
