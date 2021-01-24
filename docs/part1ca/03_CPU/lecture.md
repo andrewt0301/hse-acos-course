@@ -141,7 +141,7 @@ Let us consider how such a situation can happen when we add two 4-bit values.
        1111(-1) + 0001 (1) = 10000 -> to 4 bits -> 0000 (0) == OK
        1111(-1) + 1111(-1) = 11110 -> to 4 bits -> 1110(-2) == OK
        1000(-8) + 1111(-1) = 10111 -> to 4 bits -> 0111 (7) == OVERFLOW
-       0111 (7) + 0001 (1) =                             1000(-8) == OVERFLOW
+       0111 (7) + 0001 (1) =                       1000(-8) == OVERFLOW
 
    What rule can we draw from these examples? _Rule: if both values have the same sign 
    (their most significant bits are equal) and it is different from the sign of the result,
