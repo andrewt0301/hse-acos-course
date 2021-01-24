@@ -130,7 +130,7 @@ Let us consider how such a situation can happen when we add two 4-bit values.
        1111(15) + 0001(1) = 10000(16) -> to 4 bits -> 0000(0) == OVERFLOW 
 
    The result of this addition is a 5-bit value. When we truncate it to 4 bits, we get `0000 (0)`.
-   This is an incorrent result. The most significant bit of the result (`1`) is outside of the 4-bit size.
+   The 5-th bit of the result (`1`) is truncated. The result is mathematically incorrect..
 
    How can we detect this? _Rule: if the sum is smaller than any of the values, this is an overflow._ 
 
