@@ -1,3 +1,14 @@
+# Example:
+#
+# if (t0 == 0) {
+#     t1 = 1;
+# } else if (t0 < 0) {
+#     t1 = 2;
+# } else if (t0 >= 10) {
+#     t1 = 3;
+# } else {
+#     t1 = 4;
+# }
 main:
    li   a7, 5
    ecall
