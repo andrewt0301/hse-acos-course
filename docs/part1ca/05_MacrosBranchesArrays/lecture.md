@@ -43,5 +43,7 @@ __TODO__
 ## References
 
 * RARS help system (click in the main menu `Help > Help` or press `F1`).
+* Multiplication and division algorithms.
+  Sections 3.3 and 3.4 in [[CODR]](../../books.md) and Appendix J in [[CAQA]](../../books.md).
 
 __TODO__
