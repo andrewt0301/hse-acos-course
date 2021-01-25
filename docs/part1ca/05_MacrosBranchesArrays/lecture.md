@@ -41,6 +41,39 @@ Slides ([PDF](CA_Lecture_05.pdf), [PPTX](CA_Lecture_05.pptx)).
 
 __TODO__
 
+1. Write a program that inputs two integer values `x` and `y` and prints all the values
+   in the range `min(x, y)..max(x, y)`.
+
+1. Write a program that inputs two positive integer values `a` and `b`, finds their greates common divisor,
+   and prints the result. Use the Euclidean algorithm. The solution is [here](
+   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/04_Instructions/workshop/euclid.s).
+  
+       function gcd(a, b)
+           while a ≠ b
+               if a > b
+                   a := a − b
+               else
+                   b := b − a
+           return a
+       end
+
+1. Write a program that inputs two positive integer values `N` and `D`, finds their quatient (`Q`) and
+   remainder (`R`) using the algorithm below, prints the result.
+
+       function divide_unsigned(N, D)
+           Q := 0; R := N
+           while R ≥ D do
+              Q := Q + 1
+              R := R − D
+           end
+          return (Q, R)
+       end
+
+1. Write a program that inputs two unsigned integer values `x` and `y`, calculates `x ** y`
+   (`x` raised to the power of `y`), and prints the result. The exponentiation should be implemented
+   as a multiplication in a loop. If an overflow occurs, the program must exit the loop and
+   print an error message. 
+
 ## Homework
 
 __TODO__
