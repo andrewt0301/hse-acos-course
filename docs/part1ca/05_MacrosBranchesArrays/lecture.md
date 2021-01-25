@@ -18,6 +18,7 @@ Slides ([PDF](CA_Lecture_05.pdf), [PPTX](CA_Lecture_05.pptx)).
 
 #### Examples:
 
+* [if_then_else.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/05_MacrosBranchesArrays/if_then_else.s)
 * [fibonacci.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/05_MacrosBranchesArrays/fibonacci.s)
 * [macros1.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/05_MacrosBranchesArrays/macros1.s)
 * [macros2.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/05_MacrosBranchesArrays/macros2.s)
@@ -46,5 +47,7 @@ __TODO__
 * RARS help system (click in the main menu `Help > Help` or press `F1`).
 * Multiplication and division algorithms.
   Sections 3.3 and 3.4 in [[CODR]](../../books.md) and Appendix J in [[CAQA]](../../books.md).
+* [Macros](https://en.wikipedia.org/wiki/Macro_%28computer_science%29) (Wikipedia).
+* [Macros in Assembly Language](https://en.wikipedia.org/wiki/Assembly_language#Macros) (Wikipedia).
 
 __TODO__
