@@ -1,7 +1,7 @@
 Lecture 5
 ---
 
-# Pseudo instructions, macros, and includes. Conditions, loops, lads, and stores.
+# Pseudo instructions, macros, and includes. Conditions, loops, loads, and stores.
 
 ## Lecture
 
