@@ -31,6 +31,7 @@ Slides ([PDF](CA_Lecture_05.pdf), [PPTX](CA_Lecture_05.pptx)).
 * [data.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/05_MacrosBranchesArrays/data.s)
 * [loadstore.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/05_MacrosBranchesArrays/loadstore.s)
 * [loadstore2.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/05_MacrosBranchesArrays/loadstore2.s)
+* [loadstore3.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/05_MacrosBranchesArrays/loadstore3.s)
 
 ## Workshop
 
