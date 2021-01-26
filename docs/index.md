@@ -42,9 +42,9 @@ __Calendar plan by weeks can be found [here](calendar.md).__
 
 3. [Computer organization. Microprocessor. RISC and RISC-V. Assembly language.](part1ca/03_CPU/lecture.md)
 
-4. [RISC-V instructions. Instruction formats. Arithmetic and load/store instructions.](part1ca/04_Instructions/lecture.md)
+4. [RISC-V instructions. Instruction formats.](part1ca/04_Instructions/lecture.md)
 
-5. [Pseudo instructions, macros, and includes. Conditions, loops, and arrays.](part1ca/05_MacrosBranchesArrays/lecture.md)
+5. [Pseudo instructions, macros, and includes. Conditions, loops, loads, and stores.](part1ca/05_MacrosBranchesArrays/lecture.md)
 
 6. [Subroutines. Call stack. Calling conventions.](part1ca/06_CallStack/lecture.md)
 
