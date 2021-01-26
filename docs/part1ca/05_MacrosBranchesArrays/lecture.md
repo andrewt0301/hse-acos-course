@@ -22,12 +22,13 @@ Slides ([PDF](CA_Lecture_05.pdf), [PPTX](CA_Lecture_05.pptx)).
 * [while.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/05_MacrosBranchesArrays/while.s)
 * [for.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/05_MacrosBranchesArrays/for.s)
 * [for_nested.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/05_MacrosBranchesArrays/for_nested.s)
-* [fibonacci.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/05_MacrosBranchesArrays/fibonacci.s)
 * [macros1.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/05_MacrosBranchesArrays/macros1.s)
 * [macros2.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/05_MacrosBranchesArrays/macros2.s)
 * [macros3.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/05_MacrosBranchesArrays/macros3.s)
 * [macrolib.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/05_MacrosBranchesArrays/macrolib.s)
+* [fibonacci.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/05_MacrosBranchesArrays/fibonacci.s)
 * [euclid.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/05_MacrosBranchesArrays/euclid.s)
+* [data.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/05_MacrosBranchesArrays/data.s)
 
 ## Workshop
 
