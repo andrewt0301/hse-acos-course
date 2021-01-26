@@ -1,7 +1,7 @@
 Lecture 5
 ---
 
-# Pseudo instructions, macros, and includes. Conditions, loops, and arrays.
+# Pseudo instructions, macros, and includes. Conditions, loops, lads, and stores.
 
 ## Lecture
 
@@ -14,7 +14,7 @@ Slides ([PDF](CA_Lecture_05.pdf), [PPTX](CA_Lecture_05.pptx)).
 * Data segment and data directives (`.byte`, `.half`, `.word`, `.space`, `.align`, `.ascii`, `.asciz`).
 * Load and store instructions and their use for accessing static data.
 * Macros (directives `.macro`, `.end_macro`, `.include`, and `.eqv`)
-* Examples of programs processing static arrays stored in the data segment.
+* Examples of programs processing static variables stored in the data segment.
 
 #### Examples:
 
@@ -32,6 +32,7 @@ Slides ([PDF](CA_Lecture_05.pdf), [PPTX](CA_Lecture_05.pptx)).
 * [loadstore.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/05_MacrosBranchesArrays/loadstore.s)
 * [loadstore2.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/05_MacrosBranchesArrays/loadstore2.s)
 * [loadstore3.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/05_MacrosBranchesArrays/loadstore3.s)
+* [min_max.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/05_MacrosBranchesArrays/min_max.s)
 
 ## Workshop
 
