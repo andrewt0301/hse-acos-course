@@ -73,7 +73,7 @@ Slides ([PDF](CA_Lecture_04.pdf), [PPTX](CA_Lecture_04.pptx)).
        li t0, 16
        b  label
        j  label
-       la label
+       la t0, label
        
     Note: Add `label` to some place in your code. See what code will be generated in
     the `Execute` panel of RARS. 
