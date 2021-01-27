@@ -29,8 +29,12 @@ str:
    ecall
    .end_macro
 
-   .macro newline
+   .macro print_char(%x)
    li a7, 11
-   li a0, '\n'
+   li a0, %x
    ecall
+   .end_macro
+
+   .macro newline
+   print_char('\n')
    .end_macro
