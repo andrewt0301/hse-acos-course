@@ -14,5 +14,5 @@ while:
    li   a7, 11
    li   a0, '\n'
    ecall
-   b    while
+   j    while
 end_while:

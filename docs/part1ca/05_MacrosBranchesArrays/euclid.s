@@ -21,11 +21,11 @@ loop:
     bne t0, zero, if_less
 
     sub t1, t1, t2
-    b   loop
+    j   loop
 
 if_less:
     sub t2, t2, t1
-    b   loop
+    j   loop
 
 finish:
     print_int (t1)

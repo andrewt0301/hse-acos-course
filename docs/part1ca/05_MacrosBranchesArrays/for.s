@@ -18,5 +18,5 @@ next:
    li   a0, '\n'
    ecall
    addi t0, t0, 1
-   b    next
+   j    next
 end_for:

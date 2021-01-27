@@ -16,16 +16,16 @@ main:
 if_0:
    bnez t0, if_less_0
    li   t1, 1
-   b    end_if
+   j    end_if
 if_less_0:
    bgtz t0, if_greater_10
    li   t1, 2
-   b    end_if
+   j    end_if
 if_greater_10:
    li   t3, 10
    ble  t0, t3, else
    li   t1, 3
-   b    end_if
+   j    end_if
 else:
    li   t1, 4
 end_if:

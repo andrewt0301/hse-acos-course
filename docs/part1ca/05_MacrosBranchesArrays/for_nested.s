@@ -24,9 +24,9 @@ next_t1:
    print_int(t1)
    print_char(' ')
    addi t1, t1, 1
-   b    next_t1
+   j    next_t1
 end_for_t1:
    print_char('\n')
    addi t0, t0, 1
-   b    next_t0
+   j    next_t0
 end_for_t0:

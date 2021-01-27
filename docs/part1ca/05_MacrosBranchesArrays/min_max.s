@@ -26,12 +26,12 @@ loop:
 test_min:
     bge  t2, s0, test_max
     mv   s0, t2
-    b    loop
+    j    loop
 
 test_max:
     ble  t2, s1, loop
     mv   s1, t2
-    b    loop
+    j    loop
 
 done:
    print_str("min=")

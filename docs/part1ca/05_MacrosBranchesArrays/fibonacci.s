@@ -14,7 +14,7 @@ fib:
     mv   t0, t1
     mv   t1, t2
     addi t3, t3, -1
-    b    fib
+    j    fib
 finish:
     li   a7, 1
     mv   a0, t0
