@@ -46,23 +46,11 @@ Slides ([PDF](CA_Lecture_05.pdf), [PPTX](CA_Lecture_05.pptx)).
 
 #### Tasks
 
-__TODO__
-
 1. Write a program that inputs two integer values `x` and `y` and prints all the values
    in the range `min(x, y)..max(x, y)`.
 
-1. Write a program that inputs two positive integer values `a` and `b`, finds their greates common divisor,
-   and prints the result. Use the Euclidean algorithm. The solution is [here](
-   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/04_Instructions/workshop/euclid.s).
-  
-       function gcd(a, b)
-           while a ≠ b
-               if a > b
-                   a := a − b
-               else
-                   b := b − a
-           return a
-       end
+1. Write a program that fills an array of 32 integers from values from the standard input.
+   It reads values in a loop and finishes reading when all 32 values are read or when value `0` is read.
 
 1. Write a program that inputs two positive integer values `N` and `D`, finds their quatient (`Q`) and
    remainder (`R`) using the algorithm below, prints the result.
@@ -76,6 +64,9 @@ __TODO__
           return (Q, R)
        end
 
+1. Write your own macros `print_hex` and `print_bin` for printing values in hexadecimal and binary formats
+   respectively. What if you want to print immediate values? What kind of macro do you need in this case?
+
 1. Write a program that inputs two unsigned integer values `x` and `y`, calculates `x ** y`
    (`x` raised to the power of `y`), and prints the result. The exponentiation should be implemented
    as a multiplication in a loop. If an overflow occurs, the program must exit the loop and
@@ -83,7 +74,7 @@ __TODO__
 
 ## Homework
 
-__TODO__
+Study and run all examples and finish all the tasks.
 
 ## References
 
@@ -92,5 +83,4 @@ __TODO__
   Sections 3.3 and 3.4 in [[CODR]](../../books.md) and Appendix J in [[CAQA]](../../books.md).
 * [Macros](https://en.wikipedia.org/wiki/Macro_%28computer_science%29) (Wikipedia).
 * [Macros in Assembly Language](https://en.wikipedia.org/wiki/Assembly_language#Macros) (Wikipedia).
-
-__TODO__
+* [RISC-V Assembly Programmer's Manual](https://github.com/riscv/riscv-asm-manual/blob/master/riscv-asm.md).
