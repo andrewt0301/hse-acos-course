@@ -87,7 +87,7 @@ Running the compiled program with the Spike RISC-V simulator:
    }
 
    int g(int a, int b, int c, int d) {
-       return f(a, c) + f(b, d);
+       return f(a, c) - f(b, d);
    }
 
    int main() {
