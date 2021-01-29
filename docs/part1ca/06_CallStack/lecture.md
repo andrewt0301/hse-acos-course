@@ -70,8 +70,8 @@ Saving registers:
 
 Regiter conventions:
 
-1. __Callee-saved registers__: `sp`, `s0`-`s11`
-1. __Caller-saved registers__: `ra`, `a0`-`a7`, `t0`-`t6`
+1. Callee-saved registers: `sp`, `s0`-`s11`
+1. Caller-saved registers: `ra`, `a0`-`a7`, `t0`-`t6`
 
 What is done by the caller?
 
