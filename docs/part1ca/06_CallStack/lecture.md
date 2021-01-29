@@ -24,11 +24,44 @@ Slides ([PDF](CA_Lecture_06.pdf), [PPTX](CA_Lecture_06.pptx)).
 
 ## Workshop
 
+#### Outline
+
+* Demonstrate using the RISC-V toolchain (use the Ubunbu VM with RISC-V from [here](../../software/ubuntu.md))
+* Practice writing programs that use functions
+* Practice using caller-saved and callee-saved registers
+* Practice writing nested and recursive functions
+
+#### Using the RISC-V toolchain
+
+Compiling a C program to RISC-V executable:
+
+    acos@acos-vm:~/Documents/acos$ riscv64-unknown-linux-gnu-gcc hello.c -o hello -static
+
+Compiling a C program to RISC-V assembly:
+
+    acos@acos-vm:~/Documents/acos$ riscv64-unknown-linux-gnu-gcc hello.c -S
+    
+Assembling and linking a RISC-V assembly program to executable:
+
+    acos@acos-vm:~/Documents/acos$ riscv64-unknown-linux-gnu-gcc hello.s -o hello -static
+
+Disassembling a compiled executable file:
+
+    acos@acos-vm:~/Documents/acos$ riscv64-unknown-linux-gnu-objdump hello -S
+
+Running the compiled program with the Spike RISC-V simulator:
+
+    acos@acos-vm:~/Documents/acos$ spike $RISCV/riscv64-unknown-linux-gnu/bin/pk hello
+    bbl loader
+    Hello, world!
+
+#### Tasks
+
 __TODO__
 
 ## Homework
 
-__TODO__
+Study and run all examples and finish all the tasks.
 
 ## References
 
