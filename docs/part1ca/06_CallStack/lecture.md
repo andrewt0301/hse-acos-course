@@ -75,7 +75,28 @@ Running the compiled program with the Spike RISC-V simulator:
        int x = read_int();
        int y = read_int();
        int z = f(x, y) + x + g(x, y) - y;
-       print_int(z)
+       print_int(z);
+   }
+   ```
+
+1. Translate the following C code into the RISC-V assembly language:
+
+   ```c
+   int f(int x, int y) {
+       return 2 * x + y;
+   }
+
+   int g(int a, int b, int c, int d) {
+       return f(a, c) + f(b, d);
+   }
+
+   int main() {
+       int a = read_int();
+       int b = read_int();
+       int c = read_int();
+       int d = read_int();
+       int x = g(a, b, c, d);
+       print_int(x);
    }
    ```
 
