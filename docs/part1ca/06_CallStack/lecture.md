@@ -59,6 +59,29 @@ Running the compiled program with the Spike RISC-V simulator:
 
 __TODO__
 
+1. Write program `divide.s` that inputs two positive integer values `N` and `D`,
+   finds their quatient (`Q`) and remainder (`R`) using the algorithm below, and prints the result.
+   The algorithm must be implemented as a function (the code from the previous seminar can be reused).
+
+       function divide_unsigned(N, D)
+           Q := 0; R := N
+           while R ≥ D do
+              Q := Q + 1
+              R := R − D
+           end
+          return (Q, R)
+       end
+
+1. Write program `gcd.s` that inputs two positive integer values `a` and `b`,
+   finds their greatest common divisor using the algorithm below, and prints the result.
+   The algorithm must be implemented as a recursive function.
+
+       function gcd(a, b)
+           if b = 0
+               return a
+           else
+               return gcd(b, a mod b)
+
 ## Homework
 
 Study and run all examples and finish all the tasks.
