@@ -59,6 +59,36 @@ Running the compiled program with the Spike RISC-V simulator:
     bbl loader
     Hello, world!
 
+#### How to call a function?
+
+Saving registers:
+
+* The caller does not know what registers are used by the callee.
+* The callee does not know what registers are used by the caller.
+* Therefore, the callee is likely to overwrite registers that are important for the caller. 
+* To avoid this situation, a programmer must follow the calling conventions.
+
+Regiter conventions:
+
+1. __Callee-saved registers__: `sp`, `s0`-`s11`
+1. __Caller-saved registers__: `ra`, `a0`-`a7`, `t0`-`t6`
+
+What is done by the caller?
+
+1. Save all caller-saved registers, which must be preserved, to the stack.
+1. Put the arguments into registers `a0`-`a7`.
+1. Call the function.
+1. When the function returns, read the return values from `a0` and `a1`.
+1. Restore all the previosly saved caller-saved registers from the stack.
+
+What is done by the callee?
+
+1. Save all callee-saved registers, which will be modidifed, to the stack.
+1. Perform some operations (if the callee wants to call a function, it becomes the caller for this callee function). 
+1. Save the result to registers `a0` and `a1`. 
+1. Restore all previosly saved the caller-saved registers from stack.
+1. Return back to the caller.
+
 #### Tasks
 
 1. Translate the following C code into the RISC-V assembly language:
