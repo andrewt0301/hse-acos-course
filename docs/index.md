@@ -22,8 +22,6 @@ compilers, build tools, emulators, virtual machines, and so on.
 
 ## Course Description
 
-__TODO: CONTENT IS UNDER DEVELOPMENT__ 
-
 The course consists of two logical parts.
 The first part is given in __module 3__ and is dedicated to computer architecture and assembly language programming.
 This part is based on the [RISC-V](https://en.wikipedia.org/wiki/RISC-V) instruction set architecture
