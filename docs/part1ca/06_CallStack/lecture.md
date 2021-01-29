@@ -90,7 +90,7 @@ __TODO__
    using the algorithm below, and prints the result.
    The algorithm must be implemented as a recursive function.
 
-   ```C
+   ```c
    int fib(int n) {
        if (n < 2)
            return n;
