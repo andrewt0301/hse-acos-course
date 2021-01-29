@@ -141,6 +141,9 @@ Running the compiled program with the Spike RISC-V simulator:
    }
    ```
 
+1. Write program `sum.s` that first inputs integer value `n`, after that inputs `n` integer elements
+   and stores them in the stack, then calls function `sum` adding all the elements, and, finally, prints the sum.  
+
 ## Homework
 
 Study and run all examples and finish all the tasks.
