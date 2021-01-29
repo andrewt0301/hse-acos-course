@@ -83,7 +83,7 @@ Running the compiled program with the Spike RISC-V simulator:
    finds their quatient (`Q`) and remainder (`R`) using the algorithm below, and prints the result.
    The algorithm must be implemented as a function (the code from the previous seminar can be reused).
 
-  ```pascal
+   ```pascal
    function divide_unsigned(N, D)
        Q := 0; R := N
        while R ≥ D do
