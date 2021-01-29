@@ -22,6 +22,7 @@ Slides ([PDF](CA_Lecture_06.pdf), [PPTX](CA_Lecture_06.pptx)).
 * [fact.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/06_CallStack/fact.s)
 * [fp.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/06_CallStack/fp.s)
 * [min_max.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/06_CallStack/min_max.s)
+* [min_max2.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/06_CallStack/min_max2.s)
 
 ## Workshop
 
