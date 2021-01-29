@@ -83,10 +83,10 @@ What is done by the caller?
 
 What is done by the callee?
 
-1. Save all callee-saved registers, which will be modidifed, to the stack.
+1. Save all callee-saved registers, which will be modified, to the stack.
 1. Perform some operations (if the callee wants to call a function, it becomes the caller for this callee function). 
 1. Save the result to registers `a0` and `a1`. 
-1. Restore all previosly saved the caller-saved registers from stack.
+1. Restore all the previosly saved the callee-saved registers from the stack.
 1. Return back to the caller.
 
 #### Tasks
