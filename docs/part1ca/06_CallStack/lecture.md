@@ -63,24 +63,41 @@ __TODO__
    finds their quatient (`Q`) and remainder (`R`) using the algorithm below, and prints the result.
    The algorithm must be implemented as a function (the code from the previous seminar can be reused).
 
-       function divide_unsigned(N, D)
-           Q := 0; R := N
-           while R ≥ D do
-              Q := Q + 1
-              R := R − D
-           end
-          return (Q, R)
+  ```pascal
+   function divide_unsigned(N, D)
+       Q := 0; R := N
+       while R ≥ D do
+           Q := Q + 1
+           R := R − D
        end
+       return (Q, R)
+   end
+   ```
 
 1. Write program `gcd.s` that inputs two positive integer values `a` and `b`,
    finds their greatest common divisor using the algorithm below, and prints the result.
    The algorithm must be implemented as a recursive function.
 
-       function gcd(a, b)
-           if b = 0
-               return a
-           else
-               return gcd(b, a mod b)
+   ```pascal
+   function gcd(a, b)
+       if b = 0
+           return a
+       else
+           return gcd(b, a mod b)
+   ```
+
+1. Write program `fib.s` that inputs integer value `n`, computes n-th Fibonacci number
+   using the algorithm below, and prints the result.
+   The algorithm must be implemented as a recursive function.
+
+   ```C
+   int fib(int n) {
+       if (n < 2)
+           return n;
+       else
+           return fib(n-1) + fib(n-2);
+   }
+   ```
 
 ## Homework
 
