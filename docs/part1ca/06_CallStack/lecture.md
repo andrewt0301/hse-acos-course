@@ -60,7 +60,24 @@ Running the compiled program with the Spike RISC-V simulator:
 
 #### Tasks
 
-__TODO__
+1. Translate the following C code into the RISC-V assembly language:
+
+   ```c
+   int f(int x, int y) {
+       return 2 * x + y;
+   }
+
+   int g(int x, int y) {
+       return 3 * y - x);
+   }
+
+   int main() {
+       int x = read_int();
+       int y = read_int();
+       int z = f(x, y) + x + g(x, y) - y;
+       print_int(z)
+   }
+   ```
 
 1. Write program `divide.s` that inputs two positive integer values `N` and `D`,
    finds their quatient (`Q`) and remainder (`R`) using the algorithm below, and prints the result.
