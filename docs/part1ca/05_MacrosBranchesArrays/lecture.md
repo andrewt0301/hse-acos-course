@@ -84,3 +84,4 @@ Study and run all examples and finish all the tasks.
 * [Macros](https://en.wikipedia.org/wiki/Macro_%28computer_science%29) (Wikipedia).
 * [Macros in Assembly Language](https://en.wikipedia.org/wiki/Assembly_language#Macros) (Wikipedia).
 * [RISC-V Assembly Programmer's Manual](https://github.com/riscv/riscv-asm-manual/blob/master/riscv-asm.md).
+* [Memory Alignment](https://en.wikipedia.org/wiki/Data_structure_alignment) (Wikipedia).
