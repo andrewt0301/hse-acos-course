@@ -14,6 +14,10 @@ Slides ([PDF](CA_Lecture_07.pdf), [PPTX](CA_Lecture_07.pptx)).
 * Floating-point instructions.
 * Programs with floating-point operations.
 
+#### Examples:
+
+* [sqrt.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/07_FP/sqrt.s)
+
 ## Workshop
 
 __TODO__
