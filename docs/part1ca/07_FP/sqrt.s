@@ -1,5 +1,5 @@
 #
-# Example: sqrt
+# Example: sqrt (float)
 #
     .data
 src:
