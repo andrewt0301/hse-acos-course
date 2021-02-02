@@ -18,6 +18,7 @@ Slides ([PDF](CA_Lecture_07.pdf), [PPTX](CA_Lecture_07.pptx)).
 
 * [sqrt.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/07_FP/sqrt.s)
 * [sqrtd.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/07_FP/sqrtd.s)
+* [e.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/07_FP/e.s)
 
 ## Workshop
 
