@@ -20,6 +20,7 @@ __TODO__
 #### Examples:
 
 * [digit_lab1.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/08_MMIO/digit_lab1.s)
+* [bitmap_display.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/08_MMIO/bitmap_display.s)
 
 ## Workshop
 
