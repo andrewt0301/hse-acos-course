@@ -15,11 +15,10 @@ Slides ([PDF](CA_Lecture_08.pdf), [PPTX](CA_Lecture_08.pptx)).
 * Drivers
 * RARS MMIO device emulators
 
-__TODO__
-
 #### Examples:
 
 * [digit_lab1.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/08_MMIO/digit_lab1.s)
+* [digit_lab2.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/08_MMIO/digit_lab2.s)
 * [bitmap_display.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/08_MMIO/bitmap_display.s)
 
 ## Workshop
