@@ -7,9 +7,19 @@ Lecture 8
 
 Slides ([PDF](CA_Lecture_08.pdf), [PPTX](CA_Lecture_08.pptx)).
 
-Outline:
+#### Outline
+
+* I/O devices
+* Direct memory access (DMA)
+* Memory-mapped I/O (MMIO)
+* Drivers
+* RARS MMIO device emulators
 
 __TODO__
+
+#### Examples:
+
+* [digit_lab1.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/08_MMIO/digit_lab1.s)
 
 ## Workshop
 
