@@ -258,8 +258,8 @@ Taken from here: https://uneex.ru/CategoryHomework
 
    Input three cardinals — `A`, `B` and `n`.
    Output double float `F` that has exact `n` decimal places of `A/B`.
-   You need to write a subroutine than accepts double `f=A/B` in `$f12` and integer `n` in `$a0`
-   and returns rounded double `F` in `$f0`.
+   You need to write a subroutine than accepts double `f=A/B` in `fa0` and integer `n` in `a0`
+   and returns rounded double `F` in `fa0`.
 
    Hint: $$10^n*A/B < 2^{31}$$
 
@@ -282,7 +282,7 @@ Taken from here: https://uneex.ru/CategoryHomework
 
    Calculate π value using [Leibniz formula for π](https://en.wikipedia.org/wiki/Leibniz_formula_for_π)
    accurate to N decimal places. Input N, output the result.
-   Use function defied in [FractionTruncate](#fractiontruncate) to truncate out other digits.
+   Use function defined in [FractionTruncate](#fractiontruncate) to truncate out other digits.
    Keep in mind that the exact formula is calculating π/4, you probably should start with 4 instead 1
    to gain exact accuracy. Warning: the algorithm is _slow_, do not panic, but keep code as simple as possible.
 
@@ -414,7 +414,7 @@ Taken from here: https://uneex.ru/CategoryHomework
    Write a program which accepts a sequence of non-empty strings
    (each not longer than 200 characters) and outputs every string backwards.
    Sequence ends with a string started from '.'; this final string is not printed.
-   You should write a subroutine which accepts string address in $a0 and prints it backwards.
+   You should write a subroutine which accepts string address in `a0` and prints it backwards.
    Caution: if you want to use syscall 8, read carefully the documentation about '\n' at the end
    of the input string (it either can evolve or not, you should omit it).
 
