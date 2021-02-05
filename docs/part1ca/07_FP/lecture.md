@@ -32,7 +32,7 @@ Slides ([PDF](CA_Lecture_07.pdf), [PPTX](CA_Lecture_07.pptx)).
 
 ## Workshop
 
-1. Write program `fraction_truncate.s` that does the following%
+1. Write program `fraction_truncate.s` that does the following:
 
    Input three cardinals — `A`, `B` and `n`.
    Output double float `F` that has exact `n` decimal places of `A/B`.
@@ -60,7 +60,25 @@ __TODO__
 
 ## Homework
 
-__TODO__
+1. Write program `cubic_root.s` that does the following:
+
+   Input double (positive or negative) values $$1 <= |A| <= 1000000$$ and $$0.00001<= ɛ <=0.01$$.
+   Calculate a cubical root of A with closeness $$<=ɛ$$ (you do not need to round the result).
+
+   HINT: You always can calculate a cubic power of something!
+
+   Input:
+   ```
+   1000
+   0.0001
+   ```
+   Output:
+   ```
+   9.99995
+   ```
+
+   Spoiler: suppose solution is between M and N (M < N).
+   Select $$K=(M+N)/2$$ and if $$|K^3|>|A|$$ then solution is between M and K, else it is between K and N.
 
 ## References
 
