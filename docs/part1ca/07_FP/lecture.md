@@ -32,6 +32,19 @@ Slides ([PDF](CA_Lecture_07.pdf), [PPTX](CA_Lecture_07.pptx)).
 
 ## Workshop
 
+1. Find decimal values for the following binary values:
+
+    ```
+    0.0
+    0.01
+    0.010
+    0.0011
+    0.00110
+    0.001101
+    0.0011010
+    0.00110011
+    ```
+
 1. Write program `fprint.s` that inputs a single and double floating-point value
    and prints them in the binary format.
 
