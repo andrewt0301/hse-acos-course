@@ -78,7 +78,33 @@ Slides ([PDF](CA_Lecture_07.pdf), [PPTX](CA_Lecture_07.pptx)).
 
 ## Homework
 
-1. Finish all the tasks and send them to the TA.
+1. Finish all the tasks from the workshop and send them to the TA.
+
+1. Write program `no_dups.s` that does the following:
+
+   Inputs an integer `N` value and then N double values. Outputs all the doubles, skipping duplicated ones.
+
+   Input:
+   ```
+   8
+   12.025
+   34.5
+   -12.0
+   23.25
+   12.025
+   -12.0
+   56.75
+   9.125
+   ```
+   Output:
+   ```
+   12.025
+   34.5
+   -12.0
+   23.25
+   56.75
+   9.125
+   ```
 
 ## Additional Tasks (to be covered later)
 
