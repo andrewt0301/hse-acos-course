@@ -55,7 +55,7 @@ Slides ([PDF](CA_Lecture_07.pdf), [PPTX](CA_Lecture_07.pptx)).
    11/32
    ```
 
-1. Find decimal values for the following binary values:
+1. Find binary values for the following decimal values:
 
    ```
    0.5
