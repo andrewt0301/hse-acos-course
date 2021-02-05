@@ -80,6 +80,28 @@ Slides ([PDF](CA_Lecture_07.pdf), [PPTX](CA_Lecture_07.pptx)).
 
 1. Finish all the tasks from the workshop and send them to the TA.
 
+1. Write program `even_back.s` that does the following: 
+
+   Input an integer value `N` and then `N` float values. Output line by line only even ones, in reversed order.
+   To decide whether a float number is even, it must be coverted (rounded) to an integer value.
+
+   Input:
+   ```
+   6,1
+   12.3
+   -11.0
+   3.25
+   88.01
+   0.0
+   1.25
+   ```
+   Output:
+   ```
+   0.0
+   88.01
+   12.3
+   ```
+
 1. Write program `no_dups.s` that does the following:
 
    Inputs an integer `N` value and then N double values. Outputs all the doubles, skipping duplicated ones.
