@@ -47,15 +47,11 @@ Slides ([PDF](CA_Lecture_07.pdf), [PPTX](CA_Lecture_07.pptx)).
 
 1. Find binary values for the following fractions:
 
-   $$\frac{1}{2}$$
-   
-   $$\frac{1}{8}$$
-   
-   $$\frac{3}{4}$$
-   
-   $$\frac{5}{16}$$
-   
-   $$\frac{11}{32}$$
+   * $$\frac{1}{2}$$
+   * $$\frac{1}{8}$$
+   * $$\frac{3}{4}$$
+   * $$\frac{5}{16}$$
+   * $$\frac{11}{32}$$
 
 1. Write program `fprint.s` that inputs a single and double floating-point value
    and prints them in the binary format.
