@@ -80,7 +80,7 @@ Slides ([PDF](CA_Lecture_07.pdf), [PPTX](CA_Lecture_07.pptx)).
 
 1. Finish all the tasks and send them to the TA.
 
-## Additional Tasks (to be covered later).
+## Additional Tasks (to be covered later)
 
 1. Write program `fraction_truncate.s` that does the following:
 
