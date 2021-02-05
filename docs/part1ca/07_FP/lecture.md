@@ -32,6 +32,16 @@ Slides ([PDF](CA_Lecture_07.pdf), [PPTX](CA_Lecture_07.pptx)).
 
 ## Workshop
 
+1. Write program `fprint.s` that inputs a single and double floating-point value
+   and prints them in the binary format.
+
+1. Write program `fprint2.s` that separately prints fields (sign, fraction, exponent)
+   of single and double floating-point values.
+   The code of the previous program can be partially reused. 
+
+1. Write program `farithm.s` that inputs three double values `a`, `b`, and `c`,
+   calculates the result of expression `a + b - c`, and prints the result.   
+
 1. Write program `fraction_truncate.s` that does the following:
 
    Input three cardinals — `A`, `B` and `n`.
@@ -55,8 +65,6 @@ Slides ([PDF](CA_Lecture_07.pdf), [PPTX](CA_Lecture_07.pptx)).
    Spoiler:
    $$10^n*A/B < 2^{31}$$ means that you can just take an integer part of it,
    then divide the result back to $$10^n$$
-
-__TODO__
 
 ## Homework
 
@@ -86,5 +94,7 @@ __TODO__
 * [Standard IEEE 754-2008](ieee-754-2008.pdf).
 * Floating point. Section 3.5 in [[CODR]](../../books.md).
 * Floating point. Section 2.4 in [[CSPP]](../../books.md).
-* [RISC-V Assembly Programmer's Manual](https://github.com/riscv/riscv-asm-manual/blob/master/riscv-asm.md).
-
+* [RISC-V Assembly Programmer's Manual](
+  https://github.com/riscv/riscv-asm-manual/blob/master/riscv-asm.md).
+* [RISC-V Formal Specifications in nML](
+  https://github.com/andrewt0301/ispras-microtesk-riscv/tree/master/microtesk-riscv/src/main/arch/riscv/model).
