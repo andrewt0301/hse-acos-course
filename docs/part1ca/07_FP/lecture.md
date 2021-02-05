@@ -76,6 +76,12 @@ Slides ([PDF](CA_Lecture_07.pdf), [PPTX](CA_Lecture_07.pptx)).
 1. Write program `farithm.s` that inputs three double values `a`, `b`, and `c`,
    calculates the result of expression `a + b - c`, and prints the result.   
 
+## Homework
+
+1. Finish all the tasks and send them to the TA.
+
+## Additional Tasks (not covered yet).
+
 1. Write program `fraction_truncate.s` that does the following:
 
    Input three cardinals — `A`, `B` and `n`.
@@ -99,8 +105,6 @@ Slides ([PDF](CA_Lecture_07.pdf), [PPTX](CA_Lecture_07.pptx)).
    Spoiler:
    $$10^n*A/B < 2^{31}$$ means that you can just take an integer part of it,
    then divide the result back to $$10^n$$
-
-## Homework
 
 1. Write program `cubic_root.s` that does the following:
 
