@@ -52,6 +52,17 @@ Slides ([PDF](CA_Lecture_07.pdf), [PPTX](CA_Lecture_07.pptx)).
    * $$\frac{3}{4}$$
    * $$\frac{5}{16}$$
    * $$\frac{11}{32}$$
+   
+1. Find decimal values for the following binary values:
+
+   ```
+   0.5
+   0.25
+   0.125
+   1.125
+   5.875
+   3.1875
+   ```
 
 1. Write program `fprint.s` that inputs a single and double floating-point value
    and prints them in the binary format.
