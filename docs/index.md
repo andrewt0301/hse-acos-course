@@ -50,9 +50,9 @@ __Calendar plan by weeks can be found [here](calendar.md).__
 
 1. [Memory-mapped I/O (MMIO)](part1ca/08_MMIO/lecture.md).
 
-1. [Exceptions, traps, and interrupts.](part1ca/09_Exceptions/lecture.md)
+1. [Instruction-level parallelism: Processor and Pipeline.](part1ca/09_Pipeline/lecture.md)
 
-1. [Instruction-level parallelism: Pipelining.](part1ca/10_Pipeline/lecture.md)
+1. [Exceptions, traps, and interrupts.](part1ca/10_Exceptions/lecture.md)
 
 1. [Caches.](part1ca/11_Caches/lecture.md)
 

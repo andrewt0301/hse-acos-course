@@ -1,4 +1,4 @@
-Lecture 9
+Lecture 10
 ---
 
 # Exceptions, traps, and interrupts

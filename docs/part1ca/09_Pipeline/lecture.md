@@ -1,11 +1,11 @@
 Lecture 10
 ---
 
-# Pipelining
+# Processor and Pipeline
 
 ## Lecture
 
-Slides ([PDF](CA_Lecture_10.pdf), [PPTX](CA_Lecture_10.pptx)).
+Slides ([PDF](CA_Lecture_09.pdf), [PPTX](CA_Lecture_09.pptx)).
 
 Outline:
 
