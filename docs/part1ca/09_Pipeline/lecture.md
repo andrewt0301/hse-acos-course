@@ -32,3 +32,5 @@ __TODO__
 * [Hazard](https://en.wikipedia.org/wiki/Hazard_%28computer_architecture%29) (Wikipedia).   
 * [Superscalar processor](https://en.wikipedia.org/wiki/Superscalar_processor) (Wikipedia).
 * [Out-of-order execution](https://en.wikipedia.org/wiki/Out-of-order_execution) (Wikipedia).
+* [Ripes - graphical processor simulator and assembly editor for the RISC-V ISA](https://github.com/mortbopet/Ripes).
+
