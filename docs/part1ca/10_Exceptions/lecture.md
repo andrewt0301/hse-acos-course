@@ -5,9 +5,11 @@ Lecture 10
 
 ## Lecture
 
-Slides ([PDF](CA_Lecture_09.pdf), [PPTX](CA_Lecture_09.pptx)).
+Slides ([PDF](CA_Lecture_10.pdf), [PPTX](CA_Lecture_10.pptx)).
 
-Outline:
+#### Outline
+
+* Multiple issue (static and dynamic)
 
 __TODO__
 

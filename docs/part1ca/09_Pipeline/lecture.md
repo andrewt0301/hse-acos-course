@@ -1,4 +1,4 @@
-Lecture 10
+Lecture 9
 ---
 
 # Processor and Pipeline. Instruction-level parallelism.
