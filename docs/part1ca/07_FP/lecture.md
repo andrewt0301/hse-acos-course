@@ -174,6 +174,25 @@ Slides ([PDF](CA_Lecture_07.pdf), [PPTX](CA_Lecture_07.pptx)).
    Spoiler: suppose solution is between M and N (M < N).
    Select $$K=(M+N)/2$$ and if $$|K^3|>|A|$$ then solution is between M and K, else it is between K and N.
 
+1. Write program `leibpi.s` that does the following: 
+
+   Calculate π value using [Leibniz formula for π](https://en.wikipedia.org/wiki/Leibniz_formula_for_π)
+   accurate to N decimal places. Input N, output the result.
+   Use function defined in [FractionTruncate](#fractiontruncate) to truncate out other digits.
+   Keep in mind that the exact formula is calculating π/4, you probably should start with 4 instead 1
+   to gain exact accuracy. Warning: the algorithm is _slow_, do not panic, but keep code as simple as possible.
+
+   Input:
+   ```
+   4
+   ```
+   Output:
+   ```
+   3.1416
+   ```
+
+   Hint: to gain performance, keep anything in registers.
+
 ## References
 
 * [Standard IEEE 754](https://en.wikipedia.org/wiki/IEEE_754) (Wikipedia).
