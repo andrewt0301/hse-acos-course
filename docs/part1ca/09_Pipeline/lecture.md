@@ -47,10 +47,67 @@ __Ripes__
    addi x14, x11, 15
    ```
 
+1. Assume that `x11` is initialized to `11` and `x12` is initialized to `22`.
+   Suppose you executed the code below on a version of the pipeline that does not handle data hazards.
+   What would the final values of register `x15` be?
+   Assume the register file is written at the beginning of the cycle and read at the end of a cycle.
+   Therefore, an `ID` stage will return the results of a `WB` state occurring during the same cycle.
+
+   ```assembly
+   addi x11, x12, 5
+   add  x13, x11, x12
+   addi x14, x11, 15
+   add  x15, x11, x11
+   ```
+
+1. Add NOP instructions to the code below so that it will run correctly on a pipeline that does not handle data hazards.
+
+   ```assembly
+   addi x11, x12, 5
+   add  x13, x11, x12
+   addi x14, x11, 15
+   add  x15, x13, x12
+   ```
+
+1. Consider the fragment of RISC-V assembly below:
+
+   ```assembly
+   sw   x29, 12(x16)
+   lw   x29, 8(x16)
+   sub  x17, x15, x14
+   beqz x17, label
+   add  x15, x11, x14
+   sub  x15, x30, x14
+   ```
+
+   Suppose we modify the pipeline so that it has only one memory (that handles both instructions and data).
+   In this case, there will be a structural hazard every time a program needs to fetch an instruction during
+   the same cycle in which another instruction accesses data.
+   
+   1. Describe how a pipeline will stall when executing the code.
+   1. In general, is it possible to reduce the number of stalls/NOPs
+      resulting from this structural hazard by reordering code?
+
+1. Assume that the following sequence of instructions is executed on a five-stage pipelined datapath:
+
+   ```assembly
+   add x15, x12, x11
+   ld  x13, 4(x15)
+   ld  x12, 0(x2)
+   or  x13, x15, x13
+   sd  x13, 0(x15)
+   ```
+
+   1. If there is no forwarding or hazard detection, insert NOPs to ensure correct execution.
+   1. Now change and/or rearrange the code to minimize the number of NOPs needed.
+      You can assume register `x17` can be used to hold temporary values in your modified code.
+   1. If the processor has forwarding, but we forgot to implement the hazard detection unit,
+      what happens when the original code executes?
+
 ## Homework
 
-Install Ripes (see in references) and play with it.
-Try to visualize examples of assembly code containing hazards.
+Install [Ripes](https://github.com/mortbopet/Ripes) and play with it.
+Try to visualize fragments of assembly code containing hazards.
 
 ## References
 
