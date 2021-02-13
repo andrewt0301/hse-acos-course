@@ -34,7 +34,18 @@ __Ripes__
 1. List 5 stages of a RISC-V pipeline. Describe the role of each of the stages.
 1. Describe how the following instructions are executed by the pipeline:
    `add`, `addi`, `lw`, `sw`, `beq`, `jal`, and `lui`. What happens at each pipeline stage? 
-1. Name 3 types of pipeline hazard and describe methods used to overcome them. 
+1. Name 3 types of pipeline hazards and describe methods used to overcome them. 
+
+1. Assume that `x11` is initialized to `11` and `x12` is initialized to `22`.
+   Suppose you executed the code below on a version of the pipeline that does not handle data hazards
+   (i.e., the programmer is responsible for addressing data hazards by inserting NOP instructions where necessary).
+   What would the final values of registers `x13` and `x14` be?
+
+   ```assembly
+   addi x11, x12, 5
+   add  x13, x11, x12
+   addi x14, x11, 15
+   ```
 
 ## Homework
 
