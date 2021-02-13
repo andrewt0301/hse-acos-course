@@ -33,7 +33,7 @@ __Ripes__
 
 1. List 5 stages of a RISC-V pipeline. Describe the role of each of the stages.
 1. Describe how the following instructions are executed by the pipeline:
-   `add`, `addi`, `lw`, `sw`, `beq`, `jal`, and `lui`. What happends at each pipeline stage? 
+   `add`, `addi`, `lw`, `sw`, `beq`, `jal`, and `lui`. What happens at each pipeline stage? 
 1. Name 3 types of pipeline hazard and describe methods used to overcome them. 
 
 ## Homework
