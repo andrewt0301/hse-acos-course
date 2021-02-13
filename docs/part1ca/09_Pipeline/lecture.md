@@ -23,6 +23,8 @@ Slides ([PDF](CA_Lecture_09.pdf), [PPTX](CA_Lecture_09.pptx)).
 * Practice detecting hazads in fragments of code (discuss ways to overcome them)
 * Use the Ripes RISC-V simularor to illustate how a RISC-V pipeline works and how it handles hazards.
 
+[Ripes](https://github.com/mortbopet/Ripes/raw/master/resources/images/animation.gif?raw=true)
+
 ## Homework
 
 Install Ripes (see in references) and play with it.
