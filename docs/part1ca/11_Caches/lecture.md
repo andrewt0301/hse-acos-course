@@ -1,17 +1,23 @@
 Lecture 11
 ---
 
-# Memory and Caches
+# Memory and caches
 
 ## Lecture
 
 Slides ([PDF](CA_Lecture_11.pdf), [PPTX](CA_Lecture_11.pptx)).
 
-Outline:
+#### Outline:
 
 __TODO__
 
 ## Workshop
+
+#### Outline
+
+__TODO__
+
+#### Tasks
 
 __TODO__
 
