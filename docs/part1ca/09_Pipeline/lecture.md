@@ -21,7 +21,7 @@ Slides ([PDF](CA_Lecture_09.pdf), [PPTX](CA_Lecture_09.pptx)).
 * Discuss pipeline stages and possible hazards
 * Discuss ways to avoid hazards and to minimize their negative effects
 * Practice detecting hazads in fragments of code (discuss ways to overcome them)
-* Use the Ripes RISC-V simularor to illustate how a RISC-V pipeline works and how ii handles hazards.
+* Use the Ripes RISC-V simularor to illustate how a RISC-V pipeline works and how it handles hazards.
 
 ## Homework
 
