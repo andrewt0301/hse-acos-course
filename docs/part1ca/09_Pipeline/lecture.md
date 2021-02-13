@@ -39,6 +39,7 @@ __Ripes__
 ## Homework
 
 Install Ripes (see in references) and play with it.
+Try to visualize examples of assembly code containing hazards.
 
 ## References
 
