@@ -21,4 +21,7 @@ __TODO__
 
 ## References
 
+* Ulrich Drepper. [What Every Programmer Should Know About Memory](
+  https://github.com/andrewt0301/hse-acos-course/blob/master/related/cpumemory.pdf).
+
 __TODO__
