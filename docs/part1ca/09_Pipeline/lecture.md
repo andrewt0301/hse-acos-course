@@ -84,9 +84,9 @@ __Ripes__
    In this case, there will be a structural hazard every time a program needs to fetch an instruction during
    the same cycle in which another instruction accesses data.
    
-   1. Describe how a pipeline will stall when executing the code.
-   1. In general, is it possible to reduce the number of stalls/NOPs
-      resulting from this structural hazard by reordering code?
+    1. Describe how a pipeline will stall when executing the code.
+    1. In general, is it possible to reduce the number of stalls/NOPs
+       resulting from this structural hazard by reordering code?
 
 1. Assume that the following sequence of instructions is executed on a five-stage pipelined datapath:
 
@@ -98,11 +98,11 @@ __Ripes__
    sd  x13, 0(x15)
    ```
 
-   1. If there is no forwarding or hazard detection, insert NOPs to ensure correct execution.
-   1. Now change and/or rearrange the code to minimize the number of NOPs needed.
-      You can assume register `x17` can be used to hold temporary values in your modified code.
-   1. If the processor has forwarding, but we forgot to implement the hazard detection unit,
-      what happens when the original code executes?
+    1. If there is no forwarding or hazard detection, insert NOPs to ensure correct execution.
+    1. Now change and/or rearrange the code to minimize the number of NOPs needed.
+       You can assume register `x17` can be used to hold temporary values in your modified code.
+    1. If the processor has forwarding, but we forgot to implement the hazard detection unit,
+       what happens when the original code executes?
 
 ## Homework
 
