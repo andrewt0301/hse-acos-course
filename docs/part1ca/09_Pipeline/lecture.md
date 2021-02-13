@@ -16,11 +16,16 @@ Slides ([PDF](CA_Lecture_09.pdf), [PPTX](CA_Lecture_09.pptx)).
 
 ## Workshop
 
-__TODO__
+#### Outline
+
+* Discuss pipeline stages and possible hazards
+* Discuss ways to avoid hazards and to minimize their negative effects
+* Practice detecting hazads in fragments of code (discuss ways to overcome them)
+* Use the Ripes RISC-V simularor to illustate how a RISC-V pipeline works and how ii handles hazards.
 
 ## Homework
 
-__TODO__
+Install Ripes (see in references) and play with it.
 
 ## References
 
@@ -32,4 +37,3 @@ __TODO__
 * [Superscalar processor](https://en.wikipedia.org/wiki/Superscalar_processor) (Wikipedia).
 * [Out-of-order execution](https://en.wikipedia.org/wiki/Out-of-order_execution) (Wikipedia).
 * [Ripes - graphical processor simulator and assembly editor for the RISC-V ISA](https://github.com/mortbopet/Ripes).
-
