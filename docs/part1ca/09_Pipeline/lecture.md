@@ -25,7 +25,7 @@ Slides ([PDF](CA_Lecture_09.pdf), [PPTX](CA_Lecture_09.pptx)).
   Try different pipeline options (single-cycle, 5 stages pipeline, with and without forwarding and
   hazards detection). 
 
-[Ripes](https://github.com/mortbopet/Ripes/raw/master/resources/images/animation.gif?raw=true)
+![Ripes](https://github.com/mortbopet/Ripes/raw/master/resources/images/animation.gif?raw=true)
 
 ## Homework
 
