@@ -98,10 +98,32 @@ __System Instructions:__
 | wfi                 | Wait for Interrupt | 
 
 #### Exceptions
- 
-RARS supports the following exceptions (name and `ucause` value):
 
-* INSTRUCTION_ADDR_MISALIGNED (0)
+When an exception occurs the PC is written to the `uepc` register and
+the exception cause code is written to the `ucause`.
+
+__Exceptions Supported in RARS:__
+
+* INSTRUCTION_ADDR_MISALIGNED (`ucause` = 0)
+
+  Code:
+  ```assembly
+      j main
+  end:
+      li a7, 10
+      ecall
+  main:
+      la t0, end
+      addi t0, t0, 2
+      jr t0
+  ```
+  Result:
+  ```
+  Error in : Instruction load alignment error
+  ucause = 0x0
+  uepc = 0x00400006
+  ```
+
 * INSTRUCTION_ACCESS_FAULT (1)
 * ILLEGAL_INSTRUCTION (2)
 * LOAD_ADDRESS_MISALIGNED (4)
