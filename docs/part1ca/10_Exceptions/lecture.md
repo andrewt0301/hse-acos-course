@@ -78,7 +78,6 @@ __CSR Pseudo Instructions:__
 | csrw  t1, fcsr      | Write control and status register         |
 | csrwi fcsr, 100     | Write control and status register         |
 
-
 __System Instructions:__
 
 | ebreak | Pause execution |
