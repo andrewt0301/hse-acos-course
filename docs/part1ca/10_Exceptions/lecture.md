@@ -257,6 +257,13 @@ __Exceptions Supported in RARS:__
 
 #### Exception Handling
 
+When an exception occurs:
+* the `uie` (interrupt enable) bit in the status word is set to 0;
+* the `ucause` register is set to indicate which event has occurred;
+* the `uepc` is set to the last instruction that was executing when system trapped;
+* the PC is set to `utvec` value;
+  in case of vectored exception handling, the PC is set `utvec` base address + 4*`utcause`.
+
 __TODO__
 
 ## Homework
