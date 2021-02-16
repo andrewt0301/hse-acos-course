@@ -257,14 +257,15 @@ __Exceptions Supported in RARS:__
 
 #### Exception Handling
 
-When an exception occurs:
+When an exception occurs the following actions are performed:
+
 * the `uie` (interrupt enable) bit in the status word is set to 0;
 * the `ucause` register is set to indicate which event has occurred;
 * the `uepc` is set to the last instruction that was executing when system trapped;
 * the PC is set to `utvec` value;
-  in case of vectored exception handling, the PC is set `utvec` base address + 4*`utcause`.
+  in case of vectored exception handling, the PC is set `utvec` base address + 4 * `utcause`.
 
-The simplest exception handler that just returns control to the next (PC + 4) instruction: 
+The simplest user-level exception handler that just returns control to the next (PC+4) instruction: 
 
 ```assembly
 handler:
@@ -273,6 +274,14 @@ handler:
      addi  t0, t0, 4
      csrrw zero, uepc, t0
      uret
+```
+
+The user-level handler can be registered in the following way:
+
+```assembly
+     la     t0, handler      # load handler address to t0
+     csrrw  zero, utvec, t0  # set utvec to the handlers address
+     csrrsi zero, ustatus, 1 # set interrupt enable bit in ustatus
 ```
 
 ## Homework
