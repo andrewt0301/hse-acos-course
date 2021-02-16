@@ -68,6 +68,16 @@ __CSR Instructions:__
 | csrrw  t0, fcsr, t1 | Read/Write CSR: read from the CSR into t0 and write t1 into the CSR |
 | csrrwi t0, fcsr, 10 | Read/Write CSR Immediate: read from the CSR into t0 and write a constant into the CSR |
 
+__CSR Pseudo Instructions:__
+
+| csrc  t1, fcsr      | Clear bits in control and status register |
+| csrci fcsr, 100     | Clear bits in control and status register |
+| csrr  t1, fcsr      | Read control and status register          |
+| csrs  t1, fcsr      | Set bits in control and status register   |
+| csrsi fcsr, 100     | Set bits in control and status register   |
+| csrw  t1, fcsr      | Write control and status register         |
+| csrwi fcsr, 100     | Write control and status register         |
+
 #### Exceptions Supported in RARS (name and `ucause` value):
 
 * INSTRUCTION_ADDR_MISALIGNED (0)
