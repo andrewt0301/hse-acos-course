@@ -161,13 +161,54 @@ __Exceptions Supported in RARS:__
 
 * LOAD_ADDRESS_MISALIGNED (4)
 
+  Code:
+  ```assembly
+    .data
+    .space 2
+    .align 0
+  data:
+    .word 0xDEADBEEF
+    .text
+  main:
+    la t0, data
+    lw t1, 0(t0)
+  ```
+  Result:
+  ```
+  Error in: Load address not aligned to word boundary 0x10010002
+  ucause = 0x00000004
+  uepc = 0x00400008
+  utval = 0x10010002
+  ```
+
 * LOAD_ACCESS_FAULT (5)
 
 * STORE_ADDRESS_MISALIGNED (6)
 
+  Code:
+  ```assembly
+    .data
+    .space 2
+    .align 0
+  data:
+    .word 0
+    .text
+  main:
+    la t0, data
+    li t1, 0xDEADBEED
+    sw t1, 0(t0)
+  ```
+  Result:
+  ```
+  Error in: Runtime exception at 0x00400010: Store address not aligned to word boundary 0x10010002
+  ucause = 0x00000006
+  uepc = 0x00400010
+  utval = 0x10010002
+  ```
+
 * STORE_ACCESS_FAULT (7)
 
-* ENVIRONMENT_CALL (8)
+* ENVIRONMENT_CALL (`ucause` = 8)
 
   Code:
   ```assembly
@@ -175,13 +216,13 @@ __Exceptions Supported in RARS:__
     main:
       li a7, 100
       ecall
-   ```
-   Result:
-   ```  
-   Error in: Runtime exception at 0x00400008: invalid or unimplemented syscall service: 100 
-   ucause = 0x00000004
-   uepc = 0x00400008
-   ```
+  ```
+  Result:
+  ```  
+  Error in: Runtime exception at 0x00400008: invalid or unimplemented syscall service: 100 
+  ucause = 0x00000004
+  uepc = 0x00400008
+  ```
 
 #### Exception Handling
 
