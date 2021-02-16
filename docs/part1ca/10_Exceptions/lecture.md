@@ -145,6 +145,20 @@ __Exceptions Supported in RARS:__
 
 * ILLEGAL_INSTRUCTION (2)
 
+  Code:
+  ```assembly
+    .text
+  main:
+    li    t0, 8
+    csrrs zero, cycle, t0
+  ```
+  Result:
+  ```
+  Error in : Runtime exception at 0x00400004: Attempt to write to read-only CSR
+  ucause = 0x00000002
+  uepc = 0x00400004
+  ```
+
 * LOAD_ADDRESS_MISALIGNED (4)
 
 * LOAD_ACCESS_FAULT (5)
