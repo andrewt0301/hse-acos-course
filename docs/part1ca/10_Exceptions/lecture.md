@@ -16,6 +16,8 @@ Slides ([PDF](CA_Lecture_10.pdf), [PPTX](CA_Lecture_10.pptx)).
 
 * [simple_handler.s](
   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/10_Exceptions/simple_handler.s)
+* [mmio_poll.s](
+  https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/10_Exceptions/mmio_poll.s)
 
 ## Workshop
 
@@ -25,6 +27,7 @@ Slides ([PDF](CA_Lecture_10.pdf), [PPTX](CA_Lecture_10.pptx)).
 * System instructions
 * Exceptions
 * Exception handling
+* Interrupts
 
 #### Exceptions and Interrupts
 
@@ -264,6 +267,12 @@ When an exception occurs the following actions are performed:
 * the `uepc` is set to the last instruction that was executing when system trapped;
 * the PC is set to `utvec` value;
   in case of vectored exception handling, the PC is set `utvec` base address + 4 * `utcause`.
+
+In order to have a working exception handler, the program must:
+
+* set utvec to the address of the handler code (the lowest two bits are special);
+* set the bits corresponding to the handled interrupts in uie;
+* set the interrupt enable (lowest) bit in ustatus to enable the handler. 
 
 The simplest user-level exception handler that just returns control to the next (PC+4) instruction: 
 
