@@ -34,21 +34,36 @@ Exceptions require dealing with special system instructions and registers.
 
 #### Control and Status Registers (CSRs):
 
-| Number | Priviledge | Name     | Description |
-| User Trap Setup                       |
-| 0x000  | URW        | ustatus  | User status register. |
-| 0x004  | URW        | uie      | User interrupt-enable register. |
-| 0x005  | URW        | utvec    | User trap handler base address. |
+The _Control and Status Registers_ (CSRs) are system registers provided by RISC-V to control monitor system states.
+CSR’s can be read, written and bits can be set/cleared. 
+Each CSR has a special name and is assigned a unique function.
+In this course, we focus on the user privilege level.
+We will use user-level CSRs to handle user-level exceptions.
 
-| 0x040  | URW        | uscratch | Scratch register for user trap handlers. |
-| 0x041  | URW        | uepc     | User exception program counter. |
-| 0x042  | URW        | ucause   | User trap cause. |
-| 0x043  | URW        | utval    | User bad address or instruction. |
-| 0x044  | URW        | uip      | User interrupt pending. |
+__User-level CSRs__:
 
-| 0x001  | URW        | fflags   | Floating-Point Accrued Exceptions. |
-| 0x002  | URW        | frm      | Floating-Point Dynamic Rounding Mode. |
+| Number | Priviledge | Name     | Description                                 |
+| *User Trap Setup*                                                            |
+| 0x000  | URW        | ustatus  | User status register.                       |
+| 0x004  | URW        | uie      | User interrupt-enable register.             |
+| 0x005  | URW        | utvec    | User trap handler base address.             |
+| *User Trap Handling*                                                         |
+| 0x040  | URW        | uscratch | Scratch register for user trap handlers.    |
+| 0x041  | URW        | uepc     | User exception program counter.             |
+| 0x042  | URW        | ucause   | User trap cause.                            |
+| 0x043  | URW        | utval    | User bad address or instruction.            |
+| 0x044  | URW        | uip      | User interrupt pending.                     |
+| *User Floating-Point CSRs*                                                   |
+| 0x001  | URW        | fflags   | Floating-Point Accrued Exceptions.          |
+| 0x002  | URW        | frm      | Floating-Point Dynamic Rounding Mode.       |
 | 0x003  | URW        | fcsr     | Floating-Point Control and Status Register. |
+| *User Counter/Timers*                                                        |
+| 0xC00  | URO        | cycle    | Cycle counter for RDCYCLE instruction.      |
+| 0xC01  | URO        | time     | Timer for RDTIME instruction.               |
+| 0xC02  | URO        | instret  | Instructions-retired counter for RDINSTRET instruction. |
+| 0xC80  | URO        | cycleh   | Upper 32 bits of cycle, RV32 only.          |
+| 0xC81  | URO        | timeh    | Upper 32 bits of time, RV32 only.           |
+| 0xC82  | URO        | instreth | Upper 32 bits of instret, RV32 only.        |
 
 ### System instructions:
 
