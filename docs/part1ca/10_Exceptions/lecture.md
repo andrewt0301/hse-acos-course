@@ -223,6 +223,22 @@ main:
 
 * STORE_ACCESS_FAULT (7)
 
+  Code:
+  ```assembly
+  .text
+  main:
+    la t0, main
+    li t1, 0xDEADBEEF
+    sw t1, 0(t0)
+  ```
+  Result:
+  ```
+  Error in: Runtime exception at 0x00400010: Cannot write directly to text segment!0x00400000
+  ucause = 0x00000007
+  uepc = 0x00400010
+  utval = 0x00400000
+  ```
+
 * ENVIRONMENT_CALL (`ucause` = 8)
 
   Code:
