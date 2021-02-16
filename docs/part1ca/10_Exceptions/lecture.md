@@ -104,7 +104,7 @@ the exception cause code is written to the `ucause`.
 
 __Exceptions Supported in RARS:__
 
-* INSTRUCTION_ADDR_MISALIGNED (`ucause` = 0)
+* __INSTRUCTION_ADDR_MISALIGNED__ (`ucause` = 0)
 
   Code:
   ```assembly
@@ -124,7 +124,7 @@ __Exceptions Supported in RARS:__
   uepc = 0x00400006
   ```
 
-* INSTRUCTION_ACCESS_FAULT (`ucause` = 1)
+* __INSTRUCTION_ACCESS_FAULT__ (`ucause` = 1)
 
   Code:
   ```assembly
@@ -143,7 +143,7 @@ __Exceptions Supported in RARS:__
   uepc = 0x10010000
   ```
 
-* ILLEGAL_INSTRUCTION (`ucause` = 2)
+* __ILLEGAL_INSTRUCTION__ (`ucause` = 2)
 
   Code:
   ```assembly
@@ -159,7 +159,7 @@ __Exceptions Supported in RARS:__
   uepc = 0x00400004
   ```
 
-* LOAD_ADDRESS_MISALIGNED (4)
+* LOAD_ADDRESS_MISALIGNED (`ucause` = 4)
 
   Code:
   ```assembly
@@ -181,14 +181,14 @@ __Exceptions Supported in RARS:__
   utval = 0x10010002
   ```
 
-* LOAD_ACCESS_FAULT (5)
+* __LOAD_ACCESS_FAULT__ (`ucause` = 5)
 
   Code:
   ```assembly
   .text
-main:
-  la t0, main
-  lw t1, 0(t0)
+  main:
+    la t0, main
+    lw t1, 0(t0)
   ```
   Result:
   ```
@@ -198,7 +198,7 @@ main:
   utval = 0x00400000
   ```
 
-* STORE_ADDRESS_MISALIGNED (6)
+* STORE_ADDRESS_MISALIGNED (`ucause` = 6)
 
   Code:
   ```assembly
@@ -221,7 +221,7 @@ main:
   utval = 0x10010002
   ```
 
-* STORE_ACCESS_FAULT (7)
+* STORE_ACCESS_FAULT (`ucause` = 7)
 
   Code:
   ```assembly
@@ -239,7 +239,7 @@ main:
   utval = 0x00400000
   ```
 
-* ENVIRONMENT_CALL (`ucause` = 8)
+* __ENVIRONMENT_CALL__ (`ucause` = 8)
 
   Code:
   ```assembly
