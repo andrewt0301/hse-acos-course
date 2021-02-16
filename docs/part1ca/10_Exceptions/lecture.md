@@ -78,6 +78,14 @@ __CSR Pseudo Instructions:__
 | csrw  t1, fcsr      | Write control and status register         |
 | csrwi fcsr, 100     | Write control and status register         |
 
+
+__System Instructions:__
+
+| ebreak | Pause execution |
+| ecall  | Issue a system call : Execute the system call specified by value in a7 |
+| uret   | Return from handling an interrupt or exception (to uepc) |
+| wfi    | Wait for Interrupt |
+
 #### Exceptions Supported in RARS (name and `ucause` value):
 
 * INSTRUCTION_ADDR_MISALIGNED (0)
