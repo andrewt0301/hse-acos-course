@@ -124,15 +124,38 @@ __Exceptions Supported in RARS:__
   uepc = 0x00400006
   ```
 
-* INSTRUCTION_ACCESS_FAULT (1)
+* INSTRUCTION_ACCESS_FAULT (ucause` = 1)
+
+  Code:
+  ```assembly
+    .data
+  data:
+    .word 99
+    .word 100
+  .text
+    la t0, data
+    jr t0
+  ```
+  Result:
+  ```
+  Error in : Instruction load access error
+  ucause = 0x00000001
+  uepc = 0x10010000
+  ```
+
 * ILLEGAL_INSTRUCTION (2)
+
 * LOAD_ADDRESS_MISALIGNED (4)
+
 * LOAD_ACCESS_FAULT (5)
+
 * STORE_ADDRESS_MISALIGNED (6)
+
 * STORE_ACCESS_FAULT (7)
+
 * ENVIRONMENT_CALL (8)
 
-__TODO__
+    __TODO__
 
 #### Exception Handling
 
