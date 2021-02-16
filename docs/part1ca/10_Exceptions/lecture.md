@@ -19,7 +19,9 @@ Slides ([PDF](CA_Lecture_10.pdf), [PPTX](CA_Lecture_10.pptx)).
 
 ## Workshop
 
-Exceptions in RARS (name and `ucause` value):
+Exceptions require dealing with special system instructions and registers.
+
+#### Exceptions Supported in RARS (name and `ucause` value):
 
 * INSTRUCTION_ADDR_MISALIGNED (0)
 * INSTRUCTION_ACCESS_FAULT (1)
@@ -29,6 +31,28 @@ Exceptions in RARS (name and `ucause` value):
 * STORE_ADDRESS_MISALIGNED (6)
 * STORE_ACCESS_FAULT (7)
 * ENVIRONMENT_CALL (8)
+
+#### Control and Status Registers (CSRs):
+
+| Number | Priviledge | Name     | Description |
+| 0x000  | URW        | ustatus  | User status register. |
+| 0x004  | URW        | uie      | User interrupt-enable register. |
+| 0x005  | URW        | utvec    | User trap handler base address. |
+
+| 0x040  | URW        | uscratch | Scratch register for user trap handlers. |
+| 0x041  | URW        | uepc     | User exception program counter. |
+| 0x042  | URW        | ucause   | User trap cause. |
+| 0x043  | URW        | utval    | User bad address or instruction. |
+| 0x044  | URW        | uip      | User interrupt pending. |
+
+
+| 0x001  | URW        | fflags   | Floating-Point Accrued Exceptions. |
+| 0x002  | URW        | frm      | Floating-Point Dynamic Rounding Mode. |
+| 0x003  | URW        | fcsr     | Floating-Point Control and Status Register. |
+
+### System instructions:
+
+ 
 
 __TODO__
 
