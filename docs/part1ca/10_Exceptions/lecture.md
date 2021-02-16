@@ -39,7 +39,7 @@ Exceptions require dealing with special system instructions and registers.
 
 #### Control and Status Registers (CSRs):
 
-The _Control and Status Registers_ (CSRs) are system registers provided by RISC-V to control monitor system states.
+The __Control and Status Registers (CSRs)__ are system registers provided by RISC-V to control monitor system states.
 CSR’s can be read, written and bits can be set/cleared. 
 Each CSR has a special name and is assigned a unique function.
 In this course, we focus on the user privilege level.
