@@ -243,10 +243,10 @@ main:
 
   Code:
   ```assembly
-      .text
-    main:
-      li a7, 100
-      ecall
+    .text
+  main:
+    li a7, 100
+    ecall
   ```
   Result:
   ```  
