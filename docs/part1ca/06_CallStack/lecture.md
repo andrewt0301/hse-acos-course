@@ -181,5 +181,6 @@ Study and run all examples and finish all the tasks.
 ## References
 
 * Functions in RISC-V. Section 2.8 in [[CODR]](../../books.md).
+* [RISC-V Assembly Programmer's Manual](https://github.com/riscv/riscv-asm-manual/blob/master/riscv-asm.md).
 * [Call stack](https://en.wikipedia.org/wiki/Call_stack) (Wikipedia).
 * [Calling convention](https://en.wikipedia.org/wiki/Calling_convention) (Wikipedia).

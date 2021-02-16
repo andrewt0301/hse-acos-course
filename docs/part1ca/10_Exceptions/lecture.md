@@ -23,7 +23,7 @@ Slides ([PDF](CA_Lecture_10.pdf), [PPTX](CA_Lecture_10.pptx)).
 
 * Control and Status Registers
 * System instructions
-* Exception
+* Exceptions
 * Exception handling
 
 #### Exceptions and Interrupts
@@ -264,7 +264,16 @@ When an exception occurs:
 * the PC is set to `utvec` value;
   in case of vectored exception handling, the PC is set `utvec` base address + 4*`utcause`.
 
-__TODO__
+The simplest exception handler that just returns control to the next (PC + 4) instruction: 
+
+```assembly
+handler:
+     # Just ignore it by moving uepc to the next instruction
+     csrrw t0, uepc, zero
+     addi  t0, t0, 4
+     csrrw zero, uepc, t0
+     uret
+```
 
 ## Homework
 
@@ -275,6 +284,7 @@ __TODO__
 * Chapter 6: “N” Standard Extension for User-Level Interrupts in 
   [The RISC-V Instruction Set Manual Volume II: Privileged Architecture](
   https://github.com/riscv/riscv-isa-manual/releases/latest).
+* [RISC-V Assembly Programmer's Manual](https://github.com/riscv/riscv-asm-manual/blob/master/riscv-asm.md).
 * The Processor. Chapter 4 in [[CODR]](../../books.md).
 * Pipelining: Basic and Intermediate Concepts. Appendix C in [[CAQA]](../../books.md).
 * Instruction-Level Parallelism and Its Exploitation. Chapter 3 in [[CAQA]](../../books.md).
