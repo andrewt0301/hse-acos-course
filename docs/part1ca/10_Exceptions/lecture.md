@@ -47,22 +47,22 @@ We will use user-level CSRs to handle user-level exceptions.
 
 __User-level CSRs__:
 
-| Number | Priviledge | Name     | Description                                 |
-| *User Trap Setup*                                                            |
+| __Number__ | __Priviledge__ | __Name__  | __Description__                    |
+| __User Trap Setup__                                                          |
 | 0x000  | URW        | ustatus  | User status register.                       |
 | 0x004  | URW        | uie      | User interrupt-enable register.             |
 | 0x005  | URW        | utvec    | User trap handler base address.             |
-| *User Trap Handling*                                                         |
+| __User Trap Handling__                                                       |
 | 0x040  | URW        | uscratch | Scratch register for user trap handlers.    |
 | 0x041  | URW        | uepc     | User exception program counter.             |
 | 0x042  | URW        | ucause   | User trap cause.                            |
 | 0x043  | URW        | utval    | User bad address or instruction.            |
 | 0x044  | URW        | uip      | User interrupt pending.                     |
-| *User Floating-Point CSRs*                                                   |
+| __User Floating-Point CSRs__                                                 |
 | 0x001  | URW        | fflags   | Floating-Point Accrued Exceptions.          |
 | 0x002  | URW        | frm      | Floating-Point Dynamic Rounding Mode.       |
 | 0x003  | URW        | fcsr     | Floating-Point Control and Status Register. |
-| *User Counter/Timers*                                                        |
+| __User Counter/Timers__                                                      |
 | 0xC00  | URO        | cycle    | Cycle counter for RDCYCLE instruction.      |
 | 0xC01  | URO        | time     | Timer for RDTIME instruction.               |
 | 0xC02  | URO        | instret  | Instructions-retired counter for RDINSTRET instruction. |
