@@ -62,31 +62,31 @@ __User-level CSRs__:
 __CSR Instructions:__
 
 |-----------------------|-|
-| `csrrc  t0, fcsr, t1` | Read/Clear CSR: read from the CSR into t0 and clear bits of the CSR according to t1 |
-| `csrrci t0, fcsr, 10` | Read/Clear CSR Immediate: read from the CSR into t0 and clear bits of the CSR according to a constant |
-| `csrrs  t0, fcsr, t1` | Read/Set CSR: read from the CSR into t0 and logical or t1 into the CSR |
-| `csrrsi t0, fcsr, 10` | Read/Set CSR Immediate: read from the CSR into t0 and logical or a constant into the CSR |
-| `csrrw  t0, fcsr, t1` | Read/Write CSR: read from the CSR into t0 and write t1 into the CSR |
-| `csrrwi t0, fcsr, 10` | Read/Write CSR Immediate: read from the CSR into t0 and write a constant into the CSR |
+| <nobr>csrrc  t0, fcsr, t1</nobr> | Read/Clear CSR: read from the CSR into t0 and clear bits of the CSR according to t1 |
+| <nobr>csrrci t0, fcsr, 10</nobr> | Read/Clear CSR Immediate: read from the CSR into t0 and clear bits of the CSR according to a constant |
+| <nobr>csrrs  t0, fcsr, t1</nobr> | Read/Set CSR: read from the CSR into t0 and logical or t1 into the CSR |
+| <nobr>csrrsi t0, fcsr, 10</nobr> | Read/Set CSR Immediate: read from the CSR into t0 and logical or a constant into the CSR |
+| <nobr>csrrw  t0, fcsr, t1</nobr> | Read/Write CSR: read from the CSR into t0 and write t1 into the CSR |
+| <nobr>csrrwi t0, fcsr, 10</nobr> | Read/Write CSR Immediate: read from the CSR into t0 and write a constant into the CSR |
 
 __CSR Pseudo Instructions:__
 
 |-----------------------|-|
-| `csrc  t1, fcsr`      | Clear bits in control and status register |
-| `csrci fcsr, 100`     | Clear bits in control and status register |
-| `csrr  t1, fcsr`      | Read control and status register          |
-| `csrs  t1, fcsr`      | Set bits in control and status register   |
-| `csrsi fcsr, 100`     | Set bits in control and status register   |
-| `csrw  t1, fcsr`      | Write control and status register         |
-| `csrwi fcsr, 100`     | Write control and status register         |
+| <nobr>csrc  t1, fcsr</nobr>  | Clear bits in control and status register |
+| <nobr>csrci fcsr, 100</nobr> | Clear bits in control and status register |
+| <nobr>csrr  t1, fcsr</nobr>  | Read control and status register          |
+| <nobr>csrs  t1, fcsr</nobr>  | Set bits in control and status register   |
+| <nobr>csrsi fcsr, 100</nobr> | Set bits in control and status register   |
+| <nobr>csrw  t1, fcsr</nobr>  | Write control and status register         |
+| <nobr>csrwi fcsr, 100</nobr> | Write control and status register         |
 
 __System Instructions:__
 
 |-----------------------|-|
-| `ebreak`              | Pause execution |
-| `ecall`               | Issue a system call : Execute the system call specified by value in a7 |
-| `uret`                | Return from handling an interrupt or exception (to uepc) |
-| `wfi`                 | Wait for Interrupt | 
+| ebreak              | Pause execution |
+| ecall               | Issue a system call : Execute the system call specified by value in a7 |
+| uret                | Return from handling an interrupt or exception (to uepc) |
+| wfi                 | Wait for Interrupt | 
 
 #### Exceptions Supported in RARS (name and `ucause` value):
 
