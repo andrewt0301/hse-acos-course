@@ -169,7 +169,19 @@ __Exceptions Supported in RARS:__
 
 * ENVIRONMENT_CALL (8)
 
-    __TODO__
+  Code:
+  ```assembly
+      .text
+    main:
+      li a7, 100
+      ecall
+   ```
+   Result:
+   ```  
+   Error in: Runtime exception at 0x00400008: invalid or unimplemented syscall service: 100 
+   ucause = 0x00000004
+   uepc = 0x00400008
+   ```
 
 #### Exception Handling
 
