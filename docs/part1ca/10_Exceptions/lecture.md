@@ -183,6 +183,21 @@ __Exceptions Supported in RARS:__
 
 * LOAD_ACCESS_FAULT (5)
 
+  Code:
+  ```assembly
+  .text
+main:
+  la t0, main
+  lw t1, 0(t0)
+  ```
+  Result:
+  ```
+  Error in: Runtime exception at 0x00400008: Cannot read directly from text segment!0x00400000
+  ucause = 0x00000005
+  uepc = 0x00400008
+  utval = 0x00400000
+  ```
+
 * STORE_ADDRESS_MISALIGNED (6)
 
   Code:
@@ -195,7 +210,7 @@ __Exceptions Supported in RARS:__
     .text
   main:
     la t0, data
-    li t1, 0xDEADBEED
+    li t1, 0xDEADBEEF
     sw t1, 0(t0)
   ```
   Result:
