@@ -35,6 +35,7 @@ Exceptions require dealing with special system instructions and registers.
 #### Control and Status Registers (CSRs):
 
 | Number | Priviledge | Name     | Description |
+| User Trap Setup                       |
 | 0x000  | URW        | ustatus  | User status register. |
 | 0x004  | URW        | uie      | User interrupt-enable register. |
 | 0x005  | URW        | utvec    | User trap handler base address. |
@@ -44,7 +45,6 @@ Exceptions require dealing with special system instructions and registers.
 | 0x042  | URW        | ucause   | User trap cause. |
 | 0x043  | URW        | utval    | User bad address or instruction. |
 | 0x044  | URW        | uip      | User interrupt pending. |
-
 
 | 0x001  | URW        | fflags   | Floating-Point Accrued Exceptions. |
 | 0x002  | URW        | frm      | Floating-Point Dynamic Rounding Mode. |
