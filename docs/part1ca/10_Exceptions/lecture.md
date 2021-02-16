@@ -61,6 +61,7 @@ __User-level CSRs__:
 
 __CSR Instructions:__
 
+|---------------------|-|
 | csrrc  t0, fcsr, t1 | Read/Clear CSR: read from the CSR into t0 and clear bits of the CSR according to t1 |
 | csrrci t0, fcsr, 10 | Read/Clear CSR Immediate: read from the CSR into t0 and clear bits of the CSR according to a constant |
 | csrrs  t0, fcsr, t1 | Read/Set CSR: read from the CSR into t0 and logical or t1 into the CSR |
@@ -70,6 +71,7 @@ __CSR Instructions:__
 
 __CSR Pseudo Instructions:__
 
+|---------------------|-|
 | csrc  t1, fcsr      | Clear bits in control and status register |
 | csrci fcsr, 100     | Clear bits in control and status register |
 | csrr  t1, fcsr      | Read control and status register          |
@@ -80,10 +82,11 @@ __CSR Pseudo Instructions:__
 
 __System Instructions:__
 
-| ebreak | Pause execution |
-| ecall  | Issue a system call : Execute the system call specified by value in a7 |
-| uret   | Return from handling an interrupt or exception (to uepc) |
-| wfi    | Wait for Interrupt |
+|---------------------|-|
+| ebreak              | Pause execution |
+| ecall               | Issue a system call : Execute the system call specified by value in a7 |
+| uret                | Return from handling an interrupt or exception (to uepc) |
+| wfi                 | Wait for Interrupt | 
 
 #### Exceptions Supported in RARS (name and `ucause` value):
 
