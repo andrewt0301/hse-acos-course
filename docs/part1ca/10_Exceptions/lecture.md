@@ -124,7 +124,7 @@ __Exceptions Supported in RARS:__
   uepc = 0x00400006
   ```
 
-* INSTRUCTION_ACCESS_FAULT (ucause` = 1)
+* INSTRUCTION_ACCESS_FAULT (`ucause` = 1)
 
   Code:
   ```assembly
@@ -143,7 +143,7 @@ __Exceptions Supported in RARS:__
   uepc = 0x10010000
   ```
 
-* ILLEGAL_INSTRUCTION (2)
+* ILLEGAL_INSTRUCTION (`ucause` = 2)
 
   Code:
   ```assembly
