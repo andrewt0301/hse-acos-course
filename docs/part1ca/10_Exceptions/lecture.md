@@ -19,6 +19,11 @@ Slides ([PDF](CA_Lecture_10.pdf), [PPTX](CA_Lecture_10.pptx)).
 
 ## Workshop
 
+__Exception__ is an an unscheduled event that disrupts program execution.
+
+__Interrupt__ is an exception that comes from outside of the processor.
+ (Some architectures use the term interrupt for all exceptions.)
+
 Exceptions require dealing with special system instructions and registers.
 
 #### Exceptions Supported in RARS (name and `ucause` value):
@@ -67,7 +72,7 @@ __User-level CSRs__:
 
 ### System instructions:
 
- 
+
 
 __TODO__
 
