@@ -20,24 +20,11 @@ Slides ([PDF](CA_Lecture_10.pdf), [PPTX](CA_Lecture_10.pptx)).
 ## Workshop
 
 __Exception__ is an an unscheduled event that disrupts program execution.
-
 __Interrupt__ is an exception that comes from outside of the processor.
  (Some architectures use the term interrupt for all exceptions.)
-
 Exceptions require dealing with special system instructions and registers.
 
-#### Exceptions Supported in RARS (name and `ucause` value):
-
-* INSTRUCTION_ADDR_MISALIGNED (0)
-* INSTRUCTION_ACCESS_FAULT (1)
-* ILLEGAL_INSTRUCTION (2)
-* LOAD_ADDRESS_MISALIGNED (4)
-* LOAD_ACCESS_FAULT (5)
-* STORE_ADDRESS_MISALIGNED (6)
-* STORE_ACCESS_FAULT (7)
-* ENVIRONMENT_CALL (8)
-
-#### Control and Status Registers (CSRs):
+#### Control and Status Registers (CSRs)
 
 The __Control and Status Registers (CSRs)__ are system registers provided by RISC-V to control monitor system states.
 CSR’s can be read, written and bits can be set/cleared. 
@@ -70,9 +57,27 @@ __User-level CSRs__:
 | 0xC81  | URO        | timeh    | Upper 32 bits of time, RV32 only.           |
 | 0xC82  | URO        | instreth | Upper 32 bits of instret, RV32 only.        |
 
-### System instructions:
+### System Instructions
 
+__CSR Instructions:__
 
+| csrrc  t0, fcsr, t1 | Read/Clear CSR: read from the CSR into t0 and clear bits of the CSR according to t1 |
+| csrrci t0, fcsr, 10 | Read/Clear CSR Immediate: read from the CSR into t0 and clear bits of the CSR according to a constant |
+| csrrs  t0, fcsr, t1 | Read/Set CSR: read from the CSR into t0 and logical or t1 into the CSR |
+| csrrsi t0, fcsr, 10 | Read/Set CSR Immediate: read from the CSR into t0 and logical or a constant into the CSR |
+| csrrw  t0, fcsr, t1 | Read/Write CSR: read from the CSR into t0 and write t1 into the CSR |
+| csrrwi t0, fcsr, 10 | Read/Write CSR Immediate: read from the CSR into t0 and write a constant into the CSR |
+
+#### Exceptions Supported in RARS (name and `ucause` value):
+
+* INSTRUCTION_ADDR_MISALIGNED (0)
+* INSTRUCTION_ACCESS_FAULT (1)
+* ILLEGAL_INSTRUCTION (2)
+* LOAD_ADDRESS_MISALIGNED (4)
+* LOAD_ACCESS_FAULT (5)
+* STORE_ADDRESS_MISALIGNED (6)
+* STORE_ACCESS_FAULT (7)
+* ENVIRONMENT_CALL (8)
 
 __TODO__
 
