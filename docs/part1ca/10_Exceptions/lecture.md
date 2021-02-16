@@ -19,6 +19,15 @@ Slides ([PDF](CA_Lecture_10.pdf), [PPTX](CA_Lecture_10.pptx)).
 
 ## Workshop
 
+#### Outline
+
+* Control and Status Registers
+* System instructions
+* Exception
+* Exception handling
+
+#### Exceptions and Interrupts
+
 __Exception__ is an an unscheduled event that disrupts program execution.
 __Interrupt__ is an exception that comes from outside of the processor.
  (Some architectures use the term interrupt for all exceptions.)
@@ -88,7 +97,9 @@ __System Instructions:__
 | uret                | Return from handling an interrupt or exception (to uepc) |
 | wfi                 | Wait for Interrupt | 
 
-#### Exceptions Supported in RARS (name and `ucause` value):
+#### Exceptions
+ 
+RARS supports the following exceptions (name and `ucause` value):
 
 * INSTRUCTION_ADDR_MISALIGNED (0)
 * INSTRUCTION_ACCESS_FAULT (1)
@@ -98,6 +109,10 @@ __System Instructions:__
 * STORE_ADDRESS_MISALIGNED (6)
 * STORE_ACCESS_FAULT (7)
 * ENVIRONMENT_CALL (8)
+
+__TODO__
+
+#### Exception Handling
 
 __TODO__
 
