@@ -14,4 +14,4 @@ poll_char:
   beqz t0, poll_char
   lw t0, 0(s1)
   sw t0, 0(s2)
-  j main
+  j poll_char
