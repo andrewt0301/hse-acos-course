@@ -11,7 +11,7 @@ Slides ([PDF](CA_Lecture_12.pdf), [PPTX](CA_Lecture_12.pptx)).
 
 * Virtual memory and physical memory
 * Virtual and physical addresses
-* Address translation and page tables
+* Address translation and page table
 * Translation lookaside buffer (TLB)
 
 ## Workshop
