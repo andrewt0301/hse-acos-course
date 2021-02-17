@@ -295,10 +295,18 @@ The user-level handler can be registered in the following way:
      csrrsi zero, ustatus, 1 # set interrupt enable bit in ustatus
 ```
 
+Interrupts are exceptions that come from external devices such as I/O devices.
+These events can be handled. To do this, an interrupt must be enabled in the device and
+a corresponding bit must be set in `uie`. See the examples to larn how this works.
+
+#### Tasks
+
+1. Implement an exception handler that prints a message that explain the reason of an exception.
+
 ## Homework
 
-__TODO__
-
+Study the theory and the examples and finish the tasks.
+ 
 ## References
 
 * Chapter 6: “N” Standard Extension for User-Level Interrupts in 
