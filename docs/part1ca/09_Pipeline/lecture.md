@@ -106,8 +106,11 @@ __Ripes__
 
 ## Homework
 
-Install [Ripes](https://github.com/mortbopet/Ripes) and play with it.
-Try to visualize fragments of assembly code containing hazards.
+Finish the tasks and send them to the TA.
+
+_Hint_: You can use the [Ripes](https://github.com/mortbopet/Ripes) graphical simulator to check your answers.
+It visualizes execution of instructions in a pipeline using different options and can show
+how assembly code containing hazards will be processed.
 
 ## References
 
