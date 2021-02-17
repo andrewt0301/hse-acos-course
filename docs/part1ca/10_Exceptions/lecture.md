@@ -302,6 +302,7 @@ a corresponding bit must be set in `uie`. See the examples to larn how this work
 #### Tasks
 
 1. Implement an exception handler that prints a message that explain the reason of an exception.
+2. Image how the try-catch construct is implemented in high-level languages. Give a simple example.
 
 ## Homework
 

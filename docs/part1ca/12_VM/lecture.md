@@ -7,9 +7,12 @@ Lecture 12
 
 Slides ([PDF](CA_Lecture_12.pdf), [PPTX](CA_Lecture_12.pptx)).
 
-Outline:
+#### Outline
 
-__TODO__
+* Virtual memory and physical memory
+* Virtual and physical addresses
+* Address translation and page tables
+* Translation lookaside buffer (TLB)
 
 ## Workshop
 
@@ -21,4 +24,7 @@ __TODO__
 
 ## References
 
-__TODO__
+* Large and Fast: Exploiting Memory Hierarchy. Chapter 5 in [[CODR]](../../books.md). 
+* Ulrich Drepper. [What Every Programmer Should Know About Memory](
+  https://github.com/andrewt0301/hse-acos-course/blob/master/related/cpumemory.pdf).
+* [Translation lookaside buffer](https://en.wikipedia.org/wiki/Translation_lookaside_buffer) (Wikipedia).
