@@ -309,7 +309,32 @@ a corresponding bit must be set in `uie`. See the examples to larn how this work
    The function takes an argument that specifies what exception it will raise
    (0 - no exception, 1 - some exception from list obove, 2 - some other exception from the list). 
    The function must return exception cause or 0 if no exception has occurred.
-   The program prints the exception cause. 
+   The program prints the exception cause.
+
+3. Write a program that waits for timer interrupts and counts them. Input data: `m` is the limit on
+   number of interrupts to process, `t` is the interval between interrupts in milliseconds.
+   The program exits when the number of handler interrupts reaches the limit.
+
+   _Hint_: Use the `Tools | Timer Tool` MMIO extention. See its help. The MMIO address
+   to get the current time `0xFFFF0018`; the MMIO address the set the time for the next
+   interrupt is `0xFFFF0020`. To setup the cycle of processing interupts, the following must be done:
+
+   ```
+   The address of your interrupt handler must be stored in the utvec CSR
+   The fourth bit of the uie CSR must be set to 1 (ie. ori uie, uie, 0x10)
+   The zeroth bit of the ustatus CSR must be set to 1 (ie. ori ustatus, ustatus, 0x1)
+   The time for the next interrupt must be written to 0xFFFF0020.
+   When an interrupt is handled the time for the next interrupt must be updated.
+   ```  
+
+4. How would you simulate mutitasking using interrupts and timer?
+   Write a program that contains two for-loops running in a semi-parallel mode.
+   The first prints messages `Thread1: 0`..`Thread1: N` and the second prints messages `Thread2: 0`..`Thread2: N`.
+   The program must use timer to switch between the threads.
+
+   Hint: Each thread stores in memory (.data section) its PC and values of register it uses.
+   When a timer interrupt occurs, the handler saves current register values, loads the new register values,
+   and return control to the PC of the next thread. 
 
 ## Homework
 
