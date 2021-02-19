@@ -1,5 +1,5 @@
 #
-# Example: read a character from a keyboard and prints it to the diaplay
+# Example: read a character from a keyboard and prints it to the display
 #          by polling a MMIO device
   .text
   .eqv IN_CTRL  0xffff0000
