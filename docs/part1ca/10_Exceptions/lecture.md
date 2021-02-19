@@ -301,17 +301,19 @@ a corresponding bit must be set in `uie`. See the examples to larn how this work
 
 #### Tasks
 
+1. Study the theory and examples on the current workshop.
+
 1. Implement an exception handler that prints a message that explains the reason of an exception
    (the list of exceptions with descriptions is above).
 
-2. Image how the try-catch construct is implemented in high-level languages.
+1. Image how the try-catch construct is implemented in high-level languages.
    Then write a program that implements a simple function with an exception handler.
    The function takes an argument that specifies what exception it will raise
    (0 - no exception, 1 - some exception from list obove, 2 - some other exception from the list). 
    The function must return exception cause or 0 if no exception has occurred.
    The program prints the exception cause.
 
-3. Write a program that waits for timer interrupts and counts them. Input data: `m` is the limit on
+1. Write a program that waits for timer interrupts and counts them. Input data: `m` is the limit on
    number of interrupts to process, `t` is the interval between interrupts in milliseconds.
    The program exits when the number of handler interrupts reaches the limit.
 
@@ -327,7 +329,7 @@ a corresponding bit must be set in `uie`. See the examples to larn how this work
    When an interrupt is handled the time for the next interrupt must be updated.
    ```  
 
-4. How would you simulate mutitasking using interrupts and timer?
+1. How would you simulate mutitasking using interrupts and timer?
    Write a program that contains two for-loops running in a semi-parallel mode.
    The first prints messages `Thread1: 0`..`Thread1: N` and the second prints messages `Thread2: 0`..`Thread2: N`.
    The program must use timer to switch between the threads.
