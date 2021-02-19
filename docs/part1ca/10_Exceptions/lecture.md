@@ -317,17 +317,15 @@ a corresponding bit must be set in `uie`. See the examples to larn how this work
    number of interrupts to process, `t` is the interval between interrupts in milliseconds.
    The program exits when the number of handler interrupts reaches the limit.
 
-   _Hint_: Use the `Tools | Timer Tool` MMIO extention. See its help. The MMIO address
+   _Hint_: Use the "Tools | Timer Tool" MMIO extention. See its help. The MMIO address
    to get the current time `0xFFFF0018`; the MMIO address the set the time for the next
    interrupt is `0xFFFF0020`. To setup the cycle of processing interupts, the following must be done:
 
-   ```
-   The address of your interrupt handler must be stored in the utvec CSR
-   The fourth bit of the uie CSR must be set to 1 (ie. ori uie, uie, 0x10)
-   The zeroth bit of the ustatus CSR must be set to 1 (ie. ori ustatus, ustatus, 0x1)
-   The time for the next interrupt must be written to 0xFFFF0020.
-   When an interrupt is handled the time for the next interrupt must be updated.
-   ```  
+   * The address of your interrupt handler must be stored in the utvec CSR
+   * The fourth bit of the uie CSR must be set to 1 (ie. ori uie, uie, 0x10)
+   * The zeroth bit of the ustatus CSR must be set to 1 (ie. ori ustatus, ustatus, 0x1)
+   * The time for the next interrupt must be written to 0xFFFF0020.
+   * When an interrupt is handled the time for the next interrupt must be updated.
 
 1. How would you simulate mutitasking using interrupts and timer?
    Write a program that contains two for-loops running in a semi-parallel mode.
