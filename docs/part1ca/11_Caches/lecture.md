@@ -25,6 +25,10 @@ __TODO__
 
 #### Tasks
 
+1. Assuming a cache of 4096 blocks, a four-word block size, and a 64-bit address,
+   find the total number of sets and the total number of tag bits for caches that are
+   direct-mapped two-way and four-way set associative, and fully associative.
+
 __TODO__
 
 ## Homework
