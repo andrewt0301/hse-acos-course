@@ -164,7 +164,7 @@ __Exceptions Supported in RARS:__
   uepc = 0x00400004
   ```
 
-* LOAD_ADDRESS_MISALIGNED (`ucause` = 4)
+* __LOAD_ADDRESS_MISALIGNED__ (`ucause` = 4)
 
   Code:
   ```assembly
@@ -203,7 +203,7 @@ __Exceptions Supported in RARS:__
   utval = 0x00400000
   ```
 
-* STORE_ADDRESS_MISALIGNED (`ucause` = 6)
+* __STORE_ADDRESS_MISALIGNED__ (`ucause` = 6)
 
   Code:
   ```assembly
@@ -226,7 +226,7 @@ __Exceptions Supported in RARS:__
   utval = 0x10010002
   ```
 
-* STORE_ACCESS_FAULT (`ucause` = 7)
+* __STORE_ACCESS_FAULT__ (`ucause` = 7)
 
   Code:
   ```assembly
