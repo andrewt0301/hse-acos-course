@@ -58,6 +58,33 @@ loop:
     blt   s0, s2, loop
 ```
 
+Equidistance (try to vary step):
+
+```assembly
+    .eqv  START 0x10010000
+    .eqv  SZ    256
+    .eqv  GAP   3   # Try 5, 11
+    .text
+
+    li    s0, START  # start address
+    addi  s1, s0, SZ # end address
+    li    s2, GAP    # gap in words
+    slli  s3, s2, 2  # gap in bytes
+
+    mv    t0, zero
+loop_gap:
+    slli  t1, t0, 2
+    add   t1, s0, t1
+loop:
+    lw    t2, 0(t1)
+ 
+    add   t1, t1, s3
+    blt   t1, s1, loop
+
+    addi  t0, t0, 1
+    blt   t0, s2, loop_gap
+```
+
 #### Tasks
 
 1. Find the AMAT for a processor with a 1 ns clock cycle time, a miss penalty of 20 clock cycles,
