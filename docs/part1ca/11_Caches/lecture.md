@@ -28,15 +28,15 @@ __TODO__
 Linear memory accesses:
 
 ```assembly
-    .eqv    START   0x10010000
-    .eqv    SZ      512
+    .eqv  START 0x10010000
+    .eqv  SZ    512
     .text
-    li     t1, START
-    addi   t2, t1, SZ
+    li    s0, START
+    addi  s1, s0, SZ
 loop:
-    lw      t0, 0(t1)
-    addi    t1, t1, 4
-    blt     t1, t2, loop
+    lw    t0, 0(s0)
+    addi  s0, s0, 4
+    blt   s0, s1, loop
 ```
 
 Gapped memory accesses:
