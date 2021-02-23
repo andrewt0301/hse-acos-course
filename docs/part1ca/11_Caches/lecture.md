@@ -21,6 +21,8 @@ Slides ([PDF](CA_Lecture_11.pdf), [PPTX](CA_Lecture_11.pptx)).
 
 #### Outline
 
+* RARS Data Cache Simulator
+
 __TODO__
 
 #### Examples
@@ -96,8 +98,10 @@ loop:
    direct-mapped two-way and four-way set associative, and fully associative.
 
 1. Try the above examples with following cache configurations (`Tool | Data Cache Simulator`).
+
    * Placement policy: Direct Mapping / Fully Associative / 2-Way associative
    * Block replacement policy: LRU / Random
+
    `2×3=6` experiments in total. Report the cache hit rate.
 
 1. Write a program that utilizes memory sparsely, so that its footprint is 100% misses 2-way associative cache.
