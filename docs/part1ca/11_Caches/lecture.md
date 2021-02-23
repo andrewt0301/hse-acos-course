@@ -23,6 +23,22 @@ Slides ([PDF](CA_Lecture_11.pdf), [PPTX](CA_Lecture_11.pptx)).
 
 __TODO__
 
+#### Examples
+
+Linear memory accesses:
+
+```assembly
+    .eqv    START   0x10010000
+    .eqv    SZ      512
+    .text
+    li     t1, START
+    addi   t2, t1, SZ
+loop:
+    lw      t0, 0(t1)
+    addi    t1, t1, 4
+    blt     t1, t2, loop
+```
+
 #### Tasks
 
 1. Find the AMAT for a processor with a 1 ns clock cycle time, a miss penalty of 20 clock cycles,
