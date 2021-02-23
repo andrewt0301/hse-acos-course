@@ -25,18 +25,13 @@ __TODO__
 
 #### Tasks
 
+1. Find the AMAT for a processor with a 1 ns clock cycle time, a miss penalty of 20 clock cycles,
+   a miss rate of 0.05 misses per instruction, and a cache access time (including hit detection) of 1 clock cycle.
+   Assume that the read and write miss penalties are the same and ignore other write stalls.
+
 1. Assuming a cache of 4096 blocks, a four-word block size, and a 64-bit address,
    find the total number of sets and the total number of tag bits for caches that are
    direct-mapped two-way and four-way set associative, and fully associative.
-
-1. Consider a virtual memory system that can address a total of 2<sup>50</sup> bytes.
-   You have unlimited hard drive space, but are limited to 2 GB of semiconductor (physical) memory.
-   Assume that virtual and physical pages are each 4 KB in size.
-   * How many bits is the physical address?
-   * What is the maximum number of virtual pages in the system?
-   * How many physical pages are in the system?
-   * How many bits are the virtual and physical page numbers?
-   * How many page table entries will the page table contain?
 
 __TODO__
 
