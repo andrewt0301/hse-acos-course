@@ -21,9 +21,9 @@ Slides ([PDF](CA_Lecture_11.pdf), [PPTX](CA_Lecture_11.pptx)).
 
 #### Outline
 
+* Cache types
 * RARS Data Cache Simulator
-
-__TODO__
+* Playing with cache configurations
 
 #### Examples
 
