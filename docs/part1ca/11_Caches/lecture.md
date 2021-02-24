@@ -89,6 +89,11 @@ loop:
 
 #### Tasks
 
+1. Assume the miss rate of an instruction cache is 2% and the miss rate of the data cache is 4%.
+   If a processor has a CPI of 2 without any memory stalls, and the miss penalty is 100 cycles for all misses,
+   determine how much faster a processor would run with a perfect cache that never missed.
+   Assume the frequency of all loads and stores is 36%.
+
 1. Find the AMAT for a processor with a 1 ns clock cycle time, a miss penalty of 20 clock cycles,
    a miss rate of 0.05 misses per instruction, and a cache access time (including hit detection) of 1 clock cycle.
    Assume that the read and write miss penalties are the same and ignore other write stalls.
