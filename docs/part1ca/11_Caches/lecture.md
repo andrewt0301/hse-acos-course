@@ -98,6 +98,11 @@ loop:
    a miss rate of 0.05 misses per instruction, and a cache access time (including hit detection) of 1 clock cycle.
    Assume that the read and write miss penalties are the same and ignore other write stalls.
 
+1. Use the system with access times of 1, 10, and 100 cycles for the L1 cache, L2 cache, and main memory, respectively. 
+   Assume that the L1 and L2 caches have miss rates of 5% and 20%, respectively. 
+   Specifically, of the 5% of accesses that miss the L1 cache, 20% of those also miss the L2 cache. 
+   What is the average memory access time (AMAT)?
+
 1. Assuming a cache of 4096 blocks, a four-word block size, and a 64-bit address,
    find the total number of sets and the total number of tag bits for caches that are
    direct-mapped two-way and four-way set associative, and fully associative.
