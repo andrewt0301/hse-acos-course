@@ -114,6 +114,12 @@ loop:
 
    `2×3=6` experiments in total. Report the cache hit rate.
 
+1. Write a program that:
+   
+   * burns out default fully associative cache with 100% misses;
+   * does this in cycle (if previously not);
+   * fills only 256 bytes of memory without a gap.
+
 1. Write a program that utilizes memory sparsely, so that its footprint is 100% misses 2-way associative cache.
    However, it fits (almost) into a 4-way associative cache with 16 blocks.
 
