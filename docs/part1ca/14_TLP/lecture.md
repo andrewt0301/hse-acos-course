@@ -7,9 +7,14 @@ Lecture 14
 
 Slides ([PDF](CA_Lecture_14.pdf), [PPTX](CA_Lecture_14.pptx)).
 
-Outline:
+#### Outline:
 
-__TODO__
+* Parallel programming
+* Amdahl's law
+* Hardware multithreading
+* Multiprocessors
+* Cache coherence
+* Hardware syncronization
 
 ## Workshop
 
