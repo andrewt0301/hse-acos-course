@@ -33,3 +33,4 @@ __TODO__
 * [Loop unrolling](https://en.wikipedia.org/wiki/Loop_unrolling) (Wikipedia).
 * [Loop-invariant code motion](https://en.wikipedia.org/wiki/Loop-invariant_code_motion) (Wikipedia).
 * [Profiling](https://en.wikipedia.org/wiki/Profiling_%28computer_programming%29) (Wikipedia).
+* [Program optimization](https://en.wikipedia.org/wiki/Program_optimization) (Wikipedia).
