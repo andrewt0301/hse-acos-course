@@ -18,10 +18,22 @@ Slides ([PDF](CA_Lecture_15.pdf), [PPTX](CA_Lecture_15.pptx)).
 
 ## Workshop
 
-
 #### Outline
 
+* Discuss most important optimizations from the lecture.
+* Use the RISC-V toolchain to compile C programs with optimizations.
+    * Study examples of optimized and unoptimized C programs.
+    * Review the assembly code generate by the compiler.
+    * Try different levels of compiler optimizations (`-01`, `-02`). 
+* Practice implementing optimizations in the RISC-V assembly.
+
+#### Using the RISC-V Toolchain
+
+__TODO__
+
 #### Examples
+
+__TODO__
 
 #### Tasks
 
@@ -54,13 +66,10 @@ Slides ([PDF](CA_Lecture_15.pdf), [PPTX](CA_Lecture_15.pptx)).
        return 0;
    }
    ```
- 
-
-__TODO__
 
 ## Homework
 
-__TODO__
+Finish all the tasks.
 
 ## References
 
