@@ -58,7 +58,7 @@ Slides ([PDF](CA_Lecture_15.pdf), [PPTX](CA_Lecture_15.pptx)).
 
        spike $RISCV/riscv64-unknown-linux-gnu/bin/pk prog
 
-
+See the list of optimization flags supported by GCC [here](https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html).
 
 #### Examples
 
@@ -102,8 +102,7 @@ __TODO__
        }
        return result;
    }
-   
-   
+
    int main() {
        short arr[] = {1, 2, 3, 4, 5};
        printf("Result= %d\n", func(arr, sizeof(arr)/sizeof(short)));
