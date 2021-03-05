@@ -202,9 +202,9 @@ int main() {
        for (int i = 0; i < size; ++i) {
            short value = array[i];
            if (i % 2 == 0) {
-               result -= value;
-           } else {
                result += value;
+           } else {
+               result -= value;
            }
        }
        return result;
