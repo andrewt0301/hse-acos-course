@@ -33,4 +33,4 @@ __TODO__
 
 ## References
 
-__TODO__
+* [Programming with RISC-V Vector Instructions](https://gms.tf/riscv-vector.html)

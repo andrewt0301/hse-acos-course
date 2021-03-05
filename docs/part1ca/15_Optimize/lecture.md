@@ -125,6 +125,29 @@ int main() {
 * Add the `inline` directive to the function declarations. What happens after you do this?
 * Modify the program so that `x` and `y` are read from the user input. How does it affect optimizations? 
 
+1. Loop unrolling.
+
+```C
+#include <stdio.h>
+
+void fcopy(char source[256], char target[256]) {
+    for (int i = 0; i < 256; ++i) {
+       target[i] = source[i];
+    }
+}
+
+int main() {
+    char in[256];
+    scanf("%s", in);
+    char out[256];
+    fcopy(in, out);
+    printf("Result = %s\n", out);
+    return 0;
+}
+```
+
+* Compile the program without optimizations and then with optimizations (`-03`). See the difference.
+
 #### Tasks
 
 1. Explain why passing arguments to functions by reference or by pointer is not a good idea
@@ -144,7 +167,7 @@ int main() {
 
 1. Write a function in RISC-V assembly, which accepts as arguments an array of 16-bit values and returns
    the result of following expression: `A[0] - A[1] + A[2] - A[3] + [A4] ... +- A[N-1]`.
-   Use the _loop unrolling__ technique to make calculations faster.
+   Use the _loop unrolling_ technique to make calculations faster.
 
    An unoptimized C implementation look like this:
    
