@@ -96,6 +96,8 @@ Functions
 
 See the list of optimization flags supported by GCC [here](https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html).
 
+See the RISC-V options for GCC [here](https://gcc.gnu.org/onlinedocs/gcc/RISC-V-Options.html).
+
 #### Examples
 
 1. Inlining and constant folding.
