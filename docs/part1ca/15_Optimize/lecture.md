@@ -148,6 +148,29 @@ int main() {
 
 * Compile the program without optimizations and then with optimizations (`-03`). See the difference.
 
+1. Memory accesses.
+
+```C
+#include <stdio.h>
+
+void add (int x, int y, int z, int *result) {
+    *result += x;
+    *result += y;
+    *result += z;
+}
+
+int main() {
+    int x, y, z;
+    scanf("%d%d%d", &x, &y, &z);
+    int result;
+    add(x, y, z, &result);
+    printf("Result=%d\n", result);
+    return 0;
+}
+```
+
+* Compile the program without optimizations and then with optimizations (`-01`). See the difference.
+
 #### Tasks
 
 1. Explain why passing arguments to functions by reference or by pointer is not a good idea
