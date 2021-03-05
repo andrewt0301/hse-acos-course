@@ -9,7 +9,7 @@ Slides ([PDF](CA_Lecture_15.pdf), [PPTX](CA_Lecture_15.pptx)).
 
 #### Outline
 
-* Reducing size of work 
+* Reducing amount of work 
 * Data optimization
 * Loop optimizations
 * Logic optimizations
@@ -17,6 +17,44 @@ Slides ([PDF](CA_Lecture_15.pdf), [PPTX](CA_Lecture_15.pptx)).
 * Optimizing compilers and their limitations
 
 ## Workshop
+
+
+#### Outline
+
+#### Examples
+
+#### Tasks
+
+1. Write a function that accepts as arguments an array of 16-bit values and computes the result
+   of following expression: `A[0] - A[1] + A[2] - A[3] + [A4] ... +- A[N-1]`.
+   Use the _loop unrolling__ technique to make calculations faster.
+
+   An unoptimized C implementation look like this:
+   
+   ```C
+   #include <stdio.h>
+   
+   int func(short *array, int size) {
+       int result = 0;
+       for (int i = 0; i < size; ++i) {
+           short value = array[i];
+           if (i % 2 == 0) {
+               result -= value;
+           } else {
+               result += value;
+           }
+       }
+       return result;
+   }
+   
+   
+   int main() {
+       short arr[] = {1, 2, 3, 4, 5};
+       printf("Result= %d\n", func(arr, sizeof(arr)/sizeof(short)));
+       return 0;
+   }
+   ```
+ 
 
 __TODO__
 
