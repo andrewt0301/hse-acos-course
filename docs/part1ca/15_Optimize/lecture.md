@@ -29,6 +29,12 @@ Slides ([PDF](CA_Lecture_15.pdf), [PPTX](CA_Lecture_15.pptx)).
 
 #### Using the RISC-V Toolchain
 
+1. Run the [Linux Ubuntu 20.04 LTS with RISC-V toolchain](../../software/ubuntu.md) VM in your VirtualBox.
+1. Use the password `acos2020` to log in.
+1. (Optional) Connect to the VM vi SSH by executing the following command:
+
+       ssh acos@localhost -p2022 
+
 __TODO__
 
 #### Examples
