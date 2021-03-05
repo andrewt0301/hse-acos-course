@@ -58,11 +58,28 @@ Slides ([PDF](CA_Lecture_15.pdf), [PPTX](CA_Lecture_15.pptx)).
 
        spike $RISCV/riscv64-unknown-linux-gnu/bin/pk prog
 
+
+
 #### Examples
 
 __TODO__
 
 #### Tasks
+
+1. Explain why passing arguments to functions by reference or by pointer is not a good idea
+   unless it is really necessary. Explain the difference between:
+
+   ```C   
+   void add(int* z, int* x, int* y) {
+       *z = *x + *y;
+   }
+   ```
+   and:
+   ```C
+   int add(int x, int y) {
+       return x + y;
+   }
+   ```
 
 1. Write a function in RISC-V assembly, which accepts as arguments an array of 16-bit values and returns
    the result of following expression: `A[0] - A[1] + A[2] - A[3] + [A4] ... +- A[N-1]`.
