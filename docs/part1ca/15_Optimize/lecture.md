@@ -30,12 +30,27 @@ Slides ([PDF](CA_Lecture_15.pdf), [PPTX](CA_Lecture_15.pptx)).
 #### Using the RISC-V Toolchain
 
 1. Run the [Linux Ubuntu 20.04 LTS with RISC-V toolchain](../../software/ubuntu.md) VM in your VirtualBox.
-1. Use the password `acos2020` to log in.
-1. (Optional) Connect to the VM vi SSH by executing the following command:
+
+1. Use the password `acos2020` to log in and open the Bash terminal.
+
+1. (Optional) Connect to the VM from your host OS (MacOS or Windows)
+   via SSH by executing the following command in the terminal (use the same password):
 
        ssh acos@localhost -p2022 
 
-__TODO__
+1. Create a C program (e.g. `prog.c`) using the "nano" or the "vim" edit.
+
+1. Compile the C program to the assembly language:
+
+       riscv64-unknown-linux-gnu-gcc prog.c -S
+
+1. Compiles the assembly program to the object format and link it to an executable file:
+
+       riscv64-unknown-linux-gnu-gcc prog.s -o prog -static
+
+1. Run the program using the [Spike](https://github.com/riscv/riscv-isa-sim) simulator:
+
+       spike $RISCV/riscv64-unknown-linux-gnu/bin/pk prog
 
 #### Examples
 
