@@ -16,11 +16,47 @@ Slides ([PDF](CA_Lecture_15.pdf), [PPTX](CA_Lecture_15.pptx)).
 * Function optimizations
 * Optimizing compilers and their limitations
 
+#### List of Optimizations
+
+Data structures
+
+* Packing and encoding
+* Augmentation
+* Precomputation
+* Compile-time initialization
+* Caching
+* Lazy evaluation
+* Sparsity
+
+Loops
+
+* Hoisting
+* Sentinels
+* Loop unrolling
+* Loop fusion
+* Eliminating wasted iterations
+
+Logic
+
+* Constant folding and propagation
+* Common-subexpression elimination
+* Algebraic identities
+* Short-circuiting
+* Ordering tests
+* Creating a fast path
+* Combining tests
+
+Functions
+
+* Inlining
+* Tail-recursion elimination
+* Coarsening recursion
+
 ## Workshop
 
 #### Outline
 
-* Discuss most important optimizations from the lecture.
+* Discuss optimizations from the lecture, whoch are related to hardware.
 * Use the RISC-V toolchain to compile C programs with optimizations.
     * Study examples of optimized and unoptimized C programs.
     * Review the assembly code generate by the compiler.
@@ -62,7 +98,30 @@ See the list of optimization flags supported by GCC [here](https://gcc.gnu.org/o
 
 #### Examples
 
-__TODO__
+1. Inlining and constant folding.
+
+```C
+#include <stdio.h>
+
+int square(int x) {
+   return x * x;
+}
+
+int add(int x, int y) {
+    return x + y;
+}
+
+int main() {
+    int x = 10;
+    int y = 5;
+    int z = add(square(x), y);
+    printf("Result = %d\n", z);
+    return 0;
+}
+```
+* Compile the program without optimizations and then with optimizations. See the difference.
+* Add the `inline` directive to the function declarations. What happens after you do this?
+* Modify the program so that `x` and `y` are read from the user input. How does it affect optimizations? 
 
 #### Tasks
 
