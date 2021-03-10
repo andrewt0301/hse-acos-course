@@ -9,7 +9,7 @@ Slides ([PDF](CA_Lecture_16.pdf), [PPTX](CA_Lecture_16.pptx)).
 
 #### Outline
 
-* Limitations of modern hardware
+* Performance limitations of modern hardware
 * Domain-specific architectures
 * Neural networks 
 * Tensor processing unit
