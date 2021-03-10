@@ -9,13 +9,16 @@ Slides ([PDF](CA_Lecture_16.pdf), [PPTX](CA_Lecture_16.pptx)).
 
 #### Outline
 
-__TODO__
+* Limitations of modern hardware
+* Domain-specific architectures
+* Neural networks 
+* Tensor processing unit
+* Systolic arrays
 
 ## Workshop
 
-https://colab.research.google.com/notebooks/tpu.ipynb
-
-__TODO__
+* [Cloud TPU beginner's guide](https://cloud.google.com/tpu/docs/beginners-guide)
+* [TPU Lab in Google Colab](https://colab.research.google.com/notebooks/tpu.ipynb)
 
 ## Homework
 
