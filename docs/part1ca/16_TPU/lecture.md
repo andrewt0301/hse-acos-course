@@ -23,7 +23,7 @@ Slides ([PDF](CA_Lecture_16.pdf), [PPTX](CA_Lecture_16.pptx)).
 
 ## Homework
 
-Play with TPU at Google Colab and see what performance improvement it gives.
+Play with TPU at Google Colab.
 
 # References
 
