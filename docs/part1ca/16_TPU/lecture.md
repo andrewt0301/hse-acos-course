@@ -28,6 +28,7 @@ __TODO__
 * [TPU](https://cloud.google.com/tpu) (Google)
 * Dave Patterson. Evaluation of the Tensor Processing Unit. [Video](https://youtu.be/fhHAArxwzvQ)
 * Dave Patterson et al. [In-Datacenter Performance Analysis of a Tensor Processing Unit​](https://arxiv.org/pdf/1704.04760.pdf).
+* Onur Mutlu. Computer Architecture - Lecture 27: Systolic Arrays. [Video](https://youtu.be/8zbh4gWGa7I)
 * [Google supercharges machine learning tasks with TPU custom chip](
   https://cloud.google.com/blog/products/gcp/google-supercharges-machine-learning-tasks-with-custom-chip)
 * [Systolic array](https://en.wikipedia.org/wiki/Systolic_array) (Wikipedia)
