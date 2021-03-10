@@ -43,3 +43,5 @@ __TODO__
 * [Systolic array](https://en.wikipedia.org/wiki/Systolic_array) (Wikipedia)
 * [TensorFlow](https://en.wikipedia.org/wiki/TensorFlow) (Wikipedia)
 * [Convolutional neural network](https://en.wikipedia.org/wiki/Convolutional_neural_network) (Wikipedia)
+* [Application-specific integrated circuit (ASIC)](
+   https://en.wikipedia.org/wiki/Application-specific_integrated_circuit) (Wikipedia)
