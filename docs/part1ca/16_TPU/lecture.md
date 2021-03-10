@@ -26,6 +26,7 @@ __TODO__
 * Domain-specific architectures. Chapter 7 in [[CAQA]](../../books.md).
 * [TPU](https://en.wikipedia.org/wiki/Tensor_Processing_Unit) (Wikipedia)
 * [TPU](https://cloud.google.com/tpu) (Google)
+* [Cloud TPU beginner's guide](https://cloud.google.com/tpu/docs/beginners-guide)
 * Dave Patterson. Evaluation of the Tensor Processing Unit. [Video](https://youtu.be/fhHAArxwzvQ)
 * Dave Patterson et al. [In-Datacenter Performance Analysis of a Tensor Processing Unit​](https://arxiv.org/pdf/1704.04760.pdf).
 * Onur Mutlu. Computer Architecture - Lecture 27: Systolic Arrays. [Video](https://youtu.be/8zbh4gWGa7I)
