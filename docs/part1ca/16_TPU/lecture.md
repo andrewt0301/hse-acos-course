@@ -42,3 +42,4 @@ __TODO__
   https://cloud.google.com/blog/products/gcp/google-supercharges-machine-learning-tasks-with-custom-chip)
 * [Systolic array](https://en.wikipedia.org/wiki/Systolic_array) (Wikipedia)
 * [TensorFlow](https://en.wikipedia.org/wiki/TensorFlow) (Wikipedia)
+* [Convolutional neural network](https://en.wikipedia.org/wiki/Convolutional_neural_network) (Wikipedia)
