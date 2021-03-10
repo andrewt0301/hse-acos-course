@@ -26,7 +26,8 @@ __TODO__
 * Domain-specific architectures. Chapter 7 in [[CAQA]](../../books.md).
 * [TPU](https://en.wikipedia.org/wiki/Tensor_Processing_Unit) (Wikipedia)
 * [TPU](https://cloud.google.com/tpu) (Google)
+* Dave Patterson. Evaluation of the Tensor Processing Unit. [Video](https://youtu.be/fhHAArxwzvQ)
+* Dave Patterson et al. [In-Datacenter Performance Analysis of a Tensor Processing Unit​](https://arxiv.org/pdf/1704.04760.pdf).
 * [Google supercharges machine learning tasks with TPU custom chip](
   https://cloud.google.com/blog/products/gcp/google-supercharges-machine-learning-tasks-with-custom-chip)
 * [Systolic array](https://en.wikipedia.org/wiki/Systolic_array) (Wikipedia)
-
