@@ -15,6 +15,8 @@ Slides ([PDF](CA_Lecture_16.pdf), [PPTX](CA_Lecture_16.pptx)).
 * Tensor processing unit
 * Systolic arrays
 
+![Systolic array](systalic.gif)
+
 ## Workshop
 
 * [Cloud TPU beginner's guide](https://cloud.google.com/tpu/docs/beginners-guide)
