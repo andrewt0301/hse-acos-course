@@ -14,7 +14,9 @@ Outline:
 
 #### Outline
 
-* General idea of system calls `open`, `close`, `read`, and `write` 
+* General idea of system calls
+* System calls `open`, `close`, `read`, and `write`
+* System call `sbrk` 
 * System calls in assembly
 * System calls in C
 
@@ -37,9 +39,9 @@ Arguments are passed via registers if they are available, extra arguments are pa
 The operating system kernel saves and restores execution state (e.g. registers)
 when switching between the use and the kernel modes.
 
-##### System calls in RARS
+##### System calls in RARS (RISC-V Assembly)
 
-1. __open__ (1024): opens a file with the specified path.
+1. __open__ (1024): opens a file with the specified path
 
     _Input_: `a0` = Null terminated string for the path, `a1` = flags
 
@@ -55,17 +57,23 @@ when switching between the use and the kernel modes.
 
     Output: N/A
 
-1. __read__ (63): reads from a file descriptor into a buffer.
+1. __read__ (63): reads from a file descriptor into a buffer
 
    _Input_: `a0` = the file descriptor, `a1` = address of the buffer, `a2` = maximum length to read.
 
    _Output_: `a0` = the length read or -1 if error.
 
-1. __write__ (64): writes to a file from a buffer.
+1. __write__ (64): writes to a file from a buffer
 
    _Input_: `a0` = the file descriptor, `a1` = the buffer address, `a2` = the length to write.
 
    _Output_: `a0` = the number of characters written.
+
+1. __sbrk__ (9): allocates heap memory
+
+   _Input_: `a0` = amount of memory in bytes
+
+   _Output_: `a0` = address to the allocated block
 
 #### Examples
 
@@ -178,3 +186,4 @@ __TODO__
 * System call [close](https://en.wikipedia.org/wiki/Close_%28system_call%29) (Wikipedia)
 * System call [read](https://en.wikipedia.org/wiki/Read_%28system_call%29) (Wikipedia)
 * System call [write](https://en.wikipedia.org/wiki/Write_%28system_call%29) (Wikipedia)
+* System call [sbrk](https://en.wikipedia.org/wiki/Sbrk) (Wikipedia)
