@@ -174,4 +174,7 @@ __TODO__
 
 # References
 
-__TODO__
+* [System call open](https://en.wikipedia.org/wiki/Open_%28system_call%29) (Wikipedia)
+* [System call close](https://en.wikipedia.org/wiki/Close_%28system_call%29) (Wikipedia)
+* [System call read](https://en.wikipedia.org/wiki/Read_%28system_call%29) (Wikipedia)
+* [System call write](https://en.wikipedia.org/wiki/Write_%28system_call%29) (Wikipedia)
