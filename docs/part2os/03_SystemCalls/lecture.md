@@ -174,36 +174,36 @@ main.error:
 Allocating memory in the heap:
 
 ```assembly
-    .macro new_line
-        li a7, 11
-        li a0, '\n'
-        ecall
-    .end_macro
-
-    .macro sbrk(%bytes)
-       li a7, 9
-       li a0, %bytes
-       ecall
-    .end_macro
-
-    .text
-    # Allocates 16 bytes in the heap
-    sbrk(16)
-    li a7, 34
+  .macro new_line
+    li a7, 11
+    li a0, '\n'
     ecall
-    new_line
+  .end_macro
 
-    # Allocates 32 bytes in the heap
-    sbrk(32)
-    li a7, 34
+  .macro sbrk(%bytes)
+    li a7, 9
+    li a0, %bytes
     ecall
-    new_line
+  .end_macro
 
-    # Allocates 64 bytes in the heap
-    sbrk(64)
-    li a7, 34
-    ecall
-    new_line
+  .text
+  # Allocates 16 bytes in the heap
+  sbrk(16)
+  li a7, 34
+  ecall
+  new_line
+
+  # Allocates 32 bytes in the heap
+  sbrk(32)
+  li a7, 34
+  ecall
+  new_line
+
+  # Allocates 64 bytes in the heap
+  sbrk(64)
+  li a7, 34
+  ecall
+  new_line
 ```
 
 #### Tasks
