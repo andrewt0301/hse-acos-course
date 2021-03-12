@@ -74,7 +74,7 @@ Writing text to a file:
 ```assembly
   .data
 fout:   
-  .asciz "testout.txt"      # filename for output
+  .asciz "testout.txt" # filename for output
 
 buffer:
   .asciz "The quick brown fox jumps over the lazy dog."
@@ -105,7 +105,7 @@ Reading text from a file:
 ```assembly
   .data
 fin:   
-  .asciz "testouts.txt"      # filename for output
+  .asciz "testouts.txt" # filename for input
 error:
   .asciz "Error: failed to open a file."
 
