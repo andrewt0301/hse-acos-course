@@ -208,9 +208,11 @@ Allocating memory in the heap:
 
 #### Tasks
 
-1. Write a program that copies a file.
-   The name of the source and target files are read from the standard input (use system call 8 - ReadString).
-   The buffer to store data being copied is allocated in the heap (the buffer size is specified in standard input). 
+1. Write a program that creates a copy of the specified file. Input arguments:
+   * The name of the source and target files are read from the standard input (use system call 8).
+   * The buffer to store data being copied is allocated in the heap (use system call 9).
+     The buffer size is specified in standard input.
+   * Buffers for storing source and target names are also allocated in the heap (their size is 256).  
 
 ## Homework
 
