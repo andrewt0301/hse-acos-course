@@ -171,10 +171,46 @@ main.error:
   ecall
 ```
 
+Allocating memory in the heap:
+
+```assembly
+    .macro new_line
+        li a7, 11
+        li a0, '\n'
+        ecall
+    .end_macro
+
+    .macro sbrk(%bytes)
+       li a7, 9
+       li a0, %bytes
+       ecall
+    .end_macro
+
+    .text
+    # Allocates 16 bytes in the heap
+    sbrk(16)
+    li a7, 34
+    ecall
+    new_line
+
+    # Allocates 32 bytes in the heap
+    sbrk(32)
+    li a7, 34
+    ecall
+    new_line
+
+    # Allocates 64 bytes in the heap
+    sbrk(64)
+    li a7, 34
+    ecall
+    new_line
+```
+
 #### Tasks
 
-1. Write a program that copies a a file.
-   The name of the source and target files are read from the standard input (use system call 8 - ReadString). 
+1. Write a program that copies a file.
+   The name of the source and target files are read from the standard input (use system call 8 - ReadString).
+   The buffer to store data being copied is allocated in the heap (the buffer size is specified in standard input). 
 
 ## Homework
 
