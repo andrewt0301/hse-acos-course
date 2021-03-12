@@ -163,6 +163,11 @@ main.error:
   ecall
 ```
 
+#### Tasks
+
+1. Write a program that copies a a file.
+   The name of the source and target files are read from the standard input (use system call 8 - ReadString). 
+
 ## Homework
 
 __TODO__
