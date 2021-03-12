@@ -39,7 +39,7 @@ when switching between the use and the kernel modes.
 
 ##### System calls in RARS
 
-1. `open` (1024): opens a file with the specified path.
+1. __open__ (1024): opens a file with the specified path.
 
     _Input_: `a0` = Null terminated string for the path, `a1` = flags
 
@@ -49,19 +49,19 @@ when switching between the use and the kernel modes.
     The _write-only_ flag creates a file if it does not exist, so it is technically _write-create_.
     The _write-append_ flag will start writing at end of an existing file.
 
-1. `close` (57): closes a file
+1. __close__ (57): closes a file
 
     Input: `a0` = the file descriptor to close
 
     Output: N/A
 
-1. `read` (63): reads from a file descriptor into a buffer.
+1. __read__ (63): reads from a file descriptor into a buffer.
 
    _Input_: `a0` = the file descriptor, `a1` = address of the buffer, `a2` = maximum length to read.
 
    _Output_: `a0` = the length read or -1 if error.
 
-1. `write`(64): writes to a file from a buffer.
+1. __write__ (64): writes to a file from a buffer.
 
    _Input_: `a0` = the file descriptor, `a1` = the buffer address, `a2` = the length to write.
 
