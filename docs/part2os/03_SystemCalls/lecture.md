@@ -220,6 +220,7 @@ __TODO__
 
 # References
 
+* [System call](https://en.wikipedia.org/wiki/System_call) (Wikipedia)
 * System call [open](https://en.wikipedia.org/wiki/Open_%28system_call%29) (Wikipedia)
 * System call [close](https://en.wikipedia.org/wiki/Close_%28system_call%29) (Wikipedia)
 * System call [read](https://en.wikipedia.org/wiki/Read_%28system_call%29) (Wikipedia)
