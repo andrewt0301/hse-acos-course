@@ -39,6 +39,8 @@ Arguments are passed via registers if they are available, extra arguments are pa
 The operating system kernel saves and restores execution state (e.g. registers)
 when switching between the use and the kernel modes.
 
+![System call](syscall.png)
+
 ##### System calls in RARS (RISC-V Assembly)
 
 1. __open__ (1024): opens a file with the specified path
