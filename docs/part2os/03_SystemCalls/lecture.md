@@ -37,6 +37,37 @@ Arguments are passed via registers if they are available, extra arguments are pa
 The operating system kernel saves and restores execution state (e.g. registers)
 when switching between the use and the kernel modes.
 
+
+##### System calls in RARS
+
+1. `open` (1024): opens a file with the specified path.
+
+    _Input_: `a0` = Null terminated string for the path, `a1` = flags
+
+    _Output_: `a0` = the file descriptor or -1 if an error occurred
+
+    _Supported flags_: _read-only_ (0), _write-only_ (1), and _write-append_ (9). 
+    The _write-only_ flag creates a file if it does not exist, so it is technically _write-create_.
+    The _write-append_ flag will start writing at end of an existing file.
+
+1. `close` (57): closes a file
+
+    Input: `a0` = the file descriptor to close
+
+    Output: N/A
+
+1. `read` (63): reads from a file descriptor into a buffer.
+
+   _Input_: `a0` = the file descriptor, `a1` = address of the buffer, `a2` = maximum length to read.
+
+   _Output_: `a0` = the length read or -1 if error.
+
+1. `write`(64): writes to a file from a buffer.
+
+   _Input_: `a0` = the file descriptor, `a1` = the buffer address, `a2` = the length to write.
+
+   _Output_: `a0` = the number of characters written.
+
 #### Examples
 
 Writing text to a file:
