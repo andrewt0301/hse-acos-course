@@ -355,7 +355,7 @@ __System calls in C:__
 
 1. Read documentation on the [open](https://man7.org/linux/man-pages/man2/open.2.html) system call.
    Take notice of flags, which are used to indicate how the file is opened.
-   Flags are bits and can be combined with bitwise OR («|»).
+   Flags are bits and can be combined with bitwise OR (`|`).
    The `O_RDONLY` flag is used to open a file for reading.
    The `O_WRONLY|O_CREAT|O_TRUNC` combination is used for open a file for writing.
    The mode parameter is required when creating the file. It specifies file access rights.
