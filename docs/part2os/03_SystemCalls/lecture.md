@@ -344,6 +344,30 @@ __System calls in RARS (RISC-V Assembly):__
 
 __System calls in C:__
 
+1. Read documentation on the [read](https://man7.org/linux/man-pages/man2/read.2.html)
+   and [write](https://man7.org/linux/man-pages/man2/write.2.html) system calls.
+   Note descriptors standard numbers for `stdin`, `stdout`, and `stderr`.
+   Write a program that reads chars (note the `&c` notation) from `stdin`, increments them by 1,
+   and writes them to `stdout`.
+   Do not forget to include all the headers mentioned in the manual.
+   To close `stdin` from the terminal, use the `^D` key combination
+   (it is not passed to program, but interpreted by operating system as end of output).
+
+1. Read documentation on the [open](https://man7.org/linux/man-pages/man2/open.2.html) system call.
+   Take notice of flags, which are used to indicate how the file is opened.
+   Flags are bits and can be combined with bitwise OR («|»).
+   The `O_RDONLY` flag is used to open a file for reading.
+   The `O_WRONLY|O_CREAT|O_TRUNC` combination is used for open a file for writing.
+   The mode parameter is required when creating the file. It specifies file access rights.
+   For example, the `S_IRUSR` flag means that user has read permission,
+   the `S_IRGRP` means that group has read permission, the `S_IROTH` flag means others have read permission.
+   Write a program that reads 100 words from `stdin` and writes them to a file named outfile.
+   Do not forget to close the file.
+
+1. Modify the previous program to accept command line arguments (argc/argv).
+   Pass via command-line arguments the number of words
+   (use [sscanf](https://man7.org/linux/man-pages/man3/sscanf.3p.html)
+   to get an integer from _argv[1]_ and the name of output file (_argv[2]_).
 
 ## Homework
 
