@@ -5,11 +5,8 @@ Lecture 1
 
 ## Lecture
 
-<!---
 Slides ([PDF](OS_Lecture_01.pdf), [PPTX](OS_Lecture_01.pptx)).
 
-Outline:
--->
 ## Workshop
 
 __TODO__
