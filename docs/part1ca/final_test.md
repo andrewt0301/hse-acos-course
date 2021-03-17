@@ -31,7 +31,7 @@ These registers must be saved to the stack and restored when the function return
 
 Example of an `f(x)` function:
 
-    f(x) = 5^x + -5 if x < -9
+    f(x) = 5*x + -5 if x < -9
     f(x) = -5 if x >= -9
     f(x) = -10*x + 10 if x == 3
     f(x) = 2*x^8 - 5*x^4 + 10*x^3 - 4*x if x > 9
@@ -47,7 +47,7 @@ Note: the `^` symbol means "power".
 
 1. Variant
      ```
-     f(x) = -9^x + -4 if x < -10
+     f(x) = -9*x + -4 if x < -10
      f(x) = -1 if x >= -10
      f(x) = 1*x^5 - 4*x^4 - 8*x^2 + 8*x if x == -2
      f(x) = 6*x + 3 if x > 2
@@ -55,7 +55,7 @@ Note: the `^` symbol means "power".
 1. Variant
      ```
      f(x) = 8*x + -10 if x < -4
-     f(x) = 3^x + -1 if x >= -4
+     f(x) = 3*x + -1 if x >= -4
      f(x) = 3 if x == 0
      f(x) = 9*x^8 - 9*x^5 - 1*x^2 - 2*x if x > 4
      ```
@@ -64,12 +64,12 @@ Note: the `^` symbol means "power".
      f(x) = 7 if x < -3
      f(x) = 3*x + -2 if x >= -3
      f(x) = 7*x^8 + 3*x^5 - 1*x^4 + 6*x if x == 4
-     f(x) = 3^x + 5 if x > 8
+     f(x) = 3*x + 5 if x > 8
      ```
 1. Variant
      ```
      f(x) = -7*x + 5 if x < -10
-     f(x) = -3^x + 7 if x >= -10
+     f(x) = -3*x + 7 if x >= -10
      f(x) = 6*x^8 + 10*x^4 + 7*x^3 - 5*x if x == -5
      f(x) = -6 if x > 4
      ```
@@ -77,14 +77,14 @@ Note: the `^` symbol means "power".
      ```
      f(x) = 3 if x < -10
      f(x) = 6*x^7 - 3*x^6 - 5*x^3 - 7*x if x >= -10
-     f(x) = -3^x + 3 if x == 1
+     f(x) = -3*x + 3 if x == 1
      f(x) = -8*x + 2 if x > 6
      ```
 1. Variant
      ```
      f(x) = 1*x^8 + 8*x^5 - 6*x^4 + 4*x if x < -1
      f(x) = 2*x + 5 if x >= -1
-     f(x) = 5^x + -5 if x == 1
+     f(x) = 5*x + -5 if x == 1
      f(x) = 2 if x > 2
      ```
 1. Variant
@@ -92,26 +92,26 @@ Note: the `^` symbol means "power".
      f(x) = 6*x^5 - 8*x^4 - 4*x^2 + 9*x if x < -2
      f(x) = -6 if x >= -2
      f(x) = -4*x + -7 if x == 2
-     f(x) = 9^x + 5 if x > 6
+     f(x) = 9*x + 5 if x > 6
      ```
 1. Variant
      ```
      f(x) = 4*x^7 + 5*x^5 - 7*x^3 + 5*x if x < -6
      f(x) = 1*x + -3 if x >= -6
      f(x) = -10 if x == -3
-     f(x) = 5^x + -5 if x > 0
+     f(x) = 5*x + -5 if x > 0
      ```
 1. Variant
      ```
      f(x) = 2 if x < -9
-     f(x) = -7^x + -9 if x >= -9
+     f(x) = -7*x + -9 if x >= -9
      f(x) = 2*x^8 + 9*x^5 - 2*x^2 - 10*x if x == -4
      f(x) = -10*x + -8 if x > 0
      ```
 1. Variant
      ```
      f(x) = 9 if x < -9
-     f(x) = 8^x + -9 if x >= -9
+     f(x) = 8*x + -9 if x >= -9
      f(x) = 9*x^8 + 10*x^7 + 9*x^4 - 5*x if x == -6
      f(x) = -6*x + -6 if x > 9
      ```
@@ -119,7 +119,7 @@ Note: the `^` symbol means "power".
      ```
      f(x) = -5 if x < -2
      f(x) = -7*x + -5 if x >= -2
-     f(x) = -5^x + 5 if x == 2
+     f(x) = -5*x + 5 if x == 2
      f(x) = 8*x^5 + 6*x^4 + 9*x^2 - 1*x if x > 9
      ```
 1. Variant
@@ -127,20 +127,20 @@ Note: the `^` symbol means "power".
      f(x) = 10*x^8 - 1*x^6 - 5*x^4 - 5*x if x < 0
      f(x) = 2*x + -3 if x >= 0
      f(x) = 4 if x == 5
-     f(x) = 8^x + 8 if x > 7
+     f(x) = 8*x + 8 if x > 7
      ```
 1. Variant
      ```
      f(x) = 3*x^7 - 3*x^5 + 6*x^3 + 5*x if x < -1
      f(x) = -3*x + 5 if x >= -1
-     f(x) = 2^x + -6 if x == 5
+     f(x) = 2*x + -6 if x == 5
      f(x) = -7 if x > 9
      ```
 1. Variant
      ```
      f(x) = 4*x^8 + 2*x^5 - 6*x^3 + 5*x if x < -6
      f(x) = -6*x + -4 if x >= -6
-     f(x) = -9^x + 3 if x == -4
+     f(x) = -9*x + 3 if x == -4
      f(x) = 7 if x > 7
      ```
 1. Variant
@@ -148,19 +148,19 @@ Note: the `^` symbol means "power".
      f(x) = 2*x + 6 if x < -6
      f(x) = 9 if x >= -6
      f(x) = 5*x^6 - 8*x^5 - 4*x^3 + 3*x if x == -5
-     f(x) = 2^x + -9 if x > -4
+     f(x) = 2*x + -9 if x > -4
      ```
 1. Variant
      ```
      f(x) = 2 if x < -1
      f(x) = 10*x^8 - 1*x^6 + 4*x^3 + 7*x if x >= -1
-     f(x) = 4^x + 9 if x == 4
+     f(x) = 4*x + 9 if x == 4
      f(x) = -9*x + 10 if x > 6
      ```
 1. Variant
      ```
      f(x) = 1*x + -6 if x < -9
-     f(x) = -5^x + 7 if x >= -9
+     f(x) = -5*x + 7 if x >= -9
      f(x) = 9*x^8 + 1*x^4 - 1*x^3 - 10*x if x == -1
      f(x) = -10 if x > 7
      ```
@@ -168,14 +168,14 @@ Note: the `^` symbol means "power".
      ```
      f(x) = 4*x + 6 if x < 7
      f(x) = -9 if x >= 7
-     f(x) = -1^x + -10 if x == 8
+     f(x) = -1*x + -10 if x == 8
      f(x) = 2*x^8 - 7*x^7 + 2*x^2 + 4*x if x > 9
      ```
 1. Variant
      ```
      f(x) = -5 if x < -5
      f(x) = -2*x + -10 if x >= -5
-     f(x) = -10^x + 8 if x == -2
+     f(x) = -10*x + 8 if x == -2
      f(x) = 9*x^8 - 1*x^7 + 1*x^6 - 9*x if x > 8
      ```
 1. Variant
@@ -183,39 +183,39 @@ Note: the `^` symbol means "power".
      f(x) = 9*x^8 - 4*x^5 - 4*x^3 - 6*x if x < -6
      f(x) = -9 if x >= -6
      f(x) = -8*x + -10 if x == -4
-     f(x) = 6^x + -1 if x > 8
+     f(x) = 6*x + -1 if x > 8
      ```
 1. Variant
      ```
      f(x) = 10*x^8 - 6*x^5 + 2*x^3 - 9*x if x < -8
      f(x) = -10 if x >= -8
      f(x) = -9*x + 5 if x == -1
-     f(x) = -1^x + -3 if x > 9
+     f(x) = -1*x + -3 if x > 9
      ```
 1. Variant
      ```
      f(x) = 6 if x < 1
      f(x) = 10*x + -7 if x >= 1
      f(x) = 5*x^5 + 6*x^4 + 10*x^3 - 1*x if x == 2
-     f(x) = 2^x + -7 if x > 9
+     f(x) = 2*x + -7 if x > 9
      ```
 1. Variant
      ```
      f(x) = 8 if x < 1
      f(x) = 6*x^8 - 7*x^6 + 2*x^5 + 6*x if x >= 1
-     f(x) = -10^x + -4 if x == 4
+     f(x) = -10*x + -4 if x == 4
      f(x) = -8*x + 8 if x > 6
      ```
 1. Variant
      ```
-     f(x) = 1^x + 7 if x < -8
+     f(x) = 1*x + 7 if x < -8
      f(x) = -9*x + -2 if x >= -8
      f(x) = 9*x^7 + 3*x^5 - 4*x^3 - 7*x if x == 5
      f(x) = -2 if x > 9
      ```
 1. Variant
      ```
-     f(x) = 5^x + -1 if x < -6
+     f(x) = 5*x + -1 if x < -6
      f(x) = 10*x^8 + 7*x^7 + 5*x^3 + 8*x if x >= -6
      f(x) = 3*x + 9 if x == 4
      f(x) = 3 if x > 8
@@ -223,7 +223,7 @@ Note: the `^` symbol means "power".
 1. Variant
      ```
      f(x) = -6*x + -9 if x < -10
-     f(x) = -6^x + -1 if x >= -10
+     f(x) = -6*x + -1 if x >= -10
      f(x) = 2 if x == -1
      f(x) = 2*x^8 - 4*x^6 + 10*x^3 + 9*x if x > 5
      ```
@@ -233,7 +233,7 @@ Note: the `^` symbol means "power".
 1. Variant
      ```
      f(x) = 10*x^6 - 8*x^4 + 7*x^3 + 5*x if x < -6
-     f(x) = -10^x + -9 if x >= -6
+     f(x) = -10*x + -9 if x >= -6
      f(x) = 9*x + 9 if x == -4
      f(x) = 7 if x > 0
      ```
@@ -241,13 +241,13 @@ Note: the `^` symbol means "power".
      ```
      f(x) = -6 if x < 1
      f(x) = 7*x^7 - 3*x^5 + 9*x^2 - 7*x if x >= 1
-     f(x) = 2^x + -7 if x == 2
+     f(x) = 2*x + -7 if x == 2
      f(x) = 2*x + -1 if x > 5
      ```
 1. Variant
      ```
      f(x) = -3*x + 6 if x < -6
-     f(x) = -7^x + -2 if x >= -6
+     f(x) = -7*x + -2 if x >= -6
      f(x) = 6*x^5 - 9*x^3 + 3*x^2 - 9*x if x == -3
      f(x) = -4 if x > 8
      ```
@@ -255,19 +255,19 @@ Note: the `^` symbol means "power".
      ```
      f(x) = 8*x + 10 if x < -6
      f(x) = 1 if x >= -6
-     f(x) = -7^x + 5 if x == 4
+     f(x) = -7*x + 5 if x == 4
      f(x) = 3*x^8 - 6*x^5 + 8*x^3 - 1*x if x > 5
      ```
 1. Variant
      ```
-     f(x) = -7^x + -3 if x < -9
+     f(x) = -7*x + -3 if x < -9
      f(x) = -9 if x >= -9
      f(x) = -6*x + 8 if x == -5
      f(x) = 7*x^8 - 4*x^3 - 6*x^2 - 6*x if x > 3
      ```
 1. Variant
      ```
-     f(x) = -1^x + 10 if x < -9
+     f(x) = -1*x + 10 if x < -9
      f(x) = 2*x^7 + 4*x^6 + 5*x^5 + 5*x if x >= -9
      f(x) = 7*x + 1 if x == -1
      f(x) = -4 if x > 3
@@ -275,7 +275,7 @@ Note: the `^` symbol means "power".
 1. Variant
      ```
      f(x) = -3 if x < -5
-     f(x) = 1^x + -6 if x >= -5
+     f(x) = 1*x + -6 if x >= -5
      f(x) = 5*x + -10 if x == -3
      f(x) = 1*x^8 - 10*x^7 + 9*x^2 + 7*x if x > 7
      ```
@@ -284,46 +284,46 @@ Note: the `^` symbol means "power".
      f(x) = -5 if x < -6
      f(x) = 3*x + -7 if x >= -6
      f(x) = 6*x^6 + 1*x^5 + 1*x^3 + 10*x if x == 0
-     f(x) = -4^x + -1 if x > 9
+     f(x) = -4*x + -1 if x > 9
      ```
 1. Variant
      ```
      f(x) = 9 if x < -6
      f(x) = 5*x^6 + 3*x^5 - 2*x^4 - 3*x if x >= -6
-     f(x) = 9^x + 1 if x == 0
+     f(x) = 9*x + 1 if x == 0
      f(x) = 2*x + -10 if x > 5
      ```
 1. Variant
      ```
      f(x) = 8*x^8 + 7*x^5 + 9*x^3 + 10*x if x < -10
-     f(x) = 8^x + -9 if x >= -10
+     f(x) = 8*x + -9 if x >= -10
      f(x) = -6*x + -4 if x == -3
      f(x) = -5 if x > 1
      ```
 1. Variant
      ```
      f(x) = 5*x^7 + 3*x^5 + 5*x^4 + 10*x if x < -10
-     f(x) = 5^x + 6 if x >= -10
+     f(x) = 5*x + 6 if x >= -10
      f(x) = 9*x + 5 if x == 6
      f(x) = 8 if x > 7
      ```
 1. Variant
      ```
      f(x) = -3 if x < 4
-     f(x) = 4^x + -3 if x >= 4
+     f(x) = 4*x + -3 if x >= 4
      f(x) = 7*x + -6 if x == 6
      f(x) = 2*x^6 - 4*x^3 - 8*x^2 - 10*x if x > 7
      ```
 1. Variant
      ```
-     f(x) = 4^x + -10 if x < -9
+     f(x) = 4*x + -10 if x < -9
      f(x) = 10*x^5 - 2*x^4 - 2*x^2 + 7*x if x >= -9
      f(x) = -7 if x == -2
      f(x) = -9*x + 4 if x > -1
      ```
 1. Variant
      ```
-     f(x) = 4^x + 6 if x < 1
+     f(x) = 4*x + 6 if x < 1
      f(x) = -4 if x >= 1
      f(x) = 3*x^5 - 6*x^3 - 5*x^2 + 10*x if x == 8
      f(x) = 4*x + 8 if x > 9
@@ -333,25 +333,25 @@ Note: the `^` symbol means "power".
      f(x) = 5*x^8 + 4*x^4 - 4*x^2 + 3*x if x < -1
      f(x) = -9*x + -3 if x >= -1
      f(x) = -9 if x == 0
-     f(x) = 8^x + -9 if x > 2
+     f(x) = 8*x + -9 if x > 2
      ```
 1. Variant
      ```
      f(x) = 6*x^7 - 7*x^5 - 6*x^4 - 10*x if x < -4
-     f(x) = -7^x + -3 if x >= -4
+     f(x) = -7*x + -3 if x >= -4
      f(x) = 2*x + 8 if x == -3
      f(x) = -1 if x > 4
      ```
 1. Variant
      ```
-     f(x) = 7^x + 10 if x < -5
+     f(x) = 7*x + 10 if x < -5
      f(x) = -9 if x >= -5
      f(x) = 5*x + -9 if x == -2
      f(x) = 6*x^5 + 4*x^3 + 9*x^2 + 10*x if x > 7
      ```
 1. Variant
      ```
-     f(x) = -3^x + 7 if x < -2
+     f(x) = -3*x + 7 if x < -2
      f(x) = -10*x + 10 if x >= -2
      f(x) = 8*x^8 - 6*x^5 + 3*x^3 + 5*x if x == 3
      f(x) = -2 if x > 8
@@ -360,12 +360,12 @@ Note: the `^` symbol means "power".
      ```
      f(x) = 1*x^8 + 9*x^6 - 6*x^4 + 5*x if x < -4
      f(x) = 9 if x >= -4
-     f(x) = 8^x + -8 if x == 6
+     f(x) = 8*x + -8 if x == 6
      f(x) = 2*x + 6 if x > 7
      ```
 1. Variant
      ```
-     f(x) = -6^x + 3 if x < -10
+     f(x) = -6*x + 3 if x < -10
      f(x) = 7*x + 8 if x >= -10
      f(x) = 8 if x == -1
      f(x) = 10*x^8 + 1*x^3 + 9*x^2 - 6*x if x > 9
@@ -375,32 +375,32 @@ Note: the `^` symbol means "power".
      f(x) = -1 if x < -8
      f(x) = -2*x + -7 if x >= -8
      f(x) = 4*x^6 - 6*x^4 + 2*x^2 - 7*x if x == 1
-     f(x) = -2^x + 5 if x > 8
+     f(x) = -2*x + 5 if x > 8
      ```
 1. Variant
      ```
      f(x) = 8*x + 8 if x < -10
      f(x) = 8 if x >= -10
      f(x) = 6*x^5 - 8*x^4 + 9*x^3 - 3*x if x == 4
-     f(x) = 8^x + 2 if x > 9
+     f(x) = 8*x + 2 if x > 9
      ```
 1. Variant
      ```
      f(x) = 2*x^6 - 2*x^5 + 2*x^4 - 1*x if x < 1
-     f(x) = -9^x + 4 if x >= 1
+     f(x) = -9*x + 4 if x >= 1
      f(x) = -9 if x == 6
      f(x) = -4*x + 3 if x > 8
      ```
 1. Variant
      ```
      f(x) = -9 if x < 7
-     f(x) = -4^x + -2 if x >= 7
+     f(x) = -4*x + -2 if x >= 7
      f(x) = -1*x + -5 if x == 8
      f(x) = 7*x^6 - 8*x^5 - 6*x^4 + 9*x if x > 9
      ```
 1. Variant
      ```
-     f(x) = 6^x + -10 if x < -7
+     f(x) = 6*x + -10 if x < -7
      f(x) = 6*x^6 - 4*x^4 + 7*x^2 + 5*x if x >= -7
      f(x) = 6 if x == -2
      f(x) = -1*x + 5 if x > 6
@@ -409,7 +409,7 @@ Note: the `^` symbol means "power".
      ```
      f(x) = 10 if x < -2
      f(x) = -3*x + 10 if x >= -2
-     f(x) = -10^x + -5 if x == 1
+     f(x) = -10*x + -5 if x == 1
      f(x) = 4*x^7 - 5*x^4 + 4*x^2 + 8*x if x > 2
      ```
 1. Variant
@@ -417,7 +417,7 @@ Note: the `^` symbol means "power".
      f(x) = 2 if x < -5
      f(x) = 2*x^7 + 2*x^6 + 8*x^5 - 2*x if x >= -5
      f(x) = -1*x + 4 if x == 5
-     f(x) = 2^x + -9 if x > 7
+     f(x) = 2*x + -9 if x > 7
      ```
 
 #### Group 193
@@ -425,7 +425,7 @@ Note: the `^` symbol means "power".
 1. Variant
      ```
      f(x) = -8*x + -6 if x < -10
-     f(x) = -3^x + -7 if x >= -10
+     f(x) = -3*x + -7 if x >= -10
      f(x) = 10 if x == -9
      f(x) = 2*x^7 + 9*x^6 - 10*x^5 - 1*x if x > 2
      ```
@@ -433,20 +433,20 @@ Note: the `^` symbol means "power".
      ```
      f(x) = 2*x^7 - 3*x^4 + 6*x^3 - 5*x if x < -6
      f(x) = 4 if x >= -6
-     f(x) = -5^x + 2 if x == 0
+     f(x) = -5*x + 2 if x == 0
      f(x) = -7*x + -10 if x > 5
      ```
 1. Variant
      ```
      f(x) = -6 if x < -9
-     f(x) = -5^x + 6 if x >= -9
+     f(x) = -5*x + 6 if x >= -9
      f(x) = 9*x^8 - 2*x^3 - 4*x^2 - 4*x if x == -5
      f(x) = 6*x + 7 if x > 1
      ```
 1. Variant
      ```
      f(x) = 1 if x < -4
-     f(x) = 8^x + 5 if x >= -4
+     f(x) = 8*x + 5 if x >= -4
      f(x) = 10*x + -3 if x == -1
      f(x) = 4*x^7 + 5*x^4 + 8*x^3 - 4*x if x > 1
      ```
@@ -455,12 +455,12 @@ Note: the `^` symbol means "power".
      f(x) = -1*x + 6 if x < -9
      f(x) = -10 if x >= -9
      f(x) = 8*x^8 - 2*x^7 + 5*x^5 + 3*x if x == -2
-     f(x) = -9^x + 6 if x > 4
+     f(x) = -9*x + 6 if x > 4
      ```
 1. Variant
      ```
      f(x) = -3*x + 7 if x < -8
-     f(x) = 2^x + -7 if x >= -8
+     f(x) = 2*x + -7 if x >= -8
      f(x) = 1 if x == -5
      f(x) = 5*x^7 + 10*x^4 - 2*x^2 - 4*x if x > 4
      ```
@@ -468,12 +468,12 @@ Note: the `^` symbol means "power".
      ```
      f(x) = -3 if x < -10
      f(x) = -8*x + -5 if x >= -10
-     f(x) = -6^x + -6 if x == -7
+     f(x) = -6*x + -6 if x == -7
      f(x) = 7*x^7 - 10*x^5 - 2*x^2 - 4*x if x > 4
      ```
 1. Variant
      ```
-     f(x) = 3^x + 1 if x < 5
+     f(x) = 3*x + 1 if x < 5
      f(x) = -2*x + -4 if x >= 5
      f(x) = 5*x^7 + 9*x^4 - 7*x^3 - 3*x if x == 6
      f(x) = -4 if x > 7
@@ -483,25 +483,25 @@ Note: the `^` symbol means "power".
      f(x) = 4*x^7 - 2*x^3 + 7*x^2 + 10*x if x < -1
      f(x) = 1 if x >= -1
      f(x) = 2*x + -3 if x == 5
-     f(x) = -4^x + -7 if x > 7
+     f(x) = -4*x + -7 if x > 7
      ```
 1. Variant
      ```
      f(x) = 9*x^6 + 9*x^4 + 8*x^2 + 9*x if x < -6
      f(x) = -6 if x >= -6
-     f(x) = 2^x + 10 if x == -4
+     f(x) = 2*x + 10 if x == -4
      f(x) = -4*x + -10 if x > 9
      ```
 1. Variant
      ```
      f(x) = -8*x + 10 if x < -8
-     f(x) = 2^x + 6 if x >= -8
+     f(x) = 2*x + 6 if x >= -8
      f(x) = 2 if x == 4
      f(x) = 9*x^5 + 5*x^4 + 7*x^3 - 5*x if x > 7
      ```
 1. Variant
      ```
-     f(x) = -9^x + -2 if x < -5
+     f(x) = -9*x + -2 if x < -5
      f(x) = -6 if x >= -5
      f(x) = 9*x^8 + 4*x^5 + 9*x^4 - 1*x if x == -4
      f(x) = 7*x + -2 if x > 5
@@ -511,32 +511,32 @@ Note: the `^` symbol means "power".
      f(x) = 3*x + -6 if x < 0
      f(x) = 9*x^7 - 1*x^4 - 3*x^3 - 5*x if x >= 0
      f(x) = -7 if x == 8
-     f(x) = 5^x + 6 if x > 9
+     f(x) = 5*x + 6 if x > 9
      ```
 1. Variant
      ```
      f(x) = -4 if x < -8
-     f(x) = -7^x + 8 if x >= -8
+     f(x) = -7*x + 8 if x >= -8
      f(x) = 6*x + 7 if x == -2
      f(x) = 2*x^8 - 7*x^5 + 5*x^2 - 8*x if x > 7
      ```
 1. Variant
      ```
      f(x) = 2*x^8 - 3*x^3 - 5*x^2 + 9*x if x < 1
-     f(x) = -1^x + 6 if x >= 1
+     f(x) = -1*x + 6 if x >= 1
      f(x) = -9 if x == 3
      f(x) = -10*x + -8 if x > 6
      ```
 1. Variant
      ```
-     f(x) = -9^x + 2 if x < -8
+     f(x) = -9*x + 2 if x < -8
      f(x) = 7 if x >= -8
      f(x) = 5*x^8 + 1*x^6 - 1*x^3 - 5*x if x == 5
      f(x) = -8*x + 10 if x > 9
      ```
 1. Variant
      ```
-     f(x) = 4^x + 8 if x < 1
+     f(x) = 4*x + 8 if x < 1
      f(x) = 3*x^7 + 6*x^4 + 3*x^3 - 3*x if x >= 1
      f(x) = 7*x + 1 if x == 3
      f(x) = -9 if x > 6
@@ -546,18 +546,18 @@ Note: the `^` symbol means "power".
      f(x) = 6*x^8 + 1*x^7 - 6*x^3 + 8*x if x < -9
      f(x) = -9*x + 8 if x >= -9
      f(x) = -7 if x == 3
-     f(x) = -7^x + 4 if x > 5
+     f(x) = -7*x + 4 if x > 5
      ```
 1. Variant
      ```
      f(x) = -5*x + 5 if x < -2
      f(x) = -8 if x >= -2
      f(x) = 3*x^7 + 8*x^6 - 5*x^5 - 9*x if x == -1
-     f(x) = -3^x + -7 if x > 5
+     f(x) = -3*x + -7 if x > 5
      ```
 1. Variant
      ```
-     f(x) = -3^x + 8 if x < -1
+     f(x) = -3*x + 8 if x < -1
      f(x) = 2*x^7 - 8*x^6 - 2*x^2 - 3*x if x >= -1
      f(x) = -6*x + 4 if x == 3
      f(x) = 10 if x > 6
@@ -565,13 +565,13 @@ Note: the `^` symbol means "power".
 1. Variant
      ```
      f(x) = 3*x + -7 if x < -3
-     f(x) = 4^x + -3 if x >= -3
+     f(x) = 4*x + -3 if x >= -3
      f(x) = 10*x^5 - 8*x^4 + 6*x^2 - 8*x if x == -1
      f(x) = -10 if x > 3
      ```
 1. Variant
      ```
-     f(x) = 5^x + 9 if x < -6
+     f(x) = 5*x + 9 if x < -6
      f(x) = -4*x + -4 if x >= -6
      f(x) = 2*x^8 + 4*x^4 - 5*x^2 - 4*x if x == -1
      f(x) = 7 if x > 0
@@ -581,11 +581,11 @@ Note: the `^` symbol means "power".
      f(x) = -3 if x < -10
      f(x) = 7*x + 9 if x >= -10
      f(x) = 7*x^8 - 1*x^4 - 4*x^3 - 1*x if x == -1
-     f(x) = -1^x + -7 if x > 9
+     f(x) = -1*x + -7 if x > 9
      ```
 1. Variant
      ```
-     f(x) = 9^x + 3 if x < -9
+     f(x) = 9*x + 3 if x < -9
      f(x) = 8 if x >= -9
      f(x) = 7*x^5 - 3*x^3 - 4*x^2 - 4*x if x == 4
      f(x) = -3*x + -7 if x > 9
@@ -593,7 +593,7 @@ Note: the `^` symbol means "power".
 1. Variant
      ```
      f(x) = -4 if x < -6
-     f(x) = -6^x + 10 if x >= -6
+     f(x) = -6*x + 10 if x >= -6
      f(x) = 1*x^8 + 10*x^6 - 5*x^4 - 1*x if x == 1
      f(x) = 2*x + 6 if x > 4
      ```
@@ -601,7 +601,7 @@ Note: the `^` symbol means "power".
      ```
      f(x) = -2*x + -7 if x < -4
      f(x) = 1 if x >= -4
-     f(x) = -8^x + 8 if x == 0
+     f(x) = -8*x + 8 if x == 0
      f(x) = 6*x^7 - 9*x^5 - 7*x^3 - 2*x if x > 4
      ```
 1. Variant
@@ -609,5 +609,5 @@ Note: the `^` symbol means "power".
      f(x) = 5*x^7 + 10*x^6 + 10*x^5 + 6*x if x < -2
      f(x) = -3*x + -1 if x >= -2
      f(x) = -7 if x == 2
-     f(x) = 4^x + 7 if x > 4
+     f(x) = 4*x + 7 if x > 4
      ```
