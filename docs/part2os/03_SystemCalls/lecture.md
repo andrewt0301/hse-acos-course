@@ -388,3 +388,6 @@ __TODO__
 * System call [write](https://en.wikipedia.org/wiki/Write_%28system_call%29) (Wikipedia)
 * System call [sbrk](https://en.wikipedia.org/wiki/Sbrk) (Wikipedia)
 * [The GNU C Library (glibc)](https://www.gnu.org/software/libc/)
+* [POSIX](https://en.wikipedia.org/wiki/POSIX) (Wikipedia)
+* [C POSIX library](https://en.wikipedia.org/wiki/C_POSIX_library) (Wikipedia)
+
