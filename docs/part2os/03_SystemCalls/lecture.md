@@ -268,22 +268,25 @@ To make them available, a corresponding header must be included
 into the program source code and then a function can be called.
 
 * The “open” function from POSIX:
-```C
+
+```c
 #include <sys/stat.h>
 #include <fcntl.h>
 
 int open(const char *path, int oflag, ...);
 ```
 
-* The “fopen” function from glib:
-```C
+* The “fopen” function from glibc:
+
+```c
 #include <stdio.h>
 
 FILE *fopen(const char *pathname, const char *mode);
 ```
 
 * The “syscall” function:
-```C
+
+```c
 #include <unistd.h>
 #include <sys/syscall.h>   /* For SYS_xxx definitions */
 
@@ -296,7 +299,8 @@ In Ubuntu 20.04 LTS, more system call declarations can be found in the following
 #### Examples
 
 Example 1: Using the `printf` glibc function:
-```C
+
+```c
 #include <stdio.h>
 int main () {
     printf("Hello World\n");
@@ -305,7 +309,8 @@ int main () {
 ```
 
 Example 2: Using the `write` POSIX function:
-```C
+
+```c
 #include <fcntl.h>
 #include <unistd.h>
 int main () {
@@ -315,7 +320,8 @@ int main () {
 ```
  
 Example 3: Using the `syscall` function:
-```C
+
+```c
 #include <unistd.h>
 #include <sys/syscall.h>
 int main () {
