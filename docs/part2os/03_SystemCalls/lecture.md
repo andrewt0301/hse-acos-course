@@ -10,6 +10,47 @@ Slides ([PDF](CA_Lecture_01.pdf), [PPTX](CA_Lecture_01.pptx)).
 
 Outline:
 -->
+
+#### System Call Types
+
+There are several types of system calls. Each type solves a specific kind of task:
+
+* Process control
+     * creating and terminating processes
+     * loading and executing programs
+     * getting and setting process attributes
+     * allocating and freeing memory
+     * waiting and signaling events
+
+* File management
+     * creating and deleting files
+     * opening and closing files
+     * reading, writing, repositioning
+     * getting and setting file attributes
+
+* Device management
+     * requesting and releasing devices
+     * reading, writing, repositioning
+     * getting and setting device attributes
+     * attaching and detaching devices
+
+* Information maintenance
+    * getting and setting date/time
+    * getting and setting system data
+    * getting and setting process, file, or device attributes
+
+* Communications
+    * create and delete communication connection
+    * send and receive messages
+    * transfer status information
+    * attach and detach remote devices
+
+* Protection
+   * getting file permissions
+   * setting file permissions
+
+These tasks will be discussed in upcoming lectures and workshops.
+
 ## Workshop
 
 #### Outline
@@ -208,13 +249,98 @@ Allocating memory in the heap:
   new_line
 ```
 
+##### System calls in Linux API (C language)
+
+Linux provides the following facilities to execute system calls:
+
+* POSIX functions that are mapped directly to Linux system calls.
+  For example, `open()`, `read()`, `write()`, etc.
+
+* glibc functions which are operating-system independent wrappers around system calls.
+  For example, `fopen()`, `scanf()`, `printf()`, etc.
+
+* `syscall()` - special glibc function to perform an indirect system call by number.
+
+__API-functions that perform system calls__
+
+Functions that are called in user program to execute system calls are defined in special header files.
+To make them available, a corresponding header must be included
+into the program source code and then a function can be called.
+
+* The “open” function from POSIX:
+```C
+#include <sys/stat.h>
+#include <fcntl.h>
+
+int open(const char *path, int oflag, ...);
+```
+
+* The “fopen” function from glib:
+```C
+#include <stdio.h>
+
+FILE *fopen(const char *pathname, const char *mode);
+```
+
+* The “syscall” function:
+```C
+#include <unistd.h>
+#include <sys/syscall.h>   /* For SYS_xxx definitions */
+
+long syscall(long number, ...);
+```
+
+In Ubuntu 20.04 LTS, more system call declarations can be found in the following file:
+`/usr/src/linux-headers-5.4.0-53/include/linux/syscalls.h`.
+
 #### Tasks
+
+__System calls in RARS (RISC-V Assembly):__
 
 1. Write a program that creates a copy of the specified file. Input arguments:
    * The name of the source and target files are read from the standard input (use system call 8).
    * The buffer to store data being copied is allocated in the heap (use system call 9).
      The buffer size is specified in standard input.
    * Buffers for storing source and target names are also allocated in the heap (their size is 256 bytes).  
+
+__System calls in C:__
+
+Example 1: Using the `printf` glibc function:
+```C
+#include <stdio.h>
+int main () {
+    printf("Hello World\n");
+    return 0;
+}
+```
+
+Example 2: Using the `write` POSIX function:
+```C
+#include <fcntl.h>
+#include <unistd.h>
+int main () {
+    write (1, "Hello World\n", 12);
+    return 0;
+}
+```
+ 
+Example 3: Using the `syscall` function:
+```C
+#include <unistd.h>
+#include <sys/syscall.h>
+int main () {
+    syscall (1, 1, "Hello World\n", 12);
+    return 0;
+}
+```
+
+All the three examples, do the same: they print the “Hello World” message to the console.
+To compile and run them, the following commands need to be executed:
+
+```
+acos@acos-vm:~$ gcc test.c –o test
+acos@acos-vm:~$ ./test
+```
 
 ## Homework
 
@@ -228,3 +354,4 @@ __TODO__
 * System call [read](https://en.wikipedia.org/wiki/Read_%28system_call%29) (Wikipedia)
 * System call [write](https://en.wikipedia.org/wiki/Write_%28system_call%29) (Wikipedia)
 * System call [sbrk](https://en.wikipedia.org/wiki/Sbrk) (Wikipedia)
+* [The GNU C Library (glibc)](https://www.gnu.org/software/libc/)
