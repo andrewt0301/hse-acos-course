@@ -12,6 +12,3 @@ Course web site sources are [here](docs/index.md).
 
 This project contains educational materials for the course and other useful information related to
 the course.
-
-https://classroom.google.com/c/Mjk3MzcyNjA1Mzkz?cjc=zljym3b
-
