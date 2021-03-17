@@ -390,4 +390,3 @@ __TODO__
 * [The GNU C Library (glibc)](https://www.gnu.org/software/libc/)
 * [POSIX](https://en.wikipedia.org/wiki/POSIX) (Wikipedia)
 * [C POSIX library](https://en.wikipedia.org/wiki/C_POSIX_library) (Wikipedia)
-
