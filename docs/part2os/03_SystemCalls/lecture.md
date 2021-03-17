@@ -67,7 +67,8 @@ _System calls_ are operations (functions) provided by the operating system kerne
 which are available to user applications.
 They are designed and documented by operating system kernel developers.
 System calls are typically executed with the help of so-called wrapper functions,
-which can be conveniently used in user-mode applications (e.g. the glibc library in Linux).
+which can be conveniently used in user-mode applications
+(e.g. the [glibc](https://www.gnu.org/software/libc/) library in Linux).
 System calls allow executing kernel tasks upon user’s requests.
 Modern operating systems isolate kernel memory from user applications.
 Therefore, when a user application needs to make a request to the kernel
@@ -256,10 +257,12 @@ Linux provides the following facilities to execute system calls:
 * POSIX functions that are mapped directly to Linux system calls.
   For example, `open()`, `read()`, `write()`, etc.
 
-* glibc functions which are operating-system independent wrappers around system calls.
+* [glibc](https://www.gnu.org/software/libc/) functions which are operating-system
+  independent wrappers around system calls.
   For example, `fopen()`, `scanf()`, `printf()`, etc.
 
-* `syscall()` - special glibc function to perform an indirect system call by number.
+* `syscall()` - special [glibc](https://www.gnu.org/software/libc/)
+  function to perform an indirect system call by number.
 
 __API-functions that perform system calls__
 
@@ -276,7 +279,7 @@ into the program source code and then a function can be called.
 int open(const char *path, int oflag, ...);
 ```
 
-* The “fopen” function from glibc:
+* The `fopen` function from [glibc](https://www.gnu.org/software/libc/):
 
 ```c
 #include <stdio.h>
@@ -298,7 +301,7 @@ In Ubuntu 20.04 LTS, more system call declarations can be found in the following
 
 #### Examples
 
-Example 1: Using the `printf` glibc function:
+Example 1: Using the `printf` [glibc](https://www.gnu.org/software/libc/) function:
 
 ```c
 #include <stdio.h>
@@ -370,7 +373,7 @@ __System calls in C:__
    Write a program that reads 100 words from `stdin` and writes them to a file named outfile.
    Do not forget to close the file.
 
-1. Modify the previous program to accept command line arguments (argc/argv).
+1. Modify the previous program to accept command-line arguments (argc/argv).
    Pass via command-line arguments the number of words
    (use [sscanf](https://man7.org/linux/man-pages/man3/sscanf.3p.html)
    to get an integer from _argv[1]_ and the name of output file (_argv[2]_).
