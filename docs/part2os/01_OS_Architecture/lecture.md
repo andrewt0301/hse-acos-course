@@ -14,6 +14,7 @@ Slides ([PDF](OS_Lecture_01.pdf), [PPTX](OS_Lecture_01.pptx)).
 * [Installing](../../software/ubuntu_install.md) and [using]((../../software/ubuntu.md)) Linux Ubuntu in VirtualBox
 * Installing Git Bash (for Windows users)
 * Learning main Bash commands
+* Using Git
 
 #### Practice
 
@@ -86,6 +87,57 @@ Also, come of the commands are implemented in Terminal of JetBrains IDEs (PyChar
    Running:
    ```bash
    ./hello
+   ```
+
+##### Using Git and GitHub
+
+1. Create a public repository at [GitHub](https://github.com). Create an account if you do already have it.
+1. Clone the created repository:
+   ```bash
+   git clone https://github.com/andrewt0301/test.git
+   ```
+
+1. The repository will be cloned in the `test` folder. Change the current directory to it:
+   ```bash
+   cd test
+   ```
+
+1. See help of using Git:
+   ```bash
+   git help
+   ```
+
+1. Set your user name and email for this repository:
+   ```bash
+   git config user.name Andrei Tatarnikov
+   git config user.email andrewt0301@gmail.com
+   ```
+
+1. Create or copy the `hello.c` program to this folder.
+
+1. Check the status of files in the Git repository:
+   ```bash
+   git status
+   ```
+
+1. Add the `hello.c` file to the commit:
+   ```bash
+   git add hello.c
+   ```
+
+1. Send the commit to the repository:
+   ```bash
+   git commit -s -m "hello.c is added"
+   ```
+
+1. Update the remote repository (GitHub): 
+   ```bash
+   git push origin main
+   ```
+
+1. Get changes from the remote repository (GitHub): 
+   ```bash
+   git pull
    ```
 
 ## Homework
