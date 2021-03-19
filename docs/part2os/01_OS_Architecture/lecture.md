@@ -47,7 +47,6 @@ Main Bash commands
 1. `ls` - prints directory contents
 1. `cd` - changes current directory
 1. `mkdir` - creates a new directory
-1. `cat` - concatnates and prints text files
 1. `file` - determines file type
 1. `echo` - prints messages to the standard output
 1. `cp` - copies files and folders
@@ -55,20 +54,37 @@ Main Bash commands
 1. `rm` - deletes files or folders
 1. `su` - run a command with substitute user (e.g. root)
 1. `exit` - causes Bash to exit
+1. `uname` - print system information
 
-Compiling programs in C
+Installing additional programs in Linux Ubuntu
 
-1. Use the following command (works in MacOS too):
+   ```bash
+   acos@acos-vm:~$ su
+   root@acos-vm:/home/acos# apt install mc
+   root@acos-vm:/home/acos# exit
+   ```
+
+Creating, editing and viewing source code:
+
+1. `cat` - concatnates and prints text files
+1. `head` - outputs the first part of files
+1. `tail` - outputs the last part of files
+1. `nano` - simple console code editor
+1. `mcedit` - mcedit simple editor from Midnight Commander
+1. `vim` - Vi IMproved, a programmer's text editor
+
+Compiling and running programs in C
+
+1. Use the following commands (work in MacOS too).
+
+   Compiling:
    ```bash
    gcc hello.c -o hello.c
    ```
 
-Installing programs in Linux Ubuntu
-
-   ```
-   acos@acos-vm:~$ su
-   root@acos-vm:/home/acos# apt install mc
-   root@acos-vm:/home/acos# exit
+   Running:
+   ```bash
+   ./hello
    ```
 
 ## Homework
