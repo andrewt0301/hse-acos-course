@@ -17,13 +17,13 @@ Slides ([PDF](OS_Lecture_01.pdf), [PPTX](OS_Lecture_01.pptx)).
 
 #### Practice
 
-Before start
+##### Before start
 
 1. Windows users need to [download](https://git-scm.com/downloads) and install Git.
 1. Make sure that VirtualBox with Linux Ubuntu VM is installed and running.
 1. See reference on Git is available [here](https://git-scm.com/book/en/v2).
 
-Connecting to the running VM
+##### Connecting to the running VM
 
 1. Run terminal in your host operating system (Git Bash for Windows).
 1. Execute the following command:
@@ -32,7 +32,7 @@ Connecting to the running VM
    ```
 1. Use the password `acos2020`.
 
-Linux utility programs and Bash
+##### Linux utility programs and Bash
 
 Unix-based systems (such as Linux and MacOS) provide utility programs to perform various systems tasks.
 These utilities are via command-line interface.
@@ -40,7 +40,7 @@ Bash is command-line processor and language used to execute these command.
 Bash is supported in Linux and MacOS. In Windows, apratial support is implemented in Git Bash. 
 Also, come of the commands are implemented in Terminal of JetBrains IDEs (PyCharm, IntelliJ IDEA, CLion, etc.).
 
-Main Bash commands
+##### Main Bash commands
 
 1. `man` - prints documentation on other commands
 1. `pwd` - prints current working directory
@@ -55,8 +55,9 @@ Main Bash commands
 1. `su` - run a command with substitute user (e.g. root)
 1. `exit` - causes Bash to exit
 1. `uname` - print system information
+1. `which` - locate a command
 
-Installing additional programs in Linux Ubuntu
+##### Installing additional programs in Linux Ubuntu
 
    ```bash
    acos@acos-vm:~$ su
@@ -64,7 +65,7 @@ Installing additional programs in Linux Ubuntu
    root@acos-vm:/home/acos# exit
    ```
 
-Creating, editing and viewing source code:
+##### Creating, editing and viewing source code:
 
 1. `cat` - concatnates and prints text files
 1. `head` - outputs the first part of files
@@ -73,7 +74,7 @@ Creating, editing and viewing source code:
 1. `mcedit` - mcedit simple editor from Midnight Commander
 1. `vim` - Vi IMproved, a programmer's text editor
 
-Compiling and running programs in C
+##### Compiling and running programs in C
 
 1. Use the following commands (work in MacOS too).
 
@@ -93,7 +94,9 @@ __TODO__
 
 # References
 
-1. [Bash](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29) (Wikipedia)
-1. [Linux man pages online](https://man7.org/linux/man-pages/index.html)
-
-__TODO__
+* [Bash](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29) (Wikipedia)
+* [Linux man pages online](https://man7.org/linux/man-pages/index.html)
+* [PGLC] Mark G. Sobell, Matthew Helmke.
+  [Practical Guide to Linux Commands, Editors, and Shell Programming.](
+  https://www.pearson.com/store/p/practical-guide-to-linux-commands-editors-and-shell-programming-a/P100000878019/9780134774602)
+  4th Edition. 2018.
