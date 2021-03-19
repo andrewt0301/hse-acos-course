@@ -52,9 +52,24 @@ Main Bash commands
 1. `echo` - prints messages to the standard output
 1. `cp` - copies files and folders
 1. `mv` - renames or moves files or folders
-1. `rm` - deletes files or folders   
+1. `rm` - deletes files or folders
+1. `su` - run a command with substitute user (e.g. root)
+1. `exit` - causes Bash to exit
 
-__TODO__
+Compiling programs in C
+
+1. Use the following command (works in MacOS too):
+   ```bash
+   gcc hello.c -o hello.c
+   ```
+
+Installing programs in Linux Ubuntu
+
+   ```
+   acos@acos-vm:~$ su
+   root@acos-vm:/home/acos# apt install mc
+   root@acos-vm:/home/acos# exit
+   ```
 
 ## Homework
 
@@ -63,5 +78,6 @@ __TODO__
 # References
 
 1. [Bash](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29) (Wikipedia)
+1. [Linux man pages online](https://man7.org/linux/man-pages/index.html)
 
 __TODO__
