@@ -11,7 +11,8 @@ To access the server VM, please follow the steps below:
       * MacOS: `/Users/andrew/.ssh` (private key - `id_rsa`; public key - `id_rsa.pub`)
       * Windows: `/c/Users/andrew/.ssh` (private key - `id_rsa`; public key - `id_rsa.pub`)
 
-1. Send the public SSH key (`id_rsa.pub`) to your TA by email (he will resend it to admins).
+1. Send the public SSH key (`id_rsa.pub`) to your TA by email (he will resend it to the admins).
+   The __email subject must be__ `SSH keys for Cloud`. 
 
 1. The TA will send you back the login information.
 
