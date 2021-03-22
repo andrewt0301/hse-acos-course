@@ -11,7 +11,7 @@ To access the server VM, please follow the steps below:
       * MacOS: `/Users/andrew/.ssh` (private key - `id_rsa`; public key - `id_rsa.pub`)
       * Windows: `/c/Users/andrew/.ssh` (private key - `id_rsa`; public key - `id_rsa.pub`)
 
-1. Upload the public SSH key (`id_rsa.pub`) to some Gloud drive (Google, Yandex, Mail, etc.)
+1. Upload the public SSH key (`id_rsa.pub`) to some Cloud drive (Google, Yandex, Mail, etc.)
    and add the link to it into this [table](
    https://docs.google.com/spreadsheets/d/1OEQYWgQ2ge4h66gBOiexFCXA3V3K3Ded_PhfTObm1Gs/edit?usp=sharing).
  
