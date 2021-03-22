@@ -11,12 +11,13 @@ To access the server VM, please follow the steps below:
       * MacOS: `/Users/andrew/.ssh` (private key - `id_rsa`; public key - `id_rsa.pub`)
       * Windows: `/c/Users/andrew/.ssh` (private key - `id_rsa`; public key - `id_rsa.pub`)
 
-1. Send the public SSH key (`id_rsa.pub`) to your TA by email (he will resend it to the admins).
-   The __email subject must be__ `SSH keys for Cloud`. 
+1. Upload the public SSH key (`id_rsa.pub`) to some Gloud drive (Google, Yandex, Mail, etc.)
+   and add the link to it into this [table](
+   https://docs.google.com/spreadsheets/d/1OEQYWgQ2ge4h66gBOiexFCXA3V3K3Ded_PhfTObm1Gs/edit?usp=sharing).
+ 
+1. The admin will take data from the table and will provide you with a login.
 
-1. The TA will send you back the login information.
-
-1. Once you get your login from your TA, connect to the server using the following command:
+1. Once you get your login, you can connect to the server using the following command:
    ```bash
    ssh login@ipaddress -p22
    ```
