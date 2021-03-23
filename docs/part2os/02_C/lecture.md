@@ -9,6 +9,17 @@ Slides ([PDF](OS_Lecture_02.pdf), [PPTX](OS_Lecture_02.pptx)).
 
 #### Outline
 
+* The C Language
+    * History
+    * Data types
+    * Functions
+    * Pointers, arrays, address arithmetic
+<!--
+* GNU Tools
+    * GCC
+    * Make
+-->
+
 ## Workshop
 
 __TODO__
