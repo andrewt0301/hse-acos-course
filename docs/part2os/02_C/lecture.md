@@ -5,11 +5,10 @@ Lecture 2
 
 ## Lecture
 
-<!---
-Slides ([PDF](CA_Lecture_01.pdf), [PPTX](CA_Lecture_01.pptx)).
+Slides ([PDF](OS_Lecture_02.pdf), [PPTX](OS_Lecture_02.pptx)).
 
-Outline:
--->
+#### Outline
+
 ## Workshop
 
 __TODO__
@@ -20,10 +19,10 @@ __TODO__
 
 # References
 
-- [KRC] Brian W. Kernighan, Dennis Ritchie.
+* Brian Harvey. [CS 61C: C: Introduction, Pointers, & Arrays.](HarveyNotesC1-3.pdf) 
+* [KRC] Brian W. Kernighan, Dennis Ritchie.
   [C Programming Language.](
   https://www.pearson.com/us/higher-education/program/Kernighan-C-Programming-Language-2nd-Edition/PGM54487.html)
   2nd Edition. 1988.
-
-- [C programming language.](https://en.wikipedia.org/wiki/C_%28programming_language%29) (Wikipedia).
-- [C reference](https://en.cppreference.com/w/c) on _cppreference.com_.
+* [C programming language.](https://en.wikipedia.org/wiki/C_%28programming_language%29) (Wikipedia).
+* [C reference](https://en.cppreference.com/w/c) on _cppreference.com_.
