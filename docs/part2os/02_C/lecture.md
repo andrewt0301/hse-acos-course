@@ -13,11 +13,12 @@ Slides ([PDF](OS_Lecture_02.pdf), [PPTX](OS_Lecture_02.pptx)).
 
 * The C Language
     * History
-    * Data types
+    * Data types (built-in, structures)
     * Functions
     * Pointers, arrays, address arithmetic
     * Memory allocation
-<!--
+    * Strings
+<!---
 * GNU Tools
     * GCC
     * Make
