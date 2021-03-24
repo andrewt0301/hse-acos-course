@@ -24,6 +24,77 @@ Slides ([PDF](OS_Lecture_02.pdf), [PPTX](OS_Lecture_02.pptx)).
     * Make
 -->
 
+#### Theory
+
+Builtin data types:
+
+```c
+char unsiged char
+short
+unsigned short
+int 
+unsigined int
+long
+unsigned long
+float
+double
+__int8_t
+__int16_t
+__int32_t
+__int64_t;
+void *
+size_t
+```
+
+Structures:
+
+```c
+struct point {
+    int x;
+    int y;
+}
+```
+
+```c
+struct point {
+    int x;
+    int y1 : 16;
+    int y2 : 16
+}
+```
+
+Input/output:
+
+```c
+int x;
+scanf("%d", &x);
+printf("%d", x);
+```
+
+Functions and function pointers:
+
+```c
+#include <stdio.h>
+
+void print(int x, int y) {
+    printf("%d %d\n");
+}
+
+typedef void (* func_t)(int, int);
+
+void test(func_t func) {
+    (*func)(10, 20);
+}
+
+int main() {
+    void (* func )(int, int) = &print;
+    (*func)(10, 20);
+    test(func);
+    return 0;
+}
+
+```
+
 ## Workshop
 
 #### Outline
@@ -74,4 +145,5 @@ Slides ([PDF](OS_Lecture_02.pdf), [PPTX](OS_Lecture_02.pptx)).
   2nd Edition. 1988.
 * [C programming language](https://en.wikipedia.org/wiki/C_%28programming_language%29) (Wikipedia).
 * [C data types](https://en.wikipedia.org/wiki/C_data_types)
+* [Function Pointer in C](https://www.geeksforgeeks.org/function-pointer-in-c/)
 * [C reference](https://en.cppreference.com/w/c) on _cppreference.com_
