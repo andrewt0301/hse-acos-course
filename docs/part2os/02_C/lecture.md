@@ -143,7 +143,7 @@ int main() {
   [C Programming Language](
   https://www.pearson.com/us/higher-education/program/Kernighan-C-Programming-Language-2nd-Edition/PGM54487.html)
   2nd Edition. 1988.
-* [C programming language](https://en.wikipedia.org/wiki/C_%28programming_language%29) (Wikipedia).
+* [C programming language](https://en.wikipedia.org/wiki/C_%28programming_language%29) (Wikipedia)
 * [C data types](https://en.wikipedia.org/wiki/C_data_types)
 * [Function Pointer in C](https://www.geeksforgeeks.org/function-pointer-in-c/)
 * [C reference](https://en.cppreference.com/w/c) on _cppreference.com_
