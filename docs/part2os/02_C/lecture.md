@@ -100,7 +100,19 @@ int main() {
 #### Outline
 
 * Discuss main features of C and differences from C++ and other languages
-* Discuss questions from [this](disc02.pdf) document 
+* Discuss questions from [this](disc02.pdf) document
+
+#### Tasks
+
+1. Write a program in C, which does the following:
+   * defines the point structure;
+   * inputs an integer value `N`;
+   * allocates an array of `N` points (assume the coordinates a non-negative);
+   * inputs `N` points;
+   * inputs a point;
+   * finds the point closest to the specified point in the array of points.
+
+   Notes: use `malloc` and `free` to allocate and deallocate the array respectively.
 
 ## Homework
 
