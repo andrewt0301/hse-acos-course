@@ -18,11 +18,6 @@ Slides ([PDF](OS_Lecture_02.pdf), [PPTX](OS_Lecture_02.pptx)).
     * Pointers, arrays, address arithmetic
     * Memory allocation
     * Strings
-<!---
-* GNU Tools
-    * GCC
-    * Make
--->
 
 #### Theory
 
