@@ -95,6 +95,31 @@ int main() {
 
 ```
 
+Dynamic memory allocation (use `malloc` and `free`):
+
+```c
+#include <stdio.h>
+
+int main() {
+    int i, n;
+    printf("Enter array size:\n");
+    scanf("%d", &n);
+
+    int* array = malloc(sizeof(int) * n);
+    printf("Enter array:\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &array[i]);
+    }
+    printf("Array:\n");
+    for (i = 0; i < n; i++) {
+        printf("array[%d] = %d\n", i, array[i]);
+    }
+    free(array);
+
+    return 0;
+}
+```
+
 ## Workshop
 
 #### Outline
