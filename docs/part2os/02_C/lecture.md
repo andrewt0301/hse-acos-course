@@ -30,6 +30,10 @@ __TODO__
 
 ## Homework
 
+1. Write a program in C that inputs two integer values `x` and `y`,
+   call function `swap` that takes the values as arguments and swaps them,
+   prints the values after the swap.
+
 1. Write a program in C, which does the following:
    * inputs an integer value 'N';
    * allocates an array of 'N' integer elements;
