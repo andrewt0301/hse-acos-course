@@ -26,7 +26,10 @@ Slides ([PDF](OS_Lecture_02.pdf), [PPTX](OS_Lecture_02.pptx)).
 
 ## Workshop
 
-__TODO__
+#### Outline
+
+* Discuss main features of C and differences from C++ and other languages
+* Discuss questions from [this](disc02.pdf) document 
 
 ## Homework
 
