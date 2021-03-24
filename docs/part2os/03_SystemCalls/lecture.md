@@ -5,11 +5,9 @@ Lecture 3
 
 ## Lecture
 
-<!---
-Slides ([PDF](CA_Lecture_01.pdf), [PPTX](CA_Lecture_01.pptx)).
+Slides ([PDF](OS_Lecture_03.pdf), [PPTX](OS_Lecture_03.pptx)).
 
 Outline:
--->
 
 #### System Call Types
 
