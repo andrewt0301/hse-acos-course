@@ -58,6 +58,28 @@ struct point {
 }
 ```
 
+Size of various data types:
+
+```c
+#include <stdio.h>
+
+typedef struct {
+    int x;
+    int y;
+} point_t;
+
+int main() {
+    printf("sizeof(int)    = %ld\n", sizeof(char));
+    printf("sizeof(int)    = %ld\n", sizeof(int));
+    printf("sizeof(long)   = %ld\n", sizeof(long));
+    printf("sizeof(float)  = %ld\n", sizeof(float));
+    printf("sizeof(double) = %ld\n", sizeof(double));
+    printf("sizeof(void *) = %ld\n", sizeof(void *));
+    printf("sizeof(point)  = %ld\n", sizeof(point_t));
+    return 0;
+}   
+```
+
 Input/output:
 
 ```c
