@@ -200,4 +200,5 @@ int main() {
 * [C programming language](https://en.wikipedia.org/wiki/C_%28programming_language%29) (Wikipedia)
 * [C data types](https://en.wikipedia.org/wiki/C_data_types)
 * [Function Pointer in C](https://www.geeksforgeeks.org/function-pointer-in-c/)
+* [Dynamic 2-D arrays in C](https://www.geeksforgeeks.org/dynamically-allocate-2d-array-c/)
 * [C reference](https://en.cppreference.com/w/c) on _cppreference.com_
