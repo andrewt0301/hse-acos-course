@@ -18,108 +18,108 @@ Compiling for debug: `cc -O0 -g program.c -o binaryprog`
 
 1. Example program:
 
-```c
-#include <stdio.h>
-#define SIZE 10
+   ```c
+   #include <stdio.h>
+   #define SIZE 10
 
-int A[SIZE] = {7,6,5,4,3,2,1,0,1,2};
-int B[SIZE];
+   int A[SIZE] = {7,6,5,4,3,2,1,0,1,2};
+   int B[SIZE];
 
-void fun(int *a, int *b, int len) {
-    int i;
+   void fun(int *a, int *b, int len) {
+       int i;
 
-    for(i=0; i<len; i++)
-        b[i] = a[i];
-}
+       for(i=0; i<len; i++)
+           b[i] = a[i];
+   }
 
-int main(int argc, char *argv[]) {
-    fun(A, B, 100500);
-    return 0;
-}
-```
+   int main(int argc, char *argv[]) {
+       fun(A, B, 100500);
+       return 0;
+   }
+   ```
 
-1. start with `gdb binaryprog`
+1. Start with `gdb binaryprog`:
 
-1. first set a breakpoint to `main()` function (it always exists in C program)
+1. First set a breakpoint to `main()` function (it always exists in C program):
 
-```
-(gdb) b main
-Breakpoint 1 at 0x400758: file arrr.c, line 15.
-```
+   ```
+   (gdb) b main
+   Breakpoint 1 at 0x400758: file arrr.c, line 15.
+   ```
 
-1. run program until breakpoint is reached with `r`
+1. Run program until breakpoint is reached with `r`:
 
-```
-(gdb) r
-Starting program: /home/george/src/arrr
-Breakpoint 1, main (argc=1, argv=0x7fbf7854) at arrr.c:15
-15              fun(A, B, 100500);
-```
+   ```
+   (gdb) r
+   Starting program: /home/george/src/arrr
+   Breakpoint 1, main (argc=1, argv=0x7fbf7854) at arrr.c:15
+   15              fun(A, B, 100500);
+   ```
 
-1. step into function call with `s`:
+1. Step into function call with `s`:
 
-```
-(gdb) s
-fun (a=0x4108c0 <A>, b=0x410950 <B>, len=100500) at arrr.c:10
-10              for(i=0; i<len; i++)
-```
+   ```
+   (gdb) s
+   fun (a=0x4108c0 <A>, b=0x410950 <B>, len=100500) at arrr.c:10
+   10              for(i=0; i<len; i++)
+   ```
 
-1. run next c code (executing function call as "one" instruction) with `n`
+1. Run next c code (executing function call as "one" instruction) with `n`:
 
-```
-(gdb) n
-11                      b[i] = a[i];
-(gdb) n
-10              for(i=0; i<len; i++)
-(gdb)
-11                      b[i] = a[i];
-(gdb)
-10              for(i=0; i<len; i++)
-(gdb)
-11                      b[i] = a[i];
-```
+   ```
+   (gdb) n
+   11                      b[i] = a[i];
+   (gdb) n
+   10              for(i=0; i<len; i++)
+   (gdb)
+   11                      b[i] = a[i];
+   (gdb)
+   10              for(i=0; i<len; i++)
+   (gdb)
+   11                      b[i] = a[i];
+   ```
 
-Also you can just press enter for repeating last command
+   Also you can just press enter for repeating last command.
 
-1. print a variable with `p`
+1. Print a variable with `p`:
 
-```
-(gdb) p a
-$1 = (int *) 0x4108c0 <A>
-(gdb) p B
-$2 = {7, 6, 0, 0, 0, 0, 0, 0, 0, 0}
-(gdb) p i
-$3 = 2
-```
+   ```
+   (gdb) p a
+   $1 = (int *) 0x4108c0 <A>
+   (gdb) p B
+   $2 = {7, 6, 0, 0, 0, 0, 0, 0, 0, 0}
+   (gdb) p i
+   $3 = 2
+   ```
 
-(`$1`, `$2` etc. is the number of expressions printed)
+   (`$1`, `$2` etc. is the number of expressions printed).
 
 1. Add an expression to display list to display it on all command with `display`:
 
-```
-(gdb) display i
-1: i = 2
-(gdb) n
-10              for(i=0; i<len; i++)
-1: i = 2
-(gdb)
-11                      b[i] = a[i];
-1: i = 3
-(gdb)
-10              for(i=0; i<len; i++)
-1: i = 3
-```
+   ```
+   (gdb) display i
+   1: i = 2
+   (gdb) n
+   10              for(i=0; i<len; i++)
+   1: i = 2
+   (gdb)
+   11                      b[i] = a[i];
+   1: i = 3
+   (gdb)
+   10              for(i=0; i<len; i++)
+   1: i = 3
+   ```
 
-1. quit with q
+1. Quit with `q`:
 
-```
-(gdb) q
-A debugging session is active.
+   ```
+   (gdb) q
+   A debugging session is active.
 
         Inferior 1 [process 10578] will be killed.
 
-Quit anyway? (y or n) y
-```
+   Quit anyway? (y or n) y
+   ```
 
 ### Using Breakpoints
 
@@ -164,12 +164,14 @@ No breakpoints or watchpoints.
 
 ### Other debuggers
 
-On sugon:
- * `gdb -tui binaryprog` — with window of code, console
+In Linux Ubuntu (SSH):
 
-On local machine (linux):
- * `cgdb binaryprog` — almost like `gdb -tui`, but better, console
- * `nemiver binaryprog` — simple graphical debugger
+* `gdb -tui binaryprog` — with window of code, console
+* `cgdb binaryprog` — almost like `gdb -tui`, but better, console
+
+GUI:
+
+* `nemiver binaryprog` — simple graphical debugger
  
 ## Homework
 
