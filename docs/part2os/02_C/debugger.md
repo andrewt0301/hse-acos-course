@@ -14,7 +14,7 @@ Compiling for debug: `cc -O0 -g program.c -o binaryprog`
  * `-g` — include C source references in binary file (you still need the source file itself)
  * `-o binaryprog` — set result binary file name
 
-### Debugging with `gdb`
+### Debugging with GDB`
 
 1. Example program:
 
@@ -51,7 +51,7 @@ Compiling for debug: `cc -O0 -g program.c -o binaryprog`
 
    ```
    (gdb) r
-   Starting program: /home/george/src/arrr
+   Starting program: /home/andrewt/src/arrr
    Breakpoint 1, main (argc=1, argv=0x7fbf7854) at arrr.c:15
    15              fun(A, B, 100500);
    ```
@@ -124,12 +124,12 @@ Compiling for debug: `cc -O0 -g program.c -o binaryprog`
 ### Using Breakpoints
 
 ```
-[user@sugon]$ gdb arrr
+[tatarnikov@akos]$ gdb arrr
 ...
 (gdb) b fun
 Breakpoint 1 at 0x4006c8: file arrr.c, line 10.
 (gdb) r
-Starting program: /home/george/src/arrr
+Starting program: /home/andrewt/src/arrr
 Breakpoint 1, fun (a=0x4108c0 <A>, b=0x410950 <B>, len=100500) at arrr.c:10
 10              for(i=0; i<len; i++)
 (gdb) bt
@@ -162,7 +162,7 @@ No breakpoints or watchpoints.
 * also `u` — execute code until block or function ends
 * also there are "watchpoints" — program stops after a variable or expression changed
 
-### Other debuggers
+### Other Debuggers
 
 In Linux Ubuntu (SSH):
 
@@ -180,4 +180,5 @@ Pick up your favorite debugger and learn how to use it.
 ## References
 
 * [Debugger](https://en.wikipedia.org/wiki/Debugger) (Wikipedia)
+* [GNU Debugger](https://en.wikipedia.org/wiki/GNU_Debugger) (Wikipedia)
 * [GDB documentation](https://www.gnu.org/software/gdb/documentation)

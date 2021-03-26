@@ -144,6 +144,10 @@ int main() {
 * Discuss main features of C and differences from C++ and other languages
 * Discuss questions from [this](disc02.pdf) document
 
+#### Debugging C programs
+
+* [Workshop on debugger](debugger.md)
+
 #### Tasks
 
 1. Write a program in C, which does the following:
