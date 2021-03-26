@@ -156,11 +156,11 @@ Num     Type           Disp Enb Address    What
 No breakpoints or watchpoints.
 ```
 
-* `bt` — show ''backtrace'', stack of functions call
+* `bt` — show "backtrace", stack of functions call
 * `c` — continue
 * `delete №` — delete breakpoint №
 * also `u` — execute code until block or function ends
-* also there are ''watchpoints'' — program stops after a variable or expression changed
+* also there are "watchpoints" — program stops after a variable or expression changed
 
 ### Other debuggers
 
@@ -177,4 +177,5 @@ Pick up your favorite debugger and learn how to use it.
 
 ## References
 
+* [Debugger](https://en.wikipedia.org/wiki/Debugger) (Wikipedia)
 * [GDB documentation](https://www.gnu.org/software/gdb/documentation)
