@@ -5,7 +5,7 @@ Lecture 4
 
 ## Lecture
 
-Slides ([PDF](CA_Lecture_04.pdf), [PPTX](CA_Lecture_04.pptx)).
+Slides ([PDF](OS_Lecture_04.pdf), [PPTX](OS_Lecture_04.pptx)).
 
 <!---
 Outline:
