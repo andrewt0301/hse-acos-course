@@ -83,3 +83,53 @@ Also, it is possible to specify default recipes for example:
 %.o:    %.c 
         cc $< -c
 ```
+
+## Tasks
+
+### Task 1
+
+Write a Make script that builds a “Hello World” program.
+The script must use a macro variable to specify the name of the program and special symbols to avoid repeating it.
+
+
+### Task 2
+
+Write a Make script that build a “Hello World” program going through
+all the stages described in the beginning of this document.
+The script must also contain a target for clean all generated files.
+
+### Task 03
+
+Write a Make script that compiles a program that consists of a main source file called `prog.c`
+and a source file with library functions called `lib.c`.
+Also, the program must be linked with the standard math library.
+
+#### lib.c:
+
+```c
+#include <stdio.h>
+
+extern int var;
+
+int func(int arg) {
+   printf("### %d/%d ###\n", arg, var);
+   return arg*2+1;
+}
+```
+
+#### proc.c:
+
+```c
+#include <math.h>
+#include <stdio.h>
+
+int func(int);
+
+int var = 33;
+
+int main(int argc, char *argv[]) {
+   int val = func(42);
+   printf("sqrt(%d)=%lf\r\n", val, sqrt(val));
+   return 0;
+}
+```
