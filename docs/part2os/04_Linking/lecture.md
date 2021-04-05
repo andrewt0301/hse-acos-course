@@ -5,9 +5,9 @@ Lecture 4
 
 ## Lecture
 
-<!---
-Slides ([PDF](CA_Lecture_01.pdf), [PPTX](CA_Lecture_01.pptx)).
+Slides ([PDF](CA_Lecture_04.pdf), [PPTX](CA_Lecture_04.pptx)).
 
+<!---
 Outline:
 -->
 ## Workshop
