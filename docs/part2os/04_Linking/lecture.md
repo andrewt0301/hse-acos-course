@@ -47,4 +47,5 @@ __TODO__
 
 # References
 
-__TODO__
+* Linking. Chapter 7 in [[CSPP]](../../books.md).
+
