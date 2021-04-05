@@ -40,6 +40,7 @@ Slides ([PDF](OS_Lecture_04.pdf), [PPTX](OS_Lecture_04.pptx)).
 ## Workshop
 
 * [Part 1](libs.md).
+* [Part 2](make.md).
 
 ## Homework
 
@@ -48,4 +49,5 @@ __TODO__
 # References
 
 * Linking. Chapter 7 in [[CSPP]](../../books.md).
-
+* Section 2.6. in [[OSC]](../../books.md).
+* Chapters 41 and 42 in [[TLPI]](../../books.md).
