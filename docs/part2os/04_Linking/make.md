@@ -75,7 +75,11 @@ The recipe prefix can be customized using the `.RECIPEPREFIX` special variable. 
 .RECIPEPREFIX = >
 all:
 > @echo Hello, world
+```
+
 Also, it is possible to specify default recipes for example:
+
+```make
 %.o:    %.c 
         cc $< -c
 ```
