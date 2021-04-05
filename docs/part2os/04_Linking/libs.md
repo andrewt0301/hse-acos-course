@@ -1,6 +1,47 @@
 Static and Shared Libraries 
 ---
 
+### Linking and Loading
+
+Programs are stored on disk as binary executable files (e.g. hello).
+To be run, a program must be loaded into memory and placed into the context of a process.
+
+Source files are compiled by the compiler into object files that are designed to be loaded into any physical location.
+This format is called relocatable object file.
+ 
+Next, the linker combines these files to produce a single binary executable file.
+During the linking stage, external library object files are included as well
+(e.g. the standard C or math library specified as –lm).
+
+When a program is run, the executable file and all necessary
+libraries are loaded into memory with the help of the loader.
+There two kinds of libraries: static and shared (also called dynamic).
+Code from static libraries is included into the executable file by the linker.
+Shared libraries are loaded into the process of the program by the loader.
+If multiple executable files being run use the same shared library,
+the library is shared among their processes using shared memory facilities provided by the operating system.
+On the contrary, static libraries are linked into each executable file that uses them. So, each program has its own copy.
+
+Object and executable files have standard formats that cover compiled machine code and a symbol
+table containing metadata about functions and variables that are referenced in the program.
+Linux uses the standard format called [ELF](https://man7.org/linux/man-pages/man5/elf.5.html)
+(Executable and Linkable Format). There are separate ELF formats for executable and relocatable files.
+The most important information about an executable file is its entry point,
+which is the address of the first instruction to be executed when the program runs.
+
+In Linux, the format of a file can be determined with the help of the
+[file](https://man7.org/linux/man-pages/man1/file.1.html) utility.
+For example:
+
+```bash
+acos@acos-vm:~$ file hello.c
+hello.c: C source, ASCII text
+acos@acos-vm:~$ file hello.o 
+hello.o: ELF 64-bit LSB relocatable, x86-64, version 1 (SYSV), not stripped
+acos@acos-vm:~$ file hello
+hello: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=80ddf1c9cd9f91062b9fcec9c16fbacd3a24f408, for GNU/Linux 3.2.0, not stripped
+```
+
 ### Simple application
 
 The 'hello.c' listing:
