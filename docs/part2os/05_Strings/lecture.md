@@ -13,6 +13,8 @@ Outline:
 
 ### Strings
 
+![String](string_representation.jpg)
+
 __There no such data type as strings__.
 
 * Variable length
@@ -25,7 +27,7 @@ __There no such data type as strings__.
 * no metadata
 
 [C reference](https://en.cppreference.com/w/c/string/byte).
-* genres
+* Genres:
   * [Character_classification](https://en.cppreference.com/w/c/string/byte#Character_classification)
   * [Conversions_to_numeric_formats](https://en.cppreference.com/w/c/string/byte#Conversions_to_numeric_formats)
   * [String_manipulation](https://en.cppreference.com/w/c/string/byte#String_manipulation)
