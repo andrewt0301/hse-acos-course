@@ -44,7 +44,9 @@ __There no such data type as strings__.
     * __Exceptions__ `strdup()` etc.
 
 ### Regular expressions
-    
+
+![RE](automata.png)
+
 #### Pattern matching
 
 * Task: from a number of _strings_, filter only those resembling a given example
