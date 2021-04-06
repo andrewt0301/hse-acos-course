@@ -3,30 +3,33 @@ Static and Shared Libraries
 
 ### Linking and Loading
 
-Programs are stored on disk as binary executable files (e.g. hello).
+![Linking](linking.png)
+
+Programs are stored on disk as binary executable files (e.g. _hello_).
 To be run, a program must be loaded into memory and placed into the context of a process.
 
-Source files are compiled by the compiler into object files that are designed to be loaded into any physical location.
-This format is called relocatable object file.
+Source files are compiled by the _compiler_ into _object files_ that are designed to be loaded into any physical location.
+This format is called _relocatable object file_.
  
-Next, the linker combines these files to produce a single binary executable file.
+Next, the _linker_ combines these files to produce a single binary _executable file_.
 During the linking stage, external library object files are included as well
-(e.g. the standard C or math library specified as –lm).
+(e.g. the standard C or math library specified as `–lm`).
 
 When a program is run, the executable file and all necessary
-libraries are loaded into memory with the help of the loader.
-There two kinds of libraries: static and shared (also called dynamic).
+libraries are loaded into memory with the help of the _loader_.
+There two kinds of libraries: _static_ and _shared_ (also called dynamic).
 Code from static libraries is included into the executable file by the linker.
 Shared libraries are loaded into the process of the program by the loader.
 If multiple executable files being run use the same shared library,
 the library is shared among their processes using shared memory facilities provided by the operating system.
-On the contrary, static libraries are linked into each executable file that uses them. So, each program has its own copy.
+On the contrary, static libraries are linked into each executable file that uses them.
+So, each program has its own copy.
 
 Object and executable files have standard formats that cover compiled machine code and a symbol
 table containing metadata about functions and variables that are referenced in the program.
 Linux uses the standard format called [ELF](https://man7.org/linux/man-pages/man5/elf.5.html)
 (Executable and Linkable Format). There are separate ELF formats for executable and relocatable files.
-The most important information about an executable file is its entry point,
+The most important information about an executable file is its _entry point_,
 which is the address of the first instruction to be executed when the program runs.
 
 In Linux, the format of a file can be determined with the help of the
@@ -59,27 +62,31 @@ int main()
 
 To compile, execute this:
 
-    gcc hello.c -o hello
+    acos@acos-vm:~$ gcc hello.c -o hello
     
 To run, execute this:
 
-    ./hello
+    acos@acos-vm:~$./hello
+    Hello World
 
 ### Static and shared libraries
+
+Let us have a closer look at the two library types and how they are created and included into a program. 
 
 * Static - `.a` extension
 * Shared - `.so` extension
 
-Names of libraries start with the 'lib' prefix.
-
-To see the full list of libs in the system, execute the command:
-
-    ls /usr/lib | less
+Names of libraries start with the lib prefix.
+ 
+The Linux operating system includes a large set of standard system libraries.
+To see the full list of these libs, execute the command:
     
+    acos@acos-vm:~$ ls /usr/lib | less
 
-To list of libraries loaded by application, use the `ldd` command. For example:
+To list of libraries loaded by a program, use the [ldd](https://man7.org/linux/man-pages/man1/ldd.1.html) command.
+For example:
 
-    ﻿ldd "$(which ls)"
+    acos@acos-vm:~$ ldd "$(which ls)"
  
 #### Static libraries
 
@@ -169,30 +176,28 @@ Build a program that used the static library:
 
     gcc -o program program.o -L. -lfoo
 
-#### Stared libraries
+#### Shared libraries
 
-Compile sources into position-independent code (PIC):
+Compile the sources into [position-independent code](https://en.wikipedia.org/wiki/Position-independent_code) (PIC).
+The `–Wall` flag enables compiler warnings (help avoid errors):
 
-
-    gcc -c -Wall -fPIC fred.c bill.c
-
+    acos@acos-vm:~$ gcc -c -Wall -fPIC fred.c bill.c
 
 Build shared library from object files:
 
-
-    gcc -shared -o libfoo.so fred.o bill.o
-
+    acos@acos-vm:~$ gcc -shared -o libfoo.so fred.o bill.o
 
 Build the program that uses the shared library: 
 
+    acos@acos-vm:~$ gcc -Wall -o program program.c -lfoo -L.
 
-    ﻿gcc -Wall -o program program.c -lfoo -L.
+Run the program (the [LD_LIBRARY_PATH](https://man7.org/conf/lca2006/shared_libraries/slide3d.html)
+variable set path to shared libraries):
 
-Run the program:
+    acos@acos-vm:~$ export LD_LIBRARY_PATH=.
+    acos@acos-vm:~$ ./program
 
-    ﻿export LD_LIBRARY_PATH=.
-    ./program
-    
-See loaded libraries:
+The libraries loaded into a process can be viewed with the help of
+the [ldd](https://man7.org/linux/man-pages/man1/ldd.1.html) utility:
 
-    ldd ./program
+    acos@acos-vm:~$ ldd ./program
