@@ -90,58 +90,48 @@ For example:
  
 #### Static libraries
 
-Use `mcedit` to create the `﻿fred.c` and `﻿bill.c` files.
+Create two source files `fred.c` and `bill.c` files containing functions.
+These files will be compiled as libraries and the program will call functions provided in these libraries.
 
 __fred.c:__
-
-    ﻿mcedit fred.c
-
 ```c
 #include <stdio.h>
 
 void fred(int arg)
 {
-   printf("fred: you passed %d\n", arg);
+    printf("fred: you passed %d\n", arg);
 }
-
 ```
-
+ 
 __bill.c:__
-
-    ﻿mcedit ﻿bill.c
-
 ```c
 #include <stdio.h>
 
 void bill(char *arg)
 {
-   printf("bill: you passed %s\n", arg);
+    printf("bill: you passed %s\n", arg);
 }
-
 ```
 
 Compile the sources into object files:
 
-    ﻿gcc -c fred.c bill.c
+    acos@acos-vm:~$ gcc -c fred.c bill.c
 
-See the object files:
+See the created object files:
+    
+    acos@acos-vm:~$ ls *.o
+                               bill.o
+                               fred.o
 
-    ls *.o
-    bill.o
-    fred.o
+Make a static library (archive) with the help of the [ar](https://man7.org/linux/man-pages/man1/ar.1.html) utility:
 
-Make a static library (archive):
+    acos@acos-vm:~$ ar crv libfoo.a bill.o fred.o
+                               r - bill.o
+                               r - fred.o
 
-    ar crv libfoo.a bill.o fred.o
-    r - bill.o
-    r - fred.o
-
-Write the header file for the library:
+Write a header file for the library:
 
 __lib.h:__
-
-    mcedit lib.h 
-
 ```c
 void bill(char *);
 void fred(int);
@@ -149,32 +139,29 @@ void fred(int);
 
 Write a program that uses the library:
 
-__program.c__:
-
-    mcedit program.c
-    
-```c 
+__program.c:__
+```c
 #include <stdlib.h>
 #include "lib.h"
 
 int main()
 {
-  bill("Hello World!");
-  exit(0);
+    bill("Hello World!");
+    exit(0);
 }
 ```
 
 Build the program object file:
 
-    gcc -c program.c
+    acos@acos-vm:~$ gcc -c program.c
 
 Build a program from object files:
 
-    gcc -o program program.o bill.o  
+    acos@acos-vm:~$ gcc -o program program.o bill.o
 
 Build a program that used the static library:
 
-    gcc -o program program.o -L. -lfoo
+    acos@acos-vm:~$ gcc -o program program.o -L. -lfoo
 
 #### Shared libraries
 
@@ -201,3 +188,13 @@ The libraries loaded into a process can be viewed with the help of
 the [ldd](https://man7.org/linux/man-pages/man1/ldd.1.html) utility:
 
     acos@acos-vm:~$ ldd ./program
+
+## Tasks
+
+### Task 1
+
+In addition to the source above files, create two source files `john.c` and `sam.c`.
+Compile `fred` and `john` as a static library. Compile `bill` and `sam` as a shared library. 
+Modify the main program to use functions provided by the two libraries.
+Compile the program, link it, run it, and see the loaded libraries.
+To make the task more interesting, `john` and `sam` must use the math library (must be linked into the library).
