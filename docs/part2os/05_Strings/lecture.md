@@ -90,61 +90,61 @@ Narrowest [Chomsky_hierarchy](https://en.wikipedia.org/wiki/Chomsky_hierarchy) f
 _Warning: To write a regexp is far more easier than to read other's regexp._
 
 1. Atomic regexp:
-  * any non-special character matches exactly same character
-      * "`E`" → «`E`»
-  * a dot "`.`" matches __any__ one character
-      * "`.`" → «`E`»
-      * "`.`" → «`:`»
-      * "`.`" → «`.`»
-  * a set of characters matches any character __from the set__:
-      * "`[quack!]`" → «`a`»
-      * "`[quack!]`" → «`!`»
-      * "`[a-z]`" → «`q`» (any small letter)
-      * "`[a-z]`" → «`z`» (any small letter)
-      * "`[a-fA-F0-9]`" → «`f`» (any hexadecimal digit)
-      * "`[a-fA-F0-9]`" → «`D`» (any hexadecimal digit)
-      * "`[abcdefABCDEF0-9]`" → «`4`» (any hexadecimal digit)
-  * a negative set of characters matches any character __not from the set__:
-      * "`[^quack!]`" → «`r`»
-      * "`[^quack!]`" → «`#`»
-      * "`[^quack!]`" → «`A`»
-  * any atomic regexp followed by "`*`" __repeater__ matches a continuous sequence of substrings,
-    including empty sequence, each matched by the regexp
-      * "`a*`" → «`aaa`»
-      * "`a*`" → «``»
-      * "`a*`" → «`a`»
-      * "`[0-9]*`" → «`7`»
-      * "`[0-9]*`" → «``»
-      * "`[0-9]*`" → «`1231234`»
-      * "`.*`" → _any string_!
-  * any complex regexp enclosed by special grouping parenthesis "`\(`" and "`\)`" (see below)
+    * any non-special character matches exactly same character
+        * "`E`" → «`E`»
+    * a dot "`.`" matches __any__ one character
+        * "`.`" → «`E`»
+        * "`.`" → «`:`»
+        * "`.`" → «`.`»
+    * a set of characters matches any character __from the set__:
+        * "`[quack!]`" → «`a`»
+        * "`[quack!]`" → «`!`»
+        * "`[a-z]`" → «`q`» (any small letter)
+        * "`[a-z]`" → «`z`» (any small letter)
+        * "`[a-fA-F0-9]`" → «`f`» (any hexadecimal digit)
+        * "`[a-fA-F0-9]`" → «`D`» (any hexadecimal digit)
+        * "`[abcdefABCDEF0-9]`" → «`4`» (any hexadecimal digit)
+    * a negative set of characters matches any character __not from the set__:
+        * "`[^quack!]`" → «`r`»
+        * "`[^quack!]`" → «`#`»
+        * "`[^quack!]`" → «`A`»
+    * any atomic regexp followed by "`*`" __repeater__ matches a continuous sequence of substrings,
+      including empty sequence, each matched by the regexp
+        * "`a*`" → «`aaa`»
+        * "`a*`" → «``»
+        * "`a*`" → «`a`»
+        * "`[0-9]*`" → «`7`»
+        * "`[0-9]*`" → «``»
+        * "`[0-9]*`" → «`1231234`»
+        * "`.*`" → _any string_!
+    * any complex regexp enclosed by special grouping parenthesis "`\(`" and "`\)`" (see below)
 1. Complex regexp
-  * A sequence of atomic regexps
-  * Matches a continuous sequence of substrings, each matched by corresponded atomic regexp
-      * "`boo`" → «`boo`»
-      * "`r....e`" → «`riddle`»
-      * "`r....e`" → «`r re e`»
-      * "`[0-9][0-9]*`" → any non-negative integer
-      * "`[A-Za-z_][A-Za-z0-9]*`" → C identifier (alphanumeric sequence with «`_`», not started from digit)
-  * grouping parenthesis can be used for repeating complex regexp:
-      * "`\([A-Z][a-z]\)*`" → «`ReGeXp`»
-      * "`\([A-Z][a-z]\)*`" → «``»
-      * "`\([A-Z][a-z]\)*`" → «`Oi`»
-  * Implies __leftmost longest rule__ (aka «greedy»):
-    In successful match of complex regexp _leftmost_ atomic regexp takes _longest possible_ match,
-    second leftmost atomic regexp takes longest match that possible in current condition; and so on
-      * "`.*.*`" → all the string leftmost, empty string next
-      * "`[a-z]*[0-9]*[a-z0-9]*`" → «`123b0c0`»
-          * "`[a-z]*`" → «»
-          * "`[0-9]*`" → «`123`»
-          * "`[a-z0-9]*`" → «`b0c0`»
-      * "`[a-d]*[c-f]*[d-h]*`" → «`abcdefgh`»
-          * "`[a-d]*`" → «`abcd`»
-          * "`[c-f]*`" → «`ef`»
-          * "`[d-h]*`" → «`gh`»
+    * A sequence of atomic regexps
+    * Matches a continuous sequence of substrings, each matched by corresponded atomic regexp
+        * "`boo`" → «`boo`»
+        * "`r....e`" → «`riddle`»
+        * "`r....e`" → «`r re e`»
+        * "`[0-9][0-9]*`" → any non-negative integer
+        * "`[A-Za-z_][A-Za-z0-9]*`" → C identifier (alphanumeric sequence with «`_`», not started from digit)
+    * grouping parenthesis can be used for repeating complex regexp:
+        * "`\([A-Z][a-z]\)*`" → «`ReGeXp`»
+        * "`\([A-Z][a-z]\)*`" → «``»
+        * "`\([A-Z][a-z]\)*`" → «`Oi`»
+    * Implies __leftmost longest rule__ (aka «greedy»):
+      In successful match of complex regexp _leftmost_ atomic regexp takes _longest possible_ match,
+      second leftmost atomic regexp takes longest match that possible in current condition; and so on
+        * "`.*.*`" → all the string leftmost, empty string next
+        * "`[a-z]*[0-9]*[a-z0-9]*`" → «`123b0c0`»
+            * "`[a-z]*`" → «»
+            * "`[0-9]*`" → «`123`»
+            * "`[a-z0-9]*`" → «`b0c0`»
+        * "`[a-d]*[c-f]*[d-h]*`" → «`abcdefgh`»
+            * "`[a-d]*`" → «`abcd`»
+            * "`[c-f]*`" → «`ef`»
+            * "`[d-h]*`" → «`gh`»
 1. Positioning mark
-  * "`^regexp`" matches only substrings located at the beginning of the line
-  * "`regexp$`" matches only substrings located at the end of line
+      * "`^regexp`" matches only substrings located at the beginning of the line
+      * "`regexp$`" matches only substrings located at the end of line
 
 #### Regexp tools
 
@@ -166,30 +166,30 @@ _Warning: To write a regexp is far more easier than to read other's regexp._
 
 [sed](https://man7.org/linux/man-pages/man1/sed.1.html) — stream editor; if not sure, do not go too deep in.
 
- * search and replace: `s/regexp/replacement`
- * e. g.
-      * replace once
-      ```bash
-      $ cal | sed 's/[12][23]/@@/' 
-             March 2020     
-      Su Mo Tu We Th Fr Sa
-       1  2  3  4  5  6  7
-       8  9 10 11 @@ 13 14
-      15 16 17 18 19 20 21
-      @@ 23 24 25 26 27 28
-      29 30 31            
-      ``` 
-      * replace all (___g___lobally)
-      ```bash
-      $ cal | sed 's/[12][23]/@@/g'
-          March 2020     
-      Su Mo Tu We Th Fr Sa
-       1  2  3  4  5  6  7
-       8  9 10 11 @@ @@ 14
-      15 16 17 18 19 20 21
-      @@ @@ 24 25 26 27 28
-      29 30 31
-     ```
+* search and replace: `s/regexp/replacement`
+* e. g.
+    * replace once
+    ```bash
+    $ cal | sed 's/[12][23]/@@/' 
+           March 2020     
+    Su Mo Tu We Th Fr Sa
+     1  2  3  4  5  6  7
+     8  9 10 11 @@ 13 14
+    15 16 17 18 19 20 21
+    @@ 23 24 25 26 27 28
+    29 30 31            
+    ``` 
+    * replace all (___g___lobally)
+    ```bash
+    $ cal | sed 's/[12][23]/@@/g'
+        March 2020     
+    Su Mo Tu We Th Fr Sa
+     1  2  3  4  5  6  7
+     8  9 10 11 @@ @@ 14
+    15 16 17 18 19 20 21
+    @@ @@ 24 25 26 27 28
+    29 30 31
+    ```
 * Group recall: every substring matched regexp grouped by "`\(`"/"`\)"
   can be inserted into replacement string by referencing to corresponded number ("`\1`", "`\2`" etc):
   ```bash
@@ -208,7 +208,6 @@ _Warning: To write a regexp is far more easier than to read other's regexp._
   $ echo '==15 16 17 18 19 20 21==' | sed 's/\([0-9]*\).*\([0-9]\)/\1\2/' 
   1==
   ```
-
 * (!) check [[#complex]] examples with `sed`
 * Groups are numbered by the _opening  parenthesis_ order:
   ```bash
