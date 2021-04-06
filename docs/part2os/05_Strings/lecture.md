@@ -39,9 +39,9 @@ __There no such data type as strings__.
   * ⇒ Fixed length
     * ⇒ lots of UB and
     * ⇒ `n`-versions
-  * ⇒ '''Warning''' check if buffer shall be `free()`-d
+  * ⇒ __Warning__ check if buffer shall be `free()`-d
     * rule: you allocated — you freed
-    * '''Exceptions''' `strdup()` etc.
+    * __Exceptions__ `strdup()` etc.
 
 ### Regular expressions
     
@@ -55,7 +55,7 @@ __There no such data type as strings__.
 #### Shell patterns
 
  * [see](https://man7.org/linux/man-pages/man7/glob.7.html)
- * used for ''filename generation'' before executing shell command
+ * used for _filename generation_ before executing shell command
    ```bash
    $ ls
    a  a0  aa  aaa  aaaa  abab  abba  acb  b  b0  bb  bbb  cabba  cba
@@ -141,9 +141,24 @@ _Warning: To write a regexp is far more easier than to read other's regexp._
           - "`[c-f]*`" → «`ef`»
           - "`[d-h]*`" → «`gh`»
 1. Positioning mark
-  * "`^`''`regexp`''" matches only substrings located at the beginning of the line
-  * "''`rgexp`''`$`" matches only substrings located at the end of line
+  * "`^regexp`" matches only substrings located at the beginning of the line
+  * "`regexp$`" matches only substrings located at the end of line
 
+#### Regexp tools
+
+* [grep](http://man7.org/linux/man-pages/man1/grep.1.html): filtering strings that contain regexp:
+  ```bash
+  $ cal | grep 18
+  16 17 18 19 20 21 22
+  $ cal | grep '9.*4'
+  9 10 11 12 13 14 15
+  ```
+* (!) try all examples above via `grep` (happily it colors all substring matches)
+* `vim` (command enter command-line mode)
+    * `/`regexp`: search forward
+    * `?regexp`: search backward
+* `less` — same
+* ...
 
 ## Workshop
 
