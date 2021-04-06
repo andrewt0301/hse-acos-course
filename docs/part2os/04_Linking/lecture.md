@@ -61,7 +61,13 @@ Examples:
 
 ## Homework
 
-__TODO__
+1. Finish all the unfinished tasks.
+1. Improve Task 1 from Part 1:
+   * Provide _link-time_ interpositioning for the `fred` and `john` functions
+   * Provide _load-time_ interpositioning for the `bill` and `sam` functions
+   * Create a Make script to build the program
+
+Note: interposed functions can just print a message like "fred is called".
 
 # References
 
