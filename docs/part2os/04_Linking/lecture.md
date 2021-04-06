@@ -37,6 +37,14 @@ Slides ([PDF](OS_Lecture_04.pdf), [PPTX](OS_Lecture_04.pptx)).
 * [ldd](https://man7.org/linux/man-pages/man1/ldd.1.html) -
   lists the shared libraries that an executable needs at run time.
 
+#### Library Interpositioning
+
+Examples:
+
+* [Compile-time](interpos_comp) 
+* [Link-time](interpos_link)
+* [Load-time/run-time](interpos_runt)
+
 ## Workshop
 
 * [Part 1](libs.md).
