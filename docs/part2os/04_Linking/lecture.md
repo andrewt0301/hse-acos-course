@@ -41,9 +41,9 @@ Slides ([PDF](OS_Lecture_04.pdf), [PPTX](OS_Lecture_04.pptx)).
 
 Examples:
 
-* [Compile-time](interpos_comp) 
-* [Link-time](interpos_link)
-* [Load-time/run-time](interpos_runt)
+* [Compile-time](https://github.com/andrewt0301/hse-acos-course/tree/master/docs/part2os/04_Linking/interpos_comp) 
+* [Link-time](https://github.com/andrewt0301/hse-acos-course/tree/master/docs/part2os/04_Linking/interpos_link)
+* [Load-time/run-time](https://github.com/andrewt0301/hse-acos-course/tree/master/docs/part2os/04_Linking/interpos_runt)
 
 ## Workshop
 
