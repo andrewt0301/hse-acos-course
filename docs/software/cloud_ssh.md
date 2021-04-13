@@ -27,6 +27,9 @@ To access the server VM, please follow the steps below:
 
    Input the passphrase for the key to authorize.
 
+More information on the SSH tool is available [here](https://man7.org/linux/man-pages/man1/ssh.1.html).
+Also, see [Wikipedia](https://en.wikipedia.org/wiki/Secure_Shell_Protocol) for details on the SSH protocol.
+
 ## Copying Files with SCP
 
 Files and entire folders can be copied to and from the server using
