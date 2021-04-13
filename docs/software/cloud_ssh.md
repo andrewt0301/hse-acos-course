@@ -32,22 +32,22 @@ To access the server VM, please follow the steps below:
 Files and entire folders can be copied to and from the server using
 the [scp](https://man7.org/linux/man-pages/man1/scp.1.html) tool.
 
-Copying a file __to__ the server:
+* Copying a file __to__ the server:
    ```bash
    scp -p22 /Users/andrew/myprog.c login@ipaddress:/home/tatarnikov/
    ```
 
-Copying a folder __to__ the server:
+* Copying a folder __to__ the server:
    ```bash
    scp -p22 -r /Users/andrew/myfolder/ login@ipaddress:/home/tatarnikov/
    ```
 
-Copying a file __from__ the server:
+* Copying a file __from__ the server:
    ```bash
    scp -p22 login@ipaddress:/home/tatarnikov/myprog.c /Users/andrew/
    ```
 
-Copying a folder __from__ the server:
+* Copying a folder __from__ the server:
    ```bash
    scp -p22 -r login@ipaddress:/home/tatarnikov/myfolder/ /Users/andrew/ 
    ````
