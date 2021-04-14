@@ -223,6 +223,20 @@ _Warning: To write a regexp is far more easier than to read other's regexp._
 
 ## Workshop
 
+#### Outline
+
+* Practice using functions of the C language to handle strings
+* Practice using Shell patterns
+* Practice using regular expressions
+
+#### Tasks
+
+1. Write a program `catargs.c` that concatenates all command-line arguments
+   into a single string and prints this string with the `<` prefix and the `>` suffix:
+   ```bash
+   acos@acos-vm:~$ ./catargs qwe ASD "1 2 3"
+   <qweASD1 2 3>
+   ```
 __TODO__
 
 ## Homework
