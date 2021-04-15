@@ -3,11 +3,7 @@ Strings in C
 
 ![String](string_representation.jpg)
 
-__In C, there are no such a data type as string__.
-
-* variable length
-* locale-aware vs. low-level
-
+__In C, there are no such a data type as string (variable length, locale-aware vs. low-level)__.
 __Conventional LibC string__:
 
 * sequence of _bytes_
