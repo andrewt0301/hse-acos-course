@@ -41,7 +41,7 @@ of the [free](https://man7.org/linux/man-pages/man3/free.3p.html) function.
 
 Full list of functions from `<string.h>` is [here](https://man7.org/linux/man-pages/man0/string.h.0p.html).
 
-### Command-line arguments
+### Working with command-line arguments
 
 Command-line arguments are passed as strings for the `main` function.
 The `argc` argument sspecifies total argument count, the `argv` specifies an array of argument strings.
@@ -60,3 +60,62 @@ int main(int argc, char *argv[]) {
 Note: 0th argument is the name of the program.
 
 Strings are printed with the help of the [printf](https://man7.org/linux/man-pages/man3/printf.3.html) function.
+
+### Principles of string handling
+
+String handling functions are commonly iterate over the array of characters until `'\0'` (`0`) is encountered.
+
+For example, this program prints all arguments with their lengths calculated by a special function that
+imitates the `strlen` library function.
+
+```c
+#include <stdio.h>
+
+int mystrlen(const char* str) {
+   int len = 0;
+   while (*str++) {
+      len++;
+   }
+   return len;
+}
+
+int main(int argc, char *argv[]) {
+    int i;
+    for (i = 0; i < argc; i++) {
+        char* arg = argv[i];
+        printf("%s (%d)\n", arg, mystrlen(arg));
+    }
+    return 0;
+}
+```
+
+### Example
+
+The following program `catargs.c` concatenates all command-line arguments into a single string
+and prints this string with the `<` prefix and the `>` suffix:
+
+```bash
+acos@acos-vm:~$ ./catargs qwe ASD "1 2 3"
+<qweASD1 2 3>
+```
+
+```c
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[]) {
+    int i;
+    int length = 0;
+    for(i = 1; i < argc; i++)
+        length += strlen(argv[i]);
+    char *buf = malloc(length + 3);
+    strcpy(buf, "<");
+    for(i = 1; i < argc; i++)
+        strcat(buf, argv[i]);
+    strcat(buf, ">");
+    printf("%s\n", buf);
+    free(buf);
+    return 0;
+}
+```
