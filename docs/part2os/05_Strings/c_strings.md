@@ -94,13 +94,13 @@ int main(int argc, char *argv[]) {
 The following program `catargs.c` concatenates all command-line arguments into a single string
 and prints this string with the `<` prefix and the `>` suffix:
 
-Output:
+__Output__
 ```bash
 acos@acos-vm:~$ ./catargs qwe ASD "1 2 3"
 <qweASD1 2 3>
 ```
 
-Code:
+__Code__
 ```c
 #include <stdio.h>
 #include <string.h>
