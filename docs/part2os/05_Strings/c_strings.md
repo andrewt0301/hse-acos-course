@@ -6,11 +6,11 @@ Strings in C
 __In C, there are no such a data type as string (variable length, locale-aware vs. low-level)__.
 __Conventional LibC string__:
 
-* sequence of _bytes_
+* sequence of bytes
 * zero-terminated (s. c. ASCIIZ)
 * no metadata
 
-### Functions for handling strings
+### C functions for handling strings
 
 Reference on C function for handling strings and symbols is [here](https://en.cppreference.com/w/c/string/byte).
 
