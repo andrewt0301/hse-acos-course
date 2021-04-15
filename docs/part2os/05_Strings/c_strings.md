@@ -40,3 +40,23 @@ Dynamically allocated strings must be freed with the help
 of the [free](https://man7.org/linux/man-pages/man3/free.3p.html) function.
 
 Full list of functions from `<string.h>` is [here](https://man7.org/linux/man-pages/man0/string.h.0p.html).
+
+### Command-line arguments
+
+Command-line arguments are passed as strings for the `main` function.
+The `argc` argument sspecifies total argument count, the `argv` specifies an array of argument strings.
+
+The program below prints all arguments to the console:
+```c
+#include <stdio.h>
+
+int main(int argc, char *argv[]) {
+    int i;
+    for (i = 0; i < argc; i++)
+        printf("%s\n", argv[i]);
+    return 0;
+}
+```
+Note: 0th argument is the name of the program.
+
+Strings are printed with the help of the [printf](https://man7.org/linux/man-pages/man3/printf.3.html) function.
