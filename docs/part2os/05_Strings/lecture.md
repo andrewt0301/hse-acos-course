@@ -7,6 +7,8 @@ Lecture 5
 
 Slides ([PDF](OS_Lecture_05.pdf), [PPTX](OS_Lecture_05.pptx)).
 
+#### Theory
+
 * [Strings in C](c_strings.md)
 
 ### Regular expressions
