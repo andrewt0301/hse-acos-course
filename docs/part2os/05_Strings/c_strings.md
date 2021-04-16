@@ -89,7 +89,33 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-### Example
+This example program compares all stings provided in command-line arguments
+with the first command-line argument:
+
+```c
+#include <stdio.h>
+
+int mystrcmp(const char *s1, const char *s2) {
+    const unsigned char *p1 = ( const unsigned char * )s1;
+    const unsigned char *p2 = ( const unsigned char * )s2;
+    while (*p1 && *p1 == *p2 ) {
+        ++p1;
+        ++p2;
+    }
+    return (*p1 > *p2) - (*p2 > *p1);
+}
+
+int main(int argc, char *argv[]) {
+    int i;
+    for (i = 2; i < argc; i++) {
+      char* arg = argv[i];
+      printf("%s (compared to %s = %d)\n", arg, argv[1], mystrcmp(arg, argv[1]));
+    }
+    return 0;
+}
+```
+
+### Example of using C library functions
 
 The following program `catargs.c` concatenates all command-line arguments into a single string
 and prints this string with the `<` prefix and the `>` suffix:
