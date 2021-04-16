@@ -69,9 +69,33 @@ $ find . -name "OS_*.pdf"
 Program in C sometimes need to whether a file name or path matches a specific pattern.
 This can be done using the [fnmatch](https://www.man7.org/linux/man-pages/man3/fnmatch.3.html) function.
 The function returns zero if the name matches the specified pattern.
-The patterns are the same patterns as in Shell.
+The patterns are the same patterns as in Shell. Please pay attention for the `flags` argument
+of the function.
 
-__TODO__
+The example below matches pattern in `argv[1]` and name in `argv[2]`:
+
+Command:
+```bash
+tatarnikov@akos:~$ ./match "/h*/*ov" "/home/tatarnikov"
+'/home/tatarnikov' matches '/h*/*ov'
+```
+
+Code:
+```c
+#include <stdio.h>
+#include <fnmatch.h>
+
+int main(int argc, char *argv[]) {
+    const char* pattern = argv[1];
+    const char* name = argv[2];
+    if (fnmatch(pattern, name, FNM_PATHNAME) == 0) {
+        printf("'%s' matches '%s'\n", name, pattern);
+    } else {
+        printf("'%s' mismatches '%s'\n", name, pattern);
+    }
+    return 0;
+}
+```
 
 ### Limitations of patterns
 
