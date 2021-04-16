@@ -95,3 +95,47 @@ For experiments with regular expressions, the [regex101](https://regex101.com) s
 
 ### Regexp in C language
 
+The C language provides library functions to deal with regular expressions declared in the `<regex.h>` header.
+See details [here](https://man7.org/linux/man-pages/man3/regcomp.3.html).
+
+The example below finds all matches of the specified regular expression in the specified text:
+```c
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <regex.h>
+
+#define ARRAY_SIZE(arr) (sizeof((arr)) / sizeof((arr)[0]))
+
+static const char *const str =
+       "1) John Driverhacker;\n2) John Doe;\n3) John Foo;\n";
+static const char *const re = "John.*o";
+
+int main(void) {
+   static const char *s = str;
+   regex_t     regex;
+   regmatch_t  pmatch[1];
+   regoff_t    off, len;
+
+   if (regcomp(&regex, re, REG_NEWLINE))
+       exit(EXIT_FAILURE);
+
+   printf("String = \"%s\"\n", str);
+   printf("Matches:\n");
+
+   for (int i = 0; ; i++) {
+       if (regexec(&regex, s, ARRAY_SIZE(pmatch), pmatch, 0))
+           break;
+
+       off = pmatch[0].rm_so + (s - str);
+       len = pmatch[0].rm_eo - pmatch[0].rm_so;
+       printf("#%d:\n", i);
+       printf("offset = %jd; length = %jd\n", (intmax_t) off, (intmax_t) len);
+       printf("substring = \"%.*s\"\n", len, s + pmatch[0].rm_so);
+
+       s += pmatch[0].rm_eo;
+   }
+   exit(EXIT_SUCCESS);
+}
+```
+
