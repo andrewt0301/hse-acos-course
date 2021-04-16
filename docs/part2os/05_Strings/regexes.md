@@ -96,7 +96,56 @@ For experiments with regular expressions, the [regex101](https://regex101.com) s
 ### Regexp in C language
 
 The C language provides library functions to deal with regular expressions declared in the `<regex.h>` header.
-See details [here](https://man7.org/linux/man-pages/man3/regcomp.3.html).
+See details [here](https://man7.org/linux/man-pages/man3/regcomp.3.html). Main functions:
+
+* `regcomp` - compiles a regular expression;
+* `regexec` - performs a search for the specified regular expression in a string;
+* `regfree` - frees the compiled regular expression.
+
+The example below takes two command-line arguments
+(regular expression `arv[1]` and `argv[2]` text) and checks whether they match. 
+
+Command:
+```bash
+tatarnikov@akos:~$ ./regex2 "^H.*s$" "Higher School of Economics"
+'Higher School of Economics' matches '^H.*s$'
+tatarnikov@akos:~$ ./regex2 "^H.*s$" "Higher School of Economics_"
+'Higher School of Economics_' mismatches '^H.*s$'
+tatarnikov@akos:~$
+```
+
+```c
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <regex.h>
+
+int match(const char *string, char *pattern) {
+    int    status;
+    regex_t    re;
+
+    if (regcomp(&re, pattern, REG_EXTENDED|REG_NOSUB) != 0) {
+        return 0;
+    }
+    status = regexec(&re, string, (size_t) 0, NULL, 0);
+    regfree(&re);
+    if (status != 0) {
+        return 0;
+    }
+    return 1;
+}
+
+int main(int argc, char *argv[]) {
+    char* regex = argv[1];
+    char* name = argv[2];
+    if (match(name, regex)) {
+        printf("'%s' matches '%s'\n", name, regex);
+    } else {
+        printf("'%s' mismatches '%s'\n", name, regex);
+    }
+    return 0;
+}
+```
 
 The example below finds all matches of the specified regular expression in the specified text:
 ```c
@@ -138,4 +187,3 @@ int main(void) {
    exit(EXIT_SUCCESS);
 }
 ```
-
