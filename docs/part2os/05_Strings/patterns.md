@@ -1,14 +1,14 @@
 Patterns
 ---
 
-#### Pattern matching
+### Pattern matching
 
 * Task: from a number of _strings_, filter only those resembling a given example
 * Example string — _pattern_ — has some _special characters_, describing string structure
 * _matching_ is testing if _the whole_ string can be described by pattern
 * _searching_ is finding a _substring_ that matches pattern
 
-#### Shell patterns
+### Shell patterns
 
 Patterns are used in Linux Shell to filter files by their names.
 They are used for _filename generation_ before executing a Shell command.
@@ -46,7 +46,7 @@ The same can be done with other Linux utilities such as:
 [cat](https://man7.org/linux/man-pages/man1/cat.1.html),
 etc. For these tools, Shell will provide file names in exactly the same way.
 
-#### Patterns in Linux utilities
+### Patterns in Linux utilities
 
 Pattern matching is also used in some Linux utilities. For example,
 the [find](https://man7.org/linux/man-pages/man1/find.1.html) utility
@@ -64,11 +64,16 @@ $ find . -name "OS_*.pdf"
 ./part2os/06_Processes/OS_Lecture_06.pdf
 ```
 
-#### Patterns in C
+### Patterns in C
+
+Program in C sometimes need to whether a file name or path matches a specific pattern.
+This can be done using the [fnmatch](https://www.man7.org/linux/man-pages/man3/fnmatch.3.html) function.
+The function returns zero if the name matches the specified pattern.
+The patterns are the same patterns as in Shell.
 
 __TODO__
 
-#### Limitations
+### Limitations of patterns
 
 Patterns are good at filtering string that can be described by a simple template (e.g. file name).
 However, they are not suitable for more complex tasks.
