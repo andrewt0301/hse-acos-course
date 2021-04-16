@@ -113,7 +113,7 @@ tatarnikov@akos:~$ ./regex2 "^H.*s$" "Higher School of Economics_"
 'Higher School of Economics_' mismatches '^H.*s$'
 tatarnikov@akos:~$
 ```
-
+Code:
 ```c
 #include <stdint.h>
 #include <stdio.h>
