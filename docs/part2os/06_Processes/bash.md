@@ -142,7 +142,8 @@ fun "$@"
 
 ## Homework
 
-1. * Research: What exit status the command `read` generates? Try it
+1. Experiments with the `read` builtin command.
+   * Research: What exit status the command `read` generates? Try it
      Consult `help read` (e.g. [here](https://www.gnu.org/software/bash/manual/bash.html#index-read))
      command instead of `man read`, because `read` is a Shell builtin and you got manual page on _all_ Shell builtins.
    * Research: How to suppress «`\n`» output after `echo` (see [[man1:echo]])?
@@ -159,3 +160,7 @@ fun "$@"
      ```
 
    * Hint: In second example user had __not__ pressed «Enter»
+
+1. Finish getting access to the [Ubuntu server in the cloud](
+   https://andrewt0301.github.io/hse-acos-course/software/cloud_ssh.html).
+   You must provide a public key, the administrator must create an account, and then you must connect to it.
