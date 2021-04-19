@@ -25,9 +25,9 @@ After this the script can be called from directory in the following way:
 acos@acos-vm:~$ script
 ```
 
-### Examples and Tasks
+## Examples and Tasks
 
-#### Input and Output
+### Input and Output
 
 This script reads text into the `A` variable from the console (standard input) and then prints it back to the console.
 ```bash
@@ -110,7 +110,7 @@ else
 fi
 ```
 
-### Advanced Shell features
+### Advanced Shell Features
 
 The Shell language has features common for many programming languages such as conditions, loops, and functions.
 For example the script below enumerates over a collection of values:
