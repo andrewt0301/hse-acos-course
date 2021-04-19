@@ -157,6 +157,26 @@ fun  $*
 fun "$@"
 ```
 
+#### Task 04:
+
+Create a program with the following structure:
+```bash
+#!/bin/sh
+
+sum() {
+    # insert your code here
+}
+
+while read a b; do
+    sum $a $b
+done
+```
+Then do the following:
+* Note how `read var1 var2 … varN` works.
+* Read documentation on [expr](https://man7.org/linux/man-pages/man1/expr.1.html)
+  and improve the program so that it prints the sum of `$a` and `$b`.
+* Assume that the input is always correct.
+
 ## Homework
 
 1. Experiments with the `read` builtin command.
@@ -178,7 +198,8 @@ fun "$@"
 
    * Hint: In second example user had __not__ pressed «Enter»
 
-1. Read documentation on [expr]() again. Write Shell script `sumsum.sh` that:
+1. Read documentation on [expr](https://man7.org/linux/man-pages/man1/expr.1.html) again.
+   Write Shell script `sumsum.sh` that:
 
    * has function `sum()` that:
        * sums all of its arguments (any number of arguments is permitted);
