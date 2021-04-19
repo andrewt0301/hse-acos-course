@@ -139,3 +139,23 @@ fun "$*"
 fun  $*
 fun "$@"
 ```
+
+## Homework
+
+1. * Research: What exit status the command `read` generates? Try it
+     Consult `help read` (e.g. [here](https://www.gnu.org/software/bash/manual/bash.html#index-read))
+     command instead of `man read`, because `read` is a Shell builtin and you got manual page on _all_ Shell builtins.
+   * Research: How to suppress «`\n`» output after `echo` (see [[man1:echo]])?
+   * Task: Write a `c8` script that asks user for name,
+     and prints a welcome message either if a user has entered a name or not:
+
+     ```bash
+     $ ./c8
+     Enter your name: Spot
+     Hello, Spot!
+     $ ./c8
+     Enter your name:
+     Hello, tmpuser?
+     ```
+
+   * Hint: In second example user had __not__ pressed «Enter»
