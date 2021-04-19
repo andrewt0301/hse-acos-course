@@ -110,6 +110,23 @@ else
 fi
 ```
 
+Using `2> /dev/null` to redirect error messages out of a terminal:
+
+```bash
+acos@acos-vm:~$ ls nofile
+ls: cannot access 'nofile': No such file or directory
+acos@acos-vm:~$ ls nofile 2> err
+acos@acos-vm:~$ cat err
+ls: cannot access 'nofile': No such file or directory
+acos@acos-vm:~$
+```
+
+#### Task 03:
+
+Rewrite the previous example so that it:
+* outputs the content of `ls` after «YES» message if `ls` is successful;
+* does not to output an error message if `ls` is not successful.
+
 ### Advanced Shell Features
 
 The Shell language has features common for many programming languages such as conditions, loops, and functions.
@@ -143,11 +160,11 @@ fun "$@"
 ## Homework
 
 1. Experiments with the `read` builtin command.
-   * Research: What exit status the command `read` generates? Try it
-     Consult `help read` (e.g. [here](https://www.gnu.org/software/bash/manual/bash.html#index-read))
+   * Research: What exit status the command `read` generates? Try it.
+     Consult [help read](https://www.gnu.org/software/bash/manual/bash.html#index-read)
      command instead of `man read`, because `read` is a Shell builtin and you got manual page on _all_ Shell builtins.
-   * Research: How to suppress «`\n`» output after `echo` (see [[man1:echo]])?
-   * Task: Write a `c8` script that asks user for name,
+   * Research: How to suppress «`\n`» output after [echo](https://man7.org/linux/man-pages/man1/echo.1.html)?
+   * Task: Write a script that asks user for name,
      and prints a welcome message either if a user has entered a name or not:
 
      ```bash
@@ -160,6 +177,40 @@ fun "$@"
      ```
 
    * Hint: In second example user had __not__ pressed «Enter»
+
+1. Read documentation on [expr]() again. Write Shell script `sumsum.sh` that:
+
+   * has function `sum()` that:
+       * sums all of its arguments (any number of arguments is permitted);
+       * prints this sum if there are no errors;
+       * prints `0` if there was error (e.g. attempt to sum non-numbers);
+
+   * redirects all error messages to `/dev/null`;
+   * reads two lines of numbers;
+   * prints whether their sums was equal or not.
+
+   ```bash
+   $ ./sumsum.sh
+   1 3 5
+   2 4 6
+   Not equal
+   $ ./sumsum.sh
+   1 5 6
+   4 4 4
+   Equal
+   $ ./sumsum.sh
+   1 2 w
+   3 4 e
+   Equal
+   $ ./sumsum.sh
+   1 2 1
+   2 2 Q
+   Not equal
+   $ ./sumsum.sh
+   qwe 3 4
+   10 20 -30
+   Equal
+   ```
 
 1. Finish getting access to the [Ubuntu server in the cloud](
    https://andrewt0301.github.io/hse-acos-course/software/cloud_ssh.html).
