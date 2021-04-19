@@ -1,4 +1,4 @@
-Shell Scripts
+Workshop: Shell Scripts
 ---
 
 [Shell](https://en.wikipedia.org/wiki/Shell_script) allows creating simple scripts
