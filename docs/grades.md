@@ -50,7 +50,7 @@ $$M_i = min(10, R_i + B_i)$$
 
 #### Regular Points: 10 points
 
-$$R_i = 10\cdot (\frac{45}{100}\cdot H + \frac{10}{100}\cdot Q + \frac{10}{100}\cdot P + \frac{35}{100}\cdot F)$$
+$$R_i = \frac{45}{100}\cdot H + \frac{10}{100}\cdot Q + \frac{10}{100}\cdot P + \frac{35}{100}\cdot F$$
 
 | Variable | Score | Description |
 | $$H$$    | 45%   | Homework (practical tasks). There are deadlines. 50% penalty for being 1 week late. 75% penalty for larger delays. 100% penalty for cheating. |
