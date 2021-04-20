@@ -85,7 +85,7 @@ Final test for Computer Architecture is [here](part1ca/final_test.md).
 
 1. [Processes and threads.](part2os/06_Processes/lecture.md)
 
-1. [Synchronization.](part2os/07_Synch/lecture.md)
+1. [I/O and files.](part2os/07_Synch/lecture.md)
 
 1. [Inter-process communication.](part2os/08_IPC/lecture.md)
 

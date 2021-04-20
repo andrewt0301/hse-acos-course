@@ -1,13 +1,13 @@
-Lecture 6
+Lecture 7
 ---
 
-# Synchronization
+# I/O and Files
 
 ## Lecture
 
-<!---
 Slides ([PDF](OS_Lecture_07.pdf), [PPTX](OS_Lecture_07.pptx)).
 
+<!---
 Outline:
 -->
 ## Workshop
