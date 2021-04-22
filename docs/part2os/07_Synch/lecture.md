@@ -12,7 +12,7 @@ Outline:
 -->
 ## Workshop
 
-__TODO__
+[Bash](../06_Processes/bash.md)
 
 ## Homework
 
