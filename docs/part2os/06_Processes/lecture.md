@@ -175,10 +175,10 @@ int main() {
 
 ### Threads
 
-* pthread_create
-* pthread_join
-* pthread_exit
-* pthread_detach
+* [pthread_create](https://www.man7.org/linux/man-pages/man3/pthread_create.3.html)
+* [pthread_join](https://man7.org/linux/man-pages/man3/pthread_join.3.html)
+* [pthread_exit](https://man7.org/linux/man-pages/man3/pthread_exit.3.html)
+* [pthread_detach](https://man7.org/linux/man-pages/man3/pthread_detach.3.html)
 
 A simple multithreaded program:
 ```c
