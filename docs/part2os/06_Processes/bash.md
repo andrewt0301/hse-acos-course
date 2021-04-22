@@ -203,12 +203,12 @@ Then do the following:
 
    * has function `sum()` that:
        * sums all of its arguments (any number of arguments is permitted);
-       * prints this sum if there are no errors;
-       * prints `0` if there was error (e.g. attempt to sum non-numbers);
+       * returns this sum if there are no errors;
+       * returns `0` if there was an error (e.g. attempt to sum non-numbers);
 
    * redirects all error messages to `/dev/null`;
    * reads two lines of numbers;
-   * prints whether their sums was equal or not.
+   * prints whether their sums was equal or not (`0` values as a result of errors are considered equal).
 
    ```bash
    $ ./sumsum.sh
@@ -232,6 +232,8 @@ Then do the following:
    10 20 -30
    Equal
    ```
+
+   _Hint_: errors can be checked using the `$?` symbol (status of the last command, must be 0 if successful).
 
 1. Finish getting access to the [Ubuntu server in the cloud](../../software/cloud_ssh.md).
    You must provide a public key, the administrator must create an account, and then you must connect to it.
