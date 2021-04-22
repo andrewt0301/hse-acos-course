@@ -239,3 +239,10 @@ Then do the following:
    * create in your working folder the `os_lab_bash` directory;
    * copy there all files created during this workshop and homework
      (use the [scp](https://man7.org/linux/man-pages/man1/scp.1.html) tool).
+
+# References
+
+* Chapters 8 and 10. [PGLC] Mark G. Sobell, Matthew Helmke.
+  [Practical Guide to Linux Commands, Editors, and Shell Programming.](
+  https://www.pearson.com/store/p/practical-guide-to-linux-commands-editors-and-shell-programming-a/P100000878019/9780134774602)
+  4th Edition. 2018.
