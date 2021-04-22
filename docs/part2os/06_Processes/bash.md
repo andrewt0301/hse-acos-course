@@ -242,7 +242,7 @@ Then do the following:
 
 # References
 
-* Chapters 8 and 10. [PGLC] Mark G. Sobell, Matthew Helmke.
+* Chapters 8 and 10. [[PGLC]](../../books.md) Mark G. Sobell, Matthew Helmke.
   [Practical Guide to Linux Commands, Editors, and Shell Programming.](
   https://www.pearson.com/store/p/practical-guide-to-linux-commands-editors-and-shell-programming-a/P100000878019/9780134774602)
   4th Edition. 2018.
