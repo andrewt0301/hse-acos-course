@@ -49,6 +49,54 @@ PID TTY TIME CMD
   2297 pts/0 00:00:00 ps
 ```
 
+### Environment Variables
+
+Each process maintains a list of environment variables loaded when the process starts.
+
+The list of environment variables defined in the system can be printed with the
+[printenv](https://man7.org/linux/man-pages/man1/printenv.1.html) utility:
+
+```bash
+tatarnikov@akos:~/lab_proc$ printenv
+SHELL=/bin/bash
+PWD=/home/tatarnikov/lab_proc
+LOGNAME=tatarnikov
+HOME=/home/tatarnikov
+LESSCLOSE=/usr/bin/lesspipe %s %s
+XDG_SESSION_CLASS=user
+TERM=xterm
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1001/bus
+SSH_TTY=/dev/pts/0
+OLDPWD=/home/tatarnikov
+_=/usr/bin/printenv
+```
+
+Environment variables can be accessed in C program via
+the [environ](https://man7.org/linux/man-pages/man7/environ.7.html) global variable:
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+extern char **environ;
+
+int main(int argc, char *argv[]) {
+    char **ep;
+    for (ep = environ; *ep != NULL; ep++)
+        puts(*ep);
+    exit(EXIT_SUCCESS);
+}
+```
+
+Also, the following functions for handling environment variables
+are provided in the `<stdlib.h>` header:
+
+* [getenv](https://man7.org/linux/man-pages/man3/getenv.3.html)
+* [putenv](https://man7.org/linux/man-pages/man3/putenv.3.html)
+* [setenv](https://man7.org/linux/man-pages/man3/setenv.3.html)
+* [unsetenv](https://man7.org/linux/man-pages/man3/unsetenv.3p.html)
+* [clearenv](https://man7.org/linux/man-pages/man3/clearenv.3.html)
+
 ### Managing Processes
 
 Linux provides system calls for managing process.
@@ -239,7 +287,7 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-## Homework
+## Tasks
 
 1. Write a program called `fork.c` that creates a child process and waits for it to complete.
    The child process creates another child process and waits for it to complete.
