@@ -12,7 +12,7 @@ Outline:
 -->
 ## Workshop
 
-[Bash](../06_Processes/bash.md)
+[Workshop: Shell Scripts](../06_Processes/bash.md) 
 
 ## Homework
 
