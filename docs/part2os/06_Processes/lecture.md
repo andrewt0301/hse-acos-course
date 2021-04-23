@@ -403,10 +403,28 @@ int main(int argc, char *argv[]) {
    The child process creates another child process and waits for it to complete.
    Each of the processes prints a message that identifies it (e.g. “Hello from Parent”).
 
+<!--
 1. Write a program that runs a command specified as a command-line arguments.
    If the command has arguments itself, the arguments must be forwarded to the command.
    See documentation on the [exec](https://man7.org/linux/man-pages/man3/exec.3.html)
    system call. 
+-->
+
+Write the following programs.
+
+1. `outredir.c` command output_filename, execs a command with stdout redirected to output_filename
+   
+   e. g.: `./outredir ls out_of_ls`
+
+1. `allredir.c` command infile outfile, forks and execs a command with both stdin and stdout redirection,
+   then waits for it to terminate and printfs WEXITSTATUS(wstatus) received
+
+   e. g. `./allredir hexdump out_of_ls dump_file`
+
+1. `argredir.c` infile outfile command arg1 arg2 arg2 ...: rewrite previous program,
+   but use execvp() for executing command with arguments
+
+   e. g. `./argredir out_of_ls dump_file hexdump -C`
 
 # References
 
