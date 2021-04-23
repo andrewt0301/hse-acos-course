@@ -142,6 +142,17 @@ A process has 3 files associated with the streams `stdin`, `stdout`, and `stderr
 |Standard Output | `STDOUT_FILENO` | `1`          |
 |Standard Error  | `STDERR_FILENO` | `2`          |
 
+Here is an example of using these descriptors for output:
+```c
+#include <unistd.h>
+
+int main () {
+    write(STDOUT_FILENO, "STD\n", 5);
+    write(STDERR_FILENO, "ERR\n", 5);
+    return 0;
+}
+```
+
 ### Managing Processes
 
 Linux provides system calls for managing process.
