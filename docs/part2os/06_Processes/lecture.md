@@ -153,6 +153,24 @@ int main () {
 }
 ```
 
+It is possible to redirect standard for a file.
+
+Output:
+
+```bash
+tatarnikov@akos:~$ echo "Hello World" > out.txt
+tatarnikov@akos:~$ cat out.txt
+Hello World
+```
+
+Input:
+
+```bash
+tatarnikov@akos:~$ read a b < out.txt
+tatarnikov@akos:~$ echo "$a $b"
+Hello World
+```
+
 ### Managing Processes
 
 Linux provides system calls for managing process.
