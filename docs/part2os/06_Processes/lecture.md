@@ -133,44 +133,6 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-### Input and Output Redirection
-
-A process has 3 files associated with the streams `stdin`, `stdout`, and `stderr`:
-
-|Stream	         | ID              |  Descriptor  |
-|Standard Input  | `STDIN_FILENO`  | `0`          |
-|Standard Output | `STDOUT_FILENO` | `1`          |
-|Standard Error  | `STDERR_FILENO` | `2`          |
-
-Here is an example of using these descriptors for output:
-```c
-#include <unistd.h>
-
-int main () {
-    write(STDOUT_FILENO, "STD\n", 5);
-    write(STDERR_FILENO, "ERR\n", 5);
-    return 0;
-}
-```
-
-It is possible to redirect standard for a file.
-
-Output:
-
-```bash
-tatarnikov@akos:~$ echo "Hello World" > out.txt
-tatarnikov@akos:~$ cat out.txt
-Hello World
-```
-
-Input:
-
-```bash
-tatarnikov@akos:~$ read a b < out.txt
-tatarnikov@akos:~$ echo "$a $b"
-Hello World
-```
-
 ### Managing Processes
 
 Linux provides system calls for managing process.
@@ -206,6 +168,80 @@ int main() {
         // parent will wait for the child to complete
         wait(NULL);
         printf("Child Complete");
+    }
+    return 0;
+}
+```
+
+### Input and Output Redirection
+
+A process has 3 files associated with the streams `stdin`, `stdout`, and `stderr`:
+
+|Stream	         | ID              |  Descriptor  |
+|Standard Input  | `STDIN_FILENO`  | `0`          |
+|Standard Output | `STDOUT_FILENO` | `1`          |
+|Standard Error  | `STDERR_FILENO` | `2`          |
+
+Here is an example of using these descriptors for output:
+```c
+#include <unistd.h>
+
+int main () {
+    write(STDOUT_FILENO, "STD\n", 5);
+    write(STDERR_FILENO, "ERR\n", 5);
+    return 0;
+}
+```
+
+It is possible to redirect a standard stream to a file.
+
+Output:
+
+```bash
+tatarnikov@akos:~$ echo "Hello World" > out.txt
+tatarnikov@akos:~$ cat out.txt
+Hello World
+```
+
+Input:
+
+```bash
+tatarnikov@akos:~$ read a b < out.txt
+tatarnikov@akos:~$ echo "$a $b"
+Hello World
+```
+
+In C language, this can be done using the [open](https://man7.org/linux/man-pages/man2/openat.2.html),
+[close](https://man7.org/linux/man-pages/man2/close.2.html) and
+[dup2](https://man7.org/linux/man-pages/man2/dup.2.html) system calls.
+
+For example:
+
+```c
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
+int main(int argc, char *argv[]) {
+    char* const command = argv[1];
+    char* const out = argv[2];
+
+    switch (fork()) {
+       case -1: {
+           return -1;
+       }
+       case 0: {
+           int fd = open(out, O_CREAT|O_WRONLY|O_TRUNC, S_IRUSR|S_IWUSR);
+           close(STDOUT_FILENO);
+           dup2(fd, STDOUT_FILENO);
+           execlp(command, command, NULL);
+           break;
+       }
+       default: {
+           wait(NULL);
+           break;
+       }
     }
     return 0;
 }
