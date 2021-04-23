@@ -133,6 +133,15 @@ int main(int argc, char *argv[]) {
 }
 ```
 
+### Input and Output Redirection
+
+A process has 3 files associated with the streams `stdin`, `stdout`, and `stderr`:
+
+|Stream	         | ID              |  Descriptor  |
+|Standard Input  | `STDIN_FILENO`  | `0`          |
+|Standard Output | `STDOUT_FILENO` | `1`          |
+|Standard Error  | `STDERR_FILENO` | `2`          |
+
 ### Managing Processes
 
 Linux provides system calls for managing process.
