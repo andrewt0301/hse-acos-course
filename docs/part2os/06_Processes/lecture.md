@@ -173,6 +173,80 @@ int main() {
 }
 ```
 
+### Input and Output Redirection
+
+A process has 3 files associated with the streams `stdin`, `stdout`, and `stderr`:
+
+|Stream	         | ID              |  Descriptor  |
+|Standard Input  | `STDIN_FILENO`  | `0`          |
+|Standard Output | `STDOUT_FILENO` | `1`          |
+|Standard Error  | `STDERR_FILENO` | `2`          |
+
+Here is an example of using these descriptors for output:
+```c
+#include <unistd.h>
+
+int main () {
+    write(STDOUT_FILENO, "STD\n", 5);
+    write(STDERR_FILENO, "ERR\n", 5);
+    return 0;
+}
+```
+
+It is possible to redirect a standard stream to a file.
+
+Output:
+
+```bash
+tatarnikov@akos:~$ echo "Hello World" > out.txt
+tatarnikov@akos:~$ cat out.txt
+Hello World
+```
+
+Input:
+
+```bash
+tatarnikov@akos:~$ read a b < out.txt
+tatarnikov@akos:~$ echo "$a $b"
+Hello World
+```
+
+In C language, this can be done using the [open](https://man7.org/linux/man-pages/man2/openat.2.html),
+[close](https://man7.org/linux/man-pages/man2/close.2.html) and
+[dup2](https://man7.org/linux/man-pages/man2/dup.2.html) system calls.
+
+For example:
+
+```c
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
+int main(int argc, char *argv[]) {
+    char* const command = argv[1];
+    char* const out = argv[2];
+
+    switch (fork()) {
+       case -1: {
+           return -1;
+       }
+       case 0: {
+           int fd = open(out, O_CREAT|O_WRONLY|O_TRUNC, S_IRUSR|S_IWUSR);
+           close(STDOUT_FILENO);
+           dup2(fd, STDOUT_FILENO);
+           execlp(command, command, NULL);
+           break;
+       }
+       default: {
+           wait(NULL);
+           break;
+       }
+    }
+    return 0;
+}
+```
+
 ### Threads
 
 * [pthread_create](https://www.man7.org/linux/man-pages/man3/pthread_create.3.html)
@@ -328,6 +402,29 @@ int main(int argc, char *argv[]) {
 1. Write a program called `fork.c` that creates a child process and waits for it to complete.
    The child process creates another child process and waits for it to complete.
    Each of the processes prints a message that identifies it (e.g. “Hello from Parent”).
+
+<!--
+1. Write a program that runs a command specified as a command-line arguments.
+   If the command has arguments itself, the arguments must be forwarded to the command.
+   See documentation on the [exec](https://man7.org/linux/man-pages/man3/exec.3.html)
+   system call. 
+-->
+
+Write the following programs.
+
+1. `outredir.c` command output_filename, execs a command with stdout redirected to output_filename
+   
+   e. g.: `./outredir ls out_of_ls`
+
+1. `allredir.c` command infile outfile, forks and execs a command with both stdin and stdout redirection,
+   then waits for it to terminate and printfs WEXITSTATUS(wstatus) received
+
+   e. g. `./allredir hexdump out_of_ls dump_file`
+
+1. `argredir.c` infile outfile command arg1 arg2 arg2 ...: rewrite previous program,
+   but use execvp() for executing command with arguments
+
+   e. g. `./argredir out_of_ls dump_file hexdump -C`
 
 # References
 
