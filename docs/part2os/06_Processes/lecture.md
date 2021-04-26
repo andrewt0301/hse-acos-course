@@ -249,6 +249,8 @@ int main(int argc, char *argv[]) {
 
 ### Connecting Processes with a Pipe
 
+![Pipe](parent-children-pipe.png)
+
 Output of one process can be used as input of another.
 For example, an output of `ls` (list directory) can be used as an input for `wc` (word count).
 
