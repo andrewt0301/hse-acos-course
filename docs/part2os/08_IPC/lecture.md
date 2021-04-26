@@ -5,9 +5,9 @@ Lecture 8
 
 ## Lecture
 
-<!---
-Slides ([PDF](CA_Lecture_01.pdf), [PPTX](CA_Lecture_01.pptx)).
+Slides ([PDF](OS_Lecture_08.pdf), [PPTX](OS_Lecture_08.pptx)).
 
+<!--
 Outline:
 -->
 ## Workshop
