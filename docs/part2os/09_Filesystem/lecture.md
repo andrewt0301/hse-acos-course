@@ -1,15 +1,18 @@
 Lecture 9
 ---
 
-# File System
+# Inter-Process Communication
 
 ## Lecture
 
-<!---
 Slides ([PDF](OS_Lecture_09.pdf), [PPTX](OS_Lecture_09.pptx)).
 
-Outline:
--->
+## Outline
+
+* Signals
+* Message Queues
+* Shared Memory
+
 ## Workshop
 
 __TODO__
