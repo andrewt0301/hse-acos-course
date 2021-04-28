@@ -13,7 +13,7 @@ Slides ([PDF](OS_Lecture_09.pdf), [PPTX](OS_Lecture_09.pptx)).
 * Message Queues
 * Shared Memory
 
-## Workshop
+## Examples
 
 ### Signals
 
@@ -178,6 +178,47 @@ int main(int argc, char *argv[]) {
 ```
 -->
 
+## Workshop
+
+Use lecture examples and modify them.
+
+1. Make 09_IPC directory at the server. Code must reside there.
+
+1. Utilities for managing processes.
+   * `ps -ef`
+   * `pstree`
+   * `ps axu` (BSD-style format)
+   * `ps xf` (BSD style own process only)
+   * `pidof program`
+   * `ls /proc`
+   * `kill proc` / `kill -STOP proc` / `kill -HUP proc` (use two terminals)
+
+1. Create program `proc.c` that waits forever,
+   periodically printfs its PID via `getpid` and the increased counter.
+   A parameter defines the timeout between printfs.
+   * `./proc 5 printfs` once a 5 seconds (using sleep). Examples
+        ```
+        26475: 0
+        26475: 1
+        26475: 2
+        ...
+        ```
+1. Write program `killn.c` to send a signal.
+   * use `/bin/kill -l | head -16` and edit its output to create signal names array.
+   * (!) challenge: use `sed s/regexp/replacement/` to eliminate handwork.
+     Spoiler: much uglier version that does all is
+     `/bin/kill -l | head -16 | sed 's/\(.*\)/"\1",/;1s/^/char *names[]={"NONE", /;$s/,$/};/' | tr '\n' ' '`
+    * `./killn PID NAME` sends PID process signal NAME
+    * see [kill]()
+    * use [perror]() if error occurred
+    * print "No such signal" if NAME isn't found and returns 1 instead of 0
+    * try to `./killn` running `proc 4`, non-existent process, foreign process.
+
+1. Join `catch.c` with child-control program from lecture, name the result `childctl.c`.
+    * `./childctl timeout signalQ signal1 … signaln` should:
+        * print a message once in timeout seconds;
+        * catch signal1 … signaln and print message;
+        * peacefully exit when got signalQ.
 
 ## Homework
 
