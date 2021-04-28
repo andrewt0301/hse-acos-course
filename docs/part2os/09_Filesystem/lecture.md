@@ -203,6 +203,7 @@ Use lecture examples and modify them.
         26475: 2
         ...
         ```
+
 1. Write program `killn.c` to send a signal.
    * use `/bin/kill -l | head -16` and edit its output to create signal names array.
    * (!) challenge: use `sed s/regexp/replacement/` to eliminate handwork.
@@ -213,6 +214,33 @@ Use lecture examples and modify them.
     * use [perror]() if error occurred
     * print "No such signal" if NAME isn't found and returns 1 instead of 0
     * try to `./killn` running `proc 4`, non-existent process, foreign process.
+
+1. Copy `proc.c` to `catch.c` and modify it, adding a signal handler
+
+   * `./catch 5 SIGNAL_NAME1 SIGNAL_NAME2 ...` should print corresponded signals'
+      description (via `strsignal`) when catching a signal instead of falling off
+     (still printing messages once a 5 seconds).
+        * note not all signals can be handled
+
+            ```
+            $ ./catch 5 INT ABRT SEGV
+            26775: 0
+            ^C[Caught: Interrupt]26775: 1
+            26775: 2
+            [Caught: Segmentation fault]26775: 3
+            26775: 4
+            26775: 5
+            [Caught: Aborted]26775: 6
+            26775: 7
+            Illegal instruction
+            $
+            ```
+    
+            ```
+            $ kill -SEGV 26775
+            $ kill -ABRT 26775
+            $ kill -ILL 26772
+            ```
 
 1. Join `catch.c` with child-control program from lecture, name the result `childctl.c`.
     * `./childctl timeout signalQ signal1 … signaln` should:
