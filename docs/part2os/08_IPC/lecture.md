@@ -170,4 +170,5 @@ __TODO__
 
 # References
 
-__TODO__
+* Interprocess communication overview. Chapter 49 in [[TLPI]](../../books.md).
+* 
