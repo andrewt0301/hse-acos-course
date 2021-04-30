@@ -354,21 +354,45 @@ int main(int argc, char *argv[]) {
    system call. 
 -->
 
-Write the following programs.
+Write the following programs:
 
-1. `outredir.c` command output_filename, execs a command with stdout redirected to output_filename
+1. `outredir.c`: `outredir command output_filename`,
+   which execs a command with stdout redirected to output_filename.
    
    e. g.: `./outredir ls out_of_ls`
 
-1. `allredir.c` command infile outfile, forks and execs a command with both stdin and stdout redirection,
-   then waits for it to terminate and printfs WEXITSTATUS(wstatus) received
+1. `allredir.c` : `allredir command infile outfile`,
+   which forks and execs a command with both stdin and stdout redirection,
+   then waits for it to terminate and printfs `WEXITSTATUS(wstatus)` received.
 
    e. g. `./allredir hexdump out_of_ls dump_file`
 
-1. `argredir.c` infile outfile command arg1 arg2 arg2 ...: rewrite previous program,
-   but use execvp() for executing command with arguments
+1. `argredir.c` : `argredir infile outfile command arg1 arg2 arg2 ...`,
+   rewrite previous program,
+   but use [execvp](https://man7.org/linux/man-pages/man3/exec.3.html) for executing command with arguments.
 
    e. g. `./argredir out_of_ls dump_file hexdump -C`
+
+1. `piperedir.c` : `piperedir command1 command2 arg1 arg2 arg3 ...`,
+   which __forks and execs__ `command1`, then __execs__ `command2`,
+   connecting them through an unnamed [pipe](https://man7.org/linux/man-pages/man2/pipe.2.html).
+
+   e. g. `./piperedir date hexdump -C`
+
+## Homework
+
+1. Finish all tasks and send the code.
+1. Improve `argredir.c` to check the error status of all operations performed
+   and print an error message when any errors have occurred:
+   * see the "RETURN VALUE" (or alike) section of each function manpage;
+   * use [perror](https://man7.org/linux/man-pages/man3/perror.3.html).
+1. Write a new program called `pip2redir.c` that resembles `piperedir`,
+   but forks both child processes (like in the lecture materials),
+   waits for both to end, and prints the exit status of both commands.
+   * Note [wait](https://man7.org/linux/man-pages/man2/wait.2.html) returns
+     after either of the children is stopped,
+     you need to check if [ECHILD](https://man7.org/linux/man-pages/man2/wait.2.html)
+     is returned to indicate there is no more living child.
 
 # References
 
