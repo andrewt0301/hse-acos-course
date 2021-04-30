@@ -343,18 +343,11 @@ int main(int argc, char *argv[]) {
 
 ## Tasks
 
-1. Write a program called `fork.c` that creates a child process and waits for it to complete.
+Write the following programs:
+
+0. Write a program called `fork.c` that creates a child process and waits for it to complete.
    The child process creates another child process and waits for it to complete.
    Each of the processes prints a message that identifies it (e.g. “Hello from Parent”).
-
-<!--
-1. Write a program that runs a command specified as a command-line arguments.
-   If the command has arguments itself, the arguments must be forwarded to the command.
-   See documentation on the [exec](https://man7.org/linux/man-pages/man3/exec.3.html)
-   system call. 
--->
-
-Write the following programs:
 
 1. `outredir.c`: `outredir command output_filename`,
    which execs a command with stdout redirected to output_filename.
