@@ -109,7 +109,6 @@ int main(int argc, char *argv[]) {
 ```
 
 A multithreaded program with synchronization:
-
 ```c
 #include <pthread.h>
 #include <stdio.h>
@@ -305,6 +304,8 @@ int main() {
 ```
 
 ## Tasks
+
+Please use the C language and the POSIX thread library.
 
 1. Write a multithreaded program that calculates various statistical values
    for a list of numbers. This program will be passed a series of numbers
