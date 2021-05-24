@@ -20,6 +20,12 @@ Slides ([PDF](OS_Lecture_08.pdf), [PPTX](OS_Lecture_08.pptx)).
 * [pthread_exit](https://man7.org/linux/man-pages/man3/pthread_exit.3.html)
 * [pthread_detach](https://man7.org/linux/man-pages/man3/pthread_detach.3.html)
 
+_Compiling_:
+
+```bash
+gcc thread1.c -o thread -lpthread
+```
+
 A simple multithreaded program:
 ```c
 #include <pthread.h>
@@ -165,6 +171,12 @@ int main(int argc, char *argv[]) {
 
 ### Threads in C++
 
+_Compiling_:
+
+```bash
+g++ -Wall -g -std=c++0x -pthread threads.cpp -o threads
+```
+
 Class `std::thread` from library `<thread>`:
 
 ```cpp
@@ -210,12 +222,6 @@ int main() {
 }
 ```
 
-_Compile_:
-
-```bash
-g++ -Wall -g -std=c++0x -pthread threads.cpp -o threads
-```
-
 Mutexes, locks, and conditional variables:
 
 ```cpp
@@ -258,6 +264,43 @@ int main() {
     std::thread consumer(consumer_thread, 10);
     producer.join();
     consumer.join();
+}
+```
+
+Atomic and thread local variables:
+
+```cpp
+#include <iostream>
+#include <atomic>
+#include <mutex>
+#include <thread>
+#include <vector>
+
+thread_local int local_counter = 0;
+std::atomic<int> global_counter{0};
+std::mutex m;
+
+void increment(int howmany) {
+    for (int i = 0; i < howmany; ++i) {
+        local_counter++;
+        global_counter++;
+    }
+    std::lock_guard<std::mutex> g(m);
+    std::cout << "Thread exiting with local = " << local_counter
+              << " and global = " << global_counter << std::endl;
+}
+
+void run_threads(int thread_count, int increments_per_thread) {
+    std::vector<std::thread> threads;
+    for (int i = 0; i < thread_count; ++i)
+        threads.push_back(std::thread(increment, increments_per_thread));
+    for (int i = 0; i < thread_count; ++i)
+        threads[i].join();
+}
+
+int main() {
+    run_threads(5, 10);
+    return 0;
 }
 ```
 
