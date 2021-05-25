@@ -363,5 +363,9 @@ __TODO__
 
 # References
 
-* Interprocess communication overview. Chapter 49 in [[TLPI]](../../books.md).
+* [Synchronization](https://en.wikipedia.org/wiki/Synchronization_%28computer_science%29) (Wikipedia)
+* [Critical section](https://en.wikipedia.org/wiki/Critical_section) (Wikipedia)
+* [Spinlock](https://en.wikipedia.org/wiki/Spinlock) (Wikipedia)
+* Interprocess communication overview. Chapter 49 in [[TLPI]](../../books.md)
 * [Thread support in C++](https://en.cppreference.com/w/cpp/thread)
+
