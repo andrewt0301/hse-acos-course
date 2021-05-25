@@ -173,6 +173,88 @@ int main(int argc, char *argv[]) {
 }
 ```
 
+Conditional variables:
+
+```c
+#include <pthread.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+static pthread_mutex_t m = PTHREAD_MUTEX_INITIALIZER;
+static pthread_cond_t cv_full = PTHREAD_COND_INITIALIZER;
+static pthread_cond_t cv_empty = PTHREAD_COND_INITIALIZER;
+
+static int data;
+static int data_ready;
+
+typedef struct {
+   int count;
+   int* items;
+} array;
+
+static void * producerFunc(void *arg) {
+    array* parr = (array *) arg;
+    int count = (*parr).count;
+    int *items = (*parr).items;
+    for (int i = 0; i < count; ++i) {
+        pthread_mutex_lock(&m);
+        while (data_ready) {
+            pthread_cond_wait(&cv_empty, &m);
+        }
+        data = items[i];
+        printf("produced %d\n", data);
+        data_ready = 1;
+        pthread_mutex_unlock(&m);
+        pthread_cond_signal(&cv_full);
+    }
+}
+
+static void * consumerFunc(void *arg) {
+    int items = (int) arg;
+    for (int i = 0; i < items; ++i) {
+        pthread_mutex_lock(&m);
+        while (!data_ready) {
+            pthread_cond_wait(&cv_full, &m);
+        }
+        printf("consumed %d\n", data);
+        data_ready = 0;
+        pthread_mutex_unlock(&m);
+        pthread_cond_signal(&cv_empty);
+   }
+}
+
+int main() {
+    int items[] = {1, 1, 2, 3, 5, 8, 13, 21, 34, 55};
+    pthread_t producer, consumer;
+    array arr;
+    int s;
+    arr.count = sizeof(items) / sizeof(int);
+    arr.items = items;
+    s = pthread_create(&producer, NULL, producerFunc, &arr);
+    if (s != 0) {
+        perror("pthread_create");
+        return -1;
+    }
+    s = pthread_create(&consumer, NULL, consumerFunc, (void *) arr.count);
+    if (s != 0) {
+        perror("pthread_create");
+        return -1;
+    }
+    s = pthread_join(producer, NULL);
+    if (s != 0) {
+        perror("pthread_join");
+        return -1;
+    }
+    s = pthread_join(consumer, NULL);
+    if (s != 0) {
+        perror("pthread_join");
+        return -1;
+    }
+    exit(EXIT_SUCCESS);
+}
+```
+
+
 ### Threads in C++
 
 _Compiling_:
