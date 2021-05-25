@@ -20,18 +20,21 @@ Slides ([PDF](OS_Lecture_08.pdf), [PPTX](OS_Lecture_08.pptx)).
 
 ### Threads in C
 
-* [pthread_create](https://www.man7.org/linux/man-pages/man3/pthread_create.3.html)
-* [pthread_join](https://man7.org/linux/man-pages/man3/pthread_join.3.html)
-* [pthread_exit](https://man7.org/linux/man-pages/man3/pthread_exit.3.html)
-* [pthread_detach](https://man7.org/linux/man-pages/man3/pthread_detach.3.html)
-
-_Compiling_:
+#### Compiling
 
 ```bash
 gcc thread1.c -o thread -lpthread
 ```
 
-A simple multithreaded program:
+#### Simple multithreaded program
+
+Functions:
+* [pthread_create](https://www.man7.org/linux/man-pages/man3/pthread_create.3.html)
+* [pthread_join](https://man7.org/linux/man-pages/man3/pthread_join.3.html)
+* [pthread_exit](https://man7.org/linux/man-pages/man3/pthread_exit.3.html)
+* [pthread_detach](https://man7.org/linux/man-pages/man3/pthread_detach.3.html)
+
+
 ```c
 #include <pthread.h>
 #include <stdio.h>
@@ -64,7 +67,8 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-A multithreaded program without synchronization:
+#### Multithreaded program without synchronization
+
 ```c
 #include <pthread.h>
 #include <stdio.h>
@@ -113,7 +117,12 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-A multithreaded program with synchronization:
+#### Multithreaded program with synchronization (mutexes):
+
+Functions:
+* [pthread_mutex_lock](https://man7.org/linux/man-pages/man3/pthread_mutex_lock.3p.html)
+* [pthread_mutex_unlock](https://man7.org/linux/man-pages/man3/pthread_mutex_lock.3p.html)
+
 ```c
 #include <pthread.h>
 #include <stdio.h>
@@ -173,7 +182,12 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-Conditional variables:
+#### Conditional variables
+
+Functions:
+* [pthread_cond_signal](https://man7.org/linux/man-pages/man3/pthread_cond_broadcast.3p.html)
+* [pthread_cond_broadcast](https://man7.org/linux/man-pages/man3/pthread_cond_broadcast.3p.html)
+* [pthread_cond_wait](https://man7.org/linux/man-pages/man3/pthread_cond_wait.3p.html)
 
 ```c
 #include <pthread.h>
@@ -257,13 +271,13 @@ int main() {
 
 ### Threads in C++
 
-_Compiling_:
+#### Compiling:
 
 ```bash
 g++ -Wall -g -std=c++0x -pthread threads.cpp -o threads
 ```
 
-Class `std::thread` from library `<thread>`:
+#### Class `std::thread` from library `<thread>`
 
 ```cpp
 #include <iostream>
@@ -308,7 +322,7 @@ int main() {
 }
 ```
 
-Mutexes, locks, and conditional variables:
+#### Mutexes, locks, and conditional variables
 
 ```cpp
 #include <condition_variable>
@@ -353,7 +367,7 @@ int main() {
 }
 ```
 
-Atomic and thread local variables:
+#### Atomic and thread local variables
 
 ```cpp
 #include <iostream>
