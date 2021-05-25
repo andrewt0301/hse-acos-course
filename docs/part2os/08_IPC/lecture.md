@@ -11,7 +11,12 @@ Slides ([PDF](OS_Lecture_08.pdf), [PPTX](OS_Lecture_08.pptx)).
 
 ### Outline
 
-* TODO
+* Threads
+* Spinlocks
+* Mutexes and locks
+* Conditional variables
+* Thread local variables
+* Atomic variables
 
 ### Threads in C
 
