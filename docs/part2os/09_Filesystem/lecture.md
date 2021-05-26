@@ -324,6 +324,21 @@ Utilities for managing processes:
 
 To get detailed documentation, use the [man](https://man7.org/linux/man-pages/man1/man.1.html) utility.
 
+#### Foreground and background processes
+
+* Foreground
+    * Interactive process (can input and output)
+    * Can be only one per a terminal
+    * Run like this: `./endless`
+* Background
+    * Can only output
+    * Can be any number
+    * Run like this: `./endless &` (__&__ at the end)
+* Changing type
+    * `Ctrl-Z` to stop (or send `SIGSTOP` / `SIGTSTP`)
+    * `fg` to continue in foreground
+    * `bg` to continue in background
+
 ### Tasks
 
 1. Make the `09_IPC` directory at the server. Code must reside there.
