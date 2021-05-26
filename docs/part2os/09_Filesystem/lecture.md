@@ -345,14 +345,14 @@ To get detailed documentation, use the [man](https://man7.org/linux/man-pages/ma
 
 1. Compile program `endless.c` from the lecture. Perform the following actions with it:
 
-   * run it in the background;
-   * stop it;
-   * resume it in foreground;
-   * send it the `SIGINT` signal to terminate
+   * runs it in the background;
+   * stops it;
+   * resumes it in foreground;
+   * sends it the `SIGINT` signal to terminate:
        * use `ps -a` to get the list of running processes and their IDs;
        * use another instance of terminal to send a signal.
 
-1. Create program `proc.c` (modify `endless.c`) that:
+1. Create program `proc.c` (modify `endless.c` from the lecture) that:
 
    * waits forever;
    * periodically printfs its PID via [getpid](https://man7.org/linux/man-pages/man2/getpid.2.html) and the increased counter;
