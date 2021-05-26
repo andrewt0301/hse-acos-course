@@ -343,17 +343,30 @@ To get detailed documentation, use the [man](https://man7.org/linux/man-pages/ma
 
 1. Make the `09_IPC` directory at the server. Code must reside there.
 
-1. Create program `proc.c` that waits forever,
-   periodically printfs its PID via [getpid](https://man7.org/linux/man-pages/man2/getpid.2.html)
-   and the increased counter. A parameter defines the timeout between printfs.
-   * `./proc 5` printfs once a 5 seconds (using [sleep](https://man7.org/linux/man-pages/man3/sleep.3.html)).
-   Examples:
-       ```
-       26475: 0
-       26475: 1
-       26475: 2
-       ...
-       ```
+1. Compile program `endless.c` from the lecture. Perform the following actions with it:
+
+   * run it in the background;
+   * stop it;
+   * resume it in foreground;
+   * send it the `SIGINT` signal to terminate
+       * use `ps -a` to get the list of running processes and their IDs;
+       * use another instance of terminal to send a signal.
+
+1. Create program `proc.c` (modify `endless.c`) that:
+
+   * waits forever;
+   * periodically printfs its PID via [getpid](https://man7.org/linux/man-pages/man2/getpid.2.html) and the increased counter;
+   * uses a command-line argument to define the timeout between printfs.
+
+   For example, `./proc 5` printfs once a 5 seconds
+   (using [sleep](https://man7.org/linux/man-pages/man3/sleep.3.html)):
+
+   ```
+   26475: 0
+   26475: 1
+   26475: 2
+   ...
+   ```
 
 1. Write program `killn.c` to send a signal.
    * use `/bin/kill -l | head -16` and edit its output to create signal names array.
