@@ -369,15 +369,14 @@ To get detailed documentation, use the [man](https://man7.org/linux/man-pages/ma
    ```
 
 1. Write program `killn.c` to send a signal.
-   * use `/bin/kill -l | head -16` and edit its output to create signal names array.
-   * (!) challenge: use `sed s/regexp/replacement/` to eliminate handwork.
-     Spoiler: much uglier version that does all is
-     `/bin/kill -l | head -16 | sed 's/\(.*\)/"\1",/;1s/^/char *names[]={"NONE", /;$s/,$/};/' | tr '\n' ' '`
-    * `./killn PID NAME` sends PID process signal NAME
-    * see [kill](https://man7.org/linux/man-pages/man2/kill.2.html)
-    * use [perror](https://man7.org/linux/man-pages/man3/perror.3.html) if error occurred
-    * print "No such signal" if NAME isn't found and returns 1 instead of 0
-    * try to `./killn` running `proc 4`, non-existent process, foreign process.
+   * use `kill -l` and edit its output to create signal names array;
+       *  _challenge_: you can use the [sed](https://man7.org/linux/man-pages/man1/sed.1.html)
+          utility (`sed s/regexp/replacement/g`) to eliminate handwork;
+   * `./killn PID NAME` sends `PID` process signal `NAME`;
+   * see [kill](https://man7.org/linux/man-pages/man2/kill.2.html);
+   * use [perror](https://man7.org/linux/man-pages/man3/perror.3.html) if an error occurred;
+   * print "No such signal" if `NAME` is not found and returns `1` instead of `0`;
+   * try to `./killn` running `proc 4`, non-existent process, foreign process.
 
 1. Copy `proc.c` to `catch.c` and modify it, adding a signal handler
 
