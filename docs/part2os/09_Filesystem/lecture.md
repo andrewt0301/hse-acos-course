@@ -17,14 +17,17 @@ Slides ([PDF](OS_Lecture_09.pdf), [PPTX](OS_Lecture_09.pptx)).
 
 ### Signals
 
-Never-ending program:
+Never-ending program (to be used to send signals). 
+
+__endless.c:__
+
 ```c
 #include <stdio.h>
 #include <unistd.h>
 
-int main(intargc, char *argv[]) {
+int main(int argc, char *argv[]) {
    int i;
-   for (i=0;; i++) {
+   for (i = 0;; i++) {
        sleep(1);
        printf("%d\n", i);
    }
@@ -32,7 +35,10 @@ int main(intargc, char *argv[]) {
 }
 ```
 
-Sending signals in a C program:
+Sending signals in a C program.
+
+__killn.c__:
+
 ```c
 #include <stdio.h>
 #include <sys/types.h>
@@ -40,13 +46,17 @@ Sending signals in a C program:
 #include <stdlib.h>
 
 int main(int argc, char *argv[]) {
-    if (kill(atoi(argv[1]), atoi(argv[2])))
+    if (kill(atoi(argv[1]), atoi(argv[2]))) {
         perror("Failed to kill");
+    }
     return 0;
 }
 ```
 
-Handling signals in C programs:
+Handling signals in C programs.
+
+__catch.c:__
+
 ```c
 #include <stdio.h>
 #include <unistd.h>
@@ -61,7 +71,7 @@ int main(int argc, char *argv[]) {
     signal(SIGSEGV, handler);
     
     int i;
-    for (i=0;; i++) {
+    for (i = 0;; i++) {
        sleep(1);
        printf("%d\n", i);
     }
@@ -69,7 +79,10 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-Monitoring child processes:
+Monitoring child processes.
+
+__waitchild.c__:
+
 ```c
 #include <stdio.h>
 #include <wait.h>
@@ -79,16 +92,16 @@ Monitoring child processes:
 int main(int argc, char *argv[]) {
     int stat;
     pid_t pid;
-    
     if ((pid = fork()) == 0) {
         while(1);
     } else {
         printf("Forking a child: %d\n", pid);
         wait(&stat);
         printf("And finally…\n");
-        
-        if (WIFSIGNALED(stat))
+
+        if (WIFSIGNALED(stat)) {
             psignal(WTERMSIG(stat), "Terminated:");
+        }
         printf("Exit status: %d\n", stat);
     }
     return 0;
@@ -261,6 +274,36 @@ int main(int argc, char *argv[]) {
 
 * Practice with signals
 * Study, run, and modify the lecture examples.
+
+### Information
+
+Getting the list of signals supported in your Linux or MacOS:
+```bash
+kill -l
+```
+
+Getting documentation on the `kill` utility that sends signals to processes:
+```bash
+man kill
+```
+
+Getting documentation on the `kill` system call:
+```bash
+man 2 kill
+```
+
+Important signals:
+
+* `SIGINT`   (2) - Interrupt process from terminal (`Ctrl-C`).
+* `SIGTERM` (15) - Request terminating process (can be handled). Sent by default.
+* `SIGKILL`  (9) - Immediately terminate process (cannot be handled).
+* `SIGSTOP` (19) - Stop a process for later resumption (cannot be handled).
+* `SIGTSTP` (20) - Request stop process (`Ctrl-Z`, can be handled). 
+* `SIGCONT` (18) - Continue (restart) process previously paused by `SIGSTOP` or `SIGTSTP`. 
+* `SIGHUP`   (1) - Terminal is closed.
+* `SIGCHLD` (17) - Child process exits, is interrupted, or resumes. 
+
+See the full list in [Wikipedia](https://en.wikipedia.org/wiki/Signal_%28IPC%29).
 
 ### Tasks
 
