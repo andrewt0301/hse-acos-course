@@ -275,19 +275,21 @@ int main(int argc, char *argv[]) {
 * Practice with signals
 * Study, run, and modify the lecture examples.
 
-### Information
+### Notes
 
-Getting the list of signals supported in your Linux or MacOS:
+#### Signals
+
+List of signals supported in your Linux or MacOS:
 ```bash
 kill -l
 ```
 
-Getting documentation on the `kill` utility that sends signals to processes:
+Documentation on the `kill` utility that sends signals to processes:
 ```bash
 man kill
 ```
 
-Getting documentation on the `kill` system call:
+Documentation on the `kill` system call:
 ```bash
 man 2 kill
 ```
@@ -305,18 +307,25 @@ Important signals:
 
 See the full list in [Wikipedia](https://en.wikipedia.org/wiki/Signal_%28IPC%29).
 
+#### Managing processes
+
+Utilities for managing processes:
+
+* `ps`
+* `ps -a`
+* `ps -ef`
+* `pstree`
+* `ps axu` (BSD-style format)
+* `ps xf` (BSD style own process only)
+* `pidof program`
+* `ls /proc`
+* `kill proc` / `kill -STOP proc` / `kill -HUP proc` (use two terminals)
+
+To get detailed documentation, use the [man](https://man7.org/linux/man-pages/man1/man.1.html) utility.
+
 ### Tasks
 
 1. Make the `09_IPC` directory at the server. Code must reside there.
-
-1. Utilities for managing processes.
-   * `ps -ef`
-   * `pstree`
-   * `ps axu` (BSD-style format)
-   * `ps xf` (BSD style own process only)
-   * `pidof program`
-   * `ls /proc`
-   * `kill proc` / `kill -STOP proc` / `kill -HUP proc` (use two terminals)
 
 1. Create program `proc.c` that waits forever,
    periodically printfs its PID via [getpid](https://man7.org/linux/man-pages/man2/getpid.2.html)
