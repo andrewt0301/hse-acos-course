@@ -296,13 +296,14 @@ man 2 kill
 
 Important signals:
 
+* `SIGHUP`   (1) - Terminal is closed.
 * `SIGINT`   (2) - Interrupt process from terminal (`Ctrl-C`).
-* `SIGTERM` (15) - Request terminating process (can be handled). Sent by default.
+* `SIGQUIT`  (3) - Terminate process and dumps core (`Ctrl-\`).
 * `SIGKILL`  (9) - Immediately terminate process (cannot be handled).
+* `SIGTERM` (15) - Request terminating process (can be handled). Sent by default.
 * `SIGSTOP` (19) - Stop a process for later resumption (cannot be handled).
 * `SIGTSTP` (20) - Request stop process (`Ctrl-Z`, can be handled). 
 * `SIGCONT` (18) - Continue (restart) process previously paused by `SIGSTOP` or `SIGTSTP`. 
-* `SIGHUP`   (1) - Terminal is closed.
 * `SIGCHLD` (17) - Child process exits, is interrupted, or resumes. 
 
 See the full list in [Wikipedia](https://en.wikipedia.org/wiki/Signal_%28IPC%29).
