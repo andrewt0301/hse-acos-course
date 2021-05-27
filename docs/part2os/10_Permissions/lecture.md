@@ -25,7 +25,9 @@ _Use the local Ubuntu VM (Cloud does not allow creating new account and groups -
    * [useradd](https://man7.org/linux/man-pages/man8/useradd.8.html),
      [usermod](https://man7.org/linux/man-pages/man8/usermod.8.html),
      [userdel](https://man7.org/linux/man-pages/man8/userdel.8.html);
-   * [chmod](https://man7.org/linux/man-pages/man1/chmod.1.html);
+   * [chmod](https://man7.org/linux/man-pages/man1/chmod.1.html),
+     [chown](https://man7.org/linux/man-pages/man1/chown.1.html),
+     [chgrp](https://man7.org/linux/man-pages/man1/chgrp.1.html);
    * [groupadd](https://man7.org/linux/man-pages/man8/groupadd.8.html),
      [groupmod](https://man7.org/linux/man-pages/man8/groupmod.8.html),
      [groupdel](https://man7.org/linux/man-pages/man8/groupdel.8.html);
