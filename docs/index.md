@@ -89,7 +89,7 @@ Final test for Computer Architecture is [here](part1ca/final_test.md).
 
 1. [Synchronization.](part2os/08_IPC/lecture.md)
 
-1. [Inter-process communication.](part2os/09_Filesystem/lecture.md)
+1. [Inter-process communication.](part2os/09_IPC/lecture.md)
 
 1. [Users, groups, and permissions.](part2os/10_Permissions/lecture.md)
 

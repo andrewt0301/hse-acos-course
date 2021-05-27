@@ -108,6 +108,9 @@ int main(int argc, char *argv[]) {
 }
 ```
 
+See documentation on the [wait](https://man7.org/linux/man-pages/man2/wait.2.html)
+system call for details. Pay attention to the macros to get process status information.
+
 ### Message Queues
 
 Creating a message queue:
@@ -371,47 +374,49 @@ To get detailed documentation, use the [man](https://man7.org/linux/man-pages/ma
 1. Write program `killn.c` to send a signal.
    * use `kill -l` and edit its output to create signal names array;
        *  _challenge_: you can use the [sed](https://man7.org/linux/man-pages/man1/sed.1.html)
-          utility (`sed s/regexp/replacement/g`) to eliminate handwork;
+          utility (`sed s/regexp/replacement/g`) to eliminate handwork:
+          * start with `kill -l | sed -z 's/\n//g`;
    * `./killn PID NAME` sends `PID` process signal `NAME`;
    * see [kill](https://man7.org/linux/man-pages/man2/kill.2.html);
    * use [perror](https://man7.org/linux/man-pages/man3/perror.3.html) if an error occurred;
    * print "No such signal" if `NAME` is not found and returns `1` instead of `0`;
    * try to `./killn` running `proc 4`, non-existent process, foreign process.
 
-1. Copy `proc.c` to `catch.c` and modify it, adding a signal handler
-
-   * `./catch 5 SIGNAL_NAME1 SIGNAL_NAME2 ...` should print corresponded signals'
+1. Copy `proc.c` to `catchsig.c` and modify it, adding a signal handler.
+   * `./catch 5 SIGNAL_NAME1 SIGNAL_NAME2 ...` should print corresponding signal's
    description (via [strsignal](https://man7.org/linux/man-pages/man3/strsignal.3.html))
-   when catching a signal instead of falling off (still printing messages once a 5 seconds).
-      * note not all signals can be handled
+   when catching a signal instead of falling off (still printing messages once a 5 seconds);
+   * note not all signals can be handled.
 
-         ```
-         $ ./catch 5 INT ABRT SEGV
-         26775: 0
-         ^C[Caught: Interrupt]26775: 1
-         26775: 2
-         [Caught: Segmentation fault]26775: 3
-         26775: 4
-         26775: 5
-         [Caught: Aborted]26775: 6
-         26775: 7
-         Illegal instruction
-         $
-         ```
-    
-         ```
-         $ kill -SEGV 26775
-         $ kill -ABRT 26775
-         $ kill -ILL 26772
-         ```
+   ```
+   $ ./catchsig 5 INT ABRT SEGV
+   26775: 0
+   ^C[Caught: Interrupt]26775: 1
+   26775: 2
+   [Caught: Segmentation fault]26775: 3
+   26775: 4
+   26775: 5
+   [Caught: Aborted]26775: 6
+   26775: 7
+   Illegal instruction
+   $
+   ```
 
-1. Join `catch.c` with child-control program from the lecture, name the result `childctl.c`.
-    * `./childctl timeout signalQ signal1 … signaln` should:
-        * print a message once in timeout seconds;
-        * catch `signal1` ... `signaln` and print message;
-        * peacefully exit when got `signalQ`.
+   ```
+   $ kill -SEGV 26775
+   $ kill -ABRT 26775
+   $ kill -ILL 26772
+   ```
+
+1. Join `catchsig.c` with child-control program from the lecture, name the result `childctl.c`.
+   * `./childctl timeout signalQ signal1 ... signaln` should:
+       * print a message once in timeout seconds;
+       * catch `signal1` ... `signaln` and print message;
+       * peacefully exit when got `signalQ`.
 
 ## Homework
+
+_Note:_ All required theory is provided in the lecture materials (see above).
 
 1. Finish all programs from the workshop (and send them).
 
