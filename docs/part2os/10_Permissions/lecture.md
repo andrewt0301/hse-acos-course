@@ -16,6 +16,28 @@ Slides ([PDF](OS_Lecture_10.pdf), [PPTX](OS_Lecture_10.pptx)).
 
 ## Workshop
 
+_Use the local Ubuntu VM (Cloud does not allow creating new account and groups - only admins can do this)._
+
+1. Study documentation on system utilities for managing users and their permissions:
+   * [su](https://man7.org/linux/man-pages/man1/su.1.html),
+     [sudo](https://man7.org/linux/man-pages/man8/sudo.8.html),
+     [passwd](https://man7.org/linux/man-pages/man1/passwd.1.html);
+   * [useradd](https://man7.org/linux/man-pages/man8/useradd.8.html),
+     [usermod](https://man7.org/linux/man-pages/man8/usermod.8.html),
+     [userdel](https://man7.org/linux/man-pages/man8/userdel.8.html);
+   * [chmod](https://man7.org/linux/man-pages/man1/chmod.1.html);
+   * [groupadd](https://man7.org/linux/man-pages/man8/groupadd.8.html),
+     [groupmod](https://man7.org/linux/man-pages/man8/groupmod.8.html),
+     [groupdel](https://man7.org/linux/man-pages/man8/groupdel.8.html);
+   * [ln](https://man7.org/linux/man-pages/man1/ln.1.html).
+
+1. Create a new user:
+   * switch to the root mode: `su` (type the password `acos2020`);
+   * create a new user: `root@acos-vm:/home/acos# useradd -m myuser`;
+   * set a password for this user: `root@acos-vm:/home/acos# passwd myuser`;
+   * switch to the new user: `https://man7.org/linux/man-pages/man1/passwd.1.html`;
+   * check the current user ID: `whoami`.
+
 __TODO__
 
 ## Homework
