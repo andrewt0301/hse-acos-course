@@ -40,10 +40,10 @@ _Use the local Ubuntu VM (Cloud does not allow creating new account and groups -
    * add a new group: `root@acos-vm:/home/acos# groupadd mygroup`;
    * see the user and the group added in configuration files:
      ```
-     root@acos-vm:/home/acos# cat /etc/group | grep mygroup
-     mygroup:x:1003:
      root@acos-vm:/home/acos# cat /etc/passwd | grep myuser
      myuser:x:1002:1002::/home/myuser:/bin/sh 
+     root@acos-vm:/home/acos# cat /etc/group | grep mygroup
+     mygroup:x:1003:
      ```
    * switch to the new user: `https://man7.org/linux/man-pages/man1/passwd.1.html`;
    * check the current user ID: `whoami`.
