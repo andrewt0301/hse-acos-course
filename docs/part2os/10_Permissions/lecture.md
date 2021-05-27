@@ -33,12 +33,20 @@ _Use the local Ubuntu VM (Cloud does not allow creating new account and groups -
      [groupdel](https://man7.org/linux/man-pages/man8/groupdel.8.html);
    * [ln](https://man7.org/linux/man-pages/man1/ln.1.html).
 
-1. Create a new user:
+1. Create a new user and group:
    * switch to the root mode: `su` (type the password `acos2020`);
    * create a new user: `root@acos-vm:/home/acos# useradd -m myuser`;
    * set a password for this user: `root@acos-vm:/home/acos# passwd myuser`;
+   * add a new group: `root@acos-vm:/home/acos# groupadd mygroup`; 
    * switch to the new user: `https://man7.org/linux/man-pages/man1/passwd.1.html`;
    * check the current user ID: `whoami`.
+
+1. Create a folder for experiments:
+   * create a folder: `Lab_10`;
+   * 
+   
+   root@acos-vm:/home/acos# cat /etc/group | grep mygroup
+   mygroup:x:1003:
 
 __TODO__
 
