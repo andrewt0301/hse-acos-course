@@ -50,10 +50,25 @@ _Use the local Ubuntu VM (Cloud does not allow creating new account and groups -
 
 1. Create a folder for experiments:
    * create a folder: `Lab_10`;
-   * 
-   
-   root@acos-vm:/home/acos# cat /etc/group | grep mygroup
-   mygroup:x:1003:
+
+1. Make experiments with hard and soft links:
+      * create files;
+      * create hard and soft links;
+      * see their properties;
+      * modify the files;
+      * delete links.
+   ```bash
+   tatarnikov@akos:~$ mkdir links
+   tatarnikov@akos:~$ cd links/
+   tatarnikov@akos:~/links$ nanomyfile.txt
+   tatarnikov@akos:~/links$ ln myfile.txt hardlink
+   tatarnikov@akos:~/links$ ln myfile.txt -s softlink
+   tatarnikov@akos:~/links$ ls -li
+   total 8
+   1030979 -rw-rw-r--2 tatarnikovtatarnikov19 May 24 05:33 hardlink
+   1030979 -rw-rw-r--2 tatarnikovtatarnikov19 May 24 05:33 myfile.txt
+   1030978 lrwxrwxrwx1 tatarnikovtatarnikov10 May 24 05:33 softlink-> myfile.txt
+   ```
 
 __TODO__
 
