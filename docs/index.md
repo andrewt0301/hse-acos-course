@@ -93,7 +93,7 @@ Final test for Computer Architecture is [here](part1ca/final_test.md).
 
 1. [Users, groups, and permissions.](part2os/10_Permissions/lecture.md)
 
-1. [Devices and other special files.](part2os/11_Permissions/lecture.md)
+1. [Virtual Machines.](part2os/11_VM/lecture.md)
 
 1. [Shell. I/O redirection.](part2os/12_Shell/lecture.md)
 

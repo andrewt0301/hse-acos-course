@@ -1,15 +1,16 @@
 Lecture 11
 ---
 
-# Permissions.
+# Virtual Machines.
 
 ## Lecture
 
-<!---
 Slides ([PDF](OS_Lecture_11.pdf), [PPTX](OS_Lecture_11.pptx)).
 
+<!---
 Outline:
 -->
+
 ## Workshop
 
 __TODO__
