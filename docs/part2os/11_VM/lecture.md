@@ -21,4 +21,7 @@ __TODO__
 
 # References
 
-__TODO__
+* Virtual Machines. Chapter 18 in [[OSC]](../../books.md).
+* [Hypervisor](https://en.wikipedia.org/wiki/Hypervisor).  
+* [VirtualBox](https://en.wikipedia.org/wiki/VirtualBox).
+* [QEMU](https://en.wikipedia.org/wiki/QEMU).
