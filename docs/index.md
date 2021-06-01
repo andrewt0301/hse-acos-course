@@ -95,7 +95,7 @@ Final test for Computer Architecture is [here](part1ca/final_test.md).
 
 1. [Virtual Machines.](part2os/11_VM/lecture.md)
 
-1. [Shell. I/O redirection.](part2os/12_Shell/lecture.md)
+1. [Networking.](part2os/12_Networking/lecture.md)
 
 1. [SystemD services.](part2os/13_SystemD/lecture.md)
 
