@@ -111,7 +111,7 @@ Final test for Computer Architecture is [here](part1ca/final_test.md).
 
 1. [High-level languages and operating system.](part2os/19_Python/lecture.md)
 
-1. [Workshop: Linux Kernel Modules](part2os/XX_Linux_Modules)
+1. [Workshop: Linux Kernel Modules](part2os/XX_Linux_Modules/lecture.md)
 
 ## Grading System
 
