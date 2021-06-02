@@ -90,7 +90,7 @@ _Use the local Ubuntu VM (Cloud does not allow creating new account and groups -
      ```
    * create a file under user `acos` and see its ownership:
      ``` 
-     acos@acos-vm:~/Lab_10/files$ echo "ACOS text" > acosfile
+     acos@acos-vm:~/Lab_10/files$ echo -e '#!/bin/sh\necho "ACOS"' > acosfile
      acos@acos-vm:~/Lab_10/files$ ls -li
      total 4
      794688 -rw-rw-r-- 1 acos acos 10 июн  3 01:01 acosfile
@@ -102,7 +102,7 @@ _Use the local Ubuntu VM (Cloud does not allow creating new account and groups -
      Password: 
      $ pwd
      /home/acos/Lab_10/files
-     $ echo "Myuser Text" > myuserfile        
+     $ echo -e '#!/bin/sh\necho "MYFILE"' > myuserfile        
      $ ls -li
      total 8
      794688 -rw-rw-r-- 1 acos   acos   10 июн  3 01:01 acosfile
