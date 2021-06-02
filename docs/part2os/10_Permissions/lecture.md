@@ -39,7 +39,7 @@ _Use the local Ubuntu VM (Cloud does not allow creating new account and groups -
    * set a password for this user: `root@acos-vm:/home/acos# passwd myuser`;
    * add a new group: `root@acos-vm:/home/acos# groupadd mygroup`;
    * see the user and the group added in configuration files:
-     ```
+     ```bash
      root@acos-vm:/home/acos# cat /etc/passwd | grep myuser
      myuser:x:1002:1002::/home/myuser:/bin/sh 
      root@acos-vm:/home/acos# cat /etc/group | grep mygroup
@@ -50,20 +50,20 @@ _Use the local Ubuntu VM (Cloud does not allow creating new account and groups -
 
 1. Add the user to the group:
    * add `myuser` to `mygroup`:
-     ```
+     ```bash
      root@acos-vm:/home/acos# usermod -a -G mygroup myuser
      ```
    * see that the user is added to the group:
-     ```
+     ```bash
      root@acos-vm:/home/acos# cat /etc/group | grep mygroup
      mygroup:x:1003:myuser
      ```
    * add `myuser` to `acos`:
-     ```
+     ```bash
      root@acos-vm:/home/acos# usermod -a -G acos  myuser
      ```
    * see that the user is added to the group:
-     ```
+     ```bash
      root@acos-vm:/home/acos# cat /etc/group | grep acos
      adm:x:4:syslog,acos
      cdrom:x:24:acos
@@ -80,25 +80,24 @@ _Use the local Ubuntu VM (Cloud does not allow creating new account and groups -
    * create a folder: `Lab_10`;
 
 1. Make experiments with hard and soft links:
-      * create files;
-      * create hard and soft links;
-      * see their properties;
-      * modify the files;
-      * delete links.
+   * create folder `Lab_10/links`;
+   * create files;
+   * create hard and soft links;
+   * see their properties;
+   * modify the files;
+   * delete links.
    ```bash
-   tatarnikov@akos:~$ mkdir links
-   tatarnikov@akos:~$ cd links/
-   tatarnikov@akos:~/links$ nanomyfile.txt
-   tatarnikov@akos:~/links$ ln myfile.txt hardlink
-   tatarnikov@akos:~/links$ ln myfile.txt -s softlink
-   tatarnikov@akos:~/links$ ls -li
+   acos@acos-vm:~/Lab_10$ mkdir links
+   acos@acos-vm:~/Lab_10$ cd links/
+   acos@acos-vm:~/Lab_10/links$ nano myfile.txt
+   acos@acos-vm:~/Lab_10/links$ ln myfile.txt hardlink
+   acos@acos-vm:~/Lab_10/links$ ln myfile.txt -s softlink
+   acos@acos-vm:~/Lab_10/links$ ls -li
    total 8
-   1030979 -rw-rw-r--2 tatarnikovtatarnikov19 May 24 05:33 hardlink
-   1030979 -rw-rw-r--2 tatarnikovtatarnikov19 May 24 05:33 myfile.txt
-   1030978 lrwxrwxrwx1 tatarnikovtatarnikov10 May 24 05:33 softlink-> myfile.txt
+   794685 -rw-rw-r-- 2 acos acos  5 июн  3 00:51 hardlink
+   794685 -rw-rw-r-- 2 acos acos  5 июн  3 00:51 myfile.txt
+   793985 lrwxrwxrwx 1 acos acos 10 июн  3 00:52 softlink -> myfile.txt
    ```
-
-__TODO__
 
 ## Homework
 
