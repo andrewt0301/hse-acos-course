@@ -88,7 +88,7 @@ _Use the local Ubuntu VM (Cloud does not allow creating new account and groups -
      acos@acos-vm:~/Lab_10$ mkdir files
      acos@acos-vm:~/Lab_10$ cd files/
      ```
-   * create a file under user `acos` and see its ownership:
+   * create a file under user `acos` and see its ownership and permissions:
      ``` 
      acos@acos-vm:~/Lab_10/files$ echo -e '#!/bin/sh\necho "ACOS"' > acosfile
      acos@acos-vm:~/Lab_10/files$ ls -li
@@ -96,7 +96,7 @@ _Use the local Ubuntu VM (Cloud does not allow creating new account and groups -
      794688 -rw-rw-r-- 1 acos acos 10 июн  3 01:01 acosfile
      acos@acos-vm:~/Lab_10/files$ 
      ```
-   * switch to `myuser`, create a file, and see its ownership:
+   * switch to `myuser`, create a file, and see its ownership and permissions:
      ```
      acos@acos-vm:~/Lab_10/files$ su myuser
      Password: 
@@ -107,6 +107,64 @@ _Use the local Ubuntu VM (Cloud does not allow creating new account and groups -
      total 8
      794688 -rw-rw-r-- 1 acos   acos   10 июн  3 01:01 acosfile
      794689 -rw-rw-r-- 1 myuser myuser 12 июн  3 01:04 myuserfile
+     ```
+
+1. Make experiments with permissions:
+   * switch back to `acos`:
+     ```bash
+     $ exit
+     acos@acos-vm:~/Lab_10/files$
+     ```
+   * try to execute `acosfile`:
+     ```bash
+     acos@acos-vm:~/Lab_10/files$ ./acosfile
+     -bash: ./acosfile: Permission denied
+     ```
+   * assign the execute permission to `acosfile` for user `acos` and execute it:
+     ```bash
+     acos@acos-vm:~/Lab_10/files$ chmod u+x acosfile   
+     acos@acos-vm:~/Lab_10/files$ ./acosfile 
+     ACOS
+     ```
+   * switch to `myuser` and try to execute `acosfile`:
+     ```bash 
+     acos@acos-vm:~/Lab_10/files$ su myuser
+     Password: 
+     $ ./acosfile    
+     sh: 1: ./acosfile: Permission denied
+     ```
+   * switch back to `acos`, add the execute permissionto the group, switch to `myuser`, and execute `acosfile`:
+     ```bash
+     $ exit
+     acos@acos-vm:~/Lab_10/files$ chmod g+x acosfile 
+     acos@acos-vm:~/Lab_10/files$ su myuser
+     Password: 
+     $ ./acosfile    
+     ACOS
+     ```
+
+1. Make experiments with ownership:
+   * give the execute permission for `myuserfile` to `myuser`:
+     ```bash
+     $ chmod u+x myuserfile 
+     ```
+   * switch back to `acos`:  
+     ```bash
+     $ exit
+     acos@acos-vm:~/Lab_10/files$
+     ```
+   * try to execute `myuserfile`:
+     ```bash
+     acos@acos-vm:~/Lab_10/files$ ./myuserfile
+     -bash: ./myuserfile: Permission denied
+     ```
+   * change ownership of `myuserfile` to `acos` and execute it:
+     ```bash
+     acos@acos-vm:~/Lab_10/files$ sudo chown acos myuserfile
+     [sudo] password for acos: 
+     MYFILE
+     acos@acos-vm:~/Lab_10/files$ ./myuserfile 
+     MYFILE
      ```
 
 1. Make experiments with hard and soft links:
