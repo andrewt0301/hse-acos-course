@@ -77,7 +77,37 @@ _Use the local Ubuntu VM (Cloud does not allow creating new account and groups -
      ```
 
 1. Create a folder for experiments:
-   * create a folder: `Lab_10`;
+   * create folder `Lab_10`:
+     ```bash
+     acos@acos-vm:~$ mkdir Lab_10
+     ```
+
+1. Create files for experiments with ownership:
+   * create folder `files`:
+     ```bash
+     acos@acos-vm:~/Lab_10$ mkdir files
+     acos@acos-vm:~/Lab_10$ cd files/
+     ```
+   * create a file under user `acos` and see its ownership:
+     ``` 
+     acos@acos-vm:~/Lab_10/files$ echo "ACOS text" > acosfile
+     acos@acos-vm:~/Lab_10/files$ ls -li
+     total 4
+     794688 -rw-rw-r-- 1 acos acos 10 июн  3 01:01 acosfile
+     acos@acos-vm:~/Lab_10/files$ 
+     ```
+   * switch to `myuser`, create a file, and see its ownership:
+     ```
+     acos@acos-vm:~/Lab_10/files$ su myuser
+     Password: 
+     $ pwd
+     /home/acos/Lab_10/files
+     $ echo "Myuser Text" > myuserfile        
+     $ ls -li
+     total 8
+     794688 -rw-rw-r-- 1 acos   acos   10 июн  3 01:01 acosfile
+     794689 -rw-rw-r-- 1 myuser myuser 12 июн  3 01:04 myuserfile
+     ```
 
 1. Make experiments with hard and soft links:
    * create folder `Lab_10/links`;
