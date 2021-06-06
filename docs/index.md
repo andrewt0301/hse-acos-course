@@ -101,11 +101,7 @@ Final test for Computer Architecture is [here](part1ca/final_test.md).
 
 1. [Sockets.](part2os/14_Sockets/lecture.md)
 
-1. [Networking.](part2os/15_Network/lecture.md)
-
 1. [Distributed operating systems.](part2os/16_Distributed/lecture.md)
-
-1. [Virtualization.](part2os/17_Virtualization/lecture.md)
 
 1. [Security.](part2os/18_Security/lecture.md)
 
