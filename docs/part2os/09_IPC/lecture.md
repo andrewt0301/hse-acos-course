@@ -383,7 +383,7 @@ To get detailed documentation, use the [man](https://man7.org/linux/man-pages/ma
    * try to `./killn` running `proc 4`, non-existent process, foreign process.
 
 1. Copy `proc.c` to `catchsig.c` and modify it, adding a signal handler.
-   * `./catch 5 SIGNAL_NAME1 SIGNAL_NAME2 ...` should print corresponding signal's
+   * `./catchsig 5 SIGNAL_NAME1 SIGNAL_NAME2 ...` should print corresponding signal's
    description (via [strsignal](https://man7.org/linux/man-pages/man3/strsignal.3.html))
    when catching a signal instead of falling off (still printing messages once a 5 seconds);
    * note not all signals can be handled.
