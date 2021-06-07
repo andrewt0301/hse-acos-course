@@ -97,7 +97,7 @@ Final test for Computer Architecture is [here](part1ca/final_test.md).
 
 1. [Networking.](part2os/12_Networking/lecture.md)
 
-1. [Sockets.](part2os/14_Sockets/lecture.md)
+1. [Sockets.](part2os/13_Sockets/lecture.md)
 
 1. [SystemD services.](part2os/13_SystemD/lecture.md)
 
