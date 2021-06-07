@@ -25,7 +25,19 @@ Examples:
 
 ## Workshop
 
-__TODO__
+Socket system calls
+
+Common
+* [socket](https://man7.org/linux/man-pages/man2/socket.2.html)
+* [close](https://man7.org/linux/man-pages/man2/close.2.html)
+
+Client
+* [connect](https://man7.org/linux/man-pages/man2/connect.2.html)
+
+Server
+* [bind](https://man7.org/linux/man-pages/man2/bind.2.html)
+* [listen](https://man7.org/linux/man-pages/man2/listen.2.html)
+* [accept](https://man7.org/linux/man-pages/man2/accept.2.html)
 
 ## Homework
 
