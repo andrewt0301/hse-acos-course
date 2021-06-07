@@ -15,9 +15,7 @@ int main(int argc, char *argv[]) {
 
     bind(fd, (const struct sockaddr *) &srv, USIZE);
 
-    sendto(fd, argv[2], strlen(argv[2]), 0,
-                      (const struct sockaddr *) &srv, USIZE);
+    sendto(fd, argv[2], strlen(argv[2]), 0, (const struct sockaddr *) &srv, USIZE);
 
-    
     return 0;
 }

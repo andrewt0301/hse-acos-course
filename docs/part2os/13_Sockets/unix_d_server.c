@@ -22,7 +22,7 @@ int main(int argc, char *argv[]) {
 
     rsz = recv(fd, dgram, DSIZE, 0);
     for(i=0; i<rsz; i++)
-	printf("%02x ", dgram[i]);
+    printf("%02x ", dgram[i]);
     putchar('\n');
 
     remove(argv[1]);

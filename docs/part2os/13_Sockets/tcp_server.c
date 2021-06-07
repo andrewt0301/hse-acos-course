@@ -19,19 +19,16 @@ int main(int argc, char *argv[]) {
     inet_pton(AF_INET, argv[1], &srv.sin_addr);
 
     fd = socket(AF_INET, SOCK_STREAM, 0);
-    
     bind(fd, (struct sockaddr *)&srv, ISIZE);
-
     listen(fd, MAXCONN);
 
     while(1) {
-	cfd = accept(fd, NULL, NULL);
-	sz = read(cfd, buf, BUFSIZE);
-	for(i=0; i<sz; i++)
-	    buf[i] = toupper(buf[i]);
-	write(cfd, buf, sz);
-	close(cfd);
+        cfd = accept(fd, NULL, NULL);
+        sz = read(cfd, buf, BUFSIZE);
+        for(i=0; i<sz; i++)
+            buf[i] = toupper(buf[i]);
+        write(cfd, buf, sz);
+        close(cfd);
     }
-
     return 0;
 }
