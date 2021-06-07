@@ -41,6 +41,13 @@ Examples:
 * [listen](https://man7.org/linux/man-pages/man2/listen.2.html)
 * [accept](https://man7.org/linux/man-pages/man2/accept.2.html)
 
+#### Send/Receive
+
+* [read](https://man7.org/linux/man-pages/man2/read.2.html)
+* [write](https://man7.org/linux/man-pages/man2/write.2.html)
+* [send](https://man7.org/linux/man-pages/man2/send.2.html)
+* [recv](https://man7.org/linux/man-pages/man2/recv.2.html)
+
 ## Homework
 
 __TODO__
