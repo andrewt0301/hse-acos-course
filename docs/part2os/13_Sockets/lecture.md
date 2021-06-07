@@ -1,7 +1,7 @@
 Lecture 13
 ---
 
-# Sockets.
+# Sockets
 
 ## Lecture
 
@@ -27,11 +27,11 @@ Examples:
 
 __TODO__
 
-
 ## Homework
 
 __TODO__
 
 # References
 
-__TODO__
+* [OSI model](https://en.wikipedia.org/wiki/OSI_model) (Wikipedia)
+* [Internet protocol suite](https://en.wikipedia.org/wiki/Internet_protocol_suite) (Wikipedia)
