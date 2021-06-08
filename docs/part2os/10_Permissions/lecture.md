@@ -268,7 +268,7 @@ _Use the local Ubuntu VM (Cloud does not allow creating new account and groups -
      cat: dir/file1.txt: Permission denied
      ```
    * return the execute permission, take the read permission, and try to access files:
-     ```
+     ```bash
      acos@acos-vm:~/Lab_10$ chmod a-r+x dir/
      acos@acos-vm:~/Lab_10$ ls dir/
      ls: cannot open directory 'dir/': Permission denied
