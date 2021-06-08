@@ -267,15 +267,14 @@ _Use the local Ubuntu VM (Cloud does not allow creating new account and groups -
      acos@acos-vm:~/Lab_10$ cat dir/file1.txt 
      cat: dir/file1.txt: Permission denied
      ```
-    * return the execute permission, take the read permission, and try to access files:
-    ```
-    acos@acos-vm:~/Lab_10$ chmod a-r+x dir/
-    acos@acos-vm:~/Lab_10$ ls dir/
-    ls: cannot open directory 'dir/': Permission denied
-    acos@acos-vm:~/Lab_10$ cat dir/file1.txt 
-    Hello!
-
-    ```
+   * return the execute permission, take the read permission, and try to access files:
+     ```
+     acos@acos-vm:~/Lab_10$ chmod a-r+x dir/
+     acos@acos-vm:~/Lab_10$ ls dir/
+     ls: cannot open directory 'dir/': Permission denied
+     acos@acos-vm:~/Lab_10$ cat dir/file1.txt 
+     Hello!
+     ```
 
 1. Make experiments with hard and soft links:
    * create folder `Lab_10/links`;
