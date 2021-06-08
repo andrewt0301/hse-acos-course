@@ -246,6 +246,37 @@ _Use the local Ubuntu VM (Cloud does not allow creating new account and groups -
       ```
       __The owner of the created file is `acos`, the group is `acos`.__
 
+1. Make experiments with directory permissions:
+   * create folder `dir` with two files `file1.txt` and `file2.txt` and see its permissions: 
+     ```bash   
+     acos@acos-vm:~/Lab_10$ mkdir dir
+     acos@acos-vm:~/Lab_10$ cd dir/
+     acos@acos-vm:~/Lab_10/dir$ nano file1.txt
+     acos@acos-vm:~/Lab_10/dir$ nano file2.txt
+     acos@acos-vm:~/Lab_10/dir$ cd ..
+     acos@acos-vm:~/Lab_10$ ls -li -d dir/
+     786494 drwxrwxr-x 2 acos acos 4096 июн  8 11:21 dir/
+     ```
+   * take the execute permission from the directory and try to access its files:
+     ```bash
+     acos@acos-vm:~/Lab_10$ chmod a-x dir/
+     acos@acos-vm:~/Lab_10$ ls dir/
+     ls: cannot access 'dir/file2.txt': Permission denied
+     ls: cannot access 'dir/file1.txt': Permission denied
+     file1.txt  file2.txt
+     acos@acos-vm:~/Lab_10$ cat dir/file1.txt 
+     cat: dir/file1.txt: Permission denied
+     ```
+    * return the execute permission, take the read permission, and try to access files:
+    ```
+    acos@acos-vm:~/Lab_10$ chmod a-r+x dir/
+    acos@acos-vm:~/Lab_10$ ls dir/
+    ls: cannot open directory 'dir/': Permission denied
+    acos@acos-vm:~/Lab_10$ cat dir/file1.txt 
+    Hello!
+
+    ```
+
 1. Make experiments with hard and soft links:
    * create folder `Lab_10/links`;
    * create files;
