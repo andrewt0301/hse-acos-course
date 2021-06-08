@@ -167,6 +167,85 @@ _Use the local Ubuntu VM (Cloud does not allow creating new account and groups -
      MYFILE
      ```
 
+1. Make experiments with `setuid`/`setguid` permissions:
+   * create folder `setuid`:
+     ```bash
+     acos@acos-vm:~/Lab_10$ mkdir setuid
+     acos@acos-vm:~/Lab_10$ cd setuid/
+     ```
+   * write program `hello.c` that prints text to file `hello.txt`:
+     ```c
+     #include <sys/stat.h>
+     #include <fcntl.h>
+     #include <unistd.h>
+   
+     int main() {
+         char hello[] = "Hello, World!";
+         int fd = open("hello.txt", O_CREAT | O_WRONLY, S_IRUSR | S_IWUSR);
+         write(fd, hello, sizeof(hello));
+         close(fd);
+     }
+     ```
+   * compile and run it under `acos` and see the result:
+     ```bash
+     acos@acos-vm:~/Lab_10/setuid$ gcc hello.c -o hello
+     acos@acos-vm:~/Lab_10/setuid$ ./hello 
+     acos@acos-vm:~/Lab_10/setuid$ ls -li
+     total 28
+     786637 -rwxrwxr-x 1 acos acos 16832 июн  8 10:53 hello
+     792456 -rw-rw-r-- 1 acos acos   236 июн  8 10:53 hello.c
+     787959 -rw------- 1 acos acos    14 июн  8 10:53 hello.txt   
+     ```
+     __The owner of the created file is `acos`, the group is `acos`.__
+    * remove the file:
+      ```bash
+      acos@acos-vm:~/Lab_10/setuid$ rm hello.txt
+      ```
+    * switch to `myuser`, run the program, and see the results.  
+      ```bash
+      acos@acos-vm:~/Lab_10/setuid$ su myuser
+      Password:
+      $ ./hello
+      $ ls -li
+      total 28
+      786637 -rwxrwxr-x 1 acos   acos   16832 июн  8 10:53 hello
+      792456 -rw-rw-r-- 1 acos   acos     236 июн  8 10:53 hello.c
+      786453 -rw------- 1 myuser myuser    14 июн  8 11:02 hello.txt
+      ```
+      __The owner of the created file is `myuser`, the group is `myuser`.__
+    * remove the file
+    * switch to `acos`, give the `setgid` permission to `hello`, run it under `myuser`,
+      and see the results:
+      ```bash
+      $ exit
+      acos@acos-vm:~/Lab_10/setuid$ chmod g+s hello
+      acos@acos-vm:~/Lab_10/setuid$ su myuser
+      Password:
+      $ ./hello
+      $ ls -li
+      total 28
+      786637 -rwxrwsr-x 1 acos   acos 16832 июн  8 10:53 hello
+      792456 -rw-rw-r-- 1 acos   acos   236 июн  8 10:53 hello.c
+      786453 -rw------- 1 myuser acos    14 июн  8 11:08 hello.txt
+      ```
+      __The owner of the created file is `myuser`, the group is `acos`.__
+    * remove the file  
+    * switch to `acos`, give the `setuid` permission to `hello`, run it under `myuser`,
+      and see the results:
+      ```bash
+      $ exit
+      acos@acos-vm:~/Lab_10/setuid$ chmod u+s hello
+      acos@acos-vm:~/Lab_10/setuid$ su myuser
+      Password: 
+      $ ./hello
+      $ ls -li
+      total 28
+      786637 -rwsrwsr-x 1 acos acos 16832 июн  8 10:53 hello
+      792456 -rw-rw-r-- 1 acos acos   236 июн  8 10:53 hello.c
+      786453 -rw------- 1 acos acos    14 июн  8 11:15 hello.txt
+      ```
+      __The owner of the created file is `acos`, the group is `acos`.__
+
 1. Make experiments with hard and soft links:
    * create folder `Lab_10/links`;
    * create files;
@@ -189,7 +268,9 @@ _Use the local Ubuntu VM (Cloud does not allow creating new account and groups -
 
 ## Homework
 
-__TODO__
+* Read documentation.
+* Do all the tasks from the workshop.
+* Make sure you understand everything.
 
 # References
 
