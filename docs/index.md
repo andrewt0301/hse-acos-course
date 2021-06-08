@@ -99,14 +99,6 @@ Final test for Computer Architecture is [here](part1ca/final_test.md).
 
 1. [Sockets.](part2os/13_Sockets/lecture.md)
 
-1. [SystemD services.](part2os/13_SystemD/lecture.md)
-
-1. [Distributed operating systems.](part2os/16_Distributed/lecture.md)
-
-1. [Security.](part2os/18_Security/lecture.md)
-
-1. [High-level languages and operating system.](part2os/19_Python/lecture.md)
-
 1. [Workshop: Linux Kernel Modules](part2os/XX_Linux_Modules/lecture.md)
 
 ## Grading System
