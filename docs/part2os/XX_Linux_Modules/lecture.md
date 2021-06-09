@@ -252,7 +252,7 @@ ssize_t proc_read(
     char buffer[BUFFER_SIZE];
     static int completed = 0;
     if (completed) {
-    completed = 0;
+        completed = 0;
         return 0;
     }
     completed = 1;
