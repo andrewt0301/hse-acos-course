@@ -223,7 +223,7 @@ int main(int argc, char *argv[]) {
 
 ### Shared Memory
 
-Creating shared memory:
+#### Creating shared memory
 
 __crt_shm.c__:
 ```c
@@ -250,7 +250,7 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-Writing to shared memory:
+#### Writing to shared memory
 
 __wrt_shm.c__:
 ```c
@@ -272,13 +272,13 @@ int main(int argc, char *argv[]) {
     addr = mmap(NULL, len, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
     close(fd);
 
-    printf("Copying %d bytes\n", len);
+    printf("Copying %ld bytes\n", len);
     memcpy(addr, argv[2], len);
     return 0;
 }
 ```
 
-Reading from shared memory:
+#### Reading from shared memory
 
 __rd_shm.c__:
 ```c
@@ -304,7 +304,7 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-Unlinking shared memory:
+#### Unlinking shared memory
 
 __unl_shm.c:__
 ```c
@@ -318,6 +318,37 @@ int main(int argc, char *argv[]) {
     }
     return 0;
 }
+```
+
+#### Running examples
+
+Like `mqueue`, shared memory objects can be created, viewed, and unlinked via `/dev/shm` filesystem.
+Moreover, viewing a shared memory file is just dumping its content.
+
+Compile:
+```bash
+acos@acos-vm:~/shmem$ gcc crt_shm.c -lrt -o crt_shm
+acos@acos-vm:~/shmem$ gcc wrt_shm.c -lrt -o wrt_shm
+acos@acos-vm:~/shmem$ gcc rd_shm.c -lrt -o rd_shm
+acos@acos-vm:~/shmem$ gcc unl_shm.c -lrt -o unl_shm
+acos@acos-vm:~/shmem$ ls
+crt_shm    rd_shm    unl_shm    wrt_shm
+crt_shm.c  rd_shm.c  unl_shm.c  wrt_shm.c
+```
+
+Run:
+```bash
+acos@acos-vm:~/shmem$ ./crt_shm /shmem 0
+acos@acos-vm:~/shmem$ ls -l /dev/shm/
+total 0
+-rw------- 1 acos acos 0 июн  9 11:52 shmem
+acos@acos-vm:~/shmem$ ./wrt_shm /shmem 'Hello!'
+Copying 6 bytes
+acos@acos-vm:~/shmem$ ./rd_shm /shmem
+Hello!
+... Doneacos@acos-vm:~/shmem$ ./unl_shm /shmem
+acos@acos-vm:~/shmem$ ls -l /dev/shm/
+total 0
 ```
 
 ## Workshop
