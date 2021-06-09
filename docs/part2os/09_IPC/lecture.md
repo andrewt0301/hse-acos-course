@@ -190,7 +190,9 @@ syscall asks kernel to _map_ selected file to the virtual memory address range.
 After this done, the range can be used as an ordinary _array_ filled with file's contents.
 The file has not to be read into memory completely, Linux use paging mechanism to represent corresponded file parts.
 
-The example below is a simple `cat` analog that mmaps file and than just writes it to `stdout`.
+The example below is a simple `cat` analog that
+[mmaps](https://man7.org/linux/man-pages/man2/mmap.2.html) file and than just
+[writes](https://man7.org/linux/man-pages/man3/fwrite.3p.html) it to `stdout`.
 
 __mmcat.c__:
 
