@@ -452,6 +452,10 @@ _Note:_ All required theory is provided in the lecture materials (see above).
    * exit after getting `signalQ` three times;
    * check every syscall return values on error state.
 
+## Bonus Tasks
+
+Bonus tasks on message queues are [here](workshop_messages.md).
+
 # References
 
 * Interprocess communication overview. Chapter 49 in [[TLPI]](../../books.md).
