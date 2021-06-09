@@ -161,6 +161,7 @@ int main(int argc, char *argv[]) {
 To send a message program should open a queue write-only and perform
 the [mq_send](https://man7.org/linux/man-pages/man3/mq_send.3.html) system call:
 
+__snd_mq.c__:
 ```c
 #include <mqueue.h>
 #include <fcntl.h>
@@ -187,6 +188,7 @@ _Earliest_ message from __higher priority__ messages subset is to be delivered f
 To receive a message, program has to call [mq_receive](
 https://man7.org/linux/man-pages/man3/mq_receive.3.html):
 
+__rec_mq.c:__
 ```c
 #include <mqueue.h>
 #include <fcntl.h>
@@ -208,6 +210,41 @@ int main(intargc, char *argv[]) {
    return 0;
 }
 ```
+* knowing nothing about message size,
+  program must retrieve this value from queue attributes to provide an appropriate space in read buffer;
+* there is no mechanism of message _typification_, so only size is printed.
+
+#### Unlinking a message queue
+
+To remove a queue, call [mq_unlink](
+https://man7.org/linux/man-pages/man2/mq_unlink.2.html):
+
+```c
+#include <mqueue.h>
+#include <stdio.h>
+
+int main(int argc, char *argv[]) {
+    if (mq_unlink(argv[1])) {
+        perror("mq_unlink");
+        return -1;
+    }
+    return 0;
+}
+```
+
+#### Notifying message delivery
+
+
+Every [mq_receive](https://man7.org/linux/man-pages/man3/mq_receive.3.html) call returns a message if there as one.
+If the queue is empty,
+`mq_receive()` can wait for message or return with fail status, depending on `O_NONBLOCK` flag.
+There is an alternate method to notify program by signal:
+a program calls [mq_notify](https://man7.org/linux/man-pages/man3/mq_notify.3.html)
+to _subscribe_ on a certain queue.
+Every time a message arrives in a queue,
+the program gets a _signal_ described in `mq_notify()` and can handle message asynchronously.
+
+See an example in [mq_notify](https://man7.org/linux/man-pages/man3/mq_notify.3.html).
 
 ### Memory Mapping
 
