@@ -21,7 +21,6 @@ Slides ([PDF](OS_Lecture_09.pdf), [PPTX](OS_Lecture_09.pptx)).
 Never-ending program (to be used to send signals). 
 
 __endless.c:__
-
 ```c
 #include <stdio.h>
 #include <unistd.h>
@@ -39,7 +38,6 @@ int main(int argc, char *argv[]) {
 Sending signals in a C program.
 
 __killn.c__:
-
 ```c
 #include <stdio.h>
 #include <sys/types.h>
@@ -57,7 +55,6 @@ int main(int argc, char *argv[]) {
 Handling signals in C programs.
 
 __catch.c:__
-
 ```c
 #include <stdio.h>
 #include <unistd.h>
@@ -83,7 +80,6 @@ int main(int argc, char *argv[]) {
 Monitoring child processes.
 
 __waitchild.c__:
-
 ```c
 #include <stdio.h>
 #include <wait.h>
@@ -114,7 +110,30 @@ system call for details. Pay attention to the macros to get process status infor
 
 ### Message Queues
 
-Creating a message queue:
+Disadvantage of signals:
+
+* one byte;
+* totally asynchronous;
+* idempotent (this can be cool sometimes, but still).
+
+POSIX message queues:
+
+* synchronous;
+* can store content;
+* can be queued;
+* can be prioritized.
+
+Different messages can be delivered over separate queues.
+
+Detals on message queues can be found in the [mq_overview](
+https://man7.org/linux/man-pages/man7/mq_overview.7.html) manual page.
+
+#### Creating a message queue
+
+A message queue can be created with the
+[mq_open](https://man7.org/linux/man-pages/man3/mq_open.3.html) system call.
+
+__crt_mq.c__:
 ```c
 #include <mqueue.h>
 #include <sys/stat.h>
@@ -131,8 +150,17 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 ```
+* queue is for 10 messages 2048 bytes each;
+* queue is creating for read/write if there's no queue with the same name or else an error is generated;
+* omitting `O_EXCL` allows re-creating a queue with the same name,
+  clearing all messages, which is probably not a good idea;
+* permissions of the object created are `00600` (`rw-------`).
 
-Sending a message to queue:
+#### Sending a message to queue
+
+To send a message program should open a queue write-only and perform
+the [mq_send](https://man7.org/linux/man-pages/man3/mq_send.3.html) system call:
+
 ```c
 #include <mqueue.h>
 #include <fcntl.h>
@@ -148,8 +176,17 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 ```
+* priority varies from 0 (lowest) to system-depended maximum (at least 31, 32767 in Linux);
+* message content is a byte array, it does __not__ have to be zero-terminating string.
 
-Receiving a message:
+POSIX queue provides prioritization mechanism.
+_Earliest_ message from __higher priority__ messages subset is to be delivered first.
+
+#### Receiving a message
+
+To receive a message, program has to call [mq_receive](
+https://man7.org/linux/man-pages/man3/mq_receive.3.html):
+
 ```c
 #include <mqueue.h>
 #include <fcntl.h>
