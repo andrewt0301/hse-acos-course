@@ -145,8 +145,8 @@ int main(int argc, char *argv[]) {
     struct mq_attr attr;
     attr.mq_maxmsg = 10;
     attr.mq_msgsize = 2048;
-    
-    mqd = mq_open(argv[1], O_RDWR|O_CREAT|O_EXCL, S_IRUSR|S_IWUSR, attr);
+
+    mqd = mq_open(argv[1], O_RDWR|O_CREAT|O_EXCL, S_IRUSR|S_IWUSR, &attr);
     return 0;
 }
 ```
@@ -195,7 +195,7 @@ __rec_mq.c:__
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(intargc, char *argv[]) {
+int main(int argc, char *argv[]) {
    mqd_t mqd;
    unsigned int prio;
    void *buf;
@@ -219,6 +219,7 @@ int main(intargc, char *argv[]) {
 To remove a queue, call [mq_unlink](
 https://man7.org/linux/man-pages/man2/mq_unlink.2.html):
 
+__unl_mq.c__:
 ```c
 #include <mqueue.h>
 #include <stdio.h>
@@ -234,7 +235,6 @@ int main(int argc, char *argv[]) {
 
 #### Notifying message delivery
 
-
 Every [mq_receive](https://man7.org/linux/man-pages/man3/mq_receive.3.html) call returns a message if there as one.
 If the queue is empty,
 `mq_receive()` can wait for message or return with fail status, depending on `O_NONBLOCK` flag.
@@ -245,6 +245,52 @@ Every time a message arrives in a queue,
 the program gets a _signal_ described in `mq_notify()` and can handle message asynchronously.
 
 See an example in [mq_notify](https://man7.org/linux/man-pages/man3/mq_notify.3.html).
+
+#### Running examples
+
+POSIX message API is implemented in the `librt` library, so compile program with `-lrt` option.
+
+A user can create queue by [touch](https://man7.org/linux/man-pages/man1/touch.1.html)-ing arbitrary file
+in the `/dev/mqueue/` directory and unlink it just by removing the file object:
+
+* Note: `mqueue` is a _virtual_ file system.
+  That means it holds no files on no devices, but _emulates_ file object via OS file interface.
+* System administrator can also manipulate with `/proc/sys/fs/mqueue/*` files,
+  which are, again, just implementation of Linux "configuring through virtual filesystem" concept.
+
+Compile:
+```bash
+acos@acos-vm:~/mmap/mqueue$ gcc crt_mq.c -lrt -o crt_mq 
+acos@acos-vm:~/mmap/mqueue$ gcc snd_mq.c -lrt -o snd_mq
+acos@acos-vm:~/mmap/mqueue$ gcc rec_mq.c -lrt -o rec_mq
+acos@acos-vm:~/mmap/mqueue$ gcc unl_mq.c -lrt -o unl_mq
+acos@acos-vm:~/mmap/mqueue$ ls
+crt_mq  crt_mq.c  rec_mq  rec_mq.c  snd_mq  snd_mq.c  unl_mq  unl_mq.c
+```
+
+Run:
+```bash
+acos@acos-vm:~/mmap/mqueue$ ./crt_mq /queue
+acos@acos-vm:~/mmap/mqueue$ ls /dev/mqueue/ -l
+total 0
+-rw------- 1 acos acos 80 июн  9 13:30 queue
+acos@acos-vm:~/mmap/mqueue$ ./snd_mq /queue 5 Five
+acos@acos-vm:~/mmap/mqueue$ ./snd_mq /queue 10 Ten
+acos@acos-vm:~/mmap/mqueue$ ./snd_mq /queue 5 Five_2
+acos@acos-vm:~/mmap/mqueue$ ./snd_mq /queue 3 Three
+acos@acos-vm:~/mmap/mqueue$ ./snd_mq /queue 7 Seven
+acos@acos-vm:~/mmap/mqueue$ cat /dev/mqueue/queue 
+QSIZE:23         NOTIFY:0     SIGNO:0     NOTIFY_PID:0     
+acos@acos-vm:~/mmap/mqueue$ for n in `seq 5`; do ./rec_mq /queue; done
+Read 3 bytes; priority = 10
+Read 5 bytes; priority = 7
+Read 4 bytes; priority = 5
+Read 6 bytes; priority = 5
+Read 5 bytes; priority = 3
+acos@acos-vm:~/mmap/mqueue$ ./unl_mq /queue
+acos@acos-vm:~/mmap/mqueue$ ls /dev/mqueue/ -l
+total 0
+```
 
 ### Memory Mapping
 
