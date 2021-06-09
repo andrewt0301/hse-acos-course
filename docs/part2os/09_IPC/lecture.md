@@ -221,6 +221,29 @@ int main(int argc, char *argv[]) {
 * program supposes file can not be changed while mmapped in `MAP_PRIVATE` mode;
 * [fstat](https://man7.org/linux/man-pages/man3/fstat.3p.html) is used to determine file size (it discovers other file properties as well).
 
+Run the example:
+
+```bash
+acos@acos-vm:~/mmap$ gcc mmcat.c -o mmcat
+acos@acos-vm:~/mmap$ ./mmcat mmcat.c 
+#include <sys/mman.h>
+#include <sys/stat.h>
+#include <stdio.h>
+#include <fcntl.h>
+
+int main(int argc, char *argv[]) {
+    char *addr;
+    int fd;
+    struct stat sb;
+
+    fd = open(argv[1], O_RDONLY);
+    fstat(fd, &sb);
+    addr = mmap(NULL, sb.st_size, PROT_READ, MAP_PRIVATE, fd, 0);
+    fwrite(addr, 1, sb.st_size, stdout);
+    return 0;
+}
+```
+
 ### Shared Memory
 
 #### Creating shared memory
