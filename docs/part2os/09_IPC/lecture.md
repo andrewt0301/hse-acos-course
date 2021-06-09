@@ -171,9 +171,28 @@ int main(intargc, char *argv[]) {
 }
 ```
 
-### Shared memory
+### Memory Mapping
 
-Mapping a file to memory:
+Linux kernel has _paging mechanism_:
+
+* when memory is limited, some memory pages can be swapped out;
+* when a program needs one of swapped-out pages:
+  * [TLB](https://en.wikipedia.org/wiki/Translation_lookaside_buffer)
+    produces a page fault (no physical memory is provided for the virtual address);
+  * kernel handles the fault and loads corresponded page from disk and links to virtual memory page.
+
+If paging out a `.text` section, there is no need to provide a space on swap,
+because this data `is already on disk` — e.g. in the binary program file, from which the process was started.
+
+More general process of mapping file to memory is called __memory map__.
+The [mmap](https://man7.org/linux/man-pages/man2/mmap.2.html)
+syscall asks kernel to _map_ selected file to the virtual memory address range.
+After this done, the range can be used as an ordinary _array_ filled with file's contents.
+The file has not to be read into memory completely, Linux use paging mechanism to represent corresponded file parts.
+
+The example below is a simple `cat` analog that `mmap`s file and than just `write`s it to `stdout`.
+
+__mmcat.c__:
 
 ```c
 #include <sys/mman.h>
@@ -193,6 +212,13 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 ```
+* `PROT_READ` means that `mmap`ped pages can only be read by the program;
+* `MAP_PRIVATE` means the program observe some fixed _state_ of the file;
+* write to `mmap`ped area does not change the file itself;
+* program supposes file can not be changed while mmapped in `MAP_PRIVATE` mode;
+* [fstat](https://man7.org/linux/man-pages/man3/fstat.3p.html) is used to determine file size (it discovers other file properties as well).
+
+### Shared Memory
 
 Creating shared memory:
 
