@@ -9,9 +9,10 @@ Slides ([PDF](OS_Lecture_09.pdf), [PPTX](OS_Lecture_09.pptx)).
 
 ## Outline
 
-* Signals
-* Message Queues
-* Shared Memory
+* [Signals](#signals)
+* [Message Queues](#message-queues)
+* [Memory Mapping](#memory-mapping)
+* [Shared Memory](#shared-memory)
 
 ## Examples
 
@@ -308,7 +309,7 @@ int main(int argc, char *argv[]) {
 
 ### Notes
 
-#### Signals
+#### Sending Signals
 
 List of signals supported in your Linux or MacOS:
 ```bash
