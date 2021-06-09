@@ -232,7 +232,7 @@ static struct file_operations proc_ops = {
 // This function is called when the module is loaded.
 int proc_init(void) {
     // creates the /proc/jiffies entry
-    proc_create(PROC_NAME, 0666, NULL, &proc_ops);
+    proc_create(PROC_NAME, 0666, NULL, (const struct proc_ops *) &proc_ops);
     return 0;
 }
 
@@ -260,6 +260,9 @@ ssize_t proc_read(
     raw_copy_to_user(usr_buf, buffer, rv);
     return rv;
 }
+
+module_init(proc_init);
+module_exit(proc_exit);
 ```
 
 Take notice of the `proc_create` and `remove_proc_entry` functions.
