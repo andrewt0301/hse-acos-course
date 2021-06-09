@@ -225,6 +225,7 @@ int main(int argc, char *argv[]) {
 
 Creating shared memory:
 
+__crt_shm.c__:
 ```c
 #include <stdio.h>
 #include <sys/stat.h>
@@ -251,6 +252,7 @@ int main(int argc, char *argv[]) {
 
 Writing to shared memory:
 
+__wrt_shm.c__:
 ```c
 #include <stdio.h>
 #include <fcntl.h>
@@ -277,6 +279,8 @@ int main(int argc, char *argv[]) {
 ```
 
 Reading from shared memory:
+
+__rd_shm.c__:
 ```c
 #include <stdio.h>
 #include <fcntl.h>
@@ -296,6 +300,22 @@ int main(int argc, char *argv[]) {
 
     fwrite(addr, 1, sb.st_size, stdout);
     printf("\n... Done");
+    return 0;
+}
+```
+
+Unlinking shared memory:
+
+__unl_shm.c:__
+```c
+#include <sys/mman.h>
+#include <stdio.h>
+
+int main(int argc, char *argv[]) {
+    if (shm_unlink(argv[1])) {
+        perror("shm_unlink");
+        return -1;
+    }
     return 0;
 }
 ```
