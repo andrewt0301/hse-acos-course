@@ -182,7 +182,7 @@ Linux kernel has _paging mechanism_:
   * kernel handles the fault and loads corresponded page from disk and links to virtual memory page.
 
 If paging out a `.text` section, there is no need to provide a space on swap,
-because this data `is already on disk` — e.g. in the binary program file, from which the process was started.
+because this data _is already on disk_ - e.g. in the binary program file, from which the process was started.
 
 More general process of mapping file to memory is called __memory map__.
 The [mmap](https://man7.org/linux/man-pages/man2/mmap.2.html)
