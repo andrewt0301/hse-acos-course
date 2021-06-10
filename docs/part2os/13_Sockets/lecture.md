@@ -109,8 +109,7 @@ https://man7.org/linux/man-pages/man2/read.2.html) as well.
 Unix domain datagram server, that receives only one datagram, dumps it in hexadecimal, and exits.
 First argument is Unix domain socket name.
 
-[unix_d_send.c](
-https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part2os/13_Sockets/unix_d_send.c):
+__unix_d_send.c__:
 ```c
 #include <stdio.h>
 #include <sys/types.h>
@@ -138,8 +137,7 @@ int main(int argc, char *argv[]) {
 
 Unix domain datagram sender, first argument is socket, second argument is string to send.
 
-[unix_d_server.c](
-https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part2os/13_Sockets/unix_d_server.c):
+__unix_d_server.c__:
 ```c
 #include <stdio.h>
 #include <sys/types.h>
