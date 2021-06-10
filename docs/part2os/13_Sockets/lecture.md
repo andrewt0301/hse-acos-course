@@ -139,39 +139,58 @@ int main(int argc, char *argv[]) {
 Unix domain datagram sender, first argument is socket, second argument is string to send.
 
 [unix_d_server.c](
- https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part2os/13_Sockets/unix_d_server.c):
- ```c
- #include <stdio.h>
- #include <sys/types.h>
- #include <sys/socket.h>
- #include <sys/un.h>
+https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part2os/13_Sockets/unix_d_server.c):
+```c
+#include <stdio.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <sys/un.h>
  
- #define USIZE sizeof(struct sockaddr_un)
- #define BLOG 3
- #define DSIZE 16
- 
- int main(int argc, char *argv[]) {
-     struct sockaddr_un srv;
-     char dgram[DSIZE];
-     int fd, rsz, i;
- 
-     fd = socket(AF_UNIX, SOCK_DGRAM, 0);
-     srv.sun_family = AF_UNIX;
-     strncpy(srv.sun_path, argv[1], sizeof(srv.sun_path)-1);
- 
-     remove(argv[1]);
-     bind(fd, (const struct sockaddr *) &srv, USIZE);
-     listen(fd, BLOG);
- 
-     rsz = recv(fd, dgram, DSIZE, 0);
-     for(i=0; i<rsz; i++)
-     printf("%02x ", dgram[i]);
-     putchar('\n');
- 
-     remove(argv[1]);
-     return 0;
- }
- ```
+#define USIZE sizeof(struct sockaddr_un)
+#define BLOG 3
+#define DSIZE 16
+
+int main(int argc, char *argv[]) {
+    struct sockaddr_un srv;
+    char dgram[DSIZE];
+    int fd, rsz, i;
+
+    fd = socket(AF_UNIX, SOCK_DGRAM, 0);
+    srv.sun_family = AF_UNIX;
+    strncpy(srv.sun_path, argv[1], sizeof(srv.sun_path)-1);
+
+    remove(argv[1]);
+    bind(fd, (const struct sockaddr *) &srv, USIZE);
+    listen(fd, BLOG);
+
+    rsz = recv(fd, dgram, DSIZE, 0);
+    for(i=0; i<rsz; i++)
+        printf("%02x ", dgram[i]);
+    putchar('\n');
+
+    remove(argv[1]);
+    return 0;
+}
+```
+
+#### How this works together
+
+```bash
+acos@acos-vm:~/unixsocket$ gcc unix_d_send.c -o unix_d_send
+acos@acos-vm:~/unixsocket$ gcc unix_d_server.c -o unix_d_server
+acos@acos-vm:~/unixsocket$ ./unix_d_server u_socket &
+[1] 71717
+acos@acos-vm:~/unixsocket$ ls -l
+total 48
+srwxrwxr-x 1 acos acos     0 июн 11 01:08 u_socket
+-rwxrwxr-x 1 acos acos 16928 июн 11 01:08 unix_d_send
+-rw-rw-r-- 1 acos acos   492 июн 11 01:07 unix_d_send.c
+-rwxrwxr-x 1 acos acos 17064 июн 11 01:08 unix_d_server
+-rw-rw-r-- 1 acos acos   652 июн 11 01:07 unix_d_server.c
+acos@acos-vm:~/unixsocket$ ./unix_d_send u_socket Message
+4d 65 73 73 61 67 65 
+[1]+  Done                    ./unix_d_server u_socket
+```
 
 * [tcp_client.c](
   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part2os/13_Sockets/tcp_client.c)
