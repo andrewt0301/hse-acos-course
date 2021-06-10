@@ -197,8 +197,7 @@ acos@acos-vm:~/unixsocket$ ./unix_d_send u_socket Message
 Internet IPv4 domain stream socket (TCP) server that accepts connections and sends back a number of connection.
 First argument is IPv4 address, second one is port to listen to.
 
-[tcp_qq_srver.c](
-https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part2os/13_Sockets/tcp_qq_srver.c):
+__tcp_qq_srver.c__:
 ```c
 #include <stdio.h>
 #include <sys/socket.h>
@@ -242,7 +241,7 @@ Some explanation:
   * Network transmission protocols must have _unique_ type of byte ordering
     * [Big-endian](https://en.wikipedia.org/wiki/Endianness#Big-endian) is preferred, because sending
       one byte of value, say,`0x56`, is _equivalent_ to sending four bytes `0x56`, `0`, `0` and then `0`.
-  * ⇒ While dealing with `address` and `port` part of AF_INET address, we shall use
+  * ⇒ While dealing with `address` and `port` part of `AF_INET` address, we shall use
     _convertors_ from current (host) endianness to network one and back. Hence function names:
     * [htons](https://man7.org/linux/man-pages/man3/byteorder.3.html)
       to convert a short number (__s__) from host (__h__) endianness to network (__n__) one
@@ -259,11 +258,10 @@ After killing the program, we have to wait a pair of minutes, until OS decides t
 
 #### Simple TCP client
 
-Simple TCP client that connects to a server and repeatedly receives a message from the server and prints it to standard output
-then reads a message from standard input and sends it to the server.
+Simple TCP client that connects to a server and repeatedly receives a message from the server
+and prints it to standard output then reads a message from standard input and sends it to the server.
 
-[tcp_client.c](
-https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part2os/13_Sockets/tcp_client.c):
+__tcp_client.c__:
 ```c
 #include <stdio.h>
 #include <sys/socket.h>
@@ -277,7 +275,7 @@ https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part2os/13_Socke
 #define BUFSIZE 32
 
 int main(int argc, char *argv[]) {
-    int fd;
+    int fd, sz;
     struct sockaddr_in srv;
     char buf[32];
 
@@ -287,24 +285,53 @@ int main(int argc, char *argv[]) {
     srv.sin_port = htons(atoi(argv[2]));
 
     fd = socket(AF_INET, SOCK_STREAM, 0);
-    while(1) {
-        connect(fd, (struct sockaddr*) &srv, ISIZE);
- 
+    connect(fd, (struct sockaddr*) &srv, ISIZE);
+
+    do {
         fgets(buf, BUFSIZE, stdin);
         if(buf[0]!='\n')
             write(fd, buf, strlen(buf));
-        read(fd, buf, BUFSIZE);
-        printf(">%s<\n", buf);
-    }
+        sz = read(fd, buf, BUFSIZE);
+        if(sz>0) printf("%s\n", buf);
+    } while(sz);
     return 0;
 }
 ```
+Some explanation:
+* TCP protocol is _bidirectional_, so both client and server cat transmit data between each other.
+* We use [[man2:read]] and [[man2:write]] instead of [[man2:send]] and [[man2:recv]], because we can!
+* Being simple, the client program can not decide, if it shall _receive_ or _send_ data first,
+  so this is delegated to user: if empty string is entered, no message is sent and the program goes directly to receive part.
+  * This can lead to _protocol deadlock_, when both client and server waits for the other side to send something forever.
+  * Actual TCP/UDP universal tool, [[https://helpmanual.io/man1/netcat|nectact]] (aka `nc`),
+    can act as asynchronous network client or server with lot more functions.
 
+#### How it works
 
+```bash
+acos@acos-vm:~/inetsocket$ gcc tcp_client.c -o tcp_client
+acos@acos-vm:~/inetsocket$ gcc tcp_qq_srver.c -o tcp_qq_srver
+acos@acos-vm:~/inetsocket$ ./tcp_qq_srver 127.0.0.1 1213 &
+[1] 71838
+acos@acos-vm:~/inetsocket$ ./tcp_client 127.0.0.1 1213
+
+Connection 1!
+
+acos@acos-vm:~/inetsocket$ ./tcp_client 127.0.0.1 1213
+dddd
+Connection 2!
+
+acos@acos-vm:~/inetsocket$ ./tcp_client 127.0.0.1 1213
+
+Connection 3!
+```
+
+<!--
 * [tcp_qq_srverS.c](
   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part2os/13_Sockets/tcp_qq_srverS.c)
 * [tcp_server.c](
   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part2os/13_Sockets/tcp_server.c)
+-->
 
 ## Workshop
 
