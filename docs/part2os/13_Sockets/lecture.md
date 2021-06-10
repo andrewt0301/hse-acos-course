@@ -79,9 +79,11 @@ with trying the examples below.
 
 #### To run a client
 
-1. Associate the socket with the specific ''remote server'' address/location via
-   [[man2:connect|connect(socket, address, length)]] (see above for arguments explanation)
-1. Send data to this server via [[man2:send|send(socket, buffer, length, 0);]]
+1. Associate the socket with the specific _remote server_ address/location via
+   [connect(socket, address, length)](
+   https://man7.org/linux/man-pages/man2/connect.2.html) (see above for arguments explanation)
+1. Send data to this server via [send(socket, buffer, length, 0)](
+   https://man7.org/linux/man-pages/man2/send.2.html)
 1. Do not forget to [close()](https://man7.org/linux/man-pages/man2/close.2.html) sockets after transmission is done
 
 #### Datagram socket
@@ -92,7 +94,8 @@ https://man7.org/linux/man-pages/man3/sendto.3p.html)
 to send a single datagram instead of `connect()` and then `send()`.
 No connection is established anyway, and `connect()` here serves only informational purpose.
 
-When using stream socket, we can use [[man2:read|read(socket, buffer, length)]] as well.
+When using stream socket, we can use [read(socket, buffer, length)](
+https://man7.org/linux/man-pages/man2/read.2.html) as well.
 
 ### Examples
 
