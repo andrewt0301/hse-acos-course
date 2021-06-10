@@ -192,10 +192,117 @@ acos@acos-vm:~/unixsocket$ ./unix_d_send u_socket Message
 [1]+  Done                    ./unix_d_server u_socket
 ```
 
-* [tcp_client.c](
-  https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part2os/13_Sockets/tcp_client.c)
-* [tcp_qq_srver.c](
-  https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part2os/13_Sockets/tcp_qq_srver.c)
+### Internet (IPv4) + stream (TCP)
+
+#### Simple TCP server
+
+Internet IPv4 domain stream socket (TCP) server that accepts connections and sends back a number of connection.
+First argument is IPv4 address, second one is port to listen to.
+
+[tcp_qq_srver.c](
+https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part2os/13_Sockets/tcp_qq_srver.c):
+```c
+#include <stdio.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
+#define ISIZE (sizeof(struct sockaddr_in))
+#define MAXCONN 3
+#define BUFSIZE 32
+
+int main(int argc, char *argv[]) {
+    int fd, connfd, conncount=0;
+    struct sockaddr_in srv;
+    char buf[32];
+
+    memset(&srv, 0, ISIZE);
+    srv.sin_family = AF_INET;
+    inet_pton(AF_INET, argv[1], &(srv.sin_addr));
+    srv.sin_port = htons(atoi(argv[2]));
+
+    fd = socket(AF_INET, SOCK_STREAM, 0);
+    bind(fd, (struct sockaddr*) &srv, ISIZE);
+    listen(fd, MAXCONN);
+
+    while(1) {
+        connfd = accept(fd, NULL, NULL);
+        snprintf(buf, BUFSIZE, "Connection %d!\n", ++conncount);
+        write(connfd, buf, strlen(buf));
+        close(connfd);
+    }
+    return 0;
+}
+```
+Some explanation:
+
+* To transmit _non-byte_ data over network is to deal with _byte ordering_ (endianness)
+  * Various computer architectures can have _various_ byte ordering
+    * [Little-endian](https://en.wikipedia.org/wiki/Endianness#Little-endian) is easy to operate with memory
+  * Network transmission protocols must have _unique_ type of byte ordering
+    * [Big-endian](https://en.wikipedia.org/wiki/Endianness#Big-endian) is preferred, because sending
+      one byte of value, say,`0x56`, is _equivalent_ to sending four bytes `0x56`, `0`, `0` and then `0`.
+  * ⇒ While dealing with `address` and `port` part of AF_INET address, we shall use
+    _convertors_ from current (host) endianness to network one and back. Hence function names:
+    * [htons](https://man7.org/linux/man-pages/man3/byteorder.3.html)
+      to convert a short number (__s__) from host (__h__) endianness to network (__n__) one
+      * [ntohs](https://man7.org/linux/man-pages/man3/byteorder.3.html) to do the reverse
+    * [inet_pton](https://man7.org/linux/man-pages/man3/inet_pton.3.html) to convert string address
+      from either IPv4 or IPv6 string representation
+      to byte array in _network_ order
+      * [inet_ntop](https://man7.org/linux/man-pages/man3/inet_ntop.3.html) to do the reverse
+
+__Warning__:
+
+This program _never_ closes its control socket.
+After killing the program, we have to wait a pair of minutes, until OS decides to purge unused socket structure down.
+
+#### Simple TCP client
+
+Simple TCP client that connects to a server and repeatedly receives a message from the server and prints it to standard output
+then reads a message from standard input and sends it to the server.
+
+[tcp_client.c](
+https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part2os/13_Sockets/tcp_client.c):
+```c
+#include <stdio.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
+#define ISIZE (sizeof(struct sockaddr_in))
+#define MAXCONN 3
+#define BUFSIZE 32
+
+int main(int argc, char *argv[]) {
+    int fd;
+    struct sockaddr_in srv;
+    char buf[32];
+
+    memset(&srv, 0, ISIZE);
+    srv.sin_family = AF_INET;
+    inet_pton(AF_INET, argv[1], &(srv.sin_addr));
+    srv.sin_port = htons(atoi(argv[2]));
+
+    fd = socket(AF_INET, SOCK_STREAM, 0);
+    while(1) {
+        connect(fd, (struct sockaddr*) &srv, ISIZE);
+ 
+        fgets(buf, BUFSIZE, stdin);
+        if(buf[0]!='\n')
+            write(fd, buf, strlen(buf));
+        read(fd, buf, BUFSIZE);
+        printf(">%s<\n", buf);
+    }
+    return 0;
+}
+```
+
+
 * [tcp_qq_srverS.c](
   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part2os/13_Sockets/tcp_qq_srverS.c)
 * [tcp_server.c](
