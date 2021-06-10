@@ -326,6 +326,12 @@ acos@acos-vm:~/inetsocket$ ./tcp_client 127.0.0.1 1213
 Connection 3!
 ```
 
+Explanation:
+* `127.0.0.1` is so called [[WP:Localhost|loopback address]], it will be useful to establish a IPv4 connection from host to the same host
+* Port number is random, but it must be `>1024`
+* The client program waits for input first, so to receive a response we need to press `enter`
+* Atfer printing a message, the client program waits for input again, hence second `enter`
+
 <!--
 * [tcp_qq_srverS.c](
   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part2os/13_Sockets/tcp_qq_srverS.c)
