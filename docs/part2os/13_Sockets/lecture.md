@@ -56,7 +56,7 @@ with trying the examples below.
    * `length` is the address structure size
    * Because of various address families has different address size, we need to provide it
    * For the same reason, we need to cast actual structure type to `const struct sockaddr *`,
-     which is merely  placeholder
+     which is merely a placeholder
 1. Start to [listen(socket, queue_length)](https://man7.org/linux/man-pages/man2/listen.2.html)
    * if the number of unreceived streams/datagrams is equal to `queue_length`
    * all other stream connections are refused (sender got an error message)
@@ -68,10 +68,13 @@ with trying the examples below.
        * `address` and `length` are filled with peer address and its address length
          (if we do not need them, we can use both NULL here)
    * Use _data socket_ to receive data
-1. Receive a portion of data from data `socket` to `buffer` via [[man2:recv|recv(data_socket, buffer, length, 0)]]
+1. Receive a portion of data from data `socket` to `buffer` via
+   [recv(data_socket, buffer, length, 0)](https://man7.org/linux/man-pages/man2/recv.2.html)
    * Datagram transmission has no control sockets, so the information about the sender address
-     can be gathered by using [[man2:recvfrom|recvfrom(socket, buffer, length, 0, address, &length)]]
-   * Stream transmission complies «file as stream» abstraction, so we can just use [[man2:read|read(socket, buffer, length)]] instead
+     can be gathered by using [recvfrom(socket, buffer, length, 0, address, &length)](
+     https://man7.org/linux/man-pages/man3/recvfrom.3p.html)
+   * Stream transmission complies "file as stream" abstraction, so we can just use
+     [read(socket, buffer, length)](https://man7.org/linux/man-pages/man2/read.2.html) instead
 1. Do not forget to
    [close()](https://man7.org/linux/man-pages/man2/close.2.html) data the sockets after transmission is done
    * Also, close _control socket_ before finishing a service.
