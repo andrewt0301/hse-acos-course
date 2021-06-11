@@ -337,6 +337,53 @@ Explanation:
 * The client program waits for input first, so to receive a response we need to press `enter`
 * Atfer printing a message, the client program waits for input again, hence second `enter`
 
+
+#### TCP echo server
+
+Simple TCP server that accepts one connection at the time, receives a message and sends it back.
+
+```c
+#include <stdio.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
+#define ISIZE (sizeof(struct sockaddr_in))
+#define MAXCONN 3
+#define BUFSIZE 32
+
+int main(int argc, char *argv[]) {
+    int fd, connfd, sz, port;
+    struct sockaddr_in srv, peer;
+    char buf[32];
+    char addr[INET_ADDRSTRLEN+1];
+    unsigned peersz=ISIZE;
+
+    memset(&srv, 0, ISIZE);
+    srv.sin_family = AF_INET;
+    inet_pton(AF_INET, argv[1], &(srv.sin_addr));
+    srv.sin_port = htons(atoi(argv[2]));
+
+    fd = socket(AF_INET, SOCK_STREAM, 0);
+
+    bind(fd, (struct sockaddr*) &srv, ISIZE);
+    listen(fd, MAXCONN);
+
+    while(1) {
+        connfd = accept(fd, (struct sockaddr *) &peer, &peersz);
+        sz = recv(connfd, buf, BUFSIZE, 0);
+        inet_ntop(AF_INET, &peer.sin_addr, addr, INET_ADDRSTRLEN);
+        port = ntohs(peer.sin_port);
+        printf("Received %d bytes from %s, port %d\n", sz, addr, port);
+        send(connfd, buf, sz, 0);
+        close(connfd);
+    }
+    return 0;
+}
+```
+
 <!--
 * [tcp_qq_srverS.c](
   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part2os/13_Sockets/tcp_qq_srverS.c)
