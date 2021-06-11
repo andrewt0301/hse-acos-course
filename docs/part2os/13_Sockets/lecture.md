@@ -342,6 +342,7 @@ Explanation:
 
 Simple TCP server that accepts one connection at the time, receives a message and sends it back.
 
+__tcp_echo_serverSR.c__:
 ```c
 #include <stdio.h>
 #include <sys/socket.h>
@@ -383,6 +384,10 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 ```
+Explanation:
+* Now TCP traffic is fully bidirectional
+* We use `send` and `recv` instead of `read` and `write`, because we can! :))
+* We use non-reduced version of `accept` to record and then print peer address/port
 
 <!--
 * [tcp_qq_srverS.c](
