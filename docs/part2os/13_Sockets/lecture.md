@@ -331,7 +331,8 @@ Connection 3!
 ```
 
 Explanation:
-* `127.0.0.1` is so called [[WP:Localhost|loopback address]], it will be useful to establish a IPv4 connection from host to the same host
+* `127.0.0.1` is so called [loopback address](https://en.wikipedia.org/wiki/Localhost),
+  it will be useful to establish a IPv4 connection from host to the same host
 * Port number is random, but it must be `>1024`
 * The client program waits for input first, so to receive a response we need to press `enter`
 * Atfer printing a message, the client program waits for input again, hence second `enter`
