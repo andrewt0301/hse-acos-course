@@ -299,11 +299,15 @@ int main(int argc, char *argv[]) {
 ```
 Some explanation:
 * TCP protocol is _bidirectional_, so both client and server cat transmit data between each other.
-* We use [[man2:read]] and [[man2:write]] instead of [[man2:send]] and [[man2:recv]], because we can!
+* We use [read](https://man7.org/linux/man-pages/man2/read.2.html) and
+  [write](https://man7.org/linux/man-pages/man2/write.2.html) instead of
+  [send](https://man7.org/linux/man-pages/man2/send.2.html) and
+  [recv](https://man7.org/linux/man-pages/man2/recv.2.html), because we can!
 * Being simple, the client program can not decide, if it shall _receive_ or _send_ data first,
-  so this is delegated to user: if empty string is entered, no message is sent and the program goes directly to receive part.
+  so this is delegated to user: if empty string is entered,
+  no message is sent and the program goes directly to receive part.
   * This can lead to _protocol deadlock_, when both client and server waits for the other side to send something forever.
-  * Actual TCP/UDP universal tool, [[https://helpmanual.io/man1/netcat|nectact]] (aka `nc`),
+  * Actual TCP/UDP universal tool, [nectact](https://helpmanual.io/man1/netcat) (aka `nc`),
     can act as asynchronous network client or server with lot more functions.
 
 #### How it works
