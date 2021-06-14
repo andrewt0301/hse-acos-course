@@ -63,7 +63,8 @@ Lecture 19
   * no needs to count CPU circles :)
   * …
 
-#### Modlues: os ans sys
+#### Modules os ans sys
+
 * Cross-platform path: [os.path](https://docs.python.org/3/library/os.path.html) and
   [pathlib](https://docs.python.org/3/library/pathlib.html)
   * `.is*()`, `.exists()` etc.
@@ -80,6 +81,33 @@ Lecture 19
 Also:
  * [platform](https://docs.python.org/3/library/platform.html)
  * …
+
+#### Subprocess
+
+Concept: cross-platform process execution with communication and exit status control.
+
+* Just run and get a result: [run()](https://docs.python.org/3/library/subprocess.html#subprocess.run)
+  * `capture_output`/`input=`; `stdin=`/`stdout=`/`stderr=`
+  * ...
+* High-level [popen](https://man7.org/linux/man-pages/man3/popen.3.html) analog:
+  [Popen()](https://docs.python.org/3/library/subprocess.html#subprocess.Popen)
+  * [example](https://docs.python.org/3/library/subprocess.html#replacing-shell-pipeline)
+    ```pyhon
+    from subprocess import *
+    # Run first process that outputs to the unnamed pipe
+    p1 = Popen(["cal -s"], stdout=PIPE)
+    # Run second process that inputs from the other end of the pipe opened
+    # and outputs to the second pipe
+    p2 = Popen(["hexdump", "-C"], stdin=p1.stdout, stdout=PIPE)
+    # Allow p1 to receive a SIGPIPE if p2 exits
+    p1.stdout.close()
+    # Read from the second pipe (stdout, stderr),
+    # but stderr will be empty because no redirection is used
+    res = p2.communicate()
+    # Note data is bytes, not str
+    print(res[0].decode())
+    ```
+  * do not use `os.system()`, it's platform-dependent and unsafe
 
 ## Workshop
 
