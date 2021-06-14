@@ -111,7 +111,7 @@ Concept: cross-platform process execution with communication and exit status con
 
 #### Multiprocessing
 
-About [[py3doc:threading|multithread]] programming in Python:
+About [multithread](https://docs.python.org/3/library/threading.html) programming in Python:
 
 * It exists
 * It almost _non-parallel_ because of [Global_interpreter_lock](https://en.wikipedia.org/wiki/Global_interpreter_lock)
@@ -147,13 +147,3 @@ The [multiprocessing](https://docs.python.org/3/library/multiprocessing.html) mo
 ## Workshop
 
 [Workshop](python.md).
-
-__TODO__
-
-## Homework
-
-__TODO__
-
-# References
-
-__TODO__
