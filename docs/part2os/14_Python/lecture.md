@@ -1,4 +1,4 @@
-Lecture 19
+Lecture 14
 ---
 
 # High-level Languages and Operating System.
