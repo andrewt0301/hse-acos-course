@@ -42,7 +42,7 @@ Lecture 19
   and Shell
 * Applications: Swift, Objective C, maybe C++, almost any 3d-party languages
 
-### Python and OS programming ==
+### Python and OS Programming
 
 * Cross-platformness
   * `+/-`
