@@ -92,7 +92,7 @@ Concept: cross-platform process execution with communication and exit status con
 * High-level [popen](https://man7.org/linux/man-pages/man3/popen.3.html) analog:
   [Popen()](https://docs.python.org/3/library/subprocess.html#subprocess.Popen)
   * [example](https://docs.python.org/3/library/subprocess.html#replacing-shell-pipeline)
-    ```pyhon
+    ```python
     from subprocess import *
     # Run first process that outputs to the unnamed pipe
     p1 = Popen(["cal -s"], stdout=PIPE)
