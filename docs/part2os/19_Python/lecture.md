@@ -107,7 +107,42 @@ Concept: cross-platform process execution with communication and exit status con
     # Note data is bytes, not str
     print(res[0].decode())
     ```
-  * do not use `os.system()`, it's platform-dependent and unsafe
+  * do not use `os.system()`, it is platform-dependent and unsafe
+
+#### Multiprocessing
+
+About [[py3doc:threading|multithread]] programming in Python:
+
+* It exists
+* It almost _non-parallel_ because of [Global_interpreter_lock](https://en.wikipedia.org/wiki/Global_interpreter_lock)
+  * There is no apparent way to eliminate GIL without significant _slowing single-threaded_ code
+* You can use [multithread](https://docs.python.org/3/library/threading.html) if:
+  1. Only one thread eats CPU, but other ones perform I/O
+  1. You have complex code design based on threads and significant amount of permanent
+     usage of joint resources
+* Unlike C programs, Python ones have no actual difference between
+  threaded and _multiprocess_ design
+* [Paper about Python GIL](https://realpython.com/python-gil/)
+
+The [multiprocessing](https://docs.python.org/3/library/multiprocessing.html) module:
+
+* Crossplatformness
+  * Linux: `fork()` is used
+* Child process is running ''a function'' (unlike classic `fork()`, which defines two equal processes)
+  * That simplifies data transfer down to the arguments/return in simple cases
+* Processes can communicate through special
+  [socket-like high-level objects](https://docs.python.org/3/library/multiprocessing.html#exchanging-objects-between-processes)
+  or object queue
+* Processes can use
+  [high-level shared memory-alike](https://docs.python.org/3/library/multiprocessing.html#sharing-state-between-processes)
+  objects or object manager (the last is slower, but can work over network!)
+* Processes can be orchestered into
+  a [pool](https://docs.python.org/3/library/multiprocessing.html#using-a-pool-of-workers)
+  running exactly N processs in parallel.
+  1. Exact N child processes (called _workers_) are started
+  1. Each worker can execute a function given multiple times as pool flows
+    * No other start/stop actions is performed
+  1. Workers are stopped when pool is empty
 
 ## Workshop
 
