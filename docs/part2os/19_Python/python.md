@@ -180,15 +180,18 @@ __multiex.py__:
 from multiprocessing import Process
 import os
 
+
 def info(title):
    print(title)
    print('module name:', __name__)
    print('parent process:', os.getppid())
    print('process id:', os.getpid())
 
+
 def f(name):
    info('function f')
    print('hello', name)
+
 
 if __name__ == '__main__':
    info('main line')
@@ -197,81 +200,160 @@ if __name__ == '__main__':
    p.join()
 ```
 
-7. __Task 04:__
+#### Task 04
 
-   Modify the __16-50_multiex.py__ program. Pass the `f` function running in another process
-   the additional argument `wait`, which specifies a delay in seconds.
-   It must be a random value from the range [1..5].
+Modify the `multiex.py` program. Pass the `f` function running in another process
+the additional argument `wait`, which specifies a delay in seconds.
+It must be a random value from the range [1..5].
 
-   In the `f` function, print the `wait` argument together with `name`.
-   Then delay execution for the number of seconds specified in `wait`.
+In the `f` function, print the `wait` argument together with `name`.
+Then delay execution for the number of seconds specified in `wait`.
 
-   Use the [time.sleep](
-   https://docs.python.org/3/library/time.html#time.sleep) method to delay execution.
+Use the [time.sleep](
+https://docs.python.org/3/library/time.html#time.sleep) method to delay execution.
 
-   Use the [random.randrange](
-   https://docs.python.org/3/library/random.html#random.randrange) to generate a random value. 
+Use the [random.randrange](
+https://docs.python.org/3/library/random.html#random.randrange) to generate a random value. 
 
-   Save the resulting program in the __16-58_multiex2.py__ file.
+Save the resulting program in the `multiex2.py` file.
 
-8. Exchange objects between processes using [pipes](
-   https://docs.python.org/3.8/library/multiprocessing.html#exchanging-objects-between-processes).
+__multiex2.py (solution)__:
 
-   Here is an example:
+```python
+#!/usr/bin/env python3
 
-   ```python
-   from multiprocessing import Process, Pipe
+from multiprocessing import Process
+import time
+import random
 
-   def f(conn):
-       conn.send([42, None, 'hello'])
-       conn.close()
 
-   if __name__ == '__main__':
-       parent_conn, child_conn = Pipe()
-       p = Process(target=f, args=(child_conn,))
-       p.start()
-       print(parent_conn.recv())   # prints "[42, None, 'hello']"
-       p.join()
-   ```
+def f(name, wait):
+   print(name, wait)
+   time.sleep(wait)
+   print('hello', name)
 
-9. __Task 05:__
 
-   Modify the __16-58_multiex2.py__ program to send the `f"Hello, {name}!"` message
-   from the child to the parent process. Print it in the parent process.
+if __name__ == '__main__':
+   p = Process(target=f, args=('bob',random.randrange(1,5)))
+   p.start()
+   p.join()
+```
 
-   Save the resulting program to the __17-07_multiexchat.py__ file.
+## Connecting Processes with Pipes
 
-10. __Task 06:__
+Exchange objects between processes using [pipes](
+https://docs.python.org/3.8/library/multiprocessing.html#exchanging-objects-between-processes).
 
-    Modify the __16-58_multiex2.py__ program to run multiple processes and wait for them to stop.
-    The name of a process is its index.
-    Number of processes must be specified as a command line argument (default value is 5).
- 
-    Save the resulting program to the __17-11_multiexmany.py__ file.
+Here is an example:
 
-    See the running processes with `ps`:
+```python
+from multiprocessing import Process, Pipe
+
+
+def f(conn):
+   conn.send([42, None, 'hello'])
+   conn.close()
+
+
+if __name__ == '__main__':
+   parent_conn, child_conn = Pipe()
+   p = Process(target=f, args=(child_conn,))
+   p.start()
+   print(parent_conn.recv())   # prints "[42, None, 'hello']"
+   p.join()
+```
+
+#### Task 05
+
+Modify the `multiex2.py` program to send the `f"Hello, {name}!"` message
+from the child to the parent process. Print it in the parent process.
+
+Save the resulting program to the `multiexchat.py` file.
+
+__multiexchat.py (solution)__:
+
+```python
+#!/usr/bin/env python3
+
+from multiprocessing import Process, Pipe
+import time
+
+
+def f(conn):
+   name, wait = conn.recv()
+   print(name, wait)
+   time.sleep(wait)
+   conn.send(f"Hello, {name}!")
+   conn.close()
+
+
+if __name__ == '__main__':
+   parent_conn, child_conn = Pipe()
+   p = Process(target=f, args=(child_conn,))
+   p.start()
+   parent_conn.send(("bob", 4))
+   res = parent_conn.recv()
+   print(res)
+   p.join()
+```
+
+#### Task 06
+
+Modify the `multiex2.py` program to run multiple processes and wait for them to stop.
+The name of a process is its index.
+Number of processes must be specified as a command line argument (default value is 5).
+
+Save the resulting program to the `multiexmany.py` file.
+
+See the running processes with `ps`:
     
-        andrewt@comp-core-i7-3615qm-0dbf32 ~ $ python3 17-11_multiexmany.py &
-        [1] 2844
-        andrewt@comp-core-i7-3615qm-0dbf32 ~ $ 0 4
-        4 3
-        1 2
-        3 2
-        2 2
-        ps -ef | grep python
-        andrewt     2844    2515  0 01:53 pts/0    00:00:00 python3 17-11_multiexmany.py
-        andrewt     2845    2844  0 01:53 pts/0    00:00:00 python3 17-11_multiexmany.py
-        andrewt     2846    2844  0 01:53 pts/0    00:00:00 python3 17-11_multiexmany.py
-        andrewt     2847    2844  0 01:53 pts/0    00:00:00 python3 17-11_multiexmany.py
-        andrewt     2848    2844  0 01:53 pts/0    00:00:00 python3 17-11_multiexmany.py
-        andrewt     2849    2844  0 01:53 pts/0    00:00:00 python3 17-11_multiexmany.py
-        andrewt     2851    2515  0 01:53 pts/0    00:00:00 grep --color=auto python
-        andrewt@comp-core-i7-3615qm-0dbf32 ~ $ hello 1 2
-        hello 2 2
-        hello 3 2
-        hello 4 3
-        hello 0 4
-        [1]+  Завершён        python3 17-11_multiexmany.py
+```python
+acos@acos-vm:~$ python3 multiexmany.py &
+[1] 2844
+acos@acos-vm:~$ 0 4
+4 3
+1 2
+3 2
+2 2
+ps -ef | grep python
+acos     2844    2515  0 01:53 pts/0    00:00:00 python3 multiexmany.py
+acos     2845    2844  0 01:53 pts/0    00:00:00 python3 multiexmany.py
+acos     2846    2844  0 01:53 pts/0    00:00:00 python3 multiexmany.py
+acos     2847    2844  0 01:53 pts/0    00:00:00 python3 multiexmany.py
+acos     2848    2844  0 01:53 pts/0    00:00:00 python3 multiexmany.py
+acos     2849    2844  0 01:53 pts/0    00:00:00 python3 multiexmany.py
+acos     2851    2515  0 01:53 pts/0    00:00:00 grep --color=auto python
+acos@acos-vm:~$ hello 1 2
+hello 2 2
+hello 3 2
+hello 4 3
+hello 0 4
+[1]+  Finished        python3 multiexmany.py
+```
+
+__multiexmany.py (solution):__
+
+```python
+#!/usr/bin/env python3
+
+from multiprocessing import Process
+import time
+import random
+import sys
+
+
+def f(name, wait):
+   print(name, wait)
+   time.sleep(wait)
+   print('hello', name, wait)
+
+
+if __name__ == '__main__':
+   N = int(sys.argv[1]) if len(sys.argv)>1 else 5
+   P = [Process(target=f, args=(i, random.randrange(1,5))) for i in range(N)]
+   res = [p.start() for p in P]
+   res = [p.join() for p in P]
+```
 
 ## Process Pooling in Python
 
@@ -310,11 +392,13 @@ import time
 import random
 import sys
 
+
 def f(args):
    name, wait = args
    print(name, wait)
    time.sleep(wait)
    return wait*10
+
 
 if __name__ == '__main__':
    N = int(sys.argv[1]) if len(sys.argv)>1 else 5
