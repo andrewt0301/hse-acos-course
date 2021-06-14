@@ -146,4 +146,4 @@ The [multiprocessing](https://docs.python.org/3/library/multiprocessing.html) mo
 
 ## Workshop
 
-[Workshop](python.md).
+[Workshop](python.md)
