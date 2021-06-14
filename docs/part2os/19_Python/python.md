@@ -4,139 +4,198 @@ System Programming in Python
 The goal of this seminar is to practice in using Python modules that manage
 facilities provided by the operation system. 
 
-1. Using the [os](https://docs.python.org/3/library/os.html) and
-   [sys](https://docs.python.org/3/library/sys.html) modules to run programs from Python scripts.
+## Running programs in Python
 
-   Read documentation on the `os.path.realpath(path)`, `os.system(command)`,
-   `sys.executable`, and `sys.argv` methods.
+Using the [os](https://docs.python.org/3/library/os.html) and
+[sys](https://docs.python.org/3/library/sys.html) modules to run programs from Python scripts.
 
-   Study the Python program below.
+Read documentation on the `os.path.realpath(path)`, `os.system(command)`, `sys.executable`, and `sys.argv` methods.
 
-   __15-57_dorun.py__:
+Study the Python program below.
 
-   ```python
-   #!/usr/bin/env python3
-   '''
-   ''' 
-   import sys
-   import os
+__dorun.py__:
 
-   Python = sys.executable
-   f = os.path.realpath(sys.argv[1])
-    
-   os.system(f'{Python} {f} {" ".join(sys.argv[2:])}')
-   ```
+```python
+#!/usr/bin/env python3
+'''
+''' 
+import sys
+import os
 
-   This program launches a program specified as command-line argument and passes it the
-   rest of the arguments. The program to be run can look as follows.
+Python = sys.executable
+f = os.path.realpath(sys.argv[1])
 
-   __15-58_torun.py__:
+os.system(f'{Python} {f} {" ".join(sys.argv[2:])}')
+```
 
-   ```python
-   #!/usr/bin/env python3
-   '''
-   '''
-   import sys
-   print(":", "-".join(sys.argv[1:]))
-   ```
+This program launches a program specified as command-line argument and passes it the
+rest of the arguments. The program to be run can look as follows.
 
-   Run the program with python3 and see the result:
+__torun.py__:
 
-       python3 15-57_dorun.py 15-58_torun.py qwe ert ert
+```python
+#!/usr/bin/env python3
+'''
+'''
+import sys
+print(":", "-".join(sys.argv[1:]))
+```
 
-   Run the program and pass it an invalid program to run. See the output:
+Run the program with `python3` and see the result:
 
-       python3 15-57_dorun.py nothing_torun.py qwe ert ert
+    acos@acos-vm:~$ python3 dorun.py torun.py qwe ert ert
+    : qwe-ert-ert
 
-2. __Task 01:__
+Run the program and pass it an invalid program to run. See the output:
 
-   Modify the __15-57_dorun.py__ program so that it checks whether the program to run exists
-   before trying to run it.
+    acos@acos-vm:~$ python3 dorun.py nothing_torun.py qwe ert ert
 
-   Use the [os.path.exists](https://docs.python.org/3/library/os.path.html#os.path.exists)
-   method to check whether the program exists.
+#### Task 01
 
-   If the file does not exist, print the "No _filename_" message to
-   [sys.stderr](https://docs.python.org/3/library/sys.html?sys.stderr).
+Modify the __dorun.py__ program so that it checks whether the program to run exists
+before trying to run it.
 
-   Save the modified code to the __16-12_dochkrun.py__ file.
+Use the [os.path.exists](https://docs.python.org/3/library/os.path.html#os.path.exists)
+method to check whether the program exists.
 
-3. __Task 02:__
+If the file does not exist, print the "No _filename_" message to
+[sys.stderr](https://docs.python.org/3/library/sys.html?sys.stderr).
 
-   Study documentation on the [subprocess](https://docs.python.org/3/library/subprocess.html) module.
+Save the modified code to the __dochkrun.py__ file.
 
-   Rewrite the __16-12_dochkrun.py__ file to run the program using the
-   [subprocess.run](https://docs.python.org/3/library/subprocess.html#subprocess.run) function.
+__dochkrun.py (solution)__:
 
-   Save the resulting program to the __16-21_dosubrun.py__ file.
+```python
+#!/usr/bin/env python3
 
-4. Using pipes to [replace shell pipelines](
-   https://docs.python.org/3.8/library/subprocess.html?highlight=subprocess#replacing-shell-pipeline).
+import sys
+import os
 
-   The following shell command:
+Python = sys.executable
+f = os.path.realpath(sys.argv[1])
+
+if os.path.exists(f):
+    os.system(f'{Python} {f} {" ".join(sys.argv[2:])}')
+else:
+    print(f'No {f}!', file=sys.stderr)
+```
+
+## Creating processes in Python
+
+When is required to spawn new processes, connect to their input/output/error pipes,
+and obtain their return codes the [subprocess](https://docs.python.org/3/library/subprocess.html) module can be used.
+
+#### Task 02
+
+Study documentation on the [subprocess](https://docs.python.org/3/library/subprocess.html) module.
+
+Rewrite the __dochkrun.py__ file to run the program using the
+[subprocess.run](https://docs.python.org/3/library/subprocess.html#subprocess.run) function.
+
+Save the resulting program to the __dosubrun.py__ file.
+
+__dosubrun.py (solution)__:
+
+```python
+#!/usr/bin/env python3
+
+import sys
+import os
+from subprocess import run
+
+Python = sys.executable
+f = os.path.realpath(sys.argv[1])
+
+if os.path.exists(f):
+    run([Python, f]+sys.argv[2:])
+else:
+    print(f"No {f}", file=sys.stderr)
+```
+
+## Using Pipes in Python
+
+Pipes can be used to [replace shell pipelines](
+https://docs.python.org/3.8/library/subprocess.html?highlight=subprocess#replacing-shell-pipeline).
+
+The following shell command:
    
-       output=$(dmesg | grep sda)
+    output=$(dmesg | grep sda)
 
-   can be implemented in Python as follows:
+can be implemented in Python as follows:
 
-   ```python
-   import subprocess as proc
-   p1 = proc.Popen(["dmesg"], stdout=proc.PIPE)
-   p2 = proc.Popen(["grep", "sda"], stdin=p1.stdout, stdout=proc.PIPE)
-   p1.stdout.close()  # Allow p1 to receive a SIGPIPE if p2 exits.
-   output = p2.communicate()[0]
-   ```
+```python
+import subprocess as proc
+p1 = proc.Popen(["dmesg"], stdout=proc.PIPE)
+p2 = proc.Popen(["grep", "sda"], stdin=p1.stdout, stdout=proc.PIPE)
+p1.stdout.close()  # Allow p1 to receive a SIGPIPE if p2 exits.
+output = p2.communicate()[0]
+```
 
-   Execute shell and Python and see the results.
+Execute shell and Python and see the results.
 
-5. __Task 03:__
+#### Task 03
 
-   On the basis of the previous example, write a Python program that pipelines two commands
-   specified in the command line.
+On the basis of the previous example,
+write a Python program that pipelines two commands specified in the command line.
+Both commands can have any number of arguments. Save the program to the pipecmd.py file.
 
-   Both commands can have any number of arguments.
+_Hint_: You need to separate one program with arguments from another program with a special separator character.
+For example, it can be “@”.
+ 
+The command line can look like this:
 
-   Save the program to the __16-43_pipecmd.py__ file.
+```bash
+acos@acos-vm:~$ python3 pipecmd.py date -u @ hexdump -C
+00000000 d0 92 d1 81 20 d0 bc d0 b0 d1 8f 20 33 31 20 32 |.... ...... 31 2|
+00000010 31 3a 31 33 3a 30 38 20 55 54 43 20 32 30 32 30 |1:13:08 UTC 2020|
+00000020 0a                                              |.|
+00000021
+```
 
-   _Hint_: You need to separate one program with arguments from another program with a
-   special separator character. For example, it can be `@`.
+__pipecmd.py (solution)__:
 
-   The command line can look like this:  
+```python
+#!/usr/bin/env python3
 
-       andrewt@comp-core-i7-3615qm-0dbf32 ~ $ python3 16-43_pipecmd.py date -u @ hexdump -C
-       00000000  d0 92 d1 81 20 d0 bc d0  b0 d1 8f 20 33 31 20 32  |.... ...... 31 2|
-       00000010  31 3a 31 33 3a 30 38 20  55 54 43 20 32 30 32 30  |1:13:08 UTC 2020|
-       00000020  0a                                                |.|
-       00000021
+import subprocess as proc import sys
 
-6. Using the [multiprocessing](https://docs.python.org/3/library/multiprocessing.html) module
-   to run processes in Python.
+d = sys.argv.index("@")
+p1 = proc.Popen(sys.argv[1:d], stdout=proc.PIPE)
+p2 = proc.Popen(sys.argv[d+1:], stdin=p1.stdout, stdout=proc.PIPE)
+p1.stdout.close() # Allow p1 to receive a SIGPIPE if p2 exits.
+output = p2.communicate()[0]
+print(output.decode())
+```
+
+## Running Python Program in Different Processes
+
+To execute different parts of a program in different processes,
+the [multiprocessing](https://docs.python.org/3/library/multiprocessing.html) module can be used.
+The example below runs a process using the [Process](
+https://docs.python.org/3/library/multiprocessing.html#multiprocessing.Process) class.
    
-   The example below runs a process using the [Process](
-   https://docs.python.org/3/library/multiprocessing.html#multiprocessing.Process) class.
-   
-   __16-50_multiex.py__:
+__multiex.py__:
 
-   ```python
-   from multiprocessing import Process
-   import os
+```python
+from multiprocessing import Process
+import os
 
-   def info(title):
-       print(title)
-       print('module name:', __name__)
-       print('parent process:', os.getppid())
-       print('process id:', os.getpid())
+def info(title):
+   print(title)
+   print('module name:', __name__)
+   print('parent process:', os.getppid())
+   print('process id:', os.getpid())
 
-   def f(name):
-       info('function f')
-       print('hello', name)
+def f(name):
+   info('function f')
+   print('hello', name)
 
-   if __name__ == '__main__':
-       info('main line')
-       p = Process(target=f, args=('bob',))
-       p.start()
-       p.join()
-    ```
+if __name__ == '__main__':
+   info('main line')
+   p = Process(target=f, args=('bob',))
+   p.start()
+   p.join()
+```
 
 7. __Task 04:__
 
@@ -214,45 +273,54 @@ facilities provided by the operation system.
         hello 0 4
         [1]+  Завершён        python3 17-11_multiexmany.py
 
-11. Using [pools](https://docs.python.org/3.8/library/multiprocessing.html#multiprocessing.pool.Pool)
-    for parallelizing tasks. The tasks will be distributed among the specified number of worker processes.  
+## Process Pooling in Python
 
-    Here is an example:
+Tasks can be parallelized using [pools](
+https://docs.python.org/3.8/library/multiprocessing.html#multiprocessing.pool.Pool).
+They allow distributing tasks among the specified number of worker processes.
+Here is an example:
 
-    ```python
-    from multiprocessing import Pool
-    
-    def f(x):
-        return x*x
-    
-    if __name__ == '__main__':
-        with Pool(5) as p:
-            print(p.map(f, [1, 2, 3]))
-    ```
+```python
+from multiprocessing import Pool
 
-12. __Task 07:__
+def f(x):
+    return x*x
 
-    Modify the __16-58_multiex2.py__ program to run multiple tasks using a pool.
+if __name__ == '__main__':
+    with Pool(5) as p:
+        print(p.map(f, [1, 2, 3]))
+```
 
-    Number of tasks must be specified as a command-line argument (default value is 5).
-    The size of pool is fixed and equals 6.
+#### Task 07
 
-    The `f` function must return the `wait` value multiplied by 10.
+Modify the `multiex2.py` program to run multiple tasks using a pool.
+Number of tasks must be specified as a command-line argument (default value is 5).
+The size of pool is fixed and equals 6.
+The `f` function must return the wait value multiplied by 10.
+Print the aggregated result returned by the `Pool.map` method.
+Save the resulting program to the `multiexpool.py` file.
 
-    Print the aggregated result returned by the `Pool.map` method. 
- 
-    Save the resulting program to the __17-17_multiexpool.py__ file.
+__multiexpool.py (solution)__:
+```python
 
-## Homework
+#!/usr/bin/env python3
 
-Finish all unfinished programs.
-Create the '12_HighLevelLanguages' folder at the 'sugon' server.
-Put all programs there.
+from multiprocessing import Pool
+import time
+import random
+import sys
 
-### Home tasks:
+def f(args):
+   name, wait = args
+   print(name, wait)
+   time.sleep(wait)
+   return wait*10
 
-* __Task 03__
-* __Task 04__
-* __Task 05__
-* __Task 06__
-* __Task 07__
+if __name__ == '__main__':
+   N = int(sys.argv[1]) if len(sys.argv)>1 else 5
+   pool = Pool(6)
+   pars = [(i, random.randrange(1,5)) for i in range(N)]
+   res = pool.map(f, pars)
+   print(res)
+   pool.close()
+```
