@@ -42,6 +42,27 @@ Lecture 19
   and Shell
 * Applications: Swift, Objective C, maybe C++, almost any 3d-party languages
 
+### Python and OS programming ==
+
+* Cross-platformness
+  * `+/-`
+  * ⇒ own implementation of OS features
+* POSIX-oriented (=> Linux)
+  * `+/-`
+  * ⇒ own implementation of `non-POSIX` OS features
+* High-level, but not OS-oriented (unlike shell)
+  * `+/-`
+  * ⇒ own implementation of OS features
+* Has a lot of non-privileged syscalls wrappers
+* Incredible amount of modules at _PyPi_
+  * Including system-oriented
+  * Including service-oriented
+* Non «resource scrimp» style
+  * If resources do not multiply, use it as a whole, not piece by peice
+    * E. g. `.read()` instead of `.readline()`
+  * no needs to count CPU circles :)
+  * …
+    
 ## Workshop
 
 [Workshop](python.md).
