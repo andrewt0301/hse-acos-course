@@ -62,7 +62,25 @@ Lecture 19
     * E. g. `.read()` instead of `.readline()`
   * no needs to count CPU circles :)
   * …
-    
+
+#### Modlues: os ans sys
+* Cross-platform path: [os.path](https://docs.python.org/3/library/os.path.html) and
+  [pathlib](https://docs.python.org/3/library/pathlib.html)
+  * `.is*()`, `.exists()` etc.
+* [os](https://docs.python.org/3/library/os.html):
+  * `.environ`
+  * syscalls wrappers (`.fork`, `.getpid`, `.fstat`, `.popen`, `.wait`, almost any! ...)
+* [sys](https://docs.python.org/3/library/sys.html):
+  `.executable`, `.argv`, `.stdin`, `.stdout`, `.stderr`, ...
+* Raising a level example:
+  [time](https://docs.python.org/3/library/time.html) →
+  [datetime](https://docs.python.org/3/library/datetime.html) →
+  [calendar](https://docs.python.org/3/library/calendar.html)
+
+Also:
+ * [platform](https://docs.python.org/3/library/platform.html)
+ * …
+
 ## Workshop
 
 [Workshop](python.md).
