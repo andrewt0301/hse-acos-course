@@ -3,7 +3,6 @@
 Write a program `parser.c` that takes exactly 3 arguments:
 
 * `./parser arg1 arg2 arg3`
-
   1. If _arg_ is an integer number, it defines `N` for the upcoming search.
   1. If _arg_ is a name of _existing_ directory, it defines `directory` for upcoming search.
   1. Otherwise _arg_ is treated as [glob](https://man7.org/linux/man-pages/man7/glob.7.html)
