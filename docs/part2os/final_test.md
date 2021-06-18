@@ -68,6 +68,8 @@ Requirements:
       return <math expr>;
   }
   ```
+* Command-line arguments (strings) can be converted to `double` using
+  the [atof](https://man7.org/linux/man-pages/man3/atof.3.html) function.
 * Mathematical functons (such as `sin`, `cos`, `pow`, `exp` etc.) and constants (`M_E`) are
   provided in the [math.h](https://man7.org/linux/man-pages/man0/math.h.0p.html) library.
 * Programs using library `<math.h>` must be linked with the `m` library: use the `-lm` GCC flag.
