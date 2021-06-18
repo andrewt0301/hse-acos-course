@@ -103,6 +103,8 @@ Final test for Computer Architecture is [here](part1ca/final_test.md).
 
 1. [Workshop: Linux Kernel Modules](part2os/XX_Linux_Modules/lecture.md)
 
+Final test for Operating Systems is [here](part2os/final_test.md).
+
 ## Grading System
 
 Information on the grading system for the course is [here](grades.md).
