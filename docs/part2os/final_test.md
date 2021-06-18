@@ -41,14 +41,17 @@ Write a program in C that does the following:
 * Writes pairs `<function argument>, <function result>)` into text file `output.csv`
   ([CSV](https://en.wikipedia.org/wiki/Comma-separated_values) format).  
 * The function to be calculated has the following format:
-  `f0(f1(x), f2(x), f3(x), f4(x))`, where
-   * `x` is the function argument;
-   * `f0`-`f4` are functions that are individual according to the variant.
+  ``` 
+  f(x) = f0(f1(x), f2(x), f3(x), f4(x))
+  ```
+  , where:
+    * `x` is the function argument;
+    * `f0`-`f4` are functions that are individual according to the variant.
 
 Requirements:
 
 * _Grade 4_: make all calculations in a single process.
-* _Grade 7_: execute the __f0__ function for the entire value range in a __child process__
+* _Grade 8_: execute the __f0__ function for the entire value range in a __child process__
   and return the resulting values to the parent process using __IPC__ (a _pipe_ or other type of IPC you like);
 * _Grade 10_: execute __f0__ in the parent process and __f1__-__f4__ in separate child processes.
   Return the calculated values of __f1__-__f4__ to `f0` using __IPC__ (a _pipe_ or other type of IPC you like)
