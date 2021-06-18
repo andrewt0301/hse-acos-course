@@ -65,9 +65,9 @@ Requirements:
   provided in the [<math.h>](https://man7.org/linux/man-pages/man0/math.h.0p.html) library.
 * Programs using library `<math.h>` must be linked with the `m` library: use the `-lm` GCC flag.
 * Use the `fopen`, `fprintf`, and `fclose` functons to write data to the file.
-* Distributed calculations:
-  * Child: process a function is calculated for a range of values and results are written to IPC;
-  * Parent: reads values from IPC in a loop and prints them or uses in other calculations. 
+* Multi-process calculations:
+  * _Child_: a function is calculated for a range of values and results are written to IPC;
+  * _Parent_: values are read from IPC in a loop and printed or used in other calculations. 
 
 ### Variants
 
