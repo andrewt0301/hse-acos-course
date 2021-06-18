@@ -22,7 +22,7 @@ Copy-paste from external sources and other students will result in 100% penalty.
    * What Linux files types to you know?
    * What access rights and permission groups do you know?
    * Study the output of the `ls -li` command below.
-   * What can you say about "file1", "file2", and "file3"?
+   * What can you say about `file1`, `file2`, and `file3`?
 
      ```bash
      acos@acos-vm:~/folder$ ls -li
