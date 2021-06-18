@@ -64,7 +64,7 @@ Requirements:
 
 * Functions `f1`-`f4` have the following  structure:
   ```c
-  double f0(double x) {
+  double f1(double x) {
       return <math expr>;
   }
   ```
