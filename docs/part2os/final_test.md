@@ -13,7 +13,7 @@ Copy-paste from external sources and other students will result in 100% penalty.
    * What is a system call?
 
 2. Processes and threads.
-   * Give definions of process and thread.
+   * Give definitions of process and thread.
    * What is the difference between them?
    * What inter-process communication mechanisms do you know?
    * What synchronization mechanisms do you now?
