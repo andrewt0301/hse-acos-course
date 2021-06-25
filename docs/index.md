@@ -105,6 +105,10 @@ Final test for Computer Architecture is [here](part1ca/final_test.md).
 
 Final test for Operating Systems is [here](part2os/final_test.md).
 
+## Exam
+
+Exam topics are [here](exam_2020.md).
+
 ## Grading System
 
 Information on the grading system for the course is [here](grades.md).
