@@ -6,7 +6,7 @@ This site contains materials for the "Computer Architecture and Operating System
 [Faculty of Computer Science of Higher School of Economics](https://cs.hse.ru/en/).
 
 For information on course administration, please refer to the
-__[official course page](http://wiki.cs.hse.ru/ACOS_DSBA_2020/2021)__ at the university web site.
+__[official course page](http://wiki.cs.hse.ru/ACOS_DSBA_2021/2022)__ at the university web site.
 Also, here is the link to the __[official syllabus](https://www.hse.ru/edu/courses/375268865)__.
 
 ## Course Motivation
@@ -143,3 +143,10 @@ an [issue](https://github.com/andrewt0301/hse-acos-course/issues)
 or contact the course [author](https://github.com/andrewt0301). 
 If you like the course, you are welcome to star it in
 [GitHub](https://github.com/andrewt0301/hse-acos-course).
+
+В коде откровенный copy-paste. Это на просто похожие решения. За это 0.
+И так стараюсь не придираться к мелочам. В теоретических вопросах выстрачаются похожие мотивы.
+В домашних работах тоже находился плагиат.
+Тест был составлен так, что любой мог получить минимальные 4 балла за это задание.
+Любая попытка своего решения могла добавить 1-2 балла.
+Даже списанный код можно было переделать, так чтобы он стал своим.
