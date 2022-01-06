@@ -21,6 +21,11 @@ The courses are listed in the order of decreasing relevance.
   https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-172-performance-engineering-of-software-systems-fall-2018)
   MIT. 2018.
 
+- Alexandr Chernov at al. [Computer Architecture and Operating Systems](
+  https://www.hse.ru/en/edu/courses/454431540) (in Russian).
+  HSE (Applied Mathematics and Information Science).
+  [Materials](https://github.com/blackav/hse-caos-2020). 2020.
+
 - David Wentzlaff. [Computer Architecture.](https://www.coursera.org/learn/comparch/home/welcome)
   Princeton University.
 
@@ -32,10 +37,6 @@ The courses are listed in the order of decreasing relevance.
 
 - Alexey Khoroshilov. [Operating System Engineering](http://sp.cs.msu.ru/courses/bosk) (in Russian).
   MSU/HSE/ISP RAS.
-
-- Alexandr Chernov at al. [Computer Architecture and Operating Systems](
-  https://www.hse.ru/en/ba/ami/courses/292661421.html) (in Russian).
-  HSE (Applied Mathematics and Information Science). [Syllabus](https://github.com/andrewt0301/hse-acos-course/raw/master/related/ACOS_program.pdf). 2019.
 
 - [Valery Bakanov](http://vbakanov.ru/). [Computer System Architecture](
   https://www.hse.ru/edu/courses/292689017) (in Russian).
