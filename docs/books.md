@@ -15,6 +15,12 @@ Some course topics are based on other external material, which will be provided 
   Online materials are [here](https://www.elsevier.com/books-and-journals/book-companion/9780128122754).
   1st Edition. 2017.
 
+- [DDCA] David Harris, Sarah Harris.
+  [Digital Design and Computer Architecture: RISC-V Edition.](
+  https://www.elsevier.com/books/digital-design-and-computer-architecture/harris/978-0-12-820064-3)
+  Online materials are [here](https://www.elsevier.com/books-and-journals/book-companion/9780128200643).
+  1st Edition. 2021.
+
 - [CSPP] Randal E. Bryant, David R. O'Hallaron.
   [Computer Systems: A Programmer's Perspective.](
   https://www.pearson.com/us/higher-education/product/Bryant-Computer-Systems-A-Programmer-s-Perspective-3rd-Edition/9780134092669.html)
