@@ -26,6 +26,10 @@ The courses are listed in the order of decreasing relevance.
   HSE (Applied Mathematics and Information Science).
   [Materials](https://github.com/blackav/hse-caos-2020). 2020.
 
+- Sergey Ignatov and Eugene Zouev. [Computer Architecture and System Software Crash Course.](
+  https://github.com/sergign60/CrashCourse)
+  Samsung Research Russia. 2019.
+
 - David Wentzlaff. [Computer Architecture.](https://www.coursera.org/learn/comparch/home/welcome)
   Princeton University.
 
