@@ -7,6 +7,8 @@ For this course, a VM with Linux Ubuntu is available at the public server (Yande
 
 To access the server VM, please follow the steps below:
 
+1. For Windows users: [download](https://git-scm.com/downloads) and install Git. Run Git Bash.
+
 1. Run the `ssh-keygen` command in the console, to generate SSH keys.
    Specify the passphrase for the keys. The keys will be generated in the following folders.
    
@@ -15,7 +17,7 @@ To access the server VM, please follow the steps below:
 
 1. Upload the public SSH key (`id_rsa.pub`) to some Cloud drive (Google, Yandex, Mail, etc.)
    and add the link to it into this [table](
-   https://docs.google.com/spreadsheets/d/1OEQYWgQ2ge4h66gBOiexFCXA3V3K3Ded_PhfTObm1Gs/edit?usp=sharing).
+   https://docs.google.com/spreadsheets/d/1AcuDJwfho_MzBqayo9dhVKe1iqPnUcMEjUkB1mVog60/edit?usp=sharing).
  
 1. The admin will take data from the table and will provide you with a login.
 

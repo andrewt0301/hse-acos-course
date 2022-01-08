@@ -25,6 +25,7 @@ Slides ([PDF](CA_Lecture_01.pdf), [PPTX](CA_Lecture_01.pptx)).
    * RARS.
    * VirtualBox. 
    * Linux Ubuntu VM.
+* Introduction to Cloud [Ubuntu VM](../../software/cloud_ssh.md) via [SSH](https://en.wikipedia.org/wiki/Secure_Shell).
 * Practice: play with matrix multiplication and see the benchmarks.
 
 #### Tasks
@@ -42,6 +43,7 @@ Slides ([PDF](CA_Lecture_01.pdf), [PPTX](CA_Lecture_01.pptx)).
      https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/01_Introduction/matrix_ikj.c).
    * [C incorrectly optimized (jki)](
      https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/01_Introduction/matrix_ikj.c).
+* Generate SSH keys for access to Cloud and save the public key to the table.
 
 #### Notes
 
@@ -88,10 +90,12 @@ gives these results:
 ## Homework
 
 * Finish installing all required software.
-* Finish experiments with matrix multiplication and provide benchmarks.
+* Save a link to the SSH public key to the [table](
+  https://docs.google.com/spreadsheets/d/1AcuDJwfho_MzBqayo9dhVKe1iqPnUcMEjUkB1mVog60/edit?usp=sharing). 
+* Finish experiments with matrix multiplication and provide benchmarks (for your machine).
    * Run matrix multiplication in Python and C (all versions) in your machine.
    * Provide a table with execution time.
-* Send the file with table to your instructor.
+* Save the file with the table to the Cloud VM: create folder `<your user name>/ca/lab01`.
 
 ## References
 
@@ -102,7 +106,7 @@ gives these results:
   Lecture 1.
 * [FLOPS](https://en.wikipedia.org/wiki/FLOPS) (Wikipedia).
 * [Analytical Engine](https://en.wikipedia.org/wiki/Analytical_Engine) (Wikipedia).
-* [Von Neumann architecture](https://en.wikipedia.org/wiki/Von_Neumann_architecture) (Wikipedia).
+* [Von Neumann Architecture](https://en.wikipedia.org/wiki/Von_Neumann_architecture) (Wikipedia).
 * [Turing machine](https://en.wikipedia.org/wiki/Turing_machine) (Wikipedia).
 * [Moore's law](https://en.wikipedia.org/wiki/Moore%27s_law) (Wikipedia).
-* [Internet of things](https://en.wikipedia.org/wiki/Internet_of_things) (Wikipedia).
+* [Internet of Things](https://en.wikipedia.org/wiki/Internet_of_things) (Wikipedia).
