@@ -28,6 +28,7 @@ https://coderoad.ru/49970549/Проблема-рендеринга-некото�
  * Maximize score for each of the modules.
  * Note that bonuses are separated by module.
  * Attend classes.
+ * Mind the deadlines.
  * Do not cheat, it costs.
 
 ## Overall Formula
@@ -66,7 +67,7 @@ During the defence, a student is asked questions on the topic of the homework.
 The final grade for a homework is decided at the defence.
 Defences do not have deadlines. However, it is illegal to have more than 5 undefended homeworks.
 When the number of undefended homeworks is larger than 5,
-the earliest homeworks that  exceed the limit are rejected with 0 score. 
+the earliest homeworks that exceed the limit are rejected with 0 score.
 
 #### Bonus Points: 2 points
 
