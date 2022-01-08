@@ -53,7 +53,7 @@ $$M_i = min(10, R_i + B_i)$$
 $$R_i = \frac{45}{100}\cdot H + \frac{10}{100}\cdot Q + \frac{10}{100}\cdot P + \frac{35}{100}\cdot F$$
 
 | Variable | Score | Description |
-| $$H$$    | 45%   | Homework (practical tasks). There are deadlines. 50% penalty for being 1 week late. Homeworks submitted with a delay of 2 weeks or more are not accepted. 100% penalty for cheating. |
+| $$H$$    | 45%   | Homework (practical tasks). There are deadlines. Delays cause penalties: 25% for each week of delay. 100% penalty for cheating. |
 | $$Q$$    | 10%   | Quizzes for self-checking. |
 | $$P$$    | 10%   | Class presence. You need to attend more than 3/4 of classes to earn this point. |
 | $$F$$    | 35%   | Final test (programming assignment). 100% penalty for cheating. |
@@ -64,7 +64,8 @@ Homeworks are submitted in a written form.
 However, to control understanding of the material and to prevent cheating, homeworks are to be defended.
 During the defence, a student is asked questions on the topic of the homework.
 The final grade for a homework is decided at the defence.
-Defences also have deadlines.
+Defences do not have deadlines. However, it is illegal to have more than 5 undefended homeworks.
+When the number of undefended homeworks is larger than 5, the earliest homeworks are rejected with 0 score. 
 
 #### Bonus Points: 2 points
 
