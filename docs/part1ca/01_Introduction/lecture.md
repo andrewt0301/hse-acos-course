@@ -18,7 +18,7 @@ Slides ([PDF](CA_Lecture_01.pdf), [PPTX](CA_Lecture_01.pptx)).
 
 #### Outline
 
-* Introduction: instructor meets class.
+* Introduction: the instructor meets the class.
 * Information on workshop organisation (goals, topics).
   and administration (attendance, homeworks, grading).
 * Introduction to [software tools](../../software.md).
@@ -26,12 +26,16 @@ Slides ([PDF](CA_Lecture_01.pdf), [PPTX](CA_Lecture_01.pptx)).
    * VirtualBox. 
    * Linux Ubuntu VM.
 * Introduction to Cloud [Ubuntu VM](../../software/cloud_ssh.md) via [SSH](https://en.wikipedia.org/wiki/Secure_Shell).
+* Introduction to Git and GitHub.
 * Practice: play with matrix multiplication and see the benchmarks.
 
 #### Tasks
 
 * Read documentation on software tools (RARS, Virtual Box, Ubuntu).
 * Download and install the tools.
+* Generate SSH keys for access to Cloud and GitHub. Save the public key to the [table](
+  https://docs.google.com/spreadsheets/d/1AcuDJwfho_MzBqayo9dhVKe1iqPnUcMEjUkB1mVog60/edit?usp=sharing).
+* Create a private GitHub repository and give access to it to the workshop instructor and teaching assistant.  
 * Download, compile, and run matrix computation examples:
    * [Python](
      https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/01_Introduction/matrix.py).
@@ -43,7 +47,6 @@ Slides ([PDF](CA_Lecture_01.pdf), [PPTX](CA_Lecture_01.pptx)).
      https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/01_Introduction/matrix_ikj.c).
    * [C incorrectly optimized (jki)](
      https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/01_Introduction/matrix_ikj.c).
-* Generate SSH keys for access to Cloud and save the public key to the table.
 
 #### Notes
 
@@ -95,7 +98,7 @@ gives these results:
 * Finish experiments with matrix multiplication and provide benchmarks (for your machine).
    * Run matrix multiplication in Python and C (all versions) in your machine.
    * Provide a table with execution time.
-* Save the file with the table to the Cloud VM: create folder `<your user name>/ca/lab01`.
+* Commit the file with the table to your private GitHub account. Place it into the folder `ca/lab01`.
 
 ## References
 
