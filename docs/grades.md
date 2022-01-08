@@ -61,7 +61,7 @@ $$R_i = \frac{45}{100}\cdot H + \frac{10}{100}\cdot Q + \frac{10}{100}\cdot P + 
 ##### Homework Defences
 
 Homeworks are submitted in a written form.
-To control understanding of the material and to prevent cheating, homeworks are to be defended.
+However, to control understanding of the material and to prevent cheating, homeworks are to be defended.
 During the defence, a student is asked questions on the topic of the homework.
 The final grade for a homework is decided at the defence.
 Defences also have deadlines.
