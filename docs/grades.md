@@ -58,6 +58,14 @@ $$R_i = \frac{45}{100}\cdot H + \frac{10}{100}\cdot Q + \frac{10}{100}\cdot P + 
 | $$P$$    | 10%   | Class presence. You need to attend more than 3/4 of classes to earn this point. |
 | $$F$$    | 35%   | Final test (programming assignment). 100% penalty for cheating. |
 
+##### Homework Defences
+
+Homeworks are submitted in a written form.
+To control understanding of the material and to prevent cheating, homeworks are to be defended.
+During the defence, a student is asked questions on the topic of the homework.
+The final grade for a homework is decided at the defence.
+Defences also have deadlines.
+
 #### Bonus Points: 2 points
 
 $$B_i = 2\cdot \frac{\sum_k A_k}{100}$$
