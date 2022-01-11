@@ -33,9 +33,12 @@ Slides ([PDF](CA_Lecture_01.pdf), [PPTX](CA_Lecture_01.pptx)).
 
 * Read documentation on software tools (RARS, Virtual Box, Ubuntu).
 * Download and install the tools.
-* Generate SSH keys for access to Cloud and GitHub. Save the public key to the [table](
+* Generate [SSH keys](../../software/cloud_ssh.md) for access to Cloud and GitHub.
+  Save the public key to the [table](
   https://docs.google.com/spreadsheets/d/1AcuDJwfho_MzBqayo9dhVKe1iqPnUcMEjUkB1mVog60/edit?usp=sharing).
-* Create a private GitHub repository and give access to it to the workshop instructor and teaching assistant.  
+* [Create](git.md) a private GitHub repository and give access to it to the lecturer,
+  workshop instructor, and teaching assistant.
+   * Name it `<group>_<surname>`, e.g. `204_tatarnikov` 
 * Download, compile, and run matrix computation examples:
    * [Python](
      https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/01_Introduction/matrix.py).
@@ -50,10 +53,29 @@ Slides ([PDF](CA_Lecture_01.pdf), [PPTX](CA_Lecture_01.pptx)).
 
 #### Notes
 
+##### VirtualBox
+
 Some laptops might have issues with hardware virtualization.
 It should be enabled in BIOS.
 If you face problems running the VM, please refer to this [instruction]( 
 https://bce.berkeley.edu/enabling-virtualization-in-your-pc-bios.html).
+
+##### Connecting to the running VirtualBox VM
+
+1. Run terminal in your host operating system (Git Bash for Windows).
+1. Execute the following command:
+   ```bash
+   ssh acos@localhost -p2022
+   ```
+1. Use the password `acos2020`.
+
+##### Bash Commands
+
+Information on useful Linux and MacOS command-line tools can be found [here](bash.md).
+
+##### Git and GitHub
+
+Notes on how to work with GitHub and Git can be found [here](git.md). 
 
 #### Example
 
@@ -99,6 +121,12 @@ gives these results:
    * Run matrix multiplication in Python and C (all versions) in your machine.
    * Provide a table with execution time.
 * Commit the file with the table to your private GitHub account. Place it into the folder `ca/lab01`.
+
+Homeworks is successful if:
+
+1. GitHub account is created.
+2. Table with execution time is uploaded to GitHub.
+3. Cloud VM account is created.
 
 ## References
 
