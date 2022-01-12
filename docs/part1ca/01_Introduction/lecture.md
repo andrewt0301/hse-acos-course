@@ -49,7 +49,7 @@ Slides ([PDF](CA_Lecture_01.pdf), [PPTX](CA_Lecture_01.pptx)).
    * [C optimized (ikj)](
      https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/01_Introduction/matrix_ikj.c).
    * [C incorrectly optimized (jki)](
-     https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/01_Introduction/matrix_ikj.c).
+     https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/01_Introduction/matrix_jki.c).
 
 #### Notes
 
