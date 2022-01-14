@@ -122,7 +122,7 @@ gives these results:
    * Provide a table with execution time.
 * Commit the file with the table to your private GitHub account. Place it into the folder `ca/lab01`.
 
-Homeworks is successful if:
+Homework is successful if:
 
 1. GitHub account is created.
 2. Table with execution time is uploaded to GitHub.
