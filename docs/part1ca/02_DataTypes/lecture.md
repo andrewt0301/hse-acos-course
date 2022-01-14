@@ -45,7 +45,7 @@ Slides ([PDF](CA_Lecture_02.pdf), [PPTX](CA_Lecture_02.pptx)).
    
    Values: `0`, `10`, `14`, `15`, `16`, `32`, `34`, `127`, `128`, `255`
 
-1. Convert the following hehadecimal numbers to 8-bit binary values:
+1. Convert the following hexadecimal numbers to 8-bit binary values:
 
    Values: `0x1`, `0x2`, `0x7`, `0x8`, `0x10`, `0x7F`, `0xFF`, `0x80`
 
@@ -57,7 +57,7 @@ Slides ([PDF](CA_Lecture_02.pdf), [PPTX](CA_Lecture_02.pptx)).
 1. View and run the [dumpbytes.c](
    https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/02_DataTypes/dumpbytes.c) program.
 
-   ```
+   ```bash
    cat dumpbytes.c
    gcc dumpbytes.c -o dumpbytes
    ./dumpbytes
@@ -79,8 +79,7 @@ Slides ([PDF](CA_Lecture_02.pdf), [PPTX](CA_Lecture_02.pptx)).
 
    Values: (`0011`, `1100`), (`1011`, `1101`), (`0101`, `1001`), (`1010`, `1110`)
 
-
-1. Perform the bitwise _XOR_ operation for the following pairs of values from the previos task.
+1. Perform the bitwise _XOR_ operation for the following pairs of values from the previous task.
 
 1. (*) Explain the following bit trick. Swapping values `x` and `y` without using a temporary variable
    can be done in the following way:
@@ -109,9 +108,46 @@ Slides ([PDF](CA_Lecture_02.pdf), [PPTX](CA_Lecture_02.pptx)).
    * `x | (x + 1)` - turning on the rightmost 0-bit (e.g. `10100111` => `10101111`).
    * `x | (x - 1)` - turning on the trailing 0's (e.g. `10101000` => `10101111`).
 
+Finish all the tasks. Make sure you understand everything.
+
 ## Homework
 
-Finish all the tasks. Make sure you understand everything.
+1. Convert the following decimal numbers to __6-bit__ binary numbers (describe how you have done this).
+
+   Unsigned: `0`, `13`, `24`, `63`.
+
+   Signed: `16`, `-2`, `31`, `-32`.
+ 
+2. Convert the following __6-bit__ values to decimal numbers.
+   Consider both unsigned and two's complement formats (provide a formula).
+
+   Values: `000101`, `101011`, `111111`, `100000`
+
+3. Convert the following decimal values to 8-bit hexadecimal numbers.
+
+   Values: `7`, `240`, `171`, `126`
+
+4. Convert the following hexadecimal numbers to 8-bit binary values:
+
+   Values: `0x3C`, `0x7E`, `0xFF`, `0xA5`
+
+5. Negate the binary values (integer negation) from the previous task.
+
+6. Describe how bytes of the `0xDEADBEEF` value would be located in memory for Big- and Little-Endian convention.
+
+7. Convert the following decimal values to 4-bit binary values. Then sign- and zero- extend them to 8-bit binary values.
+
+   Values: `7`, `15`, `-16`, `-5`
+
+8. Convert the following pairs decimal numbers to 4-bit binaries and add them.
+
+   Values: unsigned (`7`, '9'), signed (`4`, `-5`)
+
+Additionally:
+
+1. Provide your explanation for (*) tasks from the class. Bonus point.
+
+Commit the file with the table to your private GitHub account. Place it into the folder `ca/lab02`.
 
 ## References
 
