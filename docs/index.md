@@ -30,7 +30,7 @@ The second part is given in __module 4__ and covers foundations of operating sys
 The main tools for this part are the [Linux](https://en.wikipedia.org/wiki/Linux) operating system and
 the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_language%29).
 
-__Calendar plan by weeks can be found [here](calendar.md).__
+__Calendar plan by weeks can be found [here](calendar_2022.md).__
 
 ### Computer Architecture and Assembly Language
 
