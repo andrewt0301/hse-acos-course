@@ -1,6 +1,5 @@
 Calendar: Plan by Weeks
 ---
-Being updated...
 
 This is the plan how lecture topics will correspond to weeks of modules 3 and 4 in year 2022.
 Also, see the HSE academic calendar [here](https://www.hse.ru/education/academ).
@@ -14,8 +13,8 @@ ends with a test which is taken during a lecture class.
 ### Number of Topics
 
 * Computer Architecture (_CA_): 16
-* Operating Systems (_OS_): 19
-* Total: 35
+* Operating Systems (_OS_): 18
+* Total: 34
 
 ### Tests (T)
 
@@ -24,8 +23,8 @@ ends with a test which is taken during a lecture class.
 
 ### Quizzes
 
-* Computer Architecture: 6
-* Operating Systems: 6
+* Computer Architecture: 7
+* Operating Systems: 7
 
 ### Number of Weeks
 
@@ -41,34 +40,37 @@ ends with a test which is taken during a lecture class.
 ### Plan by Weeks
 
 | __Week__ | __Dates__     | __Topics__      |
-| 1        | 11.01 - 15.01 | _CA_: 1, 2      | 
-| 2        | 18.01 - 22.01 | _CA_: 3, 4, Q1  |
-| 3        | 25.01 - 29.01 | _CA_: 5, 6, Q2  |
-| 4        | 01.02 - 05.02 | _CA_: 7, 8, Q3  |
-| 5        | 08.02 - 12.02 | _CA_: 9, 10, Q4 |
-| 6        | 15.02 - 19.02 | _CA_: 11, 12, Q5|
-| 7        | 24.02 - 26.02 | _CA_: 13        |
-| 8        | 01.03 - 05.03 | _CA_: 14, 15, Q6|
-| 9        | 09.03 - 12.03 | _CA_: 16, _CAT_ |
-| 10       | 15.03 - 19.03 | _OS_: 1, 2      |
-| 11       | 22.03 - 26.03 | _OS_: 3, 4, Q1  |
+| 1        | 10.01 - 14.01 | _CA_: 1, 2      | 
+| 2        | 17.01 - 21.01 | _CA_: 3, 4, Q1  |
+| 3        | 24.01 - 28.01 | _CA_: 5, 6, Q2  |
+| 4        | 31.01 - 04.02 | _CA_: 7, 8, Q3  |
+| 5        | 07.02 - 11.02 | _CA_: 9, 10, Q4 |
+| 6        | 14.02 - 18.02 | _CA_: 11, 12, Q5|
+| 7        | 21.02 - 25.02 | _CA_: 13, 14, Q6|
+| 8        | 28.02 - 04.03 | _CA_: 15, 16, Q7|
+| 9        | 09.03 - 11.03 | _CA_: _CAT_     |
+| 10       | 14.03 - 18.03 | _OS_: 1, 2      |
+| 11       | 21.03 - 25.03 | _OS_: 3, 4, Q1  |
+
+Note: quizzes and final test are given during online lectures on Fridays. 
 
 # Module 4
 
 | __Dates__               | __Exams__               | __Vacations__                                             |
-| 04.04.2022 - 19.06.2022 | 20.06.2022 - 30.06.2022 | 01.05.2022 - 10.05.2022, <br/>11.05.2022 - 21.05.2022 (*) |
+| 04.04.2022 - 19.06.2022 | 20.06.2022 - 30.06.2022 | 01.05.2022 - 10.05.2022, <br/>13.06.2022, <br/>11.05.2022 - 21.05.2022 (*) |
 
 _(*) - London exams_
-
 
 ### Plan by Weeks
 
 | __Week__ | __Dates__     | __Topics__      |
-| 1        | 05.04 - 09.04 | _OS_: 5, 6      |
-| 2        | 12.04 - 16.04 | _OS_: 7, 8, Q2  |
-| 3        | 19.04 - 23.04 | _OS_: 9, 10, Q3 |
-| 4        | 26.04 - 30.04 | _OS_: 11, 12, Q4|
-| 5        | 24.05 - 28.05 | _OS_: 13, 14    |
-| 6        | 31.05 - 04.06 | _OS_: 15, 16, Q5|
-| 7        | 07.06 - 11.06 | _OS_: 17, 18, Q6|
-| 8        | 14.06 - 18.06 | _OS_: 19, _OST_ |
+| 1        | 04.04 - 08.04 | _OS_: 5, 6      |
+| 2        | 11.04 - 15.04 | _OS_: 7, 8, Q2  |
+| 3        | 18.04 - 22.04 | _OS_: 9, 10, Q3 |
+| 4        | 25.04 - 29.04 | _OS_: 11, 12, Q4|
+| 5        | 23.05 - 27.05 | _OS_: 13, 14, Q5|
+| 6        | 30.05 - 05.06 | _OS_: 15, 16, Q6|
+| 7        | 06.06 - 10.06 | _OS_: 17, 18, Q7|
+| 8        | 14.06 - 17.06 | _OS_: _OST_     |
+
+Note: quizzes and final test are given during online lectures on Fridays. 
