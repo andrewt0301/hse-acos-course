@@ -143,10 +143,3 @@ an [issue](https://github.com/andrewt0301/hse-acos-course/issues)
 or contact the course [author](https://github.com/andrewt0301). 
 If you like the course, you are welcome to star it in
 [GitHub](https://github.com/andrewt0301/hse-acos-course).
-
-В коде откровенный copy-paste. Это на просто похожие решения. За это 0.
-И так стараюсь не придираться к мелочам. В теоретических вопросах выстрачаются похожие мотивы.
-В домашних работах тоже находился плагиат.
-Тест был составлен так, что любой мог получить минимальные 4 балла за это задание.
-Любая попытка своего решения могла добавить 1-2 балла.
-Даже списанный код можно было переделать, так чтобы он стал своим.
