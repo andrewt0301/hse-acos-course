@@ -117,8 +117,8 @@ _Hint_: Use the RARS help system (F1) and [RISC-V Greencard](
  
 #### Notes
 
-What is an _integer overlow_? This is a situation when an arithmetic operation
-produces a value that is outside of the range that can be represented with a given number of bits.
+What is an _integer overflow_? This is a situation when an arithmetic operation
+produces a value that is outside the range that can be represented with a given number of bits.
 This value is truncated, which gives a mathematically incorrect result.
 
 Let us consider how such a situation can happen when we add two 4-bit values.
