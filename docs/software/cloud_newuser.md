@@ -7,7 +7,7 @@ How to add a new user to the Cloud VM:
    https://github.com/andrewt0301/hse-acos-course/blob/master/docs/software/newuser.ssh)
    script to the Cloud VM.
 2. Run the script with `sudo`.
-3. Enter the username (e.g. `tatarnikov_204`).
+3. Enter the username (e.g. `tatarnikov_204`). Create a username based on the user surname, name, and group. 
 4. Enter the user SSH public key (the text from the `id_rsa.pub` file the user has attached to the table).
 5. Enter user information. Password is default: `123456`.
 6. All other user information can be skipped. Just press ENTER.
