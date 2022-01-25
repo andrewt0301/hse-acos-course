@@ -50,7 +50,7 @@ _Hint_: Use the RARS help system (F1) and [RISC-V Greencard](
 1. Open in RARS and run the ["Add"](
    https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/03_CPU/workshop/add.s) program.
    This is an example of a program that inputs two numbers, adds them, and prints the result.
-   It is can be used a basis for other programs.
+   It can be used a basis for other programs.
 
 1. Write a program that inputs integer value `x` and prints it in the following formats:
    decimal, unsigned, hexadecimal, and binary. _Hint_: Use RARS help (F1) to find proper system calls. 
@@ -64,8 +64,8 @@ _Hint_: Use the RARS help system (F1) and [RISC-V Greencard](
        (x + 5) + (x - 7)
        x >> 3 + y << 3
 
-1. Write a program that inputs integer value `x`, performs alogic and arithmetical shifts to
-   the left and to the right by 3 digits, and prints the result.
+1. Write a program that inputs integer value `x`, performs logic and arithmetical shifts to
+   the left and to the right by 3 digits, and prints the result (decimal and binary format).
 
 1. Write a program that inputs integer value `x`, performs the following operations,
    and prints the result. Use the binary format for printing.
@@ -77,7 +77,7 @@ _Hint_: Use the RARS help system (F1) and [RISC-V Greencard](
        x * 8
        x * 31
 
-    How to perform these operations without using a multiplication instruction?       
+   How to perform these operations without using a multiplication instruction?       
 
        x / 2
        x / 3
@@ -85,7 +85,7 @@ _Hint_: Use the RARS help system (F1) and [RISC-V Greencard](
        x / 8
        x / 31
 
-    Is it possible to do this without using a division instruction?       
+   Is it possible to do this without using a division instruction?       
 
        x % 2
        x % 3
@@ -93,7 +93,7 @@ _Hint_: Use the RARS help system (F1) and [RISC-V Greencard](
        x % 8
        x % 31
 
-    Is it possible to do this without using a remainder instruction?
+   Is it possible to do this without using a remainder instruction?
 
 1. Write a program that inputs integer value `x`, sets its 3-rd bit, resets its 6-th bit,
    and prints the result. Use the binary format for printing.
@@ -130,7 +130,7 @@ Let us consider how such a situation can happen when we add two 4-bit values.
        1111(15) + 0001(1) = 10000(16) -> to 4 bits -> 0000(0) == OVERFLOW 
 
    The result of this addition is a 5-bit value. When we truncate it to 4 bits, we get `0000 (0)`.
-   The 5-th bit of the result (`1`) is truncated. The result is mathematically incorrect..
+   The 5-th bit of the result (`1`) is truncated. The result is mathematically incorrect.
 
    How can we detect this? _Rule: if the sum is smaller than any of the values, this is an overflow._ 
 
@@ -151,7 +151,26 @@ How to find out that two values are equal? Use the _XOR_ operation. For equal va
 
 ## Homework
 
-Finish the tasks and send the programs to your team assistant.
+Write programs that input two integer values `x` and `y`, calculate the following expressions, and print the result:
+
+1. `(x + 5) - (y - 7)`
+2. `x >> 2 + (y - 1) << 3`
+3. `x << y - 10`
+4. `x >> y + 10`
+5. `(x << 2 - y + 5) >> 1`
+6. `x * 6 - y * 3` (do multiplication using shifts, adds, and subs)
+7. `2 * x * x - 3 * y + 4`
+8. `(x + 5) / y + 10 / (y - 1)`
+9. `(x / y) * y + x % y` 
+10. `x & (-1 << 5)`
+11. `x | (-1 >> 27)`
+12. set the `y`-th bit of `x` to `1`
+13. reset the `y`-th bit of `x` to `0`
+14. `x > y ? 0 : 1`
+15. `(x == (y + 3)) ? 0 : 1`
+16. `x < -5 & y > 10`
+
+Commit the programs to your private GitHub account. Place it into the folder `ca/lab03`.
 
 ## References
 

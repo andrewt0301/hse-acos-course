@@ -147,7 +147,7 @@ Additionally:
 
 1. Provide your explanation for (*) tasks from the class. Bonus point.
 
-Commit the file with the table to your private GitHub account. Place it into the folder `ca/lab02`.
+Commit the file with the solutions to your private GitHub account. Place it into the folder `ca/lab02`.
 
 ## References
 
