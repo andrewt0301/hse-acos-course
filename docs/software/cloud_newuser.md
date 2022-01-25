@@ -8,16 +8,16 @@ How to add a new user to the Cloud VM:
    script to the Cloud VM.
 2. Run the script with `sudo`.
 3. Enter the username (e.g. `tatarnikov_204`). Create a username based on the user surname, name, and group. 
-4. Enter the user SSH public key (the text from the `id_rsa.pub` file the user has attached to the table).
+4. Enter the user SSH public key (the text from the `id_rsa.pub` file provided by the user).
 5. Enter user information. Password is default: `123456`.
 6. All other user information can be skipped. Just press ENTER.
 7. The user will be created, appropriate rights will be assigned to his folders, and the SSH key will be registered.
 8. Do not forget to add information to the table (the login and the status "Done").
 
-How to update user key:
+How to update user keys:
 
-1. Open the `/home/$USERNAME/.ssh/authorized_keys` file in nano (other your favorite editor).
-2. Replace its content with text from the `id_rsa.pub` file provided by the user.  
+1. Open the `/home/$USERNAME/.ssh/authorized_keys` file in `nano` (or other your favorite editor).
+2. Replace its content with the text from the `id_rsa.pub` file provided by the user.  
 
 Example:
 
