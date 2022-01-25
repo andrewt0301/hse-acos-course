@@ -135,13 +135,13 @@ Finish all the tasks. Make sure you understand everything.
 
 6. Describe how bytes of the `0xDEADBEEF` value would be located in memory for Big- and Little-Endian convention.
 
-7. Convert the following decimal values to 4-bit binary values. Then sign- and zero- extend them to 8-bit binary values.
+7. Convert the following decimal values to __5-bit__ binary values. Then sign- and zero- extend them to 8-bit binary values.
 
    Values: `7`, `15`, `-16`, `-5`
 
 8. Convert the following pairs decimal numbers to 4-bit binaries and add them.
 
-   Values: unsigned (`7`, '9'), signed (`4`, `-5`)
+   Values: unsigned (`7`, `9`), signed (`4`, `-5`)
 
 Additionally:
 
