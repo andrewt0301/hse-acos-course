@@ -14,6 +14,11 @@ How to add a new user to the Cloud VM:
 7. The user will be created, appropriate rights will be assigned to his folders, and the SSH key will be registered.
 8. Do not forget to add information to the table (the login and the status "Done").
 
+How to update user key:
+
+1. Open the `/home/$USERNAME/.ssh/authorized_keys` file in nano (other your favorite editor).
+2. Replace its content with text from the `id_rsa.pub` file provided by the user.  
+
 Example:
 
 ```bash
