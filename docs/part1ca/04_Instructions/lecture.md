@@ -104,8 +104,76 @@ Slides ([PDF](CA_Lecture_04.pdf), [PPTX](CA_Lecture_04.pptx)).
 
 ## Homework
 
-Finish tasks 1-5 and send the programs to your team assistant.
-The rest of the tasks are moving to the next siminar.
+### Task 1
+
+Decompile the program (convert instructions from the binary representation into assembly source code),
+put the source code into RARS and run it. What is an output?
+
+Rewrite the program using a smaller number of instructions.
+
+```
+0x6c6c6337
+0x54830313
+0x412033b7
+0xc6f38393
+0x00535e37
+0xf43e0e13
+0x10010437
+0x00040413
+0x00642023
+0x00742223
+0x01c42423
+0x00400893
+0x00800533
+0x00000073
+```
+
+### Task 2
+
+Decompile the program, put the source code into RARS and run it.
+What arithmetic operation this program is doing?
+
+Rewrite the program using a smaller number of instructions (_hint:_ use RV32M extension instructions).
+
+```
+0x00500893  3 
+0x00000073  4 
+0x00a00333  5  # store "a"
+0x01f55293  6  # store sign of "a"
+0x00000073  8 
+0x00a00eb3  9  # store "b"
+0x01f55e13  10 # store sign of "b"
+0x06030263  12
+0x060e8063  13
+0x00028663  15 # if "a" < 0 then inverse it
+0xfff34313  16
+0x00130313  17
+0x000e0663  19 # if "b" < 0 then inverse it
+0xfffece93  20
+0x001e8e93  21
+0x01d35863  24 # if "a" < "b" swap them
+0x006eceb3  25
+0x006ec333  26
+0x006eceb3  27
+0x000003b3  29
+0x006383b3  31
+0xfffe8e93  32
+0xffd04ce3  33
+0x01c2cfb3  36
+0x000f8663  37
+0xfff3c393  38
+0x00138393  39 # t2 - result accumulator
+0x00100893  41
+0x00700533  42
+0x00000073  43
+0x00a00893  45
+0x00000073  46
+0x00100893  49 # if sign of "a" and "b" is different then negate the result
+0x00000533  50
+0x00000073  51
+0x00a00893  52
+0x00000073  53
+```
 
 ## References
 
