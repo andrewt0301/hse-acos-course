@@ -77,10 +77,10 @@ Slides ([PDF](CA_Lecture_05.pdf), [PPTX](CA_Lecture_05.pptx)).
 Solve the following tasks:
 
 1. [DoubleSum](../Tasks/homeworks.md#doublesum)
-2. [DigitSum](../Tasks/homeworks.md##digitsum)
-3. [PlusMinus](../Tasks/homeworks.md##plusminus)
-4. [EvenBack](../Tasks/homeworks.md##evenback)
-5. [NoDups](../Tasks/homeworks.md##nodups)
+2. [DigitSum](../Tasks/homeworks.md#digitsum)
+3. [PlusMinus](../Tasks/homeworks.md#plusminus)
+4. [EvenBack](../Tasks/homeworks.md#evenback)
+5. [NoDups](../Tasks/homeworks.md#nodups)
 
 Commit the programs to your private GitHub account. Place it into the folder `ca/lab05`.
 
