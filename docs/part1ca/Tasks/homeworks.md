@@ -299,7 +299,7 @@ Taken from here: https://uneex.ru/CategoryHomework
 
 1. ###### ASCIIGrid
 
-   Write a program that inputs ordinals M an N, and outputs MxN grid made with «+» and «-».
+   Write a program that inputs ordinals `M` an `N`, and outputs `M x N` grid made with `+` and `-`.
    You should write a macro that accepts three parameters:
    a number of cells and two characters, and outputs a line like this:
 

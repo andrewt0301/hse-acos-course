@@ -82,7 +82,7 @@ Solve the following tasks:
 4. [EvenBack](../Tasks/homeworks.md#evenback)
 5. [NoDups](../Tasks/homeworks.md#nodups)
 
-Commit the programs to your private GitHub account. Place it into the folder `ca/lab05`.
+Commit the programs to your private GitHub account. Place them into the folder `ca/lab05`.
 
 ## References
 

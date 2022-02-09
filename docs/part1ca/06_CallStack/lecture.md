@@ -176,7 +176,12 @@ What is done by the callee?
 
 ## Homework
 
-Study and run all examples and finish all the tasks.
+Solve the following tasks:
+
+1. [ASCIIGrid](../Tasks/homeworks.md#asciigrid)
+2. TODO
+
+Commit the programs to your private GitHub account. Place them into the folder `ca/lab06`.
 
 ## References
 
