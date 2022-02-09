@@ -180,7 +180,7 @@ Solve the following tasks:
 
 1. [ASCIIGrid](../Tasks/homeworks.md#asciigrid)
 2. [CheckTriangles](../Tasks/homeworks.md#checktriangles)
-3. TODO
+3. [FuncSort](../Tasks/homeworks.md#funcsort)
 
 Commit the programs to your private GitHub account. Place them into the folder `ca/lab06`.
 
