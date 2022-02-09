@@ -152,9 +152,10 @@ Taken from here: https://uneex.ru/CategoryHomework
 
 6. ###### CheckTriangles
 
-   Write a program that inputs 3 integers and calls a function that checks if they can form a triangle (a <= b+c is valid).
+   Write a program that inputs three integers and calls a function that
+   checks if they can form a triangle (`a <= b+c` is valid; order of values `a` ,`b`, and `c` can be any).
    The function returns: `1` if they can; `2` if they cannot; `0` if they all equal `0`.
-   The program must input values and check them until until the check returns `0` then program must exit.
+   The program must input values and check them until the check returns `0` (then program must exit).
    The program must print `Y` if the function returns `1`, or `N` if the function returns `2`.
 
    Input:
@@ -199,7 +200,7 @@ Taken from here: https://uneex.ru/CategoryHomework
    -100500 -123 0 34 546
    ```
 
-9. ###### RecursiveGCD
+8. ###### RecursiveGCD
 
    Write a program that inputs two numbers and output their
    [greatest common divisor](https://en.wikipedia.org/wiki/Greatest_common_divisor).
@@ -215,28 +216,28 @@ Taken from here: https://uneex.ru/CategoryHomework
    9240
    ```
 
-10. ###### LeftDigits
+9. ###### LeftDigits
 
-    Write a program that inputs a cardinal N and then inputs N numbers (can be negative).
-    After that it outputs only first digits of these numbers (in one line).
-    You are inclined to write a subroutine "first" that accepts a number (via $a0)
-    and returns last digit (via $v0).
+   Write a program that inputs a cardinal N and then inputs N numbers (can be negative).
+   After that it outputs only first digits of these numbers (in one line).
+   You are inclined to write a subroutine "first" that accepts a number (via $a0)
+   and returns last digit (via $v0).
 
-    Input:
-    ```
-    5
-    -2345
-    7345623
-    -4321
-    2 
-    7543
-    ```
-    Output:
-    ```
-    27427
-    ```
+   Input:
+   ```
+   5
+   -2345
+   7345623
+   -4321
+   2 
+   7543
+   ```
+   Output:
+   ```
+   27427
+   ```
 
-11. ###### CubicRoot
+10. ###### CubicRoot
 
     Input double (positive or negative) float $$1 <= |A| <= 1000000$$ and $$0.00001<= ɛ <=0.01$$.
     Calculate a cubical root of A with closeness $$<=ɛ$$ (you do not need to round the result).
@@ -256,7 +257,7 @@ Taken from here: https://uneex.ru/CategoryHomework
     Spoiler: suppose solution is between M and N (M < N).
     Select $$K=(M+N)/2$$ and if $$|K^3|>|A|$$ then solution is between M and K, else it is between K and N.
 
-12. ###### FractionTruncate
+11. ###### FractionTruncate
 
     Input three cardinals — `A`, `B` and `n`.
     Output double float `F` that has exact `n` decimal places of `A/B`.
@@ -280,7 +281,7 @@ Taken from here: https://uneex.ru/CategoryHomework
     $$10^n*A/B < 2^{31}$$ means that you can just take an integer part of it,
     then divide the result back to $$10^n$$
 
-13. ###### LeibPi
+12. ###### LeibPi
 
     Calculate π value using [Leibniz formula for π](https://en.wikipedia.org/wiki/Leibniz_formula_for_π)
     accurate to N decimal places. Input N, output the result.
@@ -299,7 +300,7 @@ Taken from here: https://uneex.ru/CategoryHomework
 
     Hint: to gain performance, keep anything in registers.
 
-14. ###### ASCIIGrid
+13. ###### ASCIIGrid
 
     Write a program that inputs ordinals `M` an `N`, and outputs `M x N` grid made with `+` and `-`.
     You should write a macro that accepts three parameters:
@@ -328,7 +329,7 @@ Taken from here: https://uneex.ru/CategoryHomework
     +-+-+-+
     ```
 
-15. ###### KeySort
+14. ###### KeySort
 
     Write a program of key sorting. You should write a subroutine that accepts three arguments:
     array size (in _words_, not in bytes), array address, and comparison subroutine.
@@ -411,7 +412,7 @@ Taken from here: https://uneex.ru/CategoryHomework
     30
     ```
 
-16. ###### ReverseString
+15. ###### ReverseString
 
     Write a program which accepts a sequence of non-empty strings
     (each not longer than 200 characters) and outputs every string backwards.
@@ -435,7 +436,7 @@ Taken from here: https://uneex.ru/CategoryHomework
     .lamron sa detaert era sgnirts ytpmE
     ```
 
-17. ###### CrtDraw
+16. ###### CrtDraw
 
     Write a program, that inputs an odd number of integers.
     Each odd input is an X coordinate, and each even input is an Y coordinate
@@ -488,7 +489,7 @@ Taken from here: https://uneex.ru/CategoryHomework
     *...............
     ```
 
-18. ###### NoError
+17. ###### NoError
 
     Write a program that inputs 10 integers, not taking in account failed inputs.
     When all 10 integers are read, the program outputs them.
@@ -531,7 +532,7 @@ Taken from here: https://uneex.ru/CategoryHomework
     It is suggested to use an array to store successful inputs and universal exception handler
     that marks specific memory variable to skip unsuccessful ones.
 
-19. ###### EightSectors
+18. ###### EightSectors
 
     Write a program that inputs 8 integers and colours `Bitmap Display` with size 128×128 dots
     based on `0x10010000` like this:
@@ -577,7 +578,7 @@ Taken from here: https://uneex.ru/CategoryHomework
     0x00888888
     ```
 
-20. ###### LargestSum
+19. ###### LargestSum
 
     __TODO: More detailed description__
 
@@ -588,7 +589,7 @@ Taken from here: https://uneex.ru/CategoryHomework
     Your code should place the resulting subset of the array starting at base address $a2.
     Write code that runs as fast as possible.
 
-21. ###### Palindrome
+20. ###### Palindrome
 
     __TODO: More detailed description__
 
