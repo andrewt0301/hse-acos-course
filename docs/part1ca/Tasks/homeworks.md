@@ -332,15 +332,17 @@ Taken from here: https://uneex.ru/CategoryHomework
 14. ###### KeySort
 
     Write a program of key sorting. You should write a subroutine that accepts three arguments:
-    array size (in _words_, not in bytes), array address, and comparison subroutine.
-    Your subroutine sorts an array and return array size in `$v0` and array address in `$v1`.
-    Your subroutine should use comparing subroutine to determine if two elements is in order.
-    Comparing subroutine accepts integers in `$a0` and `$a1` and returns 1 in `$v0`
-    if they are in proper order, and 0 otherwise.
-    Write _two_ comparing subroutines: first for `$a0` < `$a1`, second for `$a0 % 10` > `$a1 % 10`.
-    Please use bubble sort algorithm (ar any other _stable_).
-    Your program reads an ordinal N, then an integer T, then N integers.
-    If T is 0, use first comparison subroutine, if T != 0, use second one.
+    (1) array size (in _words_, not in bytes), (2) array address, and (3) comparison subroutine.
+    Your function sorts an array and returns array size in `a0` and array address in `a1`.
+    Your subroutine should use a comparing function to determine if two elements are in order.
+    The comparing function accepts integers in `a0` and `a1` and returns `1` in `a0`
+    if they are in proper order, and `0` otherwise.
+
+    Write _two_ comparing subroutines: first for `a0` < `a1`, second for `a0 % 10` > `a1 % 10`.
+    Use bubble sort algorithm (ar any other _stable_ sorting - can use the same as in [FuncSort](#funcsort)).
+
+    Your program reads an ordinal `N`, then an integer `T`, then `N` integers.
+    If `T` is `0`, use first comparison function, if `T` != `0`, use the second one.
     Then output an array.
 
     Input:
@@ -600,7 +602,7 @@ Taken from here: https://uneex.ru/CategoryHomework
     }
     ```
 
-24. ###### LargestSum
+20. ###### LargestSum
 
     __TODO: More detailed description__
 
@@ -611,7 +613,7 @@ Taken from here: https://uneex.ru/CategoryHomework
     Your code should place the resulting subset of the array starting at base address $a2.
     Write code that runs as fast as possible.
 
-25. ###### Palindrome
+21. ###### Palindrome
 
     __TODO: More detailed description__
 
