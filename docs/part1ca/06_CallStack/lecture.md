@@ -179,7 +179,8 @@ What is done by the callee?
 Solve the following tasks:
 
 1. [ASCIIGrid](../Tasks/homeworks.md#asciigrid)
-2. TODO
+2. [CheckTriangles](../Tasks/homeworks.md#checktriangles)
+3. TODO
 
 Commit the programs to your private GitHub account. Place them into the folder `ca/lab06`.
 
