@@ -580,10 +580,10 @@ Taken from here: https://uneex.ru/CategoryHomework
 
 19. ###### BinarySearch
 
-    Write program `binsearch.s` that inputs integer numbers in a loop and prints their positions
+    Write program `binsearch.s` that inputs integer values in a loop and prints their positions
     in some array until meets value `-1` (then the program must exit).
     The array is sorted. It is created manually and placed in the static data memory (the `.data` section).
-    To find a value in the array, the beinary search algorithm is used.
+    To find the value in the array, the binary search algorithm is used.
     It must be implemented as a recursive function, which in the C programming language looks like this:
 
     ```c
