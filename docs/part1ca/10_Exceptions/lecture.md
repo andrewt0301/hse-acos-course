@@ -10,7 +10,6 @@ Slides ([PDF](CA_Lecture_10.pdf), [PPTX](CA_Lecture_10.pptx)).
 #### Outline
 
 * Exceptions and interrupts
-* Multiple issue (static and dynamic)
 
 #### Examples:
 
@@ -97,10 +96,10 @@ __CSR Pseudo Instructions:__
 __System Instructions:__
 
 |-----------------------|-|
-| ebreak              | Pause execution |
+| ebreak              | Pause execution (at a breakpoint)|
 | ecall               | Issue a system call : Execute the system call specified by value in a7 |
 | uret                | Return from handling an interrupt or exception (to uepc) |
-| wfi                 | Wait for Interrupt | 
+| wfi                 | Wait for interrupt | 
 
 #### Exceptions
 
