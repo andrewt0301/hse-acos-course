@@ -23,6 +23,9 @@ Slides ([PDF](CA_Lecture_08.pdf), [PPTX](CA_Lecture_08.pptx)).
 
 ## Workshop
 
+1. Input a floating-point number, round it to one digit to the left of decimal point (e.g. `3.5`)
+   and display it in the Digital Sim Lab display.
+
 __TODO__
 
 ## Homework
