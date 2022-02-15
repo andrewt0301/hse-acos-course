@@ -84,7 +84,7 @@ Slides ([PDF](CA_Lecture_07.pdf), [PPTX](CA_Lecture_07.pptx)).
 
    Input:
    ```
-   6,1
+   6
    12.3
    -11.0
    3.25
