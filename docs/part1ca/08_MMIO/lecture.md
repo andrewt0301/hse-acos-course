@@ -26,8 +26,8 @@ Slides ([PDF](CA_Lecture_08.pdf), [PPTX](CA_Lecture_08.pptx)).
 1. Input a floating-point number, round it to one digit to the left of decimal point (e.g. `3.5`)
    and display it in the Digital Sim Lab display.
 
-2. Fix the [bitmap_display.s](
-   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/08_MMIO/bitmap_display.s) program
+2. Fix the [digit_lab2.s](
+   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/08_MMIO/digit_lab2.s) program
    to correctly display numbers.
    
 # Homework
