@@ -1,6 +1,10 @@
 #
 # Example that demonstrates MMIO in Digital Lab Sim.
 #
+# It works with Seven segment display.
+#
+# See Help on Digital Lab Sim for details.
+#
     .text
 main:
     lui   t3, 0xffff0    # MMIO address high half
