@@ -33,11 +33,24 @@ Slides ([PDF](CA_Lecture_08.pdf), [PPTX](CA_Lecture_08.pptx)).
 
 Solve the following tasks:
 
-1. [EightSectors](../Tasks/homeworks.md#eightsectors)
-
-2. Modify the [digit_lab2.s](
+1. Modify the [digit_lab2.s](
    https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/08_MMIO/digit_lab2.s) program
-   to display keys pressed in the hexadecimal keyword in the diginal display (as decimal values).
+   to display keys pressed in the hexadecimal keyword in the digital display (as decimal values, e.g. `F` == `15`).
+   Use the workshop task as a basis.
+
+2. Write a program (based on `digit_lab2.s`) that inputs an integer value `X` (with the `ReadInt` system call)
+   and then uses `Digital Sim Lab` to enter 32-bit integers (8 hexadecimal digits) `Y`.
+   It repeats entering integers until the entered `Y` is not equal to `X`. Then it prints `FOUND` and exits.
+   If `Y` equals `0` the program must print `STOPPED` and exit.
+
+3. Write a program that draws a square with size 64×64 dots in the middle of `Bitmap Display`
+   (see the `Tools` menu of RARS) with size 128×128 dots.
+   The color and the thickness of lines in dots is specified by the user (use the `ReadInt` system call).
+   See [bitmap_display.s](
+   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/08_MMIO/bitmap_display.s)
+   as an example.
+
+3. __Bonus task (2 bonus points)__. [EightSectors](../Tasks/homeworks.md#eightsectors)
 
 Commit the programs to your private GitHub account. Place them into the folder `ca/lab08`.
 
