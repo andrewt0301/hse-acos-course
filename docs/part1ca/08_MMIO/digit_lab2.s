@@ -34,22 +34,23 @@ loop:
     lb      t1, 0x14(s0)  # get result
     bnez    t1, pressed   # process key pressed
 
-    li      t0, 2         # second row
+    li      t0, 2         # check second row
     sb      t0, 0x12(s0)
     lb      t1, 0x14(s0)
     bnez    t1, pressed
 
-    li      t0, 4         # third row
+    li      t0, 4         # check third row
     sb      t0, 0x12(s0)
     lb      t1, 0x14(s0)
     bnez    t1, pressed
 
-    li      t0, 8         # fourth row
+    li      t0, 8         # check fourth row
     sb      t0, 0x12(s0)
     lb      t1, 0x14(s0)
     bnez    t1, pressed
 
-    j       loop  # repeat is nothing is pressed (t1 == 0)
+    mv      s2, zero  # reset previous value
+    j       loop  # nothing is pressed (t1 == 0) - repeat
 pressed:
     beq     t1, s2, loop # repeat if the same key value
     mv      s2, t1 # save current value
@@ -62,6 +63,5 @@ pressed:
 
     addi    s1, s1, 1    # counter increment
     ble     s1, s3, loop # repeat if s1 <= s3
-
 end:
     exit
