@@ -52,7 +52,7 @@ __Calendar plan by weeks can be found [here](calendar_2022.md).__
 
 1. [Processor and pipeline.](part1ca/09_Pipeline/lecture.md)
 
-1. [Exceptions and interrupts. Instruction-level parallelism.](part1ca/10_Exceptions/lecture.md)
+1. [Exceptions and interrupts.](part1ca/10_Exceptions/lecture.md)
 
 1. [Memory and caches.](part1ca/11_Caches/lecture.md)
 
