@@ -81,7 +81,7 @@ Also, come of the commands are implemented in Terminal of JetBrains IDEs (PyChar
 
    Compiling:
    ```bash
-   gcc hello.c -o hello.c
+   gcc hello.c -o hello
    ```
 
    Running:
