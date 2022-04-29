@@ -235,12 +235,7 @@ Then do the following:
 
    _Hint_: errors can be checked using the `$?` symbol (status of the last command, must be 0 if successful).
 
-1. Finish getting access to the [Ubuntu server in the cloud](../../software/cloud_ssh.md).
-   You must provide a public key, the administrator must create an account, and then you must connect to it.
-   After you connect, do the following:
-   * create in your working folder the `os_lab_bash` directory;
-   * copy there all files created during this workshop and homework
-     (use the [scp](https://man7.org/linux/man-pages/man1/scp.1.html) tool).
+Commit the programs to your private GitHub account. Place them into the folder `os/lab03`.
 
 # References
 
