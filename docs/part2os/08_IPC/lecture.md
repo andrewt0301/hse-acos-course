@@ -460,8 +460,18 @@ Please use the C language and the POSIX thread library.
 
 ## Homework
 
-1. Finish all class tasks.
-1. Upload all the code to the server.
+Write a program that does the following:
+
+1. Inputs integer value `N`.
+2. Allocates an array of `N` random integer values (on stack or on heap using `malloc`/`free`).
+3. Splits the array into 4 parts of approximately equal parts (`N` must be sufficienty large, e.g. 16 or more).
+4. Create worker 4 threads, each of them:
+   - Calculates the sum of elements in one of the parts.
+   - Adds the result to global variable `sum` (must be protected with a mutex to avoid concurrent modification).
+5. The main thread:
+   - Prints the content of the array.
+   - Joins the 4 working threads.
+   - Prints the resulting value of the `sum` variable when all 4 threads finish.
 
 # References
 
