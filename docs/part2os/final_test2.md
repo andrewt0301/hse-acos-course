@@ -70,7 +70,7 @@ Requirements:
 * Mathematical functions (such as `sin`, `cos`, `pow`, `exp` etc.) and constants (`M_E`) are
   provided in the [math.h](https://man7.org/linux/man-pages/man0/math.h.0p.html) library.
 * Programs using library `<math.h>` must be linked with the `m` library: use the `-lm` GCC flag.
-* Use the `fopen`, `fprintf`, and `fclose` functons to write data to the file.
+* Use the `fopen`, `fprintf`, and `fclose` functions to write data to the file.
 * Multi-process calculations:
   * _Child_: a function is calculated for a range of values and results are written to IPC;
   * _Parent_: values are read from IPC in a loop and printed or used in other calculations. 
