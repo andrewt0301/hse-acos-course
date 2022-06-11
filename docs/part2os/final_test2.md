@@ -85,10 +85,8 @@ Note: the `^` symbol means "power".
 ---
 Variant
 
-```
-f0(a, b, c, d) = (a - b + c - d) / 2
-f1(x) = 2*x^3 - 4*x^2 + 3*x + 1
-f2(x) = sin(5*x)*4 + 3
-f3(x) = 1 / (1 + e^(-7*x))
-f4(x) = 2^x + 5
-```
+    f0(a, b, c, d) = (a - b + c - d) / 2
+    f1(x) = 2*x^3 - 4*x^2 + 3*x + 1
+    f2(x) = sin(5*x)*4 + 3
+    f3(x) = 1 / (1 + e^(-7*x))
+    f4(x) = 2^x + 5
