@@ -39,9 +39,13 @@ which have an equal weight.
 $$G = \frac{\sum_{i=1}^2M_i+E}{3}$$
 
 If the final grade $$G$$ is unsatisfactory, the exam can be retaken.
-In situations when it does not help because of low module grades $$M_i$$,
-the decision about the final grade is done by the commission of faculty members,
-who will hold the final exam.   
+
+On the first retake the cumulative course grade $$M_i$$ is taken into consideration.
+On the second retake the cumulative course grade $$M_i$$ is not taken into account.
+A student who receives a positive mark on the second retake receives `4` points for the discipline.
+
+If the second retake is unsuccessful, the decision about the final grade
+is done by the commission of faculty members, who will hold the final exam (the third retake, commission).   
 
 ## Module Formula
 
