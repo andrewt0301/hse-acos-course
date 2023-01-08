@@ -5,9 +5,14 @@
 This site contains materials for the "Computer Architecture and Operating Systems" course taught at
 [Faculty of Computer Science of Higher School of Economics](https://cs.hse.ru/en/).
 
-For information on course administration, please refer to the
-__[official course page](http://wiki.cs.hse.ru/ACOS_DSBA_2021/2022)__ at the university web site.
-Also, here is the link to the __[official syllabus](https://www.hse.ru/edu/courses/476614465)__.
+For information on course administration, please refer to the university website.
+
+* [__DSBA__](https://www.hse.ru/ba/data/):
+  [wiki](http://wiki.cs.hse.ru/ACOS_DSBA_2022/2023) and
+  [syllabus](https://www.hse.ru/edu/courses/476614465)
+* [__COMPDS__](https://www.hse.ru/ba/compds/):
+  [wiki](http://wiki.cs.hse.ru/ACOS_COMPDS_2022/2023) and
+  [syllabus](https://www.hse.ru/edu/courses/476614465)
 
 ## Course Motivation
 
