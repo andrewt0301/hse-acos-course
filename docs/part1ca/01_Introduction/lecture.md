@@ -23,6 +23,7 @@ Slides ([PDF](CA_Lecture_01.pdf), [PPTX](CA_Lecture_01.pptx)).
   and administration (attendance, homeworks, grading).
 * Introduction to [software tools](../../software.md).
    * RARS.
+   * Godbolt
    * VirtualBox. 
    * Linux Ubuntu VM.
 * Introduction to Cloud [Ubuntu VM](../../software/cloud_ssh.md) via [SSH](https://en.wikipedia.org/wiki/Secure_Shell).
@@ -141,3 +142,4 @@ Homework is successful if:
 * [Turing machine](https://en.wikipedia.org/wiki/Turing_machine) (Wikipedia).
 * [Moore's law](https://en.wikipedia.org/wiki/Moore%27s_law) (Wikipedia).
 * [Internet of Things](https://en.wikipedia.org/wiki/Internet_of_things) (Wikipedia).
+* Compiler Explorer [Godbolt](https://godbolt.org/)
