@@ -23,7 +23,7 @@ Slides ([PDF](CA_Lecture_01.pdf), [PPTX](CA_Lecture_01.pptx)).
   and administration (attendance, homeworks, grading).
 * Introduction to [software tools](../../software.md).
    * RARS.
-   * Godbolt
+   * Godbolt.
    * VirtualBox. 
    * Linux Ubuntu VM.
 * Introduction to Cloud [Ubuntu VM](../../software/cloud_ssh.md) via [SSH](https://en.wikipedia.org/wiki/Secure_Shell).
