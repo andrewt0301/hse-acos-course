@@ -17,7 +17,7 @@ To access the server VM, please follow the steps below:
 
 1. Upload the public SSH key (`id_rsa.pub`) to some Cloud drive (Google, Yandex, Mail, etc.)
    and add the link to it into this [table](
-   https://docs.google.com/spreadsheets/d/1AcuDJwfho_MzBqayo9dhVKe1iqPnUcMEjUkB1mVog60/edit?usp=sharing).
+   https://docs.google.com/spreadsheets/d/1KVsUGHUl74Pfrx0GYiF2V-Cw0mFbVQ3428475FQKsDE/edit?usp=sharing).
  
 1. The admin will take data from the table and will provide you with a login.
 

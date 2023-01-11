@@ -36,7 +36,7 @@ Slides ([PDF](CA_Lecture_01.pdf), [PPTX](CA_Lecture_01.pptx)).
 * Download and install the tools.
 * Generate [SSH keys](../../software/cloud_ssh.md) for access to Cloud and GitHub.
   Save the public key to the [table](
-  https://docs.google.com/spreadsheets/d/1AcuDJwfho_MzBqayo9dhVKe1iqPnUcMEjUkB1mVog60/edit?usp=sharing).
+  https://docs.google.com/spreadsheets/d/1KVsUGHUl74Pfrx0GYiF2V-Cw0mFbVQ3428475FQKsDE/edit?usp=sharing).
 * [Create](git.md) a private GitHub repository and give access to it to the lecturer,
   workshop instructor, and teaching assistant.
    * Name it `<group>_<surname>`, e.g. `204_tatarnikov` 
@@ -117,7 +117,7 @@ gives these results:
 
 * Finish installing all required software.
 * Save a link to the SSH public key to the [table](
-  https://docs.google.com/spreadsheets/d/1AcuDJwfho_MzBqayo9dhVKe1iqPnUcMEjUkB1mVog60/edit?usp=sharing). 
+  https://docs.google.com/spreadsheets/d/1KVsUGHUl74Pfrx0GYiF2V-Cw0mFbVQ3428475FQKsDE/edit?usp=sharing). 
 * Finish experiments with matrix multiplication and provide benchmarks (for your machine).
    * Run matrix multiplication in Python and C (all versions) in your machine.
    * Provide a table with execution time.
