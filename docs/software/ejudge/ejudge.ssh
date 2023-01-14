@@ -1,0 +1,23 @@
+#!/bin/bash -e
+sudo locale-gen en_US.UTF-8 ru_RU.UTF-8 kk_KZ.UTF-8
+sudo update-locale
+sudo apt-get install -y software-properties-common
+sudo apt-get install -y --allow-unauthenticated \
+                       wget locales ncurses-base libncurses-dev libncursesw5 \
+                       libncursesw5-dev expat libexpat1 libexpat1-dev \
+                       zlib1g-dev libelf-dev mysql-client-8.0 libmysqlclient-dev \
+                       g++ gawk apache2 gettext fpc mc openjdk-8-jdk-headless \
+                       libcurl4-openssl-dev libzip-dev uuid-dev bison flex \
+                       mono-devel mono-runtime mono-vbnc perl python python3 \
+                       sendmail
+sudo apt install -y g++ gdb make uuid-dev libelf-dev libncurses-dev gawk libexpat1-dev bison flex
+wget https://ejudge.ru/download/ejudge-3.8.0.tgz
+tar -xvzf ejudge-3.8.0.tgz
+cd ejudge
+./configure --prefix=/opt/ejudge --enable-charset=utf-8 --with-httpd-cgi-bin-dir=/usr/lib/cgi-bin --with-httpd-htdocs-dir=/var/www/html --enable-ajax --enable-local-dir=/var/lib/ejudge --enable-hidden-server-bins
+time make
+sudo make install
+cd /opt/ejudge/bin
+./ejudge-setup
+# ./ejudge-control start
+# https://ejudge.ru/wiki/index.php/%D0%98%D0%BD%D1%81%D1%82%D0%B0%D0%BB%D0%BB%D1%8F%D1%86%D0%B8%D1%8F_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B_ejudge
