@@ -157,7 +157,7 @@ Write programs that input two integer values `x` and `y`, calculate the followin
 2. `(x >> 2) + ((y - 1) << 3)` (`>>` - logical shift)
 3. `(x << y) - 10`
 4. `(x >> y) + 10` (`>>` - arithmetical shift)
-5. `(x << 2 - y + 5) >> 1` (`>>` - arithmetical shift)
+5. `((x << 2) - y + 5) >> 1` (`>>` - arithmetical shift)
 6. `x * 6 - y * 3` (do multiplication using shifts, adds, and subs)
 7. `2 * x * x - 3 * y + 4`
 8. `(x + 5) / y + 10 / (y - 1)`
