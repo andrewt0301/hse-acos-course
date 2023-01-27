@@ -154,9 +154,9 @@ How to find out that two values are equal? Use the _XOR_ operation. For equal va
 Write programs that input two integer values `x` and `y`, calculate the following expressions, and print the result:
 
 1. `(x + 5) - (y - 7)`
-2. `x >> 2 + (y - 1) << 3` (`>>` - logical shift)
-3. `x << y - 10`
-4. `x >> y + 10` (`>>` - arithmetical shift)
+2. `(x >> 2) + ((y - 1) << 3)` (`>>` - logical shift)
+3. `(x << y) - 10`
+4. `(x >> y) + 10` (`>>` - arithmetical shift)
 5. `(x << 2 - y + 5) >> 1` (`>>` - arithmetical shift)
 6. `x * 6 - y * 3` (do multiplication using shifts, adds, and subs)
 7. `2 * x * x - 3 * y + 4`
