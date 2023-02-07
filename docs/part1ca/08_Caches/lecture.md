@@ -1,11 +1,11 @@
-Lecture 11
+Lecture 8
 ---
 
 # Memory and caches
 
 ## Lecture
 
-Slides ([PDF](CA_Lecture_11.pdf), [PPTX](CA_Lecture_11.pptx)).
+Slides ([PDF](CA_Lecture_08.pdf), [PPTX](CA_Lecture_08.pptx)).
 
 #### Outline:
 
@@ -41,7 +41,7 @@ loop:
     blt   s0, s1, loop
 ```
 
-Gapped memory accesses:
+Gaped memory accesses:
 
 ```assembly
     .eqv  START 0x10010000
