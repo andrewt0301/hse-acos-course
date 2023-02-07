@@ -46,7 +46,7 @@ __Calendar plan by weeks can be found [here](calendar_2022.md).__
 1. [Pseudo instructions, macros, and includes. Conditions, loops, loads, and stores.](part1ca/05_MacrosBranchesArrays/lecture.md)
 1. [Subroutines. Call stack. Calling conventions.](part1ca/06_CallStack/lecture.md)
 1. [Floating-point format. IEEE 754. Floating-point instructions.](part1ca/07_FP/lecture.md)
-1. [Memory-mapped I/O (MMIO)](part1ca/08_MMIO/lecture.md).
+1. [Input/Output](part1ca/08_MMIO/lecture.md).
 1. [Processor and pipeline.](part1ca/09_Pipeline/lecture.md)
 1. [Exceptions and interrupts.](part1ca/10_Exceptions/lecture.md)
 1. [Memory and caches.](part1ca/11_Caches/lecture.md)
