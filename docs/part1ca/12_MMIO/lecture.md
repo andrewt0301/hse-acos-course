@@ -1,11 +1,11 @@
-Lecture 8
+Lecture 12
 ---
 
 # Memory-mapped I/O (MMIO)
 
 ## Lecture
 
-Slides ([PDF](CA_Lecture_08.pdf), [PPTX](CA_Lecture_08.pptx)).
+Slides ([PDF](CA_Lecture_12.pdf), [PPTX](CA_Lecture_12.pptx)).
 
 #### Outline
 

@@ -47,10 +47,10 @@ __Calendar plan by weeks can be found [here](calendar_2022.md).__
 1. [Subroutines. Call stack. Calling conventions.](part1ca/06_CallStack/lecture.md)
 1. [Floating-point format. IEEE 754. Floating-point instructions.](part1ca/07_FP/lecture.md)
 1. [Memory and caches.](part1ca/08_Caches/lecture.md)
-1. [Processor and pipeline.](part1ca/09_Pipeline/lecture.md)
-1. [Exceptions and interrupts.](part1ca/10_Exceptions/lecture.md)
-1. [Input/Output](part1ca/08_MMIO/lecture.md).
-1. [Virtual memory.](part1ca/12_VM/lecture.md)
+1. [Virtual memory.](part1ca/09_VM/lecture.md)
+1. [Processor and pipeline.](part1ca/10_Pipeline/lecture.md)
+1. [Exceptions and interrupts.](part1ca/11_Exceptions/lecture.md)
+1. [Input/Output](part1ca/12_MMIO/lecture.md).
 1. [Data-level parallelism: Vector, SIMD, GPU.](part1ca/13_DLP/lecture.md)
 1. [Thread-level parallelism.](part1ca/14_TLP/lecture.md)
 1. [Optimizations.](part1ca/15_Optimize/lecture.md)

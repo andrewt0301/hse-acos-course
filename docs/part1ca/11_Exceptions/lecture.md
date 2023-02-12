@@ -1,11 +1,11 @@
-Lecture 10
+Lecture 11
 ---
 
 # Exceptions and interrupts. Multiple issue.
 
 ## Lecture
 
-Slides ([PDF](CA_Lecture_10.pdf), [PPTX](CA_Lecture_10.pptx)).
+Slides ([PDF](CA_Lecture_11.pdf), [PPTX](CA_Lecture_11.pptx)).
 
 #### Outline
 
