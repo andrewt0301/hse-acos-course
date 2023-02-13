@@ -30,7 +30,7 @@ Slides ([PDF](CA_Lecture_06.pdf), [PPTX](CA_Lecture_06.pptx)).
 
 #### Outline
 
-* Demonstrate using the RISC-V toolchain (use the Ubunbu VM with RISC-V from [here](../../software/ubuntu.md))
+* Demonstrate using the RISC-V toolchain (use the Ubuntu VM with RISC-V from [here](../../software/ubuntu.md))
 * Practice writing programs that use functions
 * Practice using caller-saved and callee-saved registers
 * Practice writing nested and recursive functions
@@ -79,14 +79,14 @@ What is done by the caller?
 1. Put the arguments into registers `a0`-`a7`.
 1. Call the function.
 1. When the function returns, read the return values from `a0` and `a1`.
-1. Restore all the previosly saved caller-saved registers from the stack.
+1. Restore all the previously saved caller-saved registers from the stack.
 
 What is done by the callee?
 
 1. Save all callee-saved registers, which will be modified, to the stack.
 1. Perform some operations (if the callee wants to call a function, it becomes the caller for this callee function). 
 1. Save the result to registers `a0` and `a1`. 
-1. Restore all the previosly saved the callee-saved registers from the stack.
+1. Restore all the previously saved callee-saved registers from the stack.
 1. Return back to the caller.
 
 #### Tasks
