@@ -27,6 +27,10 @@ Some course topics are based on other external material, which will be provided 
   Online materials are [here](http://csapp.cs.cmu.edu/3e/home.html).
   3rd Edition. 2015.
 
+- [IAPR] Edson Borin.
+  [An Introduction to Assembly Programming with RISC-V.](
+  https://riscv-programming.org/book/riscv-book.html) Online book.
+
 #### Additional
  
 - [SCO] Andrew S. Tanenbaum, Todd Austin.
