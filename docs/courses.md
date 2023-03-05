@@ -9,6 +9,9 @@ The courses are listed in the order of decreasing relevance.
 - George Kouryachy. [Computer Architecture and Operating Systems.](https://uneex.ru/HSE)
   HSE. 2019. [Official page.](http://wiki.cs.hse.ru/ACOS_DSBA_2019/2020)
 
+- Krste Asanović. [CS152 Computer Architecture and Engineering / CS252A Graduate Computer Architecture.](
+  https://inst.eecs.berkeley.edu/~cs152/sp21/) UC Berkeley. 2021.
+
 - Stephan Kaminsky. [CS61C: Machine Structures.](https://cs61c.org/su20/)
   UC Berkeley. 2020.
 
