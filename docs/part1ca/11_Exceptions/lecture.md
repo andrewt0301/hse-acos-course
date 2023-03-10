@@ -13,8 +13,7 @@ Slides ([PDF](CA_Lecture_11.pdf), [PPTX](CA_Lecture_11.pptx)).
 
 #### Examples:
 
-* [simple_handler.s](
-  https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/10_Exceptions/simple_handler.s)
+* [simple_handler.s](simple_handler.s)
 * [mmio_poll.s](
   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/10_Exceptions/mmio_poll.s)
 * [mmio_interrupt.s](
