@@ -265,7 +265,7 @@ __Exceptions Supported in RARS:__
 
 When an exception occurs the following actions are performed:
 
-* the `uie` (interrupt enable) bit in the status word is set to 0;
+* the `uie` (interrupt enable) bit in the status word is set to `0`;
 * the `ucause` register is set to indicate which event has occurred;
 * the `uepc` is set to the last instruction that was executing when system trapped;
 * the PC is set to `utvec` value;
@@ -273,9 +273,9 @@ When an exception occurs the following actions are performed:
 
 In order to have a working exception handler, the program must:
 
-* set utvec to the address of the handler code (the lowest two bits are special);
-* set the bits corresponding to the handled interrupts in uie;
-* set the interrupt enable (lowest) bit in ustatus to enable the handler. 
+* set `utvec` to the address of the handler code (the lowest two bits are special);
+* set the bits corresponding to the handled interrupts in `uie`;
+* set the interrupt enable (lowest) bit in `ustatus` to enable the handler. 
 
 The simplest user-level exception handler that just returns control to the next (PC+4) instruction: 
 
@@ -298,7 +298,7 @@ The user-level handler can be registered in the following way:
 
 Interrupts are exceptions that come from external devices such as I/O devices.
 These events can be handled. To do this, an interrupt must be enabled in the device and
-a corresponding bit must be set in `uie`. See the examples to larn how this works.
+a corresponding bit must be set in `uie`. See the examples to learn how this works.
 
 #### Tasks
 
@@ -307,10 +307,10 @@ a corresponding bit must be set in `uie`. See the examples to larn how this work
 1. Implement an exception handler that prints a message that explains the reason of an exception
    (the list of exceptions with descriptions is above).
 
-1. Image how the try-catch construct is implemented in high-level languages.
+1. Image how the _try_-_catch_ construct is implemented in high-level languages.
    Then write a program that implements a simple function with an exception handler.
    The function takes an argument that specifies what exception it will raise
-   (0 - no exception, 1 - some exception from list obove, 2 - some other exception from the list). 
+   (`0` - no exception, `1` - some exception from list above, `2` - some other exception from the list). 
    The function must return exception cause or 0 if no exception has occurred.
    The program prints the exception cause.
 
