@@ -17,24 +17,21 @@ Slides ([PDF](CA_Lecture_12.pdf), [PPTX](CA_Lecture_12.pptx)).
 
 #### Examples:
 
-* [digit_lab1.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/08_MMIO/digit_lab1.s)
-* [digit_lab2.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/08_MMIO/digit_lab2.s)
-* [bitmap_display.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/08_MMIO/bitmap_display.s)
+* [digit_lab1.s](digit_lab1.s)
+* [digit_lab2.s](digit_lab2.s)
+* [bitmap_display.s](bitmap_display.s)
 
 ## Workshop
 
 1. Input a floating-point number, round it to one digit to the left of decimal point (e.g. `3.5`)
    and display it in the Digital Sim Lab display.
-   User [digit_lab1.s](
-   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/08_MMIO/digit_lab2.s)
-   as a starting program.
+   User [digit_lab1.s](digit_lab2.s) as a starting program.
 
 # Homework
 
 Solve the following tasks:
 
-1. Modify the [digit_lab2.s](
-   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/08_MMIO/digit_lab2.s) program
+1. Modify the [digit_lab2.s](digit_lab2.s) program
    to display keys pressed in the hexadecimal keyword in the digital display (as decimal values, e.g. `F` == `15`).
    Use the workshop task as a basis.
 
@@ -46,9 +43,7 @@ Solve the following tasks:
 3. Write a program that draws a square with size 64×64 dots in the middle of `Bitmap Display`
    (see the `Tools` menu of RARS) with size 128×128 dots.
    The color and the thickness of lines in dots is specified by the user (use the `ReadInt` system call).
-   See [bitmap_display.s](
-   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/08_MMIO/bitmap_display.s)
-   as an example.
+   See [bitmap_display.s](bitmap_display.s) as an example.
 
 3. __Bonus task (2 bonus points)__. [EightSectors](../Tasks/homeworks.md#eightsectors)
 
