@@ -164,8 +164,8 @@ Write programs that input two integer values `x` and `y`, calculate the followin
 9. `(x / y) * y + x % y` 
 10. `x & (-1 << 5)`
 11. `x | (-1 >> 27)` (`>>` - logical shift)
-12. set the `y`-th bit of `x` to `1`
-13. reset the `y`-th bit of `x` to `0`
+12. set the `y`-th bit of `x` to `1` (bit numbers start from `0`)
+13. reset the `y`-th bit of `x` to `0` (bit numbers start from `0`)
 14. `x > y ? 0 : 1`
 15. `(x == (y + 3)) ? 0 : 1`
 16. `x < -5 & y > 10`
