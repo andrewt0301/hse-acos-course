@@ -1,7 +1,7 @@
 Lecture 11
 ---
 
-# Exceptions and interrupts. Multiple issue.
+# Exceptions and Interrupts.
 
 ## Lecture
 
@@ -14,14 +14,13 @@ Slides ([PDF](CA_Lecture_11.pdf), [PPTX](CA_Lecture_11.pptx)).
 #### Examples:
 
 * [simple_handler.s](simple_handler.s)
+* [timer.s](timer.s)
 * [mmio_poll.s](
   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/10_Exceptions/mmio_poll.s)
 * [mmio_interrupt.s](
   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/10_Exceptions/mmio_interrupt.s)
 * [digit_lab3.s](
   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/10_Exceptions/digit_lab3.s)
-* [timer.s](
-  https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/10_Exceptions/timer.s)
 
 ## Workshop
 
@@ -325,11 +324,11 @@ Study the theory and the examples and finish the tasks.
 
    _Hint_: Use the "Tools | Timer Tool" MMIO extension. See its help. The MMIO address
    to get the current time `0xFFFF0018`; the MMIO address the set the time for the next
-   interrupt is `0xFFFF0020`. To setup the cycle of processing interrupts, the following must be done:
+   interrupt is `0xFFFF0020`. To set up the cycle of processing interrupts, the following must be done:
 
    * The address of your interrupt handler must be stored in the utvec CSR
-   * The fourth bit of the `uie` CSR must be set to 1 (i.e. ori uie, uie, 0x10)
-   * The zeroth bit of the `ustatus` CSR must be set to 1 (i.e. ori ustatus, ustatus, 0x1)
+   * The fourth bit of the `uie` CSR must be set to `1` (i.e. `ori uie, uie, 0x10`)
+   * The zeroth bit of the `ustatus` CSR must be set to `1` (i.e. `ori ustatus, ustatus, 0x1`)
    * The time for the next interrupt must be written to `0xFFFF0020`.
    * When an interrupt is handled the time for the next interrupt must be updated.
 
