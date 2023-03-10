@@ -1,7 +1,7 @@
 Lecture 12
 ---
 
-# Memory-mapped I/O (MMIO)
+# Memory-Mapped I/O (MMIO)
 
 ## Lecture
 
@@ -19,7 +19,10 @@ Slides ([PDF](CA_Lecture_12.pdf), [PPTX](CA_Lecture_12.pptx)).
 
 * [digit_lab1.s](digit_lab1.s)
 * [digit_lab2.s](digit_lab2.s)
+* [digit_lab3.s](digit_lab3.s)
 * [bitmap_display.s](bitmap_display.s)
+* [mmio_poll.s](mmio_poll.s)
+* [mmio_interrupt.s](mmio_interrupt.s)
 
 ## Workshop
 
