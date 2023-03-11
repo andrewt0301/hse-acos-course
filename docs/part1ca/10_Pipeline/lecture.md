@@ -92,10 +92,10 @@ __Ripes__
 
    ```assembly
    add x15, x12, x11
-   ld  x13, 4(x15)
-   ld  x12, 0(x2)
+   lw  x13, 4(x15)
+   lw  x12, 0(x2)
    or  x13, x15, x13
-   sd  x13, 0(x15)
+   sw  x13, 0(x15)
    ```
 
    - If there is no forwarding or hazard detection, insert NOPs to ensure correct execution.
