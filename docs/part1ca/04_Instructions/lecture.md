@@ -6,7 +6,7 @@
 
 Slides ([PDF](CA_Lecture_04.pdf), [PPTX](CA_Lecture_04.pptx)).
 
-#### Outline:
+#### Outline
 
 * Stored program concept.
 * Memory layout.

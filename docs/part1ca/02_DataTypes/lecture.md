@@ -7,7 +7,7 @@ Lecture 2
 
 Slides ([PDF](CA_Lecture_02.pdf), [PPTX](CA_Lecture_02.pptx)).
 
-#### Outline:
+#### Outline
 
 * Bits, bytes, words, etc.
 * Binary, decimal, hexadecimal.
@@ -54,8 +54,7 @@ Slides ([PDF](CA_Lecture_02.pdf), [PPTX](CA_Lecture_02.pptx)).
 1. What are the ranges (smallest..largest) for integer values that consist of 4, 5, 6, 7, and 8 bits?
    Consider both unsigned and two's complement formats.
 
-1. View and run the [dumpbytes.c](
-   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/02_DataTypes/dumpbytes.c) program.
+1. View and run the [dumpbytes.c](dumpbytes.c) program.
 
    ```bash
    cat dumpbytes.c
@@ -156,4 +155,3 @@ Commit the file with the solutions to your private GitHub account. Place it into
 * Representing information. Chapter 2 in [[CSPP]](../../books.md).
 * Arithmetic for computers. Chapters 3 in [[CODR]](../../books.md).
 * (_Additionally_) Henry Warren. [Hacker's Delight](https://en.wikipedia.org/wiki/Hacker%27s_Delight). 2nd Edition. 2013.
-

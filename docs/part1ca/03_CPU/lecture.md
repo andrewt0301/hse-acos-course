@@ -7,7 +7,7 @@ Lecture 3
 
 Slides ([PDF](CA_Lecture_03.pdf), [PPTX](CA_Lecture_03.pptx)).
 
-#### Outline:
+#### Outline
 
 * Computer organization.
 * Processor.
@@ -36,19 +36,16 @@ Slides ([PDF](CA_Lecture_03.pdf), [PPTX](CA_Lecture_03.pptx)).
     * _Multiplication_: `mul`, `rem`, `div`, `divu`, `remu`
  
 
-_Hint_: Use the RARS help system (F1) and [RISC-V Greencard](
-        https://github.com/andrewt0301/hse-acos-course/raw/master/related/greencard-20181213.pdf)
+_Hint_: Use the RARS help system (F1) and [RISC-V Greencard](../../../related/greencard-20181213.pdf)
         to quickly find the needed instructions.
 
 #### Tasks
 
-1. Open in RARS and run the ["Hello World"](
-   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/03_CPU/workshop/hello.s) program.
+1. Open in RARS and run the ["Hello World"](workshop/hello.s) program.
    Get familiar with its structure. Pay attention to the `.text` and `.data` segments, labels,
    and system calls.
 
-1. Open in RARS and run the ["Add"](
-   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/03_CPU/workshop/add.s) program.
+1. Open in RARS and run the ["Add"](workshop/add.s) program.
    This is an example of a program that inputs two numbers, adds them, and prints the result.
    It can be used a basis for other programs.
 

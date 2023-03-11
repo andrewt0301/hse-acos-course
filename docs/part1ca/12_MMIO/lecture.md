@@ -15,7 +15,7 @@ Slides ([PDF](CA_Lecture_12.pdf), [PPTX](CA_Lecture_12.pptx)).
 * Drivers
 * RARS MMIO device emulators
 
-#### Examples:
+#### Examples
 
 * [digit_lab1.s](digit_lab1.s)
 * [digit_lab2.s](digit_lab2.s)

@@ -7,7 +7,7 @@ Lecture 8
 
 Slides ([PDF](CA_Lecture_08.pdf), [PPTX](CA_Lecture_08.pptx)).
 
-#### Outline:
+#### Outline
 
 * Processor-memory performance gap
 * Types of memory devices

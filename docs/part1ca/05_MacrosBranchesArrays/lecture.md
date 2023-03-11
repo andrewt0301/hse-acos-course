@@ -7,7 +7,7 @@ Lecture 5
 
 Slides ([PDF](CA_Lecture_05.pdf), [PPTX](CA_Lecture_05.pptx)).
 
-#### Outline:
+#### Outline
 
 * Program structure: segments and labels.
 * Branch instructions and their use in conditions and loops.

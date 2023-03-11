@@ -7,7 +7,7 @@ Lecture 6
 
 Slides ([PDF](CA_Lecture_06.pdf), [PPTX](CA_Lecture_06.pptx)).
 
-#### Outline:
+#### Outline
 
 * Functions, caller, callee
 * Jump-and-link instructions
@@ -16,15 +16,15 @@ Slides ([PDF](CA_Lecture_06.pdf), [PPTX](CA_Lecture_06.pptx)).
 * Stack frame
 * Caller-saved and cellee-saved registers
 
-#### Examples:
+#### Examples
 
-* [leaf.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/06_CallStack/leaf.s)
-* [fact.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/06_CallStack/fact.s)
-* [fp.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/06_CallStack/fp.s)
-* [euclid.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/06_CallStack/euclid.s)
-* [min_max.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/06_CallStack/min_max.s)
-* [min_max2.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/06_CallStack/min_max2.s)
-* [swap.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/06_CallStack/swap.s)
+* [leaf.s](leaf.s)
+* [fact.s](fact.s)
+* [fp.s](fp.s)
+* [euclid.s](euclid.s)
+* [min_max.s](min_max.s)
+* [min_max2.s](min_max2.s)
+* [swap.s](swap.s)
 
 ## Workshop
 

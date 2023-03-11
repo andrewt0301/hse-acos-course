@@ -41,16 +41,11 @@ Slides ([PDF](CA_Lecture_01.pdf), [PPTX](CA_Lecture_01.pptx)).
   workshop instructor, and teaching assistant.
    * Name it `<group>_<surname>`, e.g. `204_tatarnikov` 
 * Download, compile, and run matrix computation examples:
-   * [Python](
-     https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/01_Introduction/matrix.py).
-   * [Java](
-     https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/01_Introduction/Matrix.java).
-   * [C basic (ijk)](
-     https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/01_Introduction/matrix.c).
-   * [C optimized (ikj)](
-     https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/01_Introduction/matrix_ikj.c).
-   * [C incorrectly optimized (jki)](
-     https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/01_Introduction/matrix_jki.c).
+   * [Python](matrix.py)
+   * [Java](Matrix.java)
+   * [C basic (ijk)](matrix.c)
+   * [C optimized (ikj)](matrix_ikj.c)
+   * [C incorrectly optimized (jki)](matrix_jki.c)
 
 #### Notes
 
