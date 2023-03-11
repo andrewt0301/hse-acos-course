@@ -28,6 +28,8 @@ To enable 64-bit mode in RARS, tick the checkbox in the `Setting | 64-bit` menu 
 This will make all general-purpose registers 64-bit wide.
 The `ld` and `sd` instructions work in the same way as `lw` and `sw`,
 the only difference is the data size that becomes 64 bits (or 8 bytes).
+See the "Chapter 7. RV64I Base Integer Instruction Set" in the [RISC-V instruction set manual](
+https://github.com/riscv/riscv-isa-manual/releases/latest) for details.
 
 #### Tasks
 
