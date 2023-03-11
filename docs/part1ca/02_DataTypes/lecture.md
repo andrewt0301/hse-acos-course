@@ -22,7 +22,7 @@ Slides ([PDF](CA_Lecture_02.pdf), [PPTX](CA_Lecture_02.pptx)).
 * Discuss current issues with VirtualBox and Linux VM.
 * Play with converting values to different numeric systems (binary, decimal, hexadecimal).
   _Hint:_ Use "whiteboard" and calculator.
-* Run the _dumpbytes.c_ program that dumps byte-level representations of integers and strings.
+* Run the [dumpbytes.c](dumpbytes.c) program that dumps byte-level representations of integers and strings.
   Try dumping your own values.
 * Play with negation, sign-extension, and zero-extension.
 * Play with addition and subtraction.
