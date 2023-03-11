@@ -1,5 +1,9 @@
 # Final Test: Computer Architecture
 
+The grade formula is as follows:
+
+__Grade = 0.4 * Theory + 0.6 * Programming__
+
 ## Part 1. Theoretical Questions
 
 Answer the theoretical questions in a few sentences (1-2 paragraphs for a question).
