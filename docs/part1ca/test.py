@@ -3,7 +3,7 @@ import random as rng
 from enum import Enum
 import datetime
 
-I_RANGE = [i for i in range(-10, 11) if i is not 0]
+I_RANGE = [i for i in range(-10, 11) if i != 0 and i != 1]
 POLYNOMIAL_DEGREE = 8
 
 
@@ -63,7 +63,7 @@ class f_exp:
         self.b = b
 
     def string(self):
-        return f"{self.a}**x + {self.b}"
+        return f"{self.a}**x {'-' if self.b < 0 else '+'} {abs(self.b)}"
 
 
 class f_linear:
@@ -72,7 +72,7 @@ class f_linear:
         self.b = b
 
     def string(self):
-        return f"{self.a} * x + {self.b}"
+        return f"{self.a} * x {'-' if self.b < 0 else '+'} {abs(self.b)}"
 
 
 class f_const:
