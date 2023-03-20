@@ -4,7 +4,7 @@ from enum import Enum
 import datetime
 
 I_RANGE = [i for i in range(-10, 11) if i != 0 and i != 1]
-POLYNOMIAL_DEGREE = 8
+POLYNOMIAL_DEGREE = 7
 
 
 class range_type(Enum):
