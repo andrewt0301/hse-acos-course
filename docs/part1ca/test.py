@@ -1,5 +1,7 @@
+import argparse
 import random as rng
 from enum import Enum
+import datetime
 
 I_RANGE = [i for i in range(-10, 11) if i is not 0]
 POLYNOMIAL_DEGREE = 8
@@ -46,7 +48,7 @@ class f_poly:
             if v == 0:
                 continue
             if i != 0:
-                s = f" * x^{i}" + s if i != 1 else f" * x"
+                s = f" * x**{i}" + s if i != 1 else f" * x"
             s = str(abs(v)) + s
             if v < 0:
                 s = " - " + s
@@ -61,7 +63,7 @@ class f_exp:
         self.b = b
 
     def string(self):
-        return f"{self.a}^x + {self.b}"
+        return f"{self.a}**x + {self.b}"
 
 
 class f_linear:
@@ -92,9 +94,28 @@ def rnd_function(f_type):
         return f_const(rng.choice(I_RANGE))
 
 
+def parse_arguments():
+    prog_info = "Variant generator for first final test of ACOS course"
+    parser = argparse.ArgumentParser(description=prog_info)
+    parser.add_argument("-g", "--group", required=True,
+                        help="The number of the group")
+    parser.add_argument("-n", "--number", required=True,
+                        help="The number students in the group")
+    parser.add_argument("-o", "--output", default="out.md",
+                        help="Output markdown file with variants")
+    parser.add_argument("-s", "--seed", default='',
+                        help="Seed for random numbers generator. Default: timestamp")
+    args = parser.parse_args()
+    return args
+
+
 if __name__ == "__main__":
-    rng.seed("ACOS_Spring2021_193_2")
-    for i in range(100):
+    args = parse_arguments()
+    rng.seed(f"ACOS_{datetime.date.today().year}_{args.group}_{args.number}:{args.seed}")
+    print(f"Variants: Group {args.group}")
+    print("---")
+    print("")
+    for i in range(int(args.number)):
         f_types = [0, 1, 2, 3]
         rng.shuffle(f_types)
         while True:
@@ -106,11 +127,12 @@ if __name__ == "__main__":
 
         nums = sorted(rng.sample(range(1, 10), 3))
         conds = [f"x < {nums[0]}", f"x >= {nums[0]}", f"x == {nums[1]}", f"x > {nums[2]}"]
-        print(f"Variant #{i}:")
-        print("1.")
-        print("        ```")
+        print(f"{i+1}. Function `f(x)`:")
+        print("")
+        print("    ```")
         j = 0
         for f in task:
-            print(f"        f(x) = {f[1].string()} if {conds[j]}")
+            print(f"    f(x) = {f[1].string()} if {conds[j]}")
             j = j + 1
-        print("        ```")
+        print("    ```")
+        print("")
