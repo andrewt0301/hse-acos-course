@@ -24,23 +24,25 @@ the value of the `f(x)` mathematical function according to the specified equatio
 
 Requirements:
 
-* `x` is assumed to be a non-negative value from `0` to `15`.
+* `x` is assumed to be a non-negative value from `0` to `12`.
 * `f(x)` __must be implemented as a single function and must comply with RISC-V calling conventions__.
 * `f(x)` __must use callee-saved registers__ (`s0`, `s1`, etc.) to store intermediate results of calculations
   (these registers are saved to the stack and restored from the stack by `f(x)`).
 
 The `f(x)` function is as follows (this is an __example__, find __your variant__ below):
 
-    f(x) = -2 if x < 1
-    f(x) = 8 * x**8 + 1 * x**5 - 6 * x**3 - 1 * x if x >= 1
-    f(x) = 8**x + 4 if x == 3
-    f(x) = -3 * x + -10 if x > 9
+    ```
+    f(x) = -2 * x + 4 if x < 5
+    f(x) = -4**x - 4 if x >= 5
+    f(x) = 5 * x**7 - 2 * x**4 - 2 * x if x == 7
+    f(x) = -7 if x > 9
+    ```
 
 Evaluation criteria:
 
 1. Correct program structure (input `x`, print `f(x)`, switch between cases of `x`) costs 1 point.
 2. Each of the `f(x)` cases costs 1.5 points (must give a valid result).
-3. Correct function implementation consts 1.5 points (call and result, passing argument and result).
+3. Correct function implementation consts 1.5 point (call and result, passing argument and result).
 4. Correct work with the stack costs 1.5 points (correct saving and loading registers).
 
 ### Variants
