@@ -51,7 +51,7 @@ https://docs.google.com/spreadsheets/d/1kFGcUtLRKk0gWtb5wSuvZNMLMVCo-orDJdcM54Vl
 
 Variants for groups:
 
-* [Group 211](2023_group211.md)
-* [Group 212](2023_group212.md)
-* [Group 213](2023_group213.md)
-* [Group 214](2023_group214.md)
+* [Group 211](2023_group211)
+* [Group 212](2023_group212)
+* [Group 213](2023_group213)
+* [Group 214](2023_group214)
