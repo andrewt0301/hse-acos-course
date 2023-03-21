@@ -4,6 +4,8 @@ from enum import Enum
 import datetime
 
 I_RANGE = [i for i in range(-9, 9) if i != 0 and i != 1 and i != -1]
+I_RANGE_SMALL = [i for i in range(-5, 5) if i != 0 and i != 1 and i != -1]
+
 POLYNOMIAL_DEGREE = 7
 
 
@@ -85,7 +87,7 @@ class f_const:
 
 def rnd_function(f_type):
     if f_type == 3:
-        return f_exp(rng.choice(I_RANGE), rng.choice(I_RANGE))
+        return f_exp(rng.choice(I_RANGE_SMALL), rng.choice(I_RANGE))
     elif f_type == 2:
         return f_poly([rng.choice(I_RANGE) for _ in range(POLYNOMIAL_DEGREE + 1)])
     elif f_type == 1:
@@ -113,7 +115,7 @@ if __name__ == "__main__":
     print(f"Variants: Group {args.group}")
     print("---")
     print("")
-    print("__NOTE__: _Value range for testing is_ `0 <= x <= 15`.")
+    print("__NOTE__: _Value range for testing is_ `0 <= x <= 12`.")
     print("")
     print("__HINT__: _You can use Python to calculate correct results of `f(x)` to be used for checking._")
     print("")
