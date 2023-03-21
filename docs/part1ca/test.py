@@ -115,7 +115,7 @@ if __name__ == "__main__":
     print("")
     print("__NOTE__: _Value range for testing is_ `0 <= x <= 15`.")
     print("")
-    print("__HINT__: _You can use Python to calculate correct results of `f(x)` to be used to checking.")
+    print("__HINT__: _You can use Python to calculate correct results of `f(x)` to be used to checking._")
     print("")
     for i in range(int(args.number)):
         while True:
