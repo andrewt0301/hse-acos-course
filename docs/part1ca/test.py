@@ -101,8 +101,6 @@ def parse_arguments():
                         help="The number of the group")
     parser.add_argument("-n", "--number", required=True,
                         help="The number students in the group")
-    parser.add_argument("-o", "--output", default="out.md",
-                        help="Output markdown file with variants")
     parser.add_argument("-s", "--seed", default='',
                         help="Seed for random numbers generator. Default: timestamp")
     args = parser.parse_args()
@@ -115,6 +113,8 @@ if __name__ == "__main__":
     print(f"Variants: Group {args.group}")
     print("---")
     print("")
+    print("__NOTE__: _Value range for testing is_ `0 <= x <= 15`.")
+    print("")
     for i in range(int(args.number)):
         f_types = [0, 1, 2, 3]
         rng.shuffle(f_types)
@@ -125,7 +125,7 @@ if __name__ == "__main__":
         intervals.sort()
         task = [(i, rnd_function(f), i) for i, f in enumerate(f_types)]
 
-        nums = sorted(rng.sample(range(1, 10), 3))
+        nums = sorted(rng.sample(range(2, 11), 3))
         conds = [f"x < {nums[0]}", f"x >= {nums[0]}", f"x == {nums[1]}", f"x > {nums[2]}"]
         print(f"{i+1}. Function `f(x)`:")
         print("")
