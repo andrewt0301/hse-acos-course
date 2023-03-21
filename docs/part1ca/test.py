@@ -3,7 +3,7 @@ import random as rng
 from enum import Enum
 import datetime
 
-I_RANGE = [i for i in range(-10, 11) if i != 0 and i != 1]
+I_RANGE = [i for i in range(-9, 9) if i != 0 and i != 1 and i != -1]
 POLYNOMIAL_DEGREE = 7
 
 
@@ -115,19 +115,25 @@ if __name__ == "__main__":
     print("")
     print("__NOTE__: _Value range for testing is_ `0 <= x <= 15`.")
     print("")
+    print("__HINT__: _You can use Python to calculate correct results of `f(x)` to be used to checking.")
+    print("")
     for i in range(int(args.number)):
-        f_types = [0, 1, 2, 3]
-        rng.shuffle(f_types)
         while True:
             intervals = [rng.choice(I_RANGE) for _ in range(3)]
             if len(set(intervals)) > 2:
                 break
         intervals.sort()
-        task = [(i, rnd_function(f), i) for i, f in enumerate(f_types)]
+
+        f_types = [0, 1, 2, 3]
+        while True:
+            rng.shuffle(f_types)
+            task = [(i, rnd_function(f), f) for i, f in enumerate(f_types)]
+            if task[2][2] != 3:
+                break
 
         nums = sorted(rng.sample(range(2, 11), 3))
         conds = [f"x < {nums[0]}", f"x >= {nums[0]}", f"x == {nums[1]}", f"x > {nums[2]}"]
-        print(f"{i+1}. Function `f(x)`:")
+        print(f"{i+1}. Function `f(x)` that handles cases:")
         print("")
         print("    ```")
         j = 0
