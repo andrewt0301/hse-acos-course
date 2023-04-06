@@ -44,7 +44,8 @@ Evaluation criteria:
 ### Variants
 
 Choose your __variant number__ according to __your number in your group__.
+
 See the lists of students [here](
 https://docs.google.com/spreadsheets/d/1nj-iDom2phr24SIESSsPhYvFh9nPEcd_dx1wgLftckg/edit?usp=sharing).
 
-__The variants are [here](group200.md).__
+See the variants [here](group200.md).
