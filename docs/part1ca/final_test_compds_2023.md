@@ -69,3 +69,5 @@ See the lists of students [here](
 https://docs.google.com/spreadsheets/d/1nj-iDom2phr24SIESSsPhYvFh9nPEcd_dx1wgLftckg/edit?usp=sharing).
 
 See the variants [here](group200.md).
+
+Here the retake the variants [here](group200_retake.md).
