@@ -70,6 +70,11 @@ Some course topics are based on other external material, which will be provided 
 
 #### Primary
 
+- [COMET] Remzi H. Arpaci-Dusseau and Andrea C. Arpaci-Dusseau.
+  [Operating Systems: Three Easy Pieces.](
+  https://pages.cs.wisc.edu/~remzi/OSTEP/)
+  2018.
+
 - [TLPI] Michael Kerrisk.
   [The Linux Programming Interface: A Linux and UNIX System Programming Handbook.](
   https://man7.org/tlpi/)
