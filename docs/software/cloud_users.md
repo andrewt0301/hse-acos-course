@@ -6,7 +6,7 @@ See [this](cloud_ssh) document on how to connect.
 
 Instructors:
 
-|User              |Login     |
+|_User_            |_Login_   |
 |Andrei Tatarnikov |tatarnikov|
 |Alexey Kanakhin   |kanakhin  |
 |Artem Victorov    |aviktorov |
@@ -18,9 +18,12 @@ Instructors:
 
 Assistants:
 
-|Fedor Pakhurov    |       |
-|Oleg Malchenko    |       |
-|Vladislav Kirichok|       |
-|Pavel Nedbay      |       |
-|Artem Borisov     |       |
-
+|_User_            |_Login_      |
+|Fedor Pakhurov    |             |
+|Oleg Malchenko    |omalchenko   |
+|Vladislav Kirichok|vkirichok_204|
+|Pavel Nedbay      |             |
+|Artem Borisov     |             |
+|Pavel Ivanov      ||
+|German Perov      ||
+|Igor Demushkin    ||
