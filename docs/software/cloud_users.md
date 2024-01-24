@@ -19,11 +19,13 @@ Instructors:
 Assistants:
 
 |_User_            |_Login_      |
-|Fedor Pakhurov    |             |
+|Fedor Pakhurov    |fpakhurov    |
 |Oleg Malchenko    |omalchenko   |
 |Vladislav Kirichok|vkirichok_204|
-|Pavel Nedbay      |             |
-|Artem Borisov     |             |
-|Pavel Ivanov      ||
-|German Perov      ||
-|Igor Demushkin    ||
+|Pavel Nedbay      |panedbay_213 |
+|Artem Borisov     |artem_borisov|
+|Pavel Ivanov      |pivanov      |
+|German Perov      |gperov       |
+|Igor Demushkin    |idemushkin   |
+|Namig Damirov     |ndamirov     |
+|Arseny Bolotnikov |abolotnikov  |
