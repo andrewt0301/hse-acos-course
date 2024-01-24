@@ -6,15 +6,15 @@ See [this](cloud_ssh) document on how to connect.
 
 Instructors:
 
-|User              | Login |
-|Andrei Tatarnikov |       |
-|Alexey Kanakhin   |       |
-|Artem Victorov    |       |
-|Alexander Makhov  |       |	
-|Roman Stolyarov   |       |
-|Alexandra Borisova|       |
-|Boris Galitsky    |       |
-|Nikita Golovanov  |       |
+|User              |Login     |
+|Andrei Tatarnikov |tatarnikov|
+|Alexey Kanakhin   |kanakhin  |
+|Artem Victorov    |aviktorov |
+|Alexander Makhov  |amakhov   |	
+|Roman Stolyarov   |stolyarov |
+|Alexandra Borisova|aborisova |
+|Boris Galitsky    |galitskii |
+|Nikita Golovanov  |golovanov |
 
 Assistants:
 
