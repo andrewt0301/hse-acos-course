@@ -20,7 +20,7 @@ Instructors:
 |Artem Victorov    |aviktorov  |
 |Alexander Makhov  |amakhov    |	
 |Roman Stolyarov   |stolyarov  |	
-|Alexandra Borisova|aborisova  |
+|Alexandra Borisova|aaborisova |
 |Boris Galitsky    |galitskii  |
 |Nikita Golovanov  |golovanov  |	
 		
@@ -28,12 +28,12 @@ Assistants:
 
 |_User_            |_Login_      |
 |Fedor Pakhurov    |fpakhurov    |
-|Oleg Malchenko    |omalchenko   |
-|Vladislav Kirichok|vkirichok_204|
-|Pavel Nedbay      |panedbay_213 |
-|Artem Borisov     |artem_borisov|
+|Oleg Malchenko    |olegmaxus    |
+|Vladislav Kirichok|v_kirichok   |
+|Pavel Nedbay      |pnedbay      |
+|Artem Borisov     |aborisov     |
 |Pavel Ivanov      |pivanov      |
 |German Perov      |gperov       |
 |Igor Demushkin    |idemushkin   |
-|Namig Damirov     |ndamirov     |
+|Namig Damirov     |ndamirov     | 
 |Arseny Bolotnikov |abolotnikov  |
