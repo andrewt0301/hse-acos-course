@@ -36,7 +36,66 @@ __TODO__
 
 ## Homework
 
-__TODO__
+1. Programming task "PseudoVM".
+
+Write an exception handler that imitates "virtual memory" for "forbidden" addresses.
+A "forbidden" address is an address 
+Создать обработчик исключений, имитирующий «виртуальную память»
+ для любого «запрещённого» адреса — такого,
+ чтение или запись машинного слова
+ по которому приводило бы к LOAD_ACCESS_FAULT или STORE_ACCESS_FAULT.
+ Исключение — адрес 0x00000000, он не поддерживается.
+ Предлагается использовать таблицу вида «виртуальный» адрес:значение.
+ Размер таблицы — 16 таких пар (т. е. 128 байтов).
+ Можно использовать адрес 0 для обозначения пустой ячейки.
+
+«Виртуальная память» работает только на операциях lw и sw
+ с регистром t0 в качестве приёмника или источника соответственно
+ (другие варианты не проверяются)
+
+Reading from an address works in the following way:
+* If the address is present in the table, the value stored in the table is returned.
+* If the address is missing from the table, `0` is returned.
+
+Writing to an address works in the following way:
+* If the address is present in the table, the value stored in the table is updated.
+* If the address is missing from the table, but the table has free records,
+  a new record `"virtual address":value` is placed into the table.
+* If the address is missing from the table and its full (no free records), nothing happens.
+
+Notes:
+* Everything is done in the handler that handles the two exceptions.
+* The handler must save and restore all registers it uses (some area in the `.data` section).
+* The following main problem will be merged with the handler: [PseudoVM.s](
+  https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/09_VM/PseudoVM.s).
+* Examples of an input and output for the program are below.
+
+Input:
+```
+21
+123
+22
+1234
+20
+1001
+100500
+1000
+100
+-70001
+-70001
+-70000
+-70004
+0
+```
+
+Output:
+```
+1234
+100500
+0
+0
+-70001
+```
 
 ## References
 
