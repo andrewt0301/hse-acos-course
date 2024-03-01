@@ -30,6 +30,10 @@ Slides ([PDF](CA_Lecture_09.pdf), [PPTX](CA_Lecture_09.pptx)).
 
 __TODO__
 
+#### Examples:
+
+* [PseudoVM.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/09_VM/PseudoVM.s)
+
 ## Homework
 
 __TODO__
