@@ -57,16 +57,19 @@ Reading from an address works in the following way:
 * If the address is missing from the table, `0` is returned.
 
 Writing to an address works in the following way:
-* If the address is present in the table, the value stored in the table is updated.
+* If the address is present in the table, the value stored in the record is updated.
 * If the address is missing from the table, but the table has free records,
   a new record `"virtual address":value` is placed into the table.
 * If the address is missing from the table and its full (no free records), nothing happens.
 
 Notes:
-* Everything is done in the handler that handles the two exceptions.
+* Everything is done in the handler (starts with the `handler` label)
+  that handles the two exceptions.
 * The handler must save and restore all registers it uses (some area in the `.data` section).
-* The following main problem will be merged with the handler: [PseudoVM.s](
+* The following main program will be merged with the handler: [PseudoVM.s](
   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/09_VM/PseudoVM.s).
+* The main program reads addresses from user input:
+  address divisible by `4` are used for reading, others - for writing.  
 * Examples of an input and output for the program are below.
 
 Input:
