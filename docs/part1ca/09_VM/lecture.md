@@ -45,7 +45,7 @@ This is not supported for address `0x0` (it is reserved).
 
 It is suggested to create a table (array) that will store records
 `"virtual address":value` (pairs of 4-byte values).
-The capacity of the table is 16 records (i.e. 2*4*16=128 bytes).
+The capacity of the table is 16 records (i.e. `2*4*16=128` bytes).
 Address `0x0` can be used to specify an empty record.
 
 "Virtual memory" works only with instructions `lw` and `sw`
