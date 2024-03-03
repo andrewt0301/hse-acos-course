@@ -66,7 +66,7 @@ Notes:
 * Everything is done in the handler (starts with the `handler` label)
   that handles the two exceptions.
 * The handler must save and restore all registers it uses (some area in the `.data` section).
-* The following main program will be merged with the handler: [PseudoVM.s](
+* This __main program__ will be merged with the handler: [PseudoVM.s](
   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/09_VM/PseudoVM.s).
 * The main program reads addresses from user input:
   address divisible by `4` are used for reading, others - for writing.  
