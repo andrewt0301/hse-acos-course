@@ -43,7 +43,8 @@ A "forbidden" address is any address that causes exceptions
 `LOAD_ACCESS_FAULT` and `STORE_ACCESS_FAULT` when we try to access it (read or write).
 This is not supported for address `0x0` (it is reserved).
 
-![Memory configuration](MemConfig.png)
+![Memory configuration](
+https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/09_VM/MemConfig.png)
 
 It is suggested to create a table (array) that will store records
 `"virtual address":value` (pairs of 4-byte values).
