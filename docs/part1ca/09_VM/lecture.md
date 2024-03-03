@@ -39,19 +39,18 @@ __TODO__
 1. Programming task "PseudoVM".
 
 Write an exception handler that imitates "virtual memory" for "forbidden" addresses.
-A "forbidden" address is an address 
-Создать обработчик исключений, имитирующий «виртуальную память»
- для любого «запрещённого» адреса — такого,
- чтение или запись машинного слова
- по которому приводило бы к LOAD_ACCESS_FAULT или STORE_ACCESS_FAULT.
- Исключение — адрес 0x00000000, он не поддерживается.
- Предлагается использовать таблицу вида «виртуальный» адрес:значение.
- Размер таблицы — 16 таких пар (т. е. 128 байтов).
- Можно использовать адрес 0 для обозначения пустой ячейки.
+A "forbidden" address is any address that causes exceptions
+`LOAD_ACCESS_FAULT` and `STORE_ACCESS_FAULT` when we try to access it (read or write).
+This is not supported for address `0x0` (it is reserved).
 
-«Виртуальная память» работает только на операциях lw и sw
- с регистром t0 в качестве приёмника или источника соответственно
- (другие варианты не проверяются)
+It is suggested to create a table (array) that will store records
+`"virtual address":value` (pairs of 4-byte values).
+The capacity of the table is 16 records (i.e. 2*4*16=128 bytes).
+Address `0x0` can be used to specify an empty record.
+
+"Virtual memory" works only with instructions `lw` and `sw`
+that use register `t0` as a source/destination for values
+(other registers are not checked).
 
 Reading from an address works in the following way:
 * If the address is present in the table, the value stored in the table is returned.
