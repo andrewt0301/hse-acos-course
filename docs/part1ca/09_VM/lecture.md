@@ -43,6 +43,8 @@ A "forbidden" address is any address that causes exceptions
 `LOAD_ACCESS_FAULT` and `STORE_ACCESS_FAULT` when we try to access it (read or write).
 This is not supported for address `0x0` (it is reserved).
 
+![Memory configuration](MemConfig.png)
+
 It is suggested to create a table (array) that will store records
 `"virtual address":value` (pairs of 4-byte values).
 The capacity of the table is 16 records (i.e. `2*4*16=128` bytes).
