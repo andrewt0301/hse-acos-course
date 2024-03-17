@@ -125,17 +125,22 @@ def print_variant(index, conds, nums):
 
 def generate_ejudge_tasks(group, index, conds, nums):
     j = 0
+    joint_case = ""
     for f in task:
         folder = f"FinalTest_{group}_{j+1}-{index}"
-        print(f"Creating folder {folder}...")
         os.mkdir(folder)
         case = f"{f[1].string()} if {conds[j]}";
-        print(case)
 
         generate_ejudge_case_statement(folder, j + 1, case)
         generate_ejudge_case_tests(folder, case)
 
+        joint_case += f"if {conds[j]}:\n    y = {f[1].string()}\n"
         j = j + 1
+
+    joint_folder = f"FinalTest_{group}_5-{index}"
+    os.mkdir(joint_folder)
+    generate_ejudge_joint_statement(joint_folder, joint_case)
+    generate_ejudge_joint_tests(joint_folder, joint_case)
 
 
 def generate_ejudge_case_statement(folder, case_index, case):
@@ -178,6 +183,49 @@ def generate_ejudge_case_tests(folder, case):
         dat.close()
         res = open(f"{folder}/tests/{x + 1:03}.res", "w")
         res.write(str(y))
+        res.close()
+
+
+def generate_ejudge_joint_statement(folder, case):
+    f = open(f"{folder}/statement.xml", "w")
+    text = f"""<?xml version="1.0" encoding="utf-8" ?>
+    <problem
+       package = "riscv"
+       id = "finaltest_5"
+       type = "standard">
+      <statement language="ru_RU">
+        <description>
+        <p>
+        Write a program that inputs an integer value 'x' and then
+        calculates and prints value 'y' using the following Python-based formula:
+        </p>
+        <p>
+{case}
+        </p>
+        <p>
+        Notes:
+        <ol>
+        <li>'x' is a non-negative value from 0 to 12.</li>
+        <li>Do not forget to output a new line in the end.</li>
+        <li>You can use Python to check your program (calculate the expected result). 
+        </ol>
+        </p></description>
+      </statement>
+    </problem>
+    """
+    f.write(text)
+    f.close()
+
+
+def generate_ejudge_joint_tests(folder, case):
+    case += "res.write(str(y))\n"
+    os.mkdir(f"{folder}/tests")
+    for x in range(0, 13):
+        dat = open(f"{folder}/tests/{x+1:03}.dat", "w")
+        dat.write(str(x))
+        dat.close()
+        res = open(f"{folder}/tests/{x + 1:03}.res", "w")
+        exec(case)
         res.close()
 
 
