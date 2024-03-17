@@ -156,9 +156,9 @@ def generate_ejudge_case_statement(folder, case_index, case):
     Write a program that inputs an integer value 'x' and then
     calculates and prints value 'y' using the following Python-based formula:
     </p>
-    <p>
+    <pre>
     y = {case} else -1
-    </p>
+    </pre>
     <p>
     Notes:
     <ol>
@@ -199,9 +199,8 @@ def generate_ejudge_joint_statement(folder, case):
         Write a program that inputs an integer value 'x' and then
         calculates and prints value 'y' using the following Python-based formula:
         </p>
-        <p>
-{case}
-        </p>
+        <pre>
+{case}        </pre>
         <p>
         Notes:
         <ol>
@@ -227,6 +226,20 @@ def generate_ejudge_joint_tests(folder, case):
         res = open(f"{folder}/tests/{x + 1:03}.res", "w")
         exec(case)
         res.close()
+
+
+def generate_variants(number, group, task_count):
+    vars = open(f"variant.map", "w")
+    vars.write("""<?xml version="1.0" encoding="utf-8" ?>\n""")
+    vars.write("""<!-- $Id$ -->\n""")
+    vars.write("""<variant_map version="2">\n""")
+    for n in range(1, number + 1):
+        vars.write(f"{group}-{n}")
+        for i in range(1, task_count):
+            vars.write(f" {n}")
+        vars.write("\n")
+    vars.write("</variant_map>\n")
+    vars.close()
 
 
 if __name__ == "__main__":
@@ -258,3 +271,4 @@ if __name__ == "__main__":
 
         print_variant(i + 1, conds, nums)
         generate_ejudge_tasks(args.group, i + 1, conds, nums)
+    generate_variants(int(args.number), args.group, 5)
