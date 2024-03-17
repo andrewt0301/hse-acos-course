@@ -1,4 +1,4 @@
 #!/bin/bash
-rm -r FinalTest_* variant.map
+rm -r *dsba-221*
 python3 test.py -g dsba-221 -n 2
 

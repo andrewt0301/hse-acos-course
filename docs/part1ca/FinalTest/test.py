@@ -228,18 +228,39 @@ def generate_ejudge_joint_tests(folder, case):
         res.close()
 
 
-def generate_variants(number, group, task_count):
-    vars = open(f"variant.map", "w")
+def generate_variant_map(group, task_number, var_number):
+    vars = open(f"config_{group}/variant.map", "w")
     vars.write("""<?xml version="1.0" encoding="utf-8" ?>\n""")
     vars.write("""<!-- $Id$ -->\n""")
     vars.write("""<variant_map version="2">\n""")
-    for n in range(1, number + 1):
+    for n in range(1, var_number + 1):
         vars.write(f"{group}-{n}")
-        for i in range(1, task_count):
+        for i in range(1, task_number):
             vars.write(f" {n}")
         vars.write("\n")
     vars.write("</variant_map>\n")
     vars.close()
+
+
+def generate_task_config(group, task_number, var_number):
+    cfg = open(f"config_{group}/tasks.cfg", "w")
+    for i in range(1, task_number + 1):
+        name = f"FinalTest_{group}_{i}"
+        cfg.write(f"""[problem]
+super = "Generic"
+short_name = "{name}"
+long_name = "{name}"
+problem_dir = "{name}"
+open_tests = "1-100:full"
+standard_checker = "cmp_int_seq"
+enable_language = "rars"
+variant_num = {var_number}
+start_date = "2023/02/04 11:00:00"
+deadline = "2024/07/31 23:59:59"
+
+""")
+        pass
+    cfg.close()
 
 
 if __name__ == "__main__":
@@ -271,4 +292,6 @@ if __name__ == "__main__":
 
         print_variant(i + 1, conds, nums)
         generate_ejudge_tasks(args.group, i + 1, conds, nums)
-    generate_variants(int(args.number), args.group, 5)
+    os.mkdir(f"config_{args.group}")
+    generate_variant_map(args.group, 5, int(args.number))
+    generate_task_config(args.group, 5, int(args.number))
