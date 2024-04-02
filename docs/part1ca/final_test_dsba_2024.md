@@ -13,7 +13,16 @@ Answer the theoretical questions in a few sentences (1-2 sentences for a questio
 Use __your own words__.
 Copy-paste from external sources and other students will result in 100% penalty.
 
-* __Integer and floating-point format__.
+Assessment criteria:
+
+* Answers to each of the question three topics (data formats, pipeline, caches) have
+  the same weight and can give up to 3.33 points each.
+* Answers to subquestions are evaluated as a whole (they are numbered
+  in order not to be missed). Generally, the most basic questions come first.
+
+Questions:
+
+* __Integer and floating-point formats__.
   1. Describe how integers are represented in the binary format (unsigned integers, 2's complement).
   2. What is the difference between integer sign- and zero-extension?
   3. What is the difference between arithmetical and logical shift?
