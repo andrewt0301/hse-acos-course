@@ -6,6 +6,8 @@ __Grade = 0.4 * Theory + 0.6 * Programming__
 
 ## Part 1. Theoretical Questions
 
+Please submit your answers using this [form](https://forms.gle/wmuvhUxwLJDKCoS47).
+
 Answer the theoretical questions in a few sentences (1-2 sentences for a question).
 
 Use __your own words__.
