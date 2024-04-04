@@ -73,5 +73,5 @@ Ejudge контесты по группам:
 * [КНАД2](http://84.201.145.249/cgi-bin/new-client?contest_id=255)
 * [ЭаД1](http://84.201.145.249/cgi-bin/new-client?contest_id=256)
 * [ЭаД2](http://84.201.145.249/cgi-bin/new-client?contest_id=257)
-* [ЭаД2](http://84.201.145.249/cgi-bin/new-client?contest_id=258)
+* [ЭаД3](http://84.201.145.249/cgi-bin/new-client?contest_id=258)
 * [ВСН](http://84.201.145.249/cgi-bin/new-client?contest_id=259)
