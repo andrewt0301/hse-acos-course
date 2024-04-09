@@ -24,11 +24,12 @@ Slides ([PDF](OS_Lecture_02.pdf), [PPTX](OS_Lecture_02.pptx)).
 Builtin data types:
 
 ```c
-char unsiged char
+char
+unsigned char
 short
 unsigned short
 int 
-unsigined int
+unsigned int
 long
 unsigned long
 float
