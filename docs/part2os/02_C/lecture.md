@@ -95,7 +95,7 @@ Functions and function pointers:
 #include <stdio.h>
 
 void print(int x, int y) {
-    printf("%d %d\n");
+    printf("%d %d\n", x, y);
 }
 
 typedef void (* func_t)(int, int);
