@@ -24,11 +24,12 @@ Slides ([PDF](OS_Lecture_02.pdf), [PPTX](OS_Lecture_02.pptx)).
 Builtin data types:
 
 ```c
-char unsiged char
+char
+unsigned char
 short
 unsigned short
 int 
-unsigined int
+unsigned int
 long
 unsigned long
 float
@@ -36,7 +37,7 @@ double
 __int8_t
 __int16_t
 __int32_t
-__int64_t;
+__int64_t
 void *
 size_t
 ```
@@ -47,15 +48,15 @@ Structures:
 struct point {
     int x;
     int y;
-}
+};
 ```
 
 ```c
 struct point {
     int x;
     int y1 : 16;
-    int y2 : 16
-}
+    int y2 : 16;
+};
 ```
 
 Size of various data types:
@@ -69,7 +70,7 @@ typedef struct {
 } point_t;
 
 int main() {
-    printf("sizeof(int)    = %ld\n", sizeof(char));
+    printf("sizeof(char)   = %ld\n", sizeof(char));
     printf("sizeof(int)    = %ld\n", sizeof(int));
     printf("sizeof(long)   = %ld\n", sizeof(long));
     printf("sizeof(float)  = %ld\n", sizeof(float));
@@ -94,7 +95,7 @@ Functions and function pointers:
 #include <stdio.h>
 
 void print(int x, int y) {
-    printf("%d %d\n");
+    printf("%d %d\n", x, y);
 }
 
 typedef void (* func_t)(int, int);
@@ -141,7 +142,7 @@ int main() {
 
 #### Outline
 
-* Discuss main features of C and differences from C++ and other languages
+* Discuss main features of C and differences between C++ and other languages
 * Discuss questions from [this](disc02.pdf) document
 
 #### Debugging C programs
