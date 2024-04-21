@@ -4,6 +4,9 @@ The grade formula is as follows:
 
 __Grade = 0.4 * Theory + 0.6 * Programming__
 
+* Send answers to the theoretical questions via Telegram.
+* Submit solution to the programming task to [Ejudge contest](http://84.201.145.249/cgi-bin/new-client?contest_id=260).
+
 ## Part 1. Theoretical Questions
 
 Answer the theoretical questions in a few sentences (1-2 sentences for a question).
@@ -67,5 +70,3 @@ Assessment criteria:
 1. Tasks 1-4 (full solution) give 1 points each.
 2. Tasks 5-7 (full solution) give 2 points each.
 3. Full solution of all tasks gives 10 points.
-
-Ejudge contest: http://84.201.145.249/cgi-bin/new-client?contest_id=260
