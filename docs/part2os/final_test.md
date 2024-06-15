@@ -11,7 +11,7 @@ Answer the theoretical questions in a few sentences (1-2 paragraphs for a questi
 Use __your own words__.
 Copy-paste from external sources and other students will result in 100% penalty.
 
-1. Operating system achitecture.
+1. Operating system architecture.
    * List the main components of an operating system.
    * List the tasks a typical operating system solves.
    * What is a system call?
