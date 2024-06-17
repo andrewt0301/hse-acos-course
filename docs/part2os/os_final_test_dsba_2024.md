@@ -31,7 +31,7 @@ Copy-paste from external sources and other students will result in 100% penalty.
 1. Permissions.
    * What access rights do you know? What permission groups do you know?
    * How to view and how to change file permissions (what utility tools to use)? How to change file ownership?
-   * Give definitions of hand and soft links, explain the differences between them. How to create links?
+   * Give definitions of hard and soft links, explain the differences between them. How to create links?
    * Explain the `setuid`/`setguid` permissions.
    * Study the text below. What can you say about `file1`, `file2`, `file3`, and `file4`?
    
