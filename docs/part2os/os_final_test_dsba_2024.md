@@ -33,12 +33,12 @@ Copy-paste from external sources and other students will result in 100% penalty.
    * Study the text below. What can you say about `file1`, `file2`, `file3`, and `file4`?
    
    ```bash
-   acos@acos-vm:~/folder$ ls -li
-   total 12
-   892954 drwxr-x--- 2 acos   acos 4096 июн 16 14:53 file1
-   795083 lrwxrwxrwx 1 acos   acos    5 июн 16 14:55 file2 -> file1
-   792657 -rwsrwxr-x 2 myuser acos    7 июн 16 14:56 file3
-   792657 -rwsrwxr-x 2 myuser acos    7 июн 16 14:56 file4
+   (base) andrewt@ThinkPad-T490s:~/Documents/src/hse/temp$ ls -li
+   total 36
+   35140286 drwxrwxr-x 2 acos   acos  4096 Jun 17 09:03 file1
+   35140287 -rwxrwsr-x 2 myuser acos 15776 Jun 17 09:01 file2
+   35140288 lrwxrwxrwx 1 acos   acos     5 Jun 17 09:03 file3 -> file1
+   35140287 -rwxrwsr-x 2 myuser acos 15776 Jun 17 09:01 file4
    ```
 
 ## Part 2. Programming Task
@@ -69,6 +69,7 @@ _Note_: the `^` symbol means "power".
 
 * ___4 Points___:
   make all calculations and write to file in a __parent__ process;
+  provide a Makefile to build the program;
 * ___5 Points___:
   write to a file using output redirection (redirect the standard output
   to the file using [dup2](https://man7.org/linux/man-pages/man2/dup.2.html));
