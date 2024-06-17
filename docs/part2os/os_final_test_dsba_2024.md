@@ -116,7 +116,7 @@ _Note_: the `^` symbol means "power".
 Choose your __variant number__ according to __your number in your group__.
 
 See the lists of students [here](
-https://docs.google.com/spreadsheets/d/1kFGcUtLRKk0gWtb5wSuvZNMLMVCo-orDJdcM54Vl2Jw/edit#gid=590921764).
+https://docs.google.com/spreadsheets/d/1kKsD18FGAYrcHERAro_1DmqysrJHmpUwHC7HRokdCGM/edit#gid=1745528053).
 
 Variants for groups:
 
