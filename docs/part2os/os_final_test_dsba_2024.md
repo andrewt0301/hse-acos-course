@@ -120,9 +120,9 @@ https://docs.google.com/spreadsheets/d/1kKsD18FGAYrcHERAro_1DmqysrJHmpUwHC7HRokd
 
 Variants for groups:
 
-* [Group 211](variants_dsba_2024_g221.md)
-* [Group 212](variants_dsba_2024_g222.md)
-* [Group 213](variants_dsba_2024_g223.md)
-* [Group 214](variants_dsba_2024_g224.md)
+* [Group 221](variants_dsba_2024_g221.md)
+* [Group 222](variants_dsba_2024_g222.md)
+* [Group 223](variants_dsba_2024_g223.md)
+* [Group 224](variants_dsba_2024_g224.md)
 
 _Note_: the `^` symbol means "power".
