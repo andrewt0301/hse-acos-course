@@ -1,5 +1,7 @@
 # Final Test: Operating Systems
 
+__The link for the submission form is [here](https://forms.gle/iwk4QTs9Zb9GT3sg8).__
+
 The grade formula is as follows:
 
 __Grade = 0.4 * Theory + 0.6 * Programming__
@@ -24,6 +26,7 @@ Copy-paste from external sources and other students will result in 100% penalty.
    * What is Process Control Block (`PCB`)? What information does it contain?
    * Describe the idea of process creation with system calls `fork` and `exec`. What is the role of system call `wait`?
    * How to see the list of running processes in Linux (what system utilities do you know)?
+     What Linux system folder does contain information about running processes?
 
 1. Permissions.
    * What access rights do you know? What permission groups do you know?
