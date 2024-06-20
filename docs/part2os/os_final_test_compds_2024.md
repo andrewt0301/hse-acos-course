@@ -125,9 +125,11 @@ _Note_: the `^` symbol means "power".
 
 Варианты для групп:
 
-* [КНАД 1](variants_dsba_2024_g221.md)
-* [КНАД 2](variants_dsba_2024_g222.md)
-* [Group 223](variants_dsba_2024_g223.md)
-* [Group 224](variants_dsba_2024_g224.md)
+* [КНАД1](variants_2024_compds1.md)
+* [КНАД2](variants_2024_compds2.md)
+* [ЭАД1](variants_2024_ead1.md)
+* [ЭАД2](variants_2024_ead2.md)
+* [ЭАД3](variants_2024_ead3.md)
+* [ВСН](variants_2024_vsn.md)
 
 _Замечание_: символ `^` означает возведение в степень.
