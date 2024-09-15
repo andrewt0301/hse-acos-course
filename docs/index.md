@@ -14,22 +14,20 @@ For information on course administration (grades, deadlines, etc.), please refer
 
 ## Course Motivation
 
-This course is taught to second-year students who major in [data science](https://www.hse.ru/en/ba/data/).
+This course is taught to second-year students who major in computer science.
 The goal of the course is to give an introduction to how operating systems and hardware work under the hood,
 which is essential for general computer science literacy.
 This knowledge will help better understand the performance of software systems and create more efficient solutions.
-Also, the course will give a starting background to those who are planning to apply machine learning methods
-in system software (most of top-ranked IT companies have such projects).
 The practical part will give some experience in working with system software such as Unix-based operating systems,
 compilers, build tools, emulators, virtual machines, and so on. 
 
 ## Course Description
 
 The course consists of two logical parts.
-The first part is given in __module 3__ and is dedicated to computer architecture and assembly language programming.
+The first part is given in _module 3_ and is dedicated to computer architecture and assembly language programming.
 This part is based on the [RISC-V](https://en.wikipedia.org/wiki/RISC-V) instruction set architecture
 and its assembly language.
-The second part is given in __module 4__ and covers foundations of operating system organisation and system programming.
+The second part is given in _module 4_ and covers foundations of operating system organisation and system programming.
 The main tools for this part are the [Linux](https://en.wikipedia.org/wiki/Linux) operating system and
 the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_language%29).
 
