@@ -97,12 +97,9 @@ The list of software required for the course is [here](software.md).
 
 The list of textbooks recommended for reading is [here](books.md).
 
-## Related Courses
+## Related Materials
 
-The list of similar and related courses is [here](courses.md).
-
-## Links
-
+The list of __similar courses__ is [here](courses.md).
 Links to other related external resources are [here](links.md).
 
 ## Feedback
