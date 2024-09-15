@@ -97,7 +97,7 @@ The list of textbooks recommended for reading is [here](books.md).
 
 ## Related Materials
 
-The list of __similar courses__ is [here](courses.md).
+The list of similar courses is [here](courses.md).
 Links to other related external resources are [here](links.md).
 
 ## Feedback
