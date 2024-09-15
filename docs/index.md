@@ -2,10 +2,8 @@
 
 # Welcome to Computer Architecture and Operating Systems
 
-This site contains materials for the "Computer Architecture and Operating Systems" course taught at
-[Faculty of Computer Science of Higher School of Economics](https://cs.hse.ru/en/).
-
-For information on course administration, please refer to the university website.
+This site contains materials for the "Computer Architecture and Operating Systems".
+For information on course administration (grades, deadlines, etc.), please refer to the university website.
 
 * [__DSBA__](https://www.hse.ru/ba/data/):
   [wiki](http://wiki.cs.hse.ru/ACOS_DSBA_2023/24) and
