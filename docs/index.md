@@ -24,14 +24,14 @@ compilers, build tools, emulators, virtual machines, and so on.
 ## Course Description
 
 The course consists of two logical parts.
-The first part is given in _module 3_ and is dedicated to computer architecture and assembly language programming.
+The first part is given in __module 3__ and is dedicated to computer architecture and assembly language programming.
 This part is based on the [RISC-V](https://en.wikipedia.org/wiki/RISC-V) instruction set architecture
 and its assembly language.
-The second part is given in _module 4_ and covers foundations of operating system organisation and system programming.
+The second part is given in __module 4__ and covers foundations of operating system organisation and system programming.
 The main tools for this part are the [Linux](https://en.wikipedia.org/wiki/Linux) operating system and
 the [C programming language](https://en.wikipedia.org/wiki/C_%28programming_language%29).
 
-__Calendar plan by weeks can be found [here](calendar_2022.md).__
+__Calendar plan by weeks can be found [here](calendar_2025.md).__
 
 ### Computer Architecture and Assembly Language
 
