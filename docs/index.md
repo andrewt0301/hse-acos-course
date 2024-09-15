@@ -50,7 +50,6 @@ __Calendar plan by weeks can be found [here](calendar_2022.md).__
 1. [Data-level parallelism: Vector, SIMD, GPU.](part1ca/13_DLP/lecture.md)
 1. [Thread-level parallelism.](part1ca/14_TLP/lecture.md)
 1. [Optimizations.](part1ca/15_Optimize/lecture.md)
-1. [Domain-specific architectures. Tensor Processing Unit.](part1ca/16_TPU/lecture.md)
 
 All homeworks for "Computer Architecture and Assembly Language"
 are [here](part1ca/Tasks/homeworks.md).
@@ -76,6 +75,10 @@ Final test for Computer Architecture is [here](part1ca/final_test.md).
 1. [Workshop: Linux Kernel Modules](part2os/XX_Linux_Modules/lecture.md)
 
 Final test for Operating Systems is [here](part2os/final_test.md).
+
+### Additional Chapters
+
+1. [Domain-specific architectures. Tensor Processing Unit.](part1ca/16_TPU/lecture.md)
 
 ## Exam
 
