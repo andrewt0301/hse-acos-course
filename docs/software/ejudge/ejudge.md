@@ -43,9 +43,19 @@ The official instruction is [here](https://ejudge.ru/wiki/index.php/Инстал
 Please pay attention to the user, under which the system will be installed.
 He must a have a superuser rights. The manual suggests creating a special user / group (`ejudges`). 
 
-# Running and logging in 
+# Running
 
-http://localhost/cgi-bin/serve-control
+```bash
+cd /home/ejudge/ejudge
+su ejudge
+./ejudge-control start
+exit
+```
+
+# Logging In As Admin
+
+Server:
+http://158.160.144.239/cgi-bin/serve-control
 
 __TODO__
 
