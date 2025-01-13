@@ -54,3 +54,15 @@ Also, come of the commands are implemented in Terminal of JetBrains IDEs (PyChar
    ```bash
    ./hello
    ```
+
+# Getting information on CPU configuration
+
+  Using utility `lscpu`:
+  ```bash
+  lscpu
+  ```
+
+  Viewing virtual file `/proc/cpuinfo`:
+  ```bash
+  less /proc/cpuinfo
+  ```
