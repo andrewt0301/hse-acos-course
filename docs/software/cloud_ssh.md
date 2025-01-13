@@ -25,7 +25,7 @@ To access the server VM, please follow the steps below:
    ```bash
    ssh login@ipaddress -p22
    ```
-   where `login` is your login and `ipaddress` is `84.201.145.249`.
+   where `login` is your login and `ipaddress` is `158.160.144.239`.
 
    Input the passphrase for the key to authorize.
 
@@ -57,5 +57,5 @@ the [scp](https://man7.org/linux/man-pages/man1/scp.1.html) tool.
    scp -p22 -r login@ipaddress:/home/tatarnikov/myfolder/ /Users/andrew/ 
    ````
 
-_Note_: specify `login` as your login, `ipaddress` as `84.201.145.249`,
+_Note_: specify `login` as your login, `ipaddress` as `158.160.144.239`,
         and use paths valid for your local and remove user account.
