@@ -110,6 +110,8 @@ gives these results:
 
 ## Homework
 
+__NOTE: this is a self-study activity, do not need to hand in, no checking no score.__
+
 * Finish installing all required software.
 * Save a link to the SSH public key to the [table](
   https://docs.google.com/spreadsheets/d/1KVsUGHUl74Pfrx0GYiF2V-Cw0mFbVQ3428475FQKsDE/edit?usp=sharing). 

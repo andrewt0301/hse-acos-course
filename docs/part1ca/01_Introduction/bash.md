@@ -4,7 +4,7 @@ Linux Utility Programs and Bash
 Unix-based systems (such as Linux and MacOS) provide utility programs to perform various systems tasks.
 These utilities are via command-line interface.
 Bash is command-line processor and language used to execute these command. 
-Bash is supported in Linux and MacOS. In Windows, apratial support is implemented in Git Bash. 
+Bash is supported in Linux and MacOS. In Windows, a partial support is implemented in Git Bash. 
 Also, come of the commands are implemented in Terminal of JetBrains IDEs (PyCharm, IntelliJ IDEA, CLion, etc.).
 
 # Main Bash commands
