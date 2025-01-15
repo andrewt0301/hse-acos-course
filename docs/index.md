@@ -5,10 +5,10 @@
 This site contains materials for the "Computer Architecture and Operating Systems".
 For information on course administration (grades, deadlines, etc.), please refer to the university website.
 
-* [__DSBA__](https://www.hse.ru/ba/data/):
+* __DSBA__:
   [wiki](http://wiki.cs.hse.ru/ACOS_DSBA_2024/25) and
   [syllabus](https://www.hse.ru/edu/courses/476614465)
-* [__COMPDS__](https://www.hse.ru/ba/compds/):
+* __COMPDS/EAD/VSN__:
   [wiki](http://wiki.cs.hse.ru/ACOS_COMPDS_2024/2025) and
   [syllabus](https://www.hse.ru/edu/courses/476614465)
 
