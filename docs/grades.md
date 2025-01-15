@@ -72,4 +72,16 @@ $$B_i = 2\cdot \frac{\sum_k A_k}{100}$$
 
 ## Exam Format
 
-The description of the exam format and exam grading rules is [here](exam.md).
+The description of the exam format and exam grading rules is [here](exam_2021.md).
+
+### Rounding
+
+Module and exam scores are rounded hundredthsю
+
+### Automatic Grades
+
+Students, who have __attended > 75%__ of classes in both modules, can get an automatic grade.
+
+The formula is the following:
+
+$$G = \frac{M_3 + M_4}{2} - 1$$
