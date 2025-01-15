@@ -53,8 +53,10 @@ Slides ([PDF](CA_Lecture_01.pdf), [PPTX](CA_Lecture_01.pptx)).
 
 Some laptops might have issues with hardware virtualization.
 It should be enabled in BIOS.
-If you face problems running the VM, please refer to this [instruction]( 
-https://bce.berkeley.edu/enabling-virtualization-in-your-pc-bios.html).
+If you face problems running the VM, please refer to this [instruction](
+https://www.simplilearn.com/enable-virtualization-windows-10-article).
+We have a ready-to-use VirtualBox VM with Linux Ubuntu.
+The instruction how to get and deploy it is [here](../../software/ubuntu.md)/.
 
 ##### Connecting to the running VirtualBox VM
 
