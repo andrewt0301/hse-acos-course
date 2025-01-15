@@ -111,6 +111,8 @@ Finish all the tasks. Make sure you understand everything.
 
 ## Homework
 
+__NOTE: This is a self-study activity, do not need to hand in, no checking, no score.__
+
 1. Convert the following decimal numbers to __6-bit__ binary numbers (describe how you have done this).
 
    Unsigned: `0`, `13`, `24`, `63`.
@@ -141,12 +143,6 @@ Finish all the tasks. Make sure you understand everything.
 8. Convert the following pairs decimal numbers to 4-bit binaries and add them.
 
    Values: unsigned (`7`, `9`), signed (`4`, `-5`)
-
-Additionally:
-
-1. Provide your explanation for (*) tasks from the class. Bonus point.
-
-Commit the file with the solutions to your private GitHub account. Place it into the folder `ca/lab02`.
 
 ## References
 
