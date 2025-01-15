@@ -74,11 +74,11 @@ $$B_i = 2\cdot \frac{\sum_k A_k}{100}$$
 
 The description of the exam format and exam grading rules is [here](exam_2021.md).
 
-### Rounding
+## Rounding
 
 Module and exam scores are rounded to hundredths (the precision is 0.01).
 
-### Automatic Grades
+## Automatic Grades
 
 Students, who have __attended > 75%__ of classes in both modules, can get an automatic grade.
 The formula is the following:
