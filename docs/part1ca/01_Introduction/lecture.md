@@ -37,8 +37,7 @@ Slides ([PDF](CA_Lecture_01.pdf), [PPTX](CA_Lecture_01.pptx)).
 * Generate [SSH keys](../../software/cloud_ssh.md) for access to Cloud and GitHub.
   Save the public key to the [table](
   https://docs.google.com/spreadsheets/d/1KVsUGHUl74Pfrx0GYiF2V-Cw0mFbVQ3428475FQKsDE/edit?usp=sharing).
-* [Create](git.md) a private GitHub repository and give access to it to the lecturer,
-  workshop instructor, and teaching assistant.
+* [Create](git.md) a private GitHub repository and give access to it to the workshop instructor and teaching assistant.
    * Name it `<group>_<surname>`, e.g. `204_tatarnikov` 
 * Download, compile, and run matrix computation examples:
    * [Python](matrix.py)
@@ -56,7 +55,7 @@ It should be enabled in BIOS.
 If you face problems running the VM, please refer to this [instruction](
 https://www.simplilearn.com/enable-virtualization-windows-10-article).
 We have a ready-to-use VirtualBox VM with Linux Ubuntu.
-The instruction how to get and deploy it is [here](../../software/ubuntu.md)/.
+The instruction how to get and deploy it is [here](../../software/ubuntu.md).
 
 ##### Connecting to the running VirtualBox VM
 
@@ -121,12 +120,6 @@ __NOTE: This is a self-study activity, do not need to hand in, no checking, no s
    * Run matrix multiplication in Python and C (all versions) in your machine.
    * Provide a table with execution time.
 * Commit the file with the table to your private GitHub account. Place it into the folder `ca/lab01`.
-
-Homework is successful if:
-
-1. GitHub account is created.
-2. Table with execution time is uploaded to GitHub.
-3. Cloud VM account is created.
 
 ## References
 
