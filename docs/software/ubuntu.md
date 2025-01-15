@@ -21,7 +21,7 @@ which has a name like this: `ubuntu-20.04.1-desktop-amd64.iso`.
 
 Because our laptops are already have operating systems other than Linux Ubuntu (most likely Windows or Mac OS)
 and we would to to make experiments with Linux without fear to break the entire system,
-we will be install Linux Ubuntu in a [virtual machine](https://en.wikipedia.org/wiki/Virtual_machine).
+we will install Linux Ubuntu in a [virtual machine](https://en.wikipedia.org/wiki/Virtual_machine).
 
 To install and run Linux Ubuntu,
 we will be using the [VirtualBox](https://en.wikipedia.org/wiki/VirtualBox) virtualization tool by Oracle.
@@ -34,17 +34,13 @@ However, for the beginning, we can download and run a ready-to-use virtual machi
 #### Ready-To-Use Virtual Machine
 
 Installing Linux Ubuntu into VirtualBox is a topic for one of the lab classes dedicated to virtual machines.
-To simplify using Linux Ubuntu in other classes, a ready to use virtual machine is provided.
-Moreover some topics may require installing additional software (such as RISC-V toolchain and ISA simulators).
+To simplify using Linux Ubuntu in other classes, a ready-to-use virtual machine is provided.
 
 Here are the download links for ready-to-use VMs:
 
 * [Linux Ubuntu 20.04 LTS](
    https://yadi.sk/d/HRkBj9Ufq2sIDA).
    3.21 GB (about 8 GB when unpacked).
-* [Linux Ubuntu 20.04 LTS with RISC-V toolchain](
-   https://drive.google.com/file/d/1ceJj4IPSEkDYKmZwWxGv9MhQZ6Qe6yL8/view?usp=sharing)
-   9 GB (about 24 GB when unpacked).
 
 You need to download, unzip, and add to it your VirtualBox.
 
