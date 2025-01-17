@@ -9,22 +9,18 @@ http://158.160.144.239/cgi-bin/serve-control).
 Link to test contest (previous year) is [here](
 http://158.160.144.239/cgi-bin/new-client?contest_id=211).
 
-Links for 2024 group's contests:
-TODO
-
 Instructors:
 
 |_User_            |_Login_    |
 |Andrei Tatarnikov |andrewt0301|
-|Alexey Kanakhin   |kanakhin   |
-|Artem Victorov    |aviktorov  |
-|Alexander Makhov  |amakhov    |	
-|Roman Stolyarov   |stolyarov  |	
+|Roman Stolyarov   |stolyarov  |
+|Sergey Khil       |skhil      |
+|David Badalyan    |dbadalyan  |
 |Alexandra Borisova|aaborisova |
 |Boris Galitsky    |galitskii  |
-|Nikita Golovanov  |golovanov  |	
-		
-Assistants:
+|Alexander Eremin  |aeremin    |
+
+Assistants (TODO):
 
 |_User_            |_Login_      |
 |Fedor Pakhurov    |fpakhurov    |
