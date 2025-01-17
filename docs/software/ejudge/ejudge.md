@@ -35,7 +35,7 @@ Options for `configure` are [here](https://ejudge.ru/wiki/index.php/Рекоме
 
 # Downloading and installing.
 
-The download URL for the laster Ejudge version 3.8.0 is this:
+The download URL for the latest Ejudge version 3.8.0 is this:
 
 http://ejudge.ru/download/ejudge-3.8.0.tgz
 
@@ -65,7 +65,7 @@ __TODO__
 
 # Adding users
 
-__TODO__
+Users can be added from a CSV table in a special format (see [example](222.csv)).
 
 # Creating contests
 
