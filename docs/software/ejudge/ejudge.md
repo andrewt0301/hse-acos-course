@@ -9,7 +9,7 @@ This document contains instructions on how to configure and maintain Ejudge.
 # Installation
 
 Ejudge is installed from source code.
-The official instructon in Russian is
+The official instruction in Russian is
 [here](https://ejudge.ru/wiki/index.php/Инсталляция_из_исходных_текстов).
 The challenge is to install in in Ubuntu 20, while the official instruction is for Ubuntu 16.
 
@@ -18,16 +18,16 @@ to the instructions on how to install in in Ubuntu 18.
 
 ## Required libraries
 
-The list of required librarires is [here](https://ejudge.ru/download/ubuntu-16-install-packages-x86_64).
+The list of required libraries is [here](https://ejudge.ru/download/ubuntu-16-install-packages-x86_64).
 This list is for Ubuntu 16. Some of library versions might be irrelevant.
 So, we need to try to find the library names, which are relevant.
-Another way is to try copile the sources of Ejudge and install packages based on error messages.
+Another way is to try compile the sources of Ejudge and install packages based on error messages.
 
 ## Installation folders
 
 Please read [here](https://ejudge.ru/wiki/index.php/Инсталляционные_каталоги)
 about installation folders. Please note that they must be consistent
-(though the official manual might used different user names and user folder paths in different chapters).
+(though the official manual might use different user names and user folder paths in different chapters).
 
 ## Configure options
 
