@@ -63,3 +63,4 @@ Reference on Git is available [here](https://git-scm.com/book/en/v2).
 10. Get changes from the remote repository (GitHub): 
     ```bash
     git pull
+    ```
