@@ -35,7 +35,6 @@ Slides ([PDF](CA_Lecture_03.pdf), [PPTX](CA_Lecture_03.pptx)).
     * _Comparison_: `slt`, `sltu`, `slti`, `sltiu`
     * _Multiplication_: `mul`, `rem`, `div`, `divu`, `remu`
  
-
 _Hint_: Use the RARS help system (F1) and [RISC-V Greencard](../../../related/greencard-20181213.pdf)
         to quickly find the needed instructions.
 
@@ -45,14 +44,14 @@ _Hint_: Use the RARS help system (F1) and [RISC-V Greencard](../../../related/gr
    Get familiar with its structure. Pay attention to the `.text` and `.data` segments, labels,
    and system calls.
 
-1. Open in RARS and run the ["Add"](workshop/add.s) program.
+2. Open in RARS and run the ["Add"](workshop/add.s) program.
    This is an example of a program that inputs two numbers, adds them, and prints the result.
-   It can be used a basis for other programs.
+   It can be used as a basis for other programs.
 
-1. Write a program that inputs integer value `x` and prints it in the following formats:
+3. Write a program that inputs integer value `x` and prints it in the following formats:
    decimal, unsigned, hexadecimal, and binary. _Hint_: Use RARS help (F1) to find proper system calls. 
 
-1. Write a program that inputs two integer values `x` and `y`, calculates the result of the
+4. Write a program that inputs two integer values `x` and `y`, calculates the result of the
    following expressions, and prints the result.
 
        x + 5 - y 
@@ -61,10 +60,10 @@ _Hint_: Use the RARS help system (F1) and [RISC-V Greencard](../../../related/gr
        (x + 5) + (x - 7)
        x >> 3 + y << 3
 
-1. Write a program that inputs integer value `x`, performs logic and arithmetical shifts to
-   the left and to the right by 3 digits, and prints the result (decimal and binary format).
+5. Write a program that inputs integer value `x`, performs logical and arithmetical shifts to
+   the left and to the right by 3 digits, and prints the result (in decimal and binary format).
 
-1. Write a program that inputs integer value `x`, performs the following operations,
+6. Write a program that inputs integer value `x`, performs the following operations,
    and prints the result. Use the binary format for printing.
 
        x * 2
@@ -92,25 +91,25 @@ _Hint_: Use the RARS help system (F1) and [RISC-V Greencard](../../../related/gr
 
    Is it possible to do this without using a remainder instruction?
 
-1. Write a program that inputs integer value `x`, sets its 3-rd bit, resets its 6-th bit,
+7. Write a program that inputs integer value `x`, sets its 3rd bit, resets its 6th bit,
    and prints the result. Use the binary format for printing.
 
-1. Write a program that inputs two integer values `x` and `y` and perform their signed and 
+8. Write a program that inputs two integer values `x` and `y` and performs their signed and 
    unsigned comparison (using the `slt` and `sltu` instructions).
 
-1. Write a program that inputs two integer values `x` and `y`, swaps them with the _XOR_
+9. Write a program that inputs two integer values `x` and `y`, swaps them with the _XOR_
    operation, and outputs them back. 
 
-1. Modify the add program to check whether an integer overflow has occurred in the addition instruction.
-   Print `0` if no, and `1` if yes.
+10. Modify the add program to check whether an integer overflow has occurred in the addition instruction.
+    Print `0` if no, and `1` if yes.
 
-1. Write a program that performs the following bit tricks:
+11. Write a program that performs the following bit tricks:
 
    * `x & (x - 1)` - turning off the rightmost 1-bit (e.g. `01011000` => `01010000`).
    * `x | (x + 1)` - turning on the rightmost 0-bit (e.g. `10100111` => `10101111`).
    * `x | (x - 1)` - turning on the trailing 0's (e.g. `10101000` => `10101111`).
 
-   Print the input and output values in the binary format.
+   Print the input and output values in binary format.
  
 #### Notes
 
@@ -127,11 +126,11 @@ Let us consider how such a situation can happen when we add two 4-bit values.
        1111(15) + 0001(1) = 10000(16) -> to 4 bits -> 0000(0) == OVERFLOW 
 
    The result of this addition is a 5-bit value. When we truncate it to 4 bits, we get `0000 (0)`.
-   The 5-th bit of the result (`1`) is truncated. The result is mathematically incorrect.
+   The 5th bit of the result (`1`) is truncated. The result is mathematically incorrect.
 
    How can we detect this? _Rule: if the sum is smaller than any of the values, this is an overflow._ 
 
-1. _The values are signed (2's complement)._
+2. _The values are signed (2's complement)._
 
    This case is more complicated. Here are examples of 4 possible situations:
    
@@ -167,7 +166,7 @@ Write programs that input two integer values `x` and `y`, calculate the followin
 15. `(x == (y + 3)) ? 0 : 1`
 16. `x < -5 & y > 10`
 
-Commit the programs to your private GitHub account. Place it into the folder `ca/lab03`.
+Commit the programs to your private GitHub account. Place them in the folder `ca/lab03`.
 
 ## References
 
