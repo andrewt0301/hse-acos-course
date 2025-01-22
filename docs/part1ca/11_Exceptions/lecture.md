@@ -344,7 +344,7 @@ Commit the programs to your private GitHub account. Place them into the folder `
 * Chapter 6: “N” Standard Extension for User-Level Interrupts in 
   [The RISC-V Instruction Set Manual Volume II: Privileged Architecture](
   https://github.com/riscv/riscv-isa-manual/releases/latest).
-* [RISC-V Assembly Programmer's Manual](https://github.com/riscv/riscv-asm-manual/blob/master/riscv-asm.md).
+* [RISC-V Assembly Programmer's Manual](https://github.com/riscv-non-isa/riscv-asm-manual/blob/main/src/riscv-asm.adoc).
 * The Processor. Chapter 4 in [[CODR]](../../books.md).
 * Pipelining: Basic and Intermediate Concepts. Appendix C in [[CAQA]](../../books.md).
 * Instruction-Level Parallelism and Its Exploitation. Chapter 3 in [[CAQA]](../../books.md).
