@@ -91,5 +91,5 @@ Commit the programs to your private GitHub account. Place them into the folder `
   Sections 3.3 and 3.4 in [[CODR]](../../books.md) and Appendix J in [[CAQA]](../../books.md).
 * [Macros](https://en.wikipedia.org/wiki/Macro_%28computer_science%29) (Wikipedia).
 * [Macros in Assembly Language](https://en.wikipedia.org/wiki/Assembly_language#Macros) (Wikipedia).
-* [RISC-V Assembly Programmer's Manual](https://github.com/riscv/riscv-asm-manual/blob/master/riscv-asm.md).
+* [RISC-V Assembly Programmer's Manual](https://github.com/riscv-non-isa/riscv-asm-manual/blob/main/src/riscv-asm.adoc).
 * [Memory Alignment](https://en.wikipedia.org/wiki/Data_structure_alignment) (Wikipedia).
