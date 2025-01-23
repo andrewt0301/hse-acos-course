@@ -159,15 +159,15 @@ Write programs that input two integer values `x` and `y`, calculate the followin
 7. `2 * x * x - 3 * y + 4`
 8. `(x + 5) / y + 10 / (y - 1)`
 9. `(x / y) * y + x % y` 
-10. `x & (-1 << 5)`
-11. `x | (-1 >> 27)` (`>>` - logical shift)
+10. `x & (-1 << 2)`
+11. `x | (-1 >> 30)` (`>>` - logical shift)
 12. set the `y`-th bit of `x` to `1` (bit numbers start from `0`)
 13. reset the `y`-th bit of `x` to `0` (bit numbers start from `0`)
 14. `x > y ? 0 : 1`
 15. `(x == (y + 3)) ? 0 : 1`
-16. `x < -5 & y > 10`
+16. `x > -5 & y < 5`
 
-Commit the programs to your private GitHub account. Place it into the folder `ca/lab03`.
+Solve and submit Ejudge tasks "BasicArithm", "BasicBitwise", and "BasicBitwise2".
 
 ## References
 
