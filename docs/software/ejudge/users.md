@@ -22,6 +22,7 @@ Instructors:
 
 Assistants (TODO):
 
-|_User_            |_Login_      |
-|Pavel Nedbay      |pnedbay      |
-
+|_User_            |_Login_    |
+|Pavel Nedbay      |pnedbay    |
+|Nikita Kalinin    |nkalinin   |
+|Adamey Laipanov   |alaipanov  |
