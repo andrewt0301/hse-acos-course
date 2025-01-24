@@ -23,13 +23,5 @@ Instructors:
 Assistants (TODO):
 
 |_User_            |_Login_      |
-|Fedor Pakhurov    |fpakhurov    |
-|Oleg Malchenko    |olegmaxus    |
-|Vladislav Kirichok|v_kirichok   |
 |Pavel Nedbay      |pnedbay      |
-|Artem Borisov     |aborisov     |
-|Pavel Ivanov      |pivanov      |
-|German Perov      |gperov       |
-|Igor Demushkin    |idemushkin   |
-|Namig Damirov     |ndamirov     | 
-|Arseny Bolotnikov |abolotnikov  |
+
