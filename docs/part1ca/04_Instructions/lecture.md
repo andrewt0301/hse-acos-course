@@ -185,6 +185,5 @@ Rewrite the program using a smaller number of instructions (_hint:_ use RV32M ex
 * [RISC-V Technical Specifications](https://lf-riscv.atlassian.net/wiki/x/kYD2) - official standards
 * [The RISC-V Instruction Set Manual. Volume I: Unprivileged ISA](
   https://github.com/riscv/riscv-isa-manual/releases/latest) - drafts
-* [RISC-V Assembly Programmer's Manual](https://github.com/riscv/riscv-asm-manual/blob/master/riscv-asm.md)
 * [Opcode](https://en.wikipedia.org/wiki/Opcode) (Wikipedia).
 * [Addressing Mode](https://en.wikipedia.org/wiki/Addressing_mode) (Wikipedia).
