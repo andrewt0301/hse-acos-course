@@ -183,9 +183,9 @@ Rewrite the program using a smaller number of instructions (_hint:_ use RV32M ex
 ## References
 
 * Machine Language. Section 6.4 in [[DDCA]](../../books.md).
-* [RISC-V Technical Specifications](https://lf-riscv.atlassian.net/wiki/x/kYD2) - official standards
+* [RISC-V Technical Specifications](https://lf-riscv.atlassian.net/wiki/x/kYD2) (official standards).
 * [The RISC-V Instruction Set Manual. Volume I: Unprivileged ISA](
-  https://github.com/riscv/riscv-isa-manual/releases/latest) - drafts
+  https://github.com/riscv/riscv-isa-manual/releases/latest) (ongoing drafts).
 * [Opcode](https://en.wikipedia.org/wiki/Opcode) (Wikipedia).
 * [Addressing Mode](https://en.wikipedia.org/wiki/Addressing_mode) (Wikipedia).
 * [C++ library for RISC-V instruction encoding](
