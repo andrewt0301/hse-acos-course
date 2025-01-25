@@ -20,9 +20,14 @@ Instructors:
 |Boris Galitsky    |galitskii  |
 |Alexander Eremin  |aeremin    |
 
-Assistants (TODO):
+Assistants:
 
 |_User_            |_Login_    |
 |Pavel Nedbay      |pnedbay    |
 |Nikita Kalinin    |nkalinin   |
 |Adamey Laipanov   |alaipanov  |
+|Vadim Vasilyev    |vvasilyev  |
+|Pavel Malov       |pmalov     |
+|Anton Lisitsyn    |alisitsyn  |
+|Andrei Polischuk  |apolischuk |
+|Daniil Kotlyarov  |dkotlyarov |
