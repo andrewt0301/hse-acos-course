@@ -182,6 +182,7 @@ Rewrite the program using a smaller number of instructions (_hint:_ use RV32M ex
 
 ## References
 
+* Machine Language. Section 6.4 in [[DDCA]](../../books.md).
 * [RISC-V Technical Specifications](https://lf-riscv.atlassian.net/wiki/x/kYD2) - official standards
 * [The RISC-V Instruction Set Manual. Volume I: Unprivileged ISA](
   https://github.com/riscv/riscv-isa-manual/releases/latest) - drafts
