@@ -188,3 +188,8 @@ Rewrite the program using a smaller number of instructions (_hint:_ use RV32M ex
   https://github.com/riscv/riscv-isa-manual/releases/latest) - drafts
 * [Opcode](https://en.wikipedia.org/wiki/Opcode) (Wikipedia).
 * [Addressing Mode](https://en.wikipedia.org/wiki/Addressing_mode) (Wikipedia).
+* [C++ library for RISC-V instruction encoding](
+  https://github.com/andrewt0301/project_X/blob/main/src/isa/riscv64/riscv64.h) (for illustration).
+* [Formal specification of RISC-V ISA](
+  https://github.com/andrewt0301/ispras-microtesk-riscv/blob/master/microtesk-riscv/src/main/arch/riscv/model/riscv_rv32i.nml)
+  (for illustration).
