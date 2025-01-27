@@ -109,29 +109,30 @@ get instruction encodings.
 
 ## Homework
 
-__These tasks are for reference. Actual tasks will be in Ejudge.__
-
 ### Task 1
 
 Decompile the program (convert instructions from the binary representation into assembly source code),
-put the source code into RARS and run it. What is an output?
+put the source code into RARS, assemble and run. Ensure that the code is identical to the one provided below.
 
-Rewrite the program using a smaller number of instructions.
+![RARA](rars1.png)
+
+Submit the resulting program (assembly text) to Ejudge (task "RiscvEncoding1").
 
 ```
-0x6c6c6337
-0x54830313
-0x412033b7
-0xc6f38393
-0x00535e37
-0xf43e0e13
 0x10010437
-0x00040413
-0x00642023
-0x00742223
-0x01c42423
-0x00400893
-0x00800533
+0x00c04493
+0x00942023
+0x300002b7
+0x00300313
+0x0102d293
+0x00042483
+0x00931333
+0x00628463
+0x0100006f
+0x00000397
+0xffc38393
+0x00038067
+0x00a06893
 0x00000073
 ```
 
