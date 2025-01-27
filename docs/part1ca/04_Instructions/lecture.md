@@ -111,8 +111,10 @@ get instruction encodings.
 
 ### Task 1
 
-Decompile the program (convert instructions from the binary representation into assembly source code),
-put the source code into RARS, assemble and run. Ensure that the code is identical to the one provided below.
+Decompile the machine-level program provided below.
+Convert instructions from the hexadecimal representation into assembly source code.
+Put the source code into RARS, assemble and run it.
+Ensure that the code is identical to the one provided below (see the picture.
 
 ![RARA](rars1.png)
 
