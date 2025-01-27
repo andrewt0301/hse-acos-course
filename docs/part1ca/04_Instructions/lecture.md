@@ -83,10 +83,10 @@ get instruction encodings.
     Note: Add `label` to some place in your code. See what code will be generated in
     the `Execute` panel of RARS. 
 
-1. Write a program that inputs an integer value `x` and prints `-1` if it is negative, `0` if it equals 0,
+1. Write a program that inputs an integer value `x` and prints `-1` if it is negative, `0` if it equals `0`,
    and `1` if it is positive.
-   
-   On if the solutions is this:
+
+   One of possible solutions is this:
    
        main:
            li   a7, 5
