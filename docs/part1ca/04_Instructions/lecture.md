@@ -109,6 +109,8 @@ get instruction encodings.
 
 ## Homework
 
+__These tasks are for reference. Actual tasks will be in Ejudge.__
+
 ### Task 1
 
 Decompile the program (convert instructions from the binary representation into assembly source code),

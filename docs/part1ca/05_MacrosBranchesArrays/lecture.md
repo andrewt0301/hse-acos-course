@@ -74,15 +74,13 @@ Slides ([PDF](CA_Lecture_05.pdf), [PPTX](CA_Lecture_05.pptx)).
 
 ## Homework
 
-Solve the following tasks:
+Solve the following tasks and submit then into Ejudge:
 
 1. [DoubleSum](../Tasks/homeworks.md#doublesum)
 2. [DigitSum](../Tasks/homeworks.md#digitsum)
 3. [PlusMinus](../Tasks/homeworks.md#plusminus)
 4. [EvenBack](../Tasks/homeworks.md#evenback)
 5. [NoDups](../Tasks/homeworks.md#nodups)
-
-Commit the programs to your private GitHub account. Place them into the folder `ca/lab05`.
 
 ## References
 
@@ -91,5 +89,4 @@ Commit the programs to your private GitHub account. Place them into the folder `
   Sections 3.3 and 3.4 in [[CODR]](../../books.md) and Appendix J in [[CAQA]](../../books.md).
 * [Macros](https://en.wikipedia.org/wiki/Macro_%28computer_science%29) (Wikipedia).
 * [Macros in Assembly Language](https://en.wikipedia.org/wiki/Assembly_language#Macros) (Wikipedia).
-* [RISC-V Assembly Programmer's Manual](https://github.com/riscv/riscv-asm-manual/blob/master/riscv-asm.md).
 * [Memory Alignment](https://en.wikipedia.org/wiki/Data_structure_alignment) (Wikipedia).
