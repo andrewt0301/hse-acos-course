@@ -31,6 +31,7 @@ Slides ([PDF](CA_Lecture_06.pdf), [PPTX](CA_Lecture_06.pptx)).
 #### Outline
 
 * Demonstrate using the RISC-V [toolchain](toolchain.md) in Cloud [Ubuntu VM](../../software/cloud_ssh.md) (optional)
+* Demonstrate using [Godbolt](https://godbolt.org/), show both GCC and Clang (optional)
 * Practice writing programs that use functions
 * Practice using caller-saved and callee-saved registers
 * Practice writing nested and recursive functions
