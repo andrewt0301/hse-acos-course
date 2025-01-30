@@ -176,7 +176,7 @@ What is done by the callee?
 
 ## Homework
 
-Solve the following tasks:
+Solve the following tasks and submit then into Ejudge:
 
 1. [ASCIIGrid](../Tasks/homeworks.md#asciigrid)
 2. [CheckTriangles](../Tasks/homeworks.md#checktriangles)
@@ -184,11 +184,8 @@ Solve the following tasks:
 4. [KeySort](../Tasks/homeworks.md#keysort)
 5. [BinarySearch](../Tasks/homeworks.md#binarysearch)
 
-Commit the programs to your private GitHub account. Place them into the folder `ca/lab06`.
-
 ## References
 
 * Functions in RISC-V. Section 2.8 in [[CODR]](../../books.md).
-* [RISC-V Assembly Programmer's Manual](https://github.com/riscv/riscv-asm-manual/blob/master/riscv-asm.md).
 * [Call stack](https://en.wikipedia.org/wiki/Call_stack) (Wikipedia).
 * [Calling convention](https://en.wikipedia.org/wiki/Calling_convention) (Wikipedia).
