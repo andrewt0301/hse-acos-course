@@ -30,34 +30,10 @@ Slides ([PDF](CA_Lecture_06.pdf), [PPTX](CA_Lecture_06.pptx)).
 
 #### Outline
 
-* Demonstrate using the RISC-V toolchain (use the Ubuntu VM with RISC-V from [here](../../software/ubuntu.md))
+* Demonstrate using the RISC-V [toolchain](toolchain.md) in Cloud [Ubuntu VM](../../software/cloud_ssh.md) (optional)
 * Practice writing programs that use functions
 * Practice using caller-saved and callee-saved registers
 * Practice writing nested and recursive functions
-
-#### Using the RISC-V toolchain
-
-Compiling a C program to RISC-V executable:
-
-    acos@acos-vm:~/Documents/acos$ riscv64-unknown-linux-gnu-gcc hello.c -o hello -static
-
-Compiling a C program to RISC-V assembly:
-
-    acos@acos-vm:~/Documents/acos$ riscv64-unknown-linux-gnu-gcc hello.c -S
-    
-Assembling and linking a RISC-V assembly program to executable:
-
-    acos@acos-vm:~/Documents/acos$ riscv64-unknown-linux-gnu-gcc hello.s -o hello -static
-
-Disassembling a compiled executable file:
-
-    acos@acos-vm:~/Documents/acos$ riscv64-unknown-linux-gnu-objdump hello -S
-
-Running the compiled program with the Spike RISC-V simulator:
-
-    acos@acos-vm:~/Documents/acos$ spike $RISCV/riscv64-unknown-linux-gnu/bin/pk hello
-    bbl loader
-    Hello, world!
 
 #### How to call a function?
 
@@ -68,7 +44,7 @@ Saving registers:
 * Therefore, the callee is likely to overwrite registers that are important for the caller. 
 * To avoid this situation, a programmer must follow the calling conventions.
 
-Regiter conventions:
+Register conventions:
 
 1. Callee-saved registers: `sp`, `s0`-`s11`
 1. Caller-saved registers: `ra`, `a0`-`a7`, `t0`-`t6`
@@ -187,5 +163,6 @@ Solve the following tasks and submit then into Ejudge:
 ## References
 
 * Functions in RISC-V. Section 2.8 in [[CODR]](../../books.md).
+* [RISC-V Calling Conventions](https://pdos.csail.mit.edu/6.828/2024/lec/l-riscv-cc-slides.pdf) (MIT slides)
 * [Call stack](https://en.wikipedia.org/wiki/Call_stack) (Wikipedia).
 * [Calling convention](https://en.wikipedia.org/wiki/Calling_convention) (Wikipedia).
