@@ -1,11 +1,11 @@
 # Example:
 #
-# int leaf_example (int g, int h,int i, int j) {
-#  int f = (g + h) - (i + j);
-#  return f;
+# int leaf_example (int g, int h, int i, int j) {
+#   int f = (g + h) - (i + j);
+#   return f;
 # }
 # Requirements:
-#﻿ - arguments g, ..., j in a0(x10)...a3(x13)
+# - arguments g, ..., j in a0(x10)...a3(x13)
 # - f in s4 (x20)
 # - temporaries t0(x5), t1(x6)
 # - need to save t0, t1, s4 on stack
