@@ -1,6 +1,8 @@
 #
 # Ackermann' three-argument function.
 #
+# https://en.wikipedia.org/wiki/Ackermann_function
+#
 
 # int alpha(int a, int n) {
 #   if (n == 0)

@@ -18,6 +18,7 @@ Slides ([PDF](CA_Lecture_06.pdf), [PPTX](CA_Lecture_06.pptx)).
 
 #### Examples
 
+* [macrolib.s](macrolib.s)
 * [leaf.s](leaf.s)
 * [fact.s](fact.s)
 * [fp.s](fp.s)
@@ -25,6 +26,7 @@ Slides ([PDF](CA_Lecture_06.pdf), [PPTX](CA_Lecture_06.pptx)).
 * [min_max.s](min_max.s)
 * [min_max2.s](min_max2.s)
 * [swap.s](swap.s)
+* [ackermann.s](ackermann.s)
 
 ## Workshop
 
@@ -32,6 +34,7 @@ Slides ([PDF](CA_Lecture_06.pdf), [PPTX](CA_Lecture_06.pptx)).
 
 * Demonstrate using the RISC-V [toolchain](toolchain.md) in Cloud [Ubuntu VM](../../software/cloud_ssh.md) (optional)
 * Demonstrate using [Godbolt](https://godbolt.org/), show both GCC and Clang (optional)
+* Practice programs that allocate variables and arrays on stack
 * Practice writing programs that use functions
 * Practice using caller-saved and callee-saved registers
 * Practice writing nested and recursive functions
@@ -109,7 +112,7 @@ What is done by the callee?
    ```
 
 1. Write program `divide.s` that inputs two positive integer values `N` and `D`,
-   finds their quatient (`Q`) and remainder (`R`) using the algorithm below, and prints the result.
+   finds their quotient (`Q`) and remainder (`R`) using the algorithm below, and prints the result.
    The algorithm must be implemented as a function (the code from the previous seminar can be reused).
 
    ```pascal
