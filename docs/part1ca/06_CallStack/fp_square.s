@@ -14,23 +14,23 @@
     .text
     .include "macrolib.s"
 main:
-   mv s0, sp # Setting original FP
-   read_int(s1)
+    mv s0, sp # Setting original FP
+    read_int(s1)
 
-   mv a0, s1
-   jal ra, square_fp
-   li a7, 1
-   ecall
-   newline
+    mv a0, s1
+    jal ra, square_fp
+    li a7, 1
+    ecall
+    newline
 
-   mv a0, s1
-   jal ra, square_no_fp
-   li a7, 1
-   ecall
-   newline
+    mv a0, s1
+    jal ra, square_no_fp
+    li a7, 1
+    ecall
+    newline
 
-   li a7, 10
-   ecall
+    li a7, 10
+    ecall
 
 square_fp:
     addi    sp, sp, -16
