@@ -14,7 +14,7 @@ Slides ([PDF](CA_Lecture_06.pdf), [PPTX](CA_Lecture_06.pptx)).
 * Register conventions
 * Stack pointer
 * Stack frame
-* Caller-saved and cellee-saved registers
+* Caller-saved and callee-saved registers
 
 #### Examples
 
