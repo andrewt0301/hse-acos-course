@@ -22,6 +22,7 @@ Slides ([PDF](CA_Lecture_06.pdf), [PPTX](CA_Lecture_06.pptx)).
 * [leaf.s](leaf.s)
 * [fact.s](fact.s)
 * [fp.s](fp.s)
+* [fp_square.s](fp_square.s)
 * [euclid.s](euclid.s)
 * [min_max.s](min_max.s)
 * [min_max2.s](min_max2.s)
