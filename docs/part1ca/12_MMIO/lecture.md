@@ -28,7 +28,7 @@ Slides ([PDF](CA_Lecture_12.pdf), [PPTX](CA_Lecture_12.pptx)).
 
 1. Input a floating-point number, round it to one digit to the left of decimal point (e.g. `3.5`)
    and display it in the Digital Sim Lab display.
-   User [digit_lab1.s](digit_lab2.s) as a starting program.
+   Use [digit_lab1.s](digit_lab1.s) as a starting program.
 
 # Homework
 
