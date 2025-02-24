@@ -89,8 +89,12 @@ See how well it can predict branch outcomes with different settings.
      The buffer size is specified in standard input.
    * Buffers for storing source and target names are also allocated in the heap (their size is 256 bytes).
 
-1. Update the [add_scalar.s](add_scalar.s) program to make it waste tell CPU cycles.
-   User the loop-unrolling technique. How many cycles are used now?
+1. Optimize the [add_scalar.s](add_scalar.s) program to make it waste less CPU cycles.
+   Use the loop-unrolling technique (two or more loop iterations merged). How many cycles are used now?
+
+1. Write an optimized version of the [PlusMinus](../Tasks/homeworks.md#plusminus) program that
+   avoid the issue incorrect branch prediction with loop unrolling ("even" and "odd" operations must be done
+   at the same loop iteration).
 
 ## Homework
 
