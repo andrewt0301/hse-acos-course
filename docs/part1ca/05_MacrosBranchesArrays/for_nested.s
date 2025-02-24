@@ -1,6 +1,6 @@
 # Example:
 #
-# ﻿for (t0 = 0; t0 < s0; ++t0) {
+# for (t0 = 0; t0 < s0; ++t0) {
 #   for (t1 = 0; t0 < s1; ++t1) {
 #     print_int(t0)
 #     print_char(':')

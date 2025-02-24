@@ -20,6 +20,7 @@ Slides ([PDF](CA_Lecture_13.pdf), [PPTX](CA_Lecture_13.pptx)).
 * System calls in RISC-V (additional topic related to exceptions)
 * Working with files and heap allocation
 * Experimenting with a 6-stage dual-issue RISC-V processor (use Ripes simulator)
+* Experimenting with branch prediction (use RARS simulator) 
 
 ##### System calls in RARS (RISC-V Assembly)
 
@@ -72,6 +73,13 @@ Runs the [add_scalar.s](add_scalar.s) example and see how many CPU clock cycles 
 
 ![Ripes 1](clock_cycles1.png)
 ![Ripes 2](clock_cycles2.png)
+
+#### Branch History Table (RARS Simulator)
+
+![Branch Prediction](branch_prediction.png)
+
+Run programs from lectures 4-7 in RARS simulator with the "Branch History Table" plugin connected.
+See how well it can predict branch outcomes with different settings.
 
 #### Tasks
 
