@@ -93,7 +93,7 @@ See how well it can predict branch outcomes with different settings.
    Use the loop-unrolling technique (two or more loop iterations merged). How many cycles are used now?
 
 1. Write an optimized version of the [PlusMinus](../Tasks/homeworks.md#plusminus) program, which solves
-   the issue incorrect branch prediction with loop unrolling ("even" and "odd" operations must be done
+   the issue of incorrect branch prediction with loop unrolling ("even" and "odd" operations must be done
    at the same loop iteration).
 
 ## Homework
