@@ -13,15 +13,13 @@ Slides ([PDF](CA_Lecture_13.pdf), [PPTX](CA_Lecture_13.pptx)).
 * Dynamic and static scheduling
 * Out-of-order execution
 
-Dual-Issue RISC-V CPU:
-![Dual-Issue RISC-V](dual_issue.png)
-
 ## Workshop
 
 #### Outline
 
 * System calls in RISC-V (additional topic related to exceptions)
 * Working with files and heap allocation
+* Experimenting with a 6-stage dual-issue RISC-V processor (use Ripes simulator)
 
 ##### System calls in RARS (RISC-V Assembly)
 
@@ -64,6 +62,17 @@ This code handles interaction with a specific device and its driver and returns 
 
 ![Memory Layout](memory.png)
 
+#### Dual-Issue RISC-V CPU (Ripes Simulator)
+
+![Dual-Issue RISC-V](dual_issue.png)
+
+#### Examples
+
+Runs the [add_scalar.s](add_scalar.s) example and see how many CPU clock cycles it uses.
+
+![Ripes 1](clock_cycles1.png)
+![Ripes 2](clock_cycles2.png)
+
 #### Tasks
 
 1. Write a program that creates a copy of the specified file. Input arguments:
@@ -71,6 +80,9 @@ This code handles interaction with a specific device and its driver and returns 
    * The buffer to store data being copied is allocated in the heap (use system call 9).
      The buffer size is specified in standard input.
    * Buffers for storing source and target names are also allocated in the heap (their size is 256 bytes).
+
+1. Update the [add_scalar.s](add_scalar.s) program to make it waste tell CPU cycles.
+   User the loop-unrolling technique. How many cycles are used now?
 
 ## Homework
 
