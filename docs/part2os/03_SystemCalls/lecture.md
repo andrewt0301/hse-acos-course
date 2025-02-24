@@ -56,7 +56,6 @@ These tasks will be discussed in upcoming lectures and workshops.
 * General idea of system calls
 * System calls `open`, `close`, `read`, and `write`
 * System call `sbrk` 
-* System calls in assembly
 * System calls in C
 
 #### Theory
@@ -152,7 +151,7 @@ int main () {
     return 0;
 }
 ```
- 
+
 Example 3: Using the `syscall` function:
 
 ```c
@@ -171,16 +170,6 @@ To compile and run them, the following commands need to be executed:
 acos@acos-vm:~$ gcc test.c –o test
 acos@acos-vm:~$ ./test
 ```
-
-#### Tasks
-
-__System calls in RARS (RISC-V Assembly):__
-
-1. Write a program that creates a copy of the specified file. Input arguments:
-   * The name of the source and target files are read from the standard input (use system call 8).
-   * The buffer to store data being copied is allocated in the heap (use system call 9).
-     The buffer size is specified in standard input.
-   * Buffers for storing source and target names are also allocated in the heap (their size is 256 bytes).  
 
 __System calls in C:__
 
