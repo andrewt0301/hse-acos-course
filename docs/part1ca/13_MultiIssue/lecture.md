@@ -13,6 +13,9 @@ Slides ([PDF](CA_Lecture_13.pdf), [PPTX](CA_Lecture_13.pptx)).
 * Dynamic and static scheduling
 * Out-of-order execution
 
+Dual-Issue RISC-V CPU:
+![Dual-Issue RISC-V](dual_issue.png)
+
 ## Workshop
 
 #### Outline
