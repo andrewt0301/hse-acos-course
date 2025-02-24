@@ -90,4 +90,6 @@ __TODO__
 
 ## References
 
-__TODO__
+* [Superscalar processor](https://en.wikipedia.org/wiki/Superscalar_processor)(Wikipedia)
+* [Out-of-order execution](https://en.wikipedia.org/wiki/Out-of-order_execution)(Wikipedia)
+* [Register renaming](https://en.wikipedia.org/wiki/Register_renaming)(Wikipedia)
