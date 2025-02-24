@@ -14,7 +14,7 @@
 .text
     j main
 handler:
-    timer  2000 # generate new timer interupt after 2000 ms.
+    timer  2000 # generate new timer interrupt after 2000 ms.
     uret # return to uepc
 main:
     la     t0, handler
