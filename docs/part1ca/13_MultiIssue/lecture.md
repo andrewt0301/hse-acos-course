@@ -90,7 +90,8 @@ __TODO__
 
 ## References
 
-* Parallelism via Instructions, section 4.10 in [[CODR]](../../books.md).
+* Parallelism via Instructions. Section 4.10 in [[CODR]](../../books.md).
+* Advanced Microarchitecture. Section 7.7 in [[DDCA]](../../books.md).
 * [Superscalar processor](https://en.wikipedia.org/wiki/Superscalar_processor) (Wikipedia).
 * [Out-of-order execution](https://en.wikipedia.org/wiki/Out-of-order_execution) (Wikipedia).
 * [Register renaming](https://en.wikipedia.org/wiki/Register_renaming) (Wikipedia).
