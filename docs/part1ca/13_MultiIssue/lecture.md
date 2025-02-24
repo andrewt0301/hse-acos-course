@@ -18,6 +18,7 @@ Slides ([PDF](CA_Lecture_13.pdf), [PPTX](CA_Lecture_13.pptx)).
 #### Outline
 
 * System calls in RISC-V (additional topic related to exceptions)
+* Working with files and heap allocation
 
 ##### System calls in RARS (RISC-V Assembly)
 
@@ -57,6 +58,8 @@ This code handles interaction with a specific device and its driver and returns 
 * [file_write.s](file_write.s) - writing text to a file
 * [file_read.s](file_read.s) - reading text from a file
 * [heap_alloc.s](heap_alloc.s) - allocating memory in the heap
+
+![Memory Layout](memory.png)
 
 #### Tasks
 
