@@ -37,8 +37,8 @@ This code handles interaction with a specific device and its driver and returns 
    The _write-append_ flag will start writing at end of an existing file.
 
 1. __close__ (57): closes a file\
-   Input: `a0` = the file descriptor to close\
-   Output: N/A
+   _Input_: `a0` = the file descriptor to close\
+   _Output_: N/A
 
 1. __read__ (63): reads from a file descriptor into a buffer\
    _Input_: `a0` = the file descriptor, `a1` = address of the buffer, `a2` = maximum length to read.\
