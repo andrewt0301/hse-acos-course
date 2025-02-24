@@ -67,41 +67,7 @@ This code handles interaction with a specific device and its driver and returns 
 
 * [file_write.s](file_write.s) - writing text to a file
 * [file_read.s](file_read.s) - reading text from a file
-
-Allocating memory in the heap:
-
-```assembly
-  .macro new_line
-    li a7, 11
-    li a0, '\n'
-    ecall
-  .end_macro
-
-  .macro sbrk(%bytes)
-    li a7, 9
-    li a0, %bytes
-    ecall
-  .end_macro
-
-  .text
-  # Allocates 16 bytes in the heap
-  sbrk(16)
-  li a7, 34
-  ecall
-  new_line
-
-  # Allocates 32 bytes in the heap
-  sbrk(32)
-  li a7, 34
-  ecall
-  new_line
-
-  # Allocates 64 bytes in the heap
-  sbrk(64)
-  li a7, 34
-  ecall
-  new_line
-```
+* [heap_alloc.s](heap_alloc.s) - allocating memory in the heap
 
 #### Tasks
 
