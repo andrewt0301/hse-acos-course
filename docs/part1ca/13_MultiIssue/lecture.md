@@ -104,3 +104,4 @@ __TODO__
 * [Superscalar processor](https://en.wikipedia.org/wiki/Superscalar_processor) (Wikipedia).
 * [Out-of-order execution](https://en.wikipedia.org/wiki/Out-of-order_execution) (Wikipedia).
 * [Register renaming](https://en.wikipedia.org/wiki/Register_renaming) (Wikipedia).
+* [Branch predictor](https://en.wikipedia.org/wiki/Branch_predictor) (Wikipedia).
