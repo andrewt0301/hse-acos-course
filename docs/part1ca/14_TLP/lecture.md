@@ -69,4 +69,4 @@ __TODO__
 
 ## References
 
-__TODO__
+* [How to check how many CPUs are there in Linux system](https://www.geeksforgeeks.org/how-to-check-how-many-cpus-are-there-in-linux-system/) (www.geeksforgeeks.org).
