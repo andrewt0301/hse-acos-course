@@ -14,6 +14,8 @@ Slides ([PDF](CA_Lecture_10.pdf), [PPTX](CA_Lecture_10.pptx)).
 * Hazards: structure hazard, data hazard, control hazard
 * Forwarding, stalling, reordering, speculation  
 
+![Pipeline history](history.png)
+
 ## Workshop
 
 #### Outline
