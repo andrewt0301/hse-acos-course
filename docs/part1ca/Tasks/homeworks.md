@@ -582,8 +582,8 @@ Taken from here: https://uneex.ru/CategoryHomework
 
 19. ###### BinarySearch
 
-    Write program `binsearch.s` that inputs integer values in a loop and prints their positions
-    in some array until meets value `-1` (then the program must exit).
+    Write a function `binsearch.s` that accepts pointer to sorted array (a0), value to find (a1),
+    start and end indices of search (a2 and a3). The function returns (a0) index in the same way as the C code below.
     The array is sorted. It is created manually and placed in the static data memory (the `.data` section).
     To find the value in the array, the binary search algorithm is used.
     It must be implemented as a recursive function, which in the C programming language looks like this:
@@ -602,7 +602,7 @@ Taken from here: https://uneex.ru/CategoryHomework
     }
     ```
 
-20. ###### LargestSum
+21. ###### LargestSum
 
     __TODO: More detailed description__
 
@@ -613,7 +613,7 @@ Taken from here: https://uneex.ru/CategoryHomework
     Your code should place the resulting subset of the array starting at base address $a2.
     Write code that runs as fast as possible.
 
-21. ###### Palindrome
+22. ###### Palindrome
 
     __TODO: More detailed description__
 
