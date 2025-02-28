@@ -183,6 +183,7 @@ Caches (sum of all):
    The program must use timer to switch between the threads.
 
    Hints:
+   * Use [timer.s](../11_Exceptions/timer.s) as a basis.
    * Each thread stores in memory (`.data` section) its PC and values of register it uses.
    * When a timer interrupt occurs, the handler saves current register values, loads the new register values,
      and returns control to the PC of the next thread.
