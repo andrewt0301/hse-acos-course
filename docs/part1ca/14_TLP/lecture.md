@@ -97,7 +97,7 @@ hw.targettype: Mac
 hw.cputhreadtype: 1
 ```
 
-Core i7-8665U:
+Core i7-8665U (Linux Ubuntu 24):
 ```
 Architecture:             x86_64
   CPU op-mode(s):         32-bit, 64-bit
@@ -135,7 +135,7 @@ NUMA:
   NUMA node0 CPU(s):      0-7
 ```
 
-Core i7-13700:
+Core i7-13700 (Linux Ubuntu running in Windows 10 WSL):
 ```
 Architecture:             x86_64
   CPU op-mode(s):         32-bit, 64-bit
@@ -171,8 +171,21 @@ Caches (sum of all):
 #### Outline
 
 * Discuss CPU configuration (clock frequency, core number, caches)
+* Implementing multitasking in RISC-V
 
-__TODO__
+#### Tasks
+
+1. Timer-based multitasking.
+
+   How would you simulate multitasking using interrupts and timer?
+   Write a program that contains two for-loops running in a semi-parallel mode.
+   The first prints messages `Thread1: 0`..`Thread1: N` and the second prints messages `Thread2: 0`..`Thread2: N`.
+   The program must use timer to switch between the threads.
+
+   Hints:
+   * Each thread stores in memory (`.data` section) its PC and values of register it uses.
+   * When a timer interrupt occurs, the handler saves current register values, loads the new register values,
+     and returns control to the PC of the next thread.
 
 ## Homework
 
