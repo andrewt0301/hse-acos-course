@@ -193,6 +193,8 @@ __TODO__
 
 ## References
 
+* Multicore and Other Shared Memory Multiprocessors. Section 6.5 in [[CODR]](../../books.md).
+* Thread-Level Parallelism. Chapter 6 in [[CAQA]](../../books.md) (Advanced, full details).
 * [How to check how many CPUs are there in Linux system](https://www.geeksforgeeks.org/how-to-check-how-many-cpus-are-there-in-linux-system/) (www.geeksforgeeks.org).
 * [List of Intel Core processors](https://en.wikipedia.org/wiki/List_of_Intel_Core_processors) (Wikipedia).
 * [Memory barrier](https://en.wikipedia.org/wiki/Memory_barrier) (Wikipedia).
