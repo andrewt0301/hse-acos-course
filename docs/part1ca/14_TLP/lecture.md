@@ -47,20 +47,6 @@ machdep.cpu.logical_per_package: 16
 machdep.cpu.cores_per_package: 8
 machdep.cpu.microcode_version: 33
 machdep.cpu.processor_flag: 4
-machdep.cpu.mwait.linesize_min: 64
-machdep.cpu.mwait.linesize_max: 64
-machdep.cpu.mwait.extensions: 3
-machdep.cpu.mwait.sub_Cstates: 135456
-machdep.cpu.thermal.sensor: 1
-machdep.cpu.thermal.dynamic_acceleration: 1
-machdep.cpu.thermal.invariant_APIC_timer: 1
-machdep.cpu.thermal.thresholds: 2
-machdep.cpu.thermal.ACNT_MCNT: 1
-machdep.cpu.thermal.core_power_limits: 1
-machdep.cpu.thermal.fine_grain_clock_mod: 1
-machdep.cpu.thermal.package_thermal_intr: 1
-machdep.cpu.thermal.hardware_feedback: 0
-machdep.cpu.thermal.energy_policy: 0
 machdep.cpu.xsave.extended_state: 7 832 832 0
 machdep.cpu.xsave.extended_state1: 1 0 0 0
 machdep.cpu.arch_perf.version: 3
@@ -181,6 +167,10 @@ Caches (sum of all):
 ```
 
 ## Workshop
+
+#### Outline
+
+* Discuss CPU configuration (clock frequency, core number, caches)
 
 __TODO__
 
