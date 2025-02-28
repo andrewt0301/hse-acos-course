@@ -21,6 +21,95 @@ Slides ([PDF](CA_Lecture_14.pdf), [PPTX](CA_Lecture_14.pptx)).
 Getting CPU information with Linux system utilities:
 * [nproc](https://man7.org/linux/man-pages/man1/nproc.1.html) - getting the number of processor available
 * [lscpu](https://man7.org/linux/man-pages/man1/lscpu.1.html) - getting CPU information
+* [sysctl](https://man7.org/linux/man-pages/man8/sysctl.8.html) - getting kernel parameters (Mas OS: `sysctl -a machdep.cpu hw`)
+
+Core i7-3615QM (MacBook Pro 2012):
+```
+machdep.cpu.max_basic: 13
+machdep.cpu.max_ext: 2147483656
+machdep.cpu.vendor: GenuineIntel
+machdep.cpu.brand_string: Intel(R) Core(TM) i7-3615QM CPU @ 2.30GHz
+machdep.cpu.family: 6
+machdep.cpu.model: 58
+machdep.cpu.extmodel: 3
+machdep.cpu.extfamily: 0
+machdep.cpu.stepping: 9
+machdep.cpu.feature_bits: 9203919201183202303
+machdep.cpu.leaf7_feature_bits: 641 0
+machdep.cpu.leaf7_feature_bits_edx: 2617246720
+machdep.cpu.extfeature_bits: 4967106816
+machdep.cpu.signature: 198313
+machdep.cpu.brand: 0
+machdep.cpu.features: FPU VME DE PSE TSC MSR PAE MCE CX8 APIC SEP MTRR PGE MCA CMOV PAT PSE36 CLFSH DS ACPI MMX FXSR SSE SSE2 SS HTT TM PBE SSE3 PCLMULQDQ DTES64 MON DSCPL VMX EST TM2 SSSE3 CX16 TPR PDCM SSE4.1 SSE4.2 x2APIC POPCNT AES PCID XSAVE OSXSAVE TSCTMR AVX1.0 RDRAND F16C
+machdep.cpu.leaf7_features: RDWRFSGS SMEP ERMS MDCLEAR IBRS STIBP L1DF SSBD
+machdep.cpu.extfeatures: SYSCALL XD EM64T LAHF RDTSCP TSCI
+machdep.cpu.logical_per_package: 16
+machdep.cpu.cores_per_package: 8
+machdep.cpu.microcode_version: 33
+machdep.cpu.processor_flag: 4
+machdep.cpu.mwait.linesize_min: 64
+machdep.cpu.mwait.linesize_max: 64
+machdep.cpu.mwait.extensions: 3
+machdep.cpu.mwait.sub_Cstates: 135456
+machdep.cpu.thermal.sensor: 1
+machdep.cpu.thermal.dynamic_acceleration: 1
+machdep.cpu.thermal.invariant_APIC_timer: 1
+machdep.cpu.thermal.thresholds: 2
+machdep.cpu.thermal.ACNT_MCNT: 1
+machdep.cpu.thermal.core_power_limits: 1
+machdep.cpu.thermal.fine_grain_clock_mod: 1
+machdep.cpu.thermal.package_thermal_intr: 1
+machdep.cpu.thermal.hardware_feedback: 0
+machdep.cpu.thermal.energy_policy: 0
+machdep.cpu.xsave.extended_state: 7 832 832 0
+machdep.cpu.xsave.extended_state1: 1 0 0 0
+machdep.cpu.arch_perf.version: 3
+machdep.cpu.arch_perf.number: 4
+machdep.cpu.arch_perf.width: 48
+machdep.cpu.arch_perf.events_number: 7
+machdep.cpu.arch_perf.events: 0
+machdep.cpu.arch_perf.fixed_number: 3
+machdep.cpu.arch_perf.fixed_width: 48
+machdep.cpu.cache.linesize: 64
+machdep.cpu.cache.L2_associativity: 8
+machdep.cpu.cache.size: 256
+machdep.cpu.tlb.inst.small: 64
+machdep.cpu.tlb.inst.large: 8
+machdep.cpu.tlb.data.small: 64
+machdep.cpu.tlb.data.large: 32
+machdep.cpu.tlb.shared: 512
+machdep.cpu.address_bits.physical: 36
+machdep.cpu.address_bits.virtual: 48
+machdep.cpu.core_count: 4
+machdep.cpu.thread_count: 8
+machdep.cpu.tsc_ccc.numerator: 0
+machdep.cpu.tsc_ccc.denominator: 0
+hw.ncpu: 8
+hw.byteorder: 1234
+hw.memsize: 8589934592
+hw.activecpu: 8
+hw.physicalcpu: 4
+hw.physicalcpu_max: 4
+hw.logicalcpu: 8
+hw.logicalcpu_max: 8
+hw.cputype: 7
+hw.cpusubtype: 4
+hw.cpu64bit_capable: 1
+hw.cpufamily: 526772277
+hw.cacheconfig: 8 2 2 8 0 0 0 0 0 0
+hw.cachesize: 8589934592 32768 262144 6291456 0 0 0 0 0 0
+hw.pagesize: 4096
+hw.pagesize32: 4096
+hw.cachelinesize: 64
+hw.l1icachesize: 32768
+hw.l1dcachesize: 32768
+hw.l2cachesize: 262144
+hw.l3cachesize: 6291456
+hw.tbfrequency: 1000000000
+hw.packages: 1
+hw.targettype: Mac
+hw.cputhreadtype: 1
+```
 
 Core i7-8665U:
 ```
