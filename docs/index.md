@@ -88,18 +88,12 @@ Exam questions are [here](exam_2021.md).
 
 Information on the grading system for the course is [here](grades.md).
 
-## Software
-
-The list of software required for the course is [here](software.md). 
-
-## Textbooks
-
-The list of textbooks recommended for reading is [here](books.md).
-
 ## Related Materials
 
-The list of similar courses is [here](courses.md).
-Links to other related external resources are [here](links.md).
+* [Textbooks](books.md).
+* [Courses](courses.md).
+* [Software](software.md).
+* [Other links](links.md).
 
 ## Feedback
 
