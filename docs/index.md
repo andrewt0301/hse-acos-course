@@ -90,10 +90,10 @@ Information on the grading system for the course is [here](grades.md).
 
 ## Related Materials
 
-* [Textbooks](books.md).
-* [Courses](courses.md).
-* [Software](software.md).
-* [Other links](links.md).
+* [Textbooks](books.md)
+* [Courses](courses.md)
+* [Software](software.md)
+* [Other links](links.md)
 
 ## Feedback
 
