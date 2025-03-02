@@ -90,10 +90,10 @@ Information on the grading system for the course is [here](grades.md).
 
 ## Related Materials
 
-* [Textbooks](books.md)
-* [Courses](courses.md)
-* [Software](software.md)
-* [Other links](links.md)
+* Textbooks used in this course are [here](books.md).
+* Software used in this course can be found [here](software.md).
+* Similar courses by other universities can be found [here](courses.md).
+* Other useful links are [here](links.md).
 
 ## Feedback
 
