@@ -341,6 +341,8 @@ Commit the programs to your private GitHub account. Place them into the folder `
 
 ## References
 
+* Krste	Asanović. [Interrupts](
+  https://riscv.org/wp-content/uploads/2024/12/Tue0900_RISCV-20160712-Interrupts.pdf).
 * Chapter 6: “N” Standard Extension for User-Level Interrupts in 
   [The RISC-V Instruction Set Manual Volume II: Privileged Architecture](
   https://github.com/riscv/riscv-isa-manual/releases/latest).
