@@ -65,7 +65,7 @@ Assessment criteria:
 
 Ejudge contests by groups:
 
-* [Group 221](http://84.201.145.249/cgi-bin/new-client?contest_id=250)
-* [Group 222](http://84.201.145.249/cgi-bin/new-client?contest_id=251)
-* [Group 223](http://84.201.145.249/cgi-bin/new-client?contest_id=252)
-* [Group 224](http://84.201.145.249/cgi-bin/new-client?contest_id=253)
+* [Group 221](http://158.160.144.239/cgi-bin/new-client?contest_id=250)
+* [Group 222](http://158.160.144.239/cgi-bin/new-client?contest_id=251)
+* [Group 223](http://158.160.144.239/cgi-bin/new-client?contest_id=252)
+* [Group 224](http://158.160.144.239/cgi-bin/new-client?contest_id=253)

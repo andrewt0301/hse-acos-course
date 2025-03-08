@@ -69,9 +69,9 @@ __Grade = 0.4 * Теория + 0.6 * Задача__
 
 Ejudge контесты по группам:
 
-* [КНАД1](http://84.201.145.249/cgi-bin/new-client?contest_id=254)
-* [КНАД2](http://84.201.145.249/cgi-bin/new-client?contest_id=255)
-* [ЭаД1](http://84.201.145.249/cgi-bin/new-client?contest_id=256)
-* [ЭаД2](http://84.201.145.249/cgi-bin/new-client?contest_id=257)
-* [ЭаД3](http://84.201.145.249/cgi-bin/new-client?contest_id=258)
-* [ВСН](http://84.201.145.249/cgi-bin/new-client?contest_id=259)
+* [КНАД1](http://158.160.144.239/cgi-bin/new-client?contest_id=254)
+* [КНАД2](http://158.160.144.239/cgi-bin/new-client?contest_id=255)
+* [ЭаД1](http://158.160.144.239/cgi-bin/new-client?contest_id=256)
+* [ЭаД2](http://158.160.144.239/cgi-bin/new-client?contest_id=257)
+* [ЭаД3](http://158.160.144.239/cgi-bin/new-client?contest_id=258)
+* [ВСН](http://158.160.144.239/cgi-bin/new-client?contest_id=259)
