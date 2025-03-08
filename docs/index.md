@@ -54,7 +54,7 @@ __Calendar plan by weeks can be found [here](calendar_2025.md).__
 All homeworks for "Computer Architecture and Assembly Language"
 are [here](part1ca/Tasks/homeworks.md).
 
-Final test for Computer Architecture is [here](part1ca/final_test.md).
+Final test for Computer Architecture is [here](part1ca/final_tests.md).
 
 ### Operating Systems and System Programming
 
