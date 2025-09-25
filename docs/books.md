@@ -60,13 +60,6 @@ Some course topics are based on other external material, which will be provided 
   https://www.elsevier.com/books/digital-design-and-computer-architecture/harris/978-0-12-394424-5)
   Online materials are [here](https://booksite.elsevier.com/9780123944245).
   2nd Edition. 2012.
-  
-- ##### [DDCAA]
-  David Harris, Sarah Harris.
-  [Digital Design and Computer Architecture: ARM Edition.](
-  https://dl.acm.org/doi/book/10.5555/2815529)
-  Online materials are [here](https://booksite.elsevier.com/9780128000564/index.php).
-  2015.
 
 - ##### [CAQA]
   John L. Hennessy David A. Patterson.
@@ -76,6 +69,13 @@ Some course topics are based on other external material, which will be provided 
   6th Edition. 2017.
 
   <img src="images/caqa.jpg" width="150">
+
+- ##### [DDCAA]
+  David Harris, Sarah Harris.
+  [Digital Design and Computer Architecture: ARM Edition.](
+  https://dl.acm.org/doi/book/10.5555/2815529)
+  Online materials are [here](https://booksite.elsevier.com/9780128000564/index.php).
+  2015.
 
 - ##### [CODA]
   David A. Patterson, John L. Hennessy.
