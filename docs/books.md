@@ -1,37 +1,40 @@
 # Textbooks
 
 Here is the list of textbooks that contain material related to this course.
-Books in the __primary__ section are used as a main source of material.
-Books in the __additional__ sections contain additional useful information.
+Books in the [primary](#primary) section are used as a main source of material.
+Books in the [additional](#additional) sections contain additional useful information.
 Some course topics are based on other external material, which will be provided in lectures.
 
 ## Computer Architecture
 
-#### Primary
+### Primary
 
-- [CODR] David A. Patterson, John L. Hennessy.
+* #### [CODR]
+  David A. Patterson, John L. Hennessy.
   [Computer Organization and Design RISC-V Edition: The Hardware Software Interface.](
-  https://www.elsevier.com/books/computer-organization-and-design-risc-v-edition/patterson/978-0-12-812275-4)
-  Online materials are [here](https://www.elsevier.com/books-and-journals/book-companion/9780128122754).
-  1st Edition. 2017.
+  https://shop.elsevier.com/books/computer-organization-and-design-risc-v-edition/patterson/978-0-12-820331-6)
+  Online materials are [here](https://www.elsevier.com/books-and-journals/book-companion/9780128203316).
+  2st Edition. 2020.
 
-- [DDCA] David Harris, Sarah Harris.
+  <img src="images/codr.jpg" width="150">
+
+- #### [DDCA] David Harris, Sarah Harris.
   [Digital Design and Computer Architecture: RISC-V Edition.](
   https://www.elsevier.com/books/digital-design-and-computer-architecture/harris/978-0-12-820064-3)
   Online materials are [here](https://www.elsevier.com/books-and-journals/book-companion/9780128200643).
   1st Edition. 2021.
 
-- [CSPP] Randal E. Bryant, David R. O'Hallaron.
+- #### [CSPP] Randal E. Bryant, David R. O'Hallaron.
   [Computer Systems: A Programmer's Perspective.](
   https://www.pearson.com/us/higher-education/product/Bryant-Computer-Systems-A-Programmer-s-Perspective-3rd-Edition/9780134092669.html)
   Online materials are [here](http://csapp.cs.cmu.edu/3e/home.html).
   3rd Edition. 2015.
 
-- [IAPR] Edson Borin.
+- #### [IAPR] Edson Borin.
   [An Introduction to Assembly Programming with RISC-V.](
   https://riscv-programming.org/book/riscv-book.html) Online book.
 
-#### Additional
+### Additional
  
 - [SCO] Andrew S. Tanenbaum, Todd Austin.
   [Structured Computer Organization.](
@@ -68,7 +71,7 @@ Some course topics are based on other external material, which will be provided 
 
 ## Operating Systems
 
-#### Primary
+### Primary
 
 - [COMET] Remzi H. Arpaci-Dusseau and Andrea C. Arpaci-Dusseau.
   [Operating Systems: Three Easy Pieces.](
@@ -85,7 +88,7 @@ Some course topics are based on other external material, which will be provided 
   https://www.wiley.com/en-us/Operating+System+Concepts%2C+10th+Edition-p-9781119320913)
   10th Edition. 2018.
 
-#### Additional
+### Additional
 
 - [MOS] Andrew S. Tanenbaum, Herbert Bos.
   [Modern Operating Systems.](

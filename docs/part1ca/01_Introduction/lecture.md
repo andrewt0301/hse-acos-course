@@ -125,7 +125,7 @@ __NOTE: This is a self-study activity, do not need to hand in, no checking, no s
 ## References
 
 * History of computers and operating systems. Chapter 1 in [[MOS]](../../books.md).
-* Computer technology overview. Chapter 1 in [[CODR]](../../books.md).
+* Computer technology overview. Chapter 1 in [[CODR]](../../books.md#codr).
 * [MIT 6.172](
   https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-172-performance-engineering-of-software-systems-fall-2018).
   Lecture 1.
