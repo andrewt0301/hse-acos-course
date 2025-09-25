@@ -17,7 +17,7 @@ Some course topics are based on other external material, which will be provided 
   Online materials are [here](https://www.elsevier.com/books-and-journals/book-companion/9780128203316).
   2st Edition. 2020.
 
-  <img src="images/codr.jpg" width="100">
+  <img src="images/codr.jpg" width="150">
 
 - #### [DDCA]
   David Harris, Sarah Harris.
@@ -26,7 +26,7 @@ Some course topics are based on other external material, which will be provided 
   Online materials are [here](https://www.elsevier.com/books-and-journals/book-companion/9780128200643).
   1st Edition. 2021.
 
-  <img src="images/ddca.jpg" width="100">
+  <img src="images/ddca.jpg" width="150">
 
 - #### [CSPP]
   Randal E. Bryant, David R. O'Hallaron.
@@ -35,14 +35,14 @@ Some course topics are based on other external material, which will be provided 
   Online materials are [here](http://csapp.cs.cmu.edu/3e/home.html).
   3rd Edition. 2015.
 
-  <img src="images/cspp.jpg" width="100">
+  <img src="images/cspp.jpg" width="150">
 
 - #### [IAPR]
   Edson Borin.
   [An Introduction to Assembly Programming with RISC-V.](
   https://riscv-programming.org/book/riscv-book.html) Online book.
 
-  <img src="images/iarp.jpg" width="100">
+  <img src="images/iarp.jpg" width="150">
 
 ### Additional
  
@@ -52,7 +52,7 @@ Some course topics are based on other external material, which will be provided 
   https://www.pearson.com/uk/educators/higher-education-educators/program/Tanenbaum-Structured-Computer-Organization-International-Edition-6th-Edition/PGM1038737.html)
   6th Edition. 2013.
 
-  <img src="images/sco.jpg" width="100">
+  <img src="images/sco.jpg" width="150">
 
 - #### [DDCA]
   David Harris, Sarah Harris.
@@ -97,17 +97,23 @@ Some course topics are based on other external material, which will be provided 
   https://pages.cs.wisc.edu/~remzi/OSTEP/)
   2018.
 
+  <img src="images/comet.jpg" width="150">
+
 - #### [TLPI]
   Michael Kerrisk.
   [The Linux Programming Interface: A Linux and UNIX System Programming Handbook.](
   https://man7.org/tlpi/)
   1st Edition. 2010.
 
+  <img src="images/tlpi.jpg" width="150">
+
 - #### [OSC]
   Abraham Silberschatz, Greg Gagne, Peter B. Galvin.
   [Operating System Concepts.](
   https://www.wiley.com/en-us/Operating+System+Concepts%2C+10th+Edition-p-9781119320913)
   10th Edition. 2018.
+
+  <img src="images/osc.jpg" width="150">
 
 ### Additional
 
