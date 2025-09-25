@@ -134,5 +134,5 @@ __NOTE: This is a self-study activity, do not need to hand in, no checking, no s
 * [Von Neumann Architecture](https://en.wikipedia.org/wiki/Von_Neumann_architecture) (Wikipedia).
 * [Turing machine](https://en.wikipedia.org/wiki/Turing_machine) (Wikipedia).
 * [Moore's law](https://en.wikipedia.org/wiki/Moore%27s_law) (Wikipedia).
-* [Internet of Things](https://en.wikipedia.org/wiki/Internet_of_things) (Wikipedia).
-* Compiler Explorer [Godbolt](https://godbolt.org/)
+* [CPU throttling](https://en.wikipedia.org/wiki/Dynamic_frequency_scaling) (Wikipedia).
+* Compiler Explorer [Godbolt](https://godbolt.org/).
