@@ -75,6 +75,8 @@ Some course topics are based on other external material, which will be provided 
   Online materials are [here](https://www.elsevier.com/books-and-journals/book-companion/9780128119051).
   6th Edition. 2017.
 
+  <img src="images/caqa.jpg" width="150">
+
 - ##### [CODA]
   David A. Patterson, John L. Hennessy.
   [Computer Organization and Design ARM Edition: The Hardware Software Interface.](
