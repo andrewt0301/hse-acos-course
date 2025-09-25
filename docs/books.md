@@ -54,13 +54,6 @@ Some course topics are based on other external material, which will be provided 
 
   <img src="images/sco.jpg" width="150">
 
-- ##### [DDCA]
-  David Harris, Sarah Harris.
-  [Digital Design and Computer Architecture.](
-  https://www.elsevier.com/books/digital-design-and-computer-architecture/harris/978-0-12-394424-5)
-  Online materials are [here](https://booksite.elsevier.com/9780123944245).
-  2nd Edition. 2012.
-
 - ##### [CAQA]
   John L. Hennessy David A. Patterson.
   [Computer Architecture: A Quantitative Approach.](
@@ -69,6 +62,13 @@ Some course topics are based on other external material, which will be provided 
   6th Edition. 2017.
 
   <img src="images/caqa.jpg" width="150">
+
+- ##### [DDCA]
+  David Harris, Sarah Harris.
+  [Digital Design and Computer Architecture.](
+  https://www.elsevier.com/books/digital-design-and-computer-architecture/harris/978-0-12-394424-5)
+  Online materials are [here](https://booksite.elsevier.com/9780123944245).
+  2nd Edition. 2012.
 
 - ##### [DDCAA]
   David Harris, Sarah Harris.
