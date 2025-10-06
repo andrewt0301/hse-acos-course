@@ -125,6 +125,8 @@ Some course topics are based on other external material, which will be provided 
   https://www.pearson.com/us/higher-education/program/Tanenbaum-Modern-Operating-Systems-4th-Edition/PGM80736.html)
   4th Edition. 2015.
 
+  <img src="images/mos.jpg" width="150">
+
 - ##### [OSIDP]
   William Stallings.
   [Operating Systems: Internals and Design Principles.](
