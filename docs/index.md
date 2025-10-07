@@ -88,9 +88,12 @@ Exam questions are [here](exam_latest.md).
 
 Information on the grading system for the course is [here](grades.md).
 
+## Textbooks
+
+Textbooks used in this course are [here](books.md).
+
 ## Related Materials
 
-* Textbooks used in this course are [here](books.md).
 * Software used in this course can be found [here](software.md).
 * Similar courses by other universities can be found [here](courses.md).
 * Other useful links are [here](links.md).

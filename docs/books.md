@@ -131,7 +131,7 @@ Some course topics are based on other external material, which will be provided 
   https://www.oreilly.com/library/view/systems-performance-2nd/9780136821694/)
   2nd Edition. 2020.
 
-  <img src="images/bgsp.jpg" width="150">
+  <img src="images/bgsp.jpeg" width="150">
 
 ### Additional
 
