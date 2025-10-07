@@ -133,6 +133,8 @@ Some course topics are based on other external material, which will be provided 
   https://www.pearson.com/us/higher-education/program/Stallings-Operating-Systems-Internals-and-Design-Principles-9th-Edition/PGM1262980.html)
   9th Edition. 2018.
 
+  <img src="images/osidp.jpg" width="150">
+
 - ##### [PGLC]
   Mark G. Sobell, Matthew Helmke.
   [Practical Guide to Linux Commands, Editors, and Shell Programming.](
