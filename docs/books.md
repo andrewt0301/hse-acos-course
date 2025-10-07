@@ -54,6 +54,14 @@ Some course topics are based on other external material, which will be provided 
 
   <img src="images/sco.jpg" width="150">
 
+- #### [COA]
+  William Stallings.
+  [Computer Organization and Architecture.](
+  https://www.pearson.com/en-gb/subject-catalog/p/computer-organization-and-architecture-global-edition/P200000005473/9781292420080?srsltid=AfmBOopqxRvsU0R670EGIONbGw6urhjnwFiup5SJWOkJIhPzLCM2MESC)
+  11th Edition. 2022.
+
+  <img src="images/coa.jpg" width="150">  
+
 - ##### [CAQA]
   John L. Hennessy David A. Patterson.
   [Computer Architecture: A Quantitative Approach.](
