@@ -97,6 +97,11 @@ Some course topics are based on other external material, which will be provided 
   https://www.elsevier.com/books/computer-organization-and-design-mips-edition/patterson/978-0-12-407726-3)
   5th Edition. 2013.
 
+- ##### [PARL]
+  Paul E. McKenney.
+  [Is Parallel Programming Hard, And, If So, What Can You Do About It?](
+  https://www.kernel.org/pub/linux/kernel/people/paulmck/perfbook/perfbook.html). 2024.
+
 ## Operating Systems
 
 ### Primary
