@@ -25,18 +25,14 @@ https://coderoad.ru/49970549/Проблема-рендеринга-некото�
 
 ## Overall Formula
 
-There are __2 modules__ $$M_i$$ (scored in the same way) and final __exam__ $$E$$,
+There are 2 [modules](#modules) $$M_i$$ (scored in the same way) and final [exam](#exam) $$E$$,
 which have an equal weight.
 
 $$G = \frac{\sum_{i=1}^2M_i+E}{3}$$
 
-If the final grade $$G$$ is unsatisfactory, the exam can be retaken.
+If the final grade $$G$$ is unsatisfactory, the exam can be [retaken](#retake-policy).
 
-#### Retake Rules
-
-On the first and second retakes, the cumulative course grade is taken into consideration. In case of receiving an unsatisfactory final grade after the first retake, the student may refuse to participate in the second retake and instead repeat the course according to the individual curriculum. The cumulative grade is formed again as a result of repeated courses. After completing the repeated course, the student is given a second retake only, which the student previously refused. 
-
-## Module Formula
+## Modules
 
 Each module score is calculated from Regular and Bonus points:
 
@@ -59,9 +55,13 @@ $$B_i = 2\cdot \frac{\sum_k A_k}{100}$$
 | Variable | Score   | Description |
 | $$A_k$$  | 5% each | Class activity. Each time you broadcast a solution of a task during class hours, you get this point. |
 
-## Exam Format
+## Exam
 
 The description of the exam format and its grading policy is [here](exam_latest.md).
+
+## Retake Policy
+
+On the first and second retakes, the cumulative course grade is taken into consideration. In case of receiving an unsatisfactory final grade after the first retake, the student may refuse to participate in the second retake and instead repeat the course according to the individual curriculum. The cumulative grade is formed again as a result of repeated courses. After completing the repeated course, the student is given a second retake only, which the student previously refused. 
 
 ## Rounding
 
