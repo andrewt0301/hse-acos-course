@@ -32,12 +32,9 @@ $$G = \frac{\sum_{i=1}^2M_i+E}{3}$$
 
 If the final grade $$G$$ is unsatisfactory, the exam can be retaken.
 
-On the first retake the cumulative course grade $$M_i$$ is taken into consideration.
-On the second retake the cumulative course grade $$M_i$$ is not taken into account.
-A student who receives a positive mark on the second retake receives `4` points for the discipline.
+#### Retake Rules
 
-If the second retake is unsuccessful, the decision about the final grade
-is done by the commission of faculty members, who will hold the final exam (the third retake, commission).   
+On the first and second retakes, the cumulative course grade is taken into consideration. In case of receiving an unsatisfactory final grade after the first retake, the student may refuse to participate in the second retake and instead repeat the course according to the individual curriculum. The cumulative grade is formed again as a result of repeated courses. After completing the repeated course, the student is given a second retake only, which the student previously refused. 
 
 ## Module Formula
 
