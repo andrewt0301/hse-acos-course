@@ -32,6 +32,8 @@ $$G = \frac{\sum_{i=1}^2M_i+E}{3}$$
 
 If the final grade $$G$$ is unsatisfactory, the exam can be [retaken](#retake-policy).
 
+Cheating in any assessment element is subject to [cheating policy](#cheating-policy).
+
 ## Modules
 
 Each module score is calculated from Regular and Bonus points:
