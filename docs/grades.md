@@ -49,7 +49,7 @@ $$R_i = \frac{45}{100}\cdot H + \frac{10}{100}\cdot Q + \frac{10}{100}\cdot A + 
 | Variable | Score | Description |
 | $$H$$    | 45%   | Homeworks. There are deadlines. Delays cause penalties: 25% for each week of delay. 100% penalty for cheating. |
 | $$Q$$    | 10%   | Quizzes for self-checking. |
-| $$P$$    | 10%   | Workshop attendance. You need to attend > 75% of classes to earn this point. |
+| $$A$$    | 10%   | Workshop attendance. You need to attend > 75% of classes to earn this point. |
 | $$F$$    | 35%   | Final test (midterm). 100% penalty for cheating. |
 
 #### Bonus Points: 2 points
