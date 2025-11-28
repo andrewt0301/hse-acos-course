@@ -75,7 +75,9 @@ On the first and second retakes, the cumulative course grade is taken into consi
 
 ## Rounding
 
-Module and exam scores are rounded to hundredths (the precision is 0.01).
+All intermediate grades (including module and exam grades) are rounded to hundredths (the precision is 0.01).
+
+The final grade is calculated with precision 0.01 and then rounded to the nearest integer.
 
 ## Cheating Policy
 
