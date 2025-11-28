@@ -40,7 +40,7 @@ $$G = \frac{M_3 + M_4}{2} - 1$$
 
 Rounding of grades is regulated by the [rounding](#rounding) policy.
 
-Cheating in any assessment element is a subject to [cheating policy](#cheating-policy).
+Cheating in any assessment element is a subject to [cheating](#cheating-policy) policy.
 
 ## Modules
 
