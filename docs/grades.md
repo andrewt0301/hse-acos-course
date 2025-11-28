@@ -79,5 +79,7 @@ $$G = \frac{M_3 + M_4}{2} - 1$$
 ## Cheating Policy
 
 If plagiarism is detected (including material generated with the help of generative AI without prior approval from the teacher), the assessment element will be assigned a score of "0".
+
 If there is a suspicion that the task was not completed independently, the teacher has the right to initiate an additional verification or a defense of this particular assessment element. The final grade for the element will be based on the results of such verification or defense.
+
 The teacher also has the right to randomly invite any student to defend any assessment element, regardless of plagiarism or suspicion. If the student refuses or fails to defend the work, the grade for this element will be annulled and recorded as "0".
