@@ -23,7 +23,7 @@ https://coderoad.ru/49970549/Проблема-рендеринга-некото�
 
 # Grading System
 
-## Overall Formula
+## Final Grade
 
 There are 2 [modules](#modules) $$M_i$$ (scored in the same way) and final [exam](#exam) $$E$$,
 which have an equal weight.
