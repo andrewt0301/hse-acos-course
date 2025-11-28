@@ -51,10 +51,11 @@ $$R_i = \frac{45}{100}\cdot H + \frac{10}{100}\cdot A + \frac{35}{100}\cdot F$$
 
 #### Bonus Points: 2 points
 
-$$B_i = 2\cdot \frac{\sum_k C_k}{100}$$
+$$B_i = 2\cdot \frac{\sum_k C_k}{k}$$
 
 | Variable | Score   | Description |
 | $$C_k$$  | 5% each | Class activity. Each time you broadcast a solution of a task during class hours, you get this point. |
+| $$k$$    | n/a     | Number of classes. | 
 
 ## Exam
 
