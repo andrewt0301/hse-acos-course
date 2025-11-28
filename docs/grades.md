@@ -54,7 +54,7 @@ $$R_i = \frac{45}{100}\cdot H + \frac{10}{100}\cdot A + \frac{35}{100}\cdot F$$
 $$B_i = 2\cdot \frac{\sum_k C_k}{k}$$
 
 | Variable | Score   | Description |
-| $$C_k$$  | 5% each | Class activity. Each time you broadcast a solution of a task during class hours, you get this point. |
+| $$C_k$$  | $$1/k$$ | Class activity. Each time you broadcast a solution of a task during a workshop, you get this point. |
 | $$k$$    | n/a     | Number of classes. | 
 
 ## Exam
