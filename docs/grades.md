@@ -23,14 +23,6 @@ https://coderoad.ru/49970549/Проблема-рендеринга-некото�
 
 # Grading System
 
-## General Advice
-
- * Maximize score for each of the modules.
- * Note that bonuses are separated by module.
- * Attend classes.
- * Mind the deadlines.
- * Do not cheat, it costs.
-
 ## Overall Formula
 
 There are __2 modules__ $$M_i$$ (scored in the same way) and final __exam__ $$E$$,
@@ -72,7 +64,7 @@ $$B_i = 2\cdot \frac{\sum_k A_k}{100}$$
 
 ## Exam Format
 
-The description of the exam format and exam grading rules is [here](exam_2021.md).
+The description of the exam format and its grading policy is [here](exam_latest.md).
 
 ## Rounding
 
