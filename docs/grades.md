@@ -63,7 +63,7 @@ $$B_i = 2\cdot \frac{\sum_k C_k}{k}$$
 
 | Variable | Score   | Description |
 | $$C_k$$  | $$1$$   | Class activity. Each time you broadcast a solution of a task during a workshop, you get this point. |
-| $$k$$    | n/a     | Number of classes. | 
+| $$k$$    | n/a     | Number of classes. |
 
 ## Exam
 
