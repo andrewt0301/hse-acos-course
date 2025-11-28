@@ -42,7 +42,7 @@ $$M_i = min(10, R_i + B_i)$$
 
 #### Regular Points: 10 points
 
-$$R_i = \frac{45}{100}\cdot H + \frac{10}{100}\cdot A + \frac{35}{100}\cdot F$$
+$$R_i = \frac{45}{100}\cdot H + \frac{10}{100}\cdot A + \frac{45}{100}\cdot F$$
 
 | Variable | Score | Description |
 | $$H$$    | 45%   | Homeworks. There are deadlines. Delays cause penalties: 25% for each week of delay. Maximal penalty is 75%. |
