@@ -38,7 +38,9 @@ Students, who have __attended > 75%__ of classes in both modules, can get an aut
 
 $$G = \frac{M_3 + M_4}{2} - 1$$
 
-NOTE: Cheating in any assessment element is subject to [cheating policy](#cheating-policy).
+Rounding of grades is regulated by the [rounding](#rounding) policy.
+
+Cheating in any assessment element is subject to [cheating policy](#cheating-policy).
 
 ## Modules
 
