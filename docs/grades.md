@@ -45,16 +45,16 @@ $$M_i = min(10, R_i + B_i)$$
 $$R_i = \frac{45}{100}\cdot H + \frac{10}{100}\cdot A + \frac{35}{100}\cdot F$$
 
 | Variable | Score | Description |
-| $$H$$    | 45%   | Homeworks. There are deadlines. Delays cause penalties: 25% for each week of delay. |
+| $$H$$    | 45%   | Homeworks. There are deadlines. Delays cause penalties: 25% for each week of delay. Maximal penalty is 75%. |
 | $$A$$    | 10%   | Workshop attendance. You need to attend > 75% of classes to earn this point. |
 | $$F$$    | 45%   | Final test (midterm). |
 
 #### Bonus Points: 2 points
 
-$$B_i = 2\cdot \frac{\sum_k A_k}{100}$$
+$$B_i = 2\cdot \frac{\sum_k C_k}{100}$$
 
 | Variable | Score   | Description |
-| $$A_k$$  | 5% each | Class activity. Each time you broadcast a solution of a task during class hours, you get this point. |
+| $$C_k$$  | 5% each | Class activity. Each time you broadcast a solution of a task during class hours, you get this point. |
 
 ## Exam
 
