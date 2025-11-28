@@ -47,10 +47,10 @@ $$M_i = min(10, R_i + B_i)$$
 $$R_i = \frac{45}{100}\cdot H + \frac{10}{100}\cdot Q + \frac{10}{100}\cdot A + \frac{35}{100}\cdot F$$
 
 | Variable | Score | Description |
-| $$H$$    | 45%   | Homeworks. There are deadlines. Delays cause penalties: 25% for each week of delay. 100% penalty for cheating. |
+| $$H$$    | 45%   | Homeworks. There are deadlines. Delays cause penalties: 25% for each week of delay. |
 | $$Q$$    | 10%   | Quizzes for self-checking. |
 | $$A$$    | 10%   | Workshop attendance. You need to attend > 75% of classes to earn this point. |
-| $$F$$    | 35%   | Final test (midterm). 100% penalty for cheating. |
+| $$F$$    | 35%   | Final test (midterm). |
 
 #### Bonus Points: 2 points
 
