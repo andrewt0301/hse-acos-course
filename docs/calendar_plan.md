@@ -22,7 +22,7 @@ ends with a final test (midterm) which is taken during a lecture class.
 * Computer Architecture: 1
 * Operating Systems: 1
 
-Final test are given during last lectures of on topic of CA and OS. Format: online.
+Final tests (midterms) are given during last lectures of on topic of CA and OS.
 
 ### Homeworks (HW)
 
