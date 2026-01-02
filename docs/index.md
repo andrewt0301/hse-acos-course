@@ -6,7 +6,7 @@ This site contains materials for the "Computer Architecture and Operating System
 For information on course administration (grades, deadlines, etc.), please refer to the university website.
 
 * __DSBA__:
-  [wiki](http://wiki.cs.hse.ru/ACOS_DSBA_2024/25) and
+  [wiki](http://wiki.cs.hse.ru/Computer_Architecture_and_Operating_Systems_DSBA_2025/2026) and
   [syllabus](https://www.hse.ru/edu/courses/476614465)
 * __COMPDS/EAD/VSN__:
   [wiki](http://wiki.cs.hse.ru/ACOS_COMPDS_2024/2025) and
