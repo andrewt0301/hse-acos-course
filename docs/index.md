@@ -8,8 +8,8 @@ For information on course administration (grades, deadlines, etc.), please refer
 * __DSBA__:
   [wiki](http://wiki.cs.hse.ru/Computer_Architecture_and_Operating_Systems_DSBA_2025/2026) and
   [syllabus](https://www.hse.ru/edu/courses/476614465)
-* __COMPDS/EAD/VSN__:
-  [wiki](http://wiki.cs.hse.ru/ACOS_COMPDS_2024/2025) and
+* __COMPDS__:
+  [wiki](http://wiki.cs.hse.ru/ACOS_COMPDS_2025/26) and
   [syllabus](https://www.hse.ru/edu/courses/476614465)
 
 ## Course Motivation
