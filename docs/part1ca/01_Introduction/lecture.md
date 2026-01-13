@@ -14,6 +14,36 @@ Slides ([PDF](CA_Lecture_01.pdf), [PPTX](CA_Lecture_01.pptx)).
 * Course motivation.
 * Historical perspective.
 
+##### Example
+
+Measuring performance in different power modes (Linux).
+
+Performance:
+```bash
+(base) andrewt@ThinkPad-T490s:~/Documents/src/hse/hse-acos-course/docs/part1ca/01_Introduction$ cat /proc/cpuinfo | grep MHz
+cpu MHz		: 4203.633
+cpu MHz		: 4200.157
+cpu MHz		: 4200.018
+cpu MHz		: 4202.291
+cpu MHz		: 4200.038
+cpu MHz		: 4200.039
+cpu MHz		: 4200.745
+cpu MHz		: 4200.007
+```
+
+Power Saver:
+```bash
+(base) andrewt@ThinkPad-T490s:~/Documents/src/hse/hse-acos-course/docs/part1ca/01_Introduction$ cat /proc/cpuinfo | grep MHz
+cpu MHz		: 798.948
+cpu MHz		: 799.999
+cpu MHz		: 799.996
+cpu MHz		: 799.981
+cpu MHz		: 800.033
+cpu MHz		: 799.991
+cpu MHz		: 400.000
+cpu MHz		: 800.000
+```
+
 ## Workshop
 
 #### Outline
