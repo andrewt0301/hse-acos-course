@@ -18,6 +18,29 @@ Slides ([PDF](CA_Lecture_01.pdf), [PPTX](CA_Lecture_01.pptx)).
 
 Measuring performance in different power modes (Linux).
 
+CPU configuration:
+```bash
+(base) andrewt@ThinkPad-T490s:~/Documents/src/hse/hse-acos-course/docs/part1ca/01_Introduction$ lscpu
+Architecture:             x86_64
+  CPU op-mode(s):         32-bit, 64-bit
+  Address sizes:          39 bits physical, 48 bits virtual
+  Byte Order:             Little Endian
+CPU(s):                   8
+  On-line CPU(s) list:    0-7
+Vendor ID:                GenuineIntel
+  Model name:             Intel(R) Core(TM) i7-8665U CPU @ 1.90GHz
+    CPU family:           6
+    Model:                142
+    Thread(s) per core:   2
+    Core(s) per socket:   4
+    Socket(s):            1
+    Stepping:             12
+    CPU(s) scaling MHz:   17%
+    CPU max MHz:          4800.0000
+    CPU min MHz:          400.0000
+    BogoMIPS:             4199.88
+```
+
 Performance:
 ```bash
 (base) andrewt@ThinkPad-T490s:~/Documents/src/hse/hse-acos-course/docs/part1ca/01_Introduction$ cat /proc/cpuinfo | grep MHz
