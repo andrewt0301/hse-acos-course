@@ -111,7 +111,7 @@ Finish all the tasks. Make sure you understand everything.
 
 ## Homework
 
-__NOTE: This is a self-study activity, do not need to hand in, no checking, no score.__
+__Save the solution to a text document and hand it in to your Teaching Assistant (preferably using GitHub).__
 
 1. Convert the following decimal numbers to __6-bit__ binary numbers (describe how you have done this).
 
