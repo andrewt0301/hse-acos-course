@@ -148,6 +148,6 @@ __NOTE: This is a self-study activity, do not need to hand in, no checking, no s
 
 * [Machine word](https://en.wikipedia.org/wiki/Word_%28computer_architecture%29) (Wikipedia).
 * [Endianness](https://en.wikipedia.org/wiki/Endianness) (Wikipedia).
-* Representing information. Chapter 2 in [[CSPP]](../../books.md).
-* Arithmetic for computers. Chapters 3 in [[CODR]](../../books.md).
+* Representing information. Chapter 2 in [[CSPP]](../../books.md#cspp).
+* Arithmetic for computers. Chapters 3 in [[CODR]](../../books.md#codr).
 * (_Additionally_) Henry Warren. [Hacker's Delight](https://en.wikipedia.org/wiki/Hacker%27s_Delight). 2nd Edition. 2013.
