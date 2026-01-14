@@ -55,8 +55,7 @@ cpu MHz		: 800.000
    * RARS.
    * Godbolt.
    * VirtualBox. 
-   * Linux Ubuntu VM.
-* Introduction to Cloud [Ubuntu VM](../../software/cloud_ssh.md) via [SSH](https://en.wikipedia.org/wiki/Secure_Shell).
+   * Linux Ubuntu VM (including connecting to it via [SSH](https://en.wikipedia.org/wiki/Secure_Shell).
 * Introduction to Git and GitHub.
 * Practice: play with matrix multiplication and see the benchmarks.
 
@@ -65,8 +64,6 @@ cpu MHz		: 800.000
 * Read documentation on software tools (RARS, Virtual Box, Ubuntu).
 * Download and install the tools.
 * Generate [SSH keys](../../software/cloud_ssh.md) for access to Cloud and GitHub.
-  Save the public key to the [table](
-  https://docs.google.com/spreadsheets/d/1KVsUGHUl74Pfrx0GYiF2V-Cw0mFbVQ3428475FQKsDE/edit?usp=sharing).
 * [Create](../../software/git.md) a private GitHub repository and give access to it to
   the workshop instructor and teaching assistant.
    * Name it `<group>_<surname>`, e.g. `204_tatarnikov` 
@@ -145,12 +142,11 @@ gives these results:
 __NOTE: This is a self-study activity, do not need to hand in, no checking, no score.__
 
 * Finish installing all required software.
-* Save a link to the SSH public key to the [table](
-  https://docs.google.com/spreadsheets/d/1KVsUGHUl74Pfrx0GYiF2V-Cw0mFbVQ3428475FQKsDE/edit?usp=sharing). 
 * Finish experiments with matrix multiplication and provide benchmarks (for your machine).
    * Run matrix multiplication in Python and C (all versions) in your machine.
    * Provide a table with execution time.
-* Commit the file with the table to your private GitHub account. Place it into the folder `ca/lab01`.
+* Collect information on your CPU (`lscpu` utility in Linux) and save it to a text file.
+* Commit the file with the table and CPU information to your private GitHub account. Place it into the folder `ca/lab01`.
 
 ## References
 
@@ -167,3 +163,4 @@ __NOTE: This is a self-study activity, do not need to hand in, no checking, no s
 * [Moore's law](https://en.wikipedia.org/wiki/Moore%27s_law) (Wikipedia).
 * [CPU throttling](https://en.wikipedia.org/wiki/Dynamic_frequency_scaling) (Wikipedia).
 * Compiler Explorer [Godbolt](https://godbolt.org/).
+* Utility [lscpu](https://man7.org/linux/man-pages/man1/lscpu.1.html).
