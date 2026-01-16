@@ -173,7 +173,7 @@ Solve and submit Ejudge tasks "BasicArithm", "BasicBitwise", and "BasicBitwise2"
 
 * [RISC-V web site](https://riscv.org/).
 * [RISC-V](https://en.wikipedia.org/wiki/RISC-V) (Wikipedia).
-* RISC-V instructions. Chapters 1 and 2 in [[CODR]](../../books.md).
+* RISC-V instructions. Chapters 1 and 2 in [[CODR]](../../books.md#codr).
 * [The RISC-V Instruction Set Manual. Volume I: Unprivileged ISA](
   https://github.com/riscv/riscv-isa-manual/releases/latest).
 * [RISC-V Greencard](
