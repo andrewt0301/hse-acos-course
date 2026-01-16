@@ -1,7 +1,7 @@
 RARS
 ---
 
-__RARS__ in a RISC-V assembler and runtime simulator. It is used in this course
+__RARS__ is a RISC-V assembler and runtime simulator. It is used in this course
 to create, assemble and simulate assembly programs for RISC-V microprocessors.
 
 The home page of the RARS project is [here](https://github.com/TheThirdOne/rars).

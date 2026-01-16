@@ -19,8 +19,8 @@ which has a name like this: `ubuntu-24.04.2-desktop-amd64.iso`.
 
 #### Installing in Virtual Machine
 
-Because our laptops are already have operating systems other than Linux Ubuntu (most likely Windows or Mac OS)
-and we would to to make experiments with Linux without fear to break the entire system,
+Because our laptops already have operating systems other than Linux Ubuntu (most likely Windows or Mac OS)
+and we would make experiments with Linux without fear to break the entire system,
 we will install Linux Ubuntu in a [virtual machine](https://en.wikipedia.org/wiki/Virtual_machine).
 
 To install and run Linux Ubuntu,

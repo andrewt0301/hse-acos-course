@@ -25,7 +25,7 @@ Specify the passphrase for the keys. The keys will be generated in the following
 
 1. Login into [GitHub](https://github.com) or create an account. 
 
-2. [Add](https://github.com/settings/keys) your public SHH key to your account. 
+2. [Add](https://github.com/settings/keys) your public SSH key to your account. 
 
 3. Create a new __private__ repository. Name it `<group>_<surname>`, e.g. `231_tatarnikov`.
    If there is another student with the same surname, add suffix `_<n>` (`n` is the first letter of the name). 
