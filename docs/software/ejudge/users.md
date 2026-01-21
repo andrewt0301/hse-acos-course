@@ -11,23 +11,27 @@ http://158.160.214.36/cgi-bin/new-client?contest_id=211).
 
 Instructors:
 
-|_User_            |_Login_    |
-|Andrei Tatarnikov |andrewt0301|
-|Roman Stolyarov   |stolyarov  |
-|Sergey Khil       |skhil      |
-|David Badalyan    |dbadalyan  |
-|Alexandra Borisova|aaborisova |
-|Boris Galitsky    |galitskii  |
-|Alexander Eremin  |aeremin    |
+|_User_              |_Login_    |
+|Andrei Tatarnikov   |andrewt0301|
+|Veniamin Arefev     |varefev    |
+|David Badalyan      |dbadalyan  |
+|Roman Stolyarov     |stolyarov  |
+|Gleb Stepanov       |gtepanov   |
+|Fedor Pakhurov      |fpakhurov  |
+|Ksenya Drozdova     |kdrozdova  |
 
-Assistants:
+Assistants DSBA:
 
-|_User_            |_Login_    |
-|Pavel Nedbay      |pnedbay    |
-|Nikita Kalinin    |nkalinin   |
-|Adamey Laipanov   |alaipanov  |
-|Vadim Vasilyev    |vvasilyev  |
-|Pavel Malov       |pmalov     |
-|Anton Lisitsyn    |alisitsyn  |
-|Andrei Polischuk  |apolischuk |
-|Daniil Kotlyarov  |dkotlyarov |
+|_User_              |_Login_    |
+|Michael Molostov    |mmolostov  |
+|Alexander Pokrovsky |apokrovsky |
+|Michael Korchagin   |mkorchagin |
+|Jamal Verdiyev      |jverdiyev  |
+|Sergey Kozlov       |skozlov    |
+|Irina Milova        |imilova    |
+
+Assistants COMPDS:
+
+|_User_              |_Login_    |
+|Michael Artemov     | martemov  |
+|Arkady Pavlov       | apavlov   |
