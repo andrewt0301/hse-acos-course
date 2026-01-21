@@ -33,5 +33,5 @@ Assistants DSBA:
 Assistants COMPDS:
 
 |_User_              |_Login_    |
-|Michael Artemov     | martemov  |
-|Arkady Pavlov       | apavlov   |
+|Michael Artemov     |martemov   |
+|Arkady Pavlov       |apavlov    |
