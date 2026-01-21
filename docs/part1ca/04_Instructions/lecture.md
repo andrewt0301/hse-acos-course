@@ -138,7 +138,7 @@ Submit the resulting assembly text into Ejudge (task "RiscvEncoding1").
 
 ## References
 
-* Machine Language. Section 6.4 in [[DDCA]](../../books.md).
+* Machine Language. Section 6.4 in [[DDCA]](../../books.md#ddca).
 * [RISC-V Technical Specifications](https://lf-riscv.atlassian.net/wiki/x/kYD2) (official standards).
 * [The RISC-V Instruction Set Manual. Volume I: Unprivileged ISA](
   https://github.com/riscv/riscv-isa-manual/releases/latest) (ongoing drafts).
