@@ -26,7 +26,7 @@ Slides ([PDF](CA_Lecture_04.pdf), [PPTX](CA_Lecture_04.pptx)).
 
 #### Tasks
 
-See "Chapter 34. RV32/64G Instruction Set Listings" (page 572) of document ["The RISC-V Instruction Set
+See "Chapter 35. RV32/64G Instruction Set Listings" (page 608, pdf page 628) of document ["The RISC-V Instruction Set
 Manual Volume I"](https://drive.google.com/file/d/1uviu1nH-tScFfgrovvFCrj7Omv8tFtkp/view?usp=drive_link) to
 get instruction encodings.
 
