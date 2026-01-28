@@ -86,7 +86,7 @@ Solve the following tasks and submit then into Ejudge:
 
 * RARS help system (click in the main menu `Help > Help` or press `F1`).
 * Multiplication and division algorithms.
-  Sections 3.3 and 3.4 in [[CODR]](../../books.md) and Appendix J in [[CAQA]](../../books.md).
+  Sections 3.3 and 3.4 in [[CODR]](../../books.md#codr) and Appendix J in [[CAQA]](../../books.md#caqa).
 * [Macros](https://en.wikipedia.org/wiki/Macro_%28computer_science%29) (Wikipedia).
 * [Macros in Assembly Language](https://en.wikipedia.org/wiki/Assembly_language#Macros) (Wikipedia).
 * [Memory Alignment](https://en.wikipedia.org/wiki/Data_structure_alignment) (Wikipedia).
