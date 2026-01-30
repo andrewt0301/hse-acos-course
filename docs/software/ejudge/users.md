@@ -23,6 +23,7 @@ Instructors:
 Assistants DSBA:
 
 |_User_              |_Login_    |
+|Ivan Mashkarin      |imashkarin |
 |Michael Molostov    |mmolostov  |
 |Alexander Pokrovsky |apokrovsky |
 |Michael Korchagin   |mkorchagin |
