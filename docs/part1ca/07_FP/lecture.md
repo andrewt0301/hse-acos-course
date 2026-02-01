@@ -30,7 +30,7 @@ Slides ([PDF](CA_Lecture_07.pdf), [PPTX](CA_Lecture_07.pptx)).
 * [sqrtd.s](sqrtd.s)
 * [e.s](e.s)
 
-Visualization of floating-point format in RARS:
+Visualization of floating-point format in RARS (menu "Tools | Floating Point Representation"):
 
 ![RARS](rars_fpview.png)
 
