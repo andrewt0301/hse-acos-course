@@ -14,7 +14,7 @@ idst:
     fcvt.s.w f2, t2
     flw      f0, 4(t0)
 
-    flt.s    t2, f2, f0 # check if <0 …
+    flt.s    t2, f2, f0 # check if <0 ...
     bnez     t2, nosqrt # no root then
     fsqrt.s  f2, f2
 nosqrt:
