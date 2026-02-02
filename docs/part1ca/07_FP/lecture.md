@@ -39,6 +39,7 @@ Calling Conventions:
 Programs:
 
 * [farh1.s](fahr1.s)
+* [farh2.s](fahr2.s)
 * [sqrt.s](sqrt.s)
 * [sqrtd.s](sqrtd.s)
 * [e.s](e.s)
