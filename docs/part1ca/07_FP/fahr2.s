@@ -25,6 +25,6 @@ f2c:
     fdiv.s   ft0, ft0, ft1  # ft0 = 5.0f / 9.0f
     li       t0, 32
     fcvt.s.w ft1, t0        # ft1 = (float) 32
-    fsub.s   fa0, fa0, ft1  # fa0 = fahr – 32.0
-    fmul.s   f10, f0, f10   # fa0 = (5.0f / 9.0f) * (fahr – 32.0f)
+    fsub.s   fa0, fa0, ft1  # fa0 = fahr - 32.0
+    fmul.s   f10, f0, f10   # fa0 = (5.0f / 9.0f) * (fahr - 32.0f)
     jalr     zero,0(ra)     # return
