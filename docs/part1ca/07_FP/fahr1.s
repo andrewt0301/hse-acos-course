@@ -1,5 +1,7 @@
-# Inputs temperature in Fahrenheit, converts it
-# to Celsius and prints.
+#
+# Example: reads temperature in Fahrenheit, converts it
+#          to Celsius, and prints.
+#
     .data
 consts:
     .float 5.0f
