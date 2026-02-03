@@ -167,7 +167,7 @@ Solve the following tasks and submit then into Ejudge:
 
 ## References
 
-* Functions in RISC-V. Section 2.8 in [[CODR]](../../books.md).
+* Functions in RISC-V. Section 2.8 in [[CODR]](../../books.md#codr).
 * [RISC-V Calling Conventions](https://pdos.csail.mit.edu/6.828/2024/lec/l-riscv-cc-slides.pdf) (MIT slides)
 * [Call stack](https://en.wikipedia.org/wiki/Call_stack) (Wikipedia).
 * [Calling convention](https://en.wikipedia.org/wiki/Calling_convention) (Wikipedia).

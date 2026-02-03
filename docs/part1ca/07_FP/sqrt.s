@@ -8,7 +8,8 @@ dst:
     .float  0
 idst:
     .word   0
-.text
+
+    .text
     la       t0, src      # source integer
     lw       t2, 0(t0)
     fcvt.s.w ft2, t2
