@@ -22,8 +22,13 @@ Slides ([PDF](CA_Lecture_08.pdf), [PPTX](CA_Lecture_08.pptx)).
 #### Outline
 
 * Cache types
+* RAR Memory Reference Visualization
 * RARS Data Cache Simulator
 * Playing with cache configurations
+
+![memory](memory.png)
+
+![cache](caches.png)
 
 #### Examples
 
