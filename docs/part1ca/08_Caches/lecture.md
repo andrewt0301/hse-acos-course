@@ -26,11 +26,15 @@ Slides ([PDF](CA_Lecture_08.pdf), [PPTX](CA_Lecture_08.pptx)).
 * RARS Data Cache Simulator
 * Playing with cache configurations
 
+#### Examples
+
+Memory Reference Visualization:
+
 ![memory](memory.png)
 
-![cache](caches.png)
+Data Cache Simulator:
 
-#### Examples
+![cache](caches.png)
 
 Linear memory accesses:
 
