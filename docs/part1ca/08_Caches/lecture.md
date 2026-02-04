@@ -123,13 +123,10 @@ loop:
 1. Write a program that utilizes memory sparsely, so that its footprint is 100% misses 2-way associative cache.
    However, it fits (almost) into a 4-way associative cache with 16 blocks.
 
-## Homework
-
-Finish all the tasks.
 
 ## References
 
-* Large and Fast: Exploiting Memory Hierarchy. Chapter 5 in [[CODR]](../../books.md). 
+* Large and Fast: Exploiting Memory Hierarchy. Chapter 5 in [[CODR]](../../books.md#codr).
 * Ulrich Drepper. [What Every Programmer Should Know About Memory](
   https://github.com/andrewt0301/hse-acos-course/blob/master/related/cpumemory.pdf).
 * [CPU cache](https://en.wikipedia.org/wiki/CPU_cache) (Wikipedia).
