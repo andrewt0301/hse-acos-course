@@ -17,6 +17,27 @@ Slides ([PDF](CA_Lecture_08.pdf), [PPTX](CA_Lecture_08.pptx)).
 * Multi-level caches
 * Performance considerations
 
+#### Examples
+
+Cache configurations in real CPUs
+(use [lscpu](https://man7.org/linux/man-pages/man1/lscpu.1.html) to get).
+
+Core i7-13700, 12 cores (Lenovo ThinkCenter):
+```
+L1d:                576 KiB (12 instances)
+L1i:                384 KiB (12 instances)
+L2:                 24 MiB (12 instances)
+L3:                 30 MiB (1 instance)
+```
+
+Core i7-8665U, 4 cores (Lenovo ThinkPad):
+```
+L1d:                128 KiB (4 instances)
+L1i:                128 KiB (4 instances)
+L2:                 1 MiB (4 instances)
+L3:                 8 MiB (1 instance)
+```
+
 ## Workshop
 
 #### Outline
