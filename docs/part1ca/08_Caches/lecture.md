@@ -21,7 +21,8 @@ Slides ([PDF](CA_Lecture_08.pdf), [PPTX](CA_Lecture_08.pptx)).
 
 Cache configurations in real CPUs.
 Use [lscpu](https://man7.org/linux/man-pages/man1/lscpu.1.html) to get CPU information.
-Use AI (e.g. ``) to summarize cache specifications.
+Use AI (e.g. `Core i7-13700 cache size, cache associativity and line size l1 l2 l3 english`)
+to summarize cache specifications.
 
 Core i7-13700, 12 cores (Lenovo ThinkCenter):
 ```
