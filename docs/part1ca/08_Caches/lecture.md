@@ -24,6 +24,7 @@ Cache configurations in real CPUs
 
 Core i7-13700, 12 cores (Lenovo ThinkCenter):
 ```
+Caches (sum of all):
 L1d:                576 KiB (12 instances)
 L1i:                384 KiB (12 instances)
 L2:                 24 MiB (12 instances)
@@ -32,6 +33,7 @@ L3:                 30 MiB (1 instance)
 
 Core i7-1260P, 8 cores (Huawei MateBook):
 ```
+Caches (sum of all):
 L1d:                384 KiB (8 instances)
 L1i:                256 KiB (8 instances)
 L2:                 10 MiB (8 instances)
@@ -40,6 +42,7 @@ L3:                 18 MiB (1 instance)
 
 Core i7-8665U, 4 cores (Lenovo ThinkPad):
 ```
+Caches (sum of all):
 L1d:                128 KiB (4 instances)
 L1i:                128 KiB (4 instances)
 L2:                 1 MiB (4 instances)
