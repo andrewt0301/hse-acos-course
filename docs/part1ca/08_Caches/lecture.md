@@ -39,6 +39,12 @@ L1i:                256 KiB (8 instances)
 L2:                 10 MiB (8 instances)
 L3:                 18 MiB (1 instance)
 ```
+Cache specifications (use AI to summarize):
+| Cache Level    | Capacity (Per Core) | Associativity      	| Line Size |
+| L1 Data        | 48 KB     	       | 12-way set associative	| 64 bytes  |
+| L1 Instruction | 32 KB 	           | 8-way set associative	| 64 bytes  |
+| L2 Cache       | 1.25 MB             | 10-way set associative	| 64 bytes  |
+| L3 Cache       | 18 MB (Total Shared)| 12-way set associative	| 64 bytes  |
 
 Core i7-8665U, 4 cores (Lenovo ThinkPad):
 ```
@@ -48,6 +54,12 @@ L1i:                128 KiB (4 instances)
 L2:                 1 MiB (4 instances)
 L3:                 8 MiB (1 instance)
 ```
+Cache specifications (use AI to summarize):
+| Cache Level    | Capacity (Per Core) | Associativity      	| Line Size |
+| L1 Data        | 32 KB	           | 8-way set associative	| 64 bytes  |
+| L1 Instruction | 32 KB	           | 8-way set associative	| 64 bytes  |
+| L2 Cache       | 256 KB	           | 4-way set associative	| 64 bytes  |
+| L3 Cache       | 8 MB (Total Shared) | 16-way set associative	| 64 bytes  |
 
 ## Workshop
 
