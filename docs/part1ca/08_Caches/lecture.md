@@ -19,8 +19,9 @@ Slides ([PDF](CA_Lecture_08.pdf), [PPTX](CA_Lecture_08.pptx)).
 
 #### Examples
 
-Cache configurations in real CPUs
-(use [lscpu](https://man7.org/linux/man-pages/man1/lscpu.1.html) to get).
+Cache configurations in real CPUs.
+Use [lscpu](https://man7.org/linux/man-pages/man1/lscpu.1.html) to get CPU information.
+Use AI (e.g. ``) to summarize cache specifications.
 
 Core i7-13700, 12 cores (Lenovo ThinkCenter):
 ```
@@ -30,6 +31,13 @@ L1i:                384 KiB (12 instances)
 L2:                 24 MiB (12 instances)
 L3:                 30 MiB (1 instance)
 ```
+Cache specifications:
+
+| Cache Level    | Capacity (Per Core) | Associativity      	| Line Size |
+| L1 Data        | 48 KB     	       | 12-way set associative	| 64 bytes  |
+| L1 Instruction | 32 KB 	           | 8-way set associative	| 64 bytes  |
+| L2 Cache       | 2 MB                | 16-way set associative	| 64 bytes  |
+| L3 Cache       | 30 MB (Total Shared)| 12-way set associative	| 64 bytes  |
 
 Core i7-1260P, 8 cores (Huawei MateBook):
 ```
@@ -39,7 +47,7 @@ L1i:                256 KiB (8 instances)
 L2:                 10 MiB (8 instances)
 L3:                 18 MiB (1 instance)
 ```
-Cache specifications (use AI to summarize):
+Cache specifications:
 
 | Cache Level    | Capacity (Per Core) | Associativity      	| Line Size |
 | L1 Data        | 48 KB     	       | 12-way set associative	| 64 bytes  |
@@ -55,7 +63,7 @@ L1i:                128 KiB (4 instances)
 L2:                 1 MiB (4 instances)
 L3:                 8 MiB (1 instance)
 ```
-Cache specifications (use AI to summarize):
+Cache specifications:
 
 | Cache Level    | Capacity (Per Core) | Associativity      	| Line Size |
 | L1 Data        | 32 KB	           | 8-way set associative	| 64 bytes  |
