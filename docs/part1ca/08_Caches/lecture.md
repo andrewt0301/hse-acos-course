@@ -40,6 +40,7 @@ L2:                 10 MiB (8 instances)
 L3:                 18 MiB (1 instance)
 ```
 Cache specifications (use AI to summarize):
+
 | Cache Level    | Capacity (Per Core) | Associativity      	| Line Size |
 | L1 Data        | 48 KB     	       | 12-way set associative	| 64 bytes  |
 | L1 Instruction | 32 KB 	           | 8-way set associative	| 64 bytes  |
@@ -55,6 +56,7 @@ L2:                 1 MiB (4 instances)
 L3:                 8 MiB (1 instance)
 ```
 Cache specifications (use AI to summarize):
+
 | Cache Level    | Capacity (Per Core) | Associativity      	| Line Size |
 | L1 Data        | 32 KB	           | 8-way set associative	| 64 bytes  |
 | L1 Instruction | 32 KB	           | 8-way set associative	| 64 bytes  |
