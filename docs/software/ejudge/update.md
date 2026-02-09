@@ -1,9 +1,9 @@
 Updading Ejudge Tasks and Deadlines
 ---
 
-Ejudge configuration files are stored in a private GitHub repo (you need to be added as a collaborator):
-
-https://github.com/andrewt0301/hse-acos-course-private/tree/main/ejudge/configs
+Ejudge configuration files are stored in a private GitHub [repo](
+https://github.com/andrewt0301/hse-acos-course-private/tree/main/ejudge/configs).
+(you need to be added as a collaborator).
 
 File names typically match group names (e.g. `000241.cfg`).
 
