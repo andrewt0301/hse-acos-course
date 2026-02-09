@@ -32,6 +32,8 @@ date_penalty = "2026/01/26 23:59:59 0"
 To add a _new task_, check the configurations of previous years and copy from there.
 Replace all dates with relevant ones.
 
+Push the file to GitHub (it is suggested to submit the changes as a Pull Request).
+
 Connect to Ejudge server via SSH:
 ```bash
 ssh login@ipaddress -p22
