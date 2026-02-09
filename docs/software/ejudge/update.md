@@ -24,12 +24,12 @@ deadline = "2026/07/01 23:59:59"
 run_penalty = 0
 ```
 
-To change a __deadline__, update this line:
+To change a _deadline_, update this line:
 ```
 date_penalty = "2026/01/26 23:59:59 0"
 ```
 
-To add a __new task__, check the configurations of previous years and copy from there.
+To add a _new task_, check the configurations of previous years and copy from there.
 Replace all dates with relevant ones.
 
 Connect to Ejudge server via SSH:
