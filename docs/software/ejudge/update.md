@@ -1,6 +1,8 @@
 Updading Ejudge Tasks and Deadlines
 ---
 
+## Update configuration in GitHub
+
 Ejudge configuration files are stored in a private GitHub [repo](
 https://github.com/andrewt0301/hse-acos-course-private/tree/main/ejudge/configs).
 (you need to be added as a collaborator).
@@ -34,6 +36,8 @@ Replace all dates with relevant ones.
 
 Push the file to GitHub (it is suggested to submit the changes as a Pull Request).
 
+## Upload configuration to server
+
 Connect to Ejudge server via SSH:
 ```bash
 ssh login@ipaddress -p22
@@ -46,4 +50,15 @@ su ejudge
 git pull origin
 ```
 
-Go to the admin page of Ejudge (`http://ipaddress/cgi-bin/serve-control`) and select "Master" for your contest. Click button "Reload config files" or "Reload config files for ALL contests". 
+Go to the admin page of Ejudge (`http://ipaddress/cgi-bin/serve-control`) and select "Master" for your contest. Click button "Reload config files" or "Reload config files for ALL contests".
+
+## Restart Ejudge
+
+If Ejudge hangs or crashes, it can be restarted with the following command (connect via SSH):
+
+```bash
+su ejudge
+cd /home/ejudge/ejudge
+./ejudge-control stop
+./ejudge-control start
+```
