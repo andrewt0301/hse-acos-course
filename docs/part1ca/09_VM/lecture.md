@@ -16,7 +16,18 @@ Slides ([PDF](CA_Lecture_09.pdf), [PPTX](CA_Lecture_09.pptx)).
 
 #### Examples
 
-Address sizes for various real CPUs.
+Address sizes for various real Intel CPUs.
+
+```
+Architecture:             x86_64
+  CPU op-mode(s):         32-bit, 64-bit
+  Address sizes:          46 bits physical, 48 bits virtual
+  Byte Order:             Little Endian
+CPU(s):                   24
+  On-line CPU(s) list:    0-23
+Vendor ID:                GenuineIntel
+  Model name:             13th Gen Intel(R) Core(TM) i7-13700
+```
 
 ```
 Architecture:             x86_64
@@ -28,6 +39,10 @@ CPU(s):                   8
 Vendor ID:                GenuineIntel
   Model name:             Intel(R) Core(TM) i7-8665U CPU @ 1.90GHz
 ```
+
+Modern CPUs are limited to 48-bit virtual address because it is more
+than enough for modern data volumes (2 ** 48 = 256 TB). Using 48 bits
+rather than 64 simplifies hardware (smaller cache tags and TLBs) and page tables.  
 
 ## Workshop
 
