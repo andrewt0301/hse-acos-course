@@ -16,7 +16,18 @@ Slides ([PDF](CA_Lecture_09.pdf), [PPTX](CA_Lecture_09.pptx)).
 
 #### Examples
 
-Address sizes for various real Intel CPUs.
+Address sizes for various real CPUs.
+
+```
+Architecture:             x86_64
+CPU op-mode(s):           32-bit, 64-bit
+Address sizes:            48 bits physical, 48 bits virtual
+Byte Order:               Little Endian
+CPU(s):                   24
+On-line CPU(s) list:      0-23
+Vendor ID:                AuthenticAMD
+Model name:               AMD Ryzen AI 9 HX 370 w/ Radeon 890M
+```
 
 ```
 Architecture:             x86_64
