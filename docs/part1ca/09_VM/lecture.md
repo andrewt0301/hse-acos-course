@@ -14,6 +14,21 @@ Slides ([PDF](CA_Lecture_09.pdf), [PPTX](CA_Lecture_09.pptx)).
 * Address translation and page table
 * Translation lookaside buffer (TLB)
 
+#### Examples
+
+Address sizes for various real CPUs.
+
+```
+Architecture:             x86_64
+  CPU op-mode(s):         32-bit, 64-bit
+  Address sizes:          39 bits physical, 48 bits virtual
+  Byte Order:             Little Endian
+CPU(s):                   8
+  On-line CPU(s) list:    0-7
+Vendor ID:                GenuineIntel
+  Model name:             Intel(R) Core(TM) i7-8665U CPU @ 1.90GHz
+```
+
 ## Workshop
 
 
