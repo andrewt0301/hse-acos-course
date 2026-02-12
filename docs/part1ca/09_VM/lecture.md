@@ -72,10 +72,58 @@ What address types are used for caching?
 
 ## Workshop
 
+#### Outline
+
+* Memory configuration (check in different machines)
+* Memory layout (RISC-V)
+* System calls (pactical tasks)
+
+##### RISC-V Memory Layout in RARS
+
+![Memory Layout](memory.png)
+
+##### System calls in RARS
+
+![System call](syscall.png)
+
+_System calls_ are actions requested by user code and serviced by the environment (operating system).
+The environment executes the service code in kernel mode (has full access to all resources).
+This code handles interaction with a specific device and its driver and returns control back to the user.
+
+###### Standard (provided in all OS) system calls supported by RARS: 
+
+1. __open__ (1024): opens a file with the specified path\
+   _Input_: `a0` = Null terminated string for the path, `a1` = flags\
+   _Output_: `a0` = the file descriptor or -1 if an error occurred\
+   _Supported flags_: _read-only_ (0), _write-only_ (1), and _write-append_ (9).
+   The _write-only_ flag creates a file if it does not exist, so it is technically _write-create_.
+   The _write-append_ flag will start writing at end of an existing file.
+
+1. __close__ (57): closes a file\
+   _Input_: `a0` = the file descriptor to close\
+   _Output_: N/A
+
+1. __read__ (63): reads from a file descriptor into a buffer\
+   _Input_: `a0` = the file descriptor, `a1` = address of the buffer, `a2` = maximum length to read.\
+   _Output_: `a0` = the length read or -1 if error.
+
+1. __write__ (64): writes to a file from a buffer\
+   _Input_: `a0` = the file descriptor, `a1` = the buffer address, `a2` = the length to write.\
+   _Output_: `a0` = the number of characters written.
+
+1. __sbrk__ (9): allocates heap memory\
+   _Input_: `a0` = amount of memory in bytes\
+   _Output_: `a0` = address to the allocated block
+
+##### Examples
+
+* [file_write.s](file_write.s) - writing text to a file
+* [file_read.s](file_read.s) - reading text from a file
+* [heap_alloc.s](heap_alloc.s) - allocating memory in the heap
 
 #### Tasks
 
-1. Consider a virtual memory system that can address a total of 32 GB (`2**35` bytes).
+1. (_VM_) Consider a virtual memory system that can address a total of 32 GB (`2**35` bytes).
    You have unlimited hard drive space, but are limited to 2 GB (`2**31` bytes) of semiconductor  (physical) memory. Assume that virtual and physical pages are each 4 KB (`2**12` bytes) in size.
    * How many bits is the physical address?
    * What is the maximum number of virtual pages in the system?
@@ -83,8 +131,11 @@ What address types are used for caching?
    * How many bits are the virtual and physical page numbers?
    * How many page table entries will the page table contain?
 
-__TODO__
-
+2. (_Syscalls_) Write a program that creates a copy of the specified file. Input arguments:
+   * The name of the source and target files are read from the standard input (use system call 8).
+   * The buffer to store data being copied is allocated in the heap (use system call 9).
+     The buffer size is specified in standard input.
+   * Buffers for storing source and target names are also allocated in the heap (their size is 256 bytes).
 
 ## Homework
 
