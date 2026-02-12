@@ -108,17 +108,13 @@ __Ripes__
 
 ## Homework
 
-Finish the tasks and send them to the TA.
-
-_Hint_: You can use the [Ripes](https://github.com/mortbopet/Ripes) graphical simulator to check your answers.
-It visualizes execution of instructions in a pipeline using different options and can show
-how assembly code containing hazards will be processed.
+TODO
 
 ## References
 
-* The Processor. Chapter 4 in [[CODR]](../../books.md).
-* Pipelining: Basic and Intermediate Concepts. Appendix C in [[CAQA]](../../books.md).
-* Instruction-Level Parallelism and Its Exploitation. Chapter 3 in [[CAQA]](../../books.md).
+* The Processor. Chapter 4 in [[CODR]](../../books.md#codr).
+* Pipelining: Basic and Intermediate Concepts. Appendix C in [[CAQA]](../../books.md#caqa).
+* Instruction-Level Parallelism and Its Exploitation. Chapter 3 in [[CAQA]](../../books.md#caqa).
 * [Instruction pipelining](https://en.wikipedia.org/wiki/Instruction_pipelining) (Wikipedia).
 * [Hazard](https://en.wikipedia.org/wiki/Hazard_%28computer_architecture%29) (Wikipedia).   
 * [Superscalar processor](https://en.wikipedia.org/wiki/Superscalar_processor) (Wikipedia).
