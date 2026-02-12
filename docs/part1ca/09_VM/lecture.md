@@ -100,3 +100,4 @@ TODO
 * Ulrich Drepper. [What Every Programmer Should Know About Memory](
   https://github.com/andrewt0301/hse-acos-course/blob/master/related/cpumemory.pdf).
 * [Translation lookaside buffer](https://en.wikipedia.org/wiki/Translation_lookaside_buffer) (Wikipedia).
+* [Intel 5-level paging](https://en.wikipedia.org/wiki/Intel_5-level_paging) (Wikipedia).
