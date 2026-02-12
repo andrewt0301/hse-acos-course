@@ -75,9 +75,8 @@ What address types are used for caching?
 
 #### Tasks
 
-1. Consider a virtual memory system that can address a total of 2<sup>50</sup> bytes.
-   You have unlimited hard drive space, but are limited to 2 GB of semiconductor (physical) memory.
-   Assume that virtual and physical pages are each 4 KB in size.
+1. Consider a virtual memory system that can address a total of 32 GB (2**35 bytes).
+   You have unlimited hard drive space, but are limited to 2 GB (2**31 bytes) of semiconductor  (physical) memory. Assume that virtual and physical pages are each 4 KB in size.
    * How many bits is the physical address?
    * What is the maximum number of virtual pages in the system?
    * How many physical pages are in the system?
