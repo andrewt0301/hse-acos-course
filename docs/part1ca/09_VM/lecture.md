@@ -28,7 +28,6 @@ On-line CPU(s) list:      0-23
 Vendor ID:                AuthenticAMD
 Model name:               AMD Ryzen AI 9 HX 370 w/ Radeon 890M
 ```
-
 ```
 Architecture:             x86_64
   CPU op-mode(s):         32-bit, 64-bit
@@ -39,7 +38,16 @@ CPU(s):                   24
 Vendor ID:                GenuineIntel
   Model name:             13th Gen Intel(R) Core(TM) i7-13700
 ```
-
+```
+Architecture:             x86_64
+  CPU op-mode(s):         32-bit, 64-bit
+  Address sizes:          39 bits physical, 48 bits virtual
+  Byte Order:             Little Endian
+CPU(s):                   16
+  On-line CPU(s) list:    0-15
+Vendor ID:                GenuineIntel
+  Model name:             12th Gen Intel(R) Core(TM) i7-1260P
+```
 ```
 Architecture:             x86_64
   CPU op-mode(s):         32-bit, 64-bit
