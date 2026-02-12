@@ -16,7 +16,7 @@ Slides ([PDF](CA_Lecture_09.pdf), [PPTX](CA_Lecture_09.pptx)).
 
 #### Examples
 
-Address sizes for various real CPUs.
+__Address sizes for various real CPUs:__
 
 ```
 Architecture:             x86_64
@@ -63,12 +63,29 @@ Modern CPUs are limited to 48-bit virtual addresses because this is more
 than enough for modern data volumes (2 ** 48 = 256 TB). Using 48 bits
 rather than 64 simplifies hardware (smaller cache tags and TLBs) and page tables.
 
-What address types are used for caching?
+__What address types are used for caching?__
 
 | _Cache Level_ |	_Addressing Type_	| _Explanation_ |
 | L1 Cache	  | VIPT (Virtually Indexed, Physically Tagged) |	It uses the virtual address for fast indexing while simultaneously performing a TLB lookup to get the physical tag. This allows cache access to start before the address translation is even finished. |
 | L2 Cache	  | PIPT (Physically Indexed, Physically Tagged) | This level is addressed entirely by the physical address. It is more accurate for a larger cache but requires the virtual-to-physical translation to be complete before the search begins. |
 | L3 Cache	  | PIPT (Physically Indexed, Physically Tagged) | Since L3 is shared across all cores (Smart Cache), it must use physical addresses to maintain consistency between different processes and cores. |
+
+__TLB configuration for i7-8665U__:
+
+Each of the 4 cores has its own dedicated Level 1 TLB and shares a Level 2 TLB: 
+
+* L1 Instruction TLB (iTLB):\
+  4 KB Pages: 64 entries (8-way set associative).\
+  2 MB / 4 MB Pages: 8 entries (fully associative).
+
+* L1 Data TLB (dTLB):\
+  4 KB Pages: 64 entries (4-way set associative).\
+  2 MB / 4 MB Pages: 32 entries (4-way set associative).\
+  1 GB Pages: 4 entries (4-way set associative).
+
+* L2 Shared TLB (STLB):\
+  Large Unified Buffer: 1,536 entries (12-way set associative).\
+  This buffer is shared between instructions and data to catch L1 misses. It typically supports 4 KB and 2 MB page sizes.
 
 ## Workshop
 
@@ -78,7 +95,7 @@ What address types are used for caching?
 * Memory layout (RISC-V)
 * System calls (pactical tasks)
 
-##### RISC-V Memory Layout in RARS
+##### Memory layout in RARS
 
 ![Memory Layout](memory.png)
 
