@@ -153,8 +153,8 @@ Output:
 
 ## References
 
-* Virtual Memory. Section 8.4 in [[DDCA]](../../books.md).
-* Large and Fast: Exploiting Memory Hierarchy. Chapter 5 in [[CODR]](../../books.md). 
+* Virtual Memory. Section 8.4 in [[DDCA]](../../books.md#ddca).
+* Large and Fast: Exploiting Memory Hierarchy. Chapter 5 in [[CODR]](../../books.md#codr). 
 * Ulrich Drepper. [What Every Programmer Should Know About Memory](
   https://github.com/andrewt0301/hse-acos-course/blob/master/related/cpumemory.pdf).
 * [Translation lookaside buffer](https://en.wikipedia.org/wiki/Translation_lookaside_buffer) (Wikipedia).
