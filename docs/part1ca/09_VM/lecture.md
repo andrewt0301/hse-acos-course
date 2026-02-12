@@ -65,10 +65,10 @@ rather than 64 simplifies hardware (smaller cache tags and TLBs) and page tables
 
 What address types are used for caching?
 
-| Cache Level |	Addressing Type	| Explanation |
+| _Cache Level_ |	_Addressing Type_	| _Explanation_ |
 | L1 Cache	  | VIPT (Virtually Indexed, Physically Tagged) |	It uses the virtual address for fast indexing while simultaneously performing a TLB lookup to get the physical tag. This allows cache access to start before the address translation is even finished. |
 | L2 Cache	  | PIPT (Physically Indexed, Physically Tagged) | This level is addressed entirely by the physical address. It is more accurate for a larger cache but requires the virtual-to-physical translation to be complete before the search begins. |
-| L3 Cache	PIPT (Physically Indexed, Physically Tagged) | Since L3 is shared across all cores (Smart Cache), it must use physical addresses to maintain consistency between different processes and cores. |
+| L3 Cache	  | PIPT (Physically Indexed, Physically Tagged) | Since L3 is shared across all cores (Smart Cache), it must use physical addresses to maintain consistency between different processes and cores. |
 
 ## Workshop
 
