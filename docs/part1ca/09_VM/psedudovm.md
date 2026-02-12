@@ -2,6 +2,9 @@ Programming task "PseudoVM"
 ---
 _NOTE: Need to cover exceptions to be able to solve this tasks._
 
+See example [PseudoVM.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/09_VM/PseudoVM.s).
+
+
 Write an exception handler that imitates "virtual memory" for "forbidden" addresses.
 A "forbidden" address is any address that causes exceptions
 `LOAD_ACCESS_FAULT` and `STORE_ACCESS_FAULT` when we try to access it (read or write).

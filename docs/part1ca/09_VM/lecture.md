@@ -85,9 +85,6 @@ What address types are used for caching?
 
 __TODO__
 
-#### Examples:
-
-* [PseudoVM.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/09_VM/PseudoVM.s)
 
 ## Homework
 
