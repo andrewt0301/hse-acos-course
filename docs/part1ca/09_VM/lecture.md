@@ -69,6 +69,13 @@ __Multilevel page tables (Intel)__
 
 ![5 level paging](intel-5-level-paging.png)
 
+How to known which option is enabled?
+```bash
+cat /boot/config-$(uname -r) | grep -E "X86_[45]LEVEL|PGTABLE_LEVELS"
+CONFIG_PGTABLE_LEVELS=5
+CONFIG_X86_5LEVEL=y
+```
+
 __What address types are used for caching?__
 
 | _Cache Level_ |	_Addressing Type_	| _Explanation_ |
