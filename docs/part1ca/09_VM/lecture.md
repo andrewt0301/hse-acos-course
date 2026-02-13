@@ -63,13 +63,15 @@ Modern CPUs are limited to 48-bit virtual addresses because this is more
 than enough for modern data volumes (2 ** 48 = 256 TB). Using 48 bits
 rather than 64 simplifies hardware (smaller cache tags and TLBs) and page tables.
 
-__Multilevel page tables (Intel)__
+__Multi-level page tables (Intel)__
 
-![4 level paging](intel-4-level-paging.png)
+4-level paging:
+![4-level paging](intel-4-level-paging.png)
 
-![5 level paging](intel-5-level-paging.png)
+5-level paging:
+![5-level paging](intel-5-level-paging.png)
 
-How to known which option is enabled?
+How to known which paging option is enabled?
 ```bash
 cat /boot/config-$(uname -r) | grep -E "X86_[45]LEVEL|PGTABLE_LEVELS"
 CONFIG_PGTABLE_LEVELS=5
@@ -184,3 +186,4 @@ TODO
 * Intel. [Intel® 64 and IA-32 Architectures Software Developer’s Manual Volume 3: System Programming Guide](intel-system-manual.pdf). Chapter 4. Paging. 2022.  
 * Intel. [Intel® 64 and IA-32 Architectures Software Developer’s Manual](intel-isa-manual.pdf).
   2024.
+* Lenovo. [Introduction to 5-Level Paging in 3rd Gen Intel Xeon Scalable Processors with Linux](  lenovo-paging.pdf). 2021.
