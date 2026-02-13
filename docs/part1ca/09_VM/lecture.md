@@ -59,8 +59,8 @@ Vendor ID:                GenuineIntel
   Model name:             Intel(R) Core(TM) i7-8665U CPU @ 1.90GHz
 ```
 
-Modern CPUs are limited to 48-bit virtual addresses because this is more
-than enough for modern data volumes (2 ** 48 = 256 TB). Using 48 bits
+Modern CPUs are typically limited to 48-bit virtual addresses because this is more
+than enough for modern data volumes (`2**48` = 256 TB). Using 48 bits
 rather than 64 simplifies hardware (smaller cache tags and TLBs) and page tables.
 
 __Multi-level page tables (Intel)__
