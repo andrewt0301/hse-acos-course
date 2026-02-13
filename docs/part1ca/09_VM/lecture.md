@@ -166,3 +166,8 @@ TODO
   https://github.com/andrewt0301/hse-acos-course/blob/master/related/cpumemory.pdf).
 * [Translation lookaside buffer](https://en.wikipedia.org/wiki/Translation_lookaside_buffer) (Wikipedia).
 * [Intel 5-level paging](https://en.wikipedia.org/wiki/Intel_5-level_paging) (Wikipedia).
+* Intel. [5-Level Paging and 5-Level EPT](intel-5-level-paging-white-paper.pdf)
+  White Paper. Revision 1.1. 2017.
+* Intel. [Intel® 64 and IA-32 Architectures Software Developer’s Manual Volume 3: System Programming Guide](intel-system-manual.pdf). Chapter 4. Paging. 2022.  
+* Intel. [Intel® 64 and IA-32 Architectures Software Developer’s Manual](intel-isa-manual.pdf).
+  2024.
