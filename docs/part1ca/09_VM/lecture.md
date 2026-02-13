@@ -71,12 +71,37 @@ __Multi-level page tables (Intel)__
 5-level paging:
 ![5-level paging](intel-5-level-paging.png)
 
-How to known which paging option is enabled?
+How to known which paging option is enabled in Linux kernel?
 ```bash
 cat /boot/config-$(uname -r) | grep -E "X86_[45]LEVEL|PGTABLE_LEVELS"
 CONFIG_PGTABLE_LEVELS=5
 CONFIG_X86_5LEVEL=y
 ```
+
+Testing paging options with `mmap` (use file [va_128TBswitch.c](va_128TBswitch.c)):
+```bash
+gcc -o va_128 va_128TBswitch.c
+./va_128 
+mmap(ADDR_SWITCH_HINT - PAGE_SIZE, PAGE_SIZE): 0x7d1622b74000 - OK
+mmap(ADDR_SWITCH_HINT - PAGE_SIZE, (2 * PAGE_SIZE)): 0x7d1622b73000 - OK
+mmap(ADDR_SWITCH_HINT, PAGE_SIZE): 0x7d1622b74000 - OK
+mmap(ADDR_SWITCH_HINT, 2 * PAGE_SIZE, MAP_FIXED): 0xffffffffffffffff - FAILED
+mmap(NULL): 0x7d1622b72000 - OK
+mmap(LOW_ADDR): 0x40000000 - OK
+mmap(HIGH_ADDR): 0x7d1622b72000 - OK
+mmap(HIGH_ADDR) again: 0x7d1622b70000 - OK
+mmap(HIGH_ADDR, MAP_FIXED): 0xffffffffffffffff - FAILED
+mmap(-1): 0x7d1622b6e000 - OK
+mmap(-1) again: 0x7d1622b6c000 - OK
+mmap(ADDR_SWITCH_HINT - PAGE_SIZE, PAGE_SIZE): 0x7d1622b6d000 - OK
+mmap(ADDR_SWITCH_HINT - PAGE_SIZE, 2 * PAGE_SIZE): 0x7d1622b6c000 - OK
+mmap(ADDR_SWITCH_HINT - PAGE_SIZE/2 , 2 * PAGE_SIZE): 0x7d1622b6a000 - OK
+mmap(ADDR_SWITCH_HINT, PAGE_SIZE): 0x7d1622b69000 - OK
+mmap(ADDR_SWITCH_HINT, 2 * PAGE_SIZE, MAP_FIXED): 0xffffffffffffffff - FAILED
+```
+
+OK at the end of each line indicates that all tests are successful and that 5-level paging is working correctly. If the `mmap` request with `MAP_FIXED` flags fails with `MAP_FAILED`
+(`0xffffffffffffffff`), 4-level paging is used.
 
 __What address types are used for caching?__
 
