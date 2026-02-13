@@ -66,9 +66,11 @@ rather than 64 simplifies hardware (smaller cache tags and TLBs) and page tables
 __Multi-level page tables (Intel)__
 
 4-level paging:
+
 ![4-level paging](intel-4-level-paging.png)
 
 5-level paging:
+
 ![5-level paging](intel-5-level-paging.png)
 
 How to known which paging option is enabled in Linux kernel?
