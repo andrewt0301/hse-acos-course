@@ -34,7 +34,8 @@ If the final grade $$G$$ is unsatisfactory, the exam can be [retaken](#retake-po
 
 #### Automatic Grades
 
-Students, who have __attended > 75%__ of classes in both modules, can get an automatic grade. The formula is the following:
+Students, who have __attended > 75%__ of classes in each of the two modules,
+can get an automatic grade. The formula is the following:
 
 $$G = \frac{M_3 + M_4}{2} - 1$$
 
