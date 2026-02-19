@@ -23,7 +23,7 @@ Getting CPU information with Linux system utilities:
 * [lscpu](https://man7.org/linux/man-pages/man1/lscpu.1.html) - getting CPU information
 * [sysctl](https://man7.org/linux/man-pages/man8/sysctl.8.html) - getting kernel parameters (Mas OS: `sysctl -a machdep.cpu hw`)
 
-Core i7-3615QM (MacBook Pro 2012):
+Core i7-3615QM, 4 cores (MacBook Pro 2012):
 ```
 machdep.cpu.max_basic: 13
 machdep.cpu.max_ext: 2147483656
@@ -97,7 +97,7 @@ hw.targettype: Mac
 hw.cputhreadtype: 1
 ```
 
-Core i7-8665U (Linux Ubuntu 24):
+Core i7-8665U, 4 cores (Lenovo ThinkPad):
 ```
 Architecture:             x86_64
   CPU op-mode(s):         32-bit, 64-bit
@@ -130,12 +130,42 @@ Caches (sum of all):
   L1i:                    128 KiB (4 instances)
   L2:                     1 MiB (4 instances)
   L3:                     8 MiB (1 instance)
-NUMA:                     
-  NUMA node(s):           1
-  NUMA node0 CPU(s):      0-7
 ```
 
-Core i7-13700 (Linux Ubuntu running in Windows 10 WSL):
+Core i7-1260P, 8 cores (Huawei MateBook):
+```
+Architecture:             x86_64
+  CPU op-mode(s):         32-bit, 64-bit
+  Address sizes:          39 bits physical, 48 bits virtual
+  Byte Order:             Little Endian
+CPU(s):                   16
+  On-line CPU(s) list:    0-15
+Vendor ID:                GenuineIntel
+  Model name:             12th Gen Intel(R) Core(TM) i7-1260P
+    CPU family:           6
+    Model:                154
+    Thread(s) per core:   2
+    Core(s) per socket:   8
+    Socket(s):            1
+    Stepping:             3
+    BogoMIPS:             4992.00
+    Flags:                fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse s
+                          se2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonst
+                          op_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 movbe popcnt aes xsave avx f16c r
+                          drand hypervisor lahf_lm abm 3dnowprefetch invpcid_single ssbd ibrs ibpb stibp ibrs_enhanced f
+                          sgsbase bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsave
+                          c xgetbv1 xsaves umip gfni vaes vpclmulqdq rdpid fsrm md_clear flush_l1d arch_capabilities
+Virtualization features:
+  Hypervisor vendor:      Microsoft
+  Virtualization type:    full
+Caches (sum of all):
+  L1d:                    384 KiB (8 instances)
+  L1i:                    256 KiB (8 instances)
+  L2:                     10 MiB (8 instances)
+  L3:                     18 MiB (1 instance)
+```
+
+Core i7-13700, 12 cores (Lenovo ThinkCenter):
 ```
 Architecture:             x86_64
   CPU op-mode(s):         32-bit, 64-bit
@@ -194,8 +224,8 @@ __TODO__
 
 ## References
 
-* Multicore and Other Shared Memory Multiprocessors. Section 6.5 in [[CODR]](../../books.md).
-* Thread-Level Parallelism. Chapter 6 in [[CAQA]](../../books.md) (Advanced, full details).
+* Multicore and Other Shared Memory Multiprocessors. Section 6.5 in [[CODR]](../../books.md#codr).
+* Thread-Level Parallelism. Chapter 6 in [[CAQA]](../../books.md#caqa) (Advanced, full details).
 * [How to check how many CPUs are there in Linux system](https://www.geeksforgeeks.org/how-to-check-how-many-cpus-are-there-in-linux-system/) (www.geeksforgeeks.org).
 * [List of Intel Core processors](https://en.wikipedia.org/wiki/List_of_Intel_Core_processors) (Wikipedia).
 * [Memory barrier](https://en.wikipedia.org/wiki/Memory_barrier) (Wikipedia).
