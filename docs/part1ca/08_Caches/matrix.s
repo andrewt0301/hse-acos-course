@@ -1,3 +1,7 @@
+#
+# This program generates random matrices and multiplies them.
+#
+
 .macro print_char(%x)
     li   a7, 11
     li   a0, %x
