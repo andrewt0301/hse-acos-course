@@ -309,34 +309,33 @@ a corresponding bit must be set in `uie`. See the examples to learn how this wor
    The program prints the exception cause.
 
    Pseudocode for the task looks like this:
-
-```с++
-int testFunc(int arg) {
-  try {
-    if (arg == 1) {
-      // divide by zero (or some other)
+   ```с++
+   int testFunc(int arg) {
+     try {
+       if (arg == 1) {
+         // divide by zero (or some other)
+       }
+       else if (arg == 2) {
+         // read unaligned address (or some other)
+       }
+       // else if (arg == N) {
+       //  // raise some other exception
+       // }
+    } catch(const KnownException& e) {
+       return e.cause();
     }
-    else if (arg == 2) {
-      // read unaligned address (or some other)
-    }
-    // else if (arg == N) {
-    //  // raise some other exception
-    // }
-  } catch(const KnownException& e) {
-    return e.cause();
+    return 0;
   }
-  return 0;
-}
 
-int main() {
-  int a = readInt();
-  int b = testFunc(a);
-  printInt(a);
-  return 0;
-}
-```
+  int main() {
+    int a = readInt();
+    int b = testFunc(a);
+    printInt(a);
+    return 0;
+  }
+  ```
 
-4. See example [timer.s](timer.s). Write a program that waits for timer interrupts and counts them.
+1. See example [timer.s](timer.s). Write a program that waits for timer interrupts and counts them.
    Input data: `m` is the limit on number of interrupts to process,
    `t` is the interval between interrupts in milliseconds.
    The program exits when the number of handler interrupts reaches the limit.
@@ -363,10 +362,8 @@ Study the theory and the examples and finish the tasks.
    The program must use timer to switch between the threads.
 
    Hint: Each thread stores in memory (`.data` section) its PC and values of register it uses.
-   When a timer interrupt occurs, the handler saves current register values, loads the new register values,
-   and return control to the PC of the next thread. 
+   When a timer interrupt occurs, the handler saves current register values, loads the new register values, and return control to the PC of the next thread. 
 
-Commit the programs to your private GitHub account. Place them into the folder `ca/lab10`.
 
 ## References
 
