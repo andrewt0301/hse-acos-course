@@ -308,6 +308,31 @@ a corresponding bit must be set in `uie`. See the examples to learn how this wor
    The function must return exception cause or 0 if no exception has occurred.
    The program prints the exception cause.
 
+   Pseudocode for the task looks like this:
+   ```
+   int testFunc(int arg) {
+     try {
+       if (arg == 1) {
+         // divide by zero (or some other)
+       } else if (arg == 2) {
+         // read unaligned address (or some other)
+       } else if (arg == ...) {
+         // raise some other exception
+       }
+     } catch(const KnownException& e) {
+       return e.cause();
+     }
+     return 0;
+  }
+
+  int main() {
+    int a = readInt();
+    int b + testFunc(a);
+    printInt(a);
+    return 0;
+  }
+  ```
+
 ## Homework
 
 Study the theory and the examples and finish the tasks.
