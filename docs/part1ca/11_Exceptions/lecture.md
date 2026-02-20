@@ -299,15 +299,18 @@ a corresponding bit must be set in `uie`. See the examples to learn how this wor
 1. Study the theory and examples on the current workshop.
 
 1. Implement an exception handler that prints a message that explains the reason of an exception
-  (the list of exceptions with descriptions is above).
+   (the list of exceptions with descriptions is above).
 
 1. Image how the _try_-_catch_ construct is implemented in high-level languages.
-  Then write a program that implements a simple function with an exception handler.
-  The function takes an argument that specifies what exception it will raise
-  (`0` - no exception, `1` - some exception from list above, `2` - some other exception from the list). 
-  The function must return exception cause or 0 if no exception has occurred.
-  The program prints the exception cause. Pseudocode for the task looks like this:
-  ```с++
+   Then write a program that implements a simple function with an exception handler.
+   The function takes an argument that specifies what exception it will raise
+   (`0` - no exception, `1` - some exception from list above, `2` - some other exception from the list). 
+   The function must return exception cause or 0 if no exception has occurred.
+   The program prints the exception cause.
+  
+   Pseudocode for the task looks like this:
+ 
+ ```с++
   int testFunc(int arg) {
     try {
       if (arg == 1) {
@@ -334,34 +337,23 @@ a corresponding bit must be set in `uie`. See the examples to learn how this wor
  ```
 
 1. See example [timer.s](timer.s). Write a program that waits for timer interrupts and counts them.
-  Input data: `m` is the limit on number of interrupts to process,
-  `t` is the interval between interrupts in milliseconds.
-  The program exits when the number of handler interrupts reaches the limit.
+   Input data: `m` is the limit on number of interrupts to process,
+   `t` is the interval between interrupts in milliseconds.
+   The program exits when the number of handler interrupts reaches the limit.
 
-  _Hint_: Use the "Tools | Timer Tool" RARS extension. See its help. The MMIO address
-  to get the current time `0xFFFF0018`; the MMIO address the set the time for the next
-  interrupt is `0xFFFF0020`. To set up the cycle of processing interrupts, the following must be done:
+   _Hint_: Use the `Tools | Timer Tool` RARS extension. See its help. The MMIO address
+   to get the current time `0xFFFF0018`; the MMIO address the set the time for the next
+   interrupt is `0xFFFF0020`. To set up the cycle of processing interrupts, the following must be done:
 
-  * The address of your interrupt handler must be stored in the `utvec` CSR.
-  * The fourth bit of the `uie` CSR must be set to `1` (i.e. `ori uie, uie, 0x10`).
-  * The zeroth bit of the `ustatus` CSR must be set to `1` (i.e. `ori ustatus, ustatus, 0x1`).
-  * The time for the next interrupt must be written to `0xFFFF0020`.
-  * When an interrupt is handled the time for the next interrupt must be updated.
+   * The address of your interrupt handler must be stored in the `utvec` CSR.
+   * The fourth bit of the `uie` CSR must be set to `1` (i.e. `ori uie, uie, 0x10`).
+   * The zeroth bit of the `ustatus` CSR must be set to `1` (i.e. `ori ustatus, ustatus, 0x1`).
+   * The time for the next interrupt must be written to `0xFFFF0020`.
+   * When an interrupt is handled the time for the next interrupt must be updated.
 
 ## Homework
 
-Study the theory and the examples and finish the tasks.
-
-1. __Bonus task (2 bonus points)__:
-
-   How would you simulate multitasking using interrupts and timer?
-   Write a program that contains two for-loops running in a semi-parallel mode.
-   The first prints messages `Thread1: 0`..`Thread1: N` and the second prints messages `Thread2: 0`..`Thread2: N`.
-   The program must use timer to switch between the threads.
-
-   Hint: Each thread stores in memory (`.data` section) its PC and values of register it uses.
-   When a timer interrupt occurs, the handler saves current register values, loads the new register values, and return control to the PC of the next thread. 
-
+TODO
 
 ## References
 
