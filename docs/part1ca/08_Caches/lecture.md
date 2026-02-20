@@ -187,6 +187,41 @@ loop:
 1. Write a program that utilizes memory sparsely, so that its footprint is 100% misses 2-way associative cache.
    However, it fits (almost) into a 4-way associative cache with 16 blocks.
 
+## Homework
+
+Solve the following tasks and submit them into Ejudge:
+
+1. Write a function with label `multiply_matrices:`, which multiplies two matrices of double values
+   (i.e. performs the following computation: `C = A * B`).
+   The function must accepts the following parameters:
+   * `a0` - matrix size (elements in rows and columns);
+   * `a1` - A matrix address (input);
+   * `a2` - B matrix address (input);
+   * `a3` - C matrix address (output).
+   The function will be merged with test program [matrix.s](matrix.s) (generates random
+   matrises of the given size, multiplies them, and prints the result).
+
+   Input (matrix size):
+   ```
+   4
+   ```
+   Output (matrices `A`, `B`, and `C`):
+   ```
+   -1.0 1.0 1.0 8.0 
+   8.0 -5.0 1.0 7.0 
+   4.0 -6.0 2.0 -3.0 
+   -5.0 -5.0 5.0 9.0 
+
+   -2.0 -4.0 -7.0 -3.0 
+   5.0 8.0 -6.0 -4.0 
+   5.0 -8.0 7.0 -4.0 
+  -4.0 4.0 1.0 7.0 
+
+  -20.0 36.0 16.0 51.0 
+  -64.0 -52.0 -12.0 41.0 
+  -16.0 -92.0 19.0 -17.0 
+  -26.0 -24.0 109.0 78.0
+  ```
 
 ## References
 

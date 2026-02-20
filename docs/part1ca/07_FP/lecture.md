@@ -190,12 +190,12 @@ Visualization of floating-point format in RARS (menu `Tools | Floating Point Rep
    Spoiler: suppose solution is between M and N (M < N).
    Select $$K=(M+N)/2$$ and if $$|K^3|>|A|$$ then solution is between M and K, else it is between K and N.
 
-1. __Bonus task (2 bonus points)__. Write program `leibpi.s` that does the following: 
+1. __Bonus task (+ 4 bonus points)__. Write program `leibpi.s` that does the following: 
 
-   Calculate π value using [Leibniz formula for π](https://en.wikipedia.org/wiki/Leibniz_formula_for_π)
-   accurate to N decimal places. Input N, output the result.
+   Calculate `π` value using [Leibniz formula for π](https://en.wikipedia.org/wiki/Leibniz_formula_for_π)
+   accurate to `N` decimal places. Input `N`, output the result.
    Use function defined in [FractionTruncate](#fractiontruncate) to truncate out other digits.
-   Keep in mind that the exact formula is calculating π/4, you probably should start with 4 instead 1
+   Keep in mind that the exact formula is calculating `π/4`, you probably should start with 4 instead 1
    to gain exact accuracy. Warning: the algorithm is _slow_, do not panic, but keep code as simple as possible.
 
    Input:
