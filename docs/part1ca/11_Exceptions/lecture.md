@@ -306,9 +306,7 @@ a corresponding bit must be set in `uie`. See the examples to learn how this wor
   The function takes an argument that specifies what exception it will raise
   (`0` - no exception, `1` - some exception from list above, `2` - some other exception from the list). 
   The function must return exception cause or 0 if no exception has occurred.
-  The program prints the exception cause.
-
-  Pseudocode for the task looks like this:
+  The program prints the exception cause. Pseudocode for the task looks like this:
   ```с++
   int testFunc(int arg) {
     try {
