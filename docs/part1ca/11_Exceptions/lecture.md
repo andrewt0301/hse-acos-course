@@ -356,7 +356,7 @@ a corresponding bit must be set in `uie`. See the examples to learn how this wor
 Solve the following tasks and submit then into Ejudge:
 
 1. [NoError](../Tasks/homeworks.md#noerror)
-2. TODO
+2. NewEcall (TODO)
 
 ## References
 
