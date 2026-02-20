@@ -299,56 +299,56 @@ a corresponding bit must be set in `uie`. See the examples to learn how this wor
 1. Study the theory and examples on the current workshop.
 
 1. Implement an exception handler that prints a message that explains the reason of an exception
-   (the list of exceptions with descriptions is above).
+  (the list of exceptions with descriptions is above).
 
 1. Image how the _try_-_catch_ construct is implemented in high-level languages.
-   Then write a program that implements a simple function with an exception handler.
-   The function takes an argument that specifies what exception it will raise
-   (`0` - no exception, `1` - some exception from list above, `2` - some other exception from the list). 
-   The function must return exception cause or 0 if no exception has occurred.
-   The program prints the exception cause.
+  Then write a program that implements a simple function with an exception handler.
+  The function takes an argument that specifies what exception it will raise
+  (`0` - no exception, `1` - some exception from list above, `2` - some other exception from the list). 
+  The function must return exception cause or 0 if no exception has occurred.
+  The program prints the exception cause.
 
-   Pseudocode for the task looks like this:
-   ```с++
-   int testFunc(int arg) {
-     try {
-       if (arg == 1) {
-         // divide by zero (or some other)
-       }
-       else if (arg == 2) {
-         // read unaligned address (or some other)
-       }
-       // else if (arg == N) {
-       //  // raise some other exception
-       // }
-    } catch(const KnownException& e) {
-       return e.cause();
-    }
-    return 0;
+  Pseudocode for the task looks like this:
+  ```с++
+  int testFunc(int arg) {
+    try {
+      if (arg == 1) {
+        // divide by zero (or some other)
+      }
+      else if (arg == 2) {
+        // read unaligned address (or some other)
+      }
+      // else if (arg == N) {
+      //  // raise some other exception
+      // }
+   } catch(const KnownException& e) {
+      return e.cause();
+   }
+   return 0;
   }
 
-  int main() {
-    int a = readInt();
-    int b = testFunc(a);
-    printInt(a);
-    return 0;
-  }
-  ```
+ int main() {
+   int a = readInt();
+   int b = testFunc(a);
+   printInt(a);
+   return 0;
+ }
+ ```
 
 1. See example [timer.s](timer.s). Write a program that waits for timer interrupts and counts them.
-   Input data: `m` is the limit on number of interrupts to process,
-   `t` is the interval between interrupts in milliseconds.
-   The program exits when the number of handler interrupts reaches the limit.
+  Input data: `m` is the limit on number of interrupts to process,
+  `t` is the interval between interrupts in milliseconds.
+  The program exits when the number of handler interrupts reaches the limit.
 
-   _Hint_: Use the "Tools | Timer Tool" RARS extension. See its help. The MMIO address
-   to get the current time `0xFFFF0018`; the MMIO address the set the time for the next
-   interrupt is `0xFFFF0020`. To set up the cycle of processing interrupts, the following must be done:
+  _Hint_: Use the "Tools | Timer Tool" RARS extension. See its help. The MMIO address
+  to get the current time `0xFFFF0018`; the MMIO address the set the time for the next
+  interrupt is `0xFFFF0020`. To set up the cycle of processing interrupts, the following must be done:
 
-   * The address of your interrupt handler must be stored in the `utvec` CSR.
-   * The fourth bit of the `uie` CSR must be set to `1` (i.e. `ori uie, uie, 0x10`).
-   * The zeroth bit of the `ustatus` CSR must be set to `1` (i.e. `ori ustatus, ustatus, 0x1`).
-   * The time for the next interrupt must be written to `0xFFFF0020`.
-   * When an interrupt is handled the time for the next interrupt must be updated.
+  * The address of your interrupt handler must be stored in the `utvec` CSR.
+  * The fourth bit of the `uie` CSR must be set to `1` (i.e. `ori uie, uie, 0x10`).
+  * The zeroth bit of the `ustatus` CSR must be set to `1` (i.e. `ori ustatus, ustatus, 0x1`).
+  * The time for the next interrupt must be written to `0xFFFF0020`.
+  * When an interrupt is handled the time for the next interrupt must be updated.
 
 ## Homework
 
