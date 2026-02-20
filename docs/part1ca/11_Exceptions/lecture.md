@@ -356,7 +356,45 @@ a corresponding bit must be set in `uie`. See the examples to learn how this wor
 Solve the following tasks and submit then into Ejudge:
 
 1. [NoError](../Tasks/homeworks.md#noerror)
-2. NewEcall (TODO)
+2. NewEcall. Write an exception handler with label `handler:`, which implements three
+   "new system calls" (`100`, `101`, and `102`) for working with "hidden registers":
+
+   * `100` (a0 = _size_). Called only once. Allocates memory with size of `size` machine words
+     ("hidden registers") and saves the size internally for further use. Returns nothing.
+   * `101` (a0 = _number_).
+      Reads a value of a "hidden register" with index `number` and saves it into `a0`.
+      If `number >= size` (acltually, common case), the index is calculated as `number % size`.
+   * `102` (a0 = _number_, a1 = _value_).
+      Writes the value into "hidden register" with index `number % size`.
+
+   You need to implement an exception handler that checks whether `ucause` equals
+   to __ENVIRONMENT_CALL__ and gets system call ID from `a7`. Then it must be perform actions
+   based on the system call and its arguments in `a0`/`a1`. The handler must preserve the valid state of registers (save and restore them). The handler will be merged with the following tet program: [new_ecall.s](new_ecall.s).
+
+   Input:
+   ```
+   8
+   1
+   1234
+   -9
+   -2
+   1
+   4213
+   2
+   -1
+   -7
+   -2
+   -1
+   0
+   ```
+   Output:
+   ```
+   1234
+   0
+   0
+   -1
+   4213
+  ```
 
 ## References
 
