@@ -310,29 +310,31 @@ a corresponding bit must be set in `uie`. See the examples to learn how this wor
 
    Pseudocode for the task looks like this:
 
-   ```с++
-   int testFunc(int arg) {
-     try {
-       if (arg == 1) {
-         // divide by zero (or some other)
-       } else if (arg == 2) {
-         // read unaligned address (or some other)
-       } else if (arg == ...) {
-         // raise some other exception
-       }
-     } catch(const KnownException& e) {
-       return e.cause();
-     }
-     return 0;
+```с++
+int testFunc(int arg) {
+  try {
+    if (arg == 1) {
+      // divide by zero (or some other)
+    }
+    else if (arg == 2) {
+      // read unaligned address (or some other)
+    }
+    // else if (arg == N) {
+    //  // raise some other exception
+    // }
+  } catch(const KnownException& e) {
+    return e.cause();
   }
+  return 0;
+}
 
-  int main() {
-    int a = readInt();
-    int b = testFunc(a);
-    printInt(a);
-    return 0;
-  }
-  ```
+int main() {
+  int a = readInt();
+  int b = testFunc(a);
+  printInt(a);
+  return 0;
+}
+```
 
 ## Homework
 
