@@ -193,13 +193,13 @@ Solve the following tasks and submit them into Ejudge:
 
 1. Write a function with label `multiply_matrices:`, which multiplies two matrices of double values
    (i.e. performs the following computation: `C = A * B`).
-   The function must accepts the following parameters:
+   The function must accept the following parameters:
    * `a0` - matrix size (elements in rows and columns);
    * `a1` - A matrix address (input);
    * `a2` - B matrix address (input);
    * `a3` - C matrix address (output).
    The function will be merged with test program [matrix.s](matrix.s) (generates random
-   matrises of the given size, multiplies them, and prints the result).
+   matrices of the given size, multiplies them, and prints the result).
 
    Input (matrix size):
    ```
