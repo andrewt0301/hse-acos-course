@@ -205,6 +205,7 @@ Solve the following tasks and submit them into Ejudge:
    ```
    4
    ```
+
    Output (matrices `A`, `B`, and `C`):
    ```
    -1.0 1.0 1.0 8.0 
