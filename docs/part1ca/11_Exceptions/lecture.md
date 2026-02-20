@@ -309,7 +309,8 @@ a corresponding bit must be set in `uie`. See the examples to learn how this wor
    The program prints the exception cause.
 
    Pseudocode for the task looks like this:
-   ```
+
+   ```с++
    int testFunc(int arg) {
      try {
        if (arg == 1) {
