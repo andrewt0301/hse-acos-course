@@ -198,6 +198,7 @@ Solve the following tasks and submit them into Ejudge:
    * `a1` - A matrix address (input);
    * `a2` - B matrix address (input);
    * `a3` - C matrix address (output).
+
    The function will be merged with test program [matrix.s](matrix.s) (generates random
    matrices of the given size, multiplies them, and prints the result).
 
