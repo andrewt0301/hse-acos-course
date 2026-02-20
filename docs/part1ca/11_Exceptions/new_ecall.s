@@ -4,7 +4,7 @@ main:	la	t1, handler
 	csrw	t1, utvec
 	csrsi	ustatus, 1
 
-        # Read N and allocated N "hidden" registers
+        # Read 'size' and allocate 'size' of "hidden registers"
         li      a7, 5
         ecall
         li      a7, 100
@@ -13,10 +13,12 @@ main:	la	t1, handler
         # Read a number
 rloop:  li      a7, 5
         ecall
+        # Zero means - done
         beqz    a0, rdone
         bltz    a0, rread
-        # positive means - write
+        # Positive means - write
         mv      t0, a0
+        # Read value
         li      a7, 5
         ecall
         mv      a1, a0
@@ -24,6 +26,8 @@ rloop:  li      a7, 5
         li      a7, 102
         ecall
         b       rloop
+
+        # Negative means - read
 rread:  neg     a0, a0
         li      a7, 101
         ecall

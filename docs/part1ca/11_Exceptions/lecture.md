@@ -368,8 +368,9 @@ Solve the following tasks and submit then into Ejudge:
       Writes the value into "hidden register" with index `number % size`.
 
    You need to implement an exception handler that checks whether `ucause` equals
-   to __ENVIRONMENT_CALL__ and gets system call ID from `a7`. Then it must be perform actions
-   based on the system call and its arguments in `a0`/`a1`. The handler must preserve the valid state of registers (save and restore them). The handler will be merged with the following tet program: [new_ecall.s](new_ecall.s).
+   to __ENVIRONMENT_CALL__ and gets system call ID from `a7`. Then it must perform actions
+   based on the system call and its arguments in `a0`/`a1`. The handler must preserve the valid state of registers (save and restore them).
+   The handler will be merged with test program [new_ecall.s](new_ecall.s) (see how it works).
 
    Input:
    ```
