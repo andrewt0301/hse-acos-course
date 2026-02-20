@@ -327,7 +327,7 @@ a corresponding bit must be set in `uie`. See the examples to learn how this wor
 
   int main() {
     int a = readInt();
-    int b + testFunc(a);
+    int b = testFunc(a);
     printInt(a);
     return 0;
   }
