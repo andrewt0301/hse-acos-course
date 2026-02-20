@@ -196,6 +196,35 @@ Caches (sum of all):
   L3:                     30 MiB (1 instance)
 ```
 
+AMD Ryzen AI 9 HX 370 w/ Radeon 890M:
+```
+Architecture:             x86_64
+CPU op-mode(s):           32-bit, 64-bit
+Address sizes:            48 bits physical, 48 bits virtual
+Byte Order:               Little Endian
+CPU(s):                   24
+On-line CPU(s) list:      0-23
+Vendor ID:                AuthenticAMD
+Model name:               AMD Ryzen AI 9 HX 370 w/ Radeon 890M
+CPU family:               26
+Model:                    36
+Thread(s) per core:       2
+Core(s) per socket:       12
+Socket(s):                1
+Stepping:                 0
+Frequency boost:          enabled
+CPU(s) scaling MHz:       81%
+CPU max MHz:              2000.0000
+CPU min MHz:              605.2640
+BogoMIPS:                 4000.12
+Flags:                    fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good amd_lbr_v2 nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpuid_fault cpb cat_l3 cdp_l3 hw_pstate ssbd mba perfmon_v2 ibrs ibpb stibp ibrs_enhanced vmmcall fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk avx_vnni avx512_bf16 clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif x2avic v_spec_ctrl vnmi avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid bus_lock_detect movdiri movdir64b overflow_recov succor smca fsrm avx512_vp2intersect flush_l1d amd_lbr_pmc_freeze
+Virtualization:           AMD-V
+L1d cache:                576 KiB (12 instances)
+L1i cache:                384 KiB (12 instances)
+L2 cache:                 12 MiB (12 instances)
+L3 cache:                 24 MiB (2 instances)
+```
+
 ## Workshop
 
 #### Outline

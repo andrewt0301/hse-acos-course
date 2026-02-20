@@ -353,7 +353,10 @@ a corresponding bit must be set in `uie`. See the examples to learn how this wor
 
 ## Homework
 
-Solve the following tasks and submit then into Ejudge:
+_NOTE: Handling exception `ENVIRONMENT_CALL` requires a [patch](
+https://github.com/andrewt0301/rars/commit/1e6f6d6a41c6def006dfbf8df4d66c6fdd9ea914) in RARS. The patched version can be downloaded [here](rars.jar)._
+
+Solve the following tasks and submit them into Ejudge:
 
 1. [NoError](../Tasks/homeworks.md#noerror)
 2. NewEcall. Write an exception handler with label `handler:`, which implements three
