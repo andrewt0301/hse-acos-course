@@ -336,7 +336,7 @@ int main() {
 }
 ```
 
-1. See example [timer.s](timer.s). Write a program that waits for timer interrupts and counts them.
+4. See example [timer.s](timer.s). Write a program that waits for timer interrupts and counts them.
    Input data: `m` is the limit on number of interrupts to process,
    `t` is the interval between interrupts in milliseconds.
    The program exits when the number of handler interrupts reaches the limit.
