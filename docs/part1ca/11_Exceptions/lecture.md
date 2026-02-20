@@ -298,10 +298,10 @@ a corresponding bit must be set in `uie`. See the examples to learn how this wor
 
 1. Study the theory and examples on the current workshop.
 
-1. Implement an exception handler that prints a message that explains the reason of an exception
+2. Implement an exception handler that prints a message that explains the reason of an exception
    (the list of exceptions with descriptions is above).
 
-1. Image how the _try_-_catch_ construct is implemented in high-level languages.
+3. Image how the _try_-_catch_ construct is implemented in high-level languages.
    Then write a program that implements a simple function with an exception handler.
    The function takes an argument that specifies what exception it will raise
    (`0` - no exception, `1` - some exception from list above, `2` - some other exception from the list). 
@@ -336,7 +336,7 @@ a corresponding bit must be set in `uie`. See the examples to learn how this wor
  }
  ```
 
-1. See example [timer.s](timer.s). Write a program that waits for timer interrupts and counts them.
+4. See example [timer.s](timer.s). Write a program that waits for timer interrupts and counts them.
    Input data: `m` is the limit on number of interrupts to process,
    `t` is the interval between interrupts in milliseconds.
    The program exits when the number of handler interrupts reaches the limit.
