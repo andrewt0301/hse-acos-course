@@ -46,7 +46,7 @@ __Calendar plan by weeks can be found [here](calendar_plan.md).__
 1. [Virtual memory.](part1ca/09_VM/lecture.md)
 1. [Processor and pipeline.](part1ca/10_Pipeline/lecture.md)
 1. [Exceptions and interrupts.](part1ca/11_Exceptions/lecture.md)
-1. [Input/Output](part1ca/12_MMIO/lecture.md).
+1. [Input and output](part1ca/12_MMIO/lecture.md).
 1. [Instruction-level parallelism: Multiple issue and out-of-order execution.](part1ca/13_MultiIssue/lecture.md)
 1. [Thread-level parallelism.](part1ca/14_TLP/lecture.md)
 1. [Optimizations.](part1ca/15_Optimize/lecture.md)
