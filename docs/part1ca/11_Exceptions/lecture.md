@@ -375,9 +375,9 @@ Commit the programs to your private GitHub account. Place them into the folder `
   [The RISC-V Instruction Set Manual Volume II: Privileged Architecture](
   https://github.com/riscv/riscv-isa-manual/releases/latest).
 * [RISC-V Assembly Programmer's Manual](https://github.com/riscv/riscv-asm-manual/blob/master/riscv-asm.md).
-* The Processor. Chapter 4 in [[CODR]](../../books.md).
-* Pipelining: Basic and Intermediate Concepts. Appendix C in [[CAQA]](../../books.md).
-* Instruction-Level Parallelism and Its Exploitation. Chapter 3 in [[CAQA]](../../books.md).
+* The Processor. Chapter 4 in [[CODR]](../../books.md#codr).
+* Pipelining: Basic and Intermediate Concepts. Appendix C in [[CAQA]](../../books.md#caqa).
+* Instruction-Level Parallelism and Its Exploitation. Chapter 3 in [[CAQA]](../../books.md#caqa).
 * [RISC-V Assembly Language Programmer Manual. Part I](https://shakti.org.in/docs/risc-v-asm-manual.pdf).
 * [Interrupt](https://en.wikipedia.org/wiki/Interrupt) (Wikipedia).
 * [Superscalar processor](https://en.wikipedia.org/wiki/Superscalar_processor) (Wikipedia).
