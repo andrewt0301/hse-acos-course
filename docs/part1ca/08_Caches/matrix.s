@@ -89,10 +89,10 @@ main:
 # Return:
 #   a0 - matrix address
 allocate_matrix:
-    mul  t0, a0, a0 # N*N
-    slli t0, t0, 3  # N*N*8
-    addi a0, sp, -8
-    sub  sp, sp, t0
+    mul  a0, a0, a0 # N*N
+    slli a0, a0, 3  # N*N*8
+    li   a7, 9
+    ecall
     ret
     
 # Fills a matrix with random double values.
@@ -103,22 +103,24 @@ allocate_matrix:
 generate_matrix:
     mv   t0, a0
     mul  t1, a1, a1
-    mv   t2, zero
     li   t3, 10
     li   a7, 40
     mv   a0, zero
     mv   a1, a2
     ecall # random seed
 generate_matrix.next:
-    beq  t1, t2, generate_matrix.end
+    beqz  t1, generate_matrix.end
+
     li   a7, 41
     mv   a0, zero
     ecall # random int
+
     rem  a0, a0, t3
-    fcvt.d.w fa0, a0 
-    fsd  fa0, 0(t0)
+    addi a0, a0, 1
+    fcvt.d.w ft0, a0
+    fsd  ft0, 0(t0)
     addi t0, t0, 8
-    addi t2, t2, 1
+    addi t1, t1, -1
     j    generate_matrix.next
 generate_matrix.end:
     ret    
@@ -129,10 +131,10 @@ generate_matrix.end:
 #   a1 - matrix size
 reset_matrix:
     mul  a1, a1, a1
-    fcvt.d.w fa0, zero 
+    fcvt.d.w ft0, zero
 reset_matrix.next:
-    beqz  a1, reset_matrix.end
-    fsd  fa0, 0(a0)
+    beqz a1, reset_matrix.end
+    fsd  ft0, 0(a0)
     addi a0, a0, 8
     addi a1, a1, -1
     j    reset_matrix.next
