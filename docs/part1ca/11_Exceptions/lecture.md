@@ -336,12 +336,9 @@ int main() {
 }
 ```
 
-## Homework
-
-Study the theory and the examples and finish the tasks.
-
-1. Write a program that waits for timer interrupts and counts them. Input data: `m` is the limit on
-   number of interrupts to process, `t` is the interval between interrupts in milliseconds.
+1. See example [timer.s](timer.s). Write a program that waits for timer interrupts and counts them.
+   Input data: `m` is the limit on number of interrupts to process,
+   `t` is the interval between interrupts in milliseconds.
    The program exits when the number of handler interrupts reaches the limit.
 
    _Hint_: Use the "Tools | Timer Tool" RARS extension. See its help. The MMIO address
@@ -353,6 +350,10 @@ Study the theory and the examples and finish the tasks.
    * The zeroth bit of the `ustatus` CSR must be set to `1` (i.e. `ori ustatus, ustatus, 0x1`).
    * The time for the next interrupt must be written to `0xFFFF0020`.
    * When an interrupt is handled the time for the next interrupt must be updated.
+
+## Homework
+
+Study the theory and the examples and finish the tasks.
 
 1. __Bonus task (2 bonus points)__:
 
