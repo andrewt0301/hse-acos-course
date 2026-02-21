@@ -116,6 +116,7 @@ TODO
 * Pipelining: Basic and Intermediate Concepts. Appendix C in [[CAQA]](../../books.md#caqa).
 * Instruction-Level Parallelism and Its Exploitation. Chapter 3 in [[CAQA]](../../books.md#caqa).
 * [Instruction pipelining](https://en.wikipedia.org/wiki/Instruction_pipelining) (Wikipedia).
+* [Classic RISC pipeline](https://en.wikipedia.org/wiki/Classic_RISC_pipeline) (Wikipedia).
 * [Hazard](https://en.wikipedia.org/wiki/Hazard_%28computer_architecture%29) (Wikipedia).   
 * [Superscalar processor](https://en.wikipedia.org/wiki/Superscalar_processor) (Wikipedia).
 * [Out-of-order execution](https://en.wikipedia.org/wiki/Out-of-order_execution) (Wikipedia).

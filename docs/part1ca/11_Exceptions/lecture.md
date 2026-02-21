@@ -305,36 +305,35 @@ a corresponding bit must be set in `uie`. See the examples to learn how this wor
    Then write a program that implements a simple function with an exception handler.
    The function takes an argument that specifies what exception it will raise
    (`0` - no exception, `1` - some exception from list above, `2` - some other exception from the list). 
-   The function must return exception cause or 0 if no exception has occurred.
+   The function must return the exception cause or `0` if no exception has occurred.
    The program prints the exception cause.
   
    Pseudocode for the task looks like this:
- 
- ```с++
-  int testFunc(int arg) {
-    try {
-      if (arg == 1) {
-        // divide by zero (or some other)
-      }
-      else if (arg == 2) {
-        // read unaligned address (or some other)
-      }
-      // else if (arg == N) {
-      //  // raise some other exception
-      // }
-   } catch(const KnownException& e) {
-      return e.cause();
+   ```с++
+   int testFunc(int arg) {
+     try {
+       if (arg == 1) {
+         // divide by zero (or some other)
+       }
+       else if (arg == 2) {
+         // read unaligned address (or some other)
+       }
+       // else if (arg == N) {
+       //  // raise some other exception
+       // }
+     } catch(const KnownException& e) {
+       return e.cause();
+     }
+     return 0;
    }
-   return 0;
-  }
 
- int main() {
-   int a = readInt();
-   int b = testFunc(a);
-   printInt(a);
-   return 0;
- }
- ```
+   int main() {
+     int a = readInt();
+     int b = testFunc(a);
+     printInt(a);
+     return 0;
+   }
+   ```
 
 4. See example [timer.s](timer.s). Write a program that waits for timer interrupts and counts them.
    Input data: `m` is the limit on number of interrupts to process,
