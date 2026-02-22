@@ -12,9 +12,9 @@
     .globl main
 main:
     li   a7, 5
-    ecall    
+    ecall
 
-    # s0 = matrix size 
+    # s0 = matrix size
     mv   s0, a0
 
     # s1 = matrix A
@@ -31,14 +31,14 @@ main:
     mv   a1, s0
     li   a2, 17
     call generate_matrix
-    
+
     # s3 = matrix C
     mv   a0, s0
     call allocate_matrix
     mv   s3, a0
     mv   a1, s0
     call reset_matrix
-    
+
     # C = A * B
     mv   a0, s0
     mv   a1, s1
@@ -57,7 +57,7 @@ main:
     mv   a1, s0
     call print_matrix
     print_char('\n')
-    
+
     # Print matrix C
     mv   a0, s3
     mv   a1, s0
@@ -89,7 +89,7 @@ allocate_matrix:
     li   a7, 9
     ecall
     ret
-    
+
 # Fills a matrix with random double values.
 # Params:
 #   a0 - matrix address
@@ -118,7 +118,7 @@ generate_matrix.next:
     addi t1, t1, -1
     j    generate_matrix.next
 generate_matrix.end:
-    ret    
+    ret
 
 # Fills a matrix with zeros.
 # Params:
@@ -134,7 +134,7 @@ reset_matrix.next:
     addi a1, a1, -1
     j    reset_matrix.next
 reset_matrix.end:
-    ret    
+    ret
 
 # Prints a matrix of double values.
 # Params:
