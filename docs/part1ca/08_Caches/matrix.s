@@ -3,18 +3,13 @@
 #
 
 .macro print_char(%x)
-    li   a7, 11
-    li   a0, %x
-    ecall
-.end_macro
-
-.macro print_int (%x)
-    li   a7, 1
-    mv   a0, %x
-    ecall
+     li  a7, 11
+     li  a0, %x
+     ecall
 .end_macro
 
     .text
+    .globl main
 main:
     li   a7, 5
     ecall    
