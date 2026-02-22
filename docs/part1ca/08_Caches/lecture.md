@@ -222,8 +222,12 @@ Solve the following tasks and submit them into Ejudge:
    -20.0 36.0 16.0 51.0 
    -64.0 -52.0 -12.0 41.0 
    -16.0 -92.0 19.0 -17.0 
-   -26.0 -24.0 109.0 78.0
+   -26.0 -24.0 109.0 78.0 
    ```
+
+   _Self-study activity:_ Try different implementaions (orders of loops 'i', 'j', 'k')
+   and different cache configurations (RARS Data Cache Simulator).
+   See how this affects miss/hit rate.
 
 ## References
 
