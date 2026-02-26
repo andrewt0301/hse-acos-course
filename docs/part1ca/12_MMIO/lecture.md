@@ -58,6 +58,7 @@ Solve the following tasks and submit them into Ejudge:
 
 ## References
 
+* Input/Output. Chapter 8 in [[PARL]](../../books.md#coa).
+* Memory-mapped I/O. Section 9.2 in [[DDCA]](../../books.md#ddca).
 * [Memory-mapped I/O](https://en.wikipedia.org/wiki/Memory-mapped_I/O) (Wikipedia).
 * [Direct memory access](https://en.wikipedia.org/wiki/Direct_memory_access) (Wikipedia).
-* Memory-mapped I/O. Section 9.2 in [[DDCA]](../../books.md#ddca).
