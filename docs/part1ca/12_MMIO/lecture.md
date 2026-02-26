@@ -32,14 +32,15 @@ you may take some time from the next workshop (if it does not have a lot of prac
 1. Study and run the examples from the lecture.
 
 1. Input a floating-point number, round it to one digit to the left of decimal point (e.g. `3.5`)
-   and display it in the Digital Sim Lab display.
+   and display it in the `Digital Sim Lab` display.
    Use [digit_lab1.s](digit_lab1.s) as a starting program.
 
 1. Modify the [digit_lab2.s](digit_lab2.s) program
    to display keys pressed in the hexadecimal keyword in the digital display (as decimal values, e.g. `F` == `15`). Use the workshop task as a basis.
 
-1. Write a program (based on `digit_lab2.s`) that inputs an integer value `X` (with the `ReadInt`
-   system call) and then uses `Digital Sim Lab` to enter 32-bit integers (8 hexadecimal digits) `Y`.
+1. Write a program (based on [digit_lab2.s](digit_lab2.s)) that inputs an integer value `X`
+   (with he `ReadInt` system call) and then uses `Digital Sim Lab`
+   to enter 32-bit integers (8 hexadecimal digits) `Y`.
    It repeats entering integers until the entered `Y` is not equal to `X`. Then it prints `FOUND`
    and exits. If `Y` equals `0` the program must print `STOPPED` and exit.
 
