@@ -35,7 +35,7 @@ Notes:
 * Everything is done in the handler (starts with the `handler` label)
   that handles the two exceptions.
 * The handler must save and restore all registers it uses (some area in the `.data` section).
-* This __[main program](PseudoVM.s)__
+* This [main program](PseudoVM.s)
   will be merged with the handler (you must submit only the handler).
 * The main program reads addresses from user input:
   addresses multiple of `4` are used for reading, others - for writing.
