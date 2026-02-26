@@ -59,3 +59,4 @@ Solve the following tasks and submit them into Ejudge:
 
 * [Memory-mapped I/O](https://en.wikipedia.org/wiki/Memory-mapped_I/O) (Wikipedia).
 * [Direct memory access](https://en.wikipedia.org/wiki/Direct_memory_access) (Wikipedia).
+* Memory-mapped I/O. Section 9.2 in [[DDCA]](../../books.md#ddca).
