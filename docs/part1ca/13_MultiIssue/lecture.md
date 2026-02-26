@@ -47,10 +47,6 @@ See how well it can predict branch outcomes with different settings.
    the issue of incorrect branch prediction with loop unrolling ("even" and "odd" operations must be done
    at the same loop iteration).
 
-## Homework
-
-__TODO__
-
 ## References
 
 * Parallelism via Instructions. Section 4.10 in [[CODR]](../../books.md#codr).

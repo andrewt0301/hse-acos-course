@@ -247,10 +247,6 @@ L3 cache:                 24 MiB (2 instances)
    * When a timer interrupt occurs, the handler saves current register values, loads the new register values,
      and returns control to the PC of the next thread.
 
-## Homework
-
-__TODO__
-
 ## References
 
 * Multicore and Other Shared Memory Multiprocessors. Section 6.5 in [[CODR]](../../books.md#codr).
