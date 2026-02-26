@@ -36,6 +36,23 @@ void dgemm(int n, double* A, double* B, double* C) {
 }
 ```
 
+AVX version:
+```c
+void dgemm_avx(int n, double* A, double* B, double* C) {
+    for (int i = 0; i < n; i += 4) {
+        for (int j = 0; j < n; j++) {
+            __m256d c0 = _mm256_load_pd(C+i+j*n); /* c0 = C[i][j] */
+            for (int k = 0; k < n; k++)
+                /* c0 += A[i][k]*B[k][j] */
+                c0 = _mm256_add_pd(c0, _mm256_mul_pd(
+                            _mm256_load_pd(A+i+k*n),
+                            _mm256_broadcast_sd(B+k+j*n)
+                        ));
+            _mm256_store_pd(C+i+j*n, c0); /* C[i][j] = c0 */
+        }
+    }
+}
+```
 
 ## Workshop
 
@@ -72,3 +89,4 @@ __TODO__
 
 * [RISC-V Vector Intrinsic Document](https://github.com/riscv-non-isa/rvv-intrinsic-doc)
 * [Programming with RISC-V Vector Instructions](https://gms.tf/riscv-vector.html)
+* Intel's [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions) (Wikipedia).
