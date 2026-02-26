@@ -50,11 +50,12 @@ you may take some time from the next workshop (if it does not have a lot of prac
 
 ## Homework
 
-__TODO__
+__TODO__: Add descriptions and Ejudge tasks
 
 Solve the following tasks and submit them into Ejudge:
 
-1. [EightSectors](../Tasks/homeworks.md#eightsectors)
+1. FullRainbow
+2. TheCircle
 
 ## References
 
