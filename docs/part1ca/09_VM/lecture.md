@@ -198,6 +198,8 @@ This code handles interaction with a specific device and its driver and returns 
 
 ## Homework
 
+_NOTE: Need to cover [exceptions](../11_Exceptions/lecture.md) first to be able to solve this task._
+
 Solve the following tasks and submit them into Ejudge:
 
 1. [PseudoVM](pseudovm.md)
