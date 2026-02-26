@@ -70,4 +70,5 @@ __TODO__
 
 ## References
 
+* [RISC-V Vector Intrinsic Document](https://github.com/riscv-non-isa/rvv-intrinsic-doc)
 * [Programming with RISC-V Vector Instructions](https://gms.tf/riscv-vector.html)
