@@ -1,9 +1,9 @@
 Programming task "PseudoVM"
 ---
-_NOTE: Need to cover exceptions to be able to solve this tasks._
 
-See example [PseudoVM.s](https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/09_VM/PseudoVM.s).
+_NOTE: Need to cover exceptions first to be able to solve this task._
 
+See program [PseudoVM.s](PseudoVM.s).
 
 Write an exception handler that imitates "virtual memory" for "forbidden" addresses.
 A "forbidden" address is any address that causes exceptions
@@ -35,11 +35,10 @@ Notes:
 * Everything is done in the handler (starts with the `handler` label)
   that handles the two exceptions.
 * The handler must save and restore all registers it uses (some area in the `.data` section).
-* This __[main program](
-  https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part1ca/09_VM/PseudoVM.s)__
+* This __[main program](PseudoVM.s)__
   will be merged with the handler (you must submit only the handler).
 * The main program reads addresses from user input:
-  address divisible by `4` are used for reading, others - for writing.  
+  addresses multiple of `4` are used for reading, others - for writing.
 * Examples of an input and output for the program are below.
 
 Input:

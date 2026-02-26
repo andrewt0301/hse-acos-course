@@ -198,7 +198,9 @@ This code handles interaction with a specific device and its driver and returns 
 
 ## Homework
 
-TODO
+Solve the following tasks and submit them into Ejudge:
+
+1. [PseudoVM](pseudovm.md)
 
 ## References
 
