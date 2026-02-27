@@ -49,6 +49,8 @@ void dgemm(int n, double* A, double* B, double* C) {
 
 AVX2 version (4 doubles at once):
 ```c
+// #include <x86intrin.h>
+
 void dgemm_avx2(int n, double* A, double* B, double* C) {
     for (int i = 0; i < n; i += 4) {
         for (int j = 0; j < n; j++) {
@@ -66,6 +68,8 @@ void dgemm_avx2(int n, double* A, double* B, double* C) {
 ```
 AVX512 version (8 doubles at once) - _supported only in AMD and some Intel Xeon processors_:
 ```c
+// #include <x86intrin.h>
+
 void dgemm_avx512(int n, double* A, double* B, double* C) {
     for (int i = 0; i < n; i += 8) {
         for (int j = 0; j < n; j++) {
