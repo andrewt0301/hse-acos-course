@@ -50,6 +50,7 @@ __Calendar plan by weeks can be found [here](calendar_plan.md).__
 1. [Instruction-level parallelism: Multiple issue and out-of-order execution.](part1ca/13_MultiIssue/lecture.md)
 1. [Thread-level parallelism.](part1ca/14_TLP/lecture.md)
 1. [Optimizations.](part1ca/15_Optimize/lecture.md)
+1. [Data-level parallelism: Vectors and SIMD.](part1ca/16_DLP/lecture.md)
 
 All homeworks for "Computer Architecture and Assembly Language"
 are [here](part1ca/Tasks/homeworks.md).

@@ -1,11 +1,11 @@
-Lecture 13
+Lecture 16
 ---
 
 # Data-Level Parallelism
 
 ## Lecture
 
-Slides ([PDF](CA_Lecture_13.pdf), [PPTX](CA_Lecture_13.pptx)).
+Slides ([PDF](CA_Lecture_16.pdf), [PPTX](CA_Lecture_16.pptx)).
 
 #### Outline
 
