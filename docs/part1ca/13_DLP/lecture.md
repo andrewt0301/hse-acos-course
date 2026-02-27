@@ -99,14 +99,12 @@ https://github.com/riscv/riscv-isa-manual/releases/latest) for details.
 
 #### Tasks
 
-* Write a program that inputs an integer value `N`, inputs 2 matrices of size 4 * `N`,
+1. Write a program that inputs an integer value `N`, inputs 2 matrices of size 4 * `N`,
   adds the two matrices, and prints the resulting matrix. Each element of a matrix is a byte value.
   Elements of the matrices are added by `4`, to simulate vector operations.
   _Hint:_ Use the `lw` and `sw` instructions to load and store 4 elements at once.
 
-## Homework
-
-__TODO__
+__TODO__: More tasks
 
 ## References
 
