@@ -108,6 +108,7 @@ __TODO__: More tasks
 
 ## References
 
+* Data-Level Parallelism in Vector, SIMD, and GPU Architectures. Chapter 4 in [[CAQA]](../../books.md#caqa).
 * Chapter 31. "V" Standard Extension for Vector Operations in
   [RISC-V instruction set manual](https://github.com/riscv/riscv-isa-manual/releases/latest).
 * [RISC-V Vector Intrinsic Document](https://github.com/riscv-non-isa/rvv-intrinsic-doc).
