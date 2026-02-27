@@ -108,6 +108,8 @@ __TODO__: More tasks
 
 ## References
 
-* [RISC-V Vector Intrinsic Document](https://github.com/riscv-non-isa/rvv-intrinsic-doc)
-* [Programming with RISC-V Vector Instructions](https://gms.tf/riscv-vector.html)
+* Chapter 31. "V" Standard Extension for Vector Operations in
+  [RISC-V instruction set manual](https://github.com/riscv/riscv-isa-manual/releases/latest).
+* [RISC-V Vector Intrinsic Document](https://github.com/riscv-non-isa/rvv-intrinsic-doc).
+* [Programming with RISC-V Vector Instructions](https://gms.tf/riscv-vector.html).
 * Intel's [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions) (Wikipedia).
