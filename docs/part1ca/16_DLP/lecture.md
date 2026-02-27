@@ -9,8 +9,9 @@ Slides ([PDF](CA_Lecture_16.pdf), [PPTX](CA_Lecture_16.pptx)).
 
 #### Outline
 
-__TODO__
-
+* SIMD Instructions
+* Vector Instructions
+* GPU
 
 #### Examples
 
