@@ -113,7 +113,7 @@ https://github.com/riscv/riscv-isa-manual/releases/latest) for details.
   Elements of the matrices are added by `4`, to simulate vector operations.
   _Hint:_ Use the `lw` and `sw` instructions to load and store 4 elements at once.
 
-1. Implement function DAXPY (double-precision `Y = a × X + Y`) using Intel VX2 instristics
+1. Implement function DAXPY (double-precision `Y = a × X + Y`) using Intel AVX2 instristics
    (256-bit operations). Check the correctness by comparing with a simple implementation (without SIMD).
 
 __TODO__: More tasks
