@@ -13,9 +13,11 @@ Slides ([PDF](CA_Lecture_16.pdf), [PPTX](CA_Lecture_16.pptx)).
 * Vector Instructions
 * GPU
 
+![SIMD](SIMD.svg)
+
 #### Examples
 
-##### AVX (Advanced Vector Extensions for x86)
+##### AVX (Advanced Vector Extensions for x86-64)
 
 ![AVX](intel_avx_evolution.png)
 
