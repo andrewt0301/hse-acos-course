@@ -13,7 +13,7 @@ Slides ([PDF](CA_Lecture_16.pdf), [PPTX](CA_Lecture_16.pptx)).
 * Vector Instructions
 * GPU
 
-![SIMD](SIMD.svg)
+![SIMD](SIMD.png)
 
 #### Examples
 
@@ -113,6 +113,7 @@ __TODO__: More tasks
 
 ## References
 
+* [Flynn's taxonomy](https://en.wikipedia.org/wiki/Flynn%27s_taxonomy)(Wikipedia).
 * AVX instructions in x86. Sections 3.7 and 3.8 in [[CODR]](../../books.md#codr).
 * SISD, MIMD, SIMD, SPMD, and Vector. Section 6.3 in [[CODR]](../../books.md#codr).
 * Data-Level Parallelism in Vector, SIMD, and GPU Architectures. Chapter 4 in [[CAQA]](../../books.md#caqa).
