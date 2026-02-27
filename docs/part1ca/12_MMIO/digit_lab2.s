@@ -31,22 +31,22 @@ main:
 loop:
     li      t0, 1         # check first row
     sb      t0, 0x12(s0)  # scan
-    lb      t1, 0x14(s0)  # get result
+    lbu      t1, 0x14(s0)  # get result
     bnez    t1, pressed   # process key pressed
 
     li      t0, 2         # check second row
     sb      t0, 0x12(s0)
-    lb      t1, 0x14(s0)
+    lbu      t1, 0x14(s0)
     bnez    t1, pressed
 
     li      t0, 4         # check third row
     sb      t0, 0x12(s0)
-    lb      t1, 0x14(s0)
+    lbu      t1, 0x14(s0)
     bnez    t1, pressed
 
     li      t0, 8         # check fourth row
     sb      t0, 0x12(s0)
-    lb      t1, 0x14(s0)
+    lbu      t1, 0x14(s0)
     bnez    t1, pressed
 
     mv      s2, zero  # reset previous value
