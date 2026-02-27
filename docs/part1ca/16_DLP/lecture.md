@@ -121,4 +121,5 @@ __TODO__: More tasks
   [RISC-V instruction set manual](https://github.com/riscv/riscv-isa-manual/releases/latest).
 * [RISC-V Vector Intrinsic Document](https://github.com/riscv-non-isa/rvv-intrinsic-doc).
 * [Programming with RISC-V Vector Instructions](https://gms.tf/riscv-vector.html).
+* [Mirror of Intel® Intrinsics Guide](https://www.laruence.com/sse/)
 * Intel's [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions) (Wikipedia).
