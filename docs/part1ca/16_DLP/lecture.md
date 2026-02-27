@@ -16,6 +16,8 @@ __TODO__
 
 ##### AVX (Advanced Vector Extensions for x86)
 
+[!AVX](intel_avx_evolution.png)
+
 Optimizing DGEMM (Double-precision GEneral Matrix Multiply) using SIMD instructions.
 
 See example [matrix.c](matrix.c). Compile and run it with different versions of DGEMM:
