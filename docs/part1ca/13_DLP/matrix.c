@@ -21,7 +21,7 @@ void dgemm(int n, double* A, double* B, double* C) {
     }
 }
 
-void dgemm_avx(int n, double* A, double* B, double* C) {
+void dgemm_avx2(int n, double* A, double* B, double* C) {
     for (int i = 0; i < n; i += 4) {
         for (int j = 0; j < n; j++) {
             __m256d c0 = _mm256_load_pd(C+i+j*n); /* c0 = C[i][j] */
@@ -35,6 +35,22 @@ void dgemm_avx(int n, double* A, double* B, double* C) {
         }
     }
 }
+
+// Supported only in AMD and some Intel Xeon microprocessors.
+// void dgemm_avx512(int n, double* A, double* B, double* C) {
+//     for (int i = 0; i < n; i += 8) {
+//         for (int j = 0; j < n; j++) {
+//             __m512d c0 = _mm512_load_pd(C+i+j*n); /* c0 = C[i][j] */
+//             for (int k = 0; k < n; k++)
+//                 /* c0 += A[i][k]*B[k][j] */
+//                 c0 = _mm512_add_pd(c0, _mm512_mul_pd(
+//                             _mm512_load_pd(A+i+k*n),
+//                             _mm512_broadcastsd_pd(_mm_load_sd(B+k+j*n))
+//                         ));
+//             _mm512_store_pd(C+i+j*n, c0); /* C[i][j] = c0 */
+//         }
+//     }
+// }
 
 void print(int n, double* M) {
     for (int j = 0; j < n; ++j) {
@@ -60,7 +76,7 @@ int main(int argc, const char *argv[]) {
     struct timeval start, end;
     gettimeofday(&start, NULL);
 
-    dgemm_avx(N, A, B, C);
+    dgemm_avx2(N, A, B, C);
 
     gettimeofday(&end, NULL);
     printf("%0.6f\n", tdiff(&start, &end));
