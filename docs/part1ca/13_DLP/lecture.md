@@ -14,12 +14,18 @@ __TODO__
 
 #### Examples
 
-Optimizing DGEMM (Double-precision GEneral Matrix Multiply) using data-level parallelism.
+##### AVX (Advanced Vector Extensions for x86)
+
+Optimizing DGEMM (Double-precision GEneral Matrix Multiply) using SIMD instructions.
 
 See example [matrix.c](matrix.c). Compile and run it with different versions of DGEMM:
 ```bash
 gcc -o matrix matrix.c -march=native
 ./matrix
+```
+Check what AVX extensions are supported:
+```bash
+lscpu | grep avx
 ```
 
 Unoptimized version:
@@ -36,9 +42,9 @@ void dgemm(int n, double* A, double* B, double* C) {
 }
 ```
 
-AVX version:
+AVX2 version (4 doubles at once):
 ```c
-void dgemm_avx(int n, double* A, double* B, double* C) {
+void dgemm_avx2(int n, double* A, double* B, double* C) {
     for (int i = 0; i < n; i += 4) {
         for (int j = 0; j < n; j++) {
             __m256d c0 = _mm256_load_pd(C+i+j*n); /* c0 = C[i][j] */
@@ -49,6 +55,23 @@ void dgemm_avx(int n, double* A, double* B, double* C) {
                             _mm256_broadcast_sd(B+k+j*n)
                         ));
             _mm256_store_pd(C+i+j*n, c0); /* C[i][j] = c0 */
+        }
+    }
+}
+```
+AVX512 version (8 doubles at once) - _supported only in AMD and some Intel Xeon processors_:
+```c
+void dgemm_avx512(int n, double* A, double* B, double* C) {
+    for (int i = 0; i < n; i += 8) {
+        for (int j = 0; j < n; j++) {
+            __m512d c0 = _mm512_load_pd(C+i+j*n); /* c0 = C[i][j] */
+            for (int k = 0; k < n; k++)
+                /* c0 += A[i][k]*B[k][j] */
+                c0 = _mm512_add_pd(c0, _mm512_mul_pd(
+                            _mm512_load_pd(A+i+k*n),
+                            _mm512_broadcastsd_pd(_mm_load_sd(B+k+j*n))
+                        ));
+            _mm512_store_pd(C+i+j*n, c0); /* C[i][j] = c0 */
         }
     }
 }
