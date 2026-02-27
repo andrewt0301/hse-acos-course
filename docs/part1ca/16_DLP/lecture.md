@@ -117,9 +117,12 @@ __TODO__: More tasks
 * AVX instructions in x86. Sections 3.7 and 3.8 in [[CODR]](../../books.md#codr).
 * SISD, MIMD, SIMD, SPMD, and Vector. Section 6.3 in [[CODR]](../../books.md#codr).
 * Data-Level Parallelism in Vector, SIMD, and GPU Architectures. Chapter 4 in [[CAQA]](../../books.md#caqa).
+* Algorithmica / HPC. [SIMD Parallelism](https://en.algorithmica.org/hpc/simd/).
+* Christopher Woods. [Efficient Vectorisation with C++](https://chryswoods.com/vector_c++/README.html).
 * Chapter 31. "V" Standard Extension for Vector Operations in
   [RISC-V instruction set manual](https://github.com/riscv/riscv-isa-manual/releases/latest).
 * [RISC-V Vector Intrinsic Document](https://github.com/riscv-non-isa/rvv-intrinsic-doc).
 * [Programming with RISC-V Vector Instructions](https://gms.tf/riscv-vector.html).
+* [Intrinsic function](https://en.wikipedia.org/wiki/Intrinsic_function) (Wikipedia).
 * [Mirror of Intel® Intrinsics Guide](https://www.laruence.com/sse/).
 * Intel's [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions) (Wikipedia).
