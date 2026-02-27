@@ -31,7 +31,7 @@ you may take some time from the next workshop (if it does not have a lot of prac
 
 1. Study and run the examples from the lecture.
 
-1. Input a floating-point number, round it to one digit to the left of decimal point (e.g. `3.5`)
+1. Input a floating-point number, round it to one digit to the right of decimal point (e.g. `3.5`)
    and display it in the `Digital Sim Lab` display.
    Use [digit_lab1.s](digit_lab1.s) as a starting program.
 
