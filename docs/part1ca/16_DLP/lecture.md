@@ -17,7 +17,7 @@ Slides ([PDF](CA_Lecture_16.pdf), [PPTX](CA_Lecture_16.pptx)).
 
 ##### AVX (Advanced Vector Extensions for x86)
 
-[!AVX](intel_avx_evolution.png)
+![AVX](intel_avx_evolution.png)
 
 Optimizing DGEMM (Double-precision GEneral Matrix Multiply) using SIMD instructions.
 
