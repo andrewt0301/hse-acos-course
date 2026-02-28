@@ -81,6 +81,12 @@ Solve the following tasks and submit them into Ejudge:
 
 1. ###### TheCircle
 
+   Write a program that draws a circle in `RARS Bitmap Display`.
+   To draw a circle mean to paint all points with such coordinates
+   that a distance from point `X`/`Y` is not greater than `R`.
+   The program inputs 5 non-negative numbers: `X`, `Y`, `R`, color of the circle,
+   and color of the background.
+
    * Parameters of `Bitmap Display`: unit size is `2×2`; display size is `512×256`.
    * It is not guaraneed that the circle fits into the display's address range or
      is located within this range at all.
