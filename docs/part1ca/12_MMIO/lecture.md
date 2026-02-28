@@ -82,7 +82,7 @@ Solve the following tasks and submit them into Ejudge:
 1. ###### TheCircle
 
    * Parameters of `Bitmap Display`: unit size is `2×2`; display size is `512×256`.
-   * It is not guaraneed that the circle fits into the display (address range) or
+   * It is not guaraneed that the circle fits into the display's address range or
      is located within this range at all.
 
    Input:
