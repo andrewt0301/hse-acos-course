@@ -58,7 +58,7 @@ Solve the following tasks and submit them into Ejudge:
 
    Write a program that fills `RARS Bitmap Display` with vertical stripes
    of equal width (+1 pixel), which are painted with the specified colors.
-   The colors are input as decimal numbers one per a line until `0` is met.
+   The colors are input as decimal numbers one per line until `0` is met.
    `0` means the end of the input and is not considered as a color.
    The total number of colors is `N <= 100`.
 
