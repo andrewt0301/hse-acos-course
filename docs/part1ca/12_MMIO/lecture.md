@@ -62,8 +62,8 @@ Solve the following tasks and submit them into Ejudge:
    `0` means the end of the input and is not considered as a color.
    The total number of colors is `N <= 100`.
 
-   Parameters of `Bitmap Display`: unit size is `2×2`; display size is `512×256`.
-   Formula for the starting position of the `k`-th stripe is `256 * k / N` (integer arithmetic).
+   * Parameters of `Bitmap Display`: unit size is `2×2`; display size is `512×256`.
+   * Formula for the starting position of the `k`-th stripe is `256 * k / N` (integer arithmetic).
 
    Input:
    ```
@@ -80,6 +80,23 @@ Solve the following tasks and submit them into Ejudge:
    ![FullRainbow](FullRainbow.png)
 
 1. ###### TheCircle
+
+   * Parameters of `Bitmap Display`: unit size is `2×2`; display size is `512×256`.
+   * It is not guaraneed that the circle fits into the display (address range) or
+     is located within this range at all.
+
+   Input:
+   ```
+   100
+   60
+   50
+   15641122
+   5575048
+   ```
+
+   Output:
+
+   ![TheCircle](TheCircle.png)
 
 ## References
 
