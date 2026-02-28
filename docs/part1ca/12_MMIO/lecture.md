@@ -54,8 +54,30 @@ __TODO__: Add descriptions and Ejudge tasks
 
 Solve the following tasks and submit them into Ejudge:
 
-1. FullRainbow
-2. TheCircle
+1. _FullRainbow_. Write a program that fills `RARS Bitmap Display` with vertical stripes
+   of equal width (+1 pixel), which are painted with the specified colors.
+   The colors are input as decimal numbers one per a line.
+   `0` means the end of the input and is not considered as a color.
+   The total number of colors is `N <= 100`.
+
+   Parameters of `Bitmap Display`: unit size is `2×2`; display size is `512×256`.
+   Formula for the starting position of the `k`-th stripe is `256 * k / N` (integer arithmetic).
+
+   Input:
+   ```
+   1249394
+   7864115
+   5601041
+   43775
+   6706551
+   0
+   ```
+
+   Output:
+
+   ![FullRainbow](FullRainbow.png)
+
+1. TheCircle
 
 ## References
 
