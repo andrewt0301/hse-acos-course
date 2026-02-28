@@ -54,7 +54,7 @@ __TODO__: Add descriptions and Ejudge tasks
 
 Solve the following tasks and submit them into Ejudge:
 
-1. ##### FullRainbow.
+1. ###### FullRainbow
 
    Write a program that fills `RARS Bitmap Display` with vertical stripes
    of equal width (+1 pixel), which are painted with the specified colors.
@@ -79,7 +79,7 @@ Solve the following tasks and submit them into Ejudge:
 
    ![FullRainbow](FullRainbow.png)
 
-1. ##### TheCircle.
+1. ###### TheCircle
 
 ## References
 
