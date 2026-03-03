@@ -41,7 +41,7 @@ you may take some time from the next workshop (if it does not have a lot of prac
 1. Write a program (based on [digit_lab2.s](digit_lab2.s)) that inputs an integer value `X`
    (with he `ReadInt` system call) and then uses `Digital Sim Lab`
    to enter 32-bit integers (8 hexadecimal digits) `Y`.
-   It repeats entering integers until the entered `Y` is not equal to `X`. Then it prints `FOUND`
+   It repeats entering integers until the entered `Y` is equal to `X`. Then it prints `FOUND`
    and exits. If `Y` equals `0` the program must print `STOPPED` and exit.
 
 1. Write a program that draws a square with size 64×64 dots in the middle of `Bitmap Display`
