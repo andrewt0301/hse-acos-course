@@ -106,10 +106,6 @@ __Ripes__
    - If the processor has forwarding, but we forgot to implement the hazard detection unit,
      what happens when the original code executes?
 
-## Homework
-
-TODO
-
 ## References
 
 * The Processor. Chapter 4 in [[CODR]](../../books.md#codr).
