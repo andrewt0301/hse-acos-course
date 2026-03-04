@@ -62,6 +62,7 @@ See how well it can predict branch outcomes with different settings.
 * Parallelism via Instructions. Section 4.10 in [[CODR]](../../books.md#codr).
 * Advanced Microarchitecture. Section 7.7 in [[DDCA]](../../books.md#ddca).
 * Instruction-Level Parallelism and Its Exploitation. Chapter 3 in [[CAQA]](../../books.md#caqa) (Advanced).
+* Instruction-Level Parallelism and Superscalar Processors. Chapter 18 in [[COA]](../../books.md#coa).
 * [Superscalar processor](https://en.wikipedia.org/wiki/Superscalar_processor) (Wikipedia).
 * [Out-of-order execution](https://en.wikipedia.org/wiki/Out-of-order_execution) (Wikipedia).
 * [Register renaming](https://en.wikipedia.org/wiki/Register_renaming) (Wikipedia).
