@@ -212,10 +212,6 @@ Functions
    }
    ```
 
-## Homework
-
-Finish all the tasks.
-
 ## References
 
 * Optimizing program performance. Chapter 5 in [[CSPP]](../../books.md#cspp).
