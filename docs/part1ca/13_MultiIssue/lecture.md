@@ -13,6 +13,16 @@ Slides ([PDF](CA_Lecture_13.pdf), [PPTX](CA_Lecture_13.pptx)).
 * Dynamic and static scheduling
 * Out-of-order execution
 
+#### Examples
+
+| _CPU Model_ 	  |_Microarchitecture_    |_Generation_|_Issue Width_|
+| Core i7-3615QM | Ivy Bridge	           | 3rd Gen	   | 4           |
+| Core i7-8665U  | Whiskey Lake          | 8th Gen	   | 4           |
+| Core i7-1260P  | Golden Cove (P-core)  | 12th Gen   | 6           |
+|                | Gracemont (E-core)    |            | 5           |
+| Core i7-13700  | Raptor Cove (P-core)  | 13th Gen   | 6           |
+|                | Gracemont (E-core)	  |	         | 5           |
+
 ## Workshop
 
 #### Outline
