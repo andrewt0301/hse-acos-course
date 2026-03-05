@@ -102,6 +102,8 @@ Solve the following tasks and submit them into Ejudge:
 
    ![TheCircle](TheCircle.png)
 
+_NOTE: Display `256×512` with unit size `2×2` means `32768` (`(256 / 2) * (512 / 2)`) pixels each having size of 4 bytes._
+
 ## References
 
 * Input/Output. Chapter 8 in [[COA]](../../books.md#coa).
