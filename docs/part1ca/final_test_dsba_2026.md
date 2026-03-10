@@ -1,4 +1,7 @@
-# Final Test: Computer Architecture
+Final Test: Computer Architecture
+---
+
+## Grading
 
 The grade formula is as follows:
 
@@ -6,7 +9,7 @@ __Grade = 0.4 * Theory + 0.6 * Programming__
 
 ## Rules
 
-It is not allowed to used anything except for RARS.
+It is __not allowed to use anything except for RARS__.
 [Cheating policy](../grades.md#cheating-policy) applies here.
 
 ## Proctoring
