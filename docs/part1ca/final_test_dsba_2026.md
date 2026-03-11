@@ -21,7 +21,7 @@ __Solving both parts (theory and programming) must be recorded. Please start vid
 
 ## Part 1. Theoretical Questions
 
-Answer the questions from the following [form](TODO).
+Answer the questions from the following [form](https://forms.gle/8XJs4axKEiYDfWRC6).
 
 Please submit a link to the video recorded with [OBS Studio](https://obsproject.com).
 
