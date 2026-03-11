@@ -40,9 +40,9 @@ Assessment criteria:
 
 Ejudge contests by groups:
 
-* [Group 241](http://158.160.144.239/cgi-bin/new-client?contest_id=241)
-* [Group 242](http://158.160.144.239/cgi-bin/new-client?contest_id=242)
-* [Group 243](http://158.160.144.239/cgi-bin/new-client?contest_id=243)
-* [Group 244](http://158.160.144.239/cgi-bin/new-client?contest_id=244)
-* [Group 245](http://158.160.144.239/cgi-bin/new-client?contest_id=245)
-* [Group 246](http://158.160.144.239/cgi-bin/new-client?contest_id=246)
+* [Group 241](http://158.160.144.239/cgi-bin/new-client?contest_id=24101)
+* [Group 242](http://158.160.144.239/cgi-bin/new-client?contest_id=24201)
+* [Group 243](http://158.160.144.239/cgi-bin/new-client?contest_id=24301)
+* [Group 244](http://158.160.144.239/cgi-bin/new-client?contest_id=24401)
+* [Group 245](http://158.160.144.239/cgi-bin/new-client?contest_id=24501)
+* [Group 246](http://158.160.144.239/cgi-bin/new-client?contest_id=24601)
