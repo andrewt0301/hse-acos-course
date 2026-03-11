@@ -17,6 +17,8 @@ It is __not allowed to use anything except for RARS__.
 You __must record a video of your desktop__ with [OBS Studio](https://obsproject.com),
 upload it to your cloud drive, and submit a link to it in the form for theoretical part.
 
+__Solving both parts (theory and programming) must be recorded. Please start video-recording before you start solving enything.__
+
 ## Part 1. Theoretical Questions
 
 Answer the questions from the following [form](TODO).
