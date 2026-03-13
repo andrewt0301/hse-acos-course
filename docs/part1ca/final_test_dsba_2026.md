@@ -15,7 +15,7 @@ It is __not allowed to use anything except for RARS__.
 ## Proctoring
 
 You __must record a video of your desktop__ with [OBS Studio](https://obsproject.com),
-upload it to your cloud drive, and submit a link to it in the form for theoretical part.
+upload it to your cloud drive, and submit a link to it in the form for theoretical part. The suggested format for video is `.mkv`.
 
 __Solving both parts (theory and programming) must be recorded. Please start video-recording before you start solving enything.__
 
