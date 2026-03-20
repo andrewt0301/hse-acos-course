@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lecture 15 | Computer Architecture and Operating Systems</title>
+    <meta name="description" content="Course taught at Faculty of Computer Science of Higher School of Economics">
+    <script>
+      (function () {
+        var root = document.documentElement;
+
+        try {
+          var savedTheme = localStorage.getItem("acos-theme");
+          var savedLanguage = localStorage.getItem("acos-language");
+          var theme = savedTheme || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          var language = savedLanguage || "en";
+
+          root.dataset.theme = theme === "dark" ? "dark" : "light";
+          root.dataset.language = language === "ru" ? "ru" : "en";
+          root.lang = language === "ru" ? "ru" : "en";
+        } catch (error) {
+          root.dataset.theme = "light";
+          root.dataset.language = "en";
+          root.lang = "en";
+        }
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/hse-acos-course/assets/css/style.css?v=20260321b">
+    <script defer src="/hse-acos-course/assets/js/site.js?v=20260321b"></script>
+  </head>
+  
+  
+  
+  
+  
+  
+  
+  
+  <body data-page-kind="lecture" data-section="ca" data-current-url="/part1ca/15_Optimize/lecture.html">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="site-bg">
+      <div class="site-grid"></div>
+    </div>
+
+    <div class="site-shell">
+      <header class="site-header" data-site-header>
+        <div class="container site-header__inner">
+          <a class="site-brand" href="/hse-acos-course/" aria-label="Computer Architecture and Operating Systems">
+            <span class="site-brand__mark" aria-hidden="true">ACOS</span>
+          </a>
+
+          <button class="site-nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+            <span>Menu</span>
+          </button>
+
+          <div class="site-header__panel" id="site-nav" data-nav-panel>
+            <nav class="site-nav" aria-label="Primary">
+              <ul class="site-nav__list">
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/" data-nav-link>Home</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/calendar_plan.html" data-nav-link>Calendar</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Assessment</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/exam_latest.html" data-nav-link>Exam</a>
+                          
+                            <a href="/hse-acos-course/grades.html" data-nav-link>Grades</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Resources</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/software.html" data-nav-link>Software</a>
+                          
+                            <a href="/hse-acos-course/books.html" data-nav-link>Textbooks</a>
+                          
+                            <a href="/hse-acos-course/courses.html" data-nav-link>Related Courses</a>
+                          
+                            <a href="/hse-acos-course/links.html" data-nav-link>Useful Links</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="https://github.com/andrewt0301/hse-acos-course" data-nav-link>GitHub</a>
+                    
+                  </li>
+                
+              </ul>
+            </nav>
+
+            <div class="site-preferences" aria-label="Site preferences">
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Theme</span>
+                <div class="site-preferences__switch" role="group" aria-label="Theme switch">
+                  <button type="button" data-theme-option="light" aria-pressed="false">Light</button>
+                  <button type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+                </div>
+              </div>
+
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Lang</span>
+                <div class="site-preferences__switch" role="group" aria-label="Language switch">
+                  <button type="button" data-language-option="en" aria-pressed="false">EN</button>
+                  <button type="button" data-language-option="ru" aria-pressed="false">RU</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="language-placeholder" data-language-placeholder hidden>
+        <div class="container language-placeholder__inner">
+          <div class="language-placeholder__copy">
+            <p class="language-placeholder__eyebrow">RU / Placeholder</p>
+            <strong>Русская версия пока в разработке</strong>
+            <p>Переключатель уже добавлен, но материалы и текущий интерфейс страниц пока остаются на английском. Полноценная локализация появится позже.</p>
+          </div>
+          <button class="language-placeholder__action" type="button" data-language-reset>Back to English</button>
+        </div>
+      </div>
+
+      <main id="main-content" class="site-main">
+        
+          <div class="container page-shell">
+            <div class="page-shell__main">
+              <nav class="breadcrumbs" aria-label="Breadcrumbs">
+                <ol>
+                  <li><a href="/hse-acos-course/">Home</a></li>
+                  
+                    <li><a href="/hse-acos-course/#computer-architecture">Computer Architecture</a></li>
+                  
+                  <li aria-current="page"><span data-breadcrumb-current>Lecture 15</span></li>
+                </ol>
+              </nav>
+
+              <article class="page-article" data-page-content>
+                <h2 id="lecture-15">Lecture 15</h2>
+
+<h1 id="optimizations">Optimizations</h1>
+
+<h2 id="lecture">Lecture</h2>
+
+<p>Slides (<a href="/hse-acos-course/part1ca/15_Optimize/CA_Lecture_15.pdf">PDF</a>, <a href="/hse-acos-course/part1ca/15_Optimize/CA_Lecture_15.pptx">PPTX</a>).</p>
+
+<h4 id="outline">Outline</h4>
+
+<ul>
+  <li>Reducing amount of work</li>
+  <li>Data optimization</li>
+  <li>Loop optimizations</li>
+  <li>Logic optimizations</li>
+  <li>Function optimizations</li>
+  <li>Optimizing compilers and their limitations</li>
+</ul>
+
+<h4 id="list-of-optimizations">List of Optimizations</h4>
+
+<p>Data structures</p>
+
+<ul>
+  <li>Packing and encoding</li>
+  <li>Augmentation</li>
+  <li>Precomputation</li>
+  <li>Compile-time initialization</li>
+  <li>Caching</li>
+  <li>Lazy evaluation</li>
+  <li>Sparsity</li>
+</ul>
+
+<p>Loops</p>
+
+<ul>
+  <li>Hoisting</li>
+  <li>Sentinels</li>
+  <li>Loop unrolling</li>
+  <li>Loop fusion</li>
+  <li>Eliminating wasted iterations</li>
+</ul>
+
+<p>Logic</p>
+
+<ul>
+  <li>Constant folding and propagation</li>
+  <li>Common-subexpression elimination</li>
+  <li>Algebraic identities</li>
+  <li>Short-circuiting</li>
+  <li>Ordering tests</li>
+  <li>Creating a fast path</li>
+  <li>Combining tests</li>
+</ul>
+
+<p>Functions</p>
+
+<ul>
+  <li>Inlining</li>
+  <li>Tail-recursion elimination</li>
+  <li>Coarsening recursion</li>
+</ul>
+
+<h2 id="workshop">Workshop</h2>
+
+<h4 id="outline-1">Outline</h4>
+
+<ul>
+  <li>Discuss optimizations from the lecture, whoch are related to hardware.</li>
+  <li>Use the RISC-V toolchain (use compiler explorer <a href="https://godbolt.org/">Godbolt</a>)
+to compile C programs with optimizations.
+    <ul>
+      <li>Study examples of optimized and unoptimized C programs.</li>
+      <li>Review the assembly code generate by the compiler.</li>
+      <li>Try different levels of compiler optimizations (<code class="language-plaintext highlighter-rouge">-01</code>, <code class="language-plaintext highlighter-rouge">-02</code>).</li>
+    </ul>
+  </li>
+  <li>Practice implementing optimizations in the RISC-V assembly.</li>
+</ul>
+
+<h4 id="examples">Examples</h4>
+
+<ol>
+  <li>
+    <p>Inlining and constant folding.</p>
+
+    <pre><code class="language-C">#include &lt;stdio.h&gt;
+  
+int square(int x) {
+    return x * x;
+}
+    
+int add(int x, int y) {
+    return x + y;
+}
+    
+int main() {
+    int x = 10;
+    int y = 5;
+    int z = add(square(x), y);
+    printf("Result = %d\n", z);
+    return 0;
+}
+</code></pre>
+
+    <ul>
+      <li>Compile the program without optimizations and then with optimizations. See the difference.</li>
+      <li>Add the <code class="language-plaintext highlighter-rouge">inline</code> directive to the function declarations. What happens after you do this?</li>
+      <li>Modify the program so that <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> are read from the user input. How does it affect optimizations?</li>
+    </ul>
+  </li>
+  <li>
+    <p>Loop unrolling.</p>
+
+    <pre><code class="language-C">#include &lt;stdio.h&gt;
+ 
+void fcopy(char *source, char *target) {
+    for (int i = 0; i &lt; 256; ++i) {
+       target[i] = source[i];
+    }
+}
+    
+int main() {
+    char in[256];
+    scanf("%s", in);
+    char out[256];
+    fcopy(in, out);
+    printf("Result = %s\n", out);
+    return 0;
+}
+</code></pre>
+    <ul>
+      <li>Compile the program without optimizations and then with optimizations (<code class="language-plaintext highlighter-rouge">-03</code>). See the difference.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Memory accesses.</p>
+
+    <pre><code class="language-C">#include &lt;stdio.h&gt;
+  
+void add (int x, int y, int z, int *result) {
+    *result += x;
+    *result += y;
+    *result += z;
+}
+    
+int main() {
+    int x, y, z;
+    scanf("%d%d%d", &amp;x, &amp;y, &amp;z);
+    int result;
+    add(x, y, z, &amp;result);
+    printf("Result=%d\n", result);
+    return 0;
+}
+</code></pre>
+    <ul>
+      <li>Compile the program without optimizations and then with optimizations (<code class="language-plaintext highlighter-rouge">-01</code>). See the difference.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Branch prediction.</p>
+
+    <pre><code class="language-C">int test(int a, int b) {
+    if (a &lt; b) [[unlikely]] {
+        int x = a * 16 + 7;
+        int y = b / 2 + 4;
+        return x / y;
+    } else {
+        int x = a * 2 + 1;
+        int y = b * 3 + 2;
+        return x * y;
+    }    
+}
+</code></pre>
+
+    <p>Use <code class="language-plaintext highlighter-rouge">[[likely]]</code> and <code class="language-plaintext highlighter-rouge">[[unlikely]]</code> C++ attributes or C macros to modify the program structure.</p>
+
+    <pre><code class="language-C">#define likely(x)      __builtin_expect(!!(x), 1) 
+#define unlikely(x)    __builtin_expect(!!(x), 0) 
+</code></pre>
+
+    <p>The idea: the standard branch prediction heuristic assumes that a forward branch is always taken.
+This means that the instructions of the <code class="language-plaintext highlighter-rouge">if</code> branch will be fetched by the CPU.
+However, we can mark the condition as <em>unlikely</em> and the compiler will change the program structure
+in such a way that the <code class="language-plaintext highlighter-rouge">else</code> branch instructions will be fetched by the CPU.</p>
+
+    <ul>
+      <li>Compile the program marking different branches with <code class="language-plaintext highlighter-rouge">[[unlikely]]</code>/<code class="language-plaintext highlighter-rouge">[[likely]]</code> and see the difference.</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="tasks">Tasks</h4>
+
+<ol>
+  <li>
+    <p>Explain why passing arguments to functions by reference or by pointer is not a good idea
+unless it is really necessary. Explain the difference between:</p>
+
+    <pre><code class="language-C">void add(int* z, int* x, int* y) {
+    *z = *x + *y;
+}
+</code></pre>
+    <p>and:</p>
+    <pre><code class="language-C">int add(int x, int y) {
+    return x + y;
+}
+</code></pre>
+  </li>
+  <li>
+    <p>Write a function in RISC-V assembly, which accepts as arguments an array of 16-bit values and returns
+the result of following expression: <code class="language-plaintext highlighter-rouge">A[0] - A[1] + A[2] - A[3] + [A4] ... +- A[N-1]</code>.
+Use the <em>loop unrolling</em> technique to make calculations faster.</p>
+
+    <p>An unoptimized C implementation look like this:</p>
+
+    <pre><code class="language-C">#include &lt;stdio.h&gt;
+   
+int func(short *array, int size) {
+    int result = 0;
+    for (int i = 0; i &lt; size; ++i) {
+        short value = array[i];
+        if (i % 2 == 0) {
+            result += value;
+        } else {
+            result -= value;
+        }
+    }
+    return result;
+}
+
+int main() {
+    short arr[] = {1, 2, 3, 4, 5};
+    printf("Result= %d\n", func(arr, sizeof(arr)/sizeof(short)));
+    return 0;
+}
+</code></pre>
+  </li>
+</ol>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li>Optimizing program performance. Chapter 5 in <a href="/hse-acos-course/books.html#cspp">[CSPP]</a>.</li>
+  <li><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-172-performance-engineering-of-software-systems-fall-2018">MIT 6.172</a>.
+Lecture 2. <a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-172-performance-engineering-of-software-systems-fall-2018/lecture-slides/MIT6_172F18_lec2.pdf">Slides</a>.</li>
+  <li><a href="https://en.wikipedia.org/wiki/Loop_unrolling">Loop unrolling</a> (Wikipedia).</li>
+  <li><a href="https://en.wikipedia.org/wiki/Loop-invariant_code_motion">Loop-invariant code motion</a> (Wikipedia).</li>
+  <li><a href="https://en.wikipedia.org/wiki/Profiling_%28computer_programming%29">Profiling</a> (Wikipedia).</li>
+  <li><a href="https://en.wikipedia.org/wiki/Program_optimization">Program optimization</a> (Wikipedia).</li>
+  <li><a href="https://www.geeksforgeeks.org/branch-prediction-macros-in-gcc/">Branch prediction macros in GCC</a> (GeeksForGeeks).</li>
+  <li><a href="https://en.cppreference.com/w/cpp/language/attributes/likely">C++ attribute: likely, unlikely (since C++20)</a>.</li>
+</ul>
+
+              </article>
+            </div>
+
+            <aside class="page-toc" data-toc hidden>
+              <div class="page-toc__inner">
+                <p class="page-toc__eyebrow">On this page</p>
+                <nav aria-label="Table of contents">
+                  <ol class="page-toc__list" data-toc-list></ol>
+                </nav>
+              </div>
+            </aside>
+          </div>
+        
+      </main>
+
+      <footer class="site-footer">
+        <div class="container site-footer__inner">
+          <div>
+            <strong>Computer Architecture and Operating Systems</strong>
+              <p>Course materials maintained on GitHub Pages for HSE Faculty of Computer Science.</p>
+          </div>
+          <div class="site-footer__links">
+            <a href="/hse-acos-course/">Home</a>
+              <a href="https://github.com/andrewt0301/hse-acos-course">Repository</a>
+            <a href="https://pages.github.com">GitHub Pages</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

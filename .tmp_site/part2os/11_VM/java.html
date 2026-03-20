@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Java Virtual Machine and Bytecode | Computer Architecture and Operating Systems</title>
+    <meta name="description" content="Course taught at Faculty of Computer Science of Higher School of Economics">
+    <script>
+      (function () {
+        var root = document.documentElement;
+
+        try {
+          var savedTheme = localStorage.getItem("acos-theme");
+          var savedLanguage = localStorage.getItem("acos-language");
+          var theme = savedTheme || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          var language = savedLanguage || "en";
+
+          root.dataset.theme = theme === "dark" ? "dark" : "light";
+          root.dataset.language = language === "ru" ? "ru" : "en";
+          root.lang = language === "ru" ? "ru" : "en";
+        } catch (error) {
+          root.dataset.theme = "light";
+          root.dataset.language = "en";
+          root.lang = "en";
+        }
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/hse-acos-course/assets/css/style.css?v=20260321b">
+    <script defer src="/hse-acos-course/assets/js/site.js?v=20260321b"></script>
+  </head>
+  
+  
+  
+  
+  
+  
+  
+  
+  <body data-page-kind="lecture" data-section="os" data-current-url="/part2os/11_VM/java.html">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="site-bg">
+      <div class="site-grid"></div>
+    </div>
+
+    <div class="site-shell">
+      <header class="site-header" data-site-header>
+        <div class="container site-header__inner">
+          <a class="site-brand" href="/hse-acos-course/" aria-label="Computer Architecture and Operating Systems">
+            <span class="site-brand__mark" aria-hidden="true">ACOS</span>
+          </a>
+
+          <button class="site-nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+            <span>Menu</span>
+          </button>
+
+          <div class="site-header__panel" id="site-nav" data-nav-panel>
+            <nav class="site-nav" aria-label="Primary">
+              <ul class="site-nav__list">
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/" data-nav-link>Home</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/calendar_plan.html" data-nav-link>Calendar</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Assessment</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/exam_latest.html" data-nav-link>Exam</a>
+                          
+                            <a href="/hse-acos-course/grades.html" data-nav-link>Grades</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Resources</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/software.html" data-nav-link>Software</a>
+                          
+                            <a href="/hse-acos-course/books.html" data-nav-link>Textbooks</a>
+                          
+                            <a href="/hse-acos-course/courses.html" data-nav-link>Related Courses</a>
+                          
+                            <a href="/hse-acos-course/links.html" data-nav-link>Useful Links</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="https://github.com/andrewt0301/hse-acos-course" data-nav-link>GitHub</a>
+                    
+                  </li>
+                
+              </ul>
+            </nav>
+
+            <div class="site-preferences" aria-label="Site preferences">
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Theme</span>
+                <div class="site-preferences__switch" role="group" aria-label="Theme switch">
+                  <button type="button" data-theme-option="light" aria-pressed="false">Light</button>
+                  <button type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+                </div>
+              </div>
+
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Lang</span>
+                <div class="site-preferences__switch" role="group" aria-label="Language switch">
+                  <button type="button" data-language-option="en" aria-pressed="false">EN</button>
+                  <button type="button" data-language-option="ru" aria-pressed="false">RU</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="language-placeholder" data-language-placeholder hidden>
+        <div class="container language-placeholder__inner">
+          <div class="language-placeholder__copy">
+            <p class="language-placeholder__eyebrow">RU / Placeholder</p>
+            <strong>Русская версия пока в разработке</strong>
+            <p>Переключатель уже добавлен, но материалы и текущий интерфейс страниц пока остаются на английском. Полноценная локализация появится позже.</p>
+          </div>
+          <button class="language-placeholder__action" type="button" data-language-reset>Back to English</button>
+        </div>
+      </div>
+
+      <main id="main-content" class="site-main">
+        
+          <div class="container page-shell">
+            <div class="page-shell__main">
+              <nav class="breadcrumbs" aria-label="Breadcrumbs">
+                <ol>
+                  <li><a href="/hse-acos-course/">Home</a></li>
+                  
+                    <li><a href="/hse-acos-course/#operating-systems">Operating Systems</a></li>
+                  
+                  <li aria-current="page"><span data-breadcrumb-current>Java Virtual Machine and Bytecode</span></li>
+                </ol>
+              </nav>
+
+              <article class="page-article" data-page-content>
+                <h2 id="java-virtual-machine-and-bytecode">Java Virtual Machine and Bytecode</h2>
+
+<p>Installing Java:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>openjdk-21-jdk
+</code></pre></div></div>
+
+<p><em>Simple program Hello.java:</em></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Hello</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">20</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">z</span> <span class="o">=</span> <span class="o">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="o">)</span> <span class="o">/</span> <span class="o">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"z=%d\n"</span><span class="o">,</span> <span class="n">z</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Compiling the program and viewing its bytecode:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>javac Hello.java 
+javap <span class="nt">-c</span> Hello
+</code></pre></div></div>
+
+<p>The bytecode:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Compiled</span> <span class="n">from</span> <span class="s">"Hello.java"</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Hello</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="nf">Hello</span><span class="o">();</span>
+    <span class="nl">Code:</span>
+       <span class="mi">0</span><span class="o">:</span> <span class="n">aload_0</span>
+       <span class="mi">1</span><span class="o">:</span> <span class="n">invokespecial</span> <span class="err">#</span><span class="mi">1</span>                  <span class="c1">// Method java/lang/Object."&lt;init&gt;":()V</span>
+       <span class="mi">4</span><span class="o">:</span> <span class="k">return</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">String</span><span class="o">[]);</span>
+    <span class="nl">Code:</span>
+       <span class="mi">0</span><span class="o">:</span> <span class="n">bipush</span>        <span class="mi">10</span>
+       <span class="mi">2</span><span class="o">:</span> <span class="n">istore_1</span>
+       <span class="mi">3</span><span class="o">:</span> <span class="n">bipush</span>        <span class="mi">20</span>
+       <span class="mi">5</span><span class="o">:</span> <span class="n">istore_2</span>
+       <span class="mi">6</span><span class="o">:</span> <span class="n">iload_1</span>
+       <span class="mi">7</span><span class="o">:</span> <span class="n">iload_2</span>
+       <span class="mi">8</span><span class="o">:</span> <span class="n">iadd</span>
+       <span class="mi">9</span><span class="o">:</span> <span class="n">iload_2</span>
+      <span class="mi">10</span><span class="o">:</span> <span class="n">iload_1</span>
+      <span class="mi">11</span><span class="o">:</span> <span class="n">isub</span>
+      <span class="mi">12</span><span class="o">:</span> <span class="n">idiv</span>
+      <span class="mi">13</span><span class="o">:</span> <span class="n">istore_3</span>
+      <span class="mi">14</span><span class="o">:</span> <span class="n">getstatic</span>     <span class="err">#</span><span class="mi">7</span>                  <span class="c1">// Field java/lang/System.out:Ljava/io/PrintStream;</span>
+      <span class="mi">17</span><span class="o">:</span> <span class="n">ldc</span>           <span class="err">#</span><span class="mi">13</span>                 <span class="c1">// String z=%d\n</span>
+      <span class="mi">19</span><span class="o">:</span> <span class="n">iconst_1</span>
+      <span class="mi">20</span><span class="o">:</span> <span class="n">anewarray</span>     <span class="err">#</span><span class="mi">2</span>                  <span class="c1">// class java/lang/Object</span>
+      <span class="mi">23</span><span class="o">:</span> <span class="n">dup</span>
+      <span class="mi">24</span><span class="o">:</span> <span class="n">iconst_0</span>
+      <span class="mi">25</span><span class="o">:</span> <span class="n">iload_3</span>
+      <span class="mi">26</span><span class="o">:</span> <span class="n">invokestatic</span>  <span class="err">#</span><span class="mi">15</span>                 <span class="c1">// Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;</span>
+      <span class="mi">29</span><span class="o">:</span> <span class="n">aastore</span>
+      <span class="mi">30</span><span class="o">:</span> <span class="n">invokevirtual</span> <span class="err">#</span><span class="mi">21</span>                 <span class="c1">// Method java/io/PrintStream.printf:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;</span>
+      <span class="mi">33</span><span class="o">:</span> <span class="n">pop</span>
+      <span class="mi">34</span><span class="o">:</span> <span class="k">return</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Running the program:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java Hello 
+<span class="nv">z</span><span class="o">=</span>3
+</code></pre></div></div>
+
+<h1 id="references">References</h1>
+
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Java_virtual_machine">Java Virtual Machine</a> (Wikipedia).</li>
+  <li><a href="https://en.wikipedia.org/wiki/Java_bytecode">Java bytecode</a> (Wikipedia).</li>
+  <li><a href="https://docs.oracle.com/javase/specs/jvms/se24/html/index.html">The Java® Virtual Machine Specification</a></li>
+</ul>
+
+              </article>
+            </div>
+
+            <aside class="page-toc" data-toc hidden>
+              <div class="page-toc__inner">
+                <p class="page-toc__eyebrow">On this page</p>
+                <nav aria-label="Table of contents">
+                  <ol class="page-toc__list" data-toc-list></ol>
+                </nav>
+              </div>
+            </aside>
+          </div>
+        
+      </main>
+
+      <footer class="site-footer">
+        <div class="container site-footer__inner">
+          <div>
+            <strong>Computer Architecture and Operating Systems</strong>
+              <p>Course materials maintained on GitHub Pages for HSE Faculty of Computer Science.</p>
+          </div>
+          <div class="site-footer__links">
+            <a href="/hse-acos-course/">Home</a>
+              <a href="https://github.com/andrewt0301/hse-acos-course">Repository</a>
+            <a href="https://pages.github.com">GitHub Pages</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

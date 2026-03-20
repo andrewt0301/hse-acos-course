@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lecture 10 | Computer Architecture and Operating Systems</title>
+    <meta name="description" content="Course taught at Faculty of Computer Science of Higher School of Economics">
+    <script>
+      (function () {
+        var root = document.documentElement;
+
+        try {
+          var savedTheme = localStorage.getItem("acos-theme");
+          var savedLanguage = localStorage.getItem("acos-language");
+          var theme = savedTheme || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          var language = savedLanguage || "en";
+
+          root.dataset.theme = theme === "dark" ? "dark" : "light";
+          root.dataset.language = language === "ru" ? "ru" : "en";
+          root.lang = language === "ru" ? "ru" : "en";
+        } catch (error) {
+          root.dataset.theme = "light";
+          root.dataset.language = "en";
+          root.lang = "en";
+        }
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/hse-acos-course/assets/css/style.css?v=20260321b">
+    <script defer src="/hse-acos-course/assets/js/site.js?v=20260321b"></script>
+  </head>
+  
+  
+  
+  
+  
+  
+  
+  
+  <body data-page-kind="lecture" data-section="os" data-current-url="/part2os/10_Permissions/lecture.html">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="site-bg">
+      <div class="site-grid"></div>
+    </div>
+
+    <div class="site-shell">
+      <header class="site-header" data-site-header>
+        <div class="container site-header__inner">
+          <a class="site-brand" href="/hse-acos-course/" aria-label="Computer Architecture and Operating Systems">
+            <span class="site-brand__mark" aria-hidden="true">ACOS</span>
+          </a>
+
+          <button class="site-nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+            <span>Menu</span>
+          </button>
+
+          <div class="site-header__panel" id="site-nav" data-nav-panel>
+            <nav class="site-nav" aria-label="Primary">
+              <ul class="site-nav__list">
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/" data-nav-link>Home</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/calendar_plan.html" data-nav-link>Calendar</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Assessment</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/exam_latest.html" data-nav-link>Exam</a>
+                          
+                            <a href="/hse-acos-course/grades.html" data-nav-link>Grades</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Resources</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/software.html" data-nav-link>Software</a>
+                          
+                            <a href="/hse-acos-course/books.html" data-nav-link>Textbooks</a>
+                          
+                            <a href="/hse-acos-course/courses.html" data-nav-link>Related Courses</a>
+                          
+                            <a href="/hse-acos-course/links.html" data-nav-link>Useful Links</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="https://github.com/andrewt0301/hse-acos-course" data-nav-link>GitHub</a>
+                    
+                  </li>
+                
+              </ul>
+            </nav>
+
+            <div class="site-preferences" aria-label="Site preferences">
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Theme</span>
+                <div class="site-preferences__switch" role="group" aria-label="Theme switch">
+                  <button type="button" data-theme-option="light" aria-pressed="false">Light</button>
+                  <button type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+                </div>
+              </div>
+
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Lang</span>
+                <div class="site-preferences__switch" role="group" aria-label="Language switch">
+                  <button type="button" data-language-option="en" aria-pressed="false">EN</button>
+                  <button type="button" data-language-option="ru" aria-pressed="false">RU</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="language-placeholder" data-language-placeholder hidden>
+        <div class="container language-placeholder__inner">
+          <div class="language-placeholder__copy">
+            <p class="language-placeholder__eyebrow">RU / Placeholder</p>
+            <strong>Русская версия пока в разработке</strong>
+            <p>Переключатель уже добавлен, но материалы и текущий интерфейс страниц пока остаются на английском. Полноценная локализация появится позже.</p>
+          </div>
+          <button class="language-placeholder__action" type="button" data-language-reset>Back to English</button>
+        </div>
+      </div>
+
+      <main id="main-content" class="site-main">
+        
+          <div class="container page-shell">
+            <div class="page-shell__main">
+              <nav class="breadcrumbs" aria-label="Breadcrumbs">
+                <ol>
+                  <li><a href="/hse-acos-course/">Home</a></li>
+                  
+                    <li><a href="/hse-acos-course/#operating-systems">Operating Systems</a></li>
+                  
+                  <li aria-current="page"><span data-breadcrumb-current>Lecture 10</span></li>
+                </ol>
+              </nav>
+
+              <article class="page-article" data-page-content>
+                <h2 id="lecture-10">Lecture 10</h2>
+
+<h1 id="users-groups-and-permissions">Users, groups, and permissions.</h1>
+
+<h2 id="lecture">Lecture</h2>
+
+<p>Slides (<a href="/hse-acos-course/part2os/10_Permissions/OS_Lecture_10.pdf">PDF</a>, <a href="/hse-acos-course/part2os/10_Permissions/OS_Lecture_10.pptx">PPTX</a>).</p>
+
+<h4 id="outline">Outline</h4>
+
+<ul>
+  <li>Access Control</li>
+  <li>Users and Groups</li>
+  <li>Permissions</li>
+  <li>Links</li>
+</ul>
+
+<h2 id="workshop">Workshop</h2>
+
+<p><em>Use the local Ubuntu VM (Cloud does not allow creating new account and groups - only admins can do this).</em></p>
+
+<ol>
+  <li>Study documentation on system utilities for managing users and their permissions:
+    <ul>
+      <li><a href="https://man7.org/linux/man-pages/man1/su.1.html">su</a>,
+<a href="https://man7.org/linux/man-pages/man8/sudo.8.html">sudo</a>,
+<a href="https://man7.org/linux/man-pages/man1/passwd.1.html">passwd</a>;</li>
+      <li><a href="https://man7.org/linux/man-pages/man8/useradd.8.html">useradd</a>,
+<a href="https://man7.org/linux/man-pages/man8/usermod.8.html">usermod</a>,
+<a href="https://man7.org/linux/man-pages/man8/userdel.8.html">userdel</a>;</li>
+      <li><a href="https://man7.org/linux/man-pages/man1/chmod.1.html">chmod</a>,
+<a href="https://man7.org/linux/man-pages/man1/chown.1.html">chown</a>,
+<a href="https://man7.org/linux/man-pages/man1/chgrp.1.html">chgrp</a>;</li>
+      <li><a href="https://man7.org/linux/man-pages/man8/groupadd.8.html">groupadd</a>,
+<a href="https://man7.org/linux/man-pages/man8/groupmod.8.html">groupmod</a>,
+<a href="https://man7.org/linux/man-pages/man8/groupdel.8.html">groupdel</a>;</li>
+      <li><a href="https://man7.org/linux/man-pages/man1/ln.1.html">ln</a>.</li>
+    </ul>
+  </li>
+  <li>Create a new user and group:
+    <ul>
+      <li>switch to the root mode: <code class="language-plaintext highlighter-rouge">su</code> (type the password <code class="language-plaintext highlighter-rouge">acos2020</code>);</li>
+      <li>create a new user: <code class="language-plaintext highlighter-rouge">root@acos-vm:/home/acos# useradd -m myuser</code>;</li>
+      <li>set a password for this user: <code class="language-plaintext highlighter-rouge">root@acos-vm:/home/acos# passwd myuser</code>;</li>
+      <li>add a new group: <code class="language-plaintext highlighter-rouge">root@acos-vm:/home/acos# groupadd mygroup</code>;</li>
+      <li>see the user and the group added in configuration files:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@acos-vm:/home/acos# <span class="nb">cat</span> /etc/passwd | <span class="nb">grep </span>myuser
+myuser:x:1002:1002::/home/myuser:/bin/sh 
+root@acos-vm:/home/acos# <span class="nb">cat</span> /etc/group | <span class="nb">grep </span>mygroup
+mygroup:x:1003:
+</code></pre></div>        </div>
+      </li>
+      <li>switch to the new user: <code class="language-plaintext highlighter-rouge">https://man7.org/linux/man-pages/man1/passwd.1.html</code>;</li>
+      <li>check the current user ID: <code class="language-plaintext highlighter-rouge">whoami</code>.</li>
+    </ul>
+  </li>
+  <li>Add the user to the group:
+    <ul>
+      <li>add <code class="language-plaintext highlighter-rouge">myuser</code> to <code class="language-plaintext highlighter-rouge">mygroup</code>:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@acos-vm:/home/acos# usermod <span class="nt">-a</span> <span class="nt">-G</span> mygroup myuser
+</code></pre></div>        </div>
+      </li>
+      <li>see that the user is added to the group:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@acos-vm:/home/acos# <span class="nb">cat</span> /etc/group | <span class="nb">grep </span>mygroup
+mygroup:x:1003:myuser
+</code></pre></div>        </div>
+      </li>
+      <li>add <code class="language-plaintext highlighter-rouge">myuser</code> to <code class="language-plaintext highlighter-rouge">acos</code>:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@acos-vm:/home/acos# usermod <span class="nt">-a</span> <span class="nt">-G</span> acos  myuser
+</code></pre></div>        </div>
+      </li>
+      <li>see that the user is added to the group:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@acos-vm:/home/acos# <span class="nb">cat</span> /etc/group | <span class="nb">grep </span>acos
+adm:x:4:syslog,acos
+cdrom:x:24:acos
+<span class="nb">sudo</span>:x:27:acos
+dip:x:30:acos
+plugdev:x:46:acos
+lpadmin:x:120:acos
+lxd:x:131:acos
+acos:x:1000:myuser
+sambashare:x:132:acos
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>Create a folder for experiments:
+    <ul>
+      <li>create folder <code class="language-plaintext highlighter-rouge">Lab_10</code>:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~<span class="nv">$ </span><span class="nb">mkdir </span>Lab_10
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>Create files for experiments with ownership:
+    <ul>
+      <li>create folder <code class="language-plaintext highlighter-rouge">files</code>:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~/Lab_10<span class="nv">$ </span><span class="nb">mkdir </span>files
+acos@acos-vm:~/Lab_10<span class="nv">$ </span><span class="nb">cd </span>files/
+</code></pre></div>        </div>
+      </li>
+      <li>create a file under user <code class="language-plaintext highlighter-rouge">acos</code> and see its ownership and permissions:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~/Lab_10/files<span class="nv">$ </span><span class="nb">echo</span> <span class="nt">-e</span> <span class="s1">'#!/bin/sh\necho "ACOS"'</span> <span class="o">&gt;</span> acosfile
+acos@acos-vm:~/Lab_10/files<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-li</span>
+total 4
+794688 <span class="nt">-rw-rw-r--</span> 1 acos acos 10 июн  3 01:01 acosfile
+acos@acos-vm:~/Lab_10/files<span class="nv">$ </span>
+</code></pre></div>        </div>
+      </li>
+      <li>switch to <code class="language-plaintext highlighter-rouge">myuser</code>, create a file, and see its ownership and permissions:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~/Lab_10/files<span class="nv">$ </span>su myuser
+Password: 
+<span class="nv">$ </span><span class="nb">pwd</span>
+/home/acos/Lab_10/files
+<span class="nv">$ </span><span class="nb">echo</span> <span class="nt">-e</span> <span class="s1">'#!/bin/sh\necho "MYFILE"'</span> <span class="o">&gt;</span> myuserfile        
+<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-li</span>
+total 8
+794688 <span class="nt">-rw-rw-r--</span> 1 acos   acos   10 июн  3 01:01 acosfile
+794689 <span class="nt">-rw-rw-r--</span> 1 myuser myuser 12 июн  3 01:04 myuserfile
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>Make experiments with permissions:
+    <ul>
+      <li>switch back to <code class="language-plaintext highlighter-rouge">acos</code>:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">exit
+</span>acos@acos-vm:~/Lab_10/files<span class="err">$</span>
+</code></pre></div>        </div>
+      </li>
+      <li>try to execute <code class="language-plaintext highlighter-rouge">acosfile</code>:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~/Lab_10/files<span class="nv">$ </span>./acosfile
+<span class="nt">-bash</span>: ./acosfile: Permission denied
+</code></pre></div>        </div>
+      </li>
+      <li>assign the execute permission to <code class="language-plaintext highlighter-rouge">acosfile</code> for user <code class="language-plaintext highlighter-rouge">acos</code> and execute it:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~/Lab_10/files<span class="nv">$ </span><span class="nb">chmod </span>u+x acosfile   
+acos@acos-vm:~/Lab_10/files<span class="nv">$ </span>./acosfile 
+ACOS
+</code></pre></div>        </div>
+      </li>
+      <li>switch to <code class="language-plaintext highlighter-rouge">myuser</code> and try to execute <code class="language-plaintext highlighter-rouge">acosfile</code>:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~/Lab_10/files<span class="nv">$ </span>su myuser
+Password: 
+<span class="nv">$ </span>./acosfile    
+sh: 1: ./acosfile: Permission denied
+</code></pre></div>        </div>
+      </li>
+      <li>switch back to <code class="language-plaintext highlighter-rouge">acos</code>, add the execute permissionto the group, switch to <code class="language-plaintext highlighter-rouge">myuser</code>, and execute <code class="language-plaintext highlighter-rouge">acosfile</code>:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">exit
+</span>acos@acos-vm:~/Lab_10/files<span class="nv">$ </span><span class="nb">chmod </span>g+x acosfile 
+acos@acos-vm:~/Lab_10/files<span class="nv">$ </span>su myuser
+Password: 
+<span class="nv">$ </span>./acosfile    
+ACOS
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>Make experiments with ownership:
+    <ul>
+      <li>give the execute permission for <code class="language-plaintext highlighter-rouge">myuserfile</code> to <code class="language-plaintext highlighter-rouge">myuser</code>:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">chmod </span>u+x myuserfile 
+</code></pre></div>        </div>
+      </li>
+      <li>switch back to <code class="language-plaintext highlighter-rouge">acos</code>:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">exit
+</span>acos@acos-vm:~/Lab_10/files<span class="err">$</span>
+</code></pre></div>        </div>
+      </li>
+      <li>try to execute <code class="language-plaintext highlighter-rouge">myuserfile</code>:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~/Lab_10/files<span class="nv">$ </span>./myuserfile
+<span class="nt">-bash</span>: ./myuserfile: Permission denied
+</code></pre></div>        </div>
+      </li>
+      <li>change ownership of <code class="language-plaintext highlighter-rouge">myuserfile</code> to <code class="language-plaintext highlighter-rouge">acos</code> and execute it:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~/Lab_10/files<span class="nv">$ </span><span class="nb">sudo chown </span>acos myuserfile
+<span class="o">[</span><span class="nb">sudo</span><span class="o">]</span> password <span class="k">for </span>acos: 
+MYFILE
+acos@acos-vm:~/Lab_10/files<span class="nv">$ </span>./myuserfile 
+MYFILE
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>Make experiments with <code class="language-plaintext highlighter-rouge">setuid</code>/<code class="language-plaintext highlighter-rouge">setguid</code> permissions:
+    <ul>
+      <li>create folder <code class="language-plaintext highlighter-rouge">setuid</code>:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~/Lab_10<span class="nv">$ </span><span class="nb">mkdir </span>setuid
+acos@acos-vm:~/Lab_10<span class="nv">$ </span><span class="nb">cd </span>setuid/
+</code></pre></div>        </div>
+      </li>
+      <li>write program <code class="language-plaintext highlighter-rouge">hello.c</code> that prints text to file <code class="language-plaintext highlighter-rouge">hello.txt</code>:
+        <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/stat.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;unistd.h&gt;
+</span>   
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="n">hello</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"Hello, World!"</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">fd</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="s">"hello.txt"</span><span class="p">,</span> <span class="n">O_CREAT</span> <span class="o">|</span> <span class="n">O_WRONLY</span><span class="p">,</span> <span class="n">S_IRUSR</span> <span class="o">|</span> <span class="n">S_IWUSR</span><span class="p">);</span>
+    <span class="n">write</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">hello</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">hello</span><span class="p">));</span>
+    <span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>        </div>
+      </li>
+      <li>compile and run it under <code class="language-plaintext highlighter-rouge">acos</code> and see the result:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~/Lab_10/setuid<span class="nv">$ </span>gcc hello.c <span class="nt">-o</span> hello
+acos@acos-vm:~/Lab_10/setuid<span class="nv">$ </span>./hello 
+acos@acos-vm:~/Lab_10/setuid<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-li</span>
+total 28
+786637 <span class="nt">-rwxrwxr-x</span> 1 acos acos 16832 июн  8 10:53 hello
+792456 <span class="nt">-rw-rw-r--</span> 1 acos acos   236 июн  8 10:53 hello.c
+787959 <span class="nt">-rw-------</span> 1 acos acos    14 июн  8 10:53 hello.txt   
+</code></pre></div>        </div>
+        <p><strong>The owner of the created file is <code class="language-plaintext highlighter-rouge">acos</code>, the group is <code class="language-plaintext highlighter-rouge">acos</code>.</strong></p>
+      </li>
+      <li>remove the file:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~/Lab_10/setuid<span class="nv">$ </span><span class="nb">rm </span>hello.txt
+</code></pre></div>        </div>
+      </li>
+      <li>switch to <code class="language-plaintext highlighter-rouge">myuser</code>, run the program, and see the results.
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~/Lab_10/setuid<span class="nv">$ </span>su myuser
+Password:
+<span class="nv">$ </span>./hello
+<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-li</span>
+total 28
+786637 <span class="nt">-rwxrwxr-x</span> 1 acos   acos   16832 июн  8 10:53 hello
+792456 <span class="nt">-rw-rw-r--</span> 1 acos   acos     236 июн  8 10:53 hello.c
+786453 <span class="nt">-rw-------</span> 1 myuser myuser    14 июн  8 11:02 hello.txt
+</code></pre></div>        </div>
+        <p><strong>The owner of the created file is <code class="language-plaintext highlighter-rouge">myuser</code>, the group is <code class="language-plaintext highlighter-rouge">myuser</code>.</strong></p>
+      </li>
+      <li>remove the file</li>
+      <li>switch to <code class="language-plaintext highlighter-rouge">acos</code>, give the <code class="language-plaintext highlighter-rouge">setgid</code> permission to <code class="language-plaintext highlighter-rouge">hello</code>, run it under <code class="language-plaintext highlighter-rouge">myuser</code>,
+and see the results:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">exit
+</span>acos@acos-vm:~/Lab_10/setuid<span class="nv">$ </span><span class="nb">chmod </span>g+s hello
+acos@acos-vm:~/Lab_10/setuid<span class="nv">$ </span>su myuser
+Password:
+<span class="nv">$ </span>./hello
+<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-li</span>
+total 28
+786637 <span class="nt">-rwxrwsr-x</span> 1 acos   acos 16832 июн  8 10:53 hello
+792456 <span class="nt">-rw-rw-r--</span> 1 acos   acos   236 июн  8 10:53 hello.c
+786453 <span class="nt">-rw-------</span> 1 myuser acos    14 июн  8 11:08 hello.txt
+</code></pre></div>        </div>
+        <p><strong>The owner of the created file is <code class="language-plaintext highlighter-rouge">myuser</code>, the group is <code class="language-plaintext highlighter-rouge">acos</code>.</strong></p>
+      </li>
+      <li>remove the file</li>
+      <li>switch to <code class="language-plaintext highlighter-rouge">acos</code>, give the <code class="language-plaintext highlighter-rouge">setuid</code> permission to <code class="language-plaintext highlighter-rouge">hello</code>, run it under <code class="language-plaintext highlighter-rouge">myuser</code>,
+and see the results:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">exit
+</span>acos@acos-vm:~/Lab_10/setuid<span class="nv">$ </span><span class="nb">chmod </span>u+s hello
+acos@acos-vm:~/Lab_10/setuid<span class="nv">$ </span>su myuser
+Password: 
+<span class="nv">$ </span>./hello
+<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-li</span>
+total 28
+786637 <span class="nt">-rwsrwsr-x</span> 1 acos acos 16832 июн  8 10:53 hello
+792456 <span class="nt">-rw-rw-r--</span> 1 acos acos   236 июн  8 10:53 hello.c
+786453 <span class="nt">-rw-------</span> 1 acos acos    14 июн  8 11:15 hello.txt
+</code></pre></div>        </div>
+        <p><strong>The owner of the created file is <code class="language-plaintext highlighter-rouge">acos</code>, the group is <code class="language-plaintext highlighter-rouge">acos</code>.</strong></p>
+      </li>
+    </ul>
+  </li>
+  <li>Make experiments with directory permissions:
+    <ul>
+      <li>create folder <code class="language-plaintext highlighter-rouge">dir</code> with two files <code class="language-plaintext highlighter-rouge">file1.txt</code> and <code class="language-plaintext highlighter-rouge">file2.txt</code> and see its permissions:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~/Lab_10<span class="nv">$ </span><span class="nb">mkdir dir
+</span>acos@acos-vm:~/Lab_10<span class="nv">$ </span><span class="nb">cd dir</span>/
+acos@acos-vm:~/Lab_10/dir<span class="nv">$ </span>nano file1.txt
+acos@acos-vm:~/Lab_10/dir<span class="nv">$ </span>nano file2.txt
+acos@acos-vm:~/Lab_10/dir<span class="nv">$ </span><span class="nb">cd</span> ..
+acos@acos-vm:~/Lab_10<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-li</span> <span class="nt">-d</span> <span class="nb">dir</span>/
+786494 drwxrwxr-x 2 acos acos 4096 июн  8 11:21 <span class="nb">dir</span>/
+</code></pre></div>        </div>
+      </li>
+      <li>take the execute permission from the directory and try to access its files:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~/Lab_10<span class="nv">$ </span><span class="nb">chmod </span>a-x <span class="nb">dir</span>/
+acos@acos-vm:~/Lab_10<span class="nv">$ </span><span class="nb">ls dir</span>/
+<span class="nb">ls</span>: cannot access <span class="s1">'dir/file2.txt'</span>: Permission denied
+<span class="nb">ls</span>: cannot access <span class="s1">'dir/file1.txt'</span>: Permission denied
+file1.txt  file2.txt
+acos@acos-vm:~/Lab_10<span class="nv">$ </span><span class="nb">cat dir</span>/file1.txt 
+<span class="nb">cat</span>: <span class="nb">dir</span>/file1.txt: Permission denied
+</code></pre></div>        </div>
+      </li>
+      <li>return the execute permission, take the read permission, and try to access files:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~/Lab_10<span class="nv">$ </span><span class="nb">chmod </span>a-r+x <span class="nb">dir</span>/
+acos@acos-vm:~/Lab_10<span class="nv">$ </span><span class="nb">ls dir</span>/
+<span class="nb">ls</span>: cannot open directory <span class="s1">'dir/'</span>: Permission denied
+acos@acos-vm:~/Lab_10<span class="nv">$ </span><span class="nb">cat dir</span>/file1.txt 
+Hello!
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>Make experiments with hard and soft links:
+    <ul>
+      <li>create folder <code class="language-plaintext highlighter-rouge">Lab_10/links</code>;</li>
+      <li>create files;</li>
+      <li>create hard and soft links;</li>
+      <li>see their properties;</li>
+      <li>modify the files;</li>
+      <li>delete links.
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~/Lab_10<span class="nv">$ </span><span class="nb">mkdir </span>links
+acos@acos-vm:~/Lab_10<span class="nv">$ </span><span class="nb">cd </span>links/
+acos@acos-vm:~/Lab_10/links<span class="nv">$ </span>nano myfile.txt
+acos@acos-vm:~/Lab_10/links<span class="nv">$ </span><span class="nb">ln </span>myfile.txt hardlink
+acos@acos-vm:~/Lab_10/links<span class="nv">$ </span><span class="nb">ln </span>myfile.txt <span class="nt">-s</span> softlink
+acos@acos-vm:~/Lab_10/links<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-li</span>
+total 8
+794685 <span class="nt">-rw-rw-r--</span> 2 acos acos  5 июн  3 00:51 hardlink
+794685 <span class="nt">-rw-rw-r--</span> 2 acos acos  5 июн  3 00:51 myfile.txt
+793985 lrwxrwxrwx 1 acos acos 10 июн  3 00:52 softlink -&gt; myfile.txt
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="homework">Homework</h2>
+
+<ul>
+  <li>Read documentation.</li>
+  <li>Do all the tasks from the workshop.</li>
+  <li>Make sure you understand everything.</li>
+</ul>
+
+<h1 id="references">References</h1>
+
+<ul>
+  <li>Users and groups. Chapter 8 in <a href="/hse-acos-course/books.html">[TLPI]</a>.</li>
+  <li>Process credentials. Chapter 9 in <a href="/hse-acos-course/books.html">[TLPI]</a>.</li>
+  <li>Directories and links. Chapter 18 in <a href="/hse-acos-course/books.html">[TLPI]</a>.</li>
+  <li>The file system (Access permissions and links). Chapter 4 in <a href="/hse-acos-course/books.html">[PGLC]</a>.</li>
+  <li><a href="https://www.linux.com/training-tutorials/understanding-linux-file-permissions/">Understanding Linux File Permissions</a></li>
+</ul>
+
+              </article>
+            </div>
+
+            <aside class="page-toc" data-toc hidden>
+              <div class="page-toc__inner">
+                <p class="page-toc__eyebrow">On this page</p>
+                <nav aria-label="Table of contents">
+                  <ol class="page-toc__list" data-toc-list></ol>
+                </nav>
+              </div>
+            </aside>
+          </div>
+        
+      </main>
+
+      <footer class="site-footer">
+        <div class="container site-footer__inner">
+          <div>
+            <strong>Computer Architecture and Operating Systems</strong>
+              <p>Course materials maintained on GitHub Pages for HSE Faculty of Computer Science.</p>
+          </div>
+          <div class="site-footer__links">
+            <a href="/hse-acos-course/">Home</a>
+              <a href="https://github.com/andrewt0301/hse-acos-course">Repository</a>
+            <a href="https://pages.github.com">GitHub Pages</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

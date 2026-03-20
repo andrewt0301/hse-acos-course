@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Static and Shared Libraries | Computer Architecture and Operating Systems</title>
+    <meta name="description" content="Course taught at Faculty of Computer Science of Higher School of Economics">
+    <script>
+      (function () {
+        var root = document.documentElement;
+
+        try {
+          var savedTheme = localStorage.getItem("acos-theme");
+          var savedLanguage = localStorage.getItem("acos-language");
+          var theme = savedTheme || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          var language = savedLanguage || "en";
+
+          root.dataset.theme = theme === "dark" ? "dark" : "light";
+          root.dataset.language = language === "ru" ? "ru" : "en";
+          root.lang = language === "ru" ? "ru" : "en";
+        } catch (error) {
+          root.dataset.theme = "light";
+          root.dataset.language = "en";
+          root.lang = "en";
+        }
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/hse-acos-course/assets/css/style.css?v=20260321b">
+    <script defer src="/hse-acos-course/assets/js/site.js?v=20260321b"></script>
+  </head>
+  
+  
+  
+  
+  
+  
+  
+  
+  <body data-page-kind="lecture" data-section="os" data-current-url="/part2os/04_Linking/libs.html">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="site-bg">
+      <div class="site-grid"></div>
+    </div>
+
+    <div class="site-shell">
+      <header class="site-header" data-site-header>
+        <div class="container site-header__inner">
+          <a class="site-brand" href="/hse-acos-course/" aria-label="Computer Architecture and Operating Systems">
+            <span class="site-brand__mark" aria-hidden="true">ACOS</span>
+          </a>
+
+          <button class="site-nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+            <span>Menu</span>
+          </button>
+
+          <div class="site-header__panel" id="site-nav" data-nav-panel>
+            <nav class="site-nav" aria-label="Primary">
+              <ul class="site-nav__list">
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/" data-nav-link>Home</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/calendar_plan.html" data-nav-link>Calendar</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Assessment</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/exam_latest.html" data-nav-link>Exam</a>
+                          
+                            <a href="/hse-acos-course/grades.html" data-nav-link>Grades</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Resources</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/software.html" data-nav-link>Software</a>
+                          
+                            <a href="/hse-acos-course/books.html" data-nav-link>Textbooks</a>
+                          
+                            <a href="/hse-acos-course/courses.html" data-nav-link>Related Courses</a>
+                          
+                            <a href="/hse-acos-course/links.html" data-nav-link>Useful Links</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="https://github.com/andrewt0301/hse-acos-course" data-nav-link>GitHub</a>
+                    
+                  </li>
+                
+              </ul>
+            </nav>
+
+            <div class="site-preferences" aria-label="Site preferences">
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Theme</span>
+                <div class="site-preferences__switch" role="group" aria-label="Theme switch">
+                  <button type="button" data-theme-option="light" aria-pressed="false">Light</button>
+                  <button type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+                </div>
+              </div>
+
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Lang</span>
+                <div class="site-preferences__switch" role="group" aria-label="Language switch">
+                  <button type="button" data-language-option="en" aria-pressed="false">EN</button>
+                  <button type="button" data-language-option="ru" aria-pressed="false">RU</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="language-placeholder" data-language-placeholder hidden>
+        <div class="container language-placeholder__inner">
+          <div class="language-placeholder__copy">
+            <p class="language-placeholder__eyebrow">RU / Placeholder</p>
+            <strong>Русская версия пока в разработке</strong>
+            <p>Переключатель уже добавлен, но материалы и текущий интерфейс страниц пока остаются на английском. Полноценная локализация появится позже.</p>
+          </div>
+          <button class="language-placeholder__action" type="button" data-language-reset>Back to English</button>
+        </div>
+      </div>
+
+      <main id="main-content" class="site-main">
+        
+          <div class="container page-shell">
+            <div class="page-shell__main">
+              <nav class="breadcrumbs" aria-label="Breadcrumbs">
+                <ol>
+                  <li><a href="/hse-acos-course/">Home</a></li>
+                  
+                    <li><a href="/hse-acos-course/#operating-systems">Operating Systems</a></li>
+                  
+                  <li aria-current="page"><span data-breadcrumb-current>Static and Shared Libraries</span></li>
+                </ol>
+              </nav>
+
+              <article class="page-article" data-page-content>
+                <h2 id="static-and-shared-libraries">Static and Shared Libraries</h2>
+
+<h3 id="linking-and-loading">Linking and Loading</h3>
+
+<p><img src="/hse-acos-course/part2os/04_Linking/linking.png" alt="Linking" /></p>
+
+<p>Programs are stored on disk as binary executable files (e.g. <em>hello</em>).
+To be run, a program must be loaded into memory and placed into the context of a process.</p>
+
+<p>Source files are compiled by the <em>compiler</em> into <em>object files</em> that are designed to be loaded into any physical location.
+This format is called <em>relocatable object file</em>.</p>
+
+<p>Next, the <em>linker</em> combines these files to produce a single binary <em>executable file</em>.
+During the linking stage, external library object files are included as well
+(e.g. the standard C or math library specified as <code class="language-plaintext highlighter-rouge">–lm</code>).</p>
+
+<p>When a program is run, the executable file and all necessary
+libraries are loaded into memory with the help of the <em>loader</em>.
+There two kinds of libraries: <em>static</em> and <em>shared</em> (also called dynamic).
+Code from static libraries is included into the executable file by the linker.
+Shared libraries are loaded into the process of the program by the loader.
+If multiple executable files being run use the same shared library,
+the library is shared among their processes using shared memory facilities provided by the operating system.
+On the contrary, static libraries are linked into each executable file that uses them.
+So, each program has its own copy.</p>
+
+<p>Object and executable files have standard formats that cover compiled machine code and a symbol
+table containing metadata about functions and variables that are referenced in the program.
+Linux uses the standard format called <a href="https://man7.org/linux/man-pages/man5/elf.5.html">ELF</a>
+(Executable and Linkable Format). There are separate ELF formats for executable and relocatable files.
+The most important information about an executable file is its <em>entry point</em>,
+which is the address of the first instruction to be executed when the program runs.</p>
+
+<p>In Linux, the format of a file can be determined with the help of the
+<a href="https://man7.org/linux/man-pages/man1/file.1.html">file</a> utility.
+For example:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~<span class="nv">$ </span>file hello.c
+hello.c: C <span class="nb">source</span>, ASCII text
+acos@acos-vm:~<span class="nv">$ </span>file hello.o 
+hello.o: ELF 64-bit LSB relocatable, x86-64, version 1 <span class="o">(</span>SYSV<span class="o">)</span>, not stripped
+acos@acos-vm:~<span class="nv">$ </span>file hello
+hello: ELF 64-bit LSB shared object, x86-64, version 1 <span class="o">(</span>SYSV<span class="o">)</span>, dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]<span class="o">=</span>80ddf1c9cd9f91062b9fcec9c16fbacd3a24f408, <span class="k">for </span>GNU/Linux 3.2.0, not stripped
+</code></pre></div></div>
+
+<h3 id="simple-application">Simple application</h3>
+
+<p><strong>hello.c:</strong></p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"Hello World</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>To compile, execute this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~$ gcc hello.c -o hello
+</code></pre></div></div>
+
+<p>To run, execute this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~$./hello
+Hello World
+</code></pre></div></div>
+
+<h3 id="static-and-shared-libraries-1">Static and shared libraries</h3>
+
+<p>Let us have a closer look at the two library types and how they are created and included into a program.</p>
+
+<ul>
+  <li>Static - <code class="language-plaintext highlighter-rouge">.a</code> extension</li>
+  <li>Shared - <code class="language-plaintext highlighter-rouge">.so</code> extension</li>
+</ul>
+
+<p>Names of libraries start with the lib prefix.</p>
+
+<p>The Linux operating system includes a large set of standard system libraries.
+To see the full list of these libs, execute the command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~$ ls /usr/lib | less
+</code></pre></div></div>
+
+<p>To list of libraries loaded by a program, use the <a href="https://man7.org/linux/man-pages/man1/ldd.1.html">ldd</a> command.
+For example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~$ ldd "$(which ls)"
+</code></pre></div></div>
+
+<h4 id="static-libraries">Static libraries</h4>
+
+<p>Create two source files <code class="language-plaintext highlighter-rouge">fred.c</code> and <code class="language-plaintext highlighter-rouge">bill.c</code> files containing functions.
+These files will be compiled as libraries and the program will call functions provided in these libraries.</p>
+
+<p><strong>fred.c:</strong></p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span>
+<span class="kt">void</span> <span class="nf">fred</span><span class="p">(</span><span class="kt">int</span> <span class="n">arg</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"fred: you passed %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">arg</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>bill.c:</strong></p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span>
+<span class="kt">void</span> <span class="nf">bill</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">arg</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"bill: you passed %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">arg</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Compile the sources into object files:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~$ gcc -c fred.c bill.c
+</code></pre></div></div>
+
+<p>See the created object files:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~$ ls *.o
+                           bill.o
+                           fred.o
+</code></pre></div></div>
+
+<p>Make a static library (archive) with the help of the <a href="https://man7.org/linux/man-pages/man1/ar.1.html">ar</a> utility:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~$ ar crv libfoo.a bill.o fred.o
+                           r - bill.o
+                           r - fred.o
+</code></pre></div></div>
+
+<p>Write a header file for the library:</p>
+
+<p><strong>lib.h:</strong></p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">bill</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">fred</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Write a program that uses the library:</p>
+
+<p><strong>program.c:</strong></p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdlib.h&gt;
+#include "lib.h"
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">bill</span><span class="p">(</span><span class="s">"Hello World!"</span><span class="p">);</span>
+    <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Build the program object file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~$ gcc -c program.c
+</code></pre></div></div>
+
+<p>Build a program from object files:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~$ gcc -o program program.o bill.o
+</code></pre></div></div>
+
+<p>Build a program that used the static library:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~$ gcc -o program program.o -L. -lfoo
+</code></pre></div></div>
+
+<h4 id="shared-libraries">Shared libraries</h4>
+
+<p>Compile the sources into <a href="https://en.wikipedia.org/wiki/Position-independent_code">position-independent code</a> (PIC).
+The <code class="language-plaintext highlighter-rouge">–Wall</code> flag enables compiler warnings (help avoid errors):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~$ gcc -c -Wall -fPIC fred.c bill.c
+</code></pre></div></div>
+
+<p>Build shared library from object files:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~$ gcc -shared -o libfoo.so fred.o bill.o
+</code></pre></div></div>
+
+<p>Build the program that uses the shared library:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~$ gcc -Wall -o program program.c -lfoo -L.
+</code></pre></div></div>
+
+<p>Run the program (the <a href="https://man7.org/conf/lca2006/shared_libraries/slide3d.html">LD_LIBRARY_PATH</a>
+variable set path to shared libraries):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~$ export LD_LIBRARY_PATH=.
+acos@acos-vm:~$ ./program
+</code></pre></div></div>
+
+<p>The libraries loaded into a process can be viewed with the help of
+the <a href="https://man7.org/linux/man-pages/man1/ldd.1.html">ldd</a> utility:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~$ ldd ./program
+</code></pre></div></div>
+
+<h2 id="tasks">Tasks</h2>
+
+<h3 id="task-1">Task 1</h3>
+
+<p>In addition to the source above files, create two source files <code class="language-plaintext highlighter-rouge">john.c</code> and <code class="language-plaintext highlighter-rouge">sam.c</code>.
+Compile <code class="language-plaintext highlighter-rouge">fred</code> and <code class="language-plaintext highlighter-rouge">john</code> as a static library. Compile <code class="language-plaintext highlighter-rouge">bill</code> and <code class="language-plaintext highlighter-rouge">sam</code> as a shared library. 
+Modify the main program to use functions provided by the two libraries.
+Compile the program, link it, run it, and see the loaded libraries.
+To make the task more interesting, <code class="language-plaintext highlighter-rouge">john</code> and <code class="language-plaintext highlighter-rouge">sam</code> must use the math library (must be linked into the library).</p>
+
+              </article>
+            </div>
+
+            <aside class="page-toc" data-toc hidden>
+              <div class="page-toc__inner">
+                <p class="page-toc__eyebrow">On this page</p>
+                <nav aria-label="Table of contents">
+                  <ol class="page-toc__list" data-toc-list></ol>
+                </nav>
+              </div>
+            </aside>
+          </div>
+        
+      </main>
+
+      <footer class="site-footer">
+        <div class="container site-footer__inner">
+          <div>
+            <strong>Computer Architecture and Operating Systems</strong>
+              <p>Course materials maintained on GitHub Pages for HSE Faculty of Computer Science.</p>
+          </div>
+          <div class="site-footer__links">
+            <a href="/hse-acos-course/">Home</a>
+              <a href="https://github.com/andrewt0301/hse-acos-course">Repository</a>
+            <a href="https://pages.github.com">GitHub Pages</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

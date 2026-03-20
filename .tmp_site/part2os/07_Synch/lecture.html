@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lecture 7 | Computer Architecture and Operating Systems</title>
+    <meta name="description" content="Course taught at Faculty of Computer Science of Higher School of Economics">
+    <script>
+      (function () {
+        var root = document.documentElement;
+
+        try {
+          var savedTheme = localStorage.getItem("acos-theme");
+          var savedLanguage = localStorage.getItem("acos-language");
+          var theme = savedTheme || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          var language = savedLanguage || "en";
+
+          root.dataset.theme = theme === "dark" ? "dark" : "light";
+          root.dataset.language = language === "ru" ? "ru" : "en";
+          root.lang = language === "ru" ? "ru" : "en";
+        } catch (error) {
+          root.dataset.theme = "light";
+          root.dataset.language = "en";
+          root.lang = "en";
+        }
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/hse-acos-course/assets/css/style.css?v=20260321b">
+    <script defer src="/hse-acos-course/assets/js/site.js?v=20260321b"></script>
+  </head>
+  
+  
+  
+  
+  
+  
+  
+  
+  <body data-page-kind="lecture" data-section="os" data-current-url="/part2os/07_Synch/lecture.html">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="site-bg">
+      <div class="site-grid"></div>
+    </div>
+
+    <div class="site-shell">
+      <header class="site-header" data-site-header>
+        <div class="container site-header__inner">
+          <a class="site-brand" href="/hse-acos-course/" aria-label="Computer Architecture and Operating Systems">
+            <span class="site-brand__mark" aria-hidden="true">ACOS</span>
+          </a>
+
+          <button class="site-nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+            <span>Menu</span>
+          </button>
+
+          <div class="site-header__panel" id="site-nav" data-nav-panel>
+            <nav class="site-nav" aria-label="Primary">
+              <ul class="site-nav__list">
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/" data-nav-link>Home</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/calendar_plan.html" data-nav-link>Calendar</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Assessment</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/exam_latest.html" data-nav-link>Exam</a>
+                          
+                            <a href="/hse-acos-course/grades.html" data-nav-link>Grades</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Resources</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/software.html" data-nav-link>Software</a>
+                          
+                            <a href="/hse-acos-course/books.html" data-nav-link>Textbooks</a>
+                          
+                            <a href="/hse-acos-course/courses.html" data-nav-link>Related Courses</a>
+                          
+                            <a href="/hse-acos-course/links.html" data-nav-link>Useful Links</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="https://github.com/andrewt0301/hse-acos-course" data-nav-link>GitHub</a>
+                    
+                  </li>
+                
+              </ul>
+            </nav>
+
+            <div class="site-preferences" aria-label="Site preferences">
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Theme</span>
+                <div class="site-preferences__switch" role="group" aria-label="Theme switch">
+                  <button type="button" data-theme-option="light" aria-pressed="false">Light</button>
+                  <button type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+                </div>
+              </div>
+
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Lang</span>
+                <div class="site-preferences__switch" role="group" aria-label="Language switch">
+                  <button type="button" data-language-option="en" aria-pressed="false">EN</button>
+                  <button type="button" data-language-option="ru" aria-pressed="false">RU</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="language-placeholder" data-language-placeholder hidden>
+        <div class="container language-placeholder__inner">
+          <div class="language-placeholder__copy">
+            <p class="language-placeholder__eyebrow">RU / Placeholder</p>
+            <strong>Русская версия пока в разработке</strong>
+            <p>Переключатель уже добавлен, но материалы и текущий интерфейс страниц пока остаются на английском. Полноценная локализация появится позже.</p>
+          </div>
+          <button class="language-placeholder__action" type="button" data-language-reset>Back to English</button>
+        </div>
+      </div>
+
+      <main id="main-content" class="site-main">
+        
+          <div class="container page-shell">
+            <div class="page-shell__main">
+              <nav class="breadcrumbs" aria-label="Breadcrumbs">
+                <ol>
+                  <li><a href="/hse-acos-course/">Home</a></li>
+                  
+                    <li><a href="/hse-acos-course/#operating-systems">Operating Systems</a></li>
+                  
+                  <li aria-current="page"><span data-breadcrumb-current>Lecture 7</span></li>
+                </ol>
+              </nav>
+
+              <article class="page-article" data-page-content>
+                <h2 id="lecture-7">Lecture 7</h2>
+
+<h1 id="io-and-files">I/O and Files</h1>
+
+<h2 id="lecture">Lecture</h2>
+
+<p>Slides (<a href="/hse-acos-course/part2os/07_Synch/OS_Lecture_07.pdf">PDF</a>, <a href="/hse-acos-course/part2os/07_Synch/OS_Lecture_07.pptx">PPTX</a>).</p>
+
+<h4 id="outline">Outline</h4>
+
+<ul>
+  <li>Files and folders in Linux</li>
+  <li>Directory hierarchy in Linux</li>
+  <li>Virtual file system and basics of Ext4</li>
+  <li>System calls for working with files and folders</li>
+  <li>Standard I/0, file descriptors and redirection</li>
+  <li>Function of C standard library (libc) for working with I/0</li>
+</ul>
+
+<h4 id="examples">Examples</h4>
+
+<p>Getting information on file system usage:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">df
+</span>Filesystem     1K-blocks     Used Available Use% Mounted on
+tmpfs            1615192     2420   1612772   1% /run
+/dev/nvme0n1p2 982862268 98898256 833963680  11% /
+tmpfs            8075948   213908   7862040   3% /dev/shm
+tmpfs               5120       12      5108   1% /run/lock
+efivarfs             246      117       125  49% /sys/firmware/efi/efivars
+/dev/nvme0n1p1    523248     6352    516896   2% /boot/efi
+tmpfs            1615188      344   1614844   1% /run/user/1001
+</code></pre></div></div>
+
+<p>Getting information on the disk:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hwinfo <span class="nt">--disk</span>
+27: PCI 00.0: 10600 Disk                                        
+  <span class="o">[</span>Created at block.255]
+  Unique ID: wLCS.EJHvc9MwvZ7
+  Parent ID: yoMo.AxGd7hiuG+6
+  SysFS ID: /class/block/nvme0n1
+  SysFS BusID: nvme0
+  SysFS Device Link: /devices/pci0000:00/0000:00:1d.4/0000:3d:00.0/nvme/nvme0
+  Hardware Class: disk
+  Model: <span class="s2">"Samsung Electronics NVMe SSD Controller SM981/PM981/PM983"</span>
+  Vendor: pci 0x144d <span class="s2">"Samsung Electronics Co Ltd"</span>
+  Device: pci 0xa808 <span class="s2">"NVMe SSD Controller SM981/PM981/PM983"</span>
+  SubVendor: pci 0x144d <span class="s2">"Samsung Electronics Co Ltd"</span>
+  SubDevice: pci 0xa801 
+  Driver: <span class="s2">"nvme"</span>
+  Driver Modules: <span class="s2">"nvme"</span>
+  Device File: /dev/nvme0n1
+  Device Files: /dev/nvme0n1, /dev/disk/by-id/nvme-SAMSUNG_MZVLB1T0HBLR-000L7_S4EMNF0MB29472, /dev/disk/by-id/nvme-SAMSUNG_MZVLB1T0HBLR-000L7_S4EMNF0MB29472_1, /dev/disk/by-path/pci-0000:3d:00.0-nvme-1, /dev/disk/by-diskseq/9, /dev/disk/by-id/nvme-eui.0025388b91c8cf4e
+  Device Number: block 259:0
+  BIOS <span class="nb">id</span>: 0x80
+  Drive status: no medium
+  Config Status: <span class="nv">cfg</span><span class="o">=</span>new, <span class="nv">avail</span><span class="o">=</span><span class="nb">yes</span>, <span class="nv">need</span><span class="o">=</span>no, <span class="nv">active</span><span class="o">=</span>unknown
+  Attached to: <span class="c">#17 (Non-Volatile memory controller)</span>
+</code></pre></div></div>
+
+<p>Getting information on a file and its file system:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">stat </span>hello
+  File: hello
+  Size: 16048     	Blocks: 32         IO Block: 4096   regular file
+Device: 259,2	Inode: 35260199    Links: 1
+Access: <span class="o">(</span>0775/-rwxrwxr-x<span class="o">)</span>  Uid: <span class="o">(</span> 1001/ andrewt<span class="o">)</span>   Gid: <span class="o">(</span> 1001/ andrewt<span class="o">)</span>
+Access: 2025-04-14 19:29:20.651015096 +0300
+Modify: 2025-04-14 19:29:16.426873736 +0300
+Change: 2025-04-14 19:29:16.426873736 +0300
+ Birth: 2025-04-14 19:29:16.384872282 +0300
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">stat </span>hello <span class="nt">--file-system</span>
+  File: <span class="s2">"hello"</span>
+    ID: 2c46404543853cc9 Namelen: 255     Type: ext2/ext3
+Block size: 4096       Fundamental block size: 4096
+Blocks: Total: 245715567  Free: 221037874  Available: 208537791
+Inodes: Total: 62480384   Free: 61695470
+</code></pre></div></div>
+
+<p>Copying <code class="language-plaintext highlighter-rouge">stdin</code> to <code class="language-plaintext highlighter-rouge">stdout</code>, one byte at a time:</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;unistd.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">read</span><span class="p">(</span><span class="n">STDIN_FILENO</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">write</span><span class="p">(</span><span class="n">STDOUT_FILENO</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Accessing file metadata:</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/stat.h&gt;
+#include &lt;stdio.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="n">stat</span> <span class="n">st</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">type</span><span class="p">,</span> <span class="o">*</span><span class="n">readok</span><span class="p">;</span>
+    <span class="n">stat</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">st</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">S_ISREG</span><span class="p">(</span><span class="n">st</span><span class="p">.</span><span class="n">st_mode</span><span class="p">))</span> <span class="cm">/* Determine file type */</span>
+        <span class="n">type</span> <span class="o">=</span> <span class="s">"regular"</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">S_ISDIR</span><span class="p">(</span><span class="n">st</span><span class="p">.</span><span class="n">st_mode</span><span class="p">))</span>
+        <span class="n">type</span> <span class="o">=</span> <span class="s">"directory"</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="n">type</span> <span class="o">=</span> <span class="s">"other"</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">st</span><span class="p">.</span><span class="n">st_mode</span> <span class="o">&amp;</span> <span class="n">S_IRUSR</span><span class="p">))</span> <span class="cm">/* Check read access */</span>
+        <span class="n">readok</span> <span class="o">=</span> <span class="s">"yes"</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="n">readok</span> <span class="o">=</span> <span class="s">"no"</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"type: %s, read: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">type</span><span class="p">,</span> <span class="n">readok</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Reading a directory to get the list of files (<code class="language-plaintext highlighter-rouge">ls</code>-like program):</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt;
+#include &lt;dirent.h&gt;
+#include &lt;stdio.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="kt">DIR</span> <span class="o">*</span><span class="n">directory</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">dirent</span> <span class="o">*</span><span class="n">de</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">dir_name</span> <span class="o">=</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">directory</span> <span class="o">=</span> <span class="n">opendir</span><span class="p">(</span><span class="n">dir_name</span><span class="p">)))</span> <span class="p">{</span>
+        <span class="n">perror</span><span class="p">(</span><span class="s">"Failed to open directory"</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">while</span> <span class="p">((</span><span class="n">de</span> <span class="o">=</span> <span class="n">readdir</span><span class="p">(</span><span class="n">directory</span><span class="p">)))</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"Found file: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">de</span><span class="o">-&gt;</span><span class="n">d_name</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">closedir</span><span class="p">(</span><span class="n">directory</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Buffering provided by the standard C library:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    printf("h");
+    printf("e");
+    printf("l");
+    printf("l");
+    printf("o");
+    printf("\n");
+    fflush(stdout);
+    return 0;
+}
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">strace</code> utility shows that many <code class="language-plaintext highlighter-rouge">printf</code> calls result in a single system call <code class="language-plaintext highlighter-rouge">write</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>strace -e trace=write  ./hello 
+write(1, "hello\n", 6hello
+)                  = 6
++++ exited with 0 +++
+</code></pre></div></div>
+
+<h2 id="workshop">Workshop</h2>
+
+<p><a href="/hse-acos-course/part2os/06_Processes/bash.html">Workshop: Shell Scripts</a></p>
+
+<h2 id="homework">Homework</h2>
+
+<p><strong>TODO</strong></p>
+
+<h1 id="references">References</h1>
+
+<ul>
+  <li><a href="https://man7.org/linux/man-pages/man1/df.1.html">df</a> - utility to report file system space usage</li>
+  <li><a href="https://man7.org/linux/man-pages/man1/stat.1.html">stat</a> - utility to display file or file system status</li>
+  <li>File Systems. Chapter 14 in <a href="/hse-acos-course/books.html">[TLPI]</a>.</li>
+  <li>System-Level I/O. Chapter 10 in <a href="/hse-acos-course/books.html">[CSPP]</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard">Filesystem Hierarchy Standard</a> (Wikipedia)</li>
+  <li><a href="https://docs.kernel.org/filesystems/vfs.html">Overview of the Linux Virtual File System</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Inode">Inode</a> (Wikipedia)</li>
+  <li><a href="https://www.kernel.org/doc/html/latest/filesystems/ext4/index.html">ext4 Data Structures and Algorithms</a></li>
+  <li>Oracle Linux Blog. Understanding Ext4 Disk Layout.
+<a href="https://blogs.oracle.com/linux/post/understanding-ext4-disk-layout-part-1">Part 1</a> and
+<a href="https://blogs.oracle.com/linux/post/understanding-ext4-disk-layout-part-2">Part 2</a></li>
+</ul>
+
+              </article>
+            </div>
+
+            <aside class="page-toc" data-toc hidden>
+              <div class="page-toc__inner">
+                <p class="page-toc__eyebrow">On this page</p>
+                <nav aria-label="Table of contents">
+                  <ol class="page-toc__list" data-toc-list></ol>
+                </nav>
+              </div>
+            </aside>
+          </div>
+        
+      </main>
+
+      <footer class="site-footer">
+        <div class="container site-footer__inner">
+          <div>
+            <strong>Computer Architecture and Operating Systems</strong>
+              <p>Course materials maintained on GitHub Pages for HSE Faculty of Computer Science.</p>
+          </div>
+          <div class="site-footer__links">
+            <a href="/hse-acos-course/">Home</a>
+              <a href="https://github.com/andrewt0301/hse-acos-course">Repository</a>
+            <a href="https://pages.github.com">GitHub Pages</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

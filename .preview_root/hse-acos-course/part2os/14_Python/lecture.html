@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lecture 14 | Computer Architecture and Operating Systems</title>
+    <meta name="description" content="Course taught at Faculty of Computer Science of Higher School of Economics">
+    <script>
+      (function () {
+        var root = document.documentElement;
+
+        try {
+          var savedTheme = localStorage.getItem("acos-theme");
+          var savedLanguage = localStorage.getItem("acos-language");
+          var theme = savedTheme || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          var language = savedLanguage || "en";
+
+          root.dataset.theme = theme === "dark" ? "dark" : "light";
+          root.dataset.language = language === "ru" ? "ru" : "en";
+          root.lang = language === "ru" ? "ru" : "en";
+        } catch (error) {
+          root.dataset.theme = "light";
+          root.dataset.language = "en";
+          root.lang = "en";
+        }
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/hse-acos-course/assets/css/style.css?v=20260321b">
+    <script defer src="/hse-acos-course/assets/js/site.js?v=20260321b"></script>
+  </head>
+  
+  
+  
+  
+  
+  
+  
+  
+  <body data-page-kind="lecture" data-section="os" data-current-url="/part2os/14_Python/lecture.html">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="site-bg">
+      <div class="site-grid"></div>
+    </div>
+
+    <div class="site-shell">
+      <header class="site-header" data-site-header>
+        <div class="container site-header__inner">
+          <a class="site-brand" href="/hse-acos-course/" aria-label="Computer Architecture and Operating Systems">
+            <span class="site-brand__mark" aria-hidden="true">ACOS</span>
+          </a>
+
+          <button class="site-nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+            <span>Menu</span>
+          </button>
+
+          <div class="site-header__panel" id="site-nav" data-nav-panel>
+            <nav class="site-nav" aria-label="Primary">
+              <ul class="site-nav__list">
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/" data-nav-link>Home</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/calendar_plan.html" data-nav-link>Calendar</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Assessment</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/exam_latest.html" data-nav-link>Exam</a>
+                          
+                            <a href="/hse-acos-course/grades.html" data-nav-link>Grades</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Resources</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/software.html" data-nav-link>Software</a>
+                          
+                            <a href="/hse-acos-course/books.html" data-nav-link>Textbooks</a>
+                          
+                            <a href="/hse-acos-course/courses.html" data-nav-link>Related Courses</a>
+                          
+                            <a href="/hse-acos-course/links.html" data-nav-link>Useful Links</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="https://github.com/andrewt0301/hse-acos-course" data-nav-link>GitHub</a>
+                    
+                  </li>
+                
+              </ul>
+            </nav>
+
+            <div class="site-preferences" aria-label="Site preferences">
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Theme</span>
+                <div class="site-preferences__switch" role="group" aria-label="Theme switch">
+                  <button type="button" data-theme-option="light" aria-pressed="false">Light</button>
+                  <button type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+                </div>
+              </div>
+
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Lang</span>
+                <div class="site-preferences__switch" role="group" aria-label="Language switch">
+                  <button type="button" data-language-option="en" aria-pressed="false">EN</button>
+                  <button type="button" data-language-option="ru" aria-pressed="false">RU</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="language-placeholder" data-language-placeholder hidden>
+        <div class="container language-placeholder__inner">
+          <div class="language-placeholder__copy">
+            <p class="language-placeholder__eyebrow">RU / Placeholder</p>
+            <strong>Русская версия пока в разработке</strong>
+            <p>Переключатель уже добавлен, но материалы и текущий интерфейс страниц пока остаются на английском. Полноценная локализация появится позже.</p>
+          </div>
+          <button class="language-placeholder__action" type="button" data-language-reset>Back to English</button>
+        </div>
+      </div>
+
+      <main id="main-content" class="site-main">
+        
+          <div class="container page-shell">
+            <div class="page-shell__main">
+              <nav class="breadcrumbs" aria-label="Breadcrumbs">
+                <ol>
+                  <li><a href="/hse-acos-course/">Home</a></li>
+                  
+                    <li><a href="/hse-acos-course/#operating-systems">Operating Systems</a></li>
+                  
+                  <li aria-current="page"><span data-breadcrumb-current>Lecture 14</span></li>
+                </ol>
+              </nav>
+
+              <article class="page-article" data-page-content>
+                <h2 id="lecture-14">Lecture 14</h2>
+
+<h1 id="high-level-languages-and-operating-system">High-level Languages and Operating System.</h1>
+
+<h2 id="lecture">Lecture</h2>
+
+<h3 id="os-and-programming-languages">OS and Programming Languages</h3>
+
+<h4 id="linux">Linux:</h4>
+
+<ul>
+  <li>Kernel — C</li>
+  <li>Core system libraries — C</li>
+  <li>Core system utilities — mostly C and shell
+    <ul>
+      <li>Can be C++, Python and Perl</li>
+    </ul>
+  </li>
+  <li>Scripting and integrating
+    <ul>
+      <li>Mostly shell, but Perl <em>was</em> popular and Python <em>is</em> now</li>
+      <li>Sometimes C++</li>
+    </ul>
+  </li>
+  <li>Almost any OS distribution — ‘‘all’’ kinds of programming languages</li>
+</ul>
+
+<p>⇒ Is C the only system programming language?</p>
+
+<h4 id="windows">Windows:</h4>
+
+<ul>
+  <li>Core, kernel and libraries: C++ (seldom C)</li>
+  <li>Scripting and integrating:
+    <ul>
+      <li>Any .Net-based platform (mostly C#)</li>
+      <li>C++</li>
+      <li>Powershell (was: cmd)</li>
+      <li>JScript, VBScript (Windows Script Host)</li>
+    </ul>
+  </li>
+  <li>Applications: C++, .Net, almost any 3d-party languages</li>
+</ul>
+
+<h4 id="macos">MacOS:</h4>
+
+<ul>
+  <li>Kernel — C</li>
+  <li>Core system and libraries — <a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html">Objective C</a>
+and C, seldom C++
+    <ul>
+      <li>Now: <a href="https://developer.apple.com/swift">Swift</a></li>
+    </ul>
+  </li>
+  <li>Scripting and integration: <a href="https://developer.apple.com/mac/library/documentation/AppleScript/Conceptual/AppleScriptX/AppleScriptX.html">AppleScript</a>
+and Shell</li>
+  <li>Applications: Swift, Objective C, maybe C++, almost any 3d-party languages</li>
+</ul>
+
+<h3 id="python-and-os-programming">Python and OS Programming</h3>
+
+<ul>
+  <li>Cross-platformness
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">+/-</code></li>
+      <li>⇒ own implementation of OS features</li>
+    </ul>
+  </li>
+  <li>POSIX-oriented (=&gt; Linux)
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">+/-</code></li>
+      <li>⇒ own implementation of <code class="language-plaintext highlighter-rouge">non-POSIX</code> OS features</li>
+    </ul>
+  </li>
+  <li>High-level, but not OS-oriented (unlike shell)
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">+/-</code></li>
+      <li>⇒ own implementation of OS features</li>
+    </ul>
+  </li>
+  <li>Has a lot of non-privileged syscalls wrappers</li>
+  <li>Incredible amount of modules at <em>PyPi</em>
+    <ul>
+      <li>Including system-oriented</li>
+      <li>Including service-oriented</li>
+    </ul>
+  </li>
+  <li>Non «resource scrimp» style
+    <ul>
+      <li>If resources do not multiply, use it as a whole, not piece by peice
+        <ul>
+          <li>E. g. <code class="language-plaintext highlighter-rouge">.read()</code> instead of <code class="language-plaintext highlighter-rouge">.readline()</code></li>
+        </ul>
+      </li>
+      <li>no needs to count CPU circles :)</li>
+      <li>…</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="modules-os-ans-sys">Modules os ans sys</h4>
+
+<ul>
+  <li>Cross-platform path: <a href="https://docs.python.org/3/library/os.path.html">os.path</a> and
+<a href="https://docs.python.org/3/library/pathlib.html">pathlib</a>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">.is*()</code>, <code class="language-plaintext highlighter-rouge">.exists()</code> etc.</li>
+    </ul>
+  </li>
+  <li><a href="https://docs.python.org/3/library/os.html">os</a>:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">.environ</code></li>
+      <li>syscalls wrappers (<code class="language-plaintext highlighter-rouge">.fork</code>, <code class="language-plaintext highlighter-rouge">.getpid</code>, <code class="language-plaintext highlighter-rouge">.fstat</code>, <code class="language-plaintext highlighter-rouge">.popen</code>, <code class="language-plaintext highlighter-rouge">.wait</code>, almost any! …)</li>
+    </ul>
+  </li>
+  <li><a href="https://docs.python.org/3/library/sys.html">sys</a>:
+<code class="language-plaintext highlighter-rouge">.executable</code>, <code class="language-plaintext highlighter-rouge">.argv</code>, <code class="language-plaintext highlighter-rouge">.stdin</code>, <code class="language-plaintext highlighter-rouge">.stdout</code>, <code class="language-plaintext highlighter-rouge">.stderr</code>, …</li>
+  <li>Raising a level example:
+<a href="https://docs.python.org/3/library/time.html">time</a> →
+<a href="https://docs.python.org/3/library/datetime.html">datetime</a> →
+<a href="https://docs.python.org/3/library/calendar.html">calendar</a></li>
+</ul>
+
+<p>Also:</p>
+<ul>
+  <li><a href="https://docs.python.org/3/library/platform.html">platform</a></li>
+  <li>…</li>
+</ul>
+
+<h4 id="subprocess">Subprocess</h4>
+
+<p>Concept: cross-platform process execution with communication and exit status control.</p>
+
+<ul>
+  <li>Just run and get a result: <a href="https://docs.python.org/3/library/subprocess.html#subprocess.run">run()</a>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">capture_output</code>/<code class="language-plaintext highlighter-rouge">input=</code>; <code class="language-plaintext highlighter-rouge">stdin=</code>/<code class="language-plaintext highlighter-rouge">stdout=</code>/<code class="language-plaintext highlighter-rouge">stderr=</code></li>
+      <li>…</li>
+    </ul>
+  </li>
+  <li>High-level <a href="https://man7.org/linux/man-pages/man3/popen.3.html">popen</a> analog:
+<a href="https://docs.python.org/3/library/subprocess.html#subprocess.Popen">Popen()</a>
+    <ul>
+      <li><a href="https://docs.python.org/3/library/subprocess.html#replacing-shell-pipeline">example</a>
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">subprocess</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="c1"># Run first process that outputs to the unnamed pipe
+</span><span class="n">p1</span> <span class="o">=</span> <span class="n">Popen</span><span class="p">([</span><span class="s">"cal -s"</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">PIPE</span><span class="p">)</span>
+<span class="c1"># Run second process that inputs from the other end of the pipe opened
+# and outputs to the second pipe
+</span><span class="n">p2</span> <span class="o">=</span> <span class="n">Popen</span><span class="p">([</span><span class="s">"hexdump"</span><span class="p">,</span> <span class="s">"-C"</span><span class="p">],</span> <span class="n">stdin</span><span class="o">=</span><span class="n">p1</span><span class="p">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">PIPE</span><span class="p">)</span>
+<span class="c1"># Allow p1 to receive a SIGPIPE if p2 exits
+</span><span class="n">p1</span><span class="p">.</span><span class="n">stdout</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+<span class="c1"># Read from the second pipe (stdout, stderr),
+# but stderr will be empty because no redirection is used
+</span><span class="n">res</span> <span class="o">=</span> <span class="n">p2</span><span class="p">.</span><span class="n">communicate</span><span class="p">()</span>
+<span class="c1"># Note data is bytes, not str
+</span><span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">decode</span><span class="p">())</span>
+</code></pre></div>        </div>
+      </li>
+      <li>do not use <code class="language-plaintext highlighter-rouge">os.system()</code>, it is platform-dependent and unsafe</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="multiprocessing">Multiprocessing</h4>
+
+<p>About <a href="https://docs.python.org/3/library/threading.html">multithread</a> programming in Python:</p>
+
+<ul>
+  <li>It exists</li>
+  <li>It almost <em>non-parallel</em> because of <a href="https://en.wikipedia.org/wiki/Global_interpreter_lock">Global_interpreter_lock</a>
+    <ul>
+      <li>There is no apparent way to eliminate GIL without significant <em>slowing single-threaded</em> code</li>
+    </ul>
+  </li>
+  <li>You can use <a href="https://docs.python.org/3/library/threading.html">multithread</a> if:
+    <ol>
+      <li>Only one thread eats CPU, but other ones perform I/O</li>
+      <li>You have complex code design based on threads and significant amount of permanent
+usage of joint resources</li>
+    </ol>
+  </li>
+  <li>Unlike C programs, Python ones have no actual difference between
+threaded and <em>multiprocess</em> design</li>
+  <li><a href="https://realpython.com/python-gil/">Paper about Python GIL</a></li>
+</ul>
+
+<p>The <a href="https://docs.python.org/3/library/multiprocessing.html">multiprocessing</a> module:</p>
+
+<ul>
+  <li>Crossplatformness
+    <ul>
+      <li>Linux: <code class="language-plaintext highlighter-rouge">fork()</code> is used</li>
+    </ul>
+  </li>
+  <li>Child process is running ‘‘a function’’ (unlike classic <code class="language-plaintext highlighter-rouge">fork()</code>, which defines two equal processes)
+    <ul>
+      <li>That simplifies data transfer down to the arguments/return in simple cases</li>
+    </ul>
+  </li>
+  <li>Processes can communicate through special
+<a href="https://docs.python.org/3/library/multiprocessing.html#exchanging-objects-between-processes">socket-like high-level objects</a>
+or object queue</li>
+  <li>Processes can use
+<a href="https://docs.python.org/3/library/multiprocessing.html#sharing-state-between-processes">high-level shared memory-alike</a>
+objects or object manager (the last is slower, but can work over network!)</li>
+  <li>Processes can be orchestered into
+a <a href="https://docs.python.org/3/library/multiprocessing.html#using-a-pool-of-workers">pool</a>
+running exactly N processs in parallel.
+    <ol>
+      <li>Exact N child processes (called <em>workers</em>) are started</li>
+      <li>Each worker can execute a function given multiple times as pool flows
+        <ul>
+          <li>No other start/stop actions is performed</li>
+        </ul>
+      </li>
+      <li>Workers are stopped when pool is empty</li>
+    </ol>
+  </li>
+</ul>
+
+<h2 id="workshop">Workshop</h2>
+
+<p><a href="/hse-acos-course/part2os/14_Python/python.html">Workshop</a></p>
+
+              </article>
+            </div>
+
+            <aside class="page-toc" data-toc hidden>
+              <div class="page-toc__inner">
+                <p class="page-toc__eyebrow">On this page</p>
+                <nav aria-label="Table of contents">
+                  <ol class="page-toc__list" data-toc-list></ol>
+                </nav>
+              </div>
+            </aside>
+          </div>
+        
+      </main>
+
+      <footer class="site-footer">
+        <div class="container site-footer__inner">
+          <div>
+            <strong>Computer Architecture and Operating Systems</strong>
+              <p>Course materials maintained on GitHub Pages for HSE Faculty of Computer Science.</p>
+          </div>
+          <div class="site-footer__links">
+            <a href="/hse-acos-course/">Home</a>
+              <a href="https://github.com/andrewt0301/hse-acos-course">Repository</a>
+            <a href="https://pages.github.com">GitHub Pages</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

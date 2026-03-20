@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lecture 9 | Computer Architecture and Operating Systems</title>
+    <meta name="description" content="Course taught at Faculty of Computer Science of Higher School of Economics">
+    <script>
+      (function () {
+        var root = document.documentElement;
+
+        try {
+          var savedTheme = localStorage.getItem("acos-theme");
+          var savedLanguage = localStorage.getItem("acos-language");
+          var theme = savedTheme || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          var language = savedLanguage || "en";
+
+          root.dataset.theme = theme === "dark" ? "dark" : "light";
+          root.dataset.language = language === "ru" ? "ru" : "en";
+          root.lang = language === "ru" ? "ru" : "en";
+        } catch (error) {
+          root.dataset.theme = "light";
+          root.dataset.language = "en";
+          root.lang = "en";
+        }
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/hse-acos-course/assets/css/style.css?v=20260321b">
+    <script defer src="/hse-acos-course/assets/js/site.js?v=20260321b"></script>
+  </head>
+  
+  
+  
+  
+  
+  
+  
+  
+  <body data-page-kind="lecture" data-section="os" data-current-url="/part2os/09_IPC/lecture.html">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="site-bg">
+      <div class="site-grid"></div>
+    </div>
+
+    <div class="site-shell">
+      <header class="site-header" data-site-header>
+        <div class="container site-header__inner">
+          <a class="site-brand" href="/hse-acos-course/" aria-label="Computer Architecture and Operating Systems">
+            <span class="site-brand__mark" aria-hidden="true">ACOS</span>
+          </a>
+
+          <button class="site-nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+            <span>Menu</span>
+          </button>
+
+          <div class="site-header__panel" id="site-nav" data-nav-panel>
+            <nav class="site-nav" aria-label="Primary">
+              <ul class="site-nav__list">
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/" data-nav-link>Home</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/calendar_plan.html" data-nav-link>Calendar</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Assessment</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/exam_latest.html" data-nav-link>Exam</a>
+                          
+                            <a href="/hse-acos-course/grades.html" data-nav-link>Grades</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Resources</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/software.html" data-nav-link>Software</a>
+                          
+                            <a href="/hse-acos-course/books.html" data-nav-link>Textbooks</a>
+                          
+                            <a href="/hse-acos-course/courses.html" data-nav-link>Related Courses</a>
+                          
+                            <a href="/hse-acos-course/links.html" data-nav-link>Useful Links</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="https://github.com/andrewt0301/hse-acos-course" data-nav-link>GitHub</a>
+                    
+                  </li>
+                
+              </ul>
+            </nav>
+
+            <div class="site-preferences" aria-label="Site preferences">
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Theme</span>
+                <div class="site-preferences__switch" role="group" aria-label="Theme switch">
+                  <button type="button" data-theme-option="light" aria-pressed="false">Light</button>
+                  <button type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+                </div>
+              </div>
+
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Lang</span>
+                <div class="site-preferences__switch" role="group" aria-label="Language switch">
+                  <button type="button" data-language-option="en" aria-pressed="false">EN</button>
+                  <button type="button" data-language-option="ru" aria-pressed="false">RU</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="language-placeholder" data-language-placeholder hidden>
+        <div class="container language-placeholder__inner">
+          <div class="language-placeholder__copy">
+            <p class="language-placeholder__eyebrow">RU / Placeholder</p>
+            <strong>Русская версия пока в разработке</strong>
+            <p>Переключатель уже добавлен, но материалы и текущий интерфейс страниц пока остаются на английском. Полноценная локализация появится позже.</p>
+          </div>
+          <button class="language-placeholder__action" type="button" data-language-reset>Back to English</button>
+        </div>
+      </div>
+
+      <main id="main-content" class="site-main">
+        
+          <div class="container page-shell">
+            <div class="page-shell__main">
+              <nav class="breadcrumbs" aria-label="Breadcrumbs">
+                <ol>
+                  <li><a href="/hse-acos-course/">Home</a></li>
+                  
+                    <li><a href="/hse-acos-course/#operating-systems">Operating Systems</a></li>
+                  
+                  <li aria-current="page"><span data-breadcrumb-current>Lecture 9</span></li>
+                </ol>
+              </nav>
+
+              <article class="page-article" data-page-content>
+                <h2 id="lecture-9">Lecture 9</h2>
+
+<h1 id="inter-process-communication">Inter-Process Communication</h1>
+
+<h2 id="lecture">Lecture</h2>
+
+<p>Slides (<a href="/hse-acos-course/part2os/09_IPC/OS_Lecture_09.pdf">PDF</a>, <a href="/hse-acos-course/part2os/09_IPC/OS_Lecture_09.pptx">PPTX</a>).</p>
+
+<h2 id="outline">Outline</h2>
+
+<ul>
+  <li><a href="#signals">Signals</a></li>
+  <li><a href="#message-queues">Message Queues</a></li>
+  <li><a href="#memory-mapping">Memory Mapping</a></li>
+  <li><a href="#shared-memory">Shared Memory</a></li>
+</ul>
+
+<h2 id="examples">Examples</h2>
+
+<h3 id="signals">Signals</h3>
+
+<p>Never-ending program (to be used to send signals).</p>
+
+<p><strong>endless.c:</strong></p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+   <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+   <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+       <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+       <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+   <span class="p">}</span>
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Sending signals in a C program.</p>
+
+<p><strong>killn.c</strong>:</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;signal.h&gt;
+#include &lt;stdlib.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">kill</span><span class="p">(</span><span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])))</span> <span class="p">{</span>
+        <span class="n">perror</span><span class="p">(</span><span class="s">"Failed to kill"</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Handling signals in C programs.</p>
+
+<p><strong>catch.c:</strong></p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;signal.h&gt;
+</span> 
+<span class="kt">void</span> <span class="nf">handler</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Caught %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">sig</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span>  <span class="n">handler</span><span class="p">);</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">SIGSEGV</span><span class="p">,</span> <span class="n">handler</span><span class="p">);</span>
+    
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+       <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+       <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Monitoring child processes.</p>
+
+<p><strong>waitchild.c</strong>:</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+#include &lt;wait.h&gt;
+#include &lt;signal.h&gt;
+#include &lt;unistd.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">stat</span><span class="p">;</span>
+    <span class="n">pid_t</span> <span class="n">pid</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">pid</span> <span class="o">=</span> <span class="n">fork</span><span class="p">())</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"Forking a child: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">pid</span><span class="p">);</span>
+        <span class="n">wait</span><span class="p">(</span><span class="o">&amp;</span><span class="n">stat</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"And finally…</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">WIFSIGNALED</span><span class="p">(</span><span class="n">stat</span><span class="p">))</span> <span class="p">{</span>
+            <span class="n">psignal</span><span class="p">(</span><span class="n">WTERMSIG</span><span class="p">(</span><span class="n">stat</span><span class="p">),</span> <span class="s">"Terminated:"</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"Exit status: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">stat</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>See documentation on the <a href="https://man7.org/linux/man-pages/man2/wait.2.html">wait</a>
+system call for details. Pay attention to the macros to get process status information.</p>
+
+<h3 id="message-queues">Message Queues</h3>
+
+<p>Disadvantage of signals:</p>
+
+<ul>
+  <li>one byte;</li>
+  <li>totally asynchronous;</li>
+  <li>idempotent (this can be cool sometimes, but still).</li>
+</ul>
+
+<p>POSIX message queues:</p>
+
+<ul>
+  <li>synchronous;</li>
+  <li>can store content;</li>
+  <li>can be queued;</li>
+  <li>can be prioritized.</li>
+</ul>
+
+<p>Different messages can be delivered over separate queues.</p>
+
+<p>Detals on message queues can be found in the <a href="https://man7.org/linux/man-pages/man7/mq_overview.7.html">mq_overview</a> manual page.</p>
+
+<h4 id="creating-a-message-queue">Creating a message queue</h4>
+
+<p>A message queue can be created with the
+<a href="https://man7.org/linux/man-pages/man3/mq_open.3.html">mq_open</a> system call.</p>
+
+<p><strong>crt_mq.c</strong>:</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;mqueue.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;stdio.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="n">mqd_t</span> <span class="n">mqd</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">mq_attr</span> <span class="n">attr</span><span class="p">;</span>
+    <span class="n">attr</span><span class="p">.</span><span class="n">mq_maxmsg</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="n">attr</span><span class="p">.</span><span class="n">mq_msgsize</span> <span class="o">=</span> <span class="mi">2048</span><span class="p">;</span>
+
+    <span class="n">mqd</span> <span class="o">=</span> <span class="n">mq_open</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">O_RDWR</span><span class="o">|</span><span class="n">O_CREAT</span><span class="o">|</span><span class="n">O_EXCL</span><span class="p">,</span> <span class="n">S_IRUSR</span><span class="o">|</span><span class="n">S_IWUSR</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">attr</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<ul>
+  <li>queue is for 10 messages 2048 bytes each;</li>
+  <li>queue is creating for read/write if there’s no queue with the same name or else an error is generated;</li>
+  <li>omitting <code class="language-plaintext highlighter-rouge">O_EXCL</code> allows re-creating a queue with the same name,
+clearing all messages, which is probably not a good idea;</li>
+  <li>permissions of the object created are <code class="language-plaintext highlighter-rouge">00600</code> (<code class="language-plaintext highlighter-rouge">rw-------</code>).</li>
+</ul>
+
+<h4 id="sending-a-message-to-queue">Sending a message to queue</h4>
+
+<p>To send a message program should open a queue write-only and perform
+the <a href="https://man7.org/linux/man-pages/man3/mq_send.3.html">mq_send</a> system call:</p>
+
+<p><strong>snd_mq.c</strong>:</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;mqueue.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="n">mqd_t</span> <span class="n">mqd</span><span class="p">;</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">prio</span><span class="p">;</span>
+    <span class="n">mqd</span> <span class="o">=</span> <span class="n">mq_open</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">O_WRONLY</span><span class="p">);</span>
+    <span class="n">prio</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+    <span class="n">mq_send</span><span class="p">(</span><span class="n">mqd</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">strlen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> <span class="n">prio</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<ul>
+  <li>priority varies from 0 (lowest) to system-depended maximum (at least 31, 32767 in Linux);</li>
+  <li>message content is a byte array, it does <strong>not</strong> have to be zero-terminating string.</li>
+</ul>
+
+<p>POSIX queue provides prioritization mechanism.
+<em>Earliest</em> message from <strong>higher priority</strong> messages subset is to be delivered first.</p>
+
+<h4 id="receiving-a-message">Receiving a message</h4>
+
+<p>To receive a message, program has to call <a href="https://man7.org/linux/man-pages/man3/mq_receive.3.html">mq_receive</a>:</p>
+
+<p><strong>rec_mq.c:</strong></p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;mqueue.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+   <span class="n">mqd_t</span> <span class="n">mqd</span><span class="p">;</span>
+   <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">prio</span><span class="p">;</span>
+   <span class="kt">void</span> <span class="o">*</span><span class="n">buf</span><span class="p">;</span>
+   <span class="k">struct</span> <span class="n">mq_attr</span> <span class="n">attr</span><span class="p">;</span>
+   <span class="kt">ssize_t</span> <span class="n">n</span><span class="p">;</span>
+   <span class="n">mqd</span> <span class="o">=</span> <span class="n">mq_open</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">O_RDONLY</span><span class="p">);</span>
+   <span class="n">mq_getattr</span><span class="p">(</span><span class="n">mqd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">attr</span><span class="p">);</span>
+   <span class="n">buf</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">attr</span><span class="p">.</span><span class="n">mq_msgsize</span><span class="p">);</span>
+   <span class="n">n</span> <span class="o">=</span> <span class="n">mq_receive</span><span class="p">(</span><span class="n">mqd</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">attr</span><span class="p">.</span><span class="n">mq_msgsize</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">prio</span><span class="p">);</span>
+   <span class="n">printf</span><span class="p">(</span><span class="s">"Read %ld bytes; priority = %u</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="kt">long</span><span class="p">)</span> <span class="n">n</span><span class="p">,</span> <span class="n">prio</span><span class="p">);</span>
+   <span class="n">free</span><span class="p">(</span><span class="n">buf</span><span class="p">);</span>
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<ul>
+  <li>knowing nothing about message size,
+program must retrieve this value from queue attributes to provide an appropriate space in read buffer;</li>
+  <li>there is no mechanism of message <em>typification</em>, so only size is printed.</li>
+</ul>
+
+<h4 id="unlinking-a-message-queue">Unlinking a message queue</h4>
+
+<p>To remove a queue, call <a href="https://man7.org/linux/man-pages/man2/mq_unlink.2.html">mq_unlink</a>:</p>
+
+<p><strong>unl_mq.c</strong>:</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;mqueue.h&gt;
+#include &lt;stdio.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">mq_unlink</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="p">{</span>
+        <span class="n">perror</span><span class="p">(</span><span class="s">"mq_unlink"</span><span class="p">);</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="notifying-message-delivery">Notifying message delivery</h4>
+
+<p>Every <a href="https://man7.org/linux/man-pages/man3/mq_receive.3.html">mq_receive</a> call returns a message if there as one.
+If the queue is empty,
+<code class="language-plaintext highlighter-rouge">mq_receive()</code> can wait for message or return with fail status, depending on <code class="language-plaintext highlighter-rouge">O_NONBLOCK</code> flag.
+There is an alternate method to notify program by signal:
+a program calls <a href="https://man7.org/linux/man-pages/man3/mq_notify.3.html">mq_notify</a>
+to <em>subscribe</em> on a certain queue.
+Every time a message arrives in a queue,
+the program gets a <em>signal</em> described in <code class="language-plaintext highlighter-rouge">mq_notify()</code> and can handle message asynchronously.</p>
+
+<p>See an example in <a href="https://man7.org/linux/man-pages/man3/mq_notify.3.html">mq_notify</a>.</p>
+
+<h4 id="running-examples">Running examples</h4>
+
+<p>POSIX message API is implemented in the <code class="language-plaintext highlighter-rouge">librt</code> library, so compile program with <code class="language-plaintext highlighter-rouge">-lrt</code> option.</p>
+
+<p>A user can create queue by <a href="https://man7.org/linux/man-pages/man1/touch.1.html">touch</a>-ing arbitrary file
+in the <code class="language-plaintext highlighter-rouge">/dev/mqueue/</code> directory and unlink it just by removing the file object:</p>
+
+<ul>
+  <li>Note: <code class="language-plaintext highlighter-rouge">mqueue</code> is a <em>virtual</em> file system.
+That means it holds no files on no devices, but <em>emulates</em> file object via OS file interface.</li>
+  <li>System administrator can also manipulate with <code class="language-plaintext highlighter-rouge">/proc/sys/fs/mqueue/*</code> files,
+which are, again, just implementation of Linux “configuring through virtual filesystem” concept.</li>
+</ul>
+
+<p>Compile:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~/mmap/mqueue<span class="nv">$ </span>gcc crt_mq.c <span class="nt">-lrt</span> <span class="nt">-o</span> crt_mq 
+acos@acos-vm:~/mmap/mqueue<span class="nv">$ </span>gcc snd_mq.c <span class="nt">-lrt</span> <span class="nt">-o</span> snd_mq
+acos@acos-vm:~/mmap/mqueue<span class="nv">$ </span>gcc rec_mq.c <span class="nt">-lrt</span> <span class="nt">-o</span> rec_mq
+acos@acos-vm:~/mmap/mqueue<span class="nv">$ </span>gcc unl_mq.c <span class="nt">-lrt</span> <span class="nt">-o</span> unl_mq
+acos@acos-vm:~/mmap/mqueue<span class="nv">$ </span><span class="nb">ls
+</span>crt_mq  crt_mq.c  rec_mq  rec_mq.c  snd_mq  snd_mq.c  unl_mq  unl_mq.c
+</code></pre></div></div>
+
+<p>Run:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~/mmap/mqueue<span class="nv">$ </span>./crt_mq /queue
+acos@acos-vm:~/mmap/mqueue<span class="nv">$ </span><span class="nb">ls</span> /dev/mqueue/ <span class="nt">-l</span>
+total 0
+<span class="nt">-rw-------</span> 1 acos acos 80 июн  9 13:30 queue
+acos@acos-vm:~/mmap/mqueue<span class="nv">$ </span>./snd_mq /queue 5 Five
+acos@acos-vm:~/mmap/mqueue<span class="nv">$ </span>./snd_mq /queue 10 Ten
+acos@acos-vm:~/mmap/mqueue<span class="nv">$ </span>./snd_mq /queue 5 Five_2
+acos@acos-vm:~/mmap/mqueue<span class="nv">$ </span>./snd_mq /queue 3 Three
+acos@acos-vm:~/mmap/mqueue<span class="nv">$ </span>./snd_mq /queue 7 Seven
+acos@acos-vm:~/mmap/mqueue<span class="nv">$ </span><span class="nb">cat</span> /dev/mqueue/queue 
+QSIZE:23         NOTIFY:0     SIGNO:0     NOTIFY_PID:0     
+acos@acos-vm:~/mmap/mqueue<span class="nv">$ </span><span class="k">for </span>n <span class="k">in</span> <span class="sb">`</span><span class="nb">seq </span>5<span class="sb">`</span><span class="p">;</span> <span class="k">do</span> ./rec_mq /queue<span class="p">;</span> <span class="k">done
+</span>Read 3 bytes<span class="p">;</span> priority <span class="o">=</span> 10
+Read 5 bytes<span class="p">;</span> priority <span class="o">=</span> 7
+Read 4 bytes<span class="p">;</span> priority <span class="o">=</span> 5
+Read 6 bytes<span class="p">;</span> priority <span class="o">=</span> 5
+Read 5 bytes<span class="p">;</span> priority <span class="o">=</span> 3
+acos@acos-vm:~/mmap/mqueue<span class="nv">$ </span>./unl_mq /queue
+acos@acos-vm:~/mmap/mqueue<span class="nv">$ </span><span class="nb">ls</span> /dev/mqueue/ <span class="nt">-l</span>
+total 0
+</code></pre></div></div>
+
+<h3 id="memory-mapping">Memory Mapping</h3>
+
+<p>Linux kernel has <em>paging mechanism</em>:</p>
+
+<ul>
+  <li>when memory is limited, some memory pages can be swapped out;</li>
+  <li>when a program needs one of swapped-out pages:
+    <ul>
+      <li><a href="https://en.wikipedia.org/wiki/Translation_lookaside_buffer">TLB</a>
+produces a page fault (no physical memory is provided for the virtual address);</li>
+      <li>kernel handles the fault and loads corresponded page from disk and links to virtual memory page.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>If paging out a <code class="language-plaintext highlighter-rouge">.text</code> section, there is no need to provide a space on swap,
+because this data <em>is already on disk</em> - e.g. in the binary program file, from which the process was started.</p>
+
+<p>More general process of mapping file to memory is called <strong>memory map</strong>.
+The <a href="https://man7.org/linux/man-pages/man2/mmap.2.html">mmap</a>
+syscall asks kernel to <em>map</em> selected file to the virtual memory address range.
+After this done, the range can be used as an ordinary <em>array</em> filled with file’s contents.
+The file has not to be read into memory completely, Linux use paging mechanism to represent corresponded file parts.</p>
+
+<p>The example below is a simple <code class="language-plaintext highlighter-rouge">cat</code> analog that
+<a href="https://man7.org/linux/man-pages/man2/mmap.2.html">mmaps</a> file and than just
+<a href="https://man7.org/linux/man-pages/man3/fwrite.3p.html">writes</a> it to <code class="language-plaintext highlighter-rouge">stdout</code>.</p>
+
+<p><strong>mmcat.c</strong>:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/mman.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;fcntl.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">addr</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">fd</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">stat</span> <span class="n">sb</span><span class="p">;</span>
+
+    <span class="n">fd</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">O_RDONLY</span><span class="p">);</span>
+    <span class="n">fstat</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">sb</span><span class="p">);</span>
+    <span class="n">addr</span> <span class="o">=</span> <span class="n">mmap</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="n">sb</span><span class="p">.</span><span class="n">st_size</span><span class="p">,</span> <span class="n">PROT_READ</span><span class="p">,</span> <span class="n">MAP_PRIVATE</span><span class="p">,</span> <span class="n">fd</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">fwrite</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sb</span><span class="p">.</span><span class="n">st_size</span><span class="p">,</span> <span class="n">stdout</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">PROT_READ</code> means that <code class="language-plaintext highlighter-rouge">mmap</code>ped pages can only be read by the program;</li>
+  <li><code class="language-plaintext highlighter-rouge">MAP_PRIVATE</code> means the program observe some fixed <em>state</em> of the file;</li>
+  <li>write to <code class="language-plaintext highlighter-rouge">mmap</code>ped area does not change the file itself;</li>
+  <li>program supposes file can not be changed while mmapped in <code class="language-plaintext highlighter-rouge">MAP_PRIVATE</code> mode;</li>
+  <li><a href="https://man7.org/linux/man-pages/man3/fstat.3p.html">fstat</a> is used to determine file size (it discovers other file properties as well).</li>
+</ul>
+
+<p>Run the example:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~/mmap<span class="nv">$ </span>gcc mmcat.c <span class="nt">-o</span> mmcat
+acos@acos-vm:~/mmap<span class="nv">$ </span>./mmcat mmcat.c 
+<span class="c">#include &lt;sys/mman.h&gt;</span>
+<span class="c">#include &lt;sys/stat.h&gt;</span>
+<span class="c">#include &lt;stdio.h&gt;</span>
+<span class="c">#include &lt;fcntl.h&gt;</span>
+
+int main<span class="o">(</span>int argc, char <span class="k">*</span>argv[]<span class="o">)</span> <span class="o">{</span>
+    char <span class="k">*</span>addr<span class="p">;</span>
+    int fd<span class="p">;</span>
+    struct <span class="nb">stat </span>sb<span class="p">;</span>
+
+    fd <span class="o">=</span> open<span class="o">(</span>argv[1], O_RDONLY<span class="o">)</span><span class="p">;</span>
+    fstat<span class="o">(</span>fd, &amp;sb<span class="o">)</span><span class="p">;</span>
+    addr <span class="o">=</span> mmap<span class="o">(</span>NULL, sb.st_size, PROT_READ, MAP_PRIVATE, fd, 0<span class="o">)</span><span class="p">;</span>
+    fwrite<span class="o">(</span>addr, 1, sb.st_size, stdout<span class="o">)</span><span class="p">;</span>
+    <span class="k">return </span>0<span class="p">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="shared-memory">Shared Memory</h3>
+
+<h4 id="creating-shared-memory">Creating shared memory</h4>
+
+<p><strong>crt_shm.c</strong>:</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;sys/mman.h&gt;
+#include &lt;stdlib.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">fd</span><span class="p">;</span>
+    <span class="kt">size_t</span> <span class="n">size</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="o">*</span><span class="n">addr</span><span class="p">;</span>
+
+    <span class="n">fd</span> <span class="o">=</span> <span class="n">shm_open</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">O_RDWR</span><span class="o">|</span><span class="n">O_CREAT</span><span class="o">|</span><span class="n">O_EXCL</span><span class="p">,</span> <span class="n">S_IRUSR</span><span class="o">|</span><span class="n">S_IWUSR</span><span class="p">);</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="n">atol</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+    <span class="n">ftruncate</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
+
+    <span class="n">addr</span> <span class="o">=</span> <span class="n">mmap</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">PROT_READ</span> <span class="o">|</span> <span class="n">PROT_WRITE</span><span class="p">,</span> <span class="n">MAP_SHARED</span><span class="p">,</span> <span class="n">fd</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="writing-to-shared-memory">Writing to shared memory</h4>
+
+<p><strong>wrt_shm.c</strong>:</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;sys/mman.h&gt;
+#include &lt;string.h&gt;
+#include &lt;unistd.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">fd</span><span class="p">;</span>
+    <span class="kt">size_t</span> <span class="n">len</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">addr</span><span class="p">;</span>
+
+    <span class="n">fd</span> <span class="o">=</span> <span class="n">shm_open</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">O_RDWR</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">len</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+    <span class="n">ftruncate</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+
+    <span class="n">addr</span> <span class="o">=</span> <span class="n">mmap</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="n">len</span><span class="p">,</span> <span class="n">PROT_READ</span> <span class="o">|</span> <span class="n">PROT_WRITE</span><span class="p">,</span> <span class="n">MAP_SHARED</span><span class="p">,</span> <span class="n">fd</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Copying %ld bytes</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+    <span class="n">memcpy</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">len</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="reading-from-shared-memory">Reading from shared memory</h4>
+
+<p><strong>rd_shm.c</strong>:</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;sys/mman.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;unistd.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">fd</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">addr</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">stat</span> <span class="n">sb</span><span class="p">;</span>
+
+    <span class="n">fd</span> <span class="o">=</span> <span class="n">shm_open</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">O_RDONLY</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">fstat</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">sb</span><span class="p">);</span>
+    <span class="n">addr</span> <span class="o">=</span> <span class="n">mmap</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="n">sb</span><span class="p">.</span><span class="n">st_size</span><span class="p">,</span> <span class="n">PROT_READ</span><span class="p">,</span> <span class="n">MAP_SHARED</span><span class="p">,</span> <span class="n">fd</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span>
+
+    <span class="n">fwrite</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sb</span><span class="p">.</span><span class="n">st_size</span><span class="p">,</span> <span class="n">stdout</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">... Done"</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="unlinking-shared-memory">Unlinking shared memory</h4>
+
+<p><strong>unl_shm.c:</strong></p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/mman.h&gt;
+#include &lt;stdio.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">shm_unlink</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="p">{</span>
+        <span class="n">perror</span><span class="p">(</span><span class="s">"shm_unlink"</span><span class="p">);</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="running-examples-1">Running examples</h4>
+
+<p>Like <code class="language-plaintext highlighter-rouge">mqueue</code>, shared memory objects can be created, viewed, and unlinked via <code class="language-plaintext highlighter-rouge">/dev/shm</code> filesystem.
+Moreover, viewing a shared memory file is just dumping its content.</p>
+
+<p>Compile:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~/shmem<span class="nv">$ </span>gcc crt_shm.c <span class="nt">-lrt</span> <span class="nt">-o</span> crt_shm
+acos@acos-vm:~/shmem<span class="nv">$ </span>gcc wrt_shm.c <span class="nt">-lrt</span> <span class="nt">-o</span> wrt_shm
+acos@acos-vm:~/shmem<span class="nv">$ </span>gcc rd_shm.c <span class="nt">-lrt</span> <span class="nt">-o</span> rd_shm
+acos@acos-vm:~/shmem<span class="nv">$ </span>gcc unl_shm.c <span class="nt">-lrt</span> <span class="nt">-o</span> unl_shm
+acos@acos-vm:~/shmem<span class="nv">$ </span><span class="nb">ls
+</span>crt_shm    rd_shm    unl_shm    wrt_shm
+crt_shm.c  rd_shm.c  unl_shm.c  wrt_shm.c
+</code></pre></div></div>
+
+<p>Run:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~/shmem<span class="nv">$ </span>./crt_shm /shmem 0
+acos@acos-vm:~/shmem<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-l</span> /dev/shm/
+total 0
+<span class="nt">-rw-------</span> 1 acos acos 0 июн  9 11:52 shmem
+acos@acos-vm:~/shmem<span class="nv">$ </span>./wrt_shm /shmem <span class="s1">'Hello!'</span>
+Copying 6 bytes
+acos@acos-vm:~/shmem<span class="nv">$ </span>./rd_shm /shmem
+Hello!
+... Doneacos@acos-vm:~/shmem<span class="nv">$ </span>./unl_shm /shmem
+acos@acos-vm:~/shmem<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-l</span> /dev/shm/
+total 0
+</code></pre></div></div>
+
+<h2 id="workshop">Workshop</h2>
+
+<h3 id="outline-1">Outline</h3>
+
+<ul>
+  <li>Practice with signals</li>
+  <li>Study, run, and modify the lecture examples.</li>
+</ul>
+
+<h3 id="notes">Notes</h3>
+
+<h4 id="sending-signals">Sending Signals</h4>
+
+<p>List of signals supported in your Linux or MacOS:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">kill</span> <span class="nt">-l</span>
+</code></pre></div></div>
+
+<p>Documentation on the <code class="language-plaintext highlighter-rouge">kill</code> utility that sends signals to processes:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>man <span class="nb">kill</span>
+</code></pre></div></div>
+
+<p>Documentation on the <code class="language-plaintext highlighter-rouge">kill</code> system call:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>man 2 <span class="nb">kill</span>
+</code></pre></div></div>
+
+<p>Important signals:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">SIGHUP</code>   (1) - Terminal is closed.</li>
+  <li><code class="language-plaintext highlighter-rouge">SIGINT</code>   (2) - Interrupt process from terminal (<code class="language-plaintext highlighter-rouge">Ctrl-C</code>).</li>
+  <li><code class="language-plaintext highlighter-rouge">SIGQUIT</code>  (3) - Terminate process and dumps core (<code class="language-plaintext highlighter-rouge">Ctrl-\</code>).</li>
+  <li><code class="language-plaintext highlighter-rouge">SIGKILL</code>  (9) - Immediately terminate process (cannot be handled).</li>
+  <li><code class="language-plaintext highlighter-rouge">SIGTERM</code> (15) - Request terminating process (can be handled). Sent by default.</li>
+  <li><code class="language-plaintext highlighter-rouge">SIGSTOP</code> (19) - Stop a process for later resumption (cannot be handled).</li>
+  <li><code class="language-plaintext highlighter-rouge">SIGTSTP</code> (20) - Request stop process (<code class="language-plaintext highlighter-rouge">Ctrl-Z</code>, can be handled).</li>
+  <li><code class="language-plaintext highlighter-rouge">SIGCONT</code> (18) - Continue (restart) process previously paused by <code class="language-plaintext highlighter-rouge">SIGSTOP</code> or <code class="language-plaintext highlighter-rouge">SIGTSTP</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">SIGCHLD</code> (17) - Child process exits, is interrupted, or resumes.</li>
+</ul>
+
+<p>See the full list in <a href="https://en.wikipedia.org/wiki/Signal_%28IPC%29">Wikipedia</a>.</p>
+
+<h4 id="managing-processes">Managing processes</h4>
+
+<p>Utilities for managing processes:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ps</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ps -a</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ps -ef</code></li>
+  <li><code class="language-plaintext highlighter-rouge">pstree</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ps axu</code> (BSD-style format)</li>
+  <li><code class="language-plaintext highlighter-rouge">ps xf</code> (BSD style own process only)</li>
+  <li><code class="language-plaintext highlighter-rouge">pidof program</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ls /proc</code></li>
+  <li><code class="language-plaintext highlighter-rouge">kill proc</code> / <code class="language-plaintext highlighter-rouge">kill -STOP proc</code> / <code class="language-plaintext highlighter-rouge">kill -HUP proc</code> (use two terminals)</li>
+</ul>
+
+<p>To get detailed documentation, use the <a href="https://man7.org/linux/man-pages/man1/man.1.html">man</a> utility.</p>
+
+<h4 id="foreground-and-background-processes">Foreground and background processes</h4>
+
+<ul>
+  <li>Foreground
+    <ul>
+      <li>Interactive process (can input and output)</li>
+      <li>Can be only one per a terminal</li>
+      <li>Run like this: <code class="language-plaintext highlighter-rouge">./endless</code></li>
+    </ul>
+  </li>
+  <li>Background
+    <ul>
+      <li>Can only output</li>
+      <li>Can be any number</li>
+      <li>Run like this: <code class="language-plaintext highlighter-rouge">./endless &amp;</code> (<strong>&amp;</strong> at the end)</li>
+    </ul>
+  </li>
+  <li>Changing type
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Ctrl-Z</code> to stop (or send <code class="language-plaintext highlighter-rouge">SIGSTOP</code> / <code class="language-plaintext highlighter-rouge">SIGTSTP</code>)</li>
+      <li><code class="language-plaintext highlighter-rouge">fg</code> to continue in foreground</li>
+      <li><code class="language-plaintext highlighter-rouge">bg</code> to continue in background</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="tasks">Tasks</h3>
+
+<ol>
+  <li>
+    <p>Make the <code class="language-plaintext highlighter-rouge">09_IPC</code> directory at the server. Code must reside there.</p>
+  </li>
+  <li>
+    <p>Compile program <code class="language-plaintext highlighter-rouge">endless.c</code> from the lecture. Perform the following actions with it:</p>
+
+    <ul>
+      <li>runs it in the background;</li>
+      <li>stops it;</li>
+      <li>resumes it in foreground;</li>
+      <li>sends it the <code class="language-plaintext highlighter-rouge">SIGINT</code> signal to terminate:
+        <ul>
+          <li>use <code class="language-plaintext highlighter-rouge">ps -a</code> to get the list of running processes and their IDs;</li>
+          <li>use another instance of terminal to send a signal.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Create program <code class="language-plaintext highlighter-rouge">proc.c</code> (modify <code class="language-plaintext highlighter-rouge">endless.c</code> from the lecture) that:</p>
+
+    <ul>
+      <li>waits forever;</li>
+      <li>periodically printfs its PID via <a href="https://man7.org/linux/man-pages/man2/getpid.2.html">getpid</a> and the increased counter;</li>
+      <li>uses a command-line argument to define the timeout between printfs.</li>
+    </ul>
+
+    <p>For example, <code class="language-plaintext highlighter-rouge">./proc 5</code> printfs once a 5 seconds
+(using <a href="https://man7.org/linux/man-pages/man3/sleep.3.html">sleep</a>):</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>26475: 0
+26475: 1
+26475: 2
+...
+</code></pre></div>    </div>
+  </li>
+  <li>Write program <code class="language-plaintext highlighter-rouge">killn.c</code> to send a signal.
+    <ul>
+      <li>use <code class="language-plaintext highlighter-rouge">kill -l</code> and edit its output to create signal names array;
+        <ul>
+          <li><em>challenge</em>: you can use the <a href="https://man7.org/linux/man-pages/man1/sed.1.html">sed</a>
+utility (<code class="language-plaintext highlighter-rouge">sed s/regexp/replacement/g</code>) to eliminate handwork:
+            <ul>
+              <li>start with <code class="language-plaintext highlighter-rouge">kill -l | sed -z 's/\n//g</code>;</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><code class="language-plaintext highlighter-rouge">./killn PID NAME</code> sends <code class="language-plaintext highlighter-rouge">PID</code> process signal <code class="language-plaintext highlighter-rouge">NAME</code>;</li>
+      <li>see <a href="https://man7.org/linux/man-pages/man2/kill.2.html">kill</a>;</li>
+      <li>use <a href="https://man7.org/linux/man-pages/man3/perror.3.html">perror</a> if an error occurred;</li>
+      <li>print “No such signal” if <code class="language-plaintext highlighter-rouge">NAME</code> is not found and returns <code class="language-plaintext highlighter-rouge">1</code> instead of <code class="language-plaintext highlighter-rouge">0</code>;</li>
+      <li>try to <code class="language-plaintext highlighter-rouge">./killn</code> running <code class="language-plaintext highlighter-rouge">proc 4</code>, non-existent process, foreign process.</li>
+    </ul>
+  </li>
+  <li>Copy <code class="language-plaintext highlighter-rouge">proc.c</code> to <code class="language-plaintext highlighter-rouge">catchsig.c</code> and modify it, adding a signal handler.
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">./catchsig 5 SIGNAL_NAME1 SIGNAL_NAME2 ...</code> should print corresponding signal’s
+description (via <a href="https://man7.org/linux/man-pages/man3/strsignal.3.html">strsignal</a>)
+when catching a signal instead of falling off (still printing messages once a 5 seconds);</li>
+      <li>note not all signals can be handled.</li>
+    </ul>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./catchsig 5 INT ABRT SEGV
+26775: 0
+^C[Caught: Interrupt]26775: 1
+26775: 2
+[Caught: Segmentation fault]26775: 3
+26775: 4
+26775: 5
+[Caught: Aborted]26775: 6
+26775: 7
+Illegal instruction
+$
+</code></pre></div>    </div>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ kill -SEGV 26775
+$ kill -ABRT 26775
+$ kill -ILL 26772
+</code></pre></div>    </div>
+  </li>
+  <li>Join <code class="language-plaintext highlighter-rouge">catchsig.c</code> with child-control program from the lecture, name the result <code class="language-plaintext highlighter-rouge">childctl.c</code>.
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">./childctl timeout signalQ signal1 ... signaln</code> should:
+        <ul>
+          <li>print a message once in timeout seconds;</li>
+          <li>catch <code class="language-plaintext highlighter-rouge">signal1</code> … <code class="language-plaintext highlighter-rouge">signaln</code> and print message;</li>
+          <li>peacefully exit when got <code class="language-plaintext highlighter-rouge">signalQ</code>.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="homework">Homework</h2>
+
+<p><em>Note:</em> All required theory is provided in the lecture materials (see above).</p>
+
+<ol>
+  <li>
+    <p>Finish all programs from the workshop (and send them).</p>
+  </li>
+  <li>
+    <p>Modify the last program to:</p>
+    <ul>
+      <li>exit after getting <code class="language-plaintext highlighter-rouge">signalQ</code> three times;</li>
+      <li>check every syscall return values on error state.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="bonus-tasks">Bonus Tasks</h2>
+
+<p>Bonus tasks on message queues are <a href="/hse-acos-course/part2os/09_IPC/workshop_messages.html">here</a>.</p>
+
+<h1 id="references">References</h1>
+
+<ul>
+  <li>Interprocess communication overview. Chapter 49 in <a href="/hse-acos-course/books.html">[TLPI]</a>.</li>
+  <li>Signals: fundamental concepts. Chapter 20 in <a href="/hse-acos-course/books.html">[TLPI]</a>.</li>
+  <li>POSIX message queues. Chapter 50 in <a href="/hse-acos-course/books.html">[TLPI]</a>.</li>
+  <li>Memory mappings. Chapter 49 in <a href="/hse-acos-course/books.html">[TLPI]</a>.</li>
+  <li>POSIX shared memory. Chapter 54 in <a href="/hse-acos-course/books.html">[TLPI]</a>.</li>
+</ul>
+
+              </article>
+            </div>
+
+            <aside class="page-toc" data-toc hidden>
+              <div class="page-toc__inner">
+                <p class="page-toc__eyebrow">On this page</p>
+                <nav aria-label="Table of contents">
+                  <ol class="page-toc__list" data-toc-list></ol>
+                </nav>
+              </div>
+            </aside>
+          </div>
+        
+      </main>
+
+      <footer class="site-footer">
+        <div class="container site-footer__inner">
+          <div>
+            <strong>Computer Architecture and Operating Systems</strong>
+              <p>Course materials maintained on GitHub Pages for HSE Faculty of Computer Science.</p>
+          </div>
+          <div class="site-footer__links">
+            <a href="/hse-acos-course/">Home</a>
+              <a href="https://github.com/andrewt0301/hse-acos-course">Repository</a>
+            <a href="https://pages.github.com">GitHub Pages</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

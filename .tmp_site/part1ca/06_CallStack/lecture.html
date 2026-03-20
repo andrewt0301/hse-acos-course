@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lecture 6 | Computer Architecture and Operating Systems</title>
+    <meta name="description" content="Course taught at Faculty of Computer Science of Higher School of Economics">
+    <script>
+      (function () {
+        var root = document.documentElement;
+
+        try {
+          var savedTheme = localStorage.getItem("acos-theme");
+          var savedLanguage = localStorage.getItem("acos-language");
+          var theme = savedTheme || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          var language = savedLanguage || "en";
+
+          root.dataset.theme = theme === "dark" ? "dark" : "light";
+          root.dataset.language = language === "ru" ? "ru" : "en";
+          root.lang = language === "ru" ? "ru" : "en";
+        } catch (error) {
+          root.dataset.theme = "light";
+          root.dataset.language = "en";
+          root.lang = "en";
+        }
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/hse-acos-course/assets/css/style.css?v=20260321b">
+    <script defer src="/hse-acos-course/assets/js/site.js?v=20260321b"></script>
+  </head>
+  
+  
+  
+  
+  
+  
+  
+  
+  <body data-page-kind="lecture" data-section="ca" data-current-url="/part1ca/06_CallStack/lecture.html">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="site-bg">
+      <div class="site-grid"></div>
+    </div>
+
+    <div class="site-shell">
+      <header class="site-header" data-site-header>
+        <div class="container site-header__inner">
+          <a class="site-brand" href="/hse-acos-course/" aria-label="Computer Architecture and Operating Systems">
+            <span class="site-brand__mark" aria-hidden="true">ACOS</span>
+          </a>
+
+          <button class="site-nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+            <span>Menu</span>
+          </button>
+
+          <div class="site-header__panel" id="site-nav" data-nav-panel>
+            <nav class="site-nav" aria-label="Primary">
+              <ul class="site-nav__list">
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/" data-nav-link>Home</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/calendar_plan.html" data-nav-link>Calendar</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Assessment</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/exam_latest.html" data-nav-link>Exam</a>
+                          
+                            <a href="/hse-acos-course/grades.html" data-nav-link>Grades</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Resources</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/software.html" data-nav-link>Software</a>
+                          
+                            <a href="/hse-acos-course/books.html" data-nav-link>Textbooks</a>
+                          
+                            <a href="/hse-acos-course/courses.html" data-nav-link>Related Courses</a>
+                          
+                            <a href="/hse-acos-course/links.html" data-nav-link>Useful Links</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="https://github.com/andrewt0301/hse-acos-course" data-nav-link>GitHub</a>
+                    
+                  </li>
+                
+              </ul>
+            </nav>
+
+            <div class="site-preferences" aria-label="Site preferences">
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Theme</span>
+                <div class="site-preferences__switch" role="group" aria-label="Theme switch">
+                  <button type="button" data-theme-option="light" aria-pressed="false">Light</button>
+                  <button type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+                </div>
+              </div>
+
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Lang</span>
+                <div class="site-preferences__switch" role="group" aria-label="Language switch">
+                  <button type="button" data-language-option="en" aria-pressed="false">EN</button>
+                  <button type="button" data-language-option="ru" aria-pressed="false">RU</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="language-placeholder" data-language-placeholder hidden>
+        <div class="container language-placeholder__inner">
+          <div class="language-placeholder__copy">
+            <p class="language-placeholder__eyebrow">RU / Placeholder</p>
+            <strong>Русская версия пока в разработке</strong>
+            <p>Переключатель уже добавлен, но материалы и текущий интерфейс страниц пока остаются на английском. Полноценная локализация появится позже.</p>
+          </div>
+          <button class="language-placeholder__action" type="button" data-language-reset>Back to English</button>
+        </div>
+      </div>
+
+      <main id="main-content" class="site-main">
+        
+          <div class="container page-shell">
+            <div class="page-shell__main">
+              <nav class="breadcrumbs" aria-label="Breadcrumbs">
+                <ol>
+                  <li><a href="/hse-acos-course/">Home</a></li>
+                  
+                    <li><a href="/hse-acos-course/#computer-architecture">Computer Architecture</a></li>
+                  
+                  <li aria-current="page"><span data-breadcrumb-current>Lecture 6</span></li>
+                </ol>
+              </nav>
+
+              <article class="page-article" data-page-content>
+                <h2 id="lecture-6">Lecture 6</h2>
+
+<h1 id="subroutines-call-stack-calling-conventions">Subroutines. Call stack. Calling conventions.</h1>
+
+<h2 id="lecture">Lecture</h2>
+
+<p>Slides (<a href="/hse-acos-course/part1ca/06_CallStack/CA_Lecture_06.pdf">PDF</a>, <a href="/hse-acos-course/part1ca/06_CallStack/CA_Lecture_06.pptx">PPTX</a>).</p>
+
+<h4 id="outline">Outline</h4>
+
+<ul>
+  <li>Functions, caller, callee</li>
+  <li>Jump-and-link instructions</li>
+  <li>Register conventions</li>
+  <li>Stack pointer</li>
+  <li>Stack frame</li>
+  <li>Caller-saved and callee-saved registers</li>
+</ul>
+
+<h4 id="examples">Examples</h4>
+
+<ul>
+  <li><a href="/hse-acos-course/part1ca/06_CallStack/macrolib.s">macrolib.s</a></li>
+  <li><a href="/hse-acos-course/part1ca/06_CallStack/leaf.s">leaf.s</a></li>
+  <li><a href="/hse-acos-course/part1ca/06_CallStack/fact.s">fact.s</a></li>
+  <li><a href="/hse-acos-course/part1ca/06_CallStack/fp.s">fp.s</a></li>
+  <li><a href="/hse-acos-course/part1ca/06_CallStack/fp_square.s">fp_square.s</a></li>
+  <li><a href="/hse-acos-course/part1ca/06_CallStack/euclid.s">euclid.s</a></li>
+  <li><a href="/hse-acos-course/part1ca/06_CallStack/min_max.s">min_max.s</a></li>
+  <li><a href="/hse-acos-course/part1ca/06_CallStack/min_max2.s">min_max2.s</a></li>
+  <li><a href="/hse-acos-course/part1ca/06_CallStack/swap.s">swap.s</a></li>
+  <li><a href="/hse-acos-course/part1ca/06_CallStack/ackermann.s">ackermann.s</a></li>
+</ul>
+
+<h2 id="workshop">Workshop</h2>
+
+<h4 id="outline-1">Outline</h4>
+
+<ul>
+  <li>Demonstrate using the RISC-V <a href="/hse-acos-course/part1ca/06_CallStack/toolchain.html">toolchain</a> in Cloud <a href="/hse-acos-course/software/cloud_ssh.html">Ubuntu VM</a> (optional)</li>
+  <li>Demonstrate using <a href="https://godbolt.org/">Godbolt</a>, show both GCC and Clang (optional)</li>
+  <li>Practice programs that allocate variables and arrays on stack</li>
+  <li>Practice writing programs that use functions</li>
+  <li>Practice using caller-saved and callee-saved registers</li>
+  <li>Practice writing nested and recursive functions</li>
+</ul>
+
+<h4 id="how-to-call-a-function">How to call a function?</h4>
+
+<p>Saving registers:</p>
+
+<ul>
+  <li>The caller does not know what registers are used by the callee.</li>
+  <li>The callee does not know what registers are used by the caller.</li>
+  <li>Therefore, the callee is likely to overwrite registers that are important for the caller.</li>
+  <li>To avoid this situation, a programmer must follow the calling conventions.</li>
+</ul>
+
+<p>Register conventions:</p>
+
+<ol>
+  <li>Callee-saved registers: <code class="language-plaintext highlighter-rouge">sp</code>, <code class="language-plaintext highlighter-rouge">s0</code>-<code class="language-plaintext highlighter-rouge">s11</code></li>
+  <li>Caller-saved registers: <code class="language-plaintext highlighter-rouge">ra</code>, <code class="language-plaintext highlighter-rouge">a0</code>-<code class="language-plaintext highlighter-rouge">a7</code>, <code class="language-plaintext highlighter-rouge">t0</code>-<code class="language-plaintext highlighter-rouge">t6</code></li>
+</ol>
+
+<p>What is done by the caller?</p>
+
+<ol>
+  <li>Save all caller-saved registers, which must be preserved, to the stack.</li>
+  <li>Put the arguments into registers <code class="language-plaintext highlighter-rouge">a0</code>-<code class="language-plaintext highlighter-rouge">a7</code>.</li>
+  <li>Call the function.</li>
+  <li>When the function returns, read the return values from <code class="language-plaintext highlighter-rouge">a0</code> and <code class="language-plaintext highlighter-rouge">a1</code>.</li>
+  <li>Restore all the previously saved caller-saved registers from the stack.</li>
+</ol>
+
+<p>What is done by the callee?</p>
+
+<ol>
+  <li>Save all callee-saved registers, which will be modified, to the stack.</li>
+  <li>Perform some operations (if the callee wants to call a function, it becomes the caller for this callee function).</li>
+  <li>Save the result to registers <code class="language-plaintext highlighter-rouge">a0</code> and <code class="language-plaintext highlighter-rouge">a1</code>.</li>
+  <li>Restore all the previously saved callee-saved registers from the stack.</li>
+  <li>Return back to the caller.</li>
+</ol>
+
+<h4 id="tasks">Tasks</h4>
+
+<ol>
+  <li>
+    <p>Translate the following C code into the RISC-V assembly language:</p>
+
+    <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">g</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">read_int</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">read_int</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">z</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">-</span> <span class="n">y</span><span class="p">;</span>
+    <span class="n">print_int</span><span class="p">(</span><span class="n">z</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Translate the following C code into the RISC-V assembly language:</p>
+
+    <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">g</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">,</span> <span class="kt">int</span> <span class="n">c</span><span class="p">,</span> <span class="kt">int</span> <span class="n">d</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">read_int</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">read_int</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">read_int</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="n">read_int</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>
+    <span class="n">print_int</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Write program <code class="language-plaintext highlighter-rouge">divide.s</code> that inputs two positive integer values <code class="language-plaintext highlighter-rouge">N</code> and <code class="language-plaintext highlighter-rouge">D</code>,
+finds their quotient (<code class="language-plaintext highlighter-rouge">Q</code>) and remainder (<code class="language-plaintext highlighter-rouge">R</code>) using the algorithm below, and prints the result.
+The algorithm must be implemented as a function (the code from the previous seminar can be reused).</p>
+
+    <div class="language-pascal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span> <span class="n">divide_unsigned</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
+    <span class="n">Q</span> <span class="p">:=</span> <span class="m">0</span><span class="p">;</span> <span class="n">R</span> <span class="p">:=</span> <span class="n">N</span>
+    <span class="k">while</span> <span class="n">R</span> <span class="err">≥</span> <span class="n">D</span> <span class="k">do</span>
+        <span class="n">Q</span> <span class="p">:=</span> <span class="n">Q</span> <span class="p">+</span> <span class="m">1</span>
+        <span class="n">R</span> <span class="p">:=</span> <span class="n">R</span> <span class="err">−</span> <span class="n">D</span>
+    <span class="k">end</span>
+    <span class="n">return</span> <span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Write program <code class="language-plaintext highlighter-rouge">gcd.s</code> that inputs two positive integer values <code class="language-plaintext highlighter-rouge">a</code> and <code class="language-plaintext highlighter-rouge">b</code>,
+finds their greatest common divisor using the algorithm below, and prints the result.
+The algorithm must be implemented as a recursive function.</p>
+
+    <div class="language-pascal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span> <span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">b</span> <span class="p">=</span> <span class="m">0</span>
+        <span class="n">return</span> <span class="n">a</span>
+    <span class="k">else</span>
+        <span class="n">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="k">mod</span> <span class="n">b</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Write program <code class="language-plaintext highlighter-rouge">fib.s</code> that inputs integer value <code class="language-plaintext highlighter-rouge">n</code>, computes n-th Fibonacci number
+using the algorithm below, and prints the result.
+The algorithm must be implemented as a recursive function.</p>
+
+    <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">fib</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Write program <code class="language-plaintext highlighter-rouge">sum.s</code> that first inputs integer value <code class="language-plaintext highlighter-rouge">n</code>, after that inputs <code class="language-plaintext highlighter-rouge">n</code> integer elements
+and stores them in the stack, then calls function <code class="language-plaintext highlighter-rouge">sum</code> adding all the elements, and, finally, prints the sum.</p>
+  </li>
+</ol>
+
+<h2 id="homework">Homework</h2>
+
+<p>Solve the following tasks and submit then into Ejudge:</p>
+
+<ol>
+  <li><a href="/hse-acos-course/part1ca/Tasks/homeworks.html#asciigrid">ASCIIGrid</a></li>
+  <li><a href="/hse-acos-course/part1ca/Tasks/homeworks.html#checktriangles">CheckTriangles</a></li>
+  <li><a href="/hse-acos-course/part1ca/Tasks/homeworks.html#funcsort">FuncSort</a></li>
+  <li><a href="/hse-acos-course/part1ca/Tasks/homeworks.html#keysort">KeySort</a></li>
+  <li><a href="/hse-acos-course/part1ca/Tasks/homeworks.html#binarysearch">BinarySearch</a></li>
+</ol>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li>Functions in RISC-V. Section 2.8 in <a href="/hse-acos-course/books.html#codr">[CODR]</a>.</li>
+  <li><a href="https://pdos.csail.mit.edu/6.828/2024/lec/l-riscv-cc-slides.pdf">RISC-V Calling Conventions</a> (MIT slides)</li>
+  <li><a href="https://en.wikipedia.org/wiki/Call_stack">Call stack</a> (Wikipedia).</li>
+  <li><a href="https://en.wikipedia.org/wiki/Calling_convention">Calling convention</a> (Wikipedia).</li>
+</ul>
+
+              </article>
+            </div>
+
+            <aside class="page-toc" data-toc hidden>
+              <div class="page-toc__inner">
+                <p class="page-toc__eyebrow">On this page</p>
+                <nav aria-label="Table of contents">
+                  <ol class="page-toc__list" data-toc-list></ol>
+                </nav>
+              </div>
+            </aside>
+          </div>
+        
+      </main>
+
+      <footer class="site-footer">
+        <div class="container site-footer__inner">
+          <div>
+            <strong>Computer Architecture and Operating Systems</strong>
+              <p>Course materials maintained on GitHub Pages for HSE Faculty of Computer Science.</p>
+          </div>
+          <div class="site-footer__links">
+            <a href="/hse-acos-course/">Home</a>
+              <a href="https://github.com/andrewt0301/hse-acos-course">Repository</a>
+            <a href="https://pages.github.com">GitHub Pages</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

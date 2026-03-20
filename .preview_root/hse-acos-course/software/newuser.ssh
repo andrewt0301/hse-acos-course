@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo "Enter user name:"
+read USERNAME
+echo "User name: $USERNAME"
+GROUPNAME=$USERNAME
+echo "Group name: $GROUPNAME"
+
+echo "Enter public key for SSH:"
+read KEY
+echo "Public key: $KEY"
+
+adduser "$USERNAME"
+
+mkdir "/home/$USERNAME/.ssh"
+echo "$KEY" > "/home/$USERNAME/.ssh/authorized_keys"
+chown "$USERNAME:$GROUPNAME" -R "/home/$USERNAME"
+chmod o-rwx -R "/home/$USERNAME"
+chmod u+rwx "/home/$USERNAME/.ssh/authorized_keys"

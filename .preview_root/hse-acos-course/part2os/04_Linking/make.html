@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Make Files | Computer Architecture and Operating Systems</title>
+    <meta name="description" content="Course taught at Faculty of Computer Science of Higher School of Economics">
+    <script>
+      (function () {
+        var root = document.documentElement;
+
+        try {
+          var savedTheme = localStorage.getItem("acos-theme");
+          var savedLanguage = localStorage.getItem("acos-language");
+          var theme = savedTheme || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          var language = savedLanguage || "en";
+
+          root.dataset.theme = theme === "dark" ? "dark" : "light";
+          root.dataset.language = language === "ru" ? "ru" : "en";
+          root.lang = language === "ru" ? "ru" : "en";
+        } catch (error) {
+          root.dataset.theme = "light";
+          root.dataset.language = "en";
+          root.lang = "en";
+        }
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/hse-acos-course/assets/css/style.css?v=20260321b">
+    <script defer src="/hse-acos-course/assets/js/site.js?v=20260321b"></script>
+  </head>
+  
+  
+  
+  
+  
+  
+  
+  
+  <body data-page-kind="lecture" data-section="os" data-current-url="/part2os/04_Linking/make.html">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="site-bg">
+      <div class="site-grid"></div>
+    </div>
+
+    <div class="site-shell">
+      <header class="site-header" data-site-header>
+        <div class="container site-header__inner">
+          <a class="site-brand" href="/hse-acos-course/" aria-label="Computer Architecture and Operating Systems">
+            <span class="site-brand__mark" aria-hidden="true">ACOS</span>
+          </a>
+
+          <button class="site-nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+            <span>Menu</span>
+          </button>
+
+          <div class="site-header__panel" id="site-nav" data-nav-panel>
+            <nav class="site-nav" aria-label="Primary">
+              <ul class="site-nav__list">
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/" data-nav-link>Home</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/calendar_plan.html" data-nav-link>Calendar</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Assessment</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/exam_latest.html" data-nav-link>Exam</a>
+                          
+                            <a href="/hse-acos-course/grades.html" data-nav-link>Grades</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Resources</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/software.html" data-nav-link>Software</a>
+                          
+                            <a href="/hse-acos-course/books.html" data-nav-link>Textbooks</a>
+                          
+                            <a href="/hse-acos-course/courses.html" data-nav-link>Related Courses</a>
+                          
+                            <a href="/hse-acos-course/links.html" data-nav-link>Useful Links</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="https://github.com/andrewt0301/hse-acos-course" data-nav-link>GitHub</a>
+                    
+                  </li>
+                
+              </ul>
+            </nav>
+
+            <div class="site-preferences" aria-label="Site preferences">
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Theme</span>
+                <div class="site-preferences__switch" role="group" aria-label="Theme switch">
+                  <button type="button" data-theme-option="light" aria-pressed="false">Light</button>
+                  <button type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+                </div>
+              </div>
+
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Lang</span>
+                <div class="site-preferences__switch" role="group" aria-label="Language switch">
+                  <button type="button" data-language-option="en" aria-pressed="false">EN</button>
+                  <button type="button" data-language-option="ru" aria-pressed="false">RU</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="language-placeholder" data-language-placeholder hidden>
+        <div class="container language-placeholder__inner">
+          <div class="language-placeholder__copy">
+            <p class="language-placeholder__eyebrow">RU / Placeholder</p>
+            <strong>Русская версия пока в разработке</strong>
+            <p>Переключатель уже добавлен, но материалы и текущий интерфейс страниц пока остаются на английском. Полноценная локализация появится позже.</p>
+          </div>
+          <button class="language-placeholder__action" type="button" data-language-reset>Back to English</button>
+        </div>
+      </div>
+
+      <main id="main-content" class="site-main">
+        
+          <div class="container page-shell">
+            <div class="page-shell__main">
+              <nav class="breadcrumbs" aria-label="Breadcrumbs">
+                <ol>
+                  <li><a href="/hse-acos-course/">Home</a></li>
+                  
+                    <li><a href="/hse-acos-course/#operating-systems">Operating Systems</a></li>
+                  
+                  <li aria-current="page"><span data-breadcrumb-current>Make Files</span></li>
+                </ol>
+              </nav>
+
+              <article class="page-article" data-page-content>
+                <h2 id="make-files">Make Files</h2>
+
+<p><a href="https://www.gnu.org/software/make/">GNU Make</a> is a utility that helps build complex projects.
+It determines automatically which pieces of a large program need to be recompiled,
+and issues the commands to recompile them.
+Full official documentation can be found <a href="https://www.gnu.org/software/make/manual/make.html">here</a>.
+First of all let us have a look at the process of building a C program.</p>
+
+<p>It includes the following stages:</p>
+
+<ul>
+  <li>Preprocessor: .c → <code class="language-plaintext highlighter-rouge">gcc -E</code>  → .c</li>
+  <li>Translator: .c → <code class="language-plaintext highlighter-rouge">gcc -S</code> → .s</li>
+  <li>Assembler: .s → <code class="language-plaintext highlighter-rouge">gcc -c</code> → .o</li>
+  <li>Linker: .o → gcc or ld → binary executable</li>
+</ul>
+
+<p>If a project consists of many source files (.c), the final binary executable file is linked from many object (.o) files.
+So, building of such a project consists of many steps (building all object files and linking then into an executable),
+which has to be repeated each time when the project is rebuilt.
+In situations when a project is rebuilt after modifying only a single source file, this it is redundant.</p>
+
+<p>The Make utility solves this problem in the following way.
+It recompiles only the modified source file and source files that depend on it.
+Then the new object files are linked together with other object files produced earlier into an updated executable.
+To decide which files need to be recompiled, GNU Make uses the production graph (dependency) and the age graph (actuality).</p>
+
+<p>The source files to be compiled and dependencies between them are described in Make files.
+They specify entries that have the following attributes: target, source, and recipe.
+A simple Make file for building a “Hello World” program looks like this:</p>
+
+<div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">hello</span><span class="o">:</span>  <span class="nf">hello.c</span>
+    <span class="err">gcc</span> <span class="err">hello.c</span> <span class="err">-o</span> <span class="err">hello</span>
+<span class="nl">clean</span><span class="o">:</span>
+    <span class="err">rm</span> <span class="err">hello</span>
+</code></pre></div></div>
+
+<p>In this Make file, source is “hello.c”, target is “hello”, and recipe is <code class="language-plaintext highlighter-rouge">gcc hello.c -o hello</code>.</p>
+
+<p>There special symbols that can be used to simplify Make files and to avoid using duplicated identifiers
+(that can be changed in the future):</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">$@</code> – target</li>
+  <li><code class="language-plaintext highlighter-rouge">$^</code> – all sources</li>
+  <li><code class="language-plaintext highlighter-rouge">$&lt;</code> – source that initiated recipe</li>
+  <li><code class="language-plaintext highlighter-rouge">$?</code> – all new sources</li>
+</ul>
+
+<p>Also, it is possible to define macro variables.
+These variables can be referenced in the following way: <code class="language-plaintext highlighter-rouge">$N</code> (one-letter name) or <code class="language-plaintext highlighter-rouge">$(NAME)</code>.</p>
+
+<p>Here is an example of a Make file with special symbols and macro variables:</p>
+
+<div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">JUNK</span><span class="o">=</span><span class="k">*</span>~ <span class="k">*</span>.bak <span class="k">*</span>.old
+<span class="nv">GENERATES</span><span class="o">=</span><span class="k">*</span>.o prog
+<span class="nl">all</span><span class="o">:</span>    <span class="nf">prog</span>
+
+<span class="nl">prog</span><span class="o">:</span>   <span class="nf">f1.o f2.o</span>
+    <span class="err">cc</span> <span class="err">$^</span> <span class="err">-o</span> <span class="err">$@</span>
+
+<span class="nl">f1.o</span><span class="o">:</span>   <span class="nf">f1.c</span>
+        <span class="err">cc</span> <span class="err">$&lt;</span> <span class="err">-c</span>
+
+<span class="nl">f2.o</span><span class="o">:</span>   <span class="nf">f2.c</span>
+        <span class="err">cc</span> <span class="err">$&lt;</span> <span class="err">-c</span>
+
+<span class="nl">clean</span><span class="o">:</span>
+        <span class="err">rm</span> <span class="err">-f</span> <span class="err">$(JUNK)</span> <span class="err">$(GENERATES)</span>
+</code></pre></div></div>
+
+<p>As it can be seen, all recipes are prefixed with tabulations.
+The recipe prefix can be customized using the <code class="language-plaintext highlighter-rouge">.RECIPEPREFIX</code> special variable. For example:</p>
+
+<div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">.RECIPEPREFIX</span> <span class="o">=</span> <span class="o">&gt;</span>
+<span class="nl">all</span><span class="o">:</span>
+<span class="err">&gt;</span> <span class="err">@echo</span> <span class="err">Hello,</span> <span class="err">world</span>
+</code></pre></div></div>
+
+<p>Also, it is possible to specify default recipes for example:</p>
+
+<div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">%.o</span><span class="o">:</span>    <span class="nf">%.c </span>
+        <span class="err">cc</span> <span class="err">$&lt;</span> <span class="err">-c</span>
+</code></pre></div></div>
+
+<h2 id="tasks">Tasks</h2>
+
+<h3 id="task-1">Task 1</h3>
+
+<p>Write a Make script that builds a “Hello World” program.
+The script must use a macro variable to specify the name of the program and special symbols to avoid repeating it.</p>
+
+<h3 id="task-2">Task 2</h3>
+
+<p>Write a Make script that build a “Hello World” program going through
+all the stages described in the beginning of this document.
+The script must also contain a target for clean all generated files.</p>
+
+<h3 id="task-03">Task 03</h3>
+
+<p>Write a Make script that compiles a program that consists of a main source file called <code class="language-plaintext highlighter-rouge">prog.c</code>
+and a source file with library functions called <code class="language-plaintext highlighter-rouge">lib.c</code>.
+Also, the program must be linked with the standard math library.</p>
+
+<h4 id="libc">lib.c:</h4>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span>
+<span class="k">extern</span> <span class="kt">int</span> <span class="n">var</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">func</span><span class="p">(</span><span class="kt">int</span> <span class="n">arg</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">printf</span><span class="p">(</span><span class="s">"### %d/%d ###</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">arg</span><span class="p">,</span> <span class="n">var</span><span class="p">);</span>
+   <span class="k">return</span> <span class="n">arg</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="procc">proc.c:</h4>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;math.h&gt;
+#include &lt;stdio.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">func</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="n">var</span> <span class="o">=</span> <span class="mi">33</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+   <span class="kt">int</span> <span class="n">val</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+   <span class="n">printf</span><span class="p">(</span><span class="s">"sqrt(%d)=%lf</span><span class="se">\r\n</span><span class="s">"</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">val</span><span class="p">));</span>
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+              </article>
+            </div>
+
+            <aside class="page-toc" data-toc hidden>
+              <div class="page-toc__inner">
+                <p class="page-toc__eyebrow">On this page</p>
+                <nav aria-label="Table of contents">
+                  <ol class="page-toc__list" data-toc-list></ol>
+                </nav>
+              </div>
+            </aside>
+          </div>
+        
+      </main>
+
+      <footer class="site-footer">
+        <div class="container site-footer__inner">
+          <div>
+            <strong>Computer Architecture and Operating Systems</strong>
+              <p>Course materials maintained on GitHub Pages for HSE Faculty of Computer Science.</p>
+          </div>
+          <div class="site-footer__links">
+            <a href="/hse-acos-course/">Home</a>
+              <a href="https://github.com/andrewt0301/hse-acos-course">Repository</a>
+            <a href="https://pages.github.com">GitHub Pages</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

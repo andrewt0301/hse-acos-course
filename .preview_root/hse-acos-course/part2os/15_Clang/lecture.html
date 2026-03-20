@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lecture 15 | Computer Architecture and Operating Systems</title>
+    <meta name="description" content="Course taught at Faculty of Computer Science of Higher School of Economics">
+    <script>
+      (function () {
+        var root = document.documentElement;
+
+        try {
+          var savedTheme = localStorage.getItem("acos-theme");
+          var savedLanguage = localStorage.getItem("acos-language");
+          var theme = savedTheme || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          var language = savedLanguage || "en";
+
+          root.dataset.theme = theme === "dark" ? "dark" : "light";
+          root.dataset.language = language === "ru" ? "ru" : "en";
+          root.lang = language === "ru" ? "ru" : "en";
+        } catch (error) {
+          root.dataset.theme = "light";
+          root.dataset.language = "en";
+          root.lang = "en";
+        }
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/hse-acos-course/assets/css/style.css?v=20260321b">
+    <script defer src="/hse-acos-course/assets/js/site.js?v=20260321b"></script>
+  </head>
+  
+  
+  
+  
+  
+  
+  
+  
+  <body data-page-kind="lecture" data-section="os" data-current-url="/part2os/15_Clang/lecture.html">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="site-bg">
+      <div class="site-grid"></div>
+    </div>
+
+    <div class="site-shell">
+      <header class="site-header" data-site-header>
+        <div class="container site-header__inner">
+          <a class="site-brand" href="/hse-acos-course/" aria-label="Computer Architecture and Operating Systems">
+            <span class="site-brand__mark" aria-hidden="true">ACOS</span>
+          </a>
+
+          <button class="site-nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+            <span>Menu</span>
+          </button>
+
+          <div class="site-header__panel" id="site-nav" data-nav-panel>
+            <nav class="site-nav" aria-label="Primary">
+              <ul class="site-nav__list">
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/" data-nav-link>Home</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/calendar_plan.html" data-nav-link>Calendar</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Assessment</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/exam_latest.html" data-nav-link>Exam</a>
+                          
+                            <a href="/hse-acos-course/grades.html" data-nav-link>Grades</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Resources</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/software.html" data-nav-link>Software</a>
+                          
+                            <a href="/hse-acos-course/books.html" data-nav-link>Textbooks</a>
+                          
+                            <a href="/hse-acos-course/courses.html" data-nav-link>Related Courses</a>
+                          
+                            <a href="/hse-acos-course/links.html" data-nav-link>Useful Links</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="https://github.com/andrewt0301/hse-acos-course" data-nav-link>GitHub</a>
+                    
+                  </li>
+                
+              </ul>
+            </nav>
+
+            <div class="site-preferences" aria-label="Site preferences">
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Theme</span>
+                <div class="site-preferences__switch" role="group" aria-label="Theme switch">
+                  <button type="button" data-theme-option="light" aria-pressed="false">Light</button>
+                  <button type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+                </div>
+              </div>
+
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Lang</span>
+                <div class="site-preferences__switch" role="group" aria-label="Language switch">
+                  <button type="button" data-language-option="en" aria-pressed="false">EN</button>
+                  <button type="button" data-language-option="ru" aria-pressed="false">RU</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="language-placeholder" data-language-placeholder hidden>
+        <div class="container language-placeholder__inner">
+          <div class="language-placeholder__copy">
+            <p class="language-placeholder__eyebrow">RU / Placeholder</p>
+            <strong>Русская версия пока в разработке</strong>
+            <p>Переключатель уже добавлен, но материалы и текущий интерфейс страниц пока остаются на английском. Полноценная локализация появится позже.</p>
+          </div>
+          <button class="language-placeholder__action" type="button" data-language-reset>Back to English</button>
+        </div>
+      </div>
+
+      <main id="main-content" class="site-main">
+        
+          <div class="container page-shell">
+            <div class="page-shell__main">
+              <nav class="breadcrumbs" aria-label="Breadcrumbs">
+                <ol>
+                  <li><a href="/hse-acos-course/">Home</a></li>
+                  
+                    <li><a href="/hse-acos-course/#operating-systems">Operating Systems</a></li>
+                  
+                  <li aria-current="page"><span data-breadcrumb-current>Lecture 15</span></li>
+                </ol>
+              </nav>
+
+              <article class="page-article" data-page-content>
+                <h2 id="lecture-15">Lecture 15</h2>
+<h1 id="compiler-infrastructure-clangllvm">Compiler Infrastructure Clang/LLVM</h1>
+
+<h2 id="lecture">Lecture</h2>
+
+<p>Slides: <a href="/hse-acos-course/part2os/15_Clang/OS_Lecture_15.pdf">PDF</a>, <a href="/hse-acos-course/part2os/15_Clang/OS_Lecture_15.pptx">PPTX</a></p>
+
+<h4 id="outline">Outline</h4>
+
+<ul>
+  <li>LLVM Project: history and architecture</li>
+  <li>LLVM IR</li>
+  <li>Clang: parser and static analysis tool</li>
+  <li>Clang Static Analyzer and its symbolic execution engine</li>
+  <li>Clang Extra Tools: Clang-Tidy</li>
+</ul>
+
+<h2 id="workshop">Workshop</h2>
+
+<h4 id="outline-1">Outline</h4>
+
+<ul>
+  <li>Compiling/Installing LLVM</li>
+  <li>Compiling C/C++ programs to executables and LLVM IR</li>
+  <li>Exploring C/C++ programs with Clang (tokens, AST, call graph, CFG, exploded graph)</li>
+  <li>Running Clang Static Analyzer</li>
+  <li>Exploring Clang Static Analyzer and Clang-Tidy checks</li>
+</ul>
+
+<h4 id="installing-clang">Installing Clang</h4>
+
+<p>Clang is already installed in Mac OS. In Linux, it can be installed using the following command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>clang
+</code></pre></div></div>
+
+<h4 id="building-clang-optional-takes-a-long-time">Building Clang (optional, takes a long time)</h4>
+
+<p>For studying Clang source code, making experiments, and using features available to developers,
+it is recommended to clone its sources from GitHub and build them.</p>
+
+<p><em>Warning: this may take several hours depending on your computer.</em></p>
+
+<h5 id="cloning-project-from-github-and-checking-out-llvm-20-latest-release">Cloning project from GitHub and checking out LLVM 20 (latest release):</h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone git@github.com:llvm/llvm-project.git
+git checkout llvm-20
+</code></pre></div></div>
+
+<h5 id="installing-visualization-packages">Installing visualization packages</h5>
+
+<p>Graphs that visualize internal data structures of a compiler
+are described in the <a href="https://en.wikipedia.org/wiki/DOT_%28graph_description_language%29">DOT</a>
+format and rendered to an image with the help of the
+<a href="https://en.wikipedia.org/wiki/Graphviz">Graphviz</a> tool.</p>
+
+<p>First, install the required visualization tools:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>graphviz
+<span class="nb">sudo </span>apt <span class="nb">install </span>gv
+<span class="nb">sudo </span>apt <span class="nb">install </span>xdot
+<span class="nb">sudo </span>apt <span class="nb">install </span>python3-distutils-extra
+</code></pre></div></div>
+
+<p>Second, install the <a href="https://en.wikipedia.org/wiki/Ninja_%28build_system%29">Ninja</a> build system.
+It solves the same task as GNU Make, but it has better performance
+(automatically generated scripts that efficiently parallelize build tasks).</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>ninja-build
+</code></pre></div></div>
+
+<p>Third, build and install LLVM compiler infrastructure (this is a debug build with
+some optimizations that reduce build time and size of the files).
+That is interesting, we build a debug version of Clang 20 with installed version of Clang 18.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /home/andrewt/Documents/src/llvm-project/
+<span class="nb">mkdir </span>build
+<span class="nb">cd </span>build
+<span class="nb">env </span><span class="nv">CC</span><span class="o">=</span><span class="sb">`</span>which clang<span class="sb">`</span> <span class="nv">CXX</span><span class="o">=</span><span class="sb">`</span>which clang++<span class="sb">`</span> cmake <span class="se">\</span>
+  <span class="nt">-DCMAKE_BUILD_TYPE</span><span class="o">=</span>Debug <span class="se">\</span>
+  <span class="nt">-GNinja</span> <span class="se">\</span>
+  <span class="nt">-DLLVM_ENABLE_PROJECTS</span><span class="o">=</span><span class="s1">'clang;clang-tools-extra'</span> <span class="se">\</span>
+  <span class="nt">-DLLVM_TARGETS_TO_BUILD</span><span class="o">=</span><span class="s2">"X86"</span> <span class="se">\</span>
+  <span class="nt">-DBUILD_SHARED_LIBS</span><span class="o">=</span>ON <span class="se">\</span>
+  <span class="nt">-DLLVM_OPTIMIZED_TABLEGEN</span><span class="o">=</span>ON <span class="se">\</span>
+  <span class="nt">-DLLVM_USE_SPLIT_DWARF</span><span class="o">=</span>ON <span class="se">\</span>
+  <span class="nt">-DCMAKE_INSTALL_PREFIX</span><span class="o">=</span>/home/andrewt/Programs/llvm/ <span class="se">\</span>
+  ../llvm
+ninja <span class="nb">install
+export </span><span class="nv">PATH</span><span class="o">=</span>/home/andrewt/Programs/llvm/bin:<span class="nv">$PATH</span>
+</code></pre></div></div>
+
+<h4 id="building-hello-world-and-viewing-the-build-phases">Building “Hello World” and viewing the build phases</h4>
+
+<p>Build and run the <a href="/hse-acos-course/part2os/15_Clang/hello.c">hello.c</a> program:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clang hello.c <span class="nt">-o</span> hello
+./hello 
+Hello!
+</code></pre></div></div>
+
+<p>Build and see the list of build phases:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clang hello.c <span class="nt">-o</span> hello <span class="nt">-ccc-print-phases</span>
+            +- 0: input, <span class="s2">"hello.c"</span>, c
+         +- 1: preprocessor, <span class="o">{</span>0<span class="o">}</span>, cpp-output
+      +- 2: compiler, <span class="o">{</span>1<span class="o">}</span>, ir
+   +- 3: backend, <span class="o">{</span>2<span class="o">}</span>, assembler
++- 4: assembler, <span class="o">{</span>3<span class="o">}</span>, object
+5: linker, <span class="o">{</span>4<span class="o">}</span>, image
+</code></pre></div></div>
+<p>Print the command run by Clang under the hood to build the program:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lang hello.c <span class="nt">-o</span> hello -###
+clang version 20.1.5 <span class="o">(</span>https://github.com/llvm/llvm-project.git 7b09d7b446383b71b63d429b21ee45ba389c5134<span class="o">)</span>
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /home/andrewt/Programs/llvm/bin
+Build config: +unoptimized, +assertions
+ <span class="s2">"/home/andrewt/Programs/llvm/bin/clang-20"</span> <span class="s2">"-cc1"</span> <span class="s2">"-triple"</span> <span class="s2">"x86_64-unknown-linux-gnu"</span> <span class="s2">"-emit-obj"</span> <span class="s2">"-dumpdir"</span> <span class="s2">"hello-"</span> <span class="s2">"-disable-free"</span> <span class="s2">"-clear-ast-before-backend"</span> <span class="s2">"-main-file-name"</span> <span class="s2">"hello.c"</span> <span class="s2">"-mrelocation-model"</span> <span class="s2">"pic"</span> <span class="s2">"-pic-level"</span> <span class="s2">"2"</span> <span class="s2">"-pic-is-pie"</span> <span class="s2">"-mframe-pointer=all"</span> <span class="s2">"-fmath-errno"</span> <span class="s2">"-ffp-contract=on"</span> <span class="s2">"-fno-rounding-math"</span> <span class="s2">"-mconstructor-aliases"</span> <span class="s2">"-funwind-tables=2"</span> <span class="s2">"-target-cpu"</span> <span class="s2">"x86-64"</span> <span class="s2">"-tune-cpu"</span> <span class="s2">"generic"</span> <span class="s2">"-debugger-tuning=gdb"</span> <span class="s2">"-fdebug-compilation-dir=/home/andrewt/Documents/src/hse/hse-acos-course/docs/part2os/15_Clang"</span> <span class="s2">"-fcoverage-compilation-dir=/home/andrewt/Documents/src/hse/hse-acos-course/docs/part2os/15_Clang"</span> <span class="s2">"-resource-dir"</span> <span class="s2">"/home/andrewt/Programs/llvm/lib/clang/20"</span> <span class="s2">"-internal-isystem"</span> <span class="s2">"/home/andrewt/Programs/llvm/lib/clang/20/include"</span> <span class="s2">"-internal-isystem"</span> <span class="s2">"/usr/local/include"</span> <span class="s2">"-internal-isystem"</span> <span class="s2">"/usr/lib/gcc/x86_64-linux-gnu/13/../../../../x86_64-linux-gnu/include"</span> <span class="s2">"-internal-externc-isystem"</span> <span class="s2">"/usr/include/x86_64-linux-gnu"</span> <span class="s2">"-internal-externc-isystem"</span> <span class="s2">"/include"</span> <span class="s2">"-internal-externc-isystem"</span> <span class="s2">"/usr/include"</span> <span class="s2">"-ferror-limit"</span> <span class="s2">"19"</span> <span class="s2">"-fgnuc-version=4.2.1"</span> <span class="s2">"-fskip-odr-check-in-gmf"</span> <span class="s2">"-fcolor-diagnostics"</span> <span class="s2">"-faddrsig"</span> <span class="s2">"-D__GCC_HAVE_DWARF2_CFI_ASM=1"</span> <span class="s2">"-o"</span> <span class="s2">"/tmp/hello-da670c.o"</span> <span class="s2">"-x"</span> <span class="s2">"c"</span> <span class="s2">"hello.c"</span>
+ <span class="s2">"/usr/bin/ld"</span> <span class="s2">"-z"</span> <span class="s2">"relro"</span> <span class="s2">"--hash-style=gnu"</span> <span class="s2">"--eh-frame-hdr"</span> <span class="s2">"-m"</span> <span class="s2">"elf_x86_64"</span> <span class="s2">"-pie"</span> <span class="s2">"-dynamic-linker"</span> <span class="s2">"/lib64/ld-linux-x86-64.so.2"</span> <span class="s2">"-o"</span> <span class="s2">"hello"</span> <span class="s2">"/lib/x86_64-linux-gnu/Scrt1.o"</span> <span class="s2">"/lib/x86_64-linux-gnu/crti.o"</span> <span class="s2">"/usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o"</span> <span class="s2">"-L/usr/lib/gcc/x86_64-linux-gnu/13"</span> <span class="s2">"-L/usr/lib/gcc/x86_64-linux-gnu/13/../../../../lib64"</span> <span class="s2">"-L/lib/x86_64-linux-gnu"</span> <span class="s2">"-L/lib/../lib64"</span> <span class="s2">"-L/usr/lib/x86_64-linux-gnu"</span> <span class="s2">"-L/usr/lib/../lib64"</span> <span class="s2">"-L/lib"</span> <span class="s2">"-L/usr/lib"</span> <span class="s2">"/tmp/hello-da670c.o"</span> <span class="s2">"-lgcc"</span> <span class="s2">"--as-needed"</span> <span class="s2">"-lgcc_s"</span> <span class="s2">"--no-as-needed"</span> <span class="s2">"-lc"</span> <span class="s2">"-lgcc"</span> <span class="s2">"--as-needed"</span> <span class="s2">"-lgcc_s"</span> <span class="s2">"--no-as-needed"</span> <span class="s2">"/usr/lib/gcc/x86_64-linux-gnu/13/crtendS.o"</span> <span class="s2">"/lib/x86_64-linux-gnu/crtn.o"</span>
+</code></pre></div></div>
+
+<h4 id="preprocessing">Preprocessing</h4>
+
+<p>Preprocessing the <a href="/hse-acos-course/part2os/15_Clang/test.c">test.c</a> file (expanding all macros):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clang test.c <span class="nt">-E</span>
+<span class="c"># 1 "test.c"</span>
+<span class="c"># 1 "&lt;built-in&gt;" 1</span>
+<span class="c"># 1 "&lt;built-in&gt;" 3</span>
+<span class="c"># 389 "&lt;built-in&gt;" 3</span>
+<span class="c"># 1 "&lt;command line&gt;" 1</span>
+<span class="c"># 1 "&lt;built-in&gt;" 2</span>
+<span class="c"># 1 "test.c" 2</span>
+
+void write_i<span class="o">(</span>int<span class="o">)</span><span class="p">;</span>
+void write_s<span class="o">(</span>const char <span class="k">*</span><span class="o">)</span><span class="p">;</span>
+
+void print<span class="o">(</span>const char <span class="k">*</span>s, int a<span class="o">)</span> <span class="o">{</span>
+  write_s<span class="o">(</span>s<span class="o">)</span><span class="p">;</span>
+  write_i<span class="o">(</span>a<span class="o">)</span><span class="p">;</span>
+<span class="o">}</span>
+
+void foo<span class="o">(</span>int x<span class="o">)</span> <span class="o">{</span>
+  print<span class="o">(</span><span class="s2">"Value of "</span> <span class="s2">"x"</span>, x<span class="o">)</span><span class="p">;</span>
+  int y, z<span class="p">;</span>
+  <span class="k">if</span> <span class="o">(</span>x <span class="o">==</span> 0<span class="o">)</span>
+    y <span class="o">=</span> 5<span class="p">;</span>
+  print<span class="o">(</span><span class="s2">"Value of "</span> <span class="s2">"y"</span>, y<span class="o">)</span><span class="p">;</span>
+  <span class="k">if</span> <span class="o">(!</span>x<span class="o">)</span>
+    z <span class="o">=</span> 6<span class="p">;</span>
+  print<span class="o">(</span><span class="s2">"Value of "</span> <span class="s2">"z"</span>, z<span class="o">)</span><span class="p">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>See that the <code class="language-plaintext highlighter-rouge">trace</code> macro has been replaced by a call to function <code class="language-plaintext highlighter-rouge">print</code> and the integer argument
+has been expanded to an additional argument holding its name.</p>
+
+<h4 id="lexical-analysis">Lexical analysis</h4>
+
+<p>Lexical analysis is the first stage of the compiler. During this stage, the compiler scans
+a stream to characters and builds tokens (that describe identifiers, keywords, operators, etc.):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clang <span class="nt">-cc1</span> <span class="nt">-dump-tokens</span> test.c
+void <span class="s1">'void'</span>	 <span class="o">[</span>StartOfLine]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:3:1&gt;
+identifier <span class="s1">'write_i'</span>	 <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:3:6&gt;
+l_paren <span class="s1">'('</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:3:13&gt;
+int <span class="s1">'int'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:3:14&gt;
+r_paren <span class="s1">')'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:3:17&gt;
+semi <span class="s1">';'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:3:18&gt;
+void <span class="s1">'void'</span>	 <span class="o">[</span>StartOfLine]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:4:1&gt;
+identifier <span class="s1">'write_s'</span>	 <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:4:6&gt;
+l_paren <span class="s1">'('</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:4:13&gt;
+const <span class="s1">'const'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:4:14&gt;
+char <span class="s1">'char'</span>	 <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:4:20&gt;
+star <span class="s1">'*'</span>	 <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:4:25&gt;
+r_paren <span class="s1">')'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:4:26&gt;
+semi <span class="s1">';'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:4:27&gt;
+void <span class="s1">'void'</span>	 <span class="o">[</span>StartOfLine]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:6:1&gt;
+identifier <span class="s1">'print'</span>	 <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:6:6&gt;
+l_paren <span class="s1">'('</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:6:11&gt;
+const <span class="s1">'const'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:6:12&gt;
+char <span class="s1">'char'</span>	 <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:6:18&gt;
+star <span class="s1">'*'</span>	 <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:6:23&gt;
+identifier <span class="s1">'s'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:6:24&gt;
+comma <span class="s1">','</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:6:25&gt;
+int <span class="s1">'int'</span>	 <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:6:27&gt;
+identifier <span class="s1">'a'</span>	 <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:6:31&gt;
+r_paren <span class="s1">')'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:6:32&gt;
+l_brace <span class="s1">'{'</span>	 <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:6:34&gt;
+identifier <span class="s1">'write_s'</span>	 <span class="o">[</span>StartOfLine] <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:7:3&gt;
+l_paren <span class="s1">'('</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:7:10&gt;
+identifier <span class="s1">'s'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:7:11&gt;
+r_paren <span class="s1">')'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:7:12&gt;
+semi <span class="s1">';'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:7:13&gt;
+identifier <span class="s1">'write_i'</span>	 <span class="o">[</span>StartOfLine] <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:8:3&gt;
+l_paren <span class="s1">'('</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:8:10&gt;
+identifier <span class="s1">'a'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:8:11&gt;
+r_paren <span class="s1">')'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:8:12&gt;
+semi <span class="s1">';'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:8:13&gt;
+r_brace <span class="s1">'}'</span>	 <span class="o">[</span>StartOfLine]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:9:1&gt;
+void <span class="s1">'void'</span>	 <span class="o">[</span>StartOfLine]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:11:1&gt;
+identifier <span class="s1">'foo'</span>	 <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:11:6&gt;
+l_paren <span class="s1">'('</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:11:9&gt;
+int <span class="s1">'int'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:11:10&gt;
+identifier <span class="s1">'x'</span>	 <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:11:14&gt;
+r_paren <span class="s1">')'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:11:15&gt;
+l_brace <span class="s1">'{'</span>	 <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:11:17&gt;
+identifier <span class="s1">'print'</span>	 <span class="o">[</span>StartOfLine] <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:12:3 &lt;<span class="nv">Spelling</span><span class="o">=</span>test.c:1:18&gt;&gt;
+l_paren <span class="s1">'('</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:12:3 &lt;<span class="nv">Spelling</span><span class="o">=</span>test.c:1:23&gt;&gt;
+string_literal <span class="s1">'"Value of "'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:12:3 &lt;<span class="nv">Spelling</span><span class="o">=</span>test.c:1:24&gt;&gt;
+string_literal <span class="s1">'"x"'</span>	 <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:12:3 &lt;<span class="nv">Spelling</span><span class="o">=</span>&lt;scratch space&gt;:2:1&gt;&gt;
+comma <span class="s1">','</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:12:3 &lt;<span class="nv">Spelling</span><span class="o">=</span>test.c:1:38&gt;&gt;
+identifier <span class="s1">'x'</span>	 <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:12:3 &lt;<span class="nv">Spelling</span><span class="o">=</span>test.c:12:9&gt;&gt;
+r_paren <span class="s1">')'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:12:3 &lt;<span class="nv">Spelling</span><span class="o">=</span>test.c:1:41&gt;&gt;
+semi <span class="s1">';'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:12:11&gt;
+int <span class="s1">'int'</span>	 <span class="o">[</span>StartOfLine] <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:13:3&gt;
+identifier <span class="s1">'y'</span>	 <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:13:7&gt;
+comma <span class="s1">','</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:13:8&gt;
+identifier <span class="s1">'z'</span>	 <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:13:10&gt;
+semi <span class="s1">';'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:13:11&gt;
+<span class="k">if</span> <span class="s1">'if'</span>	 <span class="o">[</span>StartOfLine] <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:14:3&gt;
+l_paren <span class="s1">'('</span>	 <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:14:6&gt;
+identifier <span class="s1">'x'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:14:7&gt;
+equalequal <span class="s1">'=='</span>	 <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:14:9&gt;
+numeric_constant <span class="s1">'0'</span>	 <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:14:12&gt;
+r_paren <span class="s1">')'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:14:13&gt;
+identifier <span class="s1">'y'</span>	 <span class="o">[</span>StartOfLine] <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:15:5&gt;
+equal <span class="s1">'='</span>	 <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:15:7&gt;
+numeric_constant <span class="s1">'5'</span>	 <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:15:9&gt;
+semi <span class="s1">';'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:15:10&gt;
+identifier <span class="s1">'print'</span>	 <span class="o">[</span>StartOfLine] <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:16:3 &lt;<span class="nv">Spelling</span><span class="o">=</span>test.c:1:18&gt;&gt;
+l_paren <span class="s1">'('</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:16:3 &lt;<span class="nv">Spelling</span><span class="o">=</span>test.c:1:23&gt;&gt;
+string_literal <span class="s1">'"Value of "'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:16:3 &lt;<span class="nv">Spelling</span><span class="o">=</span>test.c:1:24&gt;&gt;
+string_literal <span class="s1">'"y"'</span>	 <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:16:3 &lt;<span class="nv">Spelling</span><span class="o">=</span>&lt;scratch space&gt;:3:1&gt;&gt;
+comma <span class="s1">','</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:16:3 &lt;<span class="nv">Spelling</span><span class="o">=</span>test.c:1:38&gt;&gt;
+identifier <span class="s1">'y'</span>	 <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:16:3 &lt;<span class="nv">Spelling</span><span class="o">=</span>test.c:16:9&gt;&gt;
+r_paren <span class="s1">')'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:16:3 &lt;<span class="nv">Spelling</span><span class="o">=</span>test.c:1:41&gt;&gt;
+semi <span class="s1">';'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:16:11&gt;
+<span class="k">if</span> <span class="s1">'if'</span>	 <span class="o">[</span>StartOfLine] <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:17:3&gt;
+l_paren <span class="s1">'('</span>	 <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:17:6&gt;
+exclaim <span class="s1">'!'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:17:7&gt;
+identifier <span class="s1">'x'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:17:8&gt;
+r_paren <span class="s1">')'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:17:9&gt;
+identifier <span class="s1">'z'</span>	 <span class="o">[</span>StartOfLine] <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:18:5&gt;
+equal <span class="s1">'='</span>	 <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:18:7&gt;
+numeric_constant <span class="s1">'6'</span>	 <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:18:9&gt;
+semi <span class="s1">';'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:18:10&gt;
+identifier <span class="s1">'print'</span>	 <span class="o">[</span>StartOfLine] <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:19:3 &lt;<span class="nv">Spelling</span><span class="o">=</span>test.c:1:18&gt;&gt;
+l_paren <span class="s1">'('</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:19:3 &lt;<span class="nv">Spelling</span><span class="o">=</span>test.c:1:23&gt;&gt;
+string_literal <span class="s1">'"Value of "'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:19:3 &lt;<span class="nv">Spelling</span><span class="o">=</span>test.c:1:24&gt;&gt;
+string_literal <span class="s1">'"z"'</span>	 <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:19:3 &lt;<span class="nv">Spelling</span><span class="o">=</span>&lt;scratch space&gt;:4:1&gt;&gt;
+comma <span class="s1">','</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:19:3 &lt;<span class="nv">Spelling</span><span class="o">=</span>test.c:1:38&gt;&gt;
+identifier <span class="s1">'z'</span>	 <span class="o">[</span>LeadingSpace]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:19:3 &lt;<span class="nv">Spelling</span><span class="o">=</span>test.c:19:9&gt;&gt;
+r_paren <span class="s1">')'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:19:3 &lt;<span class="nv">Spelling</span><span class="o">=</span>test.c:1:41&gt;&gt;
+semi <span class="s1">';'</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:19:11&gt;
+r_brace <span class="s1">'}'</span>	 <span class="o">[</span>StartOfLine]	<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:20:1&gt;
+eof <span class="s1">''</span>		<span class="nv">Loc</span><span class="o">=</span>&lt;test.c:20:2&gt;
+</code></pre></div></div>
+
+<p>In fact, Clang combines lexical analysis and preprocessing: it collects token that come
+from different locations (current source file, included headers, and macros).</p>
+
+<h4 id="syntactical-analysis">Syntactical analysis</h4>
+
+<p>The next compiler stage is to recognize syntactical structure of a source file.
+At this stage, the compiler uses tokens to build
+an <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">Abstract Syntax Tree</a> (AST).</p>
+
+<p>Viewing AST as a text:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clang <span class="nt">-cc1</span> <span class="nt">-ast-dump</span> test.c
+TranslationUnitDecl 0x5cc40885cac8 <span class="o">&lt;&lt;</span><span class="no">invalid</span><span class="sh"> sloc&gt;&gt; &lt;invalid sloc&gt;
+|-TypedefDecl 0x5cc40885d2f8 &lt;&lt;invalid sloc&gt;&gt; &lt;invalid sloc&gt; implicit __int128_t '__int128'
+| `-BuiltinType 0x5cc40885d090 '__int128'
+|-TypedefDecl 0x5cc40885d368 &lt;&lt;invalid sloc&gt;&gt; &lt;invalid sloc&gt; implicit __uint128_t 'unsigned __int128'
+| `-BuiltinType 0x5cc40885d0b0 'unsigned __int128'
+|-TypedefDecl 0x5cc40885d670 &lt;&lt;invalid sloc&gt;&gt; &lt;invalid sloc&gt; implicit __NSConstantString 'struct __NSConstantString_tag'
+| `-RecordType 0x5cc40885d440 'struct __NSConstantString_tag'
+|   `-Record 0x5cc40885d3c0 '__NSConstantString_tag'
+|-TypedefDecl 0x5cc40885d718 &lt;&lt;invalid sloc&gt;&gt; &lt;invalid sloc&gt; implicit __builtin_ms_va_list 'char *'
+| `-PointerType 0x5cc40885d6d0 'char *'
+|   `-BuiltinType 0x5cc40885cb70 'char'
+|-TypedefDecl 0x5cc40885da10 &lt;&lt;invalid sloc&gt;&gt; &lt;invalid sloc&gt; implicit __builtin_va_list 'struct __va_list_tag[1]'
+| `-ConstantArrayType 0x5cc40885d9b0 'struct __va_list_tag[1]' 1 
+|   `-RecordType 0x5cc40885d7f0 'struct __va_list_tag'
+|     `-Record 0x5cc40885d770 '__va_list_tag'
+|-FunctionDecl 0x5cc4088aedc0 &lt;test.c:3:1, col:17&gt; col:6 used write_i 'void (int)'
+| `-ParmVarDecl 0x5cc4088aecf0 &lt;col:14&gt; col:17 'int'
+|-FunctionDecl 0x5cc4088aefa0 &lt;line:4:1, col:26&gt; col:6 used write_s 'void (const char *)'
+| `-ParmVarDecl 0x5cc4088aeed0 &lt;col:14, col:25&gt; col:26 'const char *'
+|-FunctionDecl 0x5cc4088af1c0 &lt;line:6:1, line:9:1&gt; line:6:6 used print 'void (const char *, int)'
+| |-ParmVarDecl 0x5cc4088af068 &lt;col:12, col:24&gt; col:24 used s 'const char *'
+| |-ParmVarDecl 0x5cc4088af0e8 &lt;col:27, col:31&gt; col:31 used a 'int'
+| `-CompoundStmt 0x5cc4088af418 &lt;col:34, line:9:1&gt;
+|   |-CallExpr 0x5cc4088af308 &lt;line:7:3, col:12&gt; 'void'
+|   | |-ImplicitCastExpr 0x5cc4088af2f0 &lt;col:3&gt; 'void (*)(const char *)' &lt;FunctionToPointerDecay&gt;
+|   | | `-DeclRefExpr 0x5cc4088af278 &lt;col:3&gt; 'void (const char *)' Function 0x5cc4088aefa0 'write_s' 'void (const char *)'
+|   | `-ImplicitCastExpr 0x5cc4088af330 &lt;col:11&gt; 'const char *' &lt;LValueToRValue&gt;
+|   |   `-DeclRefExpr 0x5cc4088af298 &lt;col:11&gt; 'const char *' lvalue ParmVar 0x5cc4088af068 's' 'const char *'
+|   `-CallExpr 0x5cc4088af3d8 &lt;line:8:3, col:12&gt; 'void'
+|     |-ImplicitCastExpr 0x5cc4088af3c0 &lt;col:3&gt; 'void (*)(int)' &lt;FunctionToPointerDecay&gt;
+|     | `-DeclRefExpr 0x5cc4088af348 &lt;col:3&gt; 'void (int)' Function 0x5cc4088aedc0 'write_i' 'void (int)'
+|     `-ImplicitCastExpr 0x5cc4088af400 &lt;col:11&gt; 'int' &lt;LValueToRValue&gt;
+|       `-DeclRefExpr 0x5cc4088af368 &lt;col:11&gt; 'int' lvalue ParmVar 0x5cc4088af0e8 'a' 'int'
+`-FunctionDecl 0x5cc4088af4e0 &lt;line:11:1, line:20:1&gt; line:11:6 foo 'void (int)'
+  |-ParmVarDecl 0x5cc4088af450 &lt;col:10, col:14&gt; col:14 used x 'int'
+  `-CompoundStmt 0x5cc4088afbe8 &lt;col:17, line:20:1&gt;
+    |-CallExpr 0x5cc4088af688 &lt;line:1:18, col:41&gt; 'void'
+    | |-ImplicitCastExpr 0x5cc4088af670 &lt;col:18&gt; 'void (*)(const char *, int)' &lt;FunctionToPointerDecay&gt;
+    | | `-DeclRefExpr 0x5cc4088af590 &lt;col:18&gt; 'void (const char *, int)' Function 0x5cc4088af1c0 'print' 'void (const char *, int)'
+    | |-ImplicitCastExpr 0x5cc4088af6d0 &lt;col:24, &lt;scratch space&gt;:2:1&gt; 'const char *' &lt;NoOp&gt;
+    | | `-ImplicitCastExpr 0x5cc4088af6b8 &lt;test.c:1:24, &lt;scratch space&gt;:2:1&gt; 'char *' &lt;ArrayToPointerDecay&gt;
+    | |   `-StringLiteral 0x5cc4088af5f0 &lt;test.c:1:24, &lt;scratch space&gt;:2:1&gt; 'char[11]' lvalue "Value of x"
+    | `-ImplicitCastExpr 0x5cc4088af6e8 &lt;test.c:12:9&gt; 'int' &lt;LValueToRValue&gt;
+    |   `-DeclRefExpr 0x5cc4088af618 &lt;col:9&gt; 'int' lvalue ParmVar 0x5cc4088af450 'x' 'int'
+    |-DeclStmt 0x5cc4088af818 &lt;line:13:3, col:11&gt;
+    | |-VarDecl 0x5cc4088af718 &lt;col:3, col:7&gt; col:7 used y 'int'
+    | `-VarDecl 0x5cc4088af798 &lt;col:3, col:10&gt; col:10 used z 'int'
+    |-IfStmt 0x5cc4088af908 &lt;line:14:3, line:15:9&gt;
+    | |-BinaryOperator 0x5cc4088af888 &lt;line:14:7, col:12&gt; 'int' '=='
+    | | |-ImplicitCastExpr 0x5cc4088af870 &lt;col:7&gt; 'int' &lt;LValueToRValue&gt;
+    | | | `-DeclRefExpr 0x5cc4088af830 &lt;col:7&gt; 'int' lvalue ParmVar 0x5cc4088af450 'x' 'int'
+    | | `-IntegerLiteral 0x5cc4088af850 &lt;col:12&gt; 'int' 0
+    | `-BinaryOperator 0x5cc4088af8e8 &lt;line:15:5, col:9&gt; 'int' '='
+    |   |-DeclRefExpr 0x5cc4088af8a8 &lt;col:5&gt; 'int' lvalue Var 0x5cc4088af718 'y' 'int'
+    |   `-IntegerLiteral 0x5cc4088af8c8 &lt;col:9&gt; 'int' 5
+    |-CallExpr 0x5cc4088af9a8 &lt;line:1:18, col:41&gt; 'void'
+    | |-ImplicitCastExpr 0x5cc4088af990 &lt;col:18&gt; 'void (*)(const char *, int)' &lt;FunctionToPointerDecay&gt;
+    | | `-DeclRefExpr 0x5cc4088af928 &lt;col:18&gt; 'void (const char *, int)' Function 0x5cc4088af1c0 'print' 'void (const char *, int)'
+    | |-ImplicitCastExpr 0x5cc4088af9f0 &lt;col:24, &lt;scratch space&gt;:3:1&gt; 'const char *' &lt;NoOp&gt;
+    | | `-ImplicitCastExpr 0x5cc4088af9d8 &lt;test.c:1:24, &lt;scratch space&gt;:3:1&gt; 'char *' &lt;ArrayToPointerDecay&gt;
+    | |   `-StringLiteral 0x5cc4088af948 &lt;test.c:1:24, &lt;scratch space&gt;:3:1&gt; 'char[11]' lvalue "Value of y"
+    | `-ImplicitCastExpr 0x5cc4088afa08 &lt;test.c:16:9&gt; 'int' &lt;LValueToRValue&gt;
+    |   `-DeclRefExpr 0x5cc4088af970 &lt;col:9&gt; 'int' lvalue Var 0x5cc4088af718 'y' 'int'
+    |-IfStmt 0x5cc4088afad0 &lt;line:17:3, line:18:9&gt;
+    | |-UnaryOperator 0x5cc4088afa58 &lt;line:17:7, col:8&gt; 'int' prefix '!' cannot overflow
+    | | `-ImplicitCastExpr 0x5cc4088afa40 &lt;col:8&gt; 'int' &lt;LValueToRValue&gt;
+    | |   `-DeclRefExpr 0x5cc4088afa20 &lt;col:8&gt; 'int' lvalue ParmVar 0x5cc4088af450 'x' 'int'
+    | `-BinaryOperator 0x5cc4088afab0 &lt;line:18:5, col:9&gt; 'int' '='
+    |   |-DeclRefExpr 0x5cc4088afa70 &lt;col:5&gt; 'int' lvalue Var 0x5cc4088af798 'z' 'int'
+    |   `-IntegerLiteral 0x5cc4088afa90 &lt;col:9&gt; 'int' 6
+    `-CallExpr 0x5cc4088afb70 &lt;line:1:18, col:41&gt; 'void'
+      |-ImplicitCastExpr 0x5cc4088afb58 &lt;col:18&gt; 'void (*)(const char *, int)' &lt;FunctionToPointerDecay&gt;
+      | `-DeclRefExpr 0x5cc4088afaf0 &lt;col:18&gt; 'void (const char *, int)' Function 0x5cc4088af1c0 'print' 'void (const char *, int)'
+      |-ImplicitCastExpr 0x5cc4088afbb8 &lt;col:24, &lt;scratch space&gt;:4:1&gt; 'const char *' &lt;NoOp&gt;
+      | `-ImplicitCastExpr 0x5cc4088afba0 &lt;test.c:1:24, &lt;scratch space&gt;:4:1&gt; 'char *' &lt;ArrayToPointerDecay&gt;
+      |   `-StringLiteral 0x5cc4088afb10 &lt;test.c:1:24, &lt;scratch space&gt;:4:1&gt; 'char[11]' lvalue "Value of z"
+      `-ImplicitCastExpr 0x5cc4088afbd0 &lt;test.c:19:9&gt; 'int' &lt;LValueToRValue&gt;
+        `-DeclRefExpr 0x5cc4088afb38 &lt;col:9&gt; 'int' lvalue Var 0x5cc4088af798 'z' 'int'
+</span></code></pre></div></div>
+
+<p>Viewing AST as a picture (requires a debug build of Clang):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clang <span class="nt">-cc1</span> <span class="nt">-ast-view</span> test.c
+</code></pre></div></div>
+
+<p>Function <code class="language-plaintext highlighter-rouge">foo</code>:
+<img src="/hse-acos-course/part2os/15_Clang/test01.png" alt="test01" /></p>
+
+<p>Function <code class="language-plaintext highlighter-rouge">print</code>:
+<img src="/hse-acos-course/part2os/15_Clang/test02.png" alt="test02" /></p>
+
+<p>The structure of Clang AST is quite complex. There is no single inheritance hierarchy.
+Instead, there are several hierarchies based on some main base classes. 
+Most of the nodes derive from the following main base classes:
+<a href="https://clang.llvm.org/doxygen/classclang_1_1Type.html">Type</a>,
+<a href="https://clang.llvm.org/doxygen/classclang_1_1Decl.html">Decl</a> /
+<a href="https://clang.llvm.org/doxygen/classclang_1_1DeclContext.html">DeclContext</a> or
+<a href="https://clang.llvm.org/doxygen/classclang_1_1Stmt.html">Stmt</a>.
+<code class="language-plaintext highlighter-rouge">Type</code>, <code class="language-plaintext highlighter-rouge">Decl</code> and <code class="language-plaintext highlighter-rouge">Stmt</code> do not have a common ancestor.
+Nodes of different types refer to each other.</p>
+
+<p>For example, node <a href="https://clang.llvm.org/doxygen/classclang_1_1VarDecl.html">VarDecl</a>
+(variable declaration like <code class="language-plaintext highlighter-rouge">int x = 0</code>) is derived from <code class="language-plaintext highlighter-rouge">Decl</code> and has method <code class="language-plaintext highlighter-rouge">getType</code>
+that returns <code class="language-plaintext highlighter-rouge">Type</code> and method <code class="language-plaintext highlighter-rouge">hasInit</code> that returns <code class="language-plaintext highlighter-rouge">Expr</code>.
+Node <a href="https://clang.llvm.org/doxygen/classclang_1_1DeclRefExpr.html">DeclRefExpr</a>
+(expression that refers to a variable or any other declaration like <code class="language-plaintext highlighter-rouge">x</code> in <code class="language-plaintext highlighter-rouge">func(x)</code>)
+has method <code class="language-plaintext highlighter-rouge">getDecl</code> that returns a corresponding declaration.</p>
+
+<h4 id="semantic-analysis">Semantic analysis</h4>
+
+<p>In Clang, semantic analysis is done together with AST construction (syntactical analysis).
+It checks the semantic correctness of the code and adds additional attributes to the nodes.
+E.g. variable usage <code class="language-plaintext highlighter-rouge">DeclRefExpr</code> is linked with its definition <code class="language-plaintext highlighter-rouge">VarDecl</code>.
+So, Clang AST is not really a tree, but rather a graph.
+Semantic checks includes the following tasks:</p>
+<ul>
+  <li>Type checking: determining the data types of expressions to ensure they are compatible with operators and functions.</li>
+  <li>Name resolution: finding the correct declarations (functions, variables, etc.) associated with names used in the code.</li>
+  <li>Scope analysis: understanding where identifiers are valid and accessible.</li>
+</ul>
+
+<p>The semantic analysis phase detects errors that cannot be detected during syntactical analysis,
+such as type conflicts, undeclared identifiers, or invalid uses of language features.</p>
+
+<p>For example, here is a typical semantic issue “undefined variable”
+(not that the semantically invalid statement is excluded from the AST):</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>test2.c 
+int main<span class="o">()</span> <span class="o">{</span>
+  x <span class="o">=</span> 10<span class="p">;</span> // x is undefined
+  <span class="k">return </span>0<span class="p">;</span>
+<span class="o">}</span>
+clang <span class="nt">-cc1</span> <span class="nt">-ast-dump</span> <span class="nt">-ast-dump-filter</span><span class="o">=</span>main test2.c
+test2.c:2:3: error: use of undeclared identifier <span class="s1">'x'</span>
+    2 |   x <span class="o">=</span> 10<span class="p">;</span>
+      |   ^
+Dumping main:
+FunctionDecl 0x5f3b252c02b8 &lt;test2.c:1:1, line:4:1&gt; line:1:5 main <span class="s1">'int ()'</span>
+<span class="sb">`</span><span class="nt">-CompoundStmt</span> 0x5f3b252c0410 &lt;col:12, line:4:1&gt;
+  <span class="sb">`</span><span class="nt">-ReturnStmt</span> 0x5f3b252c0400 &lt;line:3:3, col:10&gt;
+    <span class="sb">`</span><span class="nt">-IntegerLiteral</span> 0x5f3b252c03e0 &lt;col:10&gt; <span class="s1">'int'</span> 0
+</code></pre></div></div>
+
+<h4 id="code-generation">Code generation</h4>
+
+<p>The next stage is code generation. At this stage, Clang generates <a href="https://llvm.org/docs/LangRef.html">LLVM IR</a>,
+intermediate representation that is used to apply ISA-independent optimizations.
+LLVM IR looks like a high-level assembly language that can be in two forms: textual and binary (so-called bitcode).</p>
+
+<p>LLVM IR is based on <a href="https://en.wikipedia.org/wiki/Static_single-assignment_form">SSA-form</a>
+(static single-assignment form). The main idea of this format is that every variable is assigned only once,
+which means that, for each new assignment, a new version of a variable is created (e.g. <code class="language-plaintext highlighter-rouge">%1</code>, <code class="language-plaintext highlighter-rouge">%2</code>, etc.).
+This format facilitates solving optimization tasks such as constant propagation, dead code elimination, etc.
+In the end, when a real assembly code is generated, variables are mapped to real registers.</p>
+
+<p>Translating source code to LLVM assembly (human-readable format):</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clang <span class="nt">-S</span> <span class="nt">-emit-llvm</span> test.c <span class="nt">-Xclang</span> <span class="nt">-disable-O0-optnone</span>
+<span class="nb">cat </span>test.ll
+</code></pre></div></div>
+<p><em>Note: flag is important <code class="language-plaintext highlighter-rouge">-disable-O0-optnone</code> to allow further IR optimizations.</em></p>
+
+<p>The result looks as follows:</p>
+<div class="language-llvm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">; ModuleID = 'test.c'</span>
+<span class="k">source_filename</span> <span class="p">=</span> <span class="s">"test.c"</span>
+<span class="k">target</span> <span class="k">datalayout</span> <span class="p">=</span> <span class="s">"e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"</span>
+<span class="k">target</span> <span class="k">triple</span> <span class="p">=</span> <span class="s">"x86_64-unknown-linux-gnu"</span>
+
+<span class="vg">@.str</span> <span class="p">=</span> <span class="k">private</span> <span class="k">unnamed_addr</span> <span class="k">constant</span> <span class="p">[</span><span class="m">11</span> <span class="p">x</span> <span class="kt">i8</span><span class="p">]</span> <span class="s">c"Value of x\00"</span><span class="p">,</span> <span class="k">align</span> <span class="m">1</span>
+<span class="vg">@.str.1</span> <span class="p">=</span> <span class="k">private</span> <span class="k">unnamed_addr</span> <span class="k">constant</span> <span class="p">[</span><span class="m">11</span> <span class="p">x</span> <span class="kt">i8</span><span class="p">]</span> <span class="s">c"Value of y\00"</span><span class="p">,</span> <span class="k">align</span> <span class="m">1</span>
+<span class="vg">@.str.2</span> <span class="p">=</span> <span class="k">private</span> <span class="k">unnamed_addr</span> <span class="k">constant</span> <span class="p">[</span><span class="m">11</span> <span class="p">x</span> <span class="kt">i8</span><span class="p">]</span> <span class="s">c"Value of z\00"</span><span class="p">,</span> <span class="k">align</span> <span class="m">1</span>
+
+<span class="c1">; Function Attrs: noinline nounwind uwtable</span>
+<span class="k">define</span> <span class="k">dso_local</span> <span class="kt">void</span> <span class="vg">@print</span><span class="p">(</span><span class="err">ptr</span> <span class="err">noundef</span> <span class="nv">%s</span><span class="p">,</span> <span class="kt">i32</span> <span class="err">noundef</span> <span class="nv">%a</span><span class="p">)</span> <span class="vg">#0</span> <span class="p">{</span>
+<span class="nl">entry:</span>
+  <span class="nv">%s.addr</span> <span class="p">=</span> <span class="k">alloca</span> <span class="err">ptr</span><span class="p">,</span> <span class="k">align</span> <span class="m">8</span>
+  <span class="nv">%a.addr</span> <span class="p">=</span> <span class="k">alloca</span> <span class="kt">i32</span><span class="p">,</span> <span class="k">align</span> <span class="m">4</span>
+  <span class="k">store</span> <span class="err">ptr</span> <span class="nv">%s</span><span class="p">,</span> <span class="err">ptr</span> <span class="nv">%s.addr</span><span class="p">,</span> <span class="k">align</span> <span class="m">8</span>
+  <span class="k">store</span> <span class="kt">i32</span> <span class="nv">%a</span><span class="p">,</span> <span class="err">ptr</span> <span class="nv">%a.addr</span><span class="p">,</span> <span class="k">align</span> <span class="m">4</span>
+  <span class="nv">%0</span> <span class="p">=</span> <span class="k">load</span> <span class="err">ptr</span><span class="p">,</span> <span class="err">ptr</span> <span class="nv">%s.addr</span><span class="p">,</span> <span class="k">align</span> <span class="m">8</span>
+  <span class="k">call</span> <span class="kt">void</span> <span class="vg">@write_s</span><span class="p">(</span><span class="err">ptr</span> <span class="err">noundef</span> <span class="nv">%0</span><span class="p">)</span>
+  <span class="nv">%1</span> <span class="p">=</span> <span class="k">load</span> <span class="kt">i32</span><span class="p">,</span> <span class="err">ptr</span> <span class="nv">%a.addr</span><span class="p">,</span> <span class="k">align</span> <span class="m">4</span>
+  <span class="k">call</span> <span class="kt">void</span> <span class="vg">@write_i</span><span class="p">(</span><span class="kt">i32</span> <span class="err">noundef</span> <span class="nv">%1</span><span class="p">)</span>
+  <span class="k">ret</span> <span class="kt">void</span>
+<span class="p">}</span>
+
+<span class="k">declare</span> <span class="kt">void</span> <span class="vg">@write_s</span><span class="p">(</span><span class="err">ptr</span> <span class="err">noundef</span><span class="p">)</span> <span class="vg">#1</span>
+
+<span class="k">declare</span> <span class="kt">void</span> <span class="vg">@write_i</span><span class="p">(</span><span class="kt">i32</span> <span class="err">noundef</span><span class="p">)</span> <span class="vg">#1</span>
+
+<span class="c1">; Function Attrs: noinline nounwind uwtable</span>
+<span class="k">define</span> <span class="k">dso_local</span> <span class="kt">void</span> <span class="vg">@foo</span><span class="p">(</span><span class="kt">i32</span> <span class="err">noundef</span> <span class="nv">%x</span><span class="p">)</span> <span class="vg">#0</span> <span class="p">{</span>
+<span class="nl">entry:</span>
+  <span class="nv">%x.addr</span> <span class="p">=</span> <span class="k">alloca</span> <span class="kt">i32</span><span class="p">,</span> <span class="k">align</span> <span class="m">4</span>
+  <span class="nv">%y</span> <span class="p">=</span> <span class="k">alloca</span> <span class="kt">i32</span><span class="p">,</span> <span class="k">align</span> <span class="m">4</span>
+  <span class="nv">%z</span> <span class="p">=</span> <span class="k">alloca</span> <span class="kt">i32</span><span class="p">,</span> <span class="k">align</span> <span class="m">4</span>
+  <span class="k">store</span> <span class="kt">i32</span> <span class="nv">%x</span><span class="p">,</span> <span class="err">ptr</span> <span class="nv">%x.addr</span><span class="p">,</span> <span class="k">align</span> <span class="m">4</span>
+  <span class="nv">%0</span> <span class="p">=</span> <span class="k">load</span> <span class="kt">i32</span><span class="p">,</span> <span class="err">ptr</span> <span class="nv">%x.addr</span><span class="p">,</span> <span class="k">align</span> <span class="m">4</span>
+  <span class="k">call</span> <span class="kt">void</span> <span class="vg">@print</span><span class="p">(</span><span class="err">ptr</span> <span class="err">noundef</span> <span class="vg">@.str</span><span class="p">,</span> <span class="kt">i32</span> <span class="err">noundef</span> <span class="nv">%0</span><span class="p">)</span>
+  <span class="nv">%1</span> <span class="p">=</span> <span class="k">load</span> <span class="kt">i32</span><span class="p">,</span> <span class="err">ptr</span> <span class="nv">%x.addr</span><span class="p">,</span> <span class="k">align</span> <span class="m">4</span>
+  <span class="nv">%cmp</span> <span class="p">=</span> <span class="k">icmp</span> <span class="k">eq</span> <span class="kt">i32</span> <span class="nv">%1</span><span class="p">,</span> <span class="m">0</span>
+  <span class="k">br</span> <span class="kt">i1</span> <span class="nv">%cmp</span><span class="p">,</span> <span class="kt">label</span> <span class="nv">%if.then</span><span class="p">,</span> <span class="kt">label</span> <span class="nv">%if.end</span>
+
+<span class="nl">if.then:</span>                                          <span class="c1">; preds = %entry</span>
+  <span class="k">store</span> <span class="kt">i32</span> <span class="m">5</span><span class="p">,</span> <span class="err">ptr</span> <span class="nv">%y</span><span class="p">,</span> <span class="k">align</span> <span class="m">4</span>
+  <span class="k">br</span> <span class="kt">label</span> <span class="nv">%if.end</span>
+
+<span class="nl">if.end:</span>                                           <span class="c1">; preds = %if.then, %entry</span>
+  <span class="nv">%2</span> <span class="p">=</span> <span class="k">load</span> <span class="kt">i32</span><span class="p">,</span> <span class="err">ptr</span> <span class="nv">%y</span><span class="p">,</span> <span class="k">align</span> <span class="m">4</span>
+  <span class="k">call</span> <span class="kt">void</span> <span class="vg">@print</span><span class="p">(</span><span class="err">ptr</span> <span class="err">noundef</span> <span class="vg">@.str.1</span><span class="p">,</span> <span class="kt">i32</span> <span class="err">noundef</span> <span class="nv">%2</span><span class="p">)</span>
+  <span class="nv">%3</span> <span class="p">=</span> <span class="k">load</span> <span class="kt">i32</span><span class="p">,</span> <span class="err">ptr</span> <span class="nv">%x.addr</span><span class="p">,</span> <span class="k">align</span> <span class="m">4</span>
+  <span class="nv">%tobool</span> <span class="p">=</span> <span class="k">icmp</span> <span class="k">ne</span> <span class="kt">i32</span> <span class="nv">%3</span><span class="p">,</span> <span class="m">0</span>
+  <span class="k">br</span> <span class="kt">i1</span> <span class="nv">%tobool</span><span class="p">,</span> <span class="kt">label</span> <span class="nv">%if.end2</span><span class="p">,</span> <span class="kt">label</span> <span class="nv">%if.then1</span>
+
+<span class="nl">if.then1:</span>                                         <span class="c1">; preds = %if.end</span>
+  <span class="k">store</span> <span class="kt">i32</span> <span class="m">6</span><span class="p">,</span> <span class="err">ptr</span> <span class="nv">%z</span><span class="p">,</span> <span class="k">align</span> <span class="m">4</span>
+  <span class="k">br</span> <span class="kt">label</span> <span class="nv">%if.end2</span>
+
+<span class="nl">if.end2:</span>                                          <span class="c1">; preds = %if.then1, %if.end</span>
+  <span class="nv">%4</span> <span class="p">=</span> <span class="k">load</span> <span class="kt">i32</span><span class="p">,</span> <span class="err">ptr</span> <span class="nv">%z</span><span class="p">,</span> <span class="k">align</span> <span class="m">4</span>
+  <span class="k">call</span> <span class="kt">void</span> <span class="vg">@print</span><span class="p">(</span><span class="err">ptr</span> <span class="err">noundef</span> <span class="vg">@.str.2</span><span class="p">,</span> <span class="kt">i32</span> <span class="err">noundef</span> <span class="nv">%4</span><span class="p">)</span>
+  <span class="k">ret</span> <span class="kt">void</span>
+<span class="p">}</span>
+
+<span class="k">attributes</span> <span class="vg">#0</span> <span class="p">=</span> <span class="p">{</span> <span class="k">noinline</span> <span class="k">nounwind</span> <span class="k">uwtable</span> <span class="s">"frame-pointer"</span><span class="p">=</span><span class="s">"all"</span> <span class="s">"min-legal-vector-width"</span><span class="p">=</span><span class="s">"0"</span> <span class="s">"no-trapping-math"</span><span class="p">=</span><span class="s">"true"</span> <span class="s">"stack-protector-buffer-size"</span><span class="p">=</span><span class="s">"8"</span> <span class="s">"target-cpu"</span><span class="p">=</span><span class="s">"x86-64"</span> <span class="s">"target-features"</span><span class="p">=</span><span class="s">"+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87"</span> <span class="s">"tune-cpu"</span><span class="p">=</span><span class="s">"generic"</span> <span class="p">}</span>
+<span class="k">attributes</span> <span class="vg">#1</span> <span class="p">=</span> <span class="p">{</span> <span class="s">"frame-pointer"</span><span class="p">=</span><span class="s">"all"</span> <span class="s">"no-trapping-math"</span><span class="p">=</span><span class="s">"true"</span> <span class="s">"stack-protector-buffer-size"</span><span class="p">=</span><span class="s">"8"</span> <span class="s">"target-cpu"</span><span class="p">=</span><span class="s">"x86-64"</span> <span class="s">"target-features"</span><span class="p">=</span><span class="s">"+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87"</span> <span class="s">"tune-cpu"</span><span class="p">=</span><span class="s">"generic"</span> <span class="p">}</span>
+
+<span class="nv">!llvm.module.flags</span> <span class="p">=</span> <span class="p">!{</span><span class="nv">!0</span><span class="p">,</span> <span class="nv">!1</span><span class="p">,</span> <span class="nv">!2</span><span class="p">,</span> <span class="nv">!3</span><span class="p">,</span> <span class="nv">!4</span><span class="p">}</span>
+<span class="nv">!llvm.ident</span> <span class="p">=</span> <span class="p">!{</span><span class="nv">!5</span><span class="p">}</span>
+
+<span class="nv">!0</span> <span class="p">=</span> <span class="p">!{</span><span class="kt">i32</span> <span class="m">1</span><span class="p">,</span> <span class="nv">!"wchar_size"</span><span class="p">,</span> <span class="kt">i32</span> <span class="m">4</span><span class="p">}</span>
+<span class="nv">!1</span> <span class="p">=</span> <span class="p">!{</span><span class="kt">i32</span> <span class="m">8</span><span class="p">,</span> <span class="nv">!"PIC Level"</span><span class="p">,</span> <span class="kt">i32</span> <span class="m">2</span><span class="p">}</span>
+<span class="nv">!2</span> <span class="p">=</span> <span class="p">!{</span><span class="kt">i32</span> <span class="m">7</span><span class="p">,</span> <span class="nv">!"PIE Level"</span><span class="p">,</span> <span class="kt">i32</span> <span class="m">2</span><span class="p">}</span>
+<span class="nv">!3</span> <span class="p">=</span> <span class="p">!{</span><span class="kt">i32</span> <span class="m">7</span><span class="p">,</span> <span class="nv">!"uwtable"</span><span class="p">,</span> <span class="kt">i32</span> <span class="m">2</span><span class="p">}</span>
+<span class="nv">!4</span> <span class="p">=</span> <span class="p">!{</span><span class="kt">i32</span> <span class="m">7</span><span class="p">,</span> <span class="nv">!"frame-pointer"</span><span class="p">,</span> <span class="kt">i32</span> <span class="m">2</span><span class="p">}</span>
+<span class="nv">!5</span> <span class="p">=</span> <span class="p">!{</span><span class="nv">!"clang version 20.1.5 (https://github.com/llvm/llvm-project.git 7b09d7b446383b71b63d429b21ee45ba389c5134)"</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>Translating source code to LLVM bitcode (binary format):</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clang <span class="nt">-emit-llvm</span> test.c
+lang <span class="nt">-emit-llvm</span> <span class="nt">-c</span> test.c
+file test.bc
+test.bc: LLVM IR bitcode
+</code></pre></div></div>
+
+<p>Tools <a href="https://llvm.org/docs/CommandGuide/llvm-as.html">llvm-as</a> and
+<a href="https://llvm.org/docs/CommandGuide/llvm-dis.html">llvm-dis</a>
+can be used to translate bitcode to LLVM format:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>llvm-as test.ll <span class="nt">-o</span> test.bc
+llvm-dis test.bc <span class="nt">-o</span> test.ll
+</code></pre></div></div>
+
+<h3 id="optimizations">Optimizations</h3>
+
+<p>In LLVM, optimizations are performed by the <a href="https://llvm.org/docs/CommandGuide/opt.html">opt</a> tool.
+It applies a number of passed to LLVM IR in order to transform it to an optimized forms.</p>
+
+<p>The list of available passes can be printed with this command:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>opt <span class="nt">-print-passes</span>
+</code></pre></div></div>
+
+<p>Let us start from debug passes that visualize LLVM IR.
+For example, the code below builds <a href="https://en.wikipedia.org/wiki/Control-flow_graph">CFG</a>
+(control-flow graph) of the functions in the LLVM IR module:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dot .print.dot <span class="nt">-Tpng</span> <span class="nt">-o</span> print.png
+dot .foo.dot <span class="nt">-Tpng</span> <span class="nt">-o</span> foo.png
+opt test.ll <span class="nt">--passes</span><span class="o">=</span>dot-cfg
+</code></pre></div></div>
+<p><img src="/hse-acos-course/part2os/15_Clang/foo.png" alt="foo" />
+<img src="/hse-acos-course/part2os/15_Clang/print.png" alt="print" /></p>
+
+<p>Also, it is possible to visualize a <a href="https://en.wikipedia.org/wiki/Call_graph">call graph</a>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>opt test.ll <span class="nt">--passes</span><span class="o">=</span>dot-callgraph
+dot test.ll.callgraph.dot <span class="nt">-Tpng</span> <span class="nt">-o</span> test_callgraph.png
+</code></pre></div></div>
+<p><img src="/hse-acos-course/part2os/15_Clang/test_callgraph.png" alt="call graph" /></p>
+
+<p>In general, optimizations are performed by traversing the CFG and tracking various 
+facts related to control-flow and data-flow.</p>
+
+<p>Example of optimization <code class="language-plaintext highlighter-rouge">mem2reg</code> (replacing stack-stored variables with registers):</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>opt <span class="nt">-S</span> <span class="nt">-passes</span><span class="o">=</span>mem2reg test.ll <span class="nt">-o</span> test_opt.ll
+<span class="nb">cat </span>test_opt.ll
+</code></pre></div></div>
+<div class="language-llvm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">; ModuleID = 'test.ll'</span>
+<span class="k">source_filename</span> <span class="p">=</span> <span class="s">"test.c"</span>
+<span class="k">target</span> <span class="k">datalayout</span> <span class="p">=</span> <span class="s">"e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"</span>
+<span class="k">target</span> <span class="k">triple</span> <span class="p">=</span> <span class="s">"x86_64-unknown-linux-gnu"</span>
+
+<span class="vg">@.str</span> <span class="p">=</span> <span class="k">private</span> <span class="k">unnamed_addr</span> <span class="k">constant</span> <span class="p">[</span><span class="m">11</span> <span class="p">x</span> <span class="kt">i8</span><span class="p">]</span> <span class="s">c"Value of x\00"</span><span class="p">,</span> <span class="k">align</span> <span class="m">1</span>
+<span class="vg">@.str.1</span> <span class="p">=</span> <span class="k">private</span> <span class="k">unnamed_addr</span> <span class="k">constant</span> <span class="p">[</span><span class="m">11</span> <span class="p">x</span> <span class="kt">i8</span><span class="p">]</span> <span class="s">c"Value of y\00"</span><span class="p">,</span> <span class="k">align</span> <span class="m">1</span>
+<span class="vg">@.str.2</span> <span class="p">=</span> <span class="k">private</span> <span class="k">unnamed_addr</span> <span class="k">constant</span> <span class="p">[</span><span class="m">11</span> <span class="p">x</span> <span class="kt">i8</span><span class="p">]</span> <span class="s">c"Value of z\00"</span><span class="p">,</span> <span class="k">align</span> <span class="m">1</span>
+
+<span class="c1">; Function Attrs: noinline nounwind uwtable</span>
+<span class="k">define</span> <span class="k">dso_local</span> <span class="kt">void</span> <span class="vg">@print</span><span class="p">(</span><span class="err">ptr</span> <span class="err">noundef</span> <span class="nv">%s</span><span class="p">,</span> <span class="kt">i32</span> <span class="err">noundef</span> <span class="nv">%a</span><span class="p">)</span> <span class="vg">#0</span> <span class="p">{</span>
+<span class="nl">entry:</span>
+  <span class="k">call</span> <span class="kt">void</span> <span class="vg">@write_s</span><span class="p">(</span><span class="err">ptr</span> <span class="err">noundef</span> <span class="nv">%s</span><span class="p">)</span>
+  <span class="k">call</span> <span class="kt">void</span> <span class="vg">@write_i</span><span class="p">(</span><span class="kt">i32</span> <span class="err">noundef</span> <span class="nv">%a</span><span class="p">)</span>
+  <span class="k">ret</span> <span class="kt">void</span>
+<span class="p">}</span>
+
+<span class="k">declare</span> <span class="kt">void</span> <span class="vg">@write_s</span><span class="p">(</span><span class="err">ptr</span> <span class="err">noundef</span><span class="p">)</span> <span class="vg">#1</span>
+
+<span class="k">declare</span> <span class="kt">void</span> <span class="vg">@write_i</span><span class="p">(</span><span class="kt">i32</span> <span class="err">noundef</span><span class="p">)</span> <span class="vg">#1</span>
+
+<span class="c1">; Function Attrs: noinline nounwind uwtable</span>
+<span class="k">define</span> <span class="k">dso_local</span> <span class="kt">void</span> <span class="vg">@foo</span><span class="p">(</span><span class="kt">i32</span> <span class="err">noundef</span> <span class="nv">%x</span><span class="p">)</span> <span class="vg">#0</span> <span class="p">{</span>
+<span class="nl">entry:</span>
+  <span class="k">call</span> <span class="kt">void</span> <span class="vg">@print</span><span class="p">(</span><span class="err">ptr</span> <span class="err">noundef</span> <span class="vg">@.str</span><span class="p">,</span> <span class="kt">i32</span> <span class="err">noundef</span> <span class="nv">%x</span><span class="p">)</span>
+  <span class="nv">%cmp</span> <span class="p">=</span> <span class="k">icmp</span> <span class="k">eq</span> <span class="kt">i32</span> <span class="nv">%x</span><span class="p">,</span> <span class="m">0</span>
+  <span class="k">br</span> <span class="kt">i1</span> <span class="nv">%cmp</span><span class="p">,</span> <span class="kt">label</span> <span class="nv">%if.then</span><span class="p">,</span> <span class="kt">label</span> <span class="nv">%if.end</span>
+
+<span class="nl">if.then:</span>                                          <span class="c1">; preds = %entry</span>
+  <span class="k">br</span> <span class="kt">label</span> <span class="nv">%if.end</span>
+
+<span class="nl">if.end:</span>                                           <span class="c1">; preds = %if.then, %entry</span>
+  <span class="k">call</span> <span class="kt">void</span> <span class="vg">@print</span><span class="p">(</span><span class="err">ptr</span> <span class="err">noundef</span> <span class="vg">@.str.1</span><span class="p">,</span> <span class="kt">i32</span> <span class="err">noundef</span> <span class="m">5</span><span class="p">)</span>
+  <span class="nv">%tobool</span> <span class="p">=</span> <span class="k">icmp</span> <span class="k">ne</span> <span class="kt">i32</span> <span class="nv">%x</span><span class="p">,</span> <span class="m">0</span>
+  <span class="k">br</span> <span class="kt">i1</span> <span class="nv">%tobool</span><span class="p">,</span> <span class="kt">label</span> <span class="nv">%if.end2</span><span class="p">,</span> <span class="kt">label</span> <span class="nv">%if.then1</span>
+
+<span class="nl">if.then1:</span>                                         <span class="c1">; preds = %if.end</span>
+  <span class="k">br</span> <span class="kt">label</span> <span class="nv">%if.end2</span>
+
+<span class="nl">if.end2:</span>                                          <span class="c1">; preds = %if.then1, %if.end</span>
+  <span class="k">call</span> <span class="kt">void</span> <span class="vg">@print</span><span class="p">(</span><span class="err">ptr</span> <span class="err">noundef</span> <span class="vg">@.str.2</span><span class="p">,</span> <span class="kt">i32</span> <span class="err">noundef</span> <span class="m">6</span><span class="p">)</span>
+  <span class="k">ret</span> <span class="kt">void</span>
+<span class="p">}</span>
+
+<span class="k">attributes</span> <span class="vg">#0</span> <span class="p">=</span> <span class="p">{</span> <span class="k">noinline</span> <span class="k">nounwind</span> <span class="k">uwtable</span> <span class="s">"frame-pointer"</span><span class="p">=</span><span class="s">"all"</span> <span class="s">"min-legal-vector-width"</span><span class="p">=</span><span class="s">"0"</span> <span class="s">"no-trapping-math"</span><span class="p">=</span><span class="s">"true"</span> <span class="s">"stack-protector-buffer-size"</span><span class="p">=</span><span class="s">"8"</span> <span class="s">"target-cpu"</span><span class="p">=</span><span class="s">"x86-64"</span> <span class="s">"target-features"</span><span class="p">=</span><span class="s">"+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87"</span> <span class="s">"tune-cpu"</span><span class="p">=</span><span class="s">"generic"</span> <span class="p">}</span>
+<span class="k">attributes</span> <span class="vg">#1</span> <span class="p">=</span> <span class="p">{</span> <span class="s">"frame-pointer"</span><span class="p">=</span><span class="s">"all"</span> <span class="s">"no-trapping-math"</span><span class="p">=</span><span class="s">"true"</span> <span class="s">"stack-protector-buffer-size"</span><span class="p">=</span><span class="s">"8"</span> <span class="s">"target-cpu"</span><span class="p">=</span><span class="s">"x86-64"</span> <span class="s">"target-features"</span><span class="p">=</span><span class="s">"+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87"</span> <span class="s">"tune-cpu"</span><span class="p">=</span><span class="s">"generic"</span> <span class="p">}</span>
+
+<span class="nv">!llvm.module.flags</span> <span class="p">=</span> <span class="p">!{</span><span class="nv">!0</span><span class="p">,</span> <span class="nv">!1</span><span class="p">,</span> <span class="nv">!2</span><span class="p">,</span> <span class="nv">!3</span><span class="p">,</span> <span class="nv">!4</span><span class="p">}</span>
+<span class="nv">!llvm.ident</span> <span class="p">=</span> <span class="p">!{</span><span class="nv">!5</span><span class="p">}</span>
+
+<span class="nv">!0</span> <span class="p">=</span> <span class="p">!{</span><span class="kt">i32</span> <span class="m">1</span><span class="p">,</span> <span class="nv">!"wchar_size"</span><span class="p">,</span> <span class="kt">i32</span> <span class="m">4</span><span class="p">}</span>
+<span class="nv">!1</span> <span class="p">=</span> <span class="p">!{</span><span class="kt">i32</span> <span class="m">8</span><span class="p">,</span> <span class="nv">!"PIC Level"</span><span class="p">,</span> <span class="kt">i32</span> <span class="m">2</span><span class="p">}</span>
+<span class="nv">!2</span> <span class="p">=</span> <span class="p">!{</span><span class="kt">i32</span> <span class="m">7</span><span class="p">,</span> <span class="nv">!"PIE Level"</span><span class="p">,</span> <span class="kt">i32</span> <span class="m">2</span><span class="p">}</span>
+<span class="nv">!3</span> <span class="p">=</span> <span class="p">!{</span><span class="kt">i32</span> <span class="m">7</span><span class="p">,</span> <span class="nv">!"uwtable"</span><span class="p">,</span> <span class="kt">i32</span> <span class="m">2</span><span class="p">}</span>
+<span class="nv">!4</span> <span class="p">=</span> <span class="p">!{</span><span class="kt">i32</span> <span class="m">7</span><span class="p">,</span> <span class="nv">!"frame-pointer"</span><span class="p">,</span> <span class="kt">i32</span> <span class="m">2</span><span class="p">}</span>
+<span class="nv">!5</span> <span class="p">=</span> <span class="p">!{</span><span class="nv">!"clang version 20.1.5 (https://github.com/llvm/llvm-project.git 7b09d7b446383b71b63d429b21ee45ba389c5134)"</span><span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="clang-static-analyzer">Clang Static Analyzer</h3>
+
+<p>Dumping call graphs (Clang-level):</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clang <span class="nt">-cc1</span> <span class="nt">-analyze</span> <span class="nt">-analyzer-checker</span><span class="o">=</span><span class="s2">"debug.DumpCallGraph"</span> test.c
+ <span class="nt">---</span> Call graph Dump <span class="nt">---</span> 
+  Function: &lt; root <span class="o">&gt;</span> calls: print write_s write_i foo 
+  Function: foo calls: print print print 
+  Function: print calls: write_s write_i 
+  Function: write_i calls: 
+  Function: write_s calls:
+</code></pre></div></div>
+
+<p>Viewing call graphs (Clang-level):</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clang <span class="nt">-cc1</span> <span class="nt">-analyze</span> <span class="nt">-analyzer-checker</span><span class="o">=</span><span class="s2">"debug.ViewCallGraph"</span> test.c
+</code></pre></div></div>
+<p><img src="/hse-acos-course/part2os/15_Clang/test_callgraph_clang.png" alt="callgraph" /></p>
+
+<p>Viewing CFGs (Clang-level):</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clang <span class="nt">-cc1</span> <span class="nt">-analyze</span> <span class="nt">-analyzer-checker</span><span class="o">=</span><span class="s2">"debug.ViewCFG"</span> test.c
+</code></pre></div></div>
+<p><img src="/hse-acos-course/part2os/15_Clang/foo_clang.png" alt="foo" />
+<img src="/hse-acos-course/part2os/15_Clang/print_clang.png" alt="print" /></p>
+
+<p>Viewing the exploded graph (unrolled CFG):</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clang <span class="nt">-cc1</span> <span class="nt">-analyze</span> <span class="nt">-analyzer-checker</span><span class="o">=</span><span class="s2">"debug.ViewExplodedGraph"</span> test.c
+</code></pre></div></div>
+<p>The exploded graph is <a href="/hse-acos-course/part2os/15_Clang/test_exploded.svg">here</a>. Note: it is very large even for such a small function.</p>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/LLVM">LLVM</a> (Wikipedia)</li>
+  <li><a href="https://en.wikipedia.org/wiki/Clang">Clang</a> (Wikipedia)</li>
+  <li><a href="https://llvm.org/">LLVM Web Site</a></li>
+  <li><a href="https://github.com/llvm/llvm-project">LLVM Project</a> (GitHub)</li>
+  <li>Michael Adams. <a href="https://ece.engr.uvic.ca/~frodo/cppbook/downloads/lecture_slides_for_the_clang_libraries-0.0.pdf">Lecture Slides for the Clang Libraries (LLVM/Clang 15)</a>.</li>
+  <li><a href="https://github.com/haoNoQ/clang-analyzer-guide/releases/download/v0.1/clang-analyzer-guide-v0.1.pdf">Clang Static Analyzer - A Checker Developer’s Guide</a></li>
+  <li><a href="https://llvm.org/docs/LangRef.html">LLVM Language Reference Manual</a></li>
+</ul>
+
+              </article>
+            </div>
+
+            <aside class="page-toc" data-toc hidden>
+              <div class="page-toc__inner">
+                <p class="page-toc__eyebrow">On this page</p>
+                <nav aria-label="Table of contents">
+                  <ol class="page-toc__list" data-toc-list></ol>
+                </nav>
+              </div>
+            </aside>
+          </div>
+        
+      </main>
+
+      <footer class="site-footer">
+        <div class="container site-footer__inner">
+          <div>
+            <strong>Computer Architecture and Operating Systems</strong>
+              <p>Course materials maintained on GitHub Pages for HSE Faculty of Computer Science.</p>
+          </div>
+          <div class="site-footer__links">
+            <a href="/hse-acos-course/">Home</a>
+              <a href="https://github.com/andrewt0301/hse-acos-course">Repository</a>
+            <a href="https://pages.github.com">GitHub Pages</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

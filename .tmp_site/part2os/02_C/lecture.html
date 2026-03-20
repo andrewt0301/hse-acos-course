@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lecture 2 | Computer Architecture and Operating Systems</title>
+    <meta name="description" content="Course taught at Faculty of Computer Science of Higher School of Economics">
+    <script>
+      (function () {
+        var root = document.documentElement;
+
+        try {
+          var savedTheme = localStorage.getItem("acos-theme");
+          var savedLanguage = localStorage.getItem("acos-language");
+          var theme = savedTheme || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          var language = savedLanguage || "en";
+
+          root.dataset.theme = theme === "dark" ? "dark" : "light";
+          root.dataset.language = language === "ru" ? "ru" : "en";
+          root.lang = language === "ru" ? "ru" : "en";
+        } catch (error) {
+          root.dataset.theme = "light";
+          root.dataset.language = "en";
+          root.lang = "en";
+        }
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/hse-acos-course/assets/css/style.css?v=20260321b">
+    <script defer src="/hse-acos-course/assets/js/site.js?v=20260321b"></script>
+  </head>
+  
+  
+  
+  
+  
+  
+  
+  
+  <body data-page-kind="lecture" data-section="os" data-current-url="/part2os/02_C/lecture.html">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="site-bg">
+      <div class="site-grid"></div>
+    </div>
+
+    <div class="site-shell">
+      <header class="site-header" data-site-header>
+        <div class="container site-header__inner">
+          <a class="site-brand" href="/hse-acos-course/" aria-label="Computer Architecture and Operating Systems">
+            <span class="site-brand__mark" aria-hidden="true">ACOS</span>
+          </a>
+
+          <button class="site-nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+            <span>Menu</span>
+          </button>
+
+          <div class="site-header__panel" id="site-nav" data-nav-panel>
+            <nav class="site-nav" aria-label="Primary">
+              <ul class="site-nav__list">
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/" data-nav-link>Home</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/calendar_plan.html" data-nav-link>Calendar</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Assessment</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/exam_latest.html" data-nav-link>Exam</a>
+                          
+                            <a href="/hse-acos-course/grades.html" data-nav-link>Grades</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Resources</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/software.html" data-nav-link>Software</a>
+                          
+                            <a href="/hse-acos-course/books.html" data-nav-link>Textbooks</a>
+                          
+                            <a href="/hse-acos-course/courses.html" data-nav-link>Related Courses</a>
+                          
+                            <a href="/hse-acos-course/links.html" data-nav-link>Useful Links</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="https://github.com/andrewt0301/hse-acos-course" data-nav-link>GitHub</a>
+                    
+                  </li>
+                
+              </ul>
+            </nav>
+
+            <div class="site-preferences" aria-label="Site preferences">
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Theme</span>
+                <div class="site-preferences__switch" role="group" aria-label="Theme switch">
+                  <button type="button" data-theme-option="light" aria-pressed="false">Light</button>
+                  <button type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+                </div>
+              </div>
+
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Lang</span>
+                <div class="site-preferences__switch" role="group" aria-label="Language switch">
+                  <button type="button" data-language-option="en" aria-pressed="false">EN</button>
+                  <button type="button" data-language-option="ru" aria-pressed="false">RU</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="language-placeholder" data-language-placeholder hidden>
+        <div class="container language-placeholder__inner">
+          <div class="language-placeholder__copy">
+            <p class="language-placeholder__eyebrow">RU / Placeholder</p>
+            <strong>Русская версия пока в разработке</strong>
+            <p>Переключатель уже добавлен, но материалы и текущий интерфейс страниц пока остаются на английском. Полноценная локализация появится позже.</p>
+          </div>
+          <button class="language-placeholder__action" type="button" data-language-reset>Back to English</button>
+        </div>
+      </div>
+
+      <main id="main-content" class="site-main">
+        
+          <div class="container page-shell">
+            <div class="page-shell__main">
+              <nav class="breadcrumbs" aria-label="Breadcrumbs">
+                <ol>
+                  <li><a href="/hse-acos-course/">Home</a></li>
+                  
+                    <li><a href="/hse-acos-course/#operating-systems">Operating Systems</a></li>
+                  
+                  <li aria-current="page"><span data-breadcrumb-current>Lecture 2</span></li>
+                </ol>
+              </nav>
+
+              <article class="page-article" data-page-content>
+                <h2 id="lecture-2">Lecture 2</h2>
+
+<h1 id="c-programming-language">C Programming Language</h1>
+
+<h2 id="lecture">Lecture</h2>
+
+<p>Slides (<a href="/hse-acos-course/part2os/02_C/OS_Lecture_02.pdf">PDF</a>, <a href="/hse-acos-course/part2os/02_C/OS_Lecture_02.pptx">PPTX</a>).</p>
+
+<h4 id="outline">Outline</h4>
+
+<ul>
+  <li>The C Language</li>
+  <li>History</li>
+  <li>Data types (built-in, structures)</li>
+  <li>Functions</li>
+  <li>Pointers, arrays, address arithmetic</li>
+  <li>Memory allocation</li>
+  <li>Strings</li>
+</ul>
+
+<h4 id="theory">Theory</h4>
+
+<p>Builtin data types:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">char</span>
+<span class="kt">unsigned</span> <span class="kt">char</span>
+<span class="kt">short</span>
+<span class="kt">unsigned</span> <span class="kt">short</span>
+<span class="kt">int</span> 
+<span class="kt">unsigned</span> <span class="kt">int</span>
+<span class="kt">long</span>
+<span class="kt">unsigned</span> <span class="kt">long</span>
+<span class="kt">float</span>
+<span class="kt">double</span>
+<span class="kt">void</span>
+</code></pre></div></div>
+
+<p>Pointer data types:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="o">*</span>
+<span class="kt">char</span> <span class="o">*</span>
+<span class="kt">int</span> <span class="o">*</span>
+<span class="kt">long</span> <span class="o">*</span>
+</code></pre></div></div>
+
+<p>Type aliases:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">int</span> <span class="kt">size_t</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Structures:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">struct</span> <span class="n">point</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>Bitfields:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">struct</span> <span class="n">point</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">y1</span> <span class="o">:</span> <span class="mi">16</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">y2</span> <span class="o">:</span> <span class="mi">16</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>Size of various data types:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">point_t</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"sizeof(char)   = %ld</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"sizeof(int)    = %ld</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"sizeof(long)   = %ld</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">long</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"sizeof(float)  = %ld</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"sizeof(double) = %ld</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"sizeof(void *) = %ld</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"sizeof(point)  = %ld</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">point_t</span><span class="p">));</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>   
+</code></pre></div></div>
+
+<p>Unions:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdint.h&gt;
+#include &lt;stdio.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">union</span> <span class="n">S</span> <span class="p">{</span>
+        <span class="kt">uint32_t</span> <span class="n">u32</span><span class="p">;</span>
+        <span class="kt">uint16_t</span> <span class="n">u16</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+        <span class="kt">uint8_t</span>  <span class="n">u8</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+    <span class="p">}</span> <span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="mh">0x12345678</span><span class="p">};</span> <span class="c1">// s.u32 is now the active member</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">"sizeof(s)=%zu</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">s</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"address(s)=%p</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"address(s.u32)=%p</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">.</span><span class="n">u32</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"address(s.u16)=%p</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">.</span><span class="n">u16</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"address(s.u8)=%p</span><span class="se">\n\n</span><span class="s">"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">.</span><span class="n">u8</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"s.u32=%x</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">u32</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"s.u16[0]=%x, s.u16[1]=%x</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">u16</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">s</span><span class="p">.</span><span class="n">u16</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"s.u8[0]=%x, s.u8[1]=%x, s.u8[2]=%x, s.u8[3]=%x</span><span class="se">\n\n</span><span class="s">"</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">s</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">s</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+
+    <span class="n">s</span><span class="p">.</span><span class="n">u16</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x0011</span><span class="p">;</span> <span class="c1">// s.u16 is now the active member</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"s.u32=%x</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">u32</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"s.u16[0]=%x, s.u16[1]=%x</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">u16</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">s</span><span class="p">.</span><span class="n">u16</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"s.u32=%x</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">u32</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"s.u8[0]=%x, s.u8[1]=%x, s.u8[2]=%x, s.u8[3]=%x</span><span class="se">\n\n</span><span class="s">"</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">s</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">s</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+
+    <span class="k">union</span> <span class="n">pad</span> <span class="p">{</span>
+        <span class="kt">char</span>  <span class="n">c</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+        <span class="kt">float</span> <span class="n">f</span><span class="p">;</span>
+    <span class="p">}</span> <span class="n">p</span> <span class="o">=</span> <span class="p">{</span> <span class="p">.</span><span class="n">f</span> <span class="o">=</span> <span class="mi">1</span><span class="p">.</span><span class="mi">23</span> <span class="p">};</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"sizeof(pad)=%zu</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">p</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"address(p)=%p</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">p</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Input/output:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Functions and function pointers:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span>
+<span class="kt">void</span> <span class="nf">print</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%d %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">typedef</span> <span class="nf">void</span> <span class="p">(</span><span class="o">*</span> <span class="n">func_t</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">);</span>
+
+<span class="kt">void</span> <span class="nf">test</span><span class="p">(</span><span class="n">func_t</span> <span class="n">func</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">void</span> <span class="p">(</span><span class="o">*</span> <span class="n">func</span> <span class="p">)(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">print</span><span class="p">;</span>
+    <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+    <span class="n">test</span><span class="p">(</span><span class="n">func</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>Dynamic memory allocation (use <code class="language-plaintext highlighter-rouge">malloc</code> and <code class="language-plaintext highlighter-rouge">free</code>):</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Enter array size:</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+
+    <span class="kt">int</span><span class="o">*</span> <span class="n">array</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="o">*</span> <span class="n">n</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Enter array:</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Array:</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"array[%d] = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">array</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Preprocessor:</p>
+
+<p><em>lib.h</em>:</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#ifndef LIB
+#define LIB
+</span>
+<span class="cp">#ifdef NO_MACRO
+</span>  <span class="kr">inline</span> <span class="kt">int</span> <span class="nf">max</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="o">?</span> <span class="n">a</span> <span class="o">:</span> <span class="n">b</span><span class="p">;</span> <span class="p">}</span>
+<span class="cp">#else
+</span>  <span class="cp">#define max(a, b) ((a) &lt; (b) ? (a) : (b))
+#endif
+</span>
+<span class="cp">#endif
+</span></code></pre></div></div>
+<p><em>prog.c</em>:</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include "lib.h"
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+   <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">);</span>
+   <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><em>Preprocessing:</em></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcc prog.c <span class="nt">-E</span> <span class="c"># NO_MACRO is not defined</span>
+gcc prog.c <span class="nt">-E</span> <span class="nt">-DNO_MACRO</span> <span class="c"># NO_MACRO is defined</span>
+</code></pre></div></div>
+
+<h2 id="workshop">Workshop</h2>
+
+<h4 id="outline-1">Outline</h4>
+
+<ul>
+  <li>Discuss main features of C and differences with other languages</li>
+  <li>Discuss questions from <a href="/hse-acos-course/part2os/02_C/disc02.pdf">this</a> document</li>
+  <li><a href="/hse-acos-course/part2os/02_C/debugger.html">Learn how to use GDB to debug simple programs</a></li>
+  <li>Write and debug small programs covering different features of C language</li>
+</ul>
+
+<h4 id="tasks">Tasks</h4>
+
+<ol>
+  <li>Write a program in C, which does the following:
+    <ul>
+      <li>defines the point structure;</li>
+      <li>inputs an integer value <code class="language-plaintext highlighter-rouge">N</code>;</li>
+      <li>allocates an array of <code class="language-plaintext highlighter-rouge">N</code> points (assume the coordinates a non-negative);</li>
+      <li>inputs <code class="language-plaintext highlighter-rouge">N</code> points;</li>
+      <li>inputs a point;</li>
+      <li>finds the point closest to the specified point in the array of points.</li>
+    </ul>
+
+    <p>Notes: use <code class="language-plaintext highlighter-rouge">malloc</code> and <code class="language-plaintext highlighter-rouge">free</code> to allocate and deallocate the array respectively.</p>
+  </li>
+</ol>
+
+<h2 id="homework">Homework</h2>
+
+<p><em>Write and submit to GitHub the programs described below.</em>
+<em>An instruction on how to work with GitHub is <a href="/hse-acos-course/software/git.html">here</a></em>.</p>
+
+<h3 id="tasks-1">Tasks</h3>
+
+<ol>
+  <li>
+    <p>Write a program in C that inputs two integer values <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code>,
+call function <code class="language-plaintext highlighter-rouge">swap</code> that takes the values as arguments and swaps them,
+prints the values after the swap.</p>
+  </li>
+  <li>Write a program in C, which does the following:
+    <ul>
+      <li>inputs an integer value <code class="language-plaintext highlighter-rouge">N</code>;</li>
+      <li>allocates an array of <code class="language-plaintext highlighter-rouge">N</code> integer elements;</li>
+      <li>fills the array with integer values from the standard input;</li>
+      <li>reverses the array;</li>
+      <li>prints the resulting array;</li>
+      <li>deallocates the array.</li>
+    </ul>
+
+    <p>Notes: use <code class="language-plaintext highlighter-rouge">malloc</code> and <code class="language-plaintext highlighter-rouge">free</code> to allocate and deallocate the array respectively.</p>
+  </li>
+  <li>Write a program in C, which does the following:
+    <ul>
+      <li>inputs two integer values <code class="language-plaintext highlighter-rouge">N</code> and <code class="language-plaintext highlighter-rouge">M</code>;</li>
+      <li>allocates a matrix of size <code class="language-plaintext highlighter-rouge">N * M</code> and fills it with values from standard input;</li>
+      <li>transposes the matrix;</li>
+      <li>prints the resulting matrix;</li>
+      <li>deallocate the matrices.</li>
+    </ul>
+
+    <p>Note: the matrices must be allocated with <code class="language-plaintext highlighter-rouge">malloc</code> and deallocated with <code class="language-plaintext highlighter-rouge">free</code>.</p>
+  </li>
+  <li>Write a program in C, which does the following:
+    <ul>
+      <li>creates a singly-linked list;</li>
+      <li>add to the list numbers from the standard input until user inputs <code class="language-plaintext highlighter-rouge">0</code>;</li>
+      <li>reverses the list;</li>
+      <li>prints the resulting list;</li>
+      <li>deallocates the list.</li>
+    </ul>
+
+    <p>Note: use <code class="language-plaintext highlighter-rouge">malloc</code> and <code class="language-plaintext highlighter-rouge">free</code> to allocate and deallocate list entries respectively.</p>
+  </li>
+</ol>
+
+<h1 id="references">References</h1>
+
+<ul>
+  <li>Brian Harvey. <a href="/hse-acos-course/part2os/02_C/HarveyNotesC1-3.pdf">CS 61C: C: Introduction, Pointers, &amp; Arrays</a></li>
+  <li>CS 61C by UC Berkeley. C: Introduction, Pointers. <a href="/hse-acos-course/part2os/02_C/lec02.pdf">Slides</a></li>
+  <li>[KRC] Brian W. Kernighan, Dennis Ritchie.
+<a href="https://www.pearson.com/us/higher-education/program/Kernighan-C-Programming-Language-2nd-Edition/PGM54487.html">C Programming Language</a>
+2nd Edition. 1988.</li>
+  <li><a href="https://en.wikipedia.org/wiki/C_%28programming_language%29">C programming language</a> (Wikipedia)</li>
+  <li><a href="https://en.wikipedia.org/wiki/C_data_types">C data types</a> (Wikipedia)</li>
+  <li><a href="https://en.wikipedia.org/wiki/C_preprocessor">C preprocessor</a> (Wikipedia)</li>
+  <li><a href="https://www.geeksforgeeks.org/function-pointer-in-c/">Function Pointer in C</a></li>
+  <li><a href="https://www.geeksforgeeks.org/dynamically-allocate-2d-array-c/">Dynamic 2-D arrays in C</a></li>
+  <li><a href="https://en.cppreference.com/w/c">C reference</a> on <em>cppreference.com</em></li>
+  <li><a href="https://en.wikipedia.org/wiki/Typedef">Typedef</a> (Wikipedia)</li>
+</ul>
+
+              </article>
+            </div>
+
+            <aside class="page-toc" data-toc hidden>
+              <div class="page-toc__inner">
+                <p class="page-toc__eyebrow">On this page</p>
+                <nav aria-label="Table of contents">
+                  <ol class="page-toc__list" data-toc-list></ol>
+                </nav>
+              </div>
+            </aside>
+          </div>
+        
+      </main>
+
+      <footer class="site-footer">
+        <div class="container site-footer__inner">
+          <div>
+            <strong>Computer Architecture and Operating Systems</strong>
+              <p>Course materials maintained on GitHub Pages for HSE Faculty of Computer Science.</p>
+          </div>
+          <div class="site-footer__links">
+            <a href="/hse-acos-course/">Home</a>
+              <a href="https://github.com/andrewt0301/hse-acos-course">Repository</a>
+            <a href="https://pages.github.com">GitHub Pages</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

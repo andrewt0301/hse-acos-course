@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lecture 9 | Computer Architecture and Operating Systems</title>
+    <meta name="description" content="Course taught at Faculty of Computer Science of Higher School of Economics">
+    <script>
+      (function () {
+        var root = document.documentElement;
+
+        try {
+          var savedTheme = localStorage.getItem("acos-theme");
+          var savedLanguage = localStorage.getItem("acos-language");
+          var theme = savedTheme || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          var language = savedLanguage || "en";
+
+          root.dataset.theme = theme === "dark" ? "dark" : "light";
+          root.dataset.language = language === "ru" ? "ru" : "en";
+          root.lang = language === "ru" ? "ru" : "en";
+        } catch (error) {
+          root.dataset.theme = "light";
+          root.dataset.language = "en";
+          root.lang = "en";
+        }
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/hse-acos-course/assets/css/style.css?v=20260321b">
+    <script defer src="/hse-acos-course/assets/js/site.js?v=20260321b"></script>
+  </head>
+  
+  
+  
+  
+  
+  
+  
+  
+  <body data-page-kind="lecture" data-section="ca" data-current-url="/part1ca/09_VM/lecture.html">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="site-bg">
+      <div class="site-grid"></div>
+    </div>
+
+    <div class="site-shell">
+      <header class="site-header" data-site-header>
+        <div class="container site-header__inner">
+          <a class="site-brand" href="/hse-acos-course/" aria-label="Computer Architecture and Operating Systems">
+            <span class="site-brand__mark" aria-hidden="true">ACOS</span>
+          </a>
+
+          <button class="site-nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+            <span>Menu</span>
+          </button>
+
+          <div class="site-header__panel" id="site-nav" data-nav-panel>
+            <nav class="site-nav" aria-label="Primary">
+              <ul class="site-nav__list">
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/" data-nav-link>Home</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/calendar_plan.html" data-nav-link>Calendar</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Assessment</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/exam_latest.html" data-nav-link>Exam</a>
+                          
+                            <a href="/hse-acos-course/grades.html" data-nav-link>Grades</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Resources</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/software.html" data-nav-link>Software</a>
+                          
+                            <a href="/hse-acos-course/books.html" data-nav-link>Textbooks</a>
+                          
+                            <a href="/hse-acos-course/courses.html" data-nav-link>Related Courses</a>
+                          
+                            <a href="/hse-acos-course/links.html" data-nav-link>Useful Links</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="https://github.com/andrewt0301/hse-acos-course" data-nav-link>GitHub</a>
+                    
+                  </li>
+                
+              </ul>
+            </nav>
+
+            <div class="site-preferences" aria-label="Site preferences">
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Theme</span>
+                <div class="site-preferences__switch" role="group" aria-label="Theme switch">
+                  <button type="button" data-theme-option="light" aria-pressed="false">Light</button>
+                  <button type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+                </div>
+              </div>
+
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Lang</span>
+                <div class="site-preferences__switch" role="group" aria-label="Language switch">
+                  <button type="button" data-language-option="en" aria-pressed="false">EN</button>
+                  <button type="button" data-language-option="ru" aria-pressed="false">RU</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="language-placeholder" data-language-placeholder hidden>
+        <div class="container language-placeholder__inner">
+          <div class="language-placeholder__copy">
+            <p class="language-placeholder__eyebrow">RU / Placeholder</p>
+            <strong>Русская версия пока в разработке</strong>
+            <p>Переключатель уже добавлен, но материалы и текущий интерфейс страниц пока остаются на английском. Полноценная локализация появится позже.</p>
+          </div>
+          <button class="language-placeholder__action" type="button" data-language-reset>Back to English</button>
+        </div>
+      </div>
+
+      <main id="main-content" class="site-main">
+        
+          <div class="container page-shell">
+            <div class="page-shell__main">
+              <nav class="breadcrumbs" aria-label="Breadcrumbs">
+                <ol>
+                  <li><a href="/hse-acos-course/">Home</a></li>
+                  
+                    <li><a href="/hse-acos-course/#computer-architecture">Computer Architecture</a></li>
+                  
+                  <li aria-current="page"><span data-breadcrumb-current>Lecture 9</span></li>
+                </ol>
+              </nav>
+
+              <article class="page-article" data-page-content>
+                <h2 id="lecture-9">Lecture 9</h2>
+
+<h1 id="virtual-memory">Virtual Memory</h1>
+
+<h2 id="lecture">Lecture</h2>
+
+<p>Slides (<a href="/hse-acos-course/part1ca/09_VM/CA_Lecture_09.pdf">PDF</a>, <a href="/hse-acos-course/part1ca/09_VM/CA_Lecture_09.pptx">PPTX</a>).</p>
+
+<h4 id="outline">Outline</h4>
+
+<ul>
+  <li>Virtual memory and physical memory</li>
+  <li>Virtual and physical addresses</li>
+  <li>Address translation and page table</li>
+  <li>Translation lookaside buffer (TLB)</li>
+</ul>
+
+<h4 id="examples">Examples</h4>
+
+<p><strong>Address sizes for various real CPUs:</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Architecture:             x86_64
+CPU op-mode(s):           32-bit, 64-bit
+Address sizes:            48 bits physical, 48 bits virtual
+Byte Order:               Little Endian
+CPU(s):                   24
+On-line CPU(s) list:      0-23
+Vendor ID:                AuthenticAMD
+Model name:               AMD Ryzen AI 9 HX 370 w/ Radeon 890M
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Architecture:             x86_64
+  CPU op-mode(s):         32-bit, 64-bit
+  Address sizes:          46 bits physical, 48 bits virtual
+  Byte Order:             Little Endian
+CPU(s):                   24
+  On-line CPU(s) list:    0-23
+Vendor ID:                GenuineIntel
+  Model name:             13th Gen Intel(R) Core(TM) i7-13700
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Architecture:             x86_64
+  CPU op-mode(s):         32-bit, 64-bit
+  Address sizes:          39 bits physical, 48 bits virtual
+  Byte Order:             Little Endian
+CPU(s):                   16
+  On-line CPU(s) list:    0-15
+Vendor ID:                GenuineIntel
+  Model name:             12th Gen Intel(R) Core(TM) i7-1260P
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Architecture:             x86_64
+  CPU op-mode(s):         32-bit, 64-bit
+  Address sizes:          39 bits physical, 48 bits virtual
+  Byte Order:             Little Endian
+CPU(s):                   8
+  On-line CPU(s) list:    0-7
+Vendor ID:                GenuineIntel
+  Model name:             Intel(R) Core(TM) i7-8665U CPU @ 1.90GHz
+</code></pre></div></div>
+
+<p>Modern CPUs are typically limited to 48-bit virtual addresses because this is more
+than enough for modern data volumes (<code class="language-plaintext highlighter-rouge">2**48</code> = 256 TB). Using 48 bits
+rather than 64 simplifies hardware (smaller cache tags and TLBs) and page tables.</p>
+
+<p><strong>Multi-level page tables (Intel)</strong></p>
+
+<p>4-level paging:</p>
+
+<p><img src="/hse-acos-course/part1ca/09_VM/intel-4-level-paging.png" alt="4-level paging" /></p>
+
+<p>5-level paging:</p>
+
+<p><img src="/hse-acos-course/part1ca/09_VM/intel-5-level-paging.png" alt="5-level paging" /></p>
+
+<p>How to known which paging option is enabled in Linux kernel?</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> /boot/config-<span class="si">$(</span><span class="nb">uname</span> <span class="nt">-r</span><span class="si">)</span> | <span class="nb">grep</span> <span class="nt">-E</span> <span class="s2">"X86_[45]LEVEL|PGTABLE_LEVELS"</span>
+<span class="nv">CONFIG_PGTABLE_LEVELS</span><span class="o">=</span>5
+<span class="nv">CONFIG_X86_5LEVEL</span><span class="o">=</span>y
+</code></pre></div></div>
+
+<p>Testing paging options with <code class="language-plaintext highlighter-rouge">mmap</code> (use file <a href="/hse-acos-course/part1ca/09_VM/va_128TBswitch.c">va_128TBswitch.c</a>):</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcc <span class="nt">-o</span> va_128 va_128TBswitch.c
+./va_128 
+mmap<span class="o">(</span>ADDR_SWITCH_HINT - PAGE_SIZE, PAGE_SIZE<span class="o">)</span>: 0x7d1622b74000 - OK
+mmap<span class="o">(</span>ADDR_SWITCH_HINT - PAGE_SIZE, <span class="o">(</span>2 <span class="k">*</span> PAGE_SIZE<span class="o">))</span>: 0x7d1622b73000 - OK
+mmap<span class="o">(</span>ADDR_SWITCH_HINT, PAGE_SIZE<span class="o">)</span>: 0x7d1622b74000 - OK
+mmap<span class="o">(</span>ADDR_SWITCH_HINT, 2 <span class="k">*</span> PAGE_SIZE, MAP_FIXED<span class="o">)</span>: 0xffffffffffffffff - FAILED
+mmap<span class="o">(</span>NULL<span class="o">)</span>: 0x7d1622b72000 - OK
+mmap<span class="o">(</span>LOW_ADDR<span class="o">)</span>: 0x40000000 - OK
+mmap<span class="o">(</span>HIGH_ADDR<span class="o">)</span>: 0x7d1622b72000 - OK
+mmap<span class="o">(</span>HIGH_ADDR<span class="o">)</span> again: 0x7d1622b70000 - OK
+mmap<span class="o">(</span>HIGH_ADDR, MAP_FIXED<span class="o">)</span>: 0xffffffffffffffff - FAILED
+mmap<span class="o">(</span><span class="nt">-1</span><span class="o">)</span>: 0x7d1622b6e000 - OK
+mmap<span class="o">(</span><span class="nt">-1</span><span class="o">)</span> again: 0x7d1622b6c000 - OK
+mmap<span class="o">(</span>ADDR_SWITCH_HINT - PAGE_SIZE, PAGE_SIZE<span class="o">)</span>: 0x7d1622b6d000 - OK
+mmap<span class="o">(</span>ADDR_SWITCH_HINT - PAGE_SIZE, 2 <span class="k">*</span> PAGE_SIZE<span class="o">)</span>: 0x7d1622b6c000 - OK
+mmap<span class="o">(</span>ADDR_SWITCH_HINT - PAGE_SIZE/2 , 2 <span class="k">*</span> PAGE_SIZE<span class="o">)</span>: 0x7d1622b6a000 - OK
+mmap<span class="o">(</span>ADDR_SWITCH_HINT, PAGE_SIZE<span class="o">)</span>: 0x7d1622b69000 - OK
+mmap<span class="o">(</span>ADDR_SWITCH_HINT, 2 <span class="k">*</span> PAGE_SIZE, MAP_FIXED<span class="o">)</span>: 0xffffffffffffffff - FAILED
+</code></pre></div></div>
+
+<p>OK at the end of each line indicates that all tests are successful and that 5-level paging is working correctly. If the <code class="language-plaintext highlighter-rouge">mmap</code> request with <code class="language-plaintext highlighter-rouge">MAP_FIXED</code> flags fails with <code class="language-plaintext highlighter-rouge">MAP_FAILED</code>
+(<code class="language-plaintext highlighter-rouge">0xffffffffffffffff</code>), 4-level paging is used.</p>
+
+<p><strong>What address types are used for caching?</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><em>Cache Level</em></td>
+      <td><em>Addressing Type</em></td>
+      <td><em>Explanation</em></td>
+    </tr>
+    <tr>
+      <td>L1 Cache</td>
+      <td>VIPT (Virtually Indexed, Physically Tagged)</td>
+      <td>It uses the virtual address for fast indexing while simultaneously performing a TLB lookup to get the physical tag. This allows cache access to start before the address translation is even finished.</td>
+    </tr>
+    <tr>
+      <td>L2 Cache</td>
+      <td>PIPT (Physically Indexed, Physically Tagged)</td>
+      <td>This level is addressed entirely by the physical address. It is more accurate for a larger cache but requires the virtual-to-physical translation to be complete before the search begins.</td>
+    </tr>
+    <tr>
+      <td>L3 Cache</td>
+      <td>PIPT (Physically Indexed, Physically Tagged)</td>
+      <td>Since L3 is shared across all cores (Smart Cache), it must use physical addresses to maintain consistency between different processes and cores.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>TLB configuration for i7-8665U</strong>:</p>
+
+<p>Each of the 4 cores has its own dedicated Level 1 TLB and shares a Level 2 TLB:</p>
+
+<ul>
+  <li>
+    <p>L1 Instruction TLB (iTLB):<br />
+4 KB Pages: 64 entries (8-way set associative).<br />
+2 MB / 4 MB Pages: 8 entries (fully associative).</p>
+  </li>
+  <li>
+    <p>L1 Data TLB (dTLB):<br />
+4 KB Pages: 64 entries (4-way set associative).<br />
+2 MB / 4 MB Pages: 32 entries (4-way set associative).<br />
+1 GB Pages: 4 entries (4-way set associative).</p>
+  </li>
+  <li>
+    <p>L2 Shared TLB (STLB):<br />
+Large Unified Buffer: 1,536 entries (12-way set associative).<br />
+This buffer is shared between instructions and data to catch L1 misses. It typically supports 4 KB and 2 MB page sizes.</p>
+  </li>
+</ul>
+
+<h2 id="workshop">Workshop</h2>
+
+<h4 id="outline-1">Outline</h4>
+
+<ul>
+  <li>Memory configuration (check in different machines)</li>
+  <li>Memory layout (RISC-V)</li>
+  <li>System calls (pactical tasks)</li>
+</ul>
+
+<h5 id="memory-layout-in-rars">Memory layout in RARS</h5>
+
+<p><img src="/hse-acos-course/part1ca/09_VM/memory.png" alt="Memory Layout" /></p>
+
+<h5 id="system-calls-in-rars">System calls in RARS</h5>
+
+<p><img src="/hse-acos-course/part1ca/09_VM/syscall.png" alt="System call" /></p>
+
+<p><em>System calls</em> are actions requested by user code and serviced by the environment (operating system).
+The environment executes the service code in kernel mode (has full access to all resources).
+This code handles interaction with a specific device and its driver and returns control back to the user.</p>
+
+<h6 id="standard-provided-in-all-os-system-calls-supported-by-rars">Standard (provided in all OS) system calls supported by RARS:</h6>
+
+<ol>
+  <li>
+    <p><strong>open</strong> (1024): opens a file with the specified path<br />
+<em>Input</em>: <code class="language-plaintext highlighter-rouge">a0</code> = Null terminated string for the path, <code class="language-plaintext highlighter-rouge">a1</code> = flags<br />
+<em>Output</em>: <code class="language-plaintext highlighter-rouge">a0</code> = the file descriptor or -1 if an error occurred<br />
+<em>Supported flags</em>: <em>read-only</em> (0), <em>write-only</em> (1), and <em>write-append</em> (9).
+The <em>write-only</em> flag creates a file if it does not exist, so it is technically <em>write-create</em>.
+The <em>write-append</em> flag will start writing at end of an existing file.</p>
+  </li>
+  <li>
+    <p><strong>close</strong> (57): closes a file<br />
+<em>Input</em>: <code class="language-plaintext highlighter-rouge">a0</code> = the file descriptor to close<br />
+<em>Output</em>: N/A</p>
+  </li>
+  <li>
+    <p><strong>read</strong> (63): reads from a file descriptor into a buffer<br />
+<em>Input</em>: <code class="language-plaintext highlighter-rouge">a0</code> = the file descriptor, <code class="language-plaintext highlighter-rouge">a1</code> = address of the buffer, <code class="language-plaintext highlighter-rouge">a2</code> = maximum length to read.<br />
+<em>Output</em>: <code class="language-plaintext highlighter-rouge">a0</code> = the length read or -1 if error.</p>
+  </li>
+  <li>
+    <p><strong>write</strong> (64): writes to a file from a buffer<br />
+<em>Input</em>: <code class="language-plaintext highlighter-rouge">a0</code> = the file descriptor, <code class="language-plaintext highlighter-rouge">a1</code> = the buffer address, <code class="language-plaintext highlighter-rouge">a2</code> = the length to write.<br />
+<em>Output</em>: <code class="language-plaintext highlighter-rouge">a0</code> = the number of characters written.</p>
+  </li>
+  <li>
+    <p><strong>sbrk</strong> (9): allocates heap memory<br />
+<em>Input</em>: <code class="language-plaintext highlighter-rouge">a0</code> = amount of memory in bytes<br />
+<em>Output</em>: <code class="language-plaintext highlighter-rouge">a0</code> = address to the allocated block</p>
+  </li>
+</ol>
+
+<h5 id="examples-1">Examples</h5>
+
+<ul>
+  <li><a href="/hse-acos-course/part1ca/09_VM/file_write.s">file_write.s</a> - writing text to a file</li>
+  <li><a href="/hse-acos-course/part1ca/09_VM/file_read.s">file_read.s</a> - reading text from a file</li>
+  <li><a href="/hse-acos-course/part1ca/09_VM/heap_alloc.s">heap_alloc.s</a> - allocating memory in the heap</li>
+</ul>
+
+<h4 id="tasks">Tasks</h4>
+
+<ol>
+  <li>(<em>VM</em>) Consider a virtual memory system that can address a total of 32 GB (<code class="language-plaintext highlighter-rouge">2**35</code> bytes).
+You have unlimited hard drive space, but are limited to 2 GB (<code class="language-plaintext highlighter-rouge">2**31</code> bytes) of semiconductor  (physical) memory. Assume that virtual and physical pages are each 4 KB (<code class="language-plaintext highlighter-rouge">2**12</code> bytes) in size.
+    <ul>
+      <li>How many bits is the physical address?</li>
+      <li>What is the maximum number of virtual pages in the system?</li>
+      <li>How many physical pages are in the system?</li>
+      <li>How many bits are the virtual and physical page numbers?</li>
+      <li>How many page table entries will the page table contain?</li>
+    </ul>
+  </li>
+  <li>(<em>Syscalls</em>) Write a program that creates a copy of the specified file. Input arguments:
+    <ul>
+      <li>The name of the source and target files are read from the standard input (use system call 8).</li>
+      <li>The buffer to store data being copied is allocated in the heap (use system call 9).
+The buffer size is specified in standard input.</li>
+      <li>Buffers for storing source and target names are also allocated in the heap (their size is 256 bytes).</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="homework">Homework</h2>
+
+<p><em>NOTE: Need to cover <a href="/hse-acos-course/part1ca/11_Exceptions/lecture.html">exceptions</a> first to be able to solve this task.</em></p>
+
+<p>Solve the following tasks and submit them into Ejudge:</p>
+
+<ol>
+  <li><a href="/hse-acos-course/part1ca/09_VM/pseudovm.html">PseudoVM</a></li>
+</ol>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li>Virtual Memory. Section 8.4 in <a href="/hse-acos-course/books.html#ddca">[DDCA]</a>.</li>
+  <li>Large and Fast: Exploiting Memory Hierarchy. Chapter 5 in <a href="/hse-acos-course/books.html#codr">[CODR]</a>.</li>
+  <li>Virtual Memory. Chapted 9 in <a href="/hse-acos-course/books.html#cspp">[CSPP]</a>.</li>
+  <li>Ulrich Drepper. <a href="https://github.com/andrewt0301/hse-acos-course/blob/master/related/cpumemory.pdf">What Every Programmer Should Know About Memory</a>.</li>
+  <li><a href="https://en.wikipedia.org/wiki/Translation_lookaside_buffer">Translation lookaside buffer</a> (Wikipedia).</li>
+  <li><a href="https://en.wikipedia.org/wiki/Intel_5-level_paging">Intel 5-level paging</a> (Wikipedia).</li>
+  <li>Intel. <a href="/hse-acos-course/part1ca/09_VM/intel-5-level-paging-white-paper.pdf">5-Level Paging and 5-Level EPT</a>.
+White Paper. Revision 1.1. 2017.</li>
+  <li>Intel. <a href="/hse-acos-course/part1ca/09_VM/intel-system-manual.pdf">Intel® 64 and IA-32 Architectures Software Developer’s Manual Volume 3: System Programming Guide</a>. Chapter 4. Paging. 2022.</li>
+  <li>Intel. <a href="/hse-acos-course/part1ca/09_VM/intel-isa-manual.pdf">Intel® 64 and IA-32 Architectures Software Developer’s Manual</a>.
+2024.</li>
+  <li>Lenovo. <a href="lenovo-paging.pdf">Introduction to 5-Level Paging in 3rd Gen Intel Xeon Scalable Processors with Linux</a>. 2021.</li>
+</ul>
+
+              </article>
+            </div>
+
+            <aside class="page-toc" data-toc hidden>
+              <div class="page-toc__inner">
+                <p class="page-toc__eyebrow">On this page</p>
+                <nav aria-label="Table of contents">
+                  <ol class="page-toc__list" data-toc-list></ol>
+                </nav>
+              </div>
+            </aside>
+          </div>
+        
+      </main>
+
+      <footer class="site-footer">
+        <div class="container site-footer__inner">
+          <div>
+            <strong>Computer Architecture and Operating Systems</strong>
+              <p>Course materials maintained on GitHub Pages for HSE Faculty of Computer Science.</p>
+          </div>
+          <div class="site-footer__links">
+            <a href="/hse-acos-course/">Home</a>
+              <a href="https://github.com/andrewt0301/hse-acos-course">Repository</a>
+            <a href="https://pages.github.com">GitHub Pages</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

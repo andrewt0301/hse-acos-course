@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Workshop: Shell Scripts | Computer Architecture and Operating Systems</title>
+    <meta name="description" content="Course taught at Faculty of Computer Science of Higher School of Economics">
+    <script>
+      (function () {
+        var root = document.documentElement;
+
+        try {
+          var savedTheme = localStorage.getItem("acos-theme");
+          var savedLanguage = localStorage.getItem("acos-language");
+          var theme = savedTheme || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          var language = savedLanguage || "en";
+
+          root.dataset.theme = theme === "dark" ? "dark" : "light";
+          root.dataset.language = language === "ru" ? "ru" : "en";
+          root.lang = language === "ru" ? "ru" : "en";
+        } catch (error) {
+          root.dataset.theme = "light";
+          root.dataset.language = "en";
+          root.lang = "en";
+        }
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/hse-acos-course/assets/css/style.css?v=20260321b">
+    <script defer src="/hse-acos-course/assets/js/site.js?v=20260321b"></script>
+  </head>
+  
+  
+  
+  
+  
+  
+  
+  
+  <body data-page-kind="lecture" data-section="os" data-current-url="/part2os/06_Processes/bash.html">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="site-bg">
+      <div class="site-grid"></div>
+    </div>
+
+    <div class="site-shell">
+      <header class="site-header" data-site-header>
+        <div class="container site-header__inner">
+          <a class="site-brand" href="/hse-acos-course/" aria-label="Computer Architecture and Operating Systems">
+            <span class="site-brand__mark" aria-hidden="true">ACOS</span>
+          </a>
+
+          <button class="site-nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+            <span>Menu</span>
+          </button>
+
+          <div class="site-header__panel" id="site-nav" data-nav-panel>
+            <nav class="site-nav" aria-label="Primary">
+              <ul class="site-nav__list">
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/" data-nav-link>Home</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/calendar_plan.html" data-nav-link>Calendar</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Assessment</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/exam_latest.html" data-nav-link>Exam</a>
+                          
+                            <a href="/hse-acos-course/grades.html" data-nav-link>Grades</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Resources</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/software.html" data-nav-link>Software</a>
+                          
+                            <a href="/hse-acos-course/books.html" data-nav-link>Textbooks</a>
+                          
+                            <a href="/hse-acos-course/courses.html" data-nav-link>Related Courses</a>
+                          
+                            <a href="/hse-acos-course/links.html" data-nav-link>Useful Links</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="https://github.com/andrewt0301/hse-acos-course" data-nav-link>GitHub</a>
+                    
+                  </li>
+                
+              </ul>
+            </nav>
+
+            <div class="site-preferences" aria-label="Site preferences">
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Theme</span>
+                <div class="site-preferences__switch" role="group" aria-label="Theme switch">
+                  <button type="button" data-theme-option="light" aria-pressed="false">Light</button>
+                  <button type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+                </div>
+              </div>
+
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Lang</span>
+                <div class="site-preferences__switch" role="group" aria-label="Language switch">
+                  <button type="button" data-language-option="en" aria-pressed="false">EN</button>
+                  <button type="button" data-language-option="ru" aria-pressed="false">RU</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="language-placeholder" data-language-placeholder hidden>
+        <div class="container language-placeholder__inner">
+          <div class="language-placeholder__copy">
+            <p class="language-placeholder__eyebrow">RU / Placeholder</p>
+            <strong>Русская версия пока в разработке</strong>
+            <p>Переключатель уже добавлен, но материалы и текущий интерфейс страниц пока остаются на английском. Полноценная локализация появится позже.</p>
+          </div>
+          <button class="language-placeholder__action" type="button" data-language-reset>Back to English</button>
+        </div>
+      </div>
+
+      <main id="main-content" class="site-main">
+        
+          <div class="container page-shell">
+            <div class="page-shell__main">
+              <nav class="breadcrumbs" aria-label="Breadcrumbs">
+                <ol>
+                  <li><a href="/hse-acos-course/">Home</a></li>
+                  
+                    <li><a href="/hse-acos-course/#operating-systems">Operating Systems</a></li>
+                  
+                  <li aria-current="page"><span data-breadcrumb-current>Workshop: Shell Scripts</span></li>
+                </ol>
+              </nav>
+
+              <article class="page-article" data-page-content>
+                <h2 id="workshop-shell-scripts">Workshop: Shell Scripts</h2>
+
+<p><a href="https://en.wikipedia.org/wiki/Shell_script">Shell</a> allows creating simple scripts
+that run various Linux system utilities and connect them.
+So, it is possible to automate solving tasks related to managing system resources.</p>
+
+<p>From a practical point of view, a Shell script is an executable text file that can be run with a command like this:
+<code class="language-plaintext highlighter-rouge">interpreter script_file</code> (e.g. <code class="language-plaintext highlighter-rouge">sh script</code>).</p>
+
+<p>Also, there is a special marker «shebang» (<code class="language-plaintext highlighter-rouge">#!/bin/sh</code>) that specifies the interpreter to be used to run the file.
+It is placed to the first line of a script. Then the script is given the “execute” permission (<code class="language-plaintext highlighter-rouge">chmod +x script</code>).
+After that the script can be run simply like this:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~<span class="nv">$ </span>./script
+</code></pre></div></div>
+
+<p>Also, it is possible to run a Shell script from any directory if its directory is added to the <code class="language-plaintext highlighter-rouge">$PATH</code> variable.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~<span class="nv">$ </span><span class="nb">export  </span><span class="nv">PATH</span><span class="o">=</span>directory_with_script:<span class="nv">$PATH</span>
+</code></pre></div></div>
+
+<p>After this the script can be called from directory in the following way:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~<span class="nv">$ </span>script
+</code></pre></div></div>
+
+<h2 id="examples-and-tasks">Examples and Tasks</h2>
+
+<h3 id="input-and-output">Input and Output</h3>
+
+<p>This script reads text into the <code class="language-plaintext highlighter-rouge">A</code> variable from the console (standard input) and then prints it back to the console.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+
+<span class="nb">read </span>A
+<span class="nb">echo</span> <span class="s2">"</span><span class="nv">$A</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<p>The script below reads the user name from the standard input and greats
+the user with a message containing the user name and the information about the system
+(returned by the <a href="https://man7.org/linux/man-pages/man1/uname.1.html">uname</a> utility).</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+
+<span class="nb">read </span>A
+<span class="nv">Sys</span><span class="o">=</span><span class="sb">`</span><span class="nb">uname</span><span class="sb">`</span>
+
+<span class="nb">echo</span> <span class="s2">"Hello, </span><span class="nv">$A</span><span class="s2">!
+Welcome to </span><span class="nv">$Sys</span><span class="s2">!"</span>
+</code></pre></div></div>
+
+<h4 id="task-01">Task 01:</h4>
+
+<p>Modify the previous program to get the user name from system instead of reading the input.
+Use the <a href="https://man7.org/linux/man-pages/man1/whoami.1.html">whoami</a> utility to get the user name.</p>
+
+<h4 id="task-02">Task 02:</h4>
+
+<p>Modify the previous program to store the message to be printed in a macro variable called <code class="language-plaintext highlighter-rouge">Msg</code>.
+Pass the variable to the <a href="https://man7.org/linux/man-pages/man1/echo.1.html">echo</a> utility.</p>
+
+<h3 id="command-line-arguments">Command-Line Arguments</h3>
+
+<p>This script demonstrates the use of special symbols to access
+command-line arguments passed to the interpreter.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+
+<span class="c"># $1, $2 … — command line argument 1, 2 ...</span>
+<span class="c"># $0 — name of the script itself</span>
+<span class="c"># $* — all command line arguments</span>
+<span class="c"># $# — number of command line arguments so</span>
+
+<span class="nb">echo</span> <span class="s2">"</span><span class="nv">$0</span><span class="s2">"</span>
+<span class="nb">echo</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
+
+<span class="c"># ...</span>
+
+<span class="nb">echo</span> <span class="s2">"</span><span class="nv">$*</span><span class="s2">"</span>
+<span class="nb">echo</span> <span class="s2">"$#"</span>
+</code></pre></div></div>
+
+<h3 id="conditions-and-exit-status">Conditions and Exit Status</h3>
+
+<p>When a utility is called from a Shell script, it is possible to interpret its exit status in a conditional expression.
+For example, the script below calls the <a href="https://man7.org/linux/man-pages/man1/ls.1.html">ls</a> utility and prints
+“YES” only if its status code is successful.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+
+<span class="k">if </span><span class="nb">ls</span> <span class="nv">$*</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo </span>YES
+<span class="k">else
+    </span><span class="nb">echo </span>NO <span class="nv">$?</span>
+<span class="k">fi</span>
+</code></pre></div></div>
+
+<p>The script below redirects the output of the <a href="https://man7.org/linux/man-pages/man1/ls.1.html">ls</a> utility and
+prints it only if the status code of the utility is successful.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+
+<span class="k">if </span><span class="nb">ls</span> <span class="nv">$*</span> <span class="nt">-I</span> out <span class="o">&gt;</span> out<span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo </span>YES
+    <span class="nb">cat </span>out
+    <span class="nb">rm</span> <span class="nt">-f</span> out
+<span class="k">else
+    </span><span class="nb">echo </span>NO <span class="nv">$?</span>
+<span class="k">fi</span>
+</code></pre></div></div>
+
+<p>Using <code class="language-plaintext highlighter-rouge">2&gt; /dev/null</code> to redirect error messages out of a terminal:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~<span class="nv">$ </span><span class="nb">ls </span>nofile
+<span class="nb">ls</span>: cannot access <span class="s1">'nofile'</span>: No such file or directory
+acos@acos-vm:~<span class="nv">$ </span><span class="nb">ls </span>nofile 2&gt; err
+acos@acos-vm:~<span class="nv">$ </span><span class="nb">cat </span>err
+<span class="nb">ls</span>: cannot access <span class="s1">'nofile'</span>: No such file or directory
+acos@acos-vm:~<span class="err">$</span>
+</code></pre></div></div>
+
+<h4 id="task-03">Task 03:</h4>
+
+<p>Rewrite the previous example so that it:</p>
+<ul>
+  <li>outputs the content of <code class="language-plaintext highlighter-rouge">ls</code> after «YES» message if <code class="language-plaintext highlighter-rouge">ls</code> is successful;</li>
+  <li>does not to output an error message if <code class="language-plaintext highlighter-rouge">ls</code> is not successful.</li>
+</ul>
+
+<h3 id="advanced-shell-features">Advanced Shell Features</h3>
+
+<p>The Shell language has features common for many programming languages such as conditions, loops, and functions.
+For example the script below enumerates over a collection of values:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+
+<span class="k">for </span>n <span class="k">in </span>1 2 3 10 20 30 qwe asd xcv<span class="p">;</span> <span class="k">do
+    </span><span class="nb">echo</span> <span class="s2">"Next value </span><span class="nv">$n</span><span class="s2">"</span>
+<span class="k">done</span>
+</code></pre></div></div>
+
+<p>The script below defines a function that enumerates over a collection of its arguments. 
+Arguments of a function are accessed using special symbols in the same way as arguments of the Shell script.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+
+fun<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">"</span><span class="nv">$0</span><span class="s2">: </span><span class="nv">$# $*</span><span class="s2">"</span>
+    <span class="k">for </span>arg<span class="p">;</span> <span class="k">do
+        </span><span class="nb">echo</span> <span class="s2">"&gt; </span><span class="nv">$arg</span><span class="s2">"</span>
+    <span class="k">done</span>
+<span class="o">}</span>
+
+fun 1 QWE <span class="s2">"3 4"</span>
+fun <span class="s2">"</span><span class="nv">$*</span><span class="s2">"</span>
+fun  <span class="nv">$*</span>
+fun <span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<h4 id="task-04">Task 04:</h4>
+
+<p>Create a program with the following structure:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+
+<span class="nb">sum</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c"># insert your code here</span>
+<span class="o">}</span>
+
+<span class="k">while </span><span class="nb">read </span>a b<span class="p">;</span> <span class="k">do
+    </span><span class="nb">sum</span> <span class="nv">$a</span> <span class="nv">$b</span>
+<span class="k">done</span>
+</code></pre></div></div>
+<p>Then do the following:</p>
+<ul>
+  <li>Note how <code class="language-plaintext highlighter-rouge">read var1 var2 … varN</code> works.</li>
+  <li>Read documentation on <a href="https://man7.org/linux/man-pages/man1/expr.1.html">expr</a>
+and improve the program so that it prints the sum of <code class="language-plaintext highlighter-rouge">$a</code> and <code class="language-plaintext highlighter-rouge">$b</code>.</li>
+  <li>Assume that the input is always correct.</li>
+</ul>
+
+<h2 id="homework">Homework</h2>
+
+<ol>
+  <li>Experiments with the <code class="language-plaintext highlighter-rouge">read</code> builtin command.
+    <ul>
+      <li>Research: What exit status the command <code class="language-plaintext highlighter-rouge">read</code> generates? Try it.
+Consult <a href="https://www.gnu.org/software/bash/manual/bash.html#index-read">help read</a>
+command instead of <code class="language-plaintext highlighter-rouge">man read</code>, because <code class="language-plaintext highlighter-rouge">read</code> is a Shell builtin and you got manual page on <em>all</em> Shell builtins.</li>
+      <li>Research: How to suppress «<code class="language-plaintext highlighter-rouge">\n</code>» output after <a href="https://man7.org/linux/man-pages/man1/echo.1.html">echo</a>?</li>
+      <li>
+        <p>Task: Write a script that asks user for name,
+and prints a welcome message either if a user has entered a name or not:</p>
+
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./c8
+Enter your name: Spot
+Hello, Spot!
+<span class="nv">$ </span>./c8
+Enter your name:
+Hello, tmpuser?
+</code></pre></div>        </div>
+      </li>
+      <li>Hint: In second example user had <strong>not</strong> pressed «Enter»</li>
+    </ul>
+  </li>
+  <li>
+    <p>Read documentation on <a href="https://man7.org/linux/man-pages/man1/expr.1.html">expr</a> again.
+Write Shell script <code class="language-plaintext highlighter-rouge">sumsum.sh</code> that:</p>
+
+    <ul>
+      <li>has function <code class="language-plaintext highlighter-rouge">sum()</code> that:
+        <ul>
+          <li>sums all of its arguments (any number of arguments is permitted);</li>
+          <li>returns this sum if there are no errors;</li>
+          <li>returns <code class="language-plaintext highlighter-rouge">0</code> if there was an error (e.g. attempt to sum non-numbers);</li>
+        </ul>
+      </li>
+      <li>redirects all error messages to <code class="language-plaintext highlighter-rouge">/dev/null</code>;</li>
+      <li>reads two lines of numbers;</li>
+      <li>prints whether their sums was equal or not (<code class="language-plaintext highlighter-rouge">0</code> values as a result of errors are considered equal).</li>
+    </ul>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./sumsum.sh
+1 3 5
+2 4 6
+Not equal
+<span class="nv">$ </span>./sumsum.sh
+1 5 6
+4 4 4
+Equal
+<span class="nv">$ </span>./sumsum.sh
+1 2 w
+3 4 e
+Equal
+<span class="nv">$ </span>./sumsum.sh
+1 2 1
+2 2 Q
+Not equal
+<span class="nv">$ </span>./sumsum.sh
+qwe 3 4
+10 20 <span class="nt">-30</span>
+Equal
+</code></pre></div>    </div>
+
+    <p><em>Hint</em>: errors can be checked using the <code class="language-plaintext highlighter-rouge">$?</code> symbol (status of the last command, must be 0 if successful).</p>
+  </li>
+</ol>
+
+<p>Commit the programs to your private GitHub account. Place them into the folder <code class="language-plaintext highlighter-rouge">os/lab03</code>.</p>
+
+<h1 id="references">References</h1>
+
+<ul>
+  <li>Chapters 8 and 10. <a href="/hse-acos-course/books.html">[PGLC]</a> Mark G. Sobell, Matthew Helmke.
+<a href="https://www.pearson.com/store/p/practical-guide-to-linux-commands-editors-and-shell-programming-a/P100000878019/9780134774602">Practical Guide to Linux Commands, Editors, and Shell Programming.</a>
+4th Edition. 2018.</li>
+</ul>
+
+              </article>
+            </div>
+
+            <aside class="page-toc" data-toc hidden>
+              <div class="page-toc__inner">
+                <p class="page-toc__eyebrow">On this page</p>
+                <nav aria-label="Table of contents">
+                  <ol class="page-toc__list" data-toc-list></ol>
+                </nav>
+              </div>
+            </aside>
+          </div>
+        
+      </main>
+
+      <footer class="site-footer">
+        <div class="container site-footer__inner">
+          <div>
+            <strong>Computer Architecture and Operating Systems</strong>
+              <p>Course materials maintained on GitHub Pages for HSE Faculty of Computer Science.</p>
+          </div>
+          <div class="site-footer__links">
+            <a href="/hse-acos-course/">Home</a>
+              <a href="https://github.com/andrewt0301/hse-acos-course">Repository</a>
+            <a href="https://pages.github.com">GitHub Pages</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

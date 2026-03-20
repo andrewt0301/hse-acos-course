@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Textbooks | Computer Architecture and Operating Systems</title>
+    <meta name="description" content="Course taught at Faculty of Computer Science of Higher School of Economics">
+    <script>
+      (function () {
+        var root = document.documentElement;
+
+        try {
+          var savedTheme = localStorage.getItem("acos-theme");
+          var savedLanguage = localStorage.getItem("acos-language");
+          var theme = savedTheme || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          var language = savedLanguage || "en";
+
+          root.dataset.theme = theme === "dark" ? "dark" : "light";
+          root.dataset.language = language === "ru" ? "ru" : "en";
+          root.lang = language === "ru" ? "ru" : "en";
+        } catch (error) {
+          root.dataset.theme = "light";
+          root.dataset.language = "en";
+          root.lang = "en";
+        }
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/hse-acos-course/assets/css/style.css?v=20260321b">
+    <script defer src="/hse-acos-course/assets/js/site.js?v=20260321b"></script>
+  </head>
+  
+  
+  
+  
+  
+  
+  
+  
+  <body data-page-kind="books" data-section="resources" data-current-url="/books.html">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="site-bg">
+      <div class="site-grid"></div>
+    </div>
+
+    <div class="site-shell">
+      <header class="site-header" data-site-header>
+        <div class="container site-header__inner">
+          <a class="site-brand" href="/hse-acos-course/" aria-label="Computer Architecture and Operating Systems">
+            <span class="site-brand__mark" aria-hidden="true">ACOS</span>
+          </a>
+
+          <button class="site-nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+            <span>Menu</span>
+          </button>
+
+          <div class="site-header__panel" id="site-nav" data-nav-panel>
+            <nav class="site-nav" aria-label="Primary">
+              <ul class="site-nav__list">
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/" data-nav-link>Home</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/calendar_plan.html" data-nav-link>Calendar</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Assessment</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/exam_latest.html" data-nav-link>Exam</a>
+                          
+                            <a href="/hse-acos-course/grades.html" data-nav-link>Grades</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Resources</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/software.html" data-nav-link>Software</a>
+                          
+                            <a href="/hse-acos-course/books.html" data-nav-link>Textbooks</a>
+                          
+                            <a href="/hse-acos-course/courses.html" data-nav-link>Related Courses</a>
+                          
+                            <a href="/hse-acos-course/links.html" data-nav-link>Useful Links</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="https://github.com/andrewt0301/hse-acos-course" data-nav-link>GitHub</a>
+                    
+                  </li>
+                
+              </ul>
+            </nav>
+
+            <div class="site-preferences" aria-label="Site preferences">
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Theme</span>
+                <div class="site-preferences__switch" role="group" aria-label="Theme switch">
+                  <button type="button" data-theme-option="light" aria-pressed="false">Light</button>
+                  <button type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+                </div>
+              </div>
+
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Lang</span>
+                <div class="site-preferences__switch" role="group" aria-label="Language switch">
+                  <button type="button" data-language-option="en" aria-pressed="false">EN</button>
+                  <button type="button" data-language-option="ru" aria-pressed="false">RU</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="language-placeholder" data-language-placeholder hidden>
+        <div class="container language-placeholder__inner">
+          <div class="language-placeholder__copy">
+            <p class="language-placeholder__eyebrow">RU / Placeholder</p>
+            <strong>Русская версия пока в разработке</strong>
+            <p>Переключатель уже добавлен, но материалы и текущий интерфейс страниц пока остаются на английском. Полноценная локализация появится позже.</p>
+          </div>
+          <button class="language-placeholder__action" type="button" data-language-reset>Back to English</button>
+        </div>
+      </div>
+
+      <main id="main-content" class="site-main">
+        
+          <div class="container page-shell">
+            <div class="page-shell__main">
+              <nav class="breadcrumbs" aria-label="Breadcrumbs">
+                <ol>
+                  <li><a href="/hse-acos-course/">Home</a></li>
+                  
+                    <li><a href="/hse-acos-course/#related-materials">Related Materials</a></li>
+                  
+                  <li aria-current="page"><span data-breadcrumb-current>Textbooks</span></li>
+                </ol>
+              </nav>
+
+              <article class="page-article" data-page-content>
+                <h2 id="textbooks">Textbooks</h2>
+
+<p>Here is the list of textbooks that contain materials related to this course.
+Books in the <strong>primary</strong> section are used as a main source of material.
+Books in the <strong>additional</strong> sections contain additional useful information.
+Some course topics are based on other external material, which will be provided in lectures.</p>
+
+<h2 id="computer-architecture">Computer Architecture</h2>
+
+<h3 id="primary">Primary</h3>
+
+<ul>
+  <li>
+    <h5 id="codr">[CODR]</h5>
+    <p>David A. Patterson, John L. Hennessy.
+<a href="https://shop.elsevier.com/books/computer-organization-and-design-risc-v-edition/patterson/978-0-12-820331-6">Computer Organization and Design RISC-V Edition: The Hardware Software Interface.</a>
+Online materials are <a href="https://www.elsevier.com/books-and-journals/book-companion/9780128203316">here</a>.
+2st Edition. 2020.</p>
+
+    <p><img src="images/codr.jpg" width="150" /></p>
+  </li>
+  <li>
+    <h5 id="ddca">[DDCA]</h5>
+    <p>David Harris, Sarah Harris.
+<a href="https://www.elsevier.com/books/digital-design-and-computer-architecture/harris/978-0-12-820064-3">Digital Design and Computer Architecture: RISC-V Edition.</a>
+Online materials are <a href="https://www.elsevier.com/books-and-journals/book-companion/9780128200643">here</a>.
+1st Edition. 2021.</p>
+
+    <p><img src="images/ddca.jpg" width="150" /></p>
+  </li>
+  <li>
+    <h5 id="cspp">[CSPP]</h5>
+    <p>Randal E. Bryant, David R. O’Hallaron.
+<a href="https://www.pearson.com/us/higher-education/product/Bryant-Computer-Systems-A-Programmer-s-Perspective-3rd-Edition/9780134092669.html">Computer Systems: A Programmer’s Perspective.</a>
+Online materials are <a href="http://csapp.cs.cmu.edu/3e/home.html">here</a>.
+3rd Edition. 2015.</p>
+
+    <p><img src="images/cspp.jpg" width="150" /></p>
+  </li>
+  <li>
+    <h5 id="iapr">[IAPR]</h5>
+    <p>Edson Borin.
+<a href="https://riscv-programming.org/book/riscv-book.html">An Introduction to Assembly Programming with RISC-V.</a> Online book.</p>
+
+    <p><img src="images/iarp.jpg" width="150" /></p>
+  </li>
+</ul>
+
+<h3 id="additional">Additional</h3>
+
+<ul>
+  <li>
+    <h5 id="sco">[SCO]</h5>
+    <p>Andrew S. Tanenbaum, Todd Austin.
+<a href="https://www.pearson.com/uk/educators/higher-education-educators/program/Tanenbaum-Structured-Computer-Organization-International-Edition-6th-Edition/PGM1038737.html">Structured Computer Organization.</a>
+6th Edition. 2013.</p>
+
+    <p><img src="images/sco.jpg" width="150" /></p>
+  </li>
+  <li>
+    <h4 id="coa">[COA]</h4>
+    <p>William Stallings.
+<a href="https://www.pearson.com/en-gb/subject-catalog/p/computer-organization-and-architecture-global-edition/P200000005473/9781292420080?srsltid=AfmBOopqxRvsU0R670EGIONbGw6urhjnwFiup5SJWOkJIhPzLCM2MESC">Computer Organization and Architecture.</a>
+11th Edition. 2022.</p>
+
+    <p><img src="images/coa.jpg" width="150" /></p>
+  </li>
+  <li>
+    <h5 id="caqa">[CAQA]</h5>
+    <p>John L. Hennessy David A. Patterson.
+<a href="https://www.elsevier.com/books/computer-architecture/hennessy/978-0-12-811905-1">Computer Architecture: A Quantitative Approach.</a>
+Online materials are <a href="https://www.elsevier.com/books-and-journals/book-companion/9780128119051">here</a>.
+6th Edition. 2017.</p>
+
+    <p><img src="images/caqa.jpg" width="150" /></p>
+  </li>
+  <li>
+    <h5 id="ddca-1">[DDCA]</h5>
+    <p>David Harris, Sarah Harris.
+<a href="https://www.elsevier.com/books/digital-design-and-computer-architecture/harris/978-0-12-394424-5">Digital Design and Computer Architecture.</a>
+Online materials are <a href="https://booksite.elsevier.com/9780123944245">here</a>.
+2nd Edition. 2012.</p>
+  </li>
+  <li>
+    <h5 id="ddcaa">[DDCAA]</h5>
+    <p>David Harris, Sarah Harris.
+<a href="https://dl.acm.org/doi/book/10.5555/2815529">Digital Design and Computer Architecture: ARM Edition.</a>
+Online materials are <a href="https://booksite.elsevier.com/9780128000564/index.php">here</a>.
+2015.</p>
+  </li>
+  <li>
+    <h5 id="coda">[CODA]</h5>
+    <p>David A. Patterson, John L. Hennessy.
+<a href="https://www.elsevier.com/books/computer-organization-and-design-arm-edition/patterson/978-0-12-801733-3">Computer Organization and Design ARM Edition: The Hardware Software Interface.</a>
+1st Edition. 2016.</p>
+  </li>
+  <li>
+    <h5 id="codm">[CODM]</h5>
+    <p>David A. Patterson, John L. Hennessy.
+<a href="https://www.elsevier.com/books/computer-organization-and-design-mips-edition/patterson/978-0-12-407726-3">Computer Organization and Design MIPS Edition: The Hardware Software Interface.</a>
+5th Edition. 2013.</p>
+  </li>
+  <li>
+    <h5 id="parl">[PARL]</h5>
+    <p>Paul E. McKenney.
+<a href="https://www.kernel.org/pub/linux/kernel/people/paulmck/perfbook/perfbook.html">Is Parallel Programming Hard, And, If So, What Can You Do About It?</a>. 2024.</p>
+  </li>
+</ul>
+
+<h2 id="operating-systems">Operating Systems</h2>
+
+<h3 id="primary-1">Primary</h3>
+
+<ul>
+  <li>
+    <h5 id="comet">[COMET]</h5>
+    <p>Remzi H. Arpaci-Dusseau and Andrea C. Arpaci-Dusseau.
+<a href="https://pages.cs.wisc.edu/~remzi/OSTEP/">Operating Systems: Three Easy Pieces.</a>
+2018.</p>
+
+    <p><img src="images/comet.jpg" width="150" /></p>
+  </li>
+  <li>
+    <h5 id="tlpi">[TLPI]</h5>
+    <p>Michael Kerrisk.
+<a href="https://man7.org/tlpi/">The Linux Programming Interface: A Linux and UNIX System Programming Handbook.</a>
+1st Edition. 2010.</p>
+
+    <p><img src="images/tlpi.jpg" width="150" /></p>
+  </li>
+  <li>
+    <h5 id="osc">[OSC]</h5>
+    <p>Abraham Silberschatz, Greg Gagne, Peter B. Galvin.
+<a href="https://www.wiley.com/en-us/Operating+System+Concepts%2C+10th+Edition-p-9781119320913">Operating System Concepts.</a>
+10th Edition. 2018.</p>
+
+    <p><img src="images/osc.jpg" width="150" /></p>
+  </li>
+  <li>
+    <h4 id="bgsp">[BGSP]</h4>
+    <p>Brendan Gregg.
+<a href="https://www.oreilly.com/library/view/systems-performance-2nd/9780136821694/">Systems Performance (Addison-Wesley Professional Computing Series).</a>
+2nd Edition. 2020.</p>
+
+    <p><img src="images/bgsp.jpeg" width="150" /></p>
+  </li>
+</ul>
+
+<h3 id="additional-1">Additional</h3>
+
+<ul>
+  <li>
+    <h5 id="mos">[MOS]</h5>
+    <p>Andrew S. Tanenbaum, Herbert Bos.
+<a href="https://www.pearson.com/us/higher-education/program/Tanenbaum-Modern-Operating-Systems-4th-Edition/PGM80736.html">Modern Operating Systems.</a>
+4th Edition. 2015.</p>
+
+    <p><img src="images/mos.jpg" width="150" /></p>
+  </li>
+  <li>
+    <h5 id="osidp">[OSIDP]</h5>
+    <p>William Stallings.
+<a href="https://www.pearson.com/us/higher-education/program/Stallings-Operating-Systems-Internals-and-Design-Principles-9th-Edition/PGM1262980.html">Operating Systems: Internals and Design Principles.</a>
+9th Edition. 2018.</p>
+
+    <p><img src="images/osidp.jpg" width="150" /></p>
+  </li>
+  <li>
+    <h5 id="pglc">[PGLC]</h5>
+    <p>Mark G. Sobell, Matthew Helmke.
+<a href="https://www.pearson.com/store/p/practical-guide-to-linux-commands-editors-and-shell-programming-a/P100000878019/9780134774602">Practical Guide to Linux Commands, Editors, and Shell Programming.</a>
+4th Edition. 2018.</p>
+  </li>
+</ul>
+
+              </article>
+            </div>
+
+            <aside class="page-toc" data-toc hidden>
+              <div class="page-toc__inner">
+                <p class="page-toc__eyebrow">On this page</p>
+                <nav aria-label="Table of contents">
+                  <ol class="page-toc__list" data-toc-list></ol>
+                </nav>
+              </div>
+            </aside>
+          </div>
+        
+      </main>
+
+      <footer class="site-footer">
+        <div class="container site-footer__inner">
+          <div>
+            <strong>Computer Architecture and Operating Systems</strong>
+              <p>Course materials maintained on GitHub Pages for HSE Faculty of Computer Science.</p>
+          </div>
+          <div class="site-footer__links">
+            <a href="/hse-acos-course/">Home</a>
+              <a href="https://github.com/andrewt0301/hse-acos-course">Repository</a>
+            <a href="https://pages.github.com">GitHub Pages</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

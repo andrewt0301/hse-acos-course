@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Exam Format | Computer Architecture and Operating Systems</title>
+    <meta name="description" content="Course taught at Faculty of Computer Science of Higher School of Economics">
+    <script>
+      (function () {
+        var root = document.documentElement;
+
+        try {
+          var savedTheme = localStorage.getItem("acos-theme");
+          var savedLanguage = localStorage.getItem("acos-language");
+          var theme = savedTheme || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          var language = savedLanguage || "en";
+
+          root.dataset.theme = theme === "dark" ? "dark" : "light";
+          root.dataset.language = language === "ru" ? "ru" : "en";
+          root.lang = language === "ru" ? "ru" : "en";
+        } catch (error) {
+          root.dataset.theme = "light";
+          root.dataset.language = "en";
+          root.lang = "en";
+        }
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/hse-acos-course/assets/css/style.css?v=20260321b">
+    <script defer src="/hse-acos-course/assets/js/site.js?v=20260321b"></script>
+  </head>
+  
+  
+  
+  
+  
+  
+  
+  
+  <body data-page-kind="dense-data" data-section="assessment" data-current-url="/exam.html">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="site-bg">
+      <div class="site-grid"></div>
+    </div>
+
+    <div class="site-shell">
+      <header class="site-header" data-site-header>
+        <div class="container site-header__inner">
+          <a class="site-brand" href="/hse-acos-course/" aria-label="Computer Architecture and Operating Systems">
+            <span class="site-brand__mark" aria-hidden="true">ACOS</span>
+          </a>
+
+          <button class="site-nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+            <span>Menu</span>
+          </button>
+
+          <div class="site-header__panel" id="site-nav" data-nav-panel>
+            <nav class="site-nav" aria-label="Primary">
+              <ul class="site-nav__list">
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/" data-nav-link>Home</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/calendar_plan.html" data-nav-link>Calendar</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Assessment</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/exam_latest.html" data-nav-link>Exam</a>
+                          
+                            <a href="/hse-acos-course/grades.html" data-nav-link>Grades</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Resources</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/software.html" data-nav-link>Software</a>
+                          
+                            <a href="/hse-acos-course/books.html" data-nav-link>Textbooks</a>
+                          
+                            <a href="/hse-acos-course/courses.html" data-nav-link>Related Courses</a>
+                          
+                            <a href="/hse-acos-course/links.html" data-nav-link>Useful Links</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="https://github.com/andrewt0301/hse-acos-course" data-nav-link>GitHub</a>
+                    
+                  </li>
+                
+              </ul>
+            </nav>
+
+            <div class="site-preferences" aria-label="Site preferences">
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Theme</span>
+                <div class="site-preferences__switch" role="group" aria-label="Theme switch">
+                  <button type="button" data-theme-option="light" aria-pressed="false">Light</button>
+                  <button type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+                </div>
+              </div>
+
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Lang</span>
+                <div class="site-preferences__switch" role="group" aria-label="Language switch">
+                  <button type="button" data-language-option="en" aria-pressed="false">EN</button>
+                  <button type="button" data-language-option="ru" aria-pressed="false">RU</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="language-placeholder" data-language-placeholder hidden>
+        <div class="container language-placeholder__inner">
+          <div class="language-placeholder__copy">
+            <p class="language-placeholder__eyebrow">RU / Placeholder</p>
+            <strong>Русская версия пока в разработке</strong>
+            <p>Переключатель уже добавлен, но материалы и текущий интерфейс страниц пока остаются на английском. Полноценная локализация появится позже.</p>
+          </div>
+          <button class="language-placeholder__action" type="button" data-language-reset>Back to English</button>
+        </div>
+      </div>
+
+      <main id="main-content" class="site-main">
+        
+          <div class="container page-shell">
+            <div class="page-shell__main">
+              <nav class="breadcrumbs" aria-label="Breadcrumbs">
+                <ol>
+                  <li><a href="/hse-acos-course/">Home</a></li>
+                  
+                    <li><a href="/hse-acos-course/#assessment-overview">Assessment</a></li>
+                  
+                  <li aria-current="page"><span data-breadcrumb-current>Exam Format</span></li>
+                </ol>
+              </nav>
+
+              <article class="page-article" data-page-content>
+                <!---
+The JavaScript code below is needed to support rendering of TeX formulas in GitHub Pages.
+
+See this for kramdown:
+https://mikelove.wordpress.com/2015/07/01/how-to-use-latex-math-in-rmd-to-display-properly-on-github-pages/
+https://varunagrawal.github.io/2018/03/27/latex
+https://stackoverflow.com/questions/26275645/how-to-support-latex-in-github-pages
+
+This is a guideline to render formulas:
+https://coderoad.ru/49970549/Проблема-рендеринга-некоторого-синтаксиса-latex-в-MathJax-с-Jekyll-на-github
+-->
+<script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$$','$$'], ['\\(','\\)']],
+      processEscapes: true
+    }
+  });
+</script>
+
+<h2 id="exam-format">Exam Format</h2>
+
+<h2 id="exam">Exam</h2>
+
+<p>The exam is organized as a discussion between the examiner and a group of 5-7 students,
+which covers all main topics of the course and takes about 2 hours.
+During the discussion, the examiner asks questions related to the course topics and
+the students answer to these questions in an arbitrary order.
+The examiner writes down an exam protocol in a simple form («student, topic, point (+/-/±)»).
+For each of the questions, students can earn the following points:</p>
+
+<ul>
+  <li>
+    <p><strong>«+»</strong>: Complete enough answer in any form (including «I don’t know, but think that…»,
+adequate retelling of documentation, etc.).</p>
+  </li>
+  <li>
+    <p><strong>«±»</strong>: Significantly incomplete answer, answer that contains both correct and incorrect
+statements, a correct answer the student cannot correctly explain (for example, a random answer).</p>
+  </li>
+  <li>
+    <p><strong>«-»</strong>: Totally incorrect answer, answer irrelevant to the question, general discussion
+demonstrating absence of understanding of the topic, reading aloud texts without
+their understanding, retelling answers of other students.</p>
+  </li>
+  <li>
+    <p><strong>Collective «0»</strong>: Absence of an answer to a simple question (from a point of the examiner).
+This slightly decreases the grade of every student in the group.</p>
+  </li>
+</ul>
+
+<p>It is allowed to use any materials during the exam. However, it is illegal to answer questions
+by simply reading from these materials. Also, it is forbidden to retell answers of other students.</p>
+
+<h2 id="grading-policy">Grading Policy</h2>
+
+<p>For each student, the assessment is done by the following criteria:</p>
+
+<ul>
+  <li>Ratio of the number of correct answers to the number of incorrect answers.</li>
+  <li>Degree of coverage of course topics with answers.</li>
+  <li>Any additional knowledge related to the course topics.</li>
+</ul>
+
+<h3 id="formula">Formula</h3>
+
+<p>The overall formula for the exam grade:</p>
+
+\[G = 10\cdot \frac{P_1 + P_2}{12}\]
+
+<p>The exam consists of <strong>2 parts</strong> \(P_1\) and \(P_2\) each containing questions
+that cover topics from module 3 and module 4 respectively.
+To get a maximal grade, a student needs to successfully answer <strong>3 questions</strong> from each part.
+Each answer can give <strong>0 to 2 relative points</strong> (0 for «-», 1 for «±», and 2 for «+»), which
+are then divided by <strong>maximal point 12</strong> to give a grade.</p>
+
+<p>Points for each part \(P_i\) are calculated with the <a href="/hse-acos-course/exam_zscore.html">Zscore</a> function,
+which counts points for each of the questions and divides them by the total number of answers
+given by a student.</p>
+
+<p>Examples of calculated grades:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Student</strong></td>
+      <td><strong>Answers in \(P_1\)</strong></td>
+      <td><strong>Answers in \(P_2\)</strong></td>
+      <td><strong>\(G\)</strong></td>
+    </tr>
+    <tr>
+      <td>Student 1</td>
+      <td>+++</td>
+      <td>+++</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>Student 2</td>
+      <td>++</td>
+      <td>++</td>
+      <td>6.67</td>
+    </tr>
+    <tr>
+      <td>Student 3</td>
+      <td>++/</td>
+      <td>++/</td>
+      <td>8.33</td>
+    </tr>
+    <tr>
+      <td>Student 4</td>
+      <td>///</td>
+      <td>///</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>Student 5</td>
+      <td>++-+</td>
+      <td>+++</td>
+      <td>9.17</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="notes">Notes</h3>
+
+<ul>
+  <li>
+    <p>In a group of students, there are always some shy people who try to avoid participating in
+the discussion. Typically, they sit in the back row. The examiner must control this
+and ask some questions to these people personally (not to the entire group).</p>
+  </li>
+  <li>
+    <p>Nevertheless, people who choose to keep silence during the exam are their own enemies.</p>
+  </li>
+  <li>
+    <p>A good strategy for taking the exam is to distribute questions in advance so that
+there is always somebody to answer hard questions while easy questions are left
+to less confident people.</p>
+  </li>
+</ul>
+
+<h2 id="topics">Topics</h2>
+
+<p>Topics <strong>are not</strong> questions. They are areas, from which questions are selected.
+Usually questions are of the following types:</p>
+
+<ul>
+  <li>What it is?</li>
+  <li>How does it work?</li>
+  <li>What is it for?</li>
+  <li>Why cannot we use [<em>something else</em>]?</li>
+  <li>Why [<em>correct statement</em>] and not [<em>less correct statement</em>]?</li>
+  <li>What is the difference between [<em>read documentation in one place</em>] and
+[<em>read documentation in another place</em>]?</li>
+  <li>etc.</li>
+</ul>
+
+<p>When answering questions it is <strong>allowed</strong> to use documentation. Moreover, in some situations,
+it is <strong>necessary</strong>. However, there are several important notes:</p>
+
+<ul>
+  <li>
+    <p>Ability to quickly find an answer in documentation is a <strong>skill</strong> and the exam assesses
+this skill among other things.</p>
+  </li>
+  <li>
+    <p>Information from external sources is accepted only as a <strong>retelling</strong> or must be provided with
+<strong>explanations</strong>. Reading information does not give any points.</p>
+  </li>
+  <li>
+    <p>If you do not really understand what your are talking about, reading aloud an unfamiliar
+text will clearly demonstrate this <strong>absence of understanding</strong>.</p>
+  </li>
+</ul>
+
+<p>Topics are grouped by modules to simplify exam preparation.</p>
+
+<h2 id="topic-examples">Topic Examples</h2>
+
+<p>Examples of exam topics for year 2019/2020 can be found <a href="/hse-acos-course/exam_2019.html">here</a>.</p>
+
+              </article>
+            </div>
+
+            <aside class="page-toc" data-toc hidden>
+              <div class="page-toc__inner">
+                <p class="page-toc__eyebrow">On this page</p>
+                <nav aria-label="Table of contents">
+                  <ol class="page-toc__list" data-toc-list></ol>
+                </nav>
+              </div>
+            </aside>
+          </div>
+        
+      </main>
+
+      <footer class="site-footer">
+        <div class="container site-footer__inner">
+          <div>
+            <strong>Computer Architecture and Operating Systems</strong>
+              <p>Course materials maintained on GitHub Pages for HSE Faculty of Computer Science.</p>
+          </div>
+          <div class="site-footer__links">
+            <a href="/hse-acos-course/">Home</a>
+              <a href="https://github.com/andrewt0301/hse-acos-course">Repository</a>
+            <a href="https://pages.github.com">GitHub Pages</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

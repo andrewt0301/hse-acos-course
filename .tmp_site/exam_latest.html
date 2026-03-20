@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Exam Questions | Computer Architecture and Operating Systems</title>
+    <meta name="description" content="Course taught at Faculty of Computer Science of Higher School of Economics">
+    <script>
+      (function () {
+        var root = document.documentElement;
+
+        try {
+          var savedTheme = localStorage.getItem("acos-theme");
+          var savedLanguage = localStorage.getItem("acos-language");
+          var theme = savedTheme || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          var language = savedLanguage || "en";
+
+          root.dataset.theme = theme === "dark" ? "dark" : "light";
+          root.dataset.language = language === "ru" ? "ru" : "en";
+          root.lang = language === "ru" ? "ru" : "en";
+        } catch (error) {
+          root.dataset.theme = "light";
+          root.dataset.language = "en";
+          root.lang = "en";
+        }
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/hse-acos-course/assets/css/style.css?v=20260321b">
+    <script defer src="/hse-acos-course/assets/js/site.js?v=20260321b"></script>
+  </head>
+  
+  
+  
+  
+  
+  
+  
+  
+  <body data-page-kind="dense-data" data-section="assessment" data-current-url="/exam_latest.html">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="site-bg">
+      <div class="site-grid"></div>
+    </div>
+
+    <div class="site-shell">
+      <header class="site-header" data-site-header>
+        <div class="container site-header__inner">
+          <a class="site-brand" href="/hse-acos-course/" aria-label="Computer Architecture and Operating Systems">
+            <span class="site-brand__mark" aria-hidden="true">ACOS</span>
+          </a>
+
+          <button class="site-nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+            <span>Menu</span>
+          </button>
+
+          <div class="site-header__panel" id="site-nav" data-nav-panel>
+            <nav class="site-nav" aria-label="Primary">
+              <ul class="site-nav__list">
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/" data-nav-link>Home</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/calendar_plan.html" data-nav-link>Calendar</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Assessment</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/exam_latest.html" data-nav-link>Exam</a>
+                          
+                            <a href="/hse-acos-course/grades.html" data-nav-link>Grades</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Resources</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/software.html" data-nav-link>Software</a>
+                          
+                            <a href="/hse-acos-course/books.html" data-nav-link>Textbooks</a>
+                          
+                            <a href="/hse-acos-course/courses.html" data-nav-link>Related Courses</a>
+                          
+                            <a href="/hse-acos-course/links.html" data-nav-link>Useful Links</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="https://github.com/andrewt0301/hse-acos-course" data-nav-link>GitHub</a>
+                    
+                  </li>
+                
+              </ul>
+            </nav>
+
+            <div class="site-preferences" aria-label="Site preferences">
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Theme</span>
+                <div class="site-preferences__switch" role="group" aria-label="Theme switch">
+                  <button type="button" data-theme-option="light" aria-pressed="false">Light</button>
+                  <button type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+                </div>
+              </div>
+
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Lang</span>
+                <div class="site-preferences__switch" role="group" aria-label="Language switch">
+                  <button type="button" data-language-option="en" aria-pressed="false">EN</button>
+                  <button type="button" data-language-option="ru" aria-pressed="false">RU</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="language-placeholder" data-language-placeholder hidden>
+        <div class="container language-placeholder__inner">
+          <div class="language-placeholder__copy">
+            <p class="language-placeholder__eyebrow">RU / Placeholder</p>
+            <strong>Русская версия пока в разработке</strong>
+            <p>Переключатель уже добавлен, но материалы и текущий интерфейс страниц пока остаются на английском. Полноценная локализация появится позже.</p>
+          </div>
+          <button class="language-placeholder__action" type="button" data-language-reset>Back to English</button>
+        </div>
+      </div>
+
+      <main id="main-content" class="site-main">
+        
+          <div class="container page-shell">
+            <div class="page-shell__main">
+              <nav class="breadcrumbs" aria-label="Breadcrumbs">
+                <ol>
+                  <li><a href="/hse-acos-course/">Home</a></li>
+                  
+                    <li><a href="/hse-acos-course/#assessment-overview">Assessment</a></li>
+                  
+                  <li aria-current="page"><span data-breadcrumb-current>Exam Questions</span></li>
+                </ol>
+              </nav>
+
+              <article class="page-article" data-page-content>
+                <h2 id="exam-questions">Exam Questions</h2>
+
+<h2 id="exam-rules">Exam Rules</h2>
+
+<ul>
+  <li>The exam is oral: 40 minutes for a preparation and 10 minutes for an answer.</li>
+  <li>No materials are allowed except for <a href="https://github.com/andrewt0301/hse-acos-course/raw/master/related/greencard-20181213.pdf">RISC-V Greencard</a>.</li>
+  <li>Exam tickets include 3 questions:
+    <ol>
+      <li>theoretical question on CA;</li>
+      <li>theoretical question on OS;</li>
+      <li>programming task (solved on a sheet of paper).</li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="grading">Grading</h3>
+
+<p><strong>Grade = 0.3 * Theory_CA + 0.3 * Theory_OS + 0.4 * Programming</strong></p>
+
+<h3 id="hint">Hint</h3>
+
+<p>An answer to each question is expected to take ~3 minutes.
+Theoretical questions contain a number of points (subquestions).
+For many of them, a simple answer (1 sentence) is enough.
+The exam checks your overall understanding of the main concepts.</p>
+
+<h2 id="questions">Questions</h2>
+
+<p>Python script to pick questions at random is <a href="/hse-acos-course/exam/exam_random.py">here</a>.</p>
+
+<h3 id="computer-architecture">Computer Architecture</h3>
+
+<p>Printed version is <a href="/hse-acos-course/exam/exam_ca_print.pdf">here</a>.</p>
+
+<ol>
+  <li>Computer architecture.
+    <ul>
+      <li>What main parts do modern computers include?</li>
+      <li>Explain the stored program concept and how a computer executes a program.</li>
+      <li>What is computer architecture? What is computer micro-architecture?</li>
+      <li>What instruction set architectures do you know?</li>
+      <li>What are performance challenges of modern computers?</li>
+    </ul>
+  </li>
+  <li>Integer data formats and operations.
+    <ul>
+      <li>What is a byte and what is a machine word? What is byte ordering (which ones do you know)?</li>
+      <li>Describe unsigned integer format and 2’s complement signed integer format.</li>
+      <li>How unsigned and signed values are converted to decimal numbers?</li>
+      <li>How unsigned values are converted to signed and vice versa?</li>
+      <li>What is the difference between integer sign- and zero-extension?</li>
+      <li>What is the difference between arithmetical and logical shift?</li>
+    </ul>
+  </li>
+  <li>Floating-point format.
+    <ul>
+      <li>Why floating-point format is needed? Name the standard that covers it.</li>
+      <li>Explain the floating-point format (sign, exponent, fraction). Describe single and double precision.</li>
+      <li>What is implicit <code class="language-plaintext highlighter-rouge">1.</code> in fraction?  Why exponents are biased (and what is bias)?</li>
+      <li>Explain how the following value types are encoded: zero, normalized number, denormalized number, infinity, NaN.</li>
+      <li>What are floating-point overflow and underflow?</li>
+      <li>How does addition of two floating-point numbers works (the main steps)?</li>
+      <li>How floating-point format is supported in RISC-V (registers, main instructions)?</li>
+    </ul>
+  </li>
+  <li>ISA and assembler language.
+    <ul>
+      <li>What is instruction set architecture (ISA)?</li>
+      <li>Give definitions and examples of the following ISA types: RISC, CISC, and VLIW.</li>
+      <li>What are machine code, assembly language, and assembler? What tool converts machine code to assembly language?</li>
+      <li>Describe of the structure of an assembly program (when in text) and its memory layout (when in machine code).</li>
+      <li>Describe main assembly directives (<code class="language-plaintext highlighter-rouge">.text</code>, <code class="language-plaintext highlighter-rouge">.data</code>, <code class="language-plaintext highlighter-rouge">.align</code>, <code class="language-plaintext highlighter-rouge">.space</code>, etc.). What else do you know?</li>
+    </ul>
+  </li>
+  <li>RISC-V.
+    <ul>
+      <li>Brief history and advantages of the RISC-V ISA. Design principles of RISC-V.</li>
+      <li>List main RISC-V registers and main instruction types with examples.</li>
+      <li>What is program counter (PC)? What RISC-V instruction can be used to read its value?</li>
+      <li>Briefly describe 6 types of RISC-V instruction encodings (R-type, I-type, etc.).</li>
+      <li>Explain immediate addressing, register addressing, base addressing, and PC-relative addressing.</li>
+    </ul>
+  </li>
+  <li>RISC-V assembly programming.
+    <ul>
+      <li>Give a definition of a register. What is the difference between registers and memory?</li>
+      <li>How you you swap values of two registers without using a temporary registers?</li>
+      <li>Give an example of a logic and arithmetical shift instruction. Explain the differences.</li>
+      <li>What load and store instructions do you know? Explain the difference between the <code class="language-plaintext highlighter-rouge">lh</code> and <code class="language-plaintext highlighter-rouge">lhu</code> instructions.</li>
+      <li>What control-transfer instructions do you know?</li>
+      <li>Explain the idea of pseudoinstructions. Give examples of RISC-V pseudoinstructions.</li>
+      <li>Explain the idea of macros. When would you use macros? How to reuse macros defined in other <code class="language-plaintext highlighter-rouge">.s</code> files?</li>
+    </ul>
+  </li>
+  <li>Functions and stack.
+    <ul>
+      <li>What is a function? What are caller and callee?</li>
+      <li>How functions are implemented in assembly language? Describe what exception are performed by a function call.</li>
+      <li>Explain the idea of return address and jump-and-link instructions?</li>
+      <li>What are stack, stack pointer, stack (function) frame, and frame pointer? What is stored in the stack?</li>
+      <li>Explain the idea of caller- and callee-saved registers (give examples of such registers).</li>
+    </ul>
+  </li>
+  <li>Interrupts and exceptions.
+    <ul>
+      <li>What is an interrupt and what is an exception? What RISC-V exceptions do you know?</li>
+      <li>What is the role of Control and Status Registers (CSRs) in handling exceptions?</li>
+      <li>What system instructions do you know?</li>
+      <li>What happens when an exception occurs (how the CPU handles the event)?</li>
+      <li>What is an exception handler? What actions does it perform? How does the CPU know how to call a handler?</li>
+      <li>What is a system call and how does it work?</li>
+    </ul>
+  </li>
+  <li>Memory-mapped I/O (MMIO).
+    <ul>
+      <li>How I/O devices are connected to CPU and managed (control, data, and status signals)?</li>
+      <li>Explain the idea of Memory-Mapped I/O (MMIO).</li>
+      <li>Explain the idea of Direct Memory Access (DMA).</li>
+      <li>Explain difference between Interrupt-Driven I/O and Polling?</li>
+      <li>What is a device driver?</li>
+    </ul>
+  </li>
+  <li>Pipelining.
+    <ul>
+      <li>List the 5 stages and give brief descriptions for them.</li>
+      <li>What pipeline hazards are? List the types of hazards and the ways to prevent them (with brief definitions).</li>
+      <li>Give an example of a hazard situation and how it can be handled.</li>
+      <li>What is branch prediction is needed for? How does it work?</li>
+    </ul>
+  </li>
+  <li>Caches.
+    <ul>
+      <li>Describe how caching mechanism works (block, index, tag, valid bit, dirty bit).</li>
+      <li>Give the definition of associativity (direct-mapped, set associative, fully associative).</li>
+      <li>What is the difference between write-through and write-back?</li>
+      <li>What is replacement policy (what type of policy do you know)?</li>
+      <li>How many cache levels are typical for modern processors?</li>
+      <li>What problem can caches create for multicore processors?</li>
+    </ul>
+  </li>
+  <li>Virtual Memory.
+    <ul>
+      <li>What is virtual memory (vs. physical memory)?</li>
+      <li>How does address translation work?</li>
+      <li>What is a page table and what information does it contain?</li>
+      <li>What is TLB and why is it needed? That is a TLB miss and how is it handled?</li>
+      <li>What is a page fault?</li>
+      <li>How does memory protection work?</li>
+    </ul>
+  </li>
+  <li>Thread-level parallelism.
+    <ul>
+      <li>Why do we need thread-level parallelism? What are the challenges of parallel programming?</li>
+      <li>What is Amdahl’s Law?</li>
+      <li>Briefly describe how multi-threading works with: hardware multithreading (hyperthreading), multicore, multiprocessors.</li>
+      <li>What are context and context switch?</li>
+      <li>What is memory coherency problem?</li>
+    </ul>
+  </li>
+  <li>Multiple issue processor. Data-level parallelism. Domain-specific architectures.
+    <ul>
+      <li>Explain the ide of multiple issues and superscalar microprocessors.</li>
+      <li>How do static multiple issue and dynamic multiple issue work? What is speculation?</li>
+      <li>What are SISD, SIMD, MISD, and MIMD?</li>
+      <li>Summarize the idea of SIMD. How does it help improve performance? Give examples of the SIMD approach in modern computers.</li>
+      <li>Why do we need domain-specific processors? Main principles of modern DSAs. Give an example of a DSA processor.</li>
+    </ul>
+  </li>
+  <li>Optimizations.
+    <ul>
+      <li>Goal of optimizations? Algorithmic optimizations vs. compiler optimizations (advantages and limitations)?</li>
+      <li>How to assess performance?</li>
+      <li>What optimizations do you know?</li>
+      <li>How does the loop unrolling optimisation work (how it improves performance)?</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="operating-systems">Operating Systems</h3>
+
+<p>Printed version is <a href="/hse-acos-course/exam/exam_os_print.pdf">here</a>.</p>
+
+<ol>
+  <li>Operating system architecture.
+    <ul>
+      <li>What are main tasks solved by an operating systems (services)?</li>
+      <li>What is operating system kernel?</li>
+      <li>Explain differences between monolithic and microkernel model of OS kernel. What models are used in Linux/MacOS/Windows?</li>
+      <li>Explain the idea of <em>kernel</em> and <em>user</em> modes of a processor.</li>
+      <li>What is a system call and how is it implemented?</li>
+    </ul>
+  </li>
+  <li>C programming language. GNU C Library (glibc).
+    <ul>
+      <li>C language: brief history, what tasks it solves, advantages over assembly language.</li>
+      <li>What data types are supported in C? What is a pointer? How does <code class="language-plaintext highlighter-rouge">sizeof</code> work?</li>
+      <li>How to assign and how to dereference a pointer? How does address arithmetic work?</li>
+      <li>What is <em>glibc</em> (GNU C Library) and what tasks does it solve?</li>
+      <li>How are strings are represented in C? What functions to manipulate with strings do you know?</li>
+      <li>Explain the main idea of pattern-matching and regular expressions.</li>
+    </ul>
+  </li>
+  <li>Executable and Linkable Format (ELF).
+    <ul>
+      <li>What is ELF? What kings of ELF object files do you know? What is their purpose?</li>
+      <li>What data do ELF object files contain?</li>
+      <li>Explain the idea of symbols and symbol table. What kinds of symbols do you know?</li>
+      <li>What happens when several object files are linked together (explain the idea of symbol resolution and relocation)?</li>
+      <li>What does it mean strong and weak symbol? Explain symbol resolution rules.</li>
+      <li>Explain the idea of position-independent code (PIC).</li>
+    </ul>
+  </li>
+  <li>Compiling/linking/loading. Static and dynamic libraries.
+    <ul>
+      <li>List the compiler stages (steps to turn a C source file to an executable file).</li>
+      <li>What is done at the linking stage? What is the meaning of <code class="language-plaintext highlighter-rouge">static</code> and <code class="language-plaintext highlighter-rouge">extern</code> keywords?</li>
+      <li>Explain the idea of static and shared libraries.</li>
+      <li>Explain the idea of run-time loading of shared libraries. What are the advantages of shared libraries?</li>
+      <li>Explain the idea of library interpositioning (compile time, link lime, load/run time).</li>
+      <li>What tasks are solved with the help of Make files? What are <em>target</em>, <em>source</em>, and <em>recipe</em> in a Make file?</li>
+    </ul>
+  </li>
+  <li>Memory management.
+    <ul>
+      <li>Memory layout of a program: What memory segments do you know? What purposes do they serve?</li>
+      <li>What ways to allocate memory do you know?</li>
+      <li>How dynamic memory allocation via <code class="language-plaintext highlighter-rouge">malloc</code>/<code class="language-plaintext highlighter-rouge">free</code> is implemented (using what data structures)?</li>
+      <li>Give definitions of payload, fragmentation, and placement strategies.</li>
+      <li>What is the purpose of the <code class="language-plaintext highlighter-rouge">sbrk</code> system call?</li>
+    </ul>
+  </li>
+  <li>Filesystems. Linux folder structure.
+    <ul>
+      <li>What Linux file types do you know?</li>
+      <li>Explain the purpose of the following Linux folders: <code class="language-plaintext highlighter-rouge">/home</code>, <code class="language-plaintext highlighter-rouge">/bin</code>, <code class="language-plaintext highlighter-rouge">/sbin</code>, <code class="language-plaintext highlighter-rouge">/usr</code>, <code class="language-plaintext highlighter-rouge">/proc</code>, <code class="language-plaintext highlighter-rouge">/dev</code>, <code class="language-plaintext highlighter-rouge">/media</code>.</li>
+      <li>What is Virtual File Systems (VFS) and what functions does it provide?</li>
+      <li>What are the parts of a Linux disk?</li>
+      <li>What is <em>inode</em>? What data does it contain?</li>
+      <li>What is a link? How to create it (what utility tool to use)? What is the difference between hard and symbol links?</li>
+    </ul>
+  </li>
+  <li>System calls / system utilities / Shell (Bash).
+    <ul>
+      <li>Explain connection between system calls, system utilities and Bash.</li>
+      <li>What is Bash and what tasks does solves?</li>
+      <li>How to get a manual on Linux system utilities and system calls?</li>
+      <li>How (using what special symbols) to access command-line arguments in Bash?</li>
+      <li>What is the role of exit code in a program (e.g. <code class="language-plaintext highlighter-rouge">0</code> vs. <code class="language-plaintext highlighter-rouge">-1</code>)? Who exit code can be checked in Bash scripts?</li>
+      <li>Name Linux utilities that solve these tasks:
+        <ul>
+          <li>print current directory;</li>
+          <li>change current directory;</li>
+          <li>print the list of files/folders in the current directory;</li>
+          <li>create new folder;</li>
+          <li>copy file/folder;</li>
+          <li>remove file/folder;</li>
+          <li>move/rename file/folder;</li>
+          <li>print full path to a utility file (e.g. full path to <code class="language-plaintext highlighter-rouge">gcc</code>).</li>
+        </ul>
+      </li>
+      <li>What Bash commands are used to read user input to a variable and to print variable values?</li>
+    </ul>
+  </li>
+  <li>File input/output. Pipes and redirection.
+    <ul>
+      <li>What system calls are used to read/write data from/to files?</li>
+      <li>What <em>glibc</em> (C Standard Library) function to work with files do you know? Their advantages over system calls?</li>
+      <li>What is a file descriptor? What is descriptor table? What is open file table?</li>
+      <li>List three standard streams of a Linux process and their descriptors.</li>
+      <li>How to redirect process I/O from a terminal to a file?</li>
+      <li>How to connect I/O of two processes?</li>
+      <li>What is a pipe? What system calls are used to manage pipes?</li>
+    </ul>
+  </li>
+  <li>Processes.
+    <ul>
+      <li>What is a process? What parts does it contains (its layout in memory)?</li>
+      <li>List the states of the process and describe how it changes states.</li>
+      <li>What is Process Control Block (PCB)? What information does it contain?</li>
+      <li>Explain how CPU switches between processes (context switch).</li>
+      <li>Explain the main idea of short-term, long-term, and medium-term schedulers. What is process swapping?</li>
+      <li>Describe the idea of process creation with system calls <code class="language-plaintext highlighter-rouge">fork</code> and <code class="language-plaintext highlighter-rouge">exec</code>. What is the role of system call <code class="language-plaintext highlighter-rouge">wait</code>?</li>
+      <li>How to see the list of running processes in Linux (what system utilities do you know)?</li>
+    </ul>
+  </li>
+  <li>Threads and synchronization.
+    <ul>
+      <li>Give a definition of a thread. Explain the difference between a process and a thread.</li>
+      <li>Explain the main idea of consumer-producer problem.</li>
+      <li>Explain the idea of critical section and mutual exclusion.</li>
+      <li>How thread synchronization is supported in hardware?</li>
+      <li>List system calls that are used to manage threads in Linux (pthreads).</li>
+      <li>Explain the main idea of mutexes and conditional variables (pthreads).</li>
+      <li>What is a deadlock?</li>
+    </ul>
+  </li>
+  <li>Permissions.
+    <ul>
+      <li>What are main attributes of a Linux user and group?</li>
+      <li>What access rights do you know? What permission groups do you know? How to view file permissions (what utility tool to use)?</li>
+      <li>How to change file permissions (what utility tool to use)? E.g. add write permission to <em>group</em>, remove read permission from <em>other</em>.</li>
+      <li>Explain the <code class="language-plaintext highlighter-rouge">setuid</code>/<code class="language-plaintext highlighter-rouge">setguid</code> permissions.</li>
+      <li>Explain the sticky bit permission.</li>
+    </ul>
+  </li>
+  <li>Inter-process communications: signals.
+    <ul>
+      <li>Give a definition of a signal. What signals to you know (name and purpose)?</li>
+      <li>How to send a signal to a process (system call and utility tool)?</li>
+      <li>How to set up a custom handler for a signal? It is possible to do this for all signals?</li>
+      <li>Explain the idea of foreground and background processes. How to run a background process?</li>
+      <li>How to switch a process from foreground to background and vice versa?</li>
+    </ul>
+  </li>
+  <li>Inter-process communications: message queues, memory mapping, shared memory.
+    <ul>
+      <li>Explain the main idea of two models of inter-process communication: shared memory and messages.</li>
+      <li>Describe main features of POSIX message queues. What system calls are used to manage POSIX message queues?</li>
+      <li>How subscribe to get a notification (a signal) when a message is available in the queue?</li>
+      <li>Explain the idea of mapping file into memory? What system call is used for this?</li>
+      <li>Describe main idea of POSIX shared memory. That system calls are used to manage it?</li>
+    </ul>
+  </li>
+  <li>Network. Sockets and TCP/IP.
+    <ul>
+      <li>Explain the concept of a client-server application.</li>
+      <li>Explain the idea of a network protocol. What is a network packet and what information does it contain?</li>
+      <li>What protocols does the TCP/IP family include?</li>
+      <li>What is MAC address? What is IP address? How domain name (e.g. <code class="language-plaintext highlighter-rouge">www.hse.ru</code>) is converted to an IP address?</li>
+      <li>Explain the difference between TCP and UDP. What advantages and disadvantages do they have?</li>
+      <li>What is socket? What system calls are done by the client and the server to establish a communication.</li>
+      <li>What is a port? Give examples of network protocols you know and ports they use.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="programming">Programming</h2>
+
+<p>You need to write code in RISC-V assembly on a sheet of paper. You must be able to explain it.</p>
+
+<p>White a function that takes two arguments:</p>
+<ul>
+  <li>the pointer to an array of 32-bit integers (<code class="language-plaintext highlighter-rouge">a0</code>);</li>
+  <li>the number of elements in the array (<code class="language-plaintext highlighter-rouge">a1</code>).</li>
+</ul>
+
+<p>What the function should do is specified in your variant (the list of tasks is not published).</p>
+
+<p><strong>NOTE</strong>: When implementing a function be careful about callee-saved registers:
+(1) do not modify them at all or (2) save them to the stack and then restore.</p>
+
+<h3 id="example-variant">Example Variant</h3>
+
+<p>The function computes the distance between the smallest and
+the largest element in the array and returns it in (<code class="language-plaintext highlighter-rouge">a0</code>).</p>
+
+<h3 id="example-solution">Example Solution</h3>
+
+<p>See the <code class="language-plaintext highlighter-rouge">func</code> function in <a href="/hse-acos-course/exam.asm">this</a> file.</p>
+
+
+              </article>
+            </div>
+
+            <aside class="page-toc" data-toc hidden>
+              <div class="page-toc__inner">
+                <p class="page-toc__eyebrow">On this page</p>
+                <nav aria-label="Table of contents">
+                  <ol class="page-toc__list" data-toc-list></ol>
+                </nav>
+              </div>
+            </aside>
+          </div>
+        
+      </main>
+
+      <footer class="site-footer">
+        <div class="container site-footer__inner">
+          <div>
+            <strong>Computer Architecture and Operating Systems</strong>
+              <p>Course materials maintained on GitHub Pages for HSE Faculty of Computer Science.</p>
+          </div>
+          <div class="site-footer__links">
+            <a href="/hse-acos-course/">Home</a>
+              <a href="https://github.com/andrewt0301/hse-acos-course">Repository</a>
+            <a href="https://pages.github.com">GitHub Pages</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

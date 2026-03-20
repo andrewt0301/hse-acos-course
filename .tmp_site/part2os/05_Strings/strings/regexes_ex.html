@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Examples of Regular Expressions | Computer Architecture and Operating Systems</title>
+    <meta name="description" content="Course taught at Faculty of Computer Science of Higher School of Economics">
+    <script>
+      (function () {
+        var root = document.documentElement;
+
+        try {
+          var savedTheme = localStorage.getItem("acos-theme");
+          var savedLanguage = localStorage.getItem("acos-language");
+          var theme = savedTheme || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          var language = savedLanguage || "en";
+
+          root.dataset.theme = theme === "dark" ? "dark" : "light";
+          root.dataset.language = language === "ru" ? "ru" : "en";
+          root.lang = language === "ru" ? "ru" : "en";
+        } catch (error) {
+          root.dataset.theme = "light";
+          root.dataset.language = "en";
+          root.lang = "en";
+        }
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/hse-acos-course/assets/css/style.css?v=20260321b">
+    <script defer src="/hse-acos-course/assets/js/site.js?v=20260321b"></script>
+  </head>
+  
+  
+  
+  
+  
+  
+  
+  
+  <body data-page-kind="lecture" data-section="os" data-current-url="/part2os/05_Strings/strings/regexes_ex.html">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="site-bg">
+      <div class="site-grid"></div>
+    </div>
+
+    <div class="site-shell">
+      <header class="site-header" data-site-header>
+        <div class="container site-header__inner">
+          <a class="site-brand" href="/hse-acos-course/" aria-label="Computer Architecture and Operating Systems">
+            <span class="site-brand__mark" aria-hidden="true">ACOS</span>
+          </a>
+
+          <button class="site-nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+            <span>Menu</span>
+          </button>
+
+          <div class="site-header__panel" id="site-nav" data-nav-panel>
+            <nav class="site-nav" aria-label="Primary">
+              <ul class="site-nav__list">
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/" data-nav-link>Home</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/calendar_plan.html" data-nav-link>Calendar</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Assessment</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/exam_latest.html" data-nav-link>Exam</a>
+                          
+                            <a href="/hse-acos-course/grades.html" data-nav-link>Grades</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Resources</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/software.html" data-nav-link>Software</a>
+                          
+                            <a href="/hse-acos-course/books.html" data-nav-link>Textbooks</a>
+                          
+                            <a href="/hse-acos-course/courses.html" data-nav-link>Related Courses</a>
+                          
+                            <a href="/hse-acos-course/links.html" data-nav-link>Useful Links</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="https://github.com/andrewt0301/hse-acos-course" data-nav-link>GitHub</a>
+                    
+                  </li>
+                
+              </ul>
+            </nav>
+
+            <div class="site-preferences" aria-label="Site preferences">
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Theme</span>
+                <div class="site-preferences__switch" role="group" aria-label="Theme switch">
+                  <button type="button" data-theme-option="light" aria-pressed="false">Light</button>
+                  <button type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+                </div>
+              </div>
+
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Lang</span>
+                <div class="site-preferences__switch" role="group" aria-label="Language switch">
+                  <button type="button" data-language-option="en" aria-pressed="false">EN</button>
+                  <button type="button" data-language-option="ru" aria-pressed="false">RU</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="language-placeholder" data-language-placeholder hidden>
+        <div class="container language-placeholder__inner">
+          <div class="language-placeholder__copy">
+            <p class="language-placeholder__eyebrow">RU / Placeholder</p>
+            <strong>Русская версия пока в разработке</strong>
+            <p>Переключатель уже добавлен, но материалы и текущий интерфейс страниц пока остаются на английском. Полноценная локализация появится позже.</p>
+          </div>
+          <button class="language-placeholder__action" type="button" data-language-reset>Back to English</button>
+        </div>
+      </div>
+
+      <main id="main-content" class="site-main">
+        
+          <div class="container page-shell">
+            <div class="page-shell__main">
+              <nav class="breadcrumbs" aria-label="Breadcrumbs">
+                <ol>
+                  <li><a href="/hse-acos-course/">Home</a></li>
+                  
+                    <li><a href="/hse-acos-course/#operating-systems">Operating Systems</a></li>
+                  
+                  <li aria-current="page"><span data-breadcrumb-current>Examples of Regular Expressions</span></li>
+                </ol>
+              </nav>
+
+              <article class="page-article" data-page-content>
+                <h2 id="examples-of-regular-expressions">Examples of Regular Expressions</h2>
+
+<ol>
+  <li>Atomic regexp:
+    <ul>
+      <li>any non-special character matches exactly same character
+        <ul>
+          <li>“<code class="language-plaintext highlighter-rouge">E</code>” → «<code class="language-plaintext highlighter-rouge">E</code>»</li>
+        </ul>
+      </li>
+      <li>a dot “<code class="language-plaintext highlighter-rouge">.</code>” matches <strong>any</strong> one character
+        <ul>
+          <li>”<code class="language-plaintext highlighter-rouge">.</code>” → «<code class="language-plaintext highlighter-rouge">E</code>»</li>
+          <li>”<code class="language-plaintext highlighter-rouge">.</code>” → «<code class="language-plaintext highlighter-rouge">:</code>»</li>
+          <li>”<code class="language-plaintext highlighter-rouge">.</code>” → «<code class="language-plaintext highlighter-rouge">.</code>»</li>
+        </ul>
+      </li>
+      <li>a set of characters matches any character <strong>from the set</strong>:
+        <ul>
+          <li>”<code class="language-plaintext highlighter-rouge">[quack!]</code>” → «<code class="language-plaintext highlighter-rouge">a</code>»</li>
+          <li>”<code class="language-plaintext highlighter-rouge">[quack!]</code>” → «<code class="language-plaintext highlighter-rouge">!</code>»</li>
+          <li>”<code class="language-plaintext highlighter-rouge">[a-z]</code>” → «<code class="language-plaintext highlighter-rouge">q</code>» (any small letter)</li>
+          <li>”<code class="language-plaintext highlighter-rouge">[a-z]</code>” → «<code class="language-plaintext highlighter-rouge">z</code>» (any small letter)</li>
+          <li>”<code class="language-plaintext highlighter-rouge">[a-fA-F0-9]</code>” → «<code class="language-plaintext highlighter-rouge">f</code>» (any hexadecimal digit)</li>
+          <li>”<code class="language-plaintext highlighter-rouge">[a-fA-F0-9]</code>” → «<code class="language-plaintext highlighter-rouge">D</code>» (any hexadecimal digit)</li>
+          <li>”<code class="language-plaintext highlighter-rouge">[abcdefABCDEF0-9]</code>” → «<code class="language-plaintext highlighter-rouge">4</code>» (any hexadecimal digit)</li>
+        </ul>
+      </li>
+      <li>a negative set of characters matches any character <strong>not from the set</strong>:
+        <ul>
+          <li>”<code class="language-plaintext highlighter-rouge">[^quack!]</code>” → «<code class="language-plaintext highlighter-rouge">r</code>»</li>
+          <li>”<code class="language-plaintext highlighter-rouge">[^quack!]</code>” → «<code class="language-plaintext highlighter-rouge">#</code>»</li>
+          <li>”<code class="language-plaintext highlighter-rouge">[^quack!]</code>” → «<code class="language-plaintext highlighter-rouge">A</code>»</li>
+        </ul>
+      </li>
+      <li>any atomic regexp followed by “<code class="language-plaintext highlighter-rouge">*</code>” <strong>repeater</strong> matches a continuous sequence of substrings,
+including empty sequence, each matched by the regexp
+        <ul>
+          <li>“<code class="language-plaintext highlighter-rouge">a*</code>” → «<code class="language-plaintext highlighter-rouge">aaa</code>»</li>
+          <li>“<code class="language-plaintext highlighter-rouge">a*</code>” → «``»</li>
+          <li>“<code class="language-plaintext highlighter-rouge">a*</code>” → «<code class="language-plaintext highlighter-rouge">a</code>»</li>
+          <li>”<code class="language-plaintext highlighter-rouge">[0-9]*</code>” → «<code class="language-plaintext highlighter-rouge">7</code>»</li>
+          <li>”<code class="language-plaintext highlighter-rouge">[0-9]*</code>” → «``»</li>
+          <li>”<code class="language-plaintext highlighter-rouge">[0-9]*</code>” → «<code class="language-plaintext highlighter-rouge">1231234</code>»</li>
+          <li>”<code class="language-plaintext highlighter-rouge">.*</code>” → <em>any string</em>!</li>
+        </ul>
+      </li>
+      <li>any complex regexp enclosed by special grouping parenthesis “<code class="language-plaintext highlighter-rouge">\(</code>” and “<code class="language-plaintext highlighter-rouge">\)</code>” (see below)</li>
+    </ul>
+  </li>
+  <li>Complex regexp
+    <ul>
+      <li>A sequence of atomic regexps</li>
+      <li>Matches a continuous sequence of substrings, each matched by corresponded atomic regexp
+        <ul>
+          <li>“<code class="language-plaintext highlighter-rouge">boo</code>” → «<code class="language-plaintext highlighter-rouge">boo</code>»</li>
+          <li>“<code class="language-plaintext highlighter-rouge">r....e</code>” → «<code class="language-plaintext highlighter-rouge">riddle</code>»</li>
+          <li>“<code class="language-plaintext highlighter-rouge">r....e</code>” → «<code class="language-plaintext highlighter-rouge">r re e</code>»</li>
+          <li>”<code class="language-plaintext highlighter-rouge">[0-9][0-9]*</code>” → any non-negative integer</li>
+          <li>”<code class="language-plaintext highlighter-rouge">[A-Za-z_][A-Za-z0-9]*</code>” → C identifier (alphanumeric sequence with «<code class="language-plaintext highlighter-rouge">_</code>», not started from digit)</li>
+        </ul>
+      </li>
+      <li>grouping parenthesis can be used for repeating complex regexp:
+        <ul>
+          <li>”<code class="language-plaintext highlighter-rouge">\([A-Z][a-z]\)*</code>” → «<code class="language-plaintext highlighter-rouge">ReGeXp</code>»</li>
+          <li>”<code class="language-plaintext highlighter-rouge">\([A-Z][a-z]\)*</code>” → «``»</li>
+          <li>”<code class="language-plaintext highlighter-rouge">\([A-Z][a-z]\)*</code>” → «<code class="language-plaintext highlighter-rouge">Oi</code>»</li>
+        </ul>
+      </li>
+      <li>Implies <strong>leftmost longest rule</strong> (aka «greedy»):
+In successful match of complex regexp <em>leftmost</em> atomic regexp takes <em>longest possible</em> match,
+second leftmost atomic regexp takes longest match that possible in current condition; and so on
+        <ul>
+          <li>”<code class="language-plaintext highlighter-rouge">.*.*</code>” → all the string leftmost, empty string next</li>
+          <li>”<code class="language-plaintext highlighter-rouge">[a-z]*[0-9]*[a-z0-9]*</code>” → «<code class="language-plaintext highlighter-rouge">123b0c0</code>»
+            <ul>
+              <li>”<code class="language-plaintext highlighter-rouge">[a-z]*</code>” → «»</li>
+              <li>”<code class="language-plaintext highlighter-rouge">[0-9]*</code>” → «<code class="language-plaintext highlighter-rouge">123</code>»</li>
+              <li>”<code class="language-plaintext highlighter-rouge">[a-z0-9]*</code>” → «<code class="language-plaintext highlighter-rouge">b0c0</code>»</li>
+            </ul>
+          </li>
+          <li>”<code class="language-plaintext highlighter-rouge">[a-d]*[c-f]*[d-h]*</code>” → «<code class="language-plaintext highlighter-rouge">abcdefgh</code>»
+            <ul>
+              <li>”<code class="language-plaintext highlighter-rouge">[a-d]*</code>” → «<code class="language-plaintext highlighter-rouge">abcd</code>»</li>
+              <li>”<code class="language-plaintext highlighter-rouge">[c-f]*</code>” → «<code class="language-plaintext highlighter-rouge">ef</code>»</li>
+              <li>”<code class="language-plaintext highlighter-rouge">[d-h]*</code>” → «<code class="language-plaintext highlighter-rouge">gh</code>»</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Positioning mark
+    <ul>
+      <li>”<code class="language-plaintext highlighter-rouge">^regexp</code>” matches only substrings located at the beginning of the line</li>
+      <li>“<code class="language-plaintext highlighter-rouge">regexp$</code>” matches only substrings located at the end of line</li>
+    </ul>
+  </li>
+</ol>
+
+              </article>
+            </div>
+
+            <aside class="page-toc" data-toc hidden>
+              <div class="page-toc__inner">
+                <p class="page-toc__eyebrow">On this page</p>
+                <nav aria-label="Table of contents">
+                  <ol class="page-toc__list" data-toc-list></ol>
+                </nav>
+              </div>
+            </aside>
+          </div>
+        
+      </main>
+
+      <footer class="site-footer">
+        <div class="container site-footer__inner">
+          <div>
+            <strong>Computer Architecture and Operating Systems</strong>
+              <p>Course materials maintained on GitHub Pages for HSE Faculty of Computer Science.</p>
+          </div>
+          <div class="site-footer__links">
+            <a href="/hse-acos-course/">Home</a>
+              <a href="https://github.com/andrewt0301/hse-acos-course">Repository</a>
+            <a href="https://pages.github.com">GitHub Pages</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

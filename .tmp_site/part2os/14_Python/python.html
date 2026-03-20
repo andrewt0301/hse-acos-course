@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>System Programming in Python | Computer Architecture and Operating Systems</title>
+    <meta name="description" content="Course taught at Faculty of Computer Science of Higher School of Economics">
+    <script>
+      (function () {
+        var root = document.documentElement;
+
+        try {
+          var savedTheme = localStorage.getItem("acos-theme");
+          var savedLanguage = localStorage.getItem("acos-language");
+          var theme = savedTheme || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          var language = savedLanguage || "en";
+
+          root.dataset.theme = theme === "dark" ? "dark" : "light";
+          root.dataset.language = language === "ru" ? "ru" : "en";
+          root.lang = language === "ru" ? "ru" : "en";
+        } catch (error) {
+          root.dataset.theme = "light";
+          root.dataset.language = "en";
+          root.lang = "en";
+        }
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/hse-acos-course/assets/css/style.css?v=20260321b">
+    <script defer src="/hse-acos-course/assets/js/site.js?v=20260321b"></script>
+  </head>
+  
+  
+  
+  
+  
+  
+  
+  
+  <body data-page-kind="lecture" data-section="os" data-current-url="/part2os/14_Python/python.html">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="site-bg">
+      <div class="site-grid"></div>
+    </div>
+
+    <div class="site-shell">
+      <header class="site-header" data-site-header>
+        <div class="container site-header__inner">
+          <a class="site-brand" href="/hse-acos-course/" aria-label="Computer Architecture and Operating Systems">
+            <span class="site-brand__mark" aria-hidden="true">ACOS</span>
+          </a>
+
+          <button class="site-nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+            <span>Menu</span>
+          </button>
+
+          <div class="site-header__panel" id="site-nav" data-nav-panel>
+            <nav class="site-nav" aria-label="Primary">
+              <ul class="site-nav__list">
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/" data-nav-link>Home</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="/hse-acos-course/calendar_plan.html" data-nav-link>Calendar</a>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Assessment</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/exam_latest.html" data-nav-link>Exam</a>
+                          
+                            <a href="/hse-acos-course/grades.html" data-nav-link>Grades</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <details class="site-nav__group">
+                        <summary>Resources</summary>
+                        <div class="site-nav__dropdown">
+                          
+                            <a href="/hse-acos-course/software.html" data-nav-link>Software</a>
+                          
+                            <a href="/hse-acos-course/books.html" data-nav-link>Textbooks</a>
+                          
+                            <a href="/hse-acos-course/courses.html" data-nav-link>Related Courses</a>
+                          
+                            <a href="/hse-acos-course/links.html" data-nav-link>Useful Links</a>
+                          
+                        </div>
+                      </details>
+                    
+                  </li>
+                
+                  <li class="site-nav__item">
+                    
+                      <a href="https://github.com/andrewt0301/hse-acos-course" data-nav-link>GitHub</a>
+                    
+                  </li>
+                
+              </ul>
+            </nav>
+
+            <div class="site-preferences" aria-label="Site preferences">
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Theme</span>
+                <div class="site-preferences__switch" role="group" aria-label="Theme switch">
+                  <button type="button" data-theme-option="light" aria-pressed="false">Light</button>
+                  <button type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+                </div>
+              </div>
+
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Lang</span>
+                <div class="site-preferences__switch" role="group" aria-label="Language switch">
+                  <button type="button" data-language-option="en" aria-pressed="false">EN</button>
+                  <button type="button" data-language-option="ru" aria-pressed="false">RU</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="language-placeholder" data-language-placeholder hidden>
+        <div class="container language-placeholder__inner">
+          <div class="language-placeholder__copy">
+            <p class="language-placeholder__eyebrow">RU / Placeholder</p>
+            <strong>Русская версия пока в разработке</strong>
+            <p>Переключатель уже добавлен, но материалы и текущий интерфейс страниц пока остаются на английском. Полноценная локализация появится позже.</p>
+          </div>
+          <button class="language-placeholder__action" type="button" data-language-reset>Back to English</button>
+        </div>
+      </div>
+
+      <main id="main-content" class="site-main">
+        
+          <div class="container page-shell">
+            <div class="page-shell__main">
+              <nav class="breadcrumbs" aria-label="Breadcrumbs">
+                <ol>
+                  <li><a href="/hse-acos-course/">Home</a></li>
+                  
+                    <li><a href="/hse-acos-course/#operating-systems">Operating Systems</a></li>
+                  
+                  <li aria-current="page"><span data-breadcrumb-current>System Programming in Python</span></li>
+                </ol>
+              </nav>
+
+              <article class="page-article" data-page-content>
+                <h2 id="system-programming-in-python">System Programming in Python</h2>
+
+<p>The goal of this seminar is to practice in using Python modules that manage
+facilities provided by the operation system.</p>
+
+<h2 id="running-programs-in-python">Running programs in Python</h2>
+
+<p>Using the <a href="https://docs.python.org/3/library/os.html">os</a> and
+<a href="https://docs.python.org/3/library/sys.html">sys</a> modules to run programs from Python scripts.</p>
+
+<p>Read documentation on the <code class="language-plaintext highlighter-rouge">os.path.realpath(path)</code>, <code class="language-plaintext highlighter-rouge">os.system(command)</code>, <code class="language-plaintext highlighter-rouge">sys.executable</code>, and <code class="language-plaintext highlighter-rouge">sys.argv</code> methods.</p>
+
+<p>Study the Python program below.</p>
+
+<p><strong>dorun.py</strong>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span><span class="s">'''
+'''</span> 
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">Python</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">executable</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">os</span><span class="p">.</span><span class="n">system</span><span class="p">(</span><span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">Python</span><span class="si">}</span><span class="s"> </span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s"> </span><span class="si">{</span><span class="s">" "</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>This program launches a program specified as command-line argument and passes it the
+rest of the arguments. The program to be run can look as follows.</p>
+
+<p><strong>torun.py</strong>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span><span class="s">'''
+'''</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">print</span><span class="p">(</span><span class="s">":"</span><span class="p">,</span> <span class="s">"-"</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>
+</code></pre></div></div>
+
+<p>Run the program with <code class="language-plaintext highlighter-rouge">python3</code> and see the result:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~$ python3 dorun.py torun.py qwe ert ert
+: qwe-ert-ert
+</code></pre></div></div>
+
+<p>Run the program and pass it an invalid program to run. See the output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~$ python3 dorun.py nothing_torun.py qwe ert ert
+</code></pre></div></div>
+
+<h4 id="task-01">Task 01</h4>
+
+<p>Modify the <strong>dorun.py</strong> program so that it checks whether the program to run exists
+before trying to run it.</p>
+
+<p>Use the <a href="https://docs.python.org/3/library/os.path.html#os.path.exists">os.path.exists</a>
+method to check whether the program exists.</p>
+
+<p>If the file does not exist, print the “No <em>filename</em>” message to
+<a href="https://docs.python.org/3/library/sys.html?sys.stderr">sys.stderr</a>.</p>
+
+<p>Save the modified code to the <strong>dochkrun.py</strong> file.</p>
+
+<p><strong>dochkrun.py (solution)</strong>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">Python</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">executable</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="k">if</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">exists</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">os</span><span class="p">.</span><span class="n">system</span><span class="p">(</span><span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">Python</span><span class="si">}</span><span class="s"> </span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s"> </span><span class="si">{</span><span class="s">" "</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'No </span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s">!'</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="p">.</span><span class="n">stderr</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="creating-processes-in-python">Creating processes in Python</h2>
+
+<p>When is required to spawn new processes, connect to their input/output/error pipes,
+and obtain their return codes the <a href="https://docs.python.org/3/library/subprocess.html">subprocess</a> module can be used.</p>
+
+<h4 id="task-02">Task 02</h4>
+
+<p>Study documentation on the <a href="https://docs.python.org/3/library/subprocess.html">subprocess</a> module.</p>
+
+<p>Rewrite the <strong>dochkrun.py</strong> file to run the program using the
+<a href="https://docs.python.org/3/library/subprocess.html#subprocess.run">subprocess.run</a> function.</p>
+
+<p>Save the resulting program to the <strong>dosubrun.py</strong> file.</p>
+
+<p><strong>dosubrun.py (solution)</strong>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">subprocess</span> <span class="kn">import</span> <span class="n">run</span>
+
+<span class="n">Python</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">executable</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="k">if</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">exists</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">run</span><span class="p">([</span><span class="n">Python</span><span class="p">,</span> <span class="n">f</span><span class="p">]</span><span class="o">+</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"No </span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s">"</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="p">.</span><span class="n">stderr</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="using-pipes-in-python">Using Pipes in Python</h2>
+
+<p>Pipes can be used to <a href="https://docs.python.org/3.8/library/subprocess.html?highlight=subprocess#replacing-shell-pipeline">replace shell pipelines</a>.</p>
+
+<p>The following shell command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>output=$(dmesg | grep sda)
+</code></pre></div></div>
+
+<p>can be implemented in Python as follows:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">subprocess</span> <span class="k">as</span> <span class="n">proc</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">proc</span><span class="p">.</span><span class="n">Popen</span><span class="p">([</span><span class="s">"dmesg"</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">proc</span><span class="p">.</span><span class="n">PIPE</span><span class="p">)</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">proc</span><span class="p">.</span><span class="n">Popen</span><span class="p">([</span><span class="s">"grep"</span><span class="p">,</span> <span class="s">"sda"</span><span class="p">],</span> <span class="n">stdin</span><span class="o">=</span><span class="n">p1</span><span class="p">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">proc</span><span class="p">.</span><span class="n">PIPE</span><span class="p">)</span>
+<span class="n">p1</span><span class="p">.</span><span class="n">stdout</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>  <span class="c1"># Allow p1 to receive a SIGPIPE if p2 exits.
+</span><span class="n">output</span> <span class="o">=</span> <span class="n">p2</span><span class="p">.</span><span class="n">communicate</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>Execute shell and Python and see the results.</p>
+
+<h4 id="task-03">Task 03</h4>
+
+<p>On the basis of the previous example,
+write a Python program that pipelines two commands specified in the command line.
+Both commands can have any number of arguments. Save the program to the pipecmd.py file.</p>
+
+<p><em>Hint</em>: You need to separate one program with arguments from another program with a special separator character.
+For example, it can be “@”.</p>
+
+<p>The command line can look like this:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>acos@acos-vm:~<span class="nv">$ </span>python3 pipecmd.py <span class="nb">date</span> <span class="nt">-u</span> @ hexdump <span class="nt">-C</span>
+00000000 d0 92 d1 81 20 d0 bc d0 b0 d1 8f 20 33 31 20 32 |.... ...... 31 2|
+00000010 31 3a 31 33 3a 30 38 20 55 54 43 20 32 30 32 30 |1:13:08 UTC 2020|
+00000020 0a                                              |.|
+00000021
+</code></pre></div></div>
+
+<p><strong>pipecmd.py (solution)</strong>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span>
+<span class="kn">import</span> <span class="nn">subprocess</span> <span class="k">as</span> <span class="n">proc</span> <span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="s">"@"</span><span class="p">)</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">proc</span><span class="p">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">d</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">proc</span><span class="p">.</span><span class="n">PIPE</span><span class="p">)</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">proc</span><span class="p">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="n">d</span><span class="o">+</span><span class="mi">1</span><span class="p">:],</span> <span class="n">stdin</span><span class="o">=</span><span class="n">p1</span><span class="p">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">proc</span><span class="p">.</span><span class="n">PIPE</span><span class="p">)</span>
+<span class="n">p1</span><span class="p">.</span><span class="n">stdout</span><span class="p">.</span><span class="n">close</span><span class="p">()</span> <span class="c1"># Allow p1 to receive a SIGPIPE if p2 exits.
+</span><span class="n">output</span> <span class="o">=</span> <span class="n">p2</span><span class="p">.</span><span class="n">communicate</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">output</span><span class="p">.</span><span class="n">decode</span><span class="p">())</span>
+</code></pre></div></div>
+
+<h2 id="running-python-program-in-different-processes">Running Python Program in Different Processes</h2>
+
+<p>To execute different parts of a program in different processes,
+the <a href="https://docs.python.org/3/library/multiprocessing.html">multiprocessing</a> module can be used.
+The example below runs a process using the <a href="https://docs.python.org/3/library/multiprocessing.html#multiprocessing.Process">Process</a> class.</p>
+
+<p><strong>multiex.py</strong>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+
+<span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="n">title</span><span class="p">):</span>
+   <span class="k">print</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">'module name:'</span><span class="p">,</span> <span class="n">__name__</span><span class="p">)</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">'parent process:'</span><span class="p">,</span> <span class="n">os</span><span class="p">.</span><span class="n">getppid</span><span class="p">())</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">'process id:'</span><span class="p">,</span> <span class="n">os</span><span class="p">.</span><span class="n">getpid</span><span class="p">())</span>
+
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+   <span class="n">info</span><span class="p">(</span><span class="s">'function f'</span><span class="p">)</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">'hello'</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+   <span class="n">info</span><span class="p">(</span><span class="s">'main line'</span><span class="p">)</span>
+   <span class="n">p</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s">'bob'</span><span class="p">,))</span>
+   <span class="n">p</span><span class="p">.</span><span class="n">start</span><span class="p">()</span>
+   <span class="n">p</span><span class="p">.</span><span class="n">join</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h4 id="task-04">Task 04</h4>
+
+<p>Modify the <code class="language-plaintext highlighter-rouge">multiex.py</code> program. Pass the <code class="language-plaintext highlighter-rouge">f</code> function running in another process
+the additional argument <code class="language-plaintext highlighter-rouge">wait</code>, which specifies a delay in seconds.
+It must be a random value from the range [1..5].</p>
+
+<p>In the <code class="language-plaintext highlighter-rouge">f</code> function, print the <code class="language-plaintext highlighter-rouge">wait</code> argument together with <code class="language-plaintext highlighter-rouge">name</code>.
+Then delay execution for the number of seconds specified in <code class="language-plaintext highlighter-rouge">wait</code>.</p>
+
+<p>Use the <a href="https://docs.python.org/3/library/time.html#time.sleep">time.sleep</a> method to delay execution.</p>
+
+<p>Use the <a href="https://docs.python.org/3/library/random.html#random.randrange">random.randrange</a> to generate a random value.</p>
+
+<p>Save the resulting program in the <code class="language-plaintext highlighter-rouge">multiex2.py</code> file.</p>
+
+<p><strong>multiex2.py (solution)</strong>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span>
+<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">wait</span><span class="p">):</span>
+   <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">wait</span><span class="p">)</span>
+   <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">wait</span><span class="p">)</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">'hello'</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+   <span class="n">p</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s">'bob'</span><span class="p">,</span><span class="n">random</span><span class="p">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)))</span>
+   <span class="n">p</span><span class="p">.</span><span class="n">start</span><span class="p">()</span>
+   <span class="n">p</span><span class="p">.</span><span class="n">join</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="connecting-processes-with-pipes">Connecting Processes with Pipes</h2>
+
+<p>Exchange objects between processes using <a href="https://docs.python.org/3.8/library/multiprocessing.html#exchanging-objects-between-processes">pipes</a>.</p>
+
+<p>Here is an example:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span><span class="p">,</span> <span class="n">Pipe</span>
+
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">conn</span><span class="p">):</span>
+   <span class="n">conn</span><span class="p">.</span><span class="n">send</span><span class="p">([</span><span class="mi">42</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="s">'hello'</span><span class="p">])</span>
+   <span class="n">conn</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+   <span class="n">parent_conn</span><span class="p">,</span> <span class="n">child_conn</span> <span class="o">=</span> <span class="n">Pipe</span><span class="p">()</span>
+   <span class="n">p</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">child_conn</span><span class="p">,))</span>
+   <span class="n">p</span><span class="p">.</span><span class="n">start</span><span class="p">()</span>
+   <span class="k">print</span><span class="p">(</span><span class="n">parent_conn</span><span class="p">.</span><span class="n">recv</span><span class="p">())</span>   <span class="c1"># prints "[42, None, 'hello']"
+</span>   <span class="n">p</span><span class="p">.</span><span class="n">join</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h4 id="task-05">Task 05</h4>
+
+<p>Modify the <code class="language-plaintext highlighter-rouge">multiex2.py</code> program to send the <code class="language-plaintext highlighter-rouge">f"Hello, {name}!"</code> message
+from the child to the parent process. Print it in the parent process.</p>
+
+<p>Save the resulting program to the <code class="language-plaintext highlighter-rouge">multiexchat.py</code> file.</p>
+
+<p><strong>multiexchat.py (solution)</strong>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span>
+<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span><span class="p">,</span> <span class="n">Pipe</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">conn</span><span class="p">):</span>
+   <span class="n">name</span><span class="p">,</span> <span class="n">wait</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">recv</span><span class="p">()</span>
+   <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">wait</span><span class="p">)</span>
+   <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">wait</span><span class="p">)</span>
+   <span class="n">conn</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="sa">f</span><span class="s">"Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">!"</span><span class="p">)</span>
+   <span class="n">conn</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+   <span class="n">parent_conn</span><span class="p">,</span> <span class="n">child_conn</span> <span class="o">=</span> <span class="n">Pipe</span><span class="p">()</span>
+   <span class="n">p</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">child_conn</span><span class="p">,))</span>
+   <span class="n">p</span><span class="p">.</span><span class="n">start</span><span class="p">()</span>
+   <span class="n">parent_conn</span><span class="p">.</span><span class="n">send</span><span class="p">((</span><span class="s">"bob"</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+   <span class="n">res</span> <span class="o">=</span> <span class="n">parent_conn</span><span class="p">.</span><span class="n">recv</span><span class="p">()</span>
+   <span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+   <span class="n">p</span><span class="p">.</span><span class="n">join</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h4 id="task-06">Task 06</h4>
+
+<p>Modify the <code class="language-plaintext highlighter-rouge">multiex2.py</code> program to run multiple processes and wait for them to stop.
+The name of a process is its index.
+Number of processes must be specified as a command line argument (default value is 5).</p>
+
+<p>Save the resulting program to the <code class="language-plaintext highlighter-rouge">multiexmany.py</code> file.</p>
+
+<p>See the running processes with <code class="language-plaintext highlighter-rouge">ps</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">acos</span><span class="o">@</span><span class="n">acos</span><span class="o">-</span><span class="n">vm</span><span class="p">:</span><span class="o">~</span><span class="err">$</span> <span class="n">python3</span> <span class="n">multiexmany</span><span class="p">.</span><span class="n">py</span> <span class="o">&amp;</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="mi">2844</span>
+<span class="n">acos</span><span class="o">@</span><span class="n">acos</span><span class="o">-</span><span class="n">vm</span><span class="p">:</span><span class="o">~</span><span class="err">$</span> <span class="mi">0</span> <span class="mi">4</span>
+<span class="mi">4</span> <span class="mi">3</span>
+<span class="mi">1</span> <span class="mi">2</span>
+<span class="mi">3</span> <span class="mi">2</span>
+<span class="mi">2</span> <span class="mi">2</span>
+<span class="n">ps</span> <span class="o">-</span><span class="n">ef</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">python</span>
+<span class="n">acos</span>     <span class="mi">2844</span>    <span class="mi">2515</span>  <span class="mi">0</span> <span class="mi">01</span><span class="p">:</span><span class="mi">53</span> <span class="n">pts</span><span class="o">/</span><span class="mi">0</span>    <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="n">python3</span> <span class="n">multiexmany</span><span class="p">.</span><span class="n">py</span>
+<span class="n">acos</span>     <span class="mi">2845</span>    <span class="mi">2844</span>  <span class="mi">0</span> <span class="mi">01</span><span class="p">:</span><span class="mi">53</span> <span class="n">pts</span><span class="o">/</span><span class="mi">0</span>    <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="n">python3</span> <span class="n">multiexmany</span><span class="p">.</span><span class="n">py</span>
+<span class="n">acos</span>     <span class="mi">2846</span>    <span class="mi">2844</span>  <span class="mi">0</span> <span class="mi">01</span><span class="p">:</span><span class="mi">53</span> <span class="n">pts</span><span class="o">/</span><span class="mi">0</span>    <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="n">python3</span> <span class="n">multiexmany</span><span class="p">.</span><span class="n">py</span>
+<span class="n">acos</span>     <span class="mi">2847</span>    <span class="mi">2844</span>  <span class="mi">0</span> <span class="mi">01</span><span class="p">:</span><span class="mi">53</span> <span class="n">pts</span><span class="o">/</span><span class="mi">0</span>    <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="n">python3</span> <span class="n">multiexmany</span><span class="p">.</span><span class="n">py</span>
+<span class="n">acos</span>     <span class="mi">2848</span>    <span class="mi">2844</span>  <span class="mi">0</span> <span class="mi">01</span><span class="p">:</span><span class="mi">53</span> <span class="n">pts</span><span class="o">/</span><span class="mi">0</span>    <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="n">python3</span> <span class="n">multiexmany</span><span class="p">.</span><span class="n">py</span>
+<span class="n">acos</span>     <span class="mi">2849</span>    <span class="mi">2844</span>  <span class="mi">0</span> <span class="mi">01</span><span class="p">:</span><span class="mi">53</span> <span class="n">pts</span><span class="o">/</span><span class="mi">0</span>    <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="n">python3</span> <span class="n">multiexmany</span><span class="p">.</span><span class="n">py</span>
+<span class="n">acos</span>     <span class="mi">2851</span>    <span class="mi">2515</span>  <span class="mi">0</span> <span class="mi">01</span><span class="p">:</span><span class="mi">53</span> <span class="n">pts</span><span class="o">/</span><span class="mi">0</span>    <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="n">grep</span> <span class="o">--</span><span class="n">color</span><span class="o">=</span><span class="n">auto</span> <span class="n">python</span>
+<span class="n">acos</span><span class="o">@</span><span class="n">acos</span><span class="o">-</span><span class="n">vm</span><span class="p">:</span><span class="o">~</span><span class="err">$</span> <span class="n">hello</span> <span class="mi">1</span> <span class="mi">2</span>
+<span class="n">hello</span> <span class="mi">2</span> <span class="mi">2</span>
+<span class="n">hello</span> <span class="mi">3</span> <span class="mi">2</span>
+<span class="n">hello</span> <span class="mi">4</span> <span class="mi">3</span>
+<span class="n">hello</span> <span class="mi">0</span> <span class="mi">4</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span>  <span class="n">Finished</span>        <span class="n">python3</span> <span class="n">multiexmany</span><span class="p">.</span><span class="n">py</span>
+</code></pre></div></div>
+
+<p><strong>multiexmany.py (solution):</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span>
+<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">wait</span><span class="p">):</span>
+   <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">wait</span><span class="p">)</span>
+   <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">wait</span><span class="p">)</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">'hello'</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">wait</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+   <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span> <span class="k">else</span> <span class="mi">5</span>
+   <span class="n">P</span> <span class="o">=</span> <span class="p">[</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">random</span><span class="p">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+   <span class="n">res</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="p">.</span><span class="n">start</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">P</span><span class="p">]</span>
+   <span class="n">res</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="p">.</span><span class="n">join</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">P</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h2 id="process-pooling-in-python">Process Pooling in Python</h2>
+
+<p>Tasks can be parallelized using <a href="https://docs.python.org/3.8/library/multiprocessing.html#multiprocessing.pool.Pool">pools</a>.
+They allow distributing tasks among the specified number of worker processes.
+Here is an example:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Pool</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="k">as</span> <span class="n">p</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="nb">map</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+</code></pre></div></div>
+
+<h4 id="task-07">Task 07</h4>
+
+<p>Modify the <code class="language-plaintext highlighter-rouge">multiex2.py</code> program to run multiple tasks using a pool.
+Number of tasks must be specified as a command-line argument (default value is 5).
+The size of pool is fixed and equals 6.
+The <code class="language-plaintext highlighter-rouge">f</code> function must return the wait value multiplied by 10.
+Print the aggregated result returned by the <code class="language-plaintext highlighter-rouge">Pool.map</code> method.
+Save the resulting program to the <code class="language-plaintext highlighter-rouge">multiexpool.py</code> file.</p>
+
+<p><strong>multiexpool.py (solution)</strong>:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">#!/usr/bin/env python3
+</span>
+<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+   <span class="n">name</span><span class="p">,</span> <span class="n">wait</span> <span class="o">=</span> <span class="n">args</span>
+   <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">wait</span><span class="p">)</span>
+   <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">wait</span><span class="p">)</span>
+   <span class="k">return</span> <span class="n">wait</span><span class="o">*</span><span class="mi">10</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+   <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span> <span class="k">else</span> <span class="mi">5</span>
+   <span class="n">pool</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+   <span class="n">pars</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">random</span><span class="p">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+   <span class="n">res</span> <span class="o">=</span> <span class="n">pool</span><span class="p">.</span><span class="nb">map</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">pars</span><span class="p">)</span>
+   <span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+   <span class="n">pool</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+              </article>
+            </div>
+
+            <aside class="page-toc" data-toc hidden>
+              <div class="page-toc__inner">
+                <p class="page-toc__eyebrow">On this page</p>
+                <nav aria-label="Table of contents">
+                  <ol class="page-toc__list" data-toc-list></ol>
+                </nav>
+              </div>
+            </aside>
+          </div>
+        
+      </main>
+
+      <footer class="site-footer">
+        <div class="container site-footer__inner">
+          <div>
+            <strong>Computer Architecture and Operating Systems</strong>
+              <p>Course materials maintained on GitHub Pages for HSE Faculty of Computer Science.</p>
+          </div>
+          <div class="site-footer__links">
+            <a href="/hse-acos-course/">Home</a>
+              <a href="https://github.com/andrewt0301/hse-acos-course">Repository</a>
+            <a href="https://pages.github.com">GitHub Pages</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
