@@ -30,7 +30,7 @@ Computer Architecture Test (2026)
 
 4. What is the lowest possible value for a 5-bit signed integer (write it in binary format `xxxxxx`)?
 
-  __Answer: 10000__
+   __Answer: 10000__
 
 5. 64-bit value `0xDEADBEEFBAADF00D` is stored in memory of a Little-Endian machine at address `0x0`.
    How its bytes are placed into memory (from `0x0` to `0x7`)?
