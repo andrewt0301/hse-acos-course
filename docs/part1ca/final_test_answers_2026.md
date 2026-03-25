@@ -44,7 +44,7 @@ Computer Architecture Test (2026)
 6. The value of signed 16-bit variable `x` is `0x8000` (hexadecimal).
    What is the value of `-x` (decimal)?
 
-  __Answer: -32768__
+   __Answer: -32768__
 
 7. Which bit trick can be used to check whether the value of `x` is a power of two?
 
@@ -71,16 +71,16 @@ Computer Architecture Test (2026)
 
 10. What RISC-V instruction can read the current value of the program counter (PC)? Write its name in CAPSLOCK.
 
-   __Answer: AUIPC__
+    __Answer: AUIPC__
 
 11. Here are 4 RISC-V instructions in hexadecimal encoding. Which of them have the same opcode?
 
-   A. `0x00000303`
-   B. `0x00000293`
-   C. `0x00002023`
-   D. `0x00002283`
+    A. `0x00000303`
+    B. `0x00000293`
+    C. `0x00002023`
+    D. `0x00002283`
 
-   __Answer: A and D__
+    __Answer: A and D__
 
 12. The following RISC-V program has a bug.
     What register does function `A` need to save before calling function `B` and to restore after to fix the problem? Type its name in small letters.
