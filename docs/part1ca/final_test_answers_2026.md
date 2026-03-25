@@ -62,16 +62,16 @@ Computer Architecture Test (2026)
    C. `-5 + 3`
    D. `-5 - 3`
 
-  __Answer: A__
+   __Answer: A__
 
 9. This is a 32-bit floating-point value written in binary format: `11000000011100000000000000000000`.
    What is the decimal value for this binary representation? 
 
-  __Answer: -3.75__
+   __Answer: -3.75__
 
 10. What RISC-V instruction can read the current value of the program counter (PC)? Write its name in CAPSLOCK.
 
-  __Answer: AUIPC__
+   __Answer: AUIPC__
 
 11. Here are 4 RISC-V instructions in hexadecimal encoding. Which of them have the same opcode?
 
@@ -134,7 +134,7 @@ Computer Architecture Test (2026)
 
 15. What is the typical size (in bits) of virtual address in modern 64-bit Intel processors? 
 
-   __Answer: 48__
+    __Answer: 48__
 
 16. We have a 32-bit address and a 2-way accosiative cache that contains
     128 entries with block size of 64 bytes. What it the tag size in bits?
@@ -147,16 +147,16 @@ Computer Architecture Test (2026)
 
 18. How many hardware threads per core does Intel Core i7 support?
 
-   __Answer: 2__
+    __Answer: 2__
 
 19. What type of parralelism implemented in modern CPU does NOT require assistance of a programmer?
 
-   A. Instruction-level parallelism
-   B. Data-level parallelism
-   C. Thread-level parallelism
+    A. Instruction-level parallelism
+    B. Data-level parallelism
+    C. Thread-level parallelism
 
-  __Answer: A__
+    __Answer: A__
 
 20. How many 32-bit integer values can be added simultaneously using Intel's AVX2 SIMD instructions. 
 
-  __Answer: 8__
+    __Answer: 8__
