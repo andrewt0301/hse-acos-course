@@ -168,7 +168,7 @@ __System calls in C:__
 1. Modify the previous program to accept command-line arguments (argc/argv).
    Pass via command-line arguments the number of words
    (use [sscanf](https://man7.org/linux/man-pages/man3/sscanf.3p.html)
-   to get an integer from _argv[1]_ and the name of output file (_argv[2]_).
+   to get an integer from `argv[1]` and the name of output file (`argv[2]`).
 
 ## Homework
 
