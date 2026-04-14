@@ -100,7 +100,7 @@ Functions that are called in user program to execute system calls are defined in
 To make them available, a corresponding header must be included
 into the program source code and then a function can be called.
 
-* The “open” function from POSIX:
+* The `open` function from POSIX:
 
 ```c
 #include <sys/stat.h>
@@ -117,7 +117,7 @@ int open(const char *path, int oflag, ...);
 FILE *fopen(const char *pathname, const char *mode);
 ```
 
-* The “syscall” function:
+* The `syscall` function:
 
 ```c
 #include <unistd.h>
@@ -139,7 +139,7 @@ All the three examples, do the same: they print the “Hello World” message to
 To compile and run them, the following commands need to be executed:
 
 ```bash
-gcc hello1.c –o hello
+gcc hello1.c -o hello
 ./hello
 ```
 
