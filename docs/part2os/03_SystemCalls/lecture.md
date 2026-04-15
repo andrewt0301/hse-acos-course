@@ -7,7 +7,11 @@ Lecture 3
 
 Slides ([PDF](OS_Lecture_03.pdf), [PPTX](OS_Lecture_03.pptx)).
 
-Outline:
+#### Outline
+
+* General idea of system calls
+* System calls types
+* System calls in different OS
 
 #### System Call Types
 
@@ -193,7 +197,7 @@ _Note: Run all programs using the `strace` utility (`strace ./prog`) to see what
 
 __TODO__
 
-# References
+## References
 
 * [System call](https://en.wikipedia.org/wiki/System_call) (Wikipedia)
 * System call [open](https://en.wikipedia.org/wiki/Open_%28system_call%29) (Wikipedia)
