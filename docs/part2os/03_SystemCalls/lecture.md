@@ -55,8 +55,8 @@ These tasks will be discussed in upcoming lectures and workshops.
 
 * General idea of system calls
 * System calls `open`, `close`, `read`, and `write`
-* System call `sbrk` 
 * System calls in C
+* Using utility `strace` to trace system calls
 
 #### Theory
 
@@ -151,8 +151,8 @@ g++ hello1.cpp -o hello
 ./hello
 ```
 
-The [strace](https://man7.org/linux/man-pages/man1/strace.1.html) utility shows that
-all examples use the `write` system call:
+The [strace](https://man7.org/linux/man-pages/man1/strace.1.html) utility shows
+that all the examples use the `write` system call:
 ```bash
 strace -e trace=write ./hello
 write(1, "Hello World\n", 12Hello World
@@ -200,7 +200,6 @@ __TODO__
 * System call [close](https://en.wikipedia.org/wiki/Close_%28system_call%29) (Wikipedia)
 * System call [read](https://en.wikipedia.org/wiki/Read_%28system_call%29) (Wikipedia)
 * System call [write](https://en.wikipedia.org/wiki/Write_%28system_call%29) (Wikipedia)
-* System call [sbrk](https://en.wikipedia.org/wiki/Sbrk) (Wikipedia)
 * [The GNU C Library (glibc)](https://www.gnu.org/software/libc/)
 * [POSIX](https://en.wikipedia.org/wiki/POSIX) (Wikipedia)
 * [C POSIX library](https://en.wikipedia.org/wiki/C_POSIX_library) (Wikipedia)
