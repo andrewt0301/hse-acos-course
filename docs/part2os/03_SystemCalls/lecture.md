@@ -131,19 +131,38 @@ In Ubuntu 20.04 LTS, more system call declarations can be found in the following
 
 #### Examples
 
-1. [hello1.c](examples/hello1.c) - using the `printf` [glibc](https://www.gnu.org/software/libc/) function
-2. [hello2.c](examples/hello2.c) - using the `write` POSIX function
-3. [hello3.c](examples/hello3.c) - using the `syscall` function
+1. [hello1.c](examples/hello1.c) - uses the `printf` [glibc](https://www.gnu.org/software/libc/) function
+1. [hello1.cpp](examples/hello1.cpp) - uses the `cout` object of [C++ Standard Library](https://en.cppreference.com/w/cpp/standard_library.html)
+1. [hello2.c](examples/hello2.c) - uses the `write` POSIX function
+1. [hello3.c](examples/hello3.c) - uses the `syscall` function
 
-All the three examples, do the same: they print the “Hello World” message to the console.
+All examples do the same: they print the “Hello World” message to the console.
 To compile and run them, the following commands need to be executed:
 
+C language:
 ```bash
 gcc hello1.c -o hello
 ./hello
 ```
 
-__System calls in C:__
+C++ language:
+```bash
+g++ hello1.cpp -o hello
+./hello
+```
+
+The [strace](https://man7.org/linux/man-pages/man1/strace.1.html) utility shows that
+all examples use the `write` system call:
+```bash
+strace -e trace=write ./hello
+write(1, "Hello World\n", 12Hello World
+)           = 12
++++ exited with 0 +++
+```
+
+#### Tasks
+
+_Note: Run all programs using the `strace` utility (`strace ./prog`) to see what system calls they perform._
 
 1. Read documentation on the [read](https://man7.org/linux/man-pages/man2/read.2.html)
    and [write](https://man7.org/linux/man-pages/man2/write.2.html) system calls.
@@ -185,3 +204,4 @@ __TODO__
 * [The GNU C Library (glibc)](https://www.gnu.org/software/libc/)
 * [POSIX](https://en.wikipedia.org/wiki/POSIX) (Wikipedia)
 * [C POSIX library](https://en.wikipedia.org/wiki/C_POSIX_library) (Wikipedia)
+* [strace](https://man7.org/linux/man-pages/man1/strace.1.html) - utility to trace system calls
