@@ -200,11 +200,18 @@ _Note: Run all programs using the `strace` utility (`strace ./prog`) to see what
    * `argv[1]` - file name
    * `argv[2]` - starting line `I`
    * `argv[3]` - number of lines to print `N`
-   The program must use only system calls `open`/`close`/`read`/`write`.
+   The program must be based on system calls `open`/`close`/`read`/`write`.
    Keep the number of system calls to a minimum: use buffers of proper size.
    Take into account page size (typically, equals to 4096 bytes) and
    file size (can be obtained using the [fstat](
    https://man7.org/linux/man-pages/man3/fstat.3p.html) system call).
+
+1. Write a program that prints the middle line of a text file.
+   The middle line starts at position `<file size> / 2`.
+   The program must be based on system calls `open`/`close`/`read`/`write`.
+   Keep the number of system calls to a minimum: use buffers of proper size.
+   Use the [lseek](https://man7.org/linux/man-pages/man2/lseek.2.html) system call
+   to skip reading the first half of the file.
 
 ## References
 
