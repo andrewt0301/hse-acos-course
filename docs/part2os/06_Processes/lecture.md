@@ -387,7 +387,7 @@ Write the following programs:
      you need to check if [ECHILD](https://man7.org/linux/man-pages/man2/wait.2.html)
      is returned to indicate there is no more living child.
 
-# References
+## References
 
 * Processes. Chapter 3 in [[OSC]](../../books.md).
 * Processes. Section 8.2 in [[CSPP]](../../books.md).
