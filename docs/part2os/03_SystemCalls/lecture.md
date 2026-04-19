@@ -195,6 +195,9 @@ _Note: Run all programs using the `strace` utility (`strace ./prog`) to see what
 
 ## Homework
 
+_Write and submit to GitHub the programs described below._
+_An instruction on how to work with GitHub is [here](../../software/git.md)_.
+
 1. Write a program that prints `N` lines of a text file starting from `I`-th line.
    The command-line interface should be as follows: `argv[1]` is file name;
    `argv[2]` is starting line `I`; `argv[3]` is number of lines to print `N`.

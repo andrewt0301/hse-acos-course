@@ -90,7 +90,7 @@ Workshop on strings in C language is [here](strings/workshop.md).
 
 See the __Homework__ in the workshop materials.
 
-# References
+## References
 
 * Dynamic Memory Allocation. Section 9.9 in [[CSPP]](../../books.md)
 * Interlude: Memory API. Chapter 14 in [[COMET]](../../books.md)
