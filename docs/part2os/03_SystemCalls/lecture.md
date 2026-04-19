@@ -195,7 +195,16 @@ _Note: Run all programs using the `strace` utility (`strace ./prog`) to see what
 
 ## Homework
 
-__TODO__
+1. Write a program that prints `N` lines of a text file starting from `I`-th line.
+   The command-line interface should be as follows:
+   * `argv[1]` - file name
+   * `argv[2]` - starting line `I`
+   * `argv[3]` - number of lines to print `N`
+   The program must use only system calls `open`/`close`/`read`/`write`.
+   Keep the number of system calls to a minimum: use buffers of proper size.
+   Take into account page size (typically, equals to 4096 bytes) and
+   file size (can be obtained using the [fstat](
+   https://man7.org/linux/man-pages/man3/fstat.3p.html) system call).
 
 ## References
 
