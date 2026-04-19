@@ -201,7 +201,7 @@ _Note: Run all programs using the `strace` utility (`strace ./prog`) to see what
 
    The program must be based on system calls `open`/`close`/`read`/`write`.
    Keep the number of system calls to a minimum: use buffers of proper size.
-   Take into account page size (typically, equals to 4096 bytes) and
+   Take into account page size (typically equals to 4096 bytes) and
    file size (can be obtained using the [fstat](
    https://man7.org/linux/man-pages/man3/fstat.3p.html) system call).
 
