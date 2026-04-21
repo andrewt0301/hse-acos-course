@@ -219,6 +219,7 @@ _An instruction on how to work with GitHub is [here](../../software/git.md)_.
 ## References
 
 * [System call](https://en.wikipedia.org/wiki/System_call) (Wikipedia)
+* [File descriptor](https://en.wikipedia.org/wiki/File_descriptor) (Wikipedia)
 * System call [open](https://en.wikipedia.org/wiki/Open_%28system_call%29) (Wikipedia)
 * System call [close](https://en.wikipedia.org/wiki/Close_%28system_call%29) (Wikipedia)
 * System call [read](https://en.wikipedia.org/wiki/Read_%28system_call%29) (Wikipedia)
