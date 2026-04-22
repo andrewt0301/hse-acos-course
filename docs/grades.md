@@ -48,7 +48,7 @@ Each module score is calculated as a sum of [regular](#regular-points-10-points)
 
 $$M_i = min(10, R_i + B_i)$$
 
-10 points is the limit for $$M_i$$.
+NOTE: $$M_i$$ is limited by 10 points.
 
 #### Regular Points: 10 points
 
