@@ -25,7 +25,7 @@ https://coderoad.ru/49970549/Проблема-рендеринга-некото�
 
 ## Final Grade
 
-There are two [modules](#modules) $$M_3$$ and $$M_4$$ (scored in the same way) and final [exam](#exam) $$E$$, which have an equal weight.
+There are two [modules](#modules) $$M_3$$ and $$M_4$$ (scored in the same way) and final [exam](#exam) $$E$$, which have an equal weight:
 
 $$G = \frac{M_3 + M_4 + E}{3}$$
 
@@ -44,7 +44,7 @@ Cheating in any assessment element is a subject to [cheating](#cheating-policy) 
 
 ## Modules
 
-Each module score $$M$$ is calculated as a sum of [regular](#regular-points-10-points) $$R$$ and [bonus](#bonus-points-2-points) $$B$$ points and is limited by 10 points.
+Each module score $$M$$ is calculated as a sum of [regular](#regular-points-10-points) $$R$$ and [bonus](#bonus-points-2-points) $$B$$ points and is limited by 10 points:
 
 $$M_i = min(10, R_i + B_i)$$
 
