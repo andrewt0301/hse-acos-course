@@ -59,7 +59,7 @@ $$R_i = 0.45\cdot H + 0.45\cdot F + 0.1\cdot A$$
 
 #### Bonus Points: 2 points
 
-$$B_i = 2\cdot \frac{\sum_k C_k}{k}$$
+$$B_i = 2\cdot \frac{C_1 + C_2 + \ldots + C_{k-1} + C_k}{k}$$
 
 | Variable | Score   | Description |
 | $$C_k$$  | $$1$$   | Class activity. Each time you broadcast a solution of a task during a workshop, you get this point. |
