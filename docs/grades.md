@@ -25,7 +25,7 @@ https://coderoad.ru/49970549/Проблема-рендеринга-некото�
 
 ## Final Grade
 
-There are two [modules](#modules) $$M_3$$/$$M_4$$ (scored in the same way) and final [exam](#exam) $$E$$, which have an equal weight.
+There are two [modules](#modules) $$M_3$$-$$M_4$$ (scored in the same way) and final [exam](#exam) $$E$$, which have an equal weight.
 
 $$G = \frac{M_3 + M_4 + E}{3}$$
 
@@ -66,6 +66,8 @@ $$B_i = 2\cdot \frac{C_1 + C_2 + \ldots + C_{k-1} + C_k}{k}$$
 | Variable | Score   | Description |
 | $$C_k$$  | $$1$$   | Class activity. Each time you broadcast a solution of a task during a workshop, you get this point. |
 | $$k$$    | n/a     | Number of classes. |
+
+NOTE: $$B_i$$ is calculated as a workshop activity rate and can give up to 2 points (for 100% rate). 
 
 ## Exam
 
