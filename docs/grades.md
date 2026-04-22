@@ -25,10 +25,9 @@ https://coderoad.ru/49970549/Проблема-рендеринга-некото�
 
 ## Final Grade
 
-There are 2 [modules](#modules) $$M_i$$ (scored in the same way) and final [exam](#exam) $$E$$,
-which have an equal weight.
+There are two [modules](#modules) $$M_3$$/$$M_4$$ (scored in the same way) and final [exam](#exam) $$E$$, which have an equal weight.
 
-$$G = \frac{\sum_{i=1}^2M_i+E}{3}$$
+$$G = \frac{M_3 + M_4 + E}{3}$$
 
 If the final grade $$G$$ is unsatisfactory, the exam can be [retaken](#retake-policy).
 
