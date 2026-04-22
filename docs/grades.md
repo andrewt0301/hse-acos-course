@@ -44,11 +44,9 @@ Cheating in any assessment element is a subject to [cheating](#cheating-policy) 
 
 ## Modules
 
-Each module score is calculated as a sum of [regular](#regular-points-10-points) $$R$$ and [bonus](#bonus-points-2-points) $$B$$ points:
+Each module score $$M$$ is calculated as a sum of [regular](#regular-points-10-points) $$R$$ and [bonus](#bonus-points-2-points) $$B$$ points and is limited by 10 points.
 
 $$M_i = min(10, R_i + B_i)$$
-
-NOTE: $$M_i$$ is limited by 10 points.
 
 #### Regular Points: 10 points
 
@@ -61,13 +59,13 @@ $$R_i = 0.45\cdot H + 0.45\cdot F + 0.1\cdot A$$
 
 #### Bonus Points: 2 points
 
+$$B_i$$ is calculated as a workshop activity rate and can give up to 2 points (for 100% rate):
+
 $$B_i = 2\cdot \frac{C_1 + C_2 + \ldots + C_{k-1} + C_k}{k}$$
 
 | Variable | Score   | Description |
 | $$C_k$$  | $$1$$   | Class activity. Each time you broadcast a solution of a task during a workshop, you get this point. |
 | $$k$$    | n/a     | Number of classes. |
-
-NOTE: $$B_i$$ is calculated as a workshop activity rate and can give up to 2 points (for 100% rate). 
 
 ## Exam
 
