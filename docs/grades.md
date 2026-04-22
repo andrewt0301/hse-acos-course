@@ -66,7 +66,7 @@ $$B_i$$ is calculated as a workshop activity rate and can give up to 2 points (f
 $$B_i = 2\cdot \frac{C_1 + C_2 + \ldots + C_{k-1} + C_k}{k}$$
 
 | Variable | Score   | Description |
-| $$C_k$$  | $$1$$   | Class activity. Each time you broadcast a solution of a task during a workshop, you get this point. |
+| $$C_k$$  | $$1$$   | Class activity. Each time you broadcast a solution of a task during a workshop, you get this point. Also, this point can be earned by solving bonus homework tasks (each has its own score). |
 | $$k$$    | n/a     | Number of classes. |
 
 ## Exam
