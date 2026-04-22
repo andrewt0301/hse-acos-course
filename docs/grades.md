@@ -50,7 +50,7 @@ $$M_i = min(10, R_i + B_i)$$
 
 #### Regular Points: 10 points
 
-The formula for regular points is the following:
+The formula for regular points $$R$$ is the following:
 
 $$R_i = 0.45\cdot H + 0.45\cdot F + 0.1\cdot A$$
 
