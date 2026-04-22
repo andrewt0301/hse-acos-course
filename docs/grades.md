@@ -50,12 +50,12 @@ $$M_i = min(10, R_i + B_i)$$
 
 #### Regular Points: 10 points
 
-$$R_i = \frac{45}{100}\cdot H + \frac{10}{100}\cdot A + \frac{45}{100}\cdot F$$
+$$R_i = 0.45\cdot H + 0.45\cdot F + 0.1\cdot A$$
 
 | Variable | Score | Description |
 | $$H$$    | 45%   | Homeworks. There are deadlines. Delays cause penalties: 25% for each week of delay. Maximal penalty is 75%. |
-| $$A$$    | 10%   | Workshop attendance. You need to attend > 75% of classes to earn this point. |
 | $$F$$    | 45%   | Final test (midterm). |
+| $$A$$    | 10%   | Workshop attendance. You need to attend > 75% of classes to earn this point. |
 
 #### Bonus Points: 2 points
 
