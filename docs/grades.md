@@ -44,7 +44,7 @@ Cheating in any assessment element is a subject to [cheating](#cheating-policy) 
 
 ## Modules
 
-Each module score is calculated from [regular](#regular-points-10-points) $$R$$ and [bonus](#bonus-points-2-points) $$B$$ points:
+Each module score is calculated as a sum of [regular](#regular-points-10-points) $$R$$ and [bonus](#bonus-points-2-points) $$B$$ points (cannot be >10):
 
 $$M_i = min(10, R_i + B_i)$$
 
