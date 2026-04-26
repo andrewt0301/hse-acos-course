@@ -7,7 +7,7 @@ Lecture 5
 
 Slides ([PDF](OS_Lecture_05.pdf), [PPTX](OS_Lecture_05.pptx)).
 
-#### Outline
+### Outline
 
 * Heap management and dynamic memory allocation
 * [malloc](https://man7.org/linux/man-pages/man3/malloc.3.html) package
@@ -17,7 +17,7 @@ Slides ([PDF](OS_Lecture_05.pdf), [PPTX](OS_Lecture_05.pptx)).
 * Placement policies
 * Splitting and coalescing
 
-#### Example
+### Example
 
 Simple `malloc` [implementation](memory/malloc.c) based on an implicit list and the first-fit policy
 (full project is [here](https://github.com/andrewt0301/hse-acos-course/tree/master/docs/part2os/05_Strings/memory)).
@@ -63,7 +63,7 @@ free(0x56f5dd366470)
 free(0x56f5dd366418)
 ```
 
-#### Tasks
+### Tasks
 
 To practice with memory-allocation algorithms, do the following exercises:
 
@@ -88,7 +88,7 @@ To practice with memory-allocation algorithms, do the following exercises:
 
 Workshop on strings in C language is [here](strings/workshop.md).
 
-See the __Homework__ in the workshop materials.
+See the [Homework](strings/workshop.md#homework) in the workshop materials.
 
 ## References
 
