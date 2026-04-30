@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% assign canonical_url = page.url | default: '/' %}
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if canonical_url == '/' or canonical_url == '/index.html' %}{{ site.title | escape }}{% elsif page.title %}{{ page.title | escape }} | {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+    <meta name="description" content="{{ site.description | escape }}">
+    <script>
+      (function () {
+        var root = document.documentElement;
+
+        try {
+          var savedTheme = localStorage.getItem("acos-theme");
+          var savedLanguage = localStorage.getItem("acos-language");
+          var theme = savedTheme || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          var language = savedLanguage || "en";
+
+          root.dataset.theme = theme === "dark" ? "dark" : "light";
+          root.dataset.language = language === "ru" ? "ru" : "en";
+          root.lang = language === "ru" ? "ru" : "en";
+        } catch (error) {
+          root.dataset.theme = "light";
+          root.dataset.language = "en";
+          root.lang = "en";
+        }
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=20260430a' | relative_url }}">
+    <script defer src="{{ '/assets/js/site.js?v=20260430a' | relative_url }}"></script>
+  </head>
+  {% assign raw_url = canonical_url %}
+  {% assign page_kind = 'reference' %}
+  {% assign page_section = 'general' %}
+  {% if raw_url == '/' or raw_url == '/index.html' %}
+    {% assign page_kind = 'home' %}
+    {% assign page_section = 'home' %}
+  {% elsif raw_url contains '/part1ca/' %}
+    {% assign page_kind = 'lecture' %}
+    {% assign page_section = 'ca' %}
+  {% elsif raw_url contains '/part2os/' %}
+    {% assign page_kind = 'lecture' %}
+    {% assign page_section = 'os' %}
+  {% elsif raw_url contains '/calendar' %}
+    {% assign page_kind = 'dense-data' %}
+    {% assign page_section = 'calendar' %}
+  {% elsif raw_url contains '/exam' or raw_url contains '/grades' %}
+    {% assign page_kind = 'dense-data' %}
+    {% assign page_section = 'assessment' %}
+  {% elsif raw_url == '/books.html' %}
+    {% assign page_kind = 'books' %}
+    {% assign page_section = 'resources' %}
+  {% elsif raw_url == '/software.html' or raw_url == '/courses.html' or raw_url == '/links.html' %}
+    {% assign page_kind = 'resource-index' %}
+    {% assign page_section = 'resources' %}
+  {% elsif raw_url contains '/software/' %}
+    {% assign page_kind = 'reference' %}
+    {% assign page_section = 'software' %}
+  {% endif %}
+  {% assign current_label = page.title | default: page.name | replace: '.md', '' | replace: '_', ' ' %}
+  {% assign breadcrumb_parent_title = '' %}
+  {% assign breadcrumb_parent_url = '' %}
+  {% case page_section %}
+    {% when 'ca' %}
+      {% assign breadcrumb_parent_title = 'Computer Architecture' %}
+      {% assign breadcrumb_parent_url = '/#computer-architecture' %}
+    {% when 'os' %}
+      {% assign breadcrumb_parent_title = 'Operating Systems' %}
+      {% assign breadcrumb_parent_url = '/#operating-systems' %}
+    {% when 'software' %}
+      {% assign breadcrumb_parent_title = 'Software' %}
+      {% assign breadcrumb_parent_url = '/software.html' %}
+    {% when 'calendar' %}
+      {% assign breadcrumb_parent_title = 'Calendar' %}
+      {% assign breadcrumb_parent_url = '/calendar_plan.html' %}
+    {% when 'resources' %}
+      {% assign breadcrumb_parent_title = 'Related Materials' %}
+      {% assign breadcrumb_parent_url = '/#related-materials' %}
+    {% when 'assessment' %}
+      {% assign breadcrumb_parent_title = 'Assessment' %}
+      {% assign breadcrumb_parent_url = '/#assessment-overview' %}
+  {% endcase %}
+  <body data-page-kind="{{ page_kind }}" data-section="{{ page_section }}" data-current-url="{{ raw_url }}">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="site-bg">
+      <div class="site-grid"></div>
+    </div>
+
+    <div class="site-shell">
+      <header class="site-header" data-site-header>
+        <div class="container site-header__inner">
+          <a class="site-brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }}">
+            <span class="site-brand__mark" aria-hidden="true">ACOS</span>
+          </a>
+
+          <button class="site-nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+            <span>Menu</span>
+          </button>
+
+          <div class="site-header__panel" id="site-nav" data-nav-panel>
+            <nav class="site-nav" aria-label="Primary">
+              <ul class="site-nav__list">
+                {% for item in site.data.navigation.primary %}
+                  <li class="site-nav__item">
+                    {% if item.items %}
+                      <details class="site-nav__group">
+                        <summary>{{ item.title }}</summary>
+                        <div class="site-nav__dropdown">
+                          {% for subitem in item.items %}
+                            <a href="{% if subitem.url contains '://' %}{{ subitem.url }}{% else %}{{ subitem.url | relative_url }}{% endif %}" data-nav-link>{{ subitem.title }}</a>
+                          {% endfor %}
+                        </div>
+                      </details>
+                    {% else %}
+                      <a href="{% if item.url contains '://' %}{{ item.url }}{% else %}{{ item.url | relative_url }}{% endif %}" data-nav-link>{{ item.title }}</a>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+            </nav>
+
+            <div class="site-preferences" aria-label="Site preferences">
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Theme</span>
+                <div class="site-preferences__switch" role="group" aria-label="Theme switch">
+                  <button type="button" data-theme-option="light" aria-pressed="false">Light</button>
+                  <button type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+                </div>
+              </div>
+
+              <div class="site-preferences__group">
+                <span class="site-preferences__label">Lang</span>
+                <div class="site-preferences__switch" role="group" aria-label="Language switch">
+                  <button type="button" data-language-option="en" aria-pressed="false">EN</button>
+                  <button type="button" data-language-option="ru" aria-pressed="false">RU</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="language-placeholder" data-language-placeholder hidden>
+        <div class="container language-placeholder__inner">
+          <div class="language-placeholder__copy">
+            <p class="language-placeholder__eyebrow">RU / Placeholder</p>
+            <strong>Русская версия пока в разработке</strong>
+            <p>Переключатель уже добавлен, но материалы и текущий интерфейс страниц пока остаются на английском. Полноценная локализация появится позже.</p>
+          </div>
+          <button class="language-placeholder__action" type="button" data-language-reset>Back to English</button>
+        </div>
+      </div>
+
+      <main id="main-content" class="site-main">
+        {% if page_kind == 'home' %}
+          <div class="container home-dossier">
+            <section class="home-dossier__masthead">
+              <div class="home-dossier__heading">
+                <p class="manual-kicker">ACOS / Course File / HSE Faculty of Computer Science</p>
+                <h1>Computer Architecture and Operating Systems</h1>
+                <p class="home-dossier__lede">Course materials for computer architecture, assembly language, Linux, and system programming taught at HSE Faculty of Computer Science.</p>
+              </div>
+
+              <div class="home-dossier__deck">
+                <section class="masthead-sheet" aria-label="Course register">
+                  <p class="masthead-sheet__label">Course Register</p>
+                  <dl class="masthead-sheet__grid">
+                    <div>
+                      <dt>Modules</dt>
+                      <dd>03 / 04</dd>
+                    </div>
+                    <div>
+                      <dt>Tracks</dt>
+                      <dd>Architecture / OS</dd>
+                    </div>
+                    <div>
+                      <dt>Stack</dt>
+                      <dd>RISC-V / Linux / C</dd>
+                    </div>
+                    <div>
+                      <dt>Format</dt>
+                      <dd>Lectures / Workshops</dd>
+                    </div>
+                  </dl>
+                </section>
+
+                <figure class="home-dossier__figure">
+                  <img src="{{ '/images/hifive-unleashed-logo.png' | relative_url }}" alt="SiFive HiFive Unleashed board">
+                  <figcaption>Hardware reference: SiFive HiFive Unleashed</figcaption>
+                </figure>
+              </div>
+            </section>
+
+            <div class="home-dossier__layout">
+              <article class="page-article home-dossier__article" data-page-content>
+                {{ content }}
+              </article>
+
+              <aside class="home-dossier__rail">
+                <section class="rail-panel" data-label="Access">
+                  <h2>Course Access</h2>
+                  <ol class="rail-links">
+                    {% for item in site.data.navigation.quick_access %}
+                      <li>
+                        <a href="{{ item.url | relative_url }}">
+                          <span class="rail-links__index">0{{ forloop.index }}</span>
+                          <span class="rail-links__copy">
+                            <strong>{{ item.title }}</strong>
+                            <small>{{ item.label }}</small>
+                          </span>
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ol>
+                </section>
+
+                <section class="rail-panel" data-label="Programs">
+                  <h2>Program Links</h2>
+                  <ul class="rail-programs">
+                    {% for item in site.data.navigation.program_links %}
+                      <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+                    {% endfor %}
+                  </ul>
+                </section>
+
+                <section class="rail-panel rail-panel--signal" data-label="Repo">
+                  <h2>Repository</h2>
+                  <p>Source, issues, and publication workflow are maintained on GitHub.</p>
+                  <a class="rail-link" href="https://github.com/andrewt0301/hse-acos-course">Open repository</a>
+                </section>
+              </aside>
+            </div>
+
+            <section class="track-grid" aria-label="Course tracks">
+              {% for track in site.data.navigation.course_tracks %}
+                <section class="track-card track-card--{{ track.tone }}" id="{{ track.id }}">
+                  <div class="track-card__header">
+                    <div class="track-card__serial" aria-hidden="true">M{{ track.serial }}</div>
+                    <div class="track-card__heading">
+                      <p class="eyebrow">{{ track.eyebrow }}</p>
+                      <h2>{{ track.title }}</h2>
+                      <p>{{ track.description }}</p>
+                    </div>
+                  </div>
+
+                  <div class="track-card__body">
+                    <p class="track-card__intro">{{ track.list_intro }}</p>
+                    <ol class="track-card__list">
+                      {% for item in track.items %}
+                        <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+                      {% endfor %}
+                    </ol>
+                  </div>
+
+                  <div class="track-card__actions">
+                    {% for action in track.actions %}
+                      <a href="{{ action.url | relative_url }}">{{ action.title }}</a>
+                    {% endfor %}
+                  </div>
+                </section>
+              {% endfor %}
+            </section>
+
+            <section class="support-grid">
+              {% for item in site.data.navigation.support_cards %}
+                <section class="support-card" id="{{ item.id }}" data-card-index="0{{ forloop.index }}">
+                  <h2>{{ item.title }}</h2>
+                  <p>{{ item.body }}</p>
+                  <ul>
+                    {% for link in item.links %}
+                      <li><a href="{{ link.url | relative_url }}">{{ link.title }}</a></li>
+                    {% endfor %}
+                  </ul>
+                </section>
+              {% endfor %}
+            </section>
+          </div>
+        {% else %}
+          <div class="container page-shell">
+            <div class="page-shell__main">
+              <nav class="breadcrumbs" aria-label="Breadcrumbs">
+                <ol>
+                  <li><a href="{{ '/' | relative_url }}">Home</a></li>
+                  {% if breadcrumb_parent_title != '' and raw_url != breadcrumb_parent_url %}
+                    <li><a href="{{ breadcrumb_parent_url | relative_url }}">{{ breadcrumb_parent_title }}</a></li>
+                  {% endif %}
+                  <li aria-current="page"><span data-breadcrumb-current>{{ current_label }}</span></li>
+                </ol>
+              </nav>
+
+              <article class="page-article" data-page-content>
+                {{ content }}
+              </article>
+            </div>
+
+            <aside class="page-toc" data-toc hidden>
+              <div class="page-toc__inner">
+                <p class="page-toc__eyebrow">On this page</p>
+                <nav aria-label="Table of contents">
+                  <ol class="page-toc__list" data-toc-list></ol>
+                </nav>
+              </div>
+            </aside>
+          </div>
+        {% endif %}
+      </main>
+
+      <footer class="site-footer">
+        <div class="container site-footer__inner">
+          <div>
+            <strong>{{ site.title }}</strong>
+              <p>Course materials maintained on GitHub Pages for HSE Faculty of Computer Science.</p>
+          </div>
+          <div class="site-footer__links">
+            <a href="{{ '/' | relative_url }}">Home</a>
+              <a href="https://github.com/andrewt0301/hse-acos-course">Repository</a>
+            <a href="https://pages.github.com">GitHub Pages</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

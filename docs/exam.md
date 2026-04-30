@@ -1,3 +1,7 @@
+---
+title: Exam Format
+---
+
 <!---
 The JavaScript code below is needed to support rendering of TeX formulas in GitHub Pages.
 

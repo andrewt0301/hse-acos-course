@@ -1,0 +1,172 @@
+primary:
+  - title: Home
+    url: /
+  - title: Calendar
+    url: /calendar_plan.html
+  - title: Assessment
+    items:
+      - title: Exam
+        url: /exam_latest.html
+      - title: Grades
+        url: /grades.html
+  - title: Resources
+    items:
+      - title: Software
+        url: /software.html
+      - title: Textbooks
+        url: /books.html
+      - title: Related Courses
+        url: /courses.html
+      - title: Useful Links
+        url: /links.html
+  - title: GitHub
+    url: https://github.com/andrewt0301/hse-acos-course
+
+quick_access:
+  - title: Calendar
+    label: Weekly plan
+    url: /calendar_plan.html
+  - title: Grades
+    label: Grading system
+    url: /grades.html
+  - title: Exam
+    label: Latest questions
+    url: /exam_latest.html
+  - title: Software
+    label: Tools and setup
+    url: /software.html
+  - title: Textbooks
+    label: Core references
+    url: /books.html
+
+course_tracks:
+  - id: computer-architecture
+    serial: "03"
+    tone: architecture
+    title: Computer Architecture
+    eyebrow: Module 3
+    description: >
+      RISC-V, processor design, memory hierarchy, virtual memory, parallelism,
+      and optimization.
+    anchor: /#computer-architecture
+    list_intro: Lecture sequence
+    items:
+      - title: Introduction. Course motivation. Historical perspective.
+        url: /part1ca/01_Introduction/lecture.html
+      - title: Data types. Byte ordering. Integer formats.
+        url: /part1ca/02_DataTypes/lecture.html
+      - title: Computer organization. Microprocessor. RISC and RISC-V. Assembly language.
+        url: /part1ca/03_CPU/lecture.html
+      - title: RISC-V instructions. Instruction formats.
+        url: /part1ca/04_Instructions/lecture.html
+      - title: Pseudo instructions, macros, and includes. Conditions, loops, loads, and stores.
+        url: /part1ca/05_MacrosBranchesArrays/lecture.html
+      - title: Subroutines. Call stack. Calling conventions.
+        url: /part1ca/06_CallStack/lecture.html
+      - title: Floating-point format. IEEE 754. Floating-point instructions.
+        url: /part1ca/07_FP/lecture.html
+      - title: Memory and caches.
+        url: /part1ca/08_Caches/lecture.html
+      - title: Virtual memory.
+        url: /part1ca/09_VM/lecture.html
+      - title: Processor and pipeline.
+        url: /part1ca/10_Pipeline/lecture.html
+      - title: Exceptions and interrupts.
+        url: /part1ca/11_Exceptions/lecture.html
+      - title: Input and output.
+        url: /part1ca/12_MMIO/lecture.html
+      - title: "Instruction-level parallelism: Multiple issue and out-of-order execution."
+        url: /part1ca/13_MultiIssue/lecture.html
+      - title: Thread-level parallelism.
+        url: /part1ca/14_TLP/lecture.html
+      - title: Optimizations.
+        url: /part1ca/15_Optimize/lecture.html
+      - title: "Data-level parallelism: Vectors and SIMD."
+        url: /part1ca/16_DLP/lecture.html
+    actions:
+      - title: Homeworks
+        url: /part1ca/Tasks/homeworks.html
+      - title: Final test
+        url: /part1ca/final_tests.html
+
+  - id: operating-systems
+    serial: "04"
+    tone: systems
+    title: Operating Systems
+    eyebrow: Module 4
+    description: >
+      Linux internals, C, processes, files, networking, linking, and system programming.
+    anchor: /#operating-systems
+    list_intro: Lecture sequence
+    items:
+      - title: Operating system architecture. Linux.
+        url: /part2os/01_OS_Architecture/lecture.html
+      - title: C programming language.
+        url: /part2os/02_C/lecture.html
+      - title: System calls.
+        url: /part2os/03_SystemCalls/lecture.html
+      - title: Executable file format. Linking and loading.
+        url: /part2os/04_Linking/lecture.html
+      - title: Dynamic memory allocation and string handling.
+        url: /part2os/05_Strings/lecture.html
+      - title: Processes and threads.
+        url: /part2os/06_Processes/lecture.html
+      - title: I/O and files.
+        url: /part2os/07_Synch/lecture.html
+      - title: Synchronization.
+        url: /part2os/08_IPC/lecture.html
+      - title: Inter-process communication.
+        url: /part2os/09_IPC/lecture.html
+      - title: Users, groups, and permissions.
+        url: /part2os/10_Permissions/lecture.html
+      - title: Virtual Machines.
+        url: /part2os/11_VM/lecture.html
+      - title: Networking.
+        url: /part2os/12_Networking/lecture.html
+      - title: Sockets.
+        url: /part2os/13_Sockets/lecture.html
+      - title: High-level Languages and Operating System.
+        url: /part2os/14_Python/lecture.html
+    actions:
+      - title: Final test
+        url: /part2os/final_tests.html
+
+support_cards:
+  - id: additional-chapters
+    title: Additional Chapters
+    body: Domain-specific architectures and compiler infrastructure for students who want to go further.
+    links:
+      - title: Tensor Processing Unit
+        url: /part1ca/16_TPU/lecture.html
+      - title: Clang/LLVM
+        url: /part2os/15_Clang/lecture.html
+  - id: assessment-overview
+    title: Assessment
+    body: Key administrative pages for grading and exam preparation.
+    links:
+      - title: Exam questions
+        url: /exam_latest.html
+      - title: Grading system
+        url: /grades.html
+  - id: related-materials
+    title: Related Materials
+    body: Software guides, reference books, related courses, and useful links.
+    links:
+      - title: Software
+        url: /software.html
+      - title: Textbooks
+        url: /books.html
+      - title: Related courses
+        url: /courses.html
+      - title: Useful links
+        url: /links.html
+
+program_links:
+  - title: DSBA wiki
+    url: http://wiki.cs.hse.ru/Computer_Architecture_and_Operating_Systems_DSBA_2025/2026
+  - title: DSBA syllabus
+    url: https://www.hse.ru/edu/courses/476614465
+  - title: COMPDS wiki
+    url: http://wiki.cs.hse.ru/ACOS_COMPDS_2025/26
+  - title: COMPDS syllabus
+    url: https://www.hse.ru/edu/courses/476614465

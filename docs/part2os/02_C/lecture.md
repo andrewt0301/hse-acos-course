@@ -277,7 +277,7 @@ _An instruction on how to work with GitHub is [here](../../software/git.md)_.
 
    Note: use `malloc` and `free` to allocate and deallocate list entries respectively. 
 
-# References
+## References
 
 * Brian Harvey. [CS 61C: C: Introduction, Pointers, & Arrays](HarveyNotesC1-3.pdf) 
 * CS 61C by UC Berkeley. C: Introduction, Pointers. [Slides](lec02.pdf)

@@ -1,6 +1,8 @@
-title: <a href="/hse-acos-course" style="color:inherit;">Computer Architecture and Operating Systems</a>
+title: Computer Architecture and Operating Systems
 description: Course taught at Faculty of Computer Science of Higher School of Economics
 theme: jekyll-theme-slate
+url: https://dimodic.github.io
+baseurl: /hse-acos-course
 
 markdown: kramdown
 
