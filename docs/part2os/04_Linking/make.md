@@ -28,11 +28,11 @@ The source files to be compiled and dependencies between them are described in M
 They specify entries that have the following attributes: target, source, and recipe.
 A simple Make file for building a “Hello World” program looks like this:
 
-```make
-hello:  hello.c
-    gcc hello.c -o hello
+```Make
+hello:	hello.c
+	gcc hello.c -o hello
 clean:
-    rm hello
+	rm hello
 ```
 
 In this Make file, source is “hello.c”, target is “hello”, and recipe is `gcc hello.c -o hello`.
@@ -50,22 +50,22 @@ These variables can be referenced in the following way: `$N` (one-letter name) o
 
 Here is an example of a Make file with special symbols and macro variables:
 
-```make
+```Make
 JUNK=*~ *.bak *.old
 GENERATES=*.o prog
-all:    prog
+all:	prog
 
-prog:   f1.o f2.o
-    cc $^ -o $@
+prog:	f1.o f2.o
+	cc $^ -o $@
 
-f1.o:   f1.c
-        cc $< -c
+f1.o:	f1.c
+	cc $< -c
 
-f2.o:   f2.c
-        cc $< -c
+f2.o:	f2.c
+	cc $< -c
 
 clean:
-        rm -f $(JUNK) $(GENERATES)
+	rm -f $(JUNK) $(GENERATES)
 ```
 
 As it can be seen, all recipes are prefixed with tabulations.
@@ -80,8 +80,8 @@ all:
 Also, it is possible to specify default recipes for example:
 
 ```make
-%.o:    %.c 
-        cc $< -c
+%.o:	%.c
+	cc $< -c
 ```
 
 ## Tasks

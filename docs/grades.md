@@ -29,16 +29,15 @@ https://coderoad.ru/49970549/Проблема-рендеринга-некото�
 
 ## Final Grade
 
-There are 2 [modules](#modules) $$M_i$$ (scored in the same way) and final [exam](#exam) $$E$$,
-which have an equal weight.
+There are two [modules](#modules) $$M_3$$ and $$M_4$$ (scored in the same way) and final [exam](#exam) $$E$$, which have an equal weight:
 
-$$G = \frac{\sum_{i=1}^2M_i+E}{3}$$
+$$G = \frac{M_3 + M_4 + E}{3}$$
 
 If the final grade $$G$$ is unsatisfactory, the exam can be [retaken](#retake-policy).
 
 #### Automatic Grades
 
-Students, who have __attended > 75%__ of classes in each of the two modules,
+Students, who have __attended > 75%__ of classes in each of the two [modules](#modules),
 can get an automatic grade. The formula is the following:
 
 $$G = \frac{M_3 + M_4}{2} - 1$$
@@ -49,25 +48,29 @@ Cheating in any assessment element is a subject to [cheating](#cheating-policy) 
 
 ## Modules
 
-Each module score is calculated from [Regular](#regular-points-10-points) and [Bonus](#bonus-points-2-points) points:
+Each module score $$M$$ is calculated as a sum of [regular](#regular-points-10-points) $$R$$ and [bonus](#bonus-points-2-points) $$B$$ points and is limited by 10 points:
 
 $$M_i = min(10, R_i + B_i)$$
 
 #### Regular Points: 10 points
 
-$$R_i = \frac{45}{100}\cdot H + \frac{10}{100}\cdot A + \frac{45}{100}\cdot F$$
+The formula for regular points $$R$$ is the following:
+
+$$R_i = 0.45\cdot H + 0.45\cdot F + 0.1\cdot A$$
 
 | Variable | Score | Description |
 | $$H$$    | 45%   | Homeworks. There are deadlines. Delays cause penalties: 25% for each week of delay. Maximal penalty is 75%. |
-| $$A$$    | 10%   | Workshop attendance. You need to attend > 75% of classes to earn this point. |
 | $$F$$    | 45%   | Final test (midterm). |
+| $$A$$    | 10%   | Workshop attendance. You need to attend > 75% of classes to earn this point. |
 
 #### Bonus Points: 2 points
 
-$$B_i = 2\cdot \frac{\sum_k C_k}{k}$$
+Bonus $$B$$ is calculated as a workshop activity rate and can give up to 2 points (for 100% rate):
+
+$$B_i = 2\cdot \frac{C_1 + C_2 + \ldots + C_{k-1} + C_k}{k}$$
 
 | Variable | Score   | Description |
-| $$C_k$$  | $$1$$   | Class activity. Each time you broadcast a solution of a task during a workshop, you get this point. |
+| $$C_k$$  | $$1$$   | Class activity. Each time you broadcast a solution of a task during a workshop, you get this point. Also, this point can be earned by solving bonus homework tasks (each has its own score). |
 | $$k$$    | n/a     | Number of classes. |
 
 ## Exam

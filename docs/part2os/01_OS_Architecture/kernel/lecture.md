@@ -1,4 +1,4 @@
-Seminar
+Workshop
 ---
 
 # Linux Modules
@@ -92,7 +92,7 @@ The `printk` function prints a message to the Linux kernel log.
 To build the module, the following Make file is required.
 
 Makefile:
-```
+```Make
 obj-m += hello.o
 all:
 	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
@@ -164,12 +164,12 @@ module_exit(simple_exit);
 
 __Makefile (solution):__
 
-```
+```Make
 obj-m += simple_time.o
 all:
-    make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
+	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
 clean:
-    make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
+	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
 ```
 
 The commands that must be executed to build, install, and remove the module:
@@ -271,12 +271,12 @@ The `proc_read` function implemented in the module returns the requests data whe
 The `raw_copy_to_user` function is used to copy data from the kernel to the user address space.
 
 __Makefile (solution)__:
-```
+```Make
 obj-m += jiffies.o
 all:
-    make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
+	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
 clean:
-    make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
+	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
 ```
 
 This is how the module is built, installed, used, and removed:
@@ -302,6 +302,8 @@ acos@acos-vm:/seminar2_2$ sudo rmmod jiffies
 ```
 
 ## Homework
+
+__NOTE: This is a self-study activity, do not need to hand in, no checking, no score.__
 
 Finish all the tasks unfinished in the class.
 The tasks with solutions are in the above sections.
