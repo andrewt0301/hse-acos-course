@@ -1,0 +1,14 @@
+{
+  "name": "acos-preview",
+  "private": true,
+  "type": "module",
+  "version": "0.0.1",
+  "description": "Local preview server for the ACOS course Jekyll site (no Ruby required).",
+  "dependencies": {
+    "js-yaml": "4.1.0",
+    "liquidjs": "10.21.0",
+    "marked": "16.0.0",
+    "puppeteer": "^24.42.0",
+    "sass": "1.99.0"
+  }
+}
