@@ -76,11 +76,11 @@ Computer Architecture Retake (2026)
 
 12. What register is used to store frame pointer in RISC-V?
 
-    A. a7
-    B. t6
-    C. s0
-    D. s11
-    E. tp
+    A. `a7`
+    B. `t6`
+    C. `s0`
+    D. `s11`
+    E. `tp`
 
     __Answer: C__
 
