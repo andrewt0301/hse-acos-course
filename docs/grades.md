@@ -38,15 +38,17 @@ can get an automatic grade. The formula is the following:
 
 $$G = \frac{M_3 + M_4}{2} - 1$$
 
+The final grade $$G$$ is limited by 10 points.
+
 Rounding of grades is regulated by the [rounding](#rounding) policy.
 
 Cheating in any assessment element is a subject to [cheating](#cheating-policy) policy.
 
 ## Modules
 
-Each module score $$M$$ is calculated as a sum of [regular](#regular-points-10-points) $$R$$ and [bonus](#bonus-points-2-points) $$B$$ points and is limited by 10 points:
+Each module score $$M$$ is calculated as a sum of [regular](#regular-points-10-points) $$R$$ and [bonus](#bonus-points-2-points) $$B$$ points:
 
-$$M_i = min(10, R_i + B_i)$$
+$$M_i = R_i + B_i$$
 
 #### Regular Points: 10 points
 
