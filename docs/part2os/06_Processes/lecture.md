@@ -394,7 +394,7 @@ Write program `executer.c`:
 `./executer "command0 argument00 argument01…" "command1 argument10 argument11 …" …`.
 
 The program iterates over each `"command argument0  argument1 …"` string:
-   * Runs (`fork` + `exec`) `command` with arguments `argument0`, `argument1`, etc.
+   * Runs `command` with arguments `argument0`, `argument1`, etc.
    * Prints the _byte size_ of the `command` _output_.
 
 Bash implementation:
@@ -412,9 +412,9 @@ sh Fork_String.sh "ls -l /" "date" "cal" "cal -y"
 2448
 ```
 
-_Hint:_ Run a pair of processes (`command` and `wc`) and connect them with
-a pipe like it is done in the example from the lecture.
-Wait for them to complete. Then run another pair of processes.
+_Hint:_ Run (using `fork` and `exec`) a pair of processes (`command` and `wc`)
+and connect them with a pipe like it is done in the example from the lecture.
+Wait for them to complete. Then run the next pair of processes.
 Repeat this until all command-line arguments of `executer.c` are processed.
 
 ## References
