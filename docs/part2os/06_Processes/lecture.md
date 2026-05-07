@@ -397,7 +397,7 @@ The program iterates over each `"command argument0  argument1 …"` string:
    * Runs `command` with arguments `argument0`, `argument1`, etc.
    * Prints the _byte size_ of the `command` _output_.
 
-Bash implementation:
+Bash implementation (`Fork_String.sh`):
 ```bash
 for C; do
     eval $C | wc -c
