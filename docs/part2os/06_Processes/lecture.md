@@ -372,13 +372,11 @@ Write the following programs:
 
    e. g. `./piperedir date hexdump -C`
 
-## Homework
-
-1. Finish all tasks and send the code.
 1. Improve `argredir.c` to check the error status of all operations performed
    and print an error message when any errors have occurred:
    * see the "RETURN VALUE" (or alike) section of each function manpage;
    * use [perror](https://man7.org/linux/man-pages/man3/perror.3.html).
+
 1. Write a new program called `pip2redir.c` that resembles `piperedir`,
    but forks both child processes (like in the lecture materials),
    waits for both to end, and prints the exit status of both commands.
@@ -386,6 +384,36 @@ Write the following programs:
      after either of the children is stopped,
      you need to check if [ECHILD](https://man7.org/linux/man-pages/man2/wait.2.html)
      is returned to indicate there is no more living child.
+
+## Homework
+
+_Write and submit to GitHub the programs described below._
+_An instruction on how to work with GitHub is [here](../../software/git.md)_.
+
+Write program `executer.c`:
+`./executer "command0 argument00 argument01…" "command1 argument10 argument11 …" …`.
+
+The program iterates over each `"command argument0  argument1 …"` string:
+   * Runs (`fork` + `exec`) `command` with arguments `argument0`, `argument1`, etc.
+   * Prints the _byte size_ of `command` _output_.
+
+Bash implementation:
+```bash
+for C; do
+    eval $C | wc -c
+done
+```
+Example:
+```bash
+sh Fork_String.sh "ls -l /" "date" "cal" "cal -y"
+1106
+33
+185
+2448
+```
+
+_Hint:_ Run a pair of processes (`command` and `wc`) and conntect with a pipe like 
+in the example from the lecture. Wait for them to complete and run another process pair until all command-line arguments of `executer.c` are processed.
 
 ## References
 
