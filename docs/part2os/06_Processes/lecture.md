@@ -391,7 +391,7 @@ _Write and submit to GitHub the programs described below._
 _An instruction on how to work with GitHub is [here](../../software/git.md)_.
 
 Write program `executer.c`:
-`./executer "command0 argument00 argument01…" "command1 argument10 argument11 …" …`.
+`./executer "command0 argument00 argument01 …" "command1 argument10 argument11 …" …`.
 
 The program iterates over each `"command argument0  argument1 …"` string:
    * Runs `command` with arguments `argument0`, `argument1`, etc.
