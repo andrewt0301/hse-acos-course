@@ -7,6 +7,31 @@ Lecture 13
 
 Slides ([PDF](OS_Lecture_13.pdf), [PPTX](OS_Lecture_13.pptx)).
 
+![Socket API](socket_api.png)
+
+### Socket system calls
+
+#### Common
+* [socket](https://man7.org/linux/man-pages/man2/socket.2.html)
+* [close](https://man7.org/linux/man-pages/man2/close.2.html)
+
+#### Client
+* [connect](https://man7.org/linux/man-pages/man2/connect.2.html)
+
+#### Server
+* [bind](https://man7.org/linux/man-pages/man2/bind.2.html)
+* [listen](https://man7.org/linux/man-pages/man2/listen.2.html)
+* [accept](https://man7.org/linux/man-pages/man2/accept.2.html)
+
+#### Send/Receive
+
+* [read](https://man7.org/linux/man-pages/man2/read.2.html)
+* [write](https://man7.org/linux/man-pages/man2/write.2.html)
+* [send](https://man7.org/linux/man-pages/man2/send.2.html)
+* [recv](https://man7.org/linux/man-pages/man2/recv.2.html)
+
+## Workshop
+
 ### Sockets
 
 #### Socket
@@ -396,36 +421,11 @@ Explanation:
   https://github.com/andrewt0301/hse-acos-course/blob/master/docs/part2os/13_Sockets/tcp_server.c)
 -->
 
-## Workshop
-
-![Socket API](socket_api.png)
-
-### Socket system calls
-
-#### Common
-* [socket](https://man7.org/linux/man-pages/man2/socket.2.html)
-* [close](https://man7.org/linux/man-pages/man2/close.2.html)
-
-#### Client
-* [connect](https://man7.org/linux/man-pages/man2/connect.2.html)
-
-#### Server
-* [bind](https://man7.org/linux/man-pages/man2/bind.2.html)
-* [listen](https://man7.org/linux/man-pages/man2/listen.2.html)
-* [accept](https://man7.org/linux/man-pages/man2/accept.2.html)
-
-#### Send/Receive
-
-* [read](https://man7.org/linux/man-pages/man2/read.2.html)
-* [write](https://man7.org/linux/man-pages/man2/write.2.html)
-* [send](https://man7.org/linux/man-pages/man2/send.2.html)
-* [recv](https://man7.org/linux/man-pages/man2/recv.2.html)
-
 ## Homework
 
 __TODO__
 
-# References
+## References
 
 * [OSI model](https://en.wikipedia.org/wiki/OSI_model) (Wikipedia)
 * [Internet protocol suite](https://en.wikipedia.org/wiki/Internet_protocol_suite) (Wikipedia)
