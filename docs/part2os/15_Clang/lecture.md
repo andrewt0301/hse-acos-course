@@ -561,7 +561,7 @@ dot test.ll.callgraph.dot -Tpng -o test_callgraph.png
 In general, optimizations are performed by traversing the CFG and tracking various 
 facts related to control-flow and data-flow.
 
-Example of optimization `mem2reg` (replacing stack-stored variables with registers):
+Example of optimization `mem2reg` (replacing stack-allocated variables with registers):
 ```bash
 opt -S -passes=mem2reg test.ll -o test_opt.ll
 cat test_opt.ll
