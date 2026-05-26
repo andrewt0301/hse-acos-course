@@ -473,7 +473,7 @@ Write a program that does the following:
    - Joins the 4 working threads.
    - Prints the resulting value of the `sum` variable when all 4 threads finish.
 
-# References
+## References
 
 * [Synchronization](https://en.wikipedia.org/wiki/Synchronization_%28computer_science%29) (Wikipedia)
 * [Critical section](https://en.wikipedia.org/wiki/Critical_section) (Wikipedia)
