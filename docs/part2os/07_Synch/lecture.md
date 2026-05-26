@@ -165,13 +165,13 @@ write(1, "hello\n", 6hello
 
 ## Workshop
 
-[Workshop: Shell Scripts](../06_Processes/bash.md) 
+[Workshop: Shell Scripts](../06_Processes/bash.md)
 
 ## Homework
 
-__TODO__
+[Homework: Shell Scripts](../06_Processes/bash.md#homework)
 
-# References
+## References
 
 * [df](https://man7.org/linux/man-pages/man1/df.1.html) - utility to report file system space usage
 * [stat](https://man7.org/linux/man-pages/man1/stat.1.html) - utility to display file or file system status
