@@ -460,12 +460,15 @@ Please use the C language and the POSIX thread library.
 
 ## Homework
 
+_Write and submit to GitHub the program described below._
+_An instruction on how to work with GitHub is [here](../../software/git.md)_.
+
 Write a program that does the following:
 
 1. Inputs integer value `N`.
 2. Allocates an array of `N` random integer values (on stack or on heap using `malloc`/`free`).
 3. Splits the array into 4 parts of approximately equal parts (`N` must be sufficiently large, e.g. 16 or more).
-4. Create worker 4 threads, each of them:
+4. Create 4 worker threads, each of them:
    - Calculates the sum of elements in one of the parts.
    - Adds the result to global variable `sum` (must be protected with a mutex to avoid concurrent modification).
 5. The main thread:
