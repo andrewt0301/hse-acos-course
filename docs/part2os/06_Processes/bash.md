@@ -179,6 +179,9 @@ Then do the following:
 
 ## Homework
 
+_Write and submit to GitHub the scripts described below._
+_An instruction on how to work with GitHub is [here](../../software/git.md)_.
+
 1. Experiments with the `read` builtin command.
    * Research: What exit status the command `read` generates? Try it.
      Consult [help read](https://www.gnu.org/software/bash/manual/bash.html#index-read)
@@ -235,9 +238,7 @@ Then do the following:
 
    _Hint_: errors can be checked using the `$?` symbol (status of the last command, must be 0 if successful).
 
-Commit the programs to your private GitHub account. Place them into the folder `os/lab03`.
-
-# References
+## References
 
 * Chapters 8 and 10. [[PGLC]](../../books.md) Mark G. Sobell, Matthew Helmke.
   [Practical Guide to Linux Commands, Editors, and Shell Programming.](
