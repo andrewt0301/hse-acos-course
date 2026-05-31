@@ -8,3 +8,4 @@ Final Tests: Operating Systems
 * 2023: DSBA ([#1](os_final_test_dsba_2023.md)), COMPDS ([#1](os_final_test_compds_2023.md))
 * 2024: DSBA ([#1](os_final_test_dsba_2024.md)), COMPDS ([#1](os_final_test_compds_2024.md))
 * 2025: DSBA ([#1](os_final_test_dsba_2025.md)), COMPDS/EAD/VSN ([#1](os_final_test_compds_2025.md))
+* 2026: DSBA ([#1](os_final_test_dsba_2026.md)), COMPDS ([#1](os_final_test_compds_2026.md))
