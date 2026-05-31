@@ -22,11 +22,11 @@ It is allowed to use only a text editor and Linux console (with all related comm
 
 ## Proctoring
 
-You must record a video of your __desktop + video + audio__ with [OBS Studio](https://obsproject.com), upload it to your cloud drive, and submit a link to it. The suggested format for video is `.mkv`.
+You must record a video of your __desktop + video + audio__ with [OBS Studio](https://obsproject.com), upload it to your cloud drive, and [submit](#video) a link to it. The suggested format for video is `.mkv`.
 
 Solving both parts (theory and programming) must be recorded. Please start video-recording before you start solving enything.
 
-The form for submitting video will be avaialble for several hours after the deadline in case uploading video takes a long time.
+The [form](#video) for submitting video will be avaialble for several hours after the deadline in case uploading video takes a long time.
 
 ## Part 1. Theoretical Questions
 
