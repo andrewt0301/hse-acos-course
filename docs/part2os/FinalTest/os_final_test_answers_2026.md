@@ -65,7 +65,7 @@ Operaing Systems Midterm (2026)
 
 6. Write a declaration of variable `p`, which is a pointer to a function that returns `int` and has one parameter of type `int`.
 
-  __Answer: `int(*p)(int)`__
+  __Answer: `int (*p)(int)`__
 
 7. Which is the slowest way of memory allocation?
 
