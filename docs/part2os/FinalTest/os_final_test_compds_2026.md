@@ -33,4 +33,18 @@ __Видео: Ссылку на видео отправить в эту [фор�
 
 ## Часть 2: Задача по программированию
 
-Пришите программу в Ответьте на вопросы по теории в этой [форме](TODO).
+Пришите программу через эту [форму](TODO).
+
+### Варианты
+
+Выберите __свой номер варианта__ согласно своему номеру в списке группы.
+
+Списки групп:
+
+* [КНАД 241](https://docs.google.com/spreadsheets/d/1tZlR7uy-3mURQFg42oKZTIsyqto1ww6CELghykmZplw/edit?usp=sharing)
+* [КНАД 242](https://docs.google.com/spreadsheets/d/1bb6kav3XQVu1nbS-T2jY3tNvBIz3-TkHf5PWZeX3ppc/edit?usp=sharing)
+
+Варианты для групп:
+
+* [КНАД 241](variants_2026_compds241.md)
+* [КНАД 242](variants_2026_compds242.md)
