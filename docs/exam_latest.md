@@ -11,7 +11,7 @@ Exam Questions
 
 ### Grading
 
-__Grade = (CA + OS) / 2__
+__Grade = (Theory_CA + Theory_OS) / 2__
 
 ### Hint
 
