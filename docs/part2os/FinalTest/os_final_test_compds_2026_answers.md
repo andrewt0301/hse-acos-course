@@ -123,77 +123,77 @@ payload is 4-byte aligned. You call malloc with size: 1, 2, 3, 4, and 5 bytes. H
 
 10. What number will be printed by the parent process if the child is successfully created?
 
-   ```c
-   int main() {
-     pid_t pid;
-     pid = fork();
-     if (pid < 0) {
-       printf("1");
-     } else if (pid == 0) {
-       printf("2");
-     } else {
-       printf("3");
-     }
-     return 0;
-   }
-   ```
+    ```c
+    int main() {
+      pid_t pid;
+      pid = fork();
+      if (pid < 0) {
+        printf("1");
+      } else if (pid == 0) {
+        printf("2");
+      } else {
+        printf("3");
+      }
+      return 0;
+    }
+    ```
 
-   __Answer: 3__
+    __Answer: 3__
 
 11. What will be printed by the following code for a file with contents `abcde`?
 
-   ```c
-   int fd1;
-   char c1, c2;
-   char *fname = argv[1];
-   fd1 = open(fname, O_RDONLY, 0);
-   read(fd1, &c1, 1);
-   if (fork()) {
-     wait(NULL);
-     read(fd1, &c2, 1);
-   } else {
-     read(fd1, &c2, 1);
-   }
-   printf("%c%c", c1, c2);
-   ```
+    ```c
+    int fd1;
+    char c1, c2;
+    char *fname = argv[1];
+    fd1 = open(fname, O_RDONLY, 0);
+    read(fd1, &c1, 1);
+    if (fork()) {
+      wait(NULL);
+      read(fd1, &c2, 1);
+    } else {
+      read(fd1, &c2, 1);
+    }
+    printf("%c%c", c1, c2);
+    ```
 
-   __Answer: `abac`__
+    __Answer: `abac`__
 
 12. Write a command that will create a hard link called `mylink` for file called `myfile`.
 
-   __Answer: `ln myfile mylink`__
+    __Answer: `ln myfile mylink`__
 
 13. Write a permission mask to give all permissions (read/write/execute) to user and nothing to anyone else. It looks like `abc`, where a/b/c are integer numbers.
 
-   __Answer: 700__
+    __Answer: 700__
 
 14. Which file is the same as file `file1.txt?`
 
-   ```
-   35153094 -rw-rw-r-- 2 andrewt andrewt 9 Jun  3 18:08 file1.txt
-   35140410 lrwxrwxrwx 1 andrewt andrewt 9 Jun  3 18:07 file2.txt -> file1.txt
-   35153094 -rw-rw-r-- 2 andrewt andrewt 9 Jun  3 18:08 file3.txt
-   35153285 -rw-rw-r-- 1 andrewt andrewt 9 Jun  3 18:08 file4.txt
-   ```
+    ```
+    35153094 -rw-rw-r-- 2 andrewt andrewt 9 Jun  3 18:08 file1.txt
+    35140410 lrwxrwxrwx 1 andrewt andrewt 9 Jun  3 18:07 file2.txt -> file1.txt
+    35153094 -rw-rw-r-- 2 andrewt andrewt 9 Jun  3 18:08 file3.txt
+    35153285 -rw-rw-r-- 1 andrewt andrewt 9 Jun  3 18:08 file4.txt
+    ```
 
-   * A. file2.txt
-   * B. file3.txt
-   * C. file4.txt
+    * A. file2.txt
+    * B. file3.txt
+    * C. file4.txt
 
-   __Answer: B__
+    __Answer: B__
 
 15. From which directory is user `ejudge` not allowed to delete a file?
 
-   ```
-   drwxrwxrwx 2 tatarnikov tatarnikov 4096 Jun 15 22:19 dir1
-   drwxrwxr-x 2 tatarnikov ejudge     4096 Jun 15 22:19 dir2
-   drwxrwxr-t 2 tatarnikov ejudge     4096 Jun 15 22:14 dir3
-   drwxrwxr-x 2 ejudge     ejudge     4096 Jun 15 22:19 dir4
-   ```
+    ```
+    drwxrwxrwx 2 tatarnikov tatarnikov 4096 Jun 15 22:19 dir1
+    drwxrwxr-x 2 tatarnikov ejudge     4096 Jun 15 22:19 dir2
+    drwxrwxr-t 2 tatarnikov ejudge     4096 Jun 15 22:14 dir3
+    drwxrwxr-x 2 ejudge     ejudge     4096 Jun 15 22:19 dir4
+    ```
 
-   * A. dir1
-   * B. dir2
-   * C. dir3
-   * D. dir4
+    * A. dir1
+    * B. dir2
+    * C. dir3
+    * D. dir4
 
-   __Answer: C__
+    __Answer: C__
