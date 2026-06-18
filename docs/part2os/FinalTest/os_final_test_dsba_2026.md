@@ -18,7 +18,7 @@ Form for theory and program is [here](https://forms.gle/nhn5SNjmnVdxoaHA9).
 ## Rules
 
 It is allowed to use only a text editor and Linux console (with all related commmand-line tools). No lecture materials, AI, or Google search.
-[Cheating policy](../grades.md#cheating-policy) applies here.
+[Cheating policy](../../grades.md#cheating-policy) applies here.
 
 ## Proctoring
 
