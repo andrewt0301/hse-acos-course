@@ -48,14 +48,14 @@
 Library `libfred.a` has no dependencies, library `libjohn.a` depends on library `libmike.a`.
 Which commands will lead to linking errors?
 
-   * A. gcc -o main main.o -L. -lfred -ljohn -lmike
-   * B. gcc -o main main.o -L. -lfred -lmike -ljohn
-   * C. gcc -o main main.o -L. -ljohn -lmike -lfred
-   * D. gcc -o main main.o -L. -ljohn -lfred -lmike
-   * E. gcc -o main main.o -L. -lmike -lfred -ljohn
-   * F. gcc -o main main.o -L. -lmike -ljohn -lfred
+   * A. `gcc -o main main.o -L. -lfred -ljohn -lmike`
+   * B. `gcc -o main main.o -L. -lfred -lmike -ljohn`
+   * C. `gcc -o main main.o -L. -ljohn -lmike -lfred`
+   * D. `gcc -o main main.o -L. -ljohn -lfred -lmike`
+   * E. `gcc -o main main.o -L. -lmike -lfred -ljohn`
+   * F. `gcc -o main main.o -L. -lmike -ljohn -lfred`
 
-   __Answer: B and F__
+   __Answer: B, E and F__
 
 5. What of the following global variables and functions are considered weak symbols by the linker?
 
