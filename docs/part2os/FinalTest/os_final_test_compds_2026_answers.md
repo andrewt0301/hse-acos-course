@@ -77,7 +77,7 @@ Which commands will lead to linking errors?
 
    __Answer: `char* (*p)(const char*, unsigned int)`__
 
-   __Notes: Spaces are not important here. If any answers were marked as invalid becauses of spaces, it will be fixed.__
+   __Notes: Spaces and semicolon are not important here. Some answers were marked as invalid because of this, it will be fixed.__
 
 7. You have a `malloc` library based on an implicit list. The size of header/footer is 4 bytes and 
 payload is 4-byte aligned. You call malloc with size: 1, 2, 3, 4, and 5 bytes. How many bytes are wasted on internal fragmentation?
