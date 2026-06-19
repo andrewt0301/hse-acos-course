@@ -81,9 +81,9 @@ Operating Systems Midterm (2026)
 
 9. What of the following signals cannot be handled in a user program?
 
-  * A. INT
-  * B. STOP
-  * C. CONT
+   * A. INT
+   * B. STOP
+   * C. CONT
 
    __Answer: B and C__
 
