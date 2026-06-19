@@ -1,4 +1,4 @@
-Operaing Systems Midterm (2026)
+Operating Systems Midterm (2026)
 ---
 
 1. Data type `Rec` is defined below. What will be returned by `sizeof(Rec)` (64-bit machine)?
