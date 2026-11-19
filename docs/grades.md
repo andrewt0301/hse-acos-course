@@ -24,7 +24,7 @@ Grading System
 
 ## Final Grade
 
-The final grade _G_ is calcutated based on cummulative grade [_C_](#cummulative-grade) and exam grade [_E_](#exam):
+Final grade _G_ is calcutated based on cummulative grade [_C_](#cummulative-grade) and exam grade [_E_](#exam):
 
 $$G = 0.6\cdot C + 0.4\cdot E$$
 
