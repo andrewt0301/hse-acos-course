@@ -1,38 +1,18 @@
-<!---
-The JavaScript code below is needed to support rendering of TeX formulas in GitHub Pages.
-
-See this for kramdown:
-https://mikelove.wordpress.com/2015/07/01/how-to-use-latex-math-in-rmd-to-display-properly-on-github-pages/
-https://varunagrawal.github.io/2018/03/27/latex
-https://stackoverflow.com/questions/26275645/how-to-support-latex-in-github-pages
-
-This is a guideline to render formulas:
-https://coderoad.ru/49970549/Проблема-рендеринга-некоторого-синтаксиса-latex-в-MathJax-с-Jekyll-на-github
--->
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [['$$','$$'], ['\\(','\\)']],
-      processEscapes: true
-    }
-  });
-</script>
- 
-<!--- The present text is based on https://uneex.ru/HSE/RatingFormula -->
-
 # Grading System
 
 ## Final Grade
 
-The final grade _G_ is calcutated based on cummulative grade [_C_](#modules) and exam grade [_E_](#exam):
+The final grade _G_ is calcutated based on cummulative grade [_C_](#cummulative-grade) and exam grade [_E_](#exam):
 
-_G_ = 0.6 * _C_ + 0.4 * _E_
+$$G = 0.6\cdotC + 0.4\cdotE$$
 
-If the final grade _G_ is unsatisfactory, the exam can be [retaken](#retake-policy).
+The pass grade is 4, which means that grades below 4 (e.g. 3.99) are regarded as unsatisfactory.
 
+Rounding of grades is regulated by the [rounding](#rounding) policy.
 
-## TODO
+If final grade _G_ is unsatisfactory, the exam can be [retaken](#retake-policy).
+
+## Cummulative Grade
 
 There are two [modules](#modules) $$M_3$$ and $$M_4$$ (scored in the same way) and final [exam](#exam) $$E$$, which have an equal weight:
 
@@ -49,7 +29,7 @@ $$G = \frac{M_3 + M_4}{2} - 1$$
 
 The final grade $$G$$ is limited by 10 points.
 
-Rounding of grades is regulated by the [rounding](#rounding) policy.
+
 
 Cheating in any assessment element is a subject to [cheating](#cheating-policy) policy.
 
