@@ -1,4 +1,26 @@
-# Grading System
+<!---
+The JavaScript code below is needed to support rendering of TeX formulas in GitHub Pages.
+
+See this for kramdown:
+https://mikelove.wordpress.com/2015/07/01/how-to-use-latex-math-in-rmd-to-display-properly-on-github-pages/
+https://varunagrawal.github.io/2018/03/27/latex
+https://stackoverflow.com/questions/26275645/how-to-support-latex-in-github-pages
+
+This is a guideline to render formulas:
+https://coderoad.ru/49970549/Проблема-рендеринга-некоторого-синтаксиса-latex-в-MathJax-с-Jekyll-на-github
+-->
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$$','$$'], ['\\(','\\)']],
+      processEscapes: true
+    }
+  });
+</script>
+
+Grading System
+---
 
 ## Final Grade
 
