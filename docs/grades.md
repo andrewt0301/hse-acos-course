@@ -26,7 +26,7 @@ Grading System
 
 The final grade _G_ is calcutated based on cummulative grade [_C_](#cummulative-grade) and exam grade [_E_](#exam):
 
-$$G = 0.6\cdotC + 0.4\cdotE$$
+$$G = 0.6\cdot C + 0.4\cdot E$$
 
 The pass grade is 4, which means that grades below 4 (e.g. 3.99) are regarded as unsatisfactory.
 
