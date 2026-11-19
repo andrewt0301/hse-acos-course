@@ -25,6 +25,15 @@ https://coderoad.ru/49970549/Проблема-рендеринга-некото�
 
 ## Final Grade
 
+The final grade _G_ is calcutated based on cummulative grade [_C_](#modules) and exam grade [_E_](#exam):
+
+_G_ = 0.6 * _C_ + 0.4 * _E_
+
+If the final grade _G_ is unsatisfactory, the exam can be [retaken](#retake-policy).
+
+
+## TODO
+
 There are two [modules](#modules) $$M_3$$ and $$M_4$$ (scored in the same way) and final [exam](#exam) $$E$$, which have an equal weight:
 
 $$G = \frac{M_3 + M_4 + E}{3}$$
