@@ -72,7 +72,9 @@ On the first and second retakes, the cumulative course grade is taken into consi
 
 All intermediate grades (including module and exam grades) are rounded to hundredths (the precision is 0.01).
 
-The final grade _G_ is calculated with precision 0.01 and then rounded. Grades below 3 are rounded "below" (to the highest integer <= _G_). Grades greater or equal to 4 are rounded "above" (to the smallest integer >= _G_).
+The final grade is calculated with precision 0.01 and then converted into an integer:
+* Grades >= 4.00 are rounded to the nearest integer (i.e. 4.49 becomes 4 while 4.50 becomes 5).
+* Grades < 4.00 are truncated (i.e. 3.99 becomes 3).
 
 ## Cheating Policy
 
