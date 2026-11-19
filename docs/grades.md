@@ -28,7 +28,7 @@ Final grade _G_ is calcutated based on cummulative grade [_C_](#cummulative-grad
 
 $$G = 0.6\cdot C + 0.4\cdot E$$
 
-The pass grade is 4, which means that grades below 4 (e.g. 3.99) are regarded as unsatisfactory.
+The course pass grade is 4, which means that all grades below 4 (including 3.99) are regarded as unsatisfactory.
 
 Rounding of grades is regulated by the [rounding](#rounding) policy.
 
