@@ -34,28 +34,9 @@ Rounding of grades is regulated by the [rounding](#rounding) policy.
 
 If final grade _G_ is unsatisfactory, the exam can be [retaken](#retake-policy).
 
-## Cummulative Grade
-
-There are two [modules](#modules) $$M_3$$ and $$M_4$$ (scored in the same way) and final [exam](#exam) $$E$$, which have an equal weight:
-
-$$G = \frac{M_3 + M_4 + E}{3}$$
-
-If the final grade $$G$$ is unsatisfactory, the exam can be [retaken](#retake-policy).
-
-#### Automatic Grades
-
-Students, who have __attended > 75%__ of classes in each of the two [modules](#modules),
-can get an automatic grade. The formula is the following:
-
-$$G = \frac{M_3 + M_4}{2} - 1$$
-
-The final grade $$G$$ is limited by 10 points.
-
-
-
 Cheating in any assessment element is a subject to [cheating](#cheating-policy) policy.
 
-## Modules
+## Cummulative Grade
 
 Each module score $$M$$ is calculated as a sum of [regular](#regular-points-10-points) $$R$$ and [bonus](#bonus-points-2-points) $$B$$ points:
 
