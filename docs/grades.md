@@ -22,36 +22,25 @@ https://coderoad.ru/49970549/Проблема-рендеринга-некото�
 Grading System
 ---
 
-## Final Grade
+## Formula
 
-Final grade _G_ is calcutated based on cummulative grade [_C_](#cummulative-grade) and exam grade [_E_](#exam):
+Final grade _G_ is calcutated using the following formula:
 
-$$G = 0.6\cdot C + 0.4\cdot E$$
+$$G = 0.4\cdot E + 0.2\cdot H + 0.2\cdot * W + 0.2\cdot * L 
 
-The course pass grade is 4, which means that all grades below 4 (including 3.99) are regarded as unsatisfactory.
+| Variable | Description |
+| $$E$$    | [Exam](#exam). |
+| $$H$$    | Homeworks. There are deadlines. Delays cause penalties: 25% for each week of delay. Maximal penalty is 75%. |
+| $$W$$    | Workshops. Solving tasks in a class. |
+| $$L$$    | Lectures. Solving quizzes and contests in a class. |
+
+The pass grade is 4, which means that all grades below 4 (including 3.99) are regarded as unsatisfactory.
 
 Rounding of grades is regulated by the [rounding](#rounding) policy.
 
 If final grade _G_ is unsatisfactory, the exam can be [retaken](#retake-policy).
 
 Cheating in any assessment element is a subject to [cheating](#cheating-policy) policy.
-
-## Cummulative Grade
-
-Cummulative grade $$C$$ is calculated as a sum of [regular](#regular-points-10-points) $$R$$ and [bonus](#bonus-points-2-points) $$B$$ points:
-
-$$C = R + B$$
-
-#### Regular Points: 10 points
-
-The formula for regular points $$R$$ is the following:
-
-$$R = 0.45\cdot H + 0.45\cdot F + 0.1\cdot A$$
-
-| Variable | Score | Description |
-| $$H$$    | 45%   | Homeworks. There are deadlines. Delays cause penalties: 25% for each week of delay. Maximal penalty is 75%. |
-| $$F$$    | 45%   | Final test (midterm). |
-| $$A$$    | 10%   | Workshop attendance. You need to attend > 75% of classes to earn this point. |
 
 #### Bonus Points: 2 points
 
