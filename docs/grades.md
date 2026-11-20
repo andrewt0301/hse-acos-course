@@ -26,13 +26,14 @@ Grading System
 
 Final grade _G_ is calcutated using the following formula:
 
-$$G = 0.4\cdot E + 0.2\cdot H + 0.2\cdot * W + 0.2\cdot * L 
+$$G = 0.4\cdot E + 0.2\cdot H + 0.2\cdot W + 0.2\cdot L + 0.1\cdot B$$
 
 | Variable | Description |
-| $$E$$    | [Exam](#exam). |
+| $$E$$    | Exam. See details [here](exam_latest.md). |
 | $$H$$    | Homeworks. There are deadlines. Delays cause penalties: 25% for each week of delay. Maximal penalty is 75%. |
 | $$W$$    | Workshops. Solving tasks in a class. |
 | $$L$$    | Lectures. Solving quizzes and contests in a class. |
+| $$B$$    | Bonus. Given for a workshop activity (broadcasting a solution). |
 
 The pass grade is 4, which means that all grades below 4 (including 3.99) are regarded as unsatisfactory.
 
@@ -41,20 +42,6 @@ Rounding of grades is regulated by the [rounding](#rounding) policy.
 If final grade _G_ is unsatisfactory, the exam can be [retaken](#retake-policy).
 
 Cheating in any assessment element is a subject to [cheating](#cheating-policy) policy.
-
-#### Bonus Points: 2 points
-
-Bonus $$B$$ is calculated as a workshop activity rate and can give up to 2 points (for 100% rate):
-
-$$B = 2\cdot \frac{C_1 + C_2 + \ldots + C_{k-1} + C_k}{k}$$
-
-| Variable | Score   | Description |
-| $$C_k$$  | $$1$$   | Class activity. Each time you broadcast a solution of a task during a workshop, you get this point. Also, this point can be earned by solving bonus homework tasks (each has its own score). |
-| $$k$$    | n/a     | Number of classes. |
-
-## Exam
-
-The description of the exam format and its grading policy is [here](exam_latest.md).
 
 ## Retake Policy
 
