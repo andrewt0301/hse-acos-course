@@ -29,16 +29,18 @@ Final grade _G_ is calcutated based on cummulative grade [_C_](#cummulative-grad
 $$G = 0.6\cdot C + 0.4\cdot E$$
 
 The course pass grade is 4, which means that all grades below 4 (including 3.99) are regarded as unsatisfactory.
+
 Rounding of grades is regulated by the [rounding](#rounding) policy.
+
 If final grade _G_ is unsatisfactory, the exam can be [retaken](#retake-policy).
 
 Cheating in any assessment element is a subject to [cheating](#cheating-policy) policy.
 
 ## Cummulative Grade
 
-Each module score $$M$$ is calculated as a sum of [regular](#regular-points-10-points) $$R$$ and [bonus](#bonus-points-2-points) $$B$$ points:
+Cummulative grade $$C$$ is calculated as a sum of [regular](#regular-points-10-points) $$R$$ and [bonus](#bonus-points-2-points) $$B$$ points:
 
-$$M_i = R_i + B_i$$
+$$C = R + B$$
 
 #### Regular Points: 10 points
 
@@ -55,7 +57,7 @@ $$R_i = 0.45\cdot H + 0.45\cdot F + 0.1\cdot A$$
 
 Bonus $$B$$ is calculated as a workshop activity rate and can give up to 2 points (for 100% rate):
 
-$$B_i = 2\cdot \frac{C_1 + C_2 + \ldots + C_{k-1} + C_k}{k}$$
+$$B = 2\cdot \frac{C_1 + C_2 + \ldots + C_{k-1} + C_k}{k}$$
 
 | Variable | Score   | Description |
 | $$C_k$$  | $$1$$   | Class activity. Each time you broadcast a solution of a task during a workshop, you get this point. Also, this point can be earned by solving bonus homework tasks (each has its own score). |
