@@ -46,7 +46,7 @@ $$C = R + B$$
 
 The formula for regular points $$R$$ is the following:
 
-$$R_i = 0.45\cdot H + 0.45\cdot F + 0.1\cdot A$$
+$$R = 0.45\cdot H + 0.45\cdot F + 0.1\cdot A$$
 
 | Variable | Score | Description |
 | $$H$$    | 45%   | Homeworks. There are deadlines. Delays cause penalties: 25% for each week of delay. Maximal penalty is 75%. |
@@ -76,8 +76,8 @@ On the first and second retakes, the cumulative course grade is taken into consi
 All intermediate grades are rounded to hundredths (the precision is 0.01).
 
 The final grade is calculated with precision 0.01 and then converted into an integer:
-* grades >= 4.00 are rounded to the nearest integer (i.e. 4.49 becomes 4 while 4.50 becomes 5);
-* grades < 4.00 are truncated (i.e. 3.99 becomes 3).
+* Grades >= 4.00 are rounded (i.e. 4.49 becomes 4 while 4.50 becomes 5).
+* Grades < 4.00 are truncated (i.e. 3.99 becomes 3).
 
 ## Cheating Policy
 
