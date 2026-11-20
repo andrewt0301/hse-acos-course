@@ -29,9 +29,7 @@ Final grade _G_ is calcutated based on cummulative grade [_C_](#cummulative-grad
 $$G = 0.6\cdot C + 0.4\cdot E$$
 
 The course pass grade is 4, which means that all grades below 4 (including 3.99) are regarded as unsatisfactory.
-
 Rounding of grades is regulated by the [rounding](#rounding) policy.
-
 If final grade _G_ is unsatisfactory, the exam can be [retaken](#retake-policy).
 
 Cheating in any assessment element is a subject to [cheating](#cheating-policy) policy.
