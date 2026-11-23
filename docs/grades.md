@@ -26,13 +26,14 @@ Grading System
 
 Final grade _G_ is calcutated using the following formula:
 
-$$G = 0.4\cdot E + 0.2\cdot H + 0.2\cdot W + 0.2\cdot L$$
+$$G = 0.4\cdot E + 0.2\cdot H + 0.2\cdot W + 0.2\cdot L + 0.1\cdot B$$
 
 | Variable | Description |
-| $$E$$    | Exam. See details [here](exam_latest.md). |
-| $$H$$    | Homeworks. There are deadlines. Delays cause penalties: 25% for each week of delay. Maximal penalty is 75%. |
-| $$W$$    | Workshops. Solving tasks in a class. |
-| $$L$$    | Lectures. Solving quizzes and contests in a class. |
+| _E_      | Exam. See details [here](exam_latest.md). |
+| _H_      | Homeworks. There are deadlines. Delays cause penalties: 25% for each week of delay. Maximal penalty is 75%. |
+| _W_      | Workshops. Solving tasks in a class. |
+| _L_      | Lectures. Solving quizzes and contests in a class. |
+| _B_      | Bonus points for activity in a class. |
 
 The pass grade is 4, which means that all grades below 4 (including 3.99) are regarded as unsatisfactory.
 
