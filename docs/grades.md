@@ -28,6 +28,14 @@ Final grade _G_ is calcutated using the following formula:
 
 $$G = 0.4\cdot E + 0.2\cdot H + 0.2\cdot W + 0.2\cdot L + 0.1\cdot B$$
 
+The max grade is 10. The pass grade is 4, which means that all grades below 4 (including 3.99) are regarded as unsatisfactory.
+
+Rounding of grades is regulated by the [rounding](#rounding) policy.
+
+If final grade _G_ is unsatisfactory, the exam can be [retaken](#retake-policy).
+
+Cheating in any assessment element is a subject to [cheating](#cheating-policy) policy.
+
 | Variable | Description |
 | _E_      | Exam. See details [here](exam_latest.md). |
 | _H_      | Homeworks. There are deadlines. Delays cause penalties: 25% for each week of delay. Maximal penalty is 75%. |
@@ -35,13 +43,11 @@ $$G = 0.4\cdot E + 0.2\cdot H + 0.2\cdot W + 0.2\cdot L + 0.1\cdot B$$
 | _L_      | Lectures. Solving quizzes and contests in a class. |
 | _B_      | Bonus points for activity in a class. |
 
-The pass grade is 4, which means that all grades below 4 (including 3.99) are regarded as unsatisfactory.
+### Automatic Exam Grade
 
-Rounding of grades is regulated by the [rounding](#rounding) policy.
+If your workshop attendance is >= 60% (reflected in the _W_ grade), you can get an automatic exam grade calculated with the following formula:
 
-If final grade _G_ is unsatisfactory, the exam can be [retaken](#retake-policy).
-
-Cheating in any assessment element is a subject to [cheating](#cheating-policy) policy.
+$$E = \frac{H + W + L}{3} - 2$$
 
 ## Retake Policy
 
