@@ -45,9 +45,9 @@ Cheating in any assessment element is a subject to [cheating](#cheating-policy) 
 
 ### Automatic Exam Grade
 
-If your workshop attendance is >= 60% (reflected in the _W_ grade), you can get an automatic exam grade calculated with the following formula:
+If your workshop attendance is >= 75% (reflected in the _W_ grade), you can get an automatic exam grade calculated with the following formula:
 
-$$E = \frac{H + W + L}{3} - 2$$
+$$E = \frac{H + W + L}{3} - 1$$
 
 ## Retake Policy
 
