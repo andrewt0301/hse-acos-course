@@ -28,14 +28,6 @@ Final grade _G_ is calcutated using the following formula:
 
 $$G = 0.4\cdot E + 0.2\cdot H + 0.2\cdot W + 0.2\cdot L + 0.1\cdot B$$
 
-The max grade is 10. The pass grade is 4, which means that all grades below 4 (including 3.99) are regarded as unsatisfactory.
-
-Rounding of grades is regulated by the [rounding](#rounding) policy.
-
-If final grade _G_ is unsatisfactory, the exam can be [retaken](#retake-policy).
-
-Cheating in any assessment element is a subject to [cheating](#cheating-policy) policy.
-
 | Variable | Description |
 | _E_      | Exam. See details [here](exam_latest.md). |
 | _H_      | Homeworks. There are deadlines. Delays cause penalties: 25% for each week of delay. Maximal penalty is 75%. |
@@ -43,13 +35,19 @@ Cheating in any assessment element is a subject to [cheating](#cheating-policy) 
 | _L_      | Lectures. Solving quizzes and contests in a class. |
 | _B_      | Bonus points for activity in a class. |
 
-### Automatic Exam Grade
+The max grade is 10. The pass grade is 4, which means that all grades below 4 (including 3.99) are regarded as unsatisfactory.
 
-If your workshop attendance is >= 75% (reflected in the _W_ grade), you can get an automatic exam grade calculated with the following formula:
+## Automatic Exam Grade
+
+If a student's workshop attendance is >= 75% (reflected in the _W_ grade), one can get an automatic exam grade calculated with the following formula:
 
 $$E = \frac{H + W + L}{3} - 1$$
 
+The calculated automatic exam grade _E_ must be >= 4.00, otherwise the student must take an exam.
+
 ## Retake Policy
+
+If final grade _G_ is unsatisfactory, the exam can be retaken.
 
 On the first and second retakes, the cumulative course grade is taken into consideration. In case of receiving an unsatisfactory final grade after the first retake, the student may refuse to participate in the second retake and instead repeat the course according to the individual curriculum. The cumulative grade is formed again as a result of repeated courses. After completing the repeated course, the student is given a second retake only, which the student previously refused. 
 
@@ -57,11 +55,13 @@ On the first and second retakes, the cumulative course grade is taken into consi
 
 All intermediate grades are rounded to hundredths (the precision is 0.01).
 
-The final grade is calculated with precision 0.01 and then converted into an integer:
+Final grade _G_ is calculated with precision 0.01 and then converted into an integer:
 * Grades >= 4.00 are rounded (i.e. 4.49 becomes 4 while 4.50 becomes 5).
 * Grades < 4.00 are truncated (i.e. 3.99 becomes 3).
 
 ## Cheating Policy
+
+Cheating in any assessment element is unacceptable and is a subject to penalty.
 
 If plagiarism is detected (including material generated with the help of generative AI without prior approval from the teacher), the assessment element will be assigned a score of "0".
 
