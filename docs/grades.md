@@ -51,7 +51,7 @@ If final grade _G_ is unsatisfactory, the exam can be retaken.
 
 On the first and second retakes, the cumulative course grade is taken into consideration. In case of receiving an unsatisfactory final grade after the first retake, the student may refuse to participate in the second retake and instead repeat the course according to the individual curriculum. The cumulative grade is formed again as a result of repeated courses. After completing the repeated course, the student is given a second retake only, which the student previously refused. 
 
-## Rounding
+## Rounding Policy
 
 All intermediate grades are rounded to hundredths (the precision is 0.01).
 
